@@ -310,16 +310,21 @@ h1.sheet-title {
 }
 
 /* Section Boxes */
+
 .section-box {
-  flex: 1;
-  /* Grow to fill column height */
+
   border: 1px solid #ccc;
-  min-height: 20mm;
+
+  min-height: 20mm; 
+
   display: flex;
+
   flex-direction: column;
+
   background-color: #ffffff;
-  margin-bottom: 2mm;
-  /* Small gap if flex doesn't handle it */
+
+  margin-bottom: 8mm; /* Added spacing between stacked boxes */
+
 }
 
 .section-header {

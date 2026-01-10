@@ -136,6 +136,15 @@ html, body {
   flex-direction: column;
   gap: 8mm;
 }
+.editable-field {
+  font-family: 'Kalam', cursive;
+  color: #000080; /* Navy blue "ink" look */
+  outline: none;
+}
+
+.editable-field:focus {
+  background-color: rgba(0, 0, 128, 0.05);
+}
 
 .placeholder-box {
   flex: 1; /* Grow to fill column height */

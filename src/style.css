@@ -409,7 +409,26 @@ select.skill-name {
   text-align: left;
 }
 
-select.skill-bonus:hover, select.skill-name:hover {
+input.skill-name {
+  font-family: var(--handwritten-font);
+  color: var(--handwritten-color);
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eee;
+  outline: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
+input.skill-name::placeholder {
+  color: #ccc;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  font-size: 14px;
+}
+
+select.skill-bonus:hover, select.skill-name:hover, input.skill-name:hover {
   background-color: rgba(0, 0, 128, 0.05);
 }
 
@@ -434,6 +453,50 @@ select.skill-bonus optgroup, select.skill-name optgroup {
   font-size: 16px;
   /* Increased default size */
   outline: none;
+}
+
+/* Autocomplete Styles */
+.autocomplete-wrapper {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+  display: none;
+}
+
+.suggestion-group-title {
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  pointer-events: none; /* Can't click headers */
+}
+
+.suggestion-item {
+  font-family: var(--handwritten-font);
+  color: var(--handwritten-color);
+  font-size: 14px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: rgba(0, 0, 128, 0.05);
 }
 
 .editable-field:empty::before,

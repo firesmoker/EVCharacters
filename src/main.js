@@ -110,12 +110,15 @@ const renderSection = (title, content, options = {}) => {
   `
 }
 
-const renderHeaderField = (label, placeholder, flex = 1) => `
+const renderHeaderField = (label, placeholder, flex = 1) => {
+  const syncId = label.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  return `
   <div class="header-field-container" style="flex: ${flex};">
     <span class="header-label">${label}:</span>
-    <span class="editable-field header-editable" contenteditable="true" data-placeholder="${placeholder}" style="flex-grow: 1;"></span>
+    <span class="editable-field header-editable" contenteditable="true" data-placeholder="${placeholder}" style="flex-grow: 1;" data-sync-id="${syncId}"></span>
   </div>
 `
+}
 
 /**
  * Renders a generic section row field (e.g., individual stats inside a section).
@@ -178,6 +181,26 @@ const speedSectionContent = `
   </div>
 `
 
+const renderHeader = () => `
+  <header class="sheet-header">
+    <div style="flex-grow: 1;">
+      <h1 class="editable-field sheet-title" contenteditable="true" data-placeholder="Character Name" data-sync-id="character-name"></h1>
+      <div class="header-row">
+        ${renderHeaderField('Player Name', '...', 2)}
+        ${renderHeaderField('Level', '0', 1)}
+        ${renderHeaderField('Experience', '0', 1)}
+      </div>
+      <div class="header-row">
+        ${renderHeaderField('Class', '...', 1)}
+        ${renderHeaderField('Species', '...', 1)}
+      </div>
+    </div>
+    <div class="logo-box">
+      <img src="/Logo.png" alt="Eternal Valor Logo">
+    </div>
+  </header>
+`
+
 /**
  * Renders a complex Main Action block.
  */
@@ -226,42 +249,40 @@ document.querySelector('#app').innerHTML = `
   </div>
   <div class="main-area">
     <div class="editor-canvas">
-      <div class="a4-page">
-        <!-- Define Datalists -->
-        ${renderDatalist('skills-list', SKILLS_LIST)}
-        ${renderDatalist('combat-skills-list', COMBAT_SKILLS_LIST)}
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="a4-page">
+          <!-- Define Datalists -->
+          ${renderDatalist('skills-list', SKILLS_LIST)}
+          ${renderDatalist('combat-skills-list', COMBAT_SKILLS_LIST)}
 
-        <header class="sheet-header">
-          <div style="flex-grow: 1;">
-            <h1 class="editable-field sheet-title" contenteditable="true" data-placeholder="Character Name"></h1>
-            <div class="header-row">
-              ${renderHeaderField('Player Name', '...', 2)}
-              ${renderHeaderField('Level', '0', 1)}
-              ${renderHeaderField('Experience', '0', 1)}
-            </div>
-            <div class="header-row">
-              ${renderHeaderField('Class', '...', 1)}
-              ${renderHeaderField('Species', '...', 1)}
-            </div>
-          </div>
-          <div class="logo-box">
-            <img src="/Logo.png" alt="Eternal Valor Logo">
-          </div>
-        </header>
-        
-        <main class="sheet-middle">
-          <section class="sheet-column">
-            ${renderSection('Defenses', defensesSectionContent, { isStructured: true })}
-            ${renderSection('Speed', speedSectionContent, { isStructured: true, isDynamic: true })}
-            ${renderSection('Combat Skills', renderSkillRow('combat'), { isStructured: true, isDynamic: true })}
-            ${renderSection('Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
-          </section>
+          ${renderHeader()}
           
-          <section class="sheet-column">
-            ${renderSection('Main Actions', renderMainAction(), { isStructured: true, isDynamic: true })}
-            ${renderSection('Features', '')}
-          </section>
-        </main>
+          <main class="sheet-middle">
+            <section class="sheet-column">
+              ${renderSection('Defenses', defensesSectionContent, { isStructured: true })}
+              ${renderSection('Speed', speedSectionContent, { isStructured: true, isDynamic: true })}
+              ${renderSection('Combat Skills', renderSkillRow('combat'), { isStructured: true, isDynamic: true })}
+              ${renderSection('Standard Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
+            </section>
+            
+            <section class="sheet-column">
+              ${renderSection('Main Actions', renderMainAction(), { isStructured: true, isDynamic: true })}
+              ${renderSection('Features', '')}
+            </section>
+          </main>
+        </div>
+
+        <div class="a4-page">
+          ${renderHeader()}
+          
+          <main class="sheet-middle">
+            <section class="sheet-column">
+            </section>
+            
+            <section class="sheet-column">
+            </section>
+          </main>
+        </div>
       </div>
     </div>
   </div>
@@ -306,6 +327,18 @@ document.querySelector('#app').addEventListener('input', (e) => {
       if (e.target.innerText.trim() === '') e.target.replaceChildren();
     }
   }
+
+  // Synchronization logic for header fields
+  if (e.target.hasAttribute('data-sync-id')) {
+    const syncId = e.target.getAttribute('data-sync-id');
+    const value = e.target.innerHTML;
+    document.querySelectorAll(`[data-sync-id="${syncId}"]`).forEach(el => {
+      if (el !== e.target) {
+        el.innerHTML = value;
+      }
+    });
+  }
+
   // Autocomplete
   if (isAutocompleteInput(e.target)) {
     updateSuggestions(e.target.closest('.autocomplete-wrapper'));
@@ -369,7 +402,7 @@ document.querySelector('#app').addEventListener('click', (e) => {
     const container = e.target.closest('.dynamic-rows');
     if (container) {
       let html = '';
-      if (title === 'Skills') html = renderSkillRow('skills');
+      if (title === 'Standard Skills') html = renderSkillRow('skills');
       else if (title === 'Combat Skills') html = renderSkillRow('combat');
       else if (title === 'Speed') html = renderDragsIgnoredRow();
       else if (title === 'Main Actions') html = renderMainAction();

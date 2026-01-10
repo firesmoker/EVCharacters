@@ -68,14 +68,29 @@ document.querySelector('#app').innerHTML = `
         
         <main class="sheet-middle">
           <section class="sheet-column">
-            <div class="placeholder-box">Defenses</div>
-            <div class="placeholder-box">Speed</div>
-            <div class="placeholder-box">Skills</div>
+            <div class="section-box">
+              <div class="section-header">Defenses</div>
+              <div class="section-content" contenteditable="true"></div>
+            </div>
+            <div class="section-box">
+              <div class="section-header">Speed</div>
+              <div class="section-content" contenteditable="true"></div>
+            </div>
+            <div class="section-box">
+              <div class="section-header">Skills</div>
+              <div class="section-content" contenteditable="true"></div>
+            </div>
           </section>
           
           <section class="sheet-column">
-            <div class="placeholder-box">Main Actions</div>
-            <div class="placeholder-box">Features</div>
+            <div class="section-box">
+              <div class="section-header">Main Actions</div>
+              <div class="section-content" contenteditable="true"></div>
+            </div>
+            <div class="section-box">
+              <div class="section-header">Features</div>
+              <div class="section-content" contenteditable="true"></div>
+            </div>
           </section>
         </main>
       </div>

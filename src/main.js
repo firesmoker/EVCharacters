@@ -143,7 +143,7 @@ const defensesSectionContent = `
     </div>
     ${renderSectionRow('Damage Reduction (DR)', '0', 'armor')}
     <div class="section-separator"></div>
-    ${renderSectionRow('Deflection', '0')}
+    ${renderSectionRow('Deflection', '5')}
     ${renderSectionRow('Fortitude', '0')}
     ${renderSectionRow('Will', '0')}
     <div class="section-separator"></div>
@@ -177,6 +177,45 @@ const speedSectionContent = `
   </div>
 `
 
+/**
+ * Renders a complex Main Action block.
+ */
+const renderMainAction = () => `
+  <div class="main-action-container">
+    <div style="display: flex; flex-direction: column;">
+      <div class="editable-field main-action-title" contenteditable="true" data-placeholder="Action Title"></div>
+      <div class="editable-field main-action-subtitle" contenteditable="true" data-placeholder="Action Speed"></div>
+    </div>
+    <div class="section-separator"></div>
+    <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Action details..."></div>
+    <table class="main-action-table">
+      <tr>
+        <td></td>
+        <td>Normal Success</td>
+        <td>Major Success</td>
+        <td>Critical Success</td>
+      </tr>
+      <tr>
+        <td>Damage</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>Ignores DR</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+    </table>
+    <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Additional notes..."></div>
+    <div class="main-action-note-separator"></div>
+    <button class="remove-row-btn" title="Remove Action">-</button>
+  </div>
+`
+
+// ... (renderSection definition remains the same)
+
 // Render the application
 document.querySelector('#app').innerHTML = `
   <div class="top-bar">
@@ -187,7 +226,7 @@ document.querySelector('#app').innerHTML = `
   <div class="main-area">
     <div class="editor-canvas">
       <div class="a4-page">
-        <!-- Define Datalists (Legacy support, though now using custom JS filtering) -->
+        <!-- Define Datalists -->
         ${renderDatalist('skills-list', SKILLS_LIST)}
         ${renderDatalist('combat-skills-list', COMBAT_SKILLS_LIST)}
 
@@ -218,7 +257,7 @@ document.querySelector('#app').innerHTML = `
           </section>
           
           <section class="sheet-column">
-            ${renderSection('Main Actions', '')}
+            ${renderSection('Main Actions', renderMainAction(), { isStructured: true, isDynamic: true })}
             ${renderSection('Features', '')}
           </section>
         </main>
@@ -328,20 +367,24 @@ document.querySelector('#app').addEventListener('click', (e) => {
     const title = sectionBox.querySelector('.section-header').textContent.trim();
     const container = sectionBox.querySelector('.dynamic-rows');
     if (container) {
-      let type;
-      if (title === 'Combat Skills') type = 'combat';
-      else if (title === 'Speed') type = 'drags';
-      else type = 'skills';
+      let html = '';
+      if (title === 'Skills') html = renderSkillRow('skills');
+      else if (title === 'Combat Skills') html = renderSkillRow('combat');
+      else if (title === 'Speed') html = renderDragsIgnoredRow();
+      else if (title === 'Main Actions') html = renderMainAction();
 
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = type === 'drags' ? renderDragsIgnoredRow() : renderSkillRow(type);
-      container.appendChild(tempDiv.firstElementChild);
+      if (html) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        container.appendChild(tempDiv.firstElementChild);
+      }
     }
   }
 
   // Remove Row
   if (e.target.classList.contains('remove-row-btn')) {
-    e.target.closest('.skill-row').remove();
+    const target = e.target.closest('.skill-row') || e.target.closest('.main-action-container');
+    if (target) target.remove();
   }
 });
 

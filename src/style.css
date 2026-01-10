@@ -148,7 +148,8 @@ body {
 .sheet-middle {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 0.75fr 1.25fr; /* Left is 75% of its previous 1fr width */
+  grid-template-columns: 0.75fr 1.25fr;
+  /* Left is 75% of its previous 1fr width */
   gap: var(--section-gap);
 }
 
@@ -256,7 +257,8 @@ h1.sheet-title {
 
 .section-separator {
   height: 1px;
-  background-color: #ddd;
+  background-color: #aaa;
+  /* Darkened from #ddd for better prominence */
   margin: 4px 0;
 }
 
@@ -356,7 +358,8 @@ h1.sheet-title {
   /* Prevent clipping of the minus button */
 }
 
-.skill-row:hover .remove-row-btn {
+.skill-row:hover .remove-row-btn,
+.main-action-container:hover .remove-row-btn {
   opacity: 1;
 }
 
@@ -566,9 +569,278 @@ select.skill-name optgroup {
 }
 
 .section-content-structured {
+
   white-space: normal;
   /* Reset for sections with complex HTML layout */
+
 }
+
+
+
+/* Main Action Component Styles */
+
+.main-action-container {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  margin-bottom: 12px;
+
+  position: relative;
+
+}
+
+
+
+.main-action-title {
+
+
+
+  font-size: 18px;
+
+
+
+  font-weight: bold;
+
+
+
+}
+
+
+
+
+
+
+
+.main-action-subtitle {
+
+
+
+  font-size: 13px;
+  /* Increased ~40% from 12px */
+
+
+
+  color: #666;
+
+
+
+  font-weight: bold;
+
+
+
+}
+
+
+
+
+
+
+
+.main-action-text {
+
+
+
+  font-size: 14px;
+
+
+
+  min-height: 1.5em;
+
+
+
+  border-bottom: 1px dashed #eee;
+
+
+
+}
+
+
+
+
+
+
+
+.main-action-table {
+
+
+
+  width: 100%;
+
+
+
+  border-collapse: collapse;
+
+
+
+  margin: 4px 0;
+
+
+
+  table-layout: fixed;
+
+
+
+}
+
+
+
+
+
+
+
+.main-action-table td {
+
+
+
+  border: 1px solid #ccc;
+
+
+
+  height: 22px;
+
+
+
+  padding: 2px;
+
+
+
+  font-family: var(--handwritten-font);
+
+
+
+  color: var(--handwritten-color);
+
+
+
+  font-size: 13px;
+
+
+
+  text-align: center;
+
+
+
+}
+
+
+
+
+
+
+
+.main-action-table tr:first-child td {
+
+
+
+  font-family: Inter, sans-serif;
+
+
+
+  font-weight: bold;
+
+
+
+  font-size: 10px;
+
+
+
+  text-transform: uppercase;
+
+
+
+  color: #666;
+
+
+
+  background-color: #f9f9f9;
+
+
+
+}
+
+
+
+
+
+
+
+.main-action-table td:first-child {
+
+
+
+  font-family: Inter, sans-serif;
+
+
+
+  font-weight: bold;
+
+
+
+  font-size: 10px;
+
+
+
+  text-transform: uppercase;
+
+
+
+  color: #666;
+
+
+
+  text-align: left;
+
+
+
+  padding-left: 4px;
+
+
+
+}
+
+
+
+
+
+
+
+.main-action-note-separator {
+
+
+
+  height: 2px;
+
+
+
+  background-color: #333;
+
+
+
+  margin: 8px 0 4px 0;
+
+
+
+}
+
+
+
+
+
+
+
+.main-action-table td:focus {
+
+  background-color: rgba(0, 0, 128, 0.05);
+
+  outline: none;
+
+}
+
+
 
 .section-content:focus {
   background-color: rgba(0, 0, 128, 0.02);

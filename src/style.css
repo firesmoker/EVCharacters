@@ -17,7 +17,7 @@
   --handwritten-color: #000080;
 
   /* Global variables for layout */
-  --section-gap: 1mm;
+  --section-gap: 4mm;
   /* YOU CAN ADJUST THE GAP BETWEEN SECTIONS HERE */
 }
 
@@ -148,7 +148,7 @@ body {
 .sheet-middle {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.75fr 1.25fr; /* Left is 75% of its previous 1fr width */
   gap: var(--section-gap);
 }
 

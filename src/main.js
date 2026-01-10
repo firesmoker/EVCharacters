@@ -20,6 +20,10 @@ const BONUS_LIST = [
   { groupLabel: "Training", options: ["Trained (+5)", "Expert (+10)", "Master (+15)", "Legend (+20)"] }
 ];
 
+const DRAGS_IGNORED_LIST = [
+  { groupLabel: "Common Drag Sources", options: ["Two-Handed Weapons", "Ranged Weapons", "Aiming for Weak Spots", "Reach Weapons", "Heavy Weapons"] }
+];
+
 /**
  * Renders a standard dropdown menu.
  */
@@ -50,7 +54,6 @@ const renderAutocomplete = (placeholder, type, inputClass = 'skill-name') => `
 const renderDatalist = (id, options) => `
   <datalist id="${id}">
     ${options.map(opt => {
-  // Handle Grouped Options (optgroup logic flattened for datalist)
   if (typeof opt === 'object' && opt.groupLabel && Array.isArray(opt.options)) {
     return opt.options.map(subOpt => `<option value="${subOpt}">`).join('');
   }
@@ -71,6 +74,16 @@ const renderSkillRow = (type = 'skills') => {
     </div>
   `;
 }
+
+/**
+ * Renders a row for the Drags Ignored subsection.
+ */
+const renderDragsIgnoredRow = () => `
+  <div class="skill-row">
+    ${renderAutocomplete("Penalty...", "drags", "skill-name")}
+    <button class="remove-row-btn" title="Remove Row">-</button>
+  </div>
+`
 
 /**
  * Renders a generic section box.
@@ -116,7 +129,7 @@ const renderSectionRow = (label, placeholder, icon = null) => `
   </div>
 `
 
-// Content for the structured sections
+// Content for the structured Defense section
 const defensesSectionContent = `
   <div class="section-container">
     <div class="section-row">
@@ -130,7 +143,7 @@ const defensesSectionContent = `
     </div>
     ${renderSectionRow('Damage Reduction (DR)', '0', 'armor')}
     <div class="section-separator"></div>
-    ${renderSectionRow('Deflection', '5')}
+    ${renderSectionRow('Deflection', '0')}
     ${renderSectionRow('Fortitude', '0')}
     ${renderSectionRow('Will', '0')}
     <div class="section-separator"></div>
@@ -156,6 +169,11 @@ const defensesSectionContent = `
 const speedSectionContent = `
   <div class="section-container">
     ${renderSectionRow('Movement', '3')}
+    <div class="section-separator"></div>
+    <div class="section-subsection-label">Drags Ignored:</div>
+    <div class="dynamic-rows">
+      ${renderDragsIgnoredRow()}
+    </div>
   </div>
 `
 
@@ -169,7 +187,7 @@ document.querySelector('#app').innerHTML = `
   <div class="main-area">
     <div class="editor-canvas">
       <div class="a4-page">
-        <!-- Define Datalists -->
+        <!-- Define Datalists (Legacy support, though now using custom JS filtering) -->
         ${renderDatalist('skills-list', SKILLS_LIST)}
         ${renderDatalist('combat-skills-list', COMBAT_SKILLS_LIST)}
 
@@ -194,7 +212,7 @@ document.querySelector('#app').innerHTML = `
         <main class="sheet-middle">
           <section class="sheet-column">
             ${renderSection('Defenses', defensesSectionContent, { isStructured: true })}
-            ${renderSection('Speed', speedSectionContent, { isStructured: true })}
+            ${renderSection('Speed', speedSectionContent, { isStructured: true, isDynamic: true })}
             ${renderSection('Combat Skills', renderSkillRow('combat'), { isStructured: true, isDynamic: true })}
             ${renderSection('Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
           </section>
@@ -222,6 +240,7 @@ const updateSuggestions = (wrapper) => {
   if (type === 'combat') list = COMBAT_SKILLS_LIST;
   else if (type === 'skills') list = SKILLS_LIST;
   else if (type === 'bonus') list = BONUS_LIST;
+  else if (type === 'drags') list = DRAGS_IGNORED_LIST;
 
   let html = '';
   list.forEach(group => {
@@ -309,9 +328,13 @@ document.querySelector('#app').addEventListener('click', (e) => {
     const title = sectionBox.querySelector('.section-header').textContent.trim();
     const container = sectionBox.querySelector('.dynamic-rows');
     if (container) {
-      const type = title === 'Combat Skills' ? 'combat' : 'skills';
+      let type;
+      if (title === 'Combat Skills') type = 'combat';
+      else if (title === 'Speed') type = 'drags';
+      else type = 'skills';
+
       const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = renderSkillRow(type);
+      tempDiv.innerHTML = type === 'drags' ? renderDragsIgnoredRow() : renderSkillRow(type);
       container.appendChild(tempDiv.firstElementChild);
     }
   }

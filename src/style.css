@@ -479,6 +479,15 @@ select.skill-name optgroup {
   font-style: normal;
 }
 
+input::placeholder,
+textarea::placeholder {
+  color: #ccc;
+  font-style: normal;
+  font-family: inherit;
+  font-size: inherit;
+  opacity: 1;
+}
+
 /* Shared Handwritten Style */
 .editable-field {
   font-family: var(--handwritten-font);
@@ -539,9 +548,9 @@ select.skill-name optgroup {
 .editable-field[contenteditable="true"]:empty::before {
   content: attr(data-placeholder);
   color: #ccc;
-  font-style: italic;
-  font-family: Inter, sans-serif;
-  font-size: 14px;
+  font-style: normal;
+  font-family: inherit;
+  font-size: inherit;
   pointer-events: none;
   display: inline-block;
   /* Ensure it takes up space */

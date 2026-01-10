@@ -112,41 +112,6 @@ const renderSpellRow = () => `
   </div>
 `
 
-// Content for the Spells Known section with headings
-const spellsKnownSectionContent = `
-  <div class="skill-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
-    <div style="flex: 0 0 12mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Level</div>
-    <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Spell Name</div>
-    <div style="flex: 0 0 15mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Cost</div>
-  </div>
-  <div class="dynamic-rows">
-    ${renderSpellRow()}
-  </div>
-`
-
-/**
- * Renders a generic section box.
- */
-const renderSection = (title, content, options = {}) => {
-  const { isStructured = false, isDynamic = false } = options;
-  const contentClasses = [
-    'section-content',
-    isStructured ? 'section-content-structured' : 'editable-field',
-    isDynamic ? 'dynamic-rows' : ''
-  ].filter(Boolean).join(' ');
-
-  return `
-    <div class="section-box">
-      <div class="section-header">${title}</div>
-      <div class="${contentClasses}" 
-           ${isStructured ? '' : 'contenteditable="true"'} 
-           data-placeholder="Enter ${title.toLowerCase()}...">
-        ${content}
-      </div>
-    </div>
-  `
-}
-
 const renderHeaderField = (label, placeholder, flex = 1) => {
   const syncId = label.toLowerCase().replace(/[^a-z0-9]/g, '-');
   return `
@@ -169,6 +134,89 @@ const renderSectionRow = (label, placeholder, icon = null) => `
     <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="${placeholder}" style="flex-grow: 1; padding-left: 5px;"></span>
   </div>
 `
+
+// Content for the Spells Known section with headings
+const spellsKnownSectionContent = `
+  <div class="skill-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
+    <div style="flex: 0 0 12mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Level</div>
+    <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Spell Name</div>
+    <div style="flex: 0 0 15mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Cost</div>
+  </div>
+  <div class="dynamic-rows">
+    ${renderSpellRow()}
+  </div>
+`
+
+// Content for the structured Spellcasting section
+const spellcastingSectionContent = `
+  <div class="section-container" style="flex-direction: row; gap: 10px;">
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 2px;">
+      <div class="section-row">
+        <div class="stat-icon"></div>
+        <span class="section-label">Spell Points:</span>
+        <div class="hp-split">
+          <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="Cur" style="min-width: 25px; text-align: right;"></span>
+          <span class="hp-slash">/</span>
+          <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="Max" style="min-width: 25px;"></span>
+        </div>
+      </div>
+      ${renderSectionRow('Spells Known', '0')}
+      ${renderSectionRow('Cantrips Known', '0')}
+    </div>
+    <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 4px; padding-left: 10px; border-left: 1px solid #ccc;">
+      <label class="checkbox-item"><input type="checkbox"> Arcane</label>
+      <label class="checkbox-item"><input type="checkbox"> Bardic</label>
+      <label class="checkbox-item"><input type="checkbox"> Divine</label>
+      <label class="checkbox-item"><input type="checkbox"> Nature</label>
+      <label class="checkbox-item"><input type="checkbox"> Occult</label>
+    </div>
+  </div>
+`
+
+// Content for the structured Death section
+const deathSectionContent = `
+  <div class="section-container">
+    <div class="section-row">
+       <span class="section-label" style="flex: 1;">Successes:</span>
+       <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox"></label>
+          <label class="checkbox-item"><input type="checkbox"></label>
+       </div>
+    </div>
+    <div class="section-row">
+       <span class="section-label" style="flex: 1;">Failures:</span>
+       <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox"></label>
+          <label class="checkbox-item"><input type="checkbox"></label>
+       </div>
+    </div>
+    <div class="section-separator"></div>
+    ${renderSectionRow('Exhaustion', '0')}
+  </div>
+`
+
+/**
+ * Renders a generic section box.
+ */
+const renderSection = (title, content, options = {}) => {
+  const { isStructured = false, isDynamic = false, style = '' } = options;
+  const contentClasses = [
+    'section-content',
+    isStructured ? 'section-content-structured' : 'editable-field',
+    isDynamic ? 'dynamic-rows' : ''
+  ].filter(Boolean).join(' ');
+
+  return `
+    <div class="section-box" style="${style}">
+      <div class="section-header">${title}</div>
+      <div class="${contentClasses}" 
+           ${isStructured ? '' : 'contenteditable="true"'} 
+           data-placeholder="Enter ${title.toLowerCase()}...">
+        ${content}
+      </div>
+    </div>
+  `
+}
 
 // Content for the structured Defense section
 const defensesSectionContent = `
@@ -317,6 +365,14 @@ document.querySelector('#app').innerHTML = `
             </section>
             
             <section class="sheet-column">
+              <div style="display: flex; gap: var(--section-gap);">
+                <div style="flex: 1.4;">
+                  ${renderSection('Spellcasting', spellcastingSectionContent, { isStructured: true, style: 'height: 100%;' })}
+                </div>
+                <div style="flex: 1;">
+                   ${renderSection('Death', deathSectionContent, { isStructured: true, style: 'height: 100%;' })}
+                </div>
+              </div>
               ${renderSection('Spells Known', spellsKnownSectionContent, { isStructured: true, isDynamic: true })}
             </section>
           </main>

@@ -118,7 +118,7 @@ body {
   color: #213547;
   /* Always dark text for the sheet */
   width: 210mm;
-  min-height: 297mm;
+  height: 297mm; /* Fixed height for A4 */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 1px solid #bbb;
   padding: 15mm;
@@ -126,6 +126,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10mm;
+  overflow: hidden; /* respect physical page boundaries */
+  position: relative;
 }
 
 .sheet-header {

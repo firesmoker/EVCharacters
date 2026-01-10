@@ -419,6 +419,13 @@ select.skill-bonus option, select.skill-name option {
   background-color: #fff;
 }
 
+select.skill-bonus optgroup, select.skill-name optgroup {
+  font-family: Inter, sans-serif;
+  color: #000;
+  background-color: #f0f0f0; /* Darker background for titles */
+  font-style: normal;
+}
+
 /* Shared Handwritten Style */
 .editable-field {
   font-family: var(--handwritten-font);

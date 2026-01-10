@@ -16,40 +16,116 @@ const renderDefenseRow = (label, placeholder, icon = null) => `
 
 const SKILLS_LIST = [
 
-  "Bartering", "Charm", "Deception", "Diplomacy", "Intimidation", "Leadership",
+  {
 
-  "Manipulation", "Reasoning", "Knowledge", "Arcana", "History", "Nature",
+    groupLabel: "Speech",
 
-  "Occult", "Politics", "Religion", "Warfare", "Perception", "Notice",
+    options: ["Bartering", "Charm", "Deception", "Diplomacy", "Intimidation", "Leadership", "Manipulation", "Reasoning"]
 
-  "Movement", "Find Hidden Paths", "Find Hidden Objects", "Detect Traps",
+  },
 
-  "Other", "Acrobatics", "Animal Handling", "Athletics", "Cooking", "Deduction",
+  {
 
-  "Disguise", "Insight", "Mechanics", "Medicine", "Performance",
+    groupLabel: "Knowledge",
 
-  "Sleight of Hand", "Sneak", "Survival"
+    options: ["Arcana", "History", "Nature", "Occult", "Politics", "Religion", "Warfare"]
+
+  },
+
+  {
+
+    groupLabel: "Perception",
+
+    options: ["Notice", "Movement", "Find Hidden Paths", "Find Hidden Objects", "Detect Traps"]
+
+  },
+
+  {
+
+    groupLabel: "Other",
+
+    options: ["Acrobatics", "Animal Handling", "Athletics", "Cooking", "Deduction", "Disguise", "Insight", "Mechanics", "Medicine", "Performance", "Sleight of Hand", "Sneak", "Survival"]
+
+  }
 
 ];
+
+
 
 const COMBAT_SKILLS_LIST = [
-  "Melee Strike", "Ranged Strike", "Weapon Throw", "Magic", "Arcane Magic",
-  "Bardic Magic", "Divine Magic", "Nature Magic", "Occult Magic",
-  "Unarmed", "Unarmed Strike", "Grapple"
+
+  {
+
+    groupLabel: "Weapons",
+
+    options: ["Melee Strike", "Ranged Strike", "Weapon Throw"]
+
+  },
+
+  {
+
+    groupLabel: "Magic",
+
+    options: ["Arcane Magic", "Bardic Magic", "Divine Magic", "Nature Magic", "Occult Magic"]
+
+  },
+
+  {
+
+    groupLabel: "Unarmed",
+
+    options: ["Unarmed Strike", "Grapple"]
+
+  }
+
 ];
 
+
+
 /**
+
  * Renders a standard dropdown menu.
+
  */
+
 const renderDropdown = (options, className) => `
+
   <select class="${className}">
+
     <option value=""></option>
+
     ${options.map(opt => {
-  const val = typeof opt === 'object' ? opt.value : opt;
-  const label = typeof opt === 'object' ? opt.label : opt;
-  return `<option value="${val}">${label}</option>`;
-}).join('')}
+
+      // Handle Grouped Options (optgroup)
+
+      if (typeof opt === 'object' && opt.groupLabel && Array.isArray(opt.options)) {
+
+        return `
+
+          <optgroup label="${opt.groupLabel}">
+
+            ${opt.options.map(subOpt => `<option value="${subOpt}">${subOpt}</option>`).join('')}
+
+          </optgroup>
+
+        `;
+
+      }
+
+      
+
+      // Handle Standard Options
+
+      const val = typeof opt === 'object' ? opt.value : opt;
+
+      const label = typeof opt === 'object' ? opt.label : opt;
+
+      return `<option value="${val}">${label}</option>`;
+
+    }).join('')}
+
   </select>
+
 `
 
 /**

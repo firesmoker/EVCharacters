@@ -15,14 +15,31 @@ const renderDefenseRow = (label, placeholder, icon = null) => `
 `
 
 /**
+
  * Renders a skill row for Combat Skills and Skills sections.
+
  */
+
 const renderSkillRow = () => `
-  <div class="skill-row"><span class="editable-field skill-name" contenteditable="true" data-placeholder="Skill"></span><span class="editable-field skill-bonus" contenteditable="true" data-placeholder="+0"></span></div>
+
+  <div class="skill-row">
+
+    <span class="editable-field skill-name" contenteditable="true" data-placeholder="Skill"></span>
+
+    <span class="editable-field skill-bonus" contenteditable="true" data-placeholder="+0"></span>
+
+    <button class="remove-row-btn" title="Remove Row">-</button>
+
+  </div>
+
 `
 
+
+
 /**
+
  * Renders a generic section box.
+
  */
 const renderSection = (title, content, options = {}) => {
   const { isStructured = false, isDynamic = false } = options;
@@ -61,8 +78,9 @@ document.querySelector('#app').addEventListener('input', (e) => {
   }
 });
 
-// Event Listener: Handle dynamic row addition via "+" button
+// Event Listener: Handle dynamic row addition via "+" button and removal via "-" button
 document.querySelector('#app').addEventListener('click', (e) => {
+  // Add Row
   if (e.target.classList.contains('add-row-btn')) {
     const sectionBox = e.target.closest('.section-box');
     const container = sectionBox ? sectionBox.querySelector('.dynamic-rows') : null;
@@ -70,6 +88,14 @@ document.querySelector('#app').addEventListener('click', (e) => {
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = renderSkillRow();
       container.appendChild(tempDiv.firstElementChild);
+    }
+  }
+  
+  // Remove Row
+  if (e.target.classList.contains('remove-row-btn')) {
+    const row = e.target.closest('.skill-row');
+    if (row) {
+      row.remove();
     }
   }
 });

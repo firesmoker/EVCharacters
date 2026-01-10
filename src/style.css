@@ -154,7 +154,7 @@ body {
   font-size: 18px;
 }
 
-.defense-editable {
+.section-row-editable {
   font-size: 20px;
 }
 
@@ -192,14 +192,14 @@ h1.sheet-title {
   display: block;
 }
 
-/* Defense Section Styles */
-.defense-row {
+/* Section Row Styles (formerly Defense/Value) */
+.section-row {
   display: flex;
   align-items: center;
   padding-bottom: 0px; /* Reduced from 4px */
 }
 
-.defense-label {
+.section-label {
   font-size: 11px;
   color: #666;
   text-transform: uppercase;
@@ -208,7 +208,7 @@ h1.sheet-title {
   white-space: nowrap;
 }
 
-.defense-subsection-label {
+.section-subsection-label {
   font-size: 10px;
   color: #888;
   text-transform: uppercase;
@@ -239,13 +239,13 @@ h1.sheet-title {
   height: 14px;
 }
 
-.defense-container {
+.section-container {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.defense-separator {
+.section-separator {
   height: 1px;
   background-color: #ddd;
   margin: 4px 0;

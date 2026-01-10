@@ -27,10 +27,10 @@ const renderDropdown = (options, className) => `
   <select class="${className}">
     <option value=""></option>
     ${options.map(opt => {
-  const val = typeof opt === 'object' ? opt.value : opt;
-  const label = typeof opt === 'object' ? opt.label : opt;
-  return `<option value="${val}">${label}</option>`;
-}).join('')}
+      const val = typeof opt === 'object' ? opt.value : opt;
+      const label = typeof opt === 'object' ? opt.label : opt;
+      return `<option value="${val}">${label}</option>`;
+    }).join('')}
   </select>
 `
 
@@ -103,35 +103,39 @@ const renderHeaderField = (label, placeholder, flex = 1) => `
   </div>
 `
 
-const renderDefenseRow = (label, placeholder, icon = null) => `
-  <div class="defense-row">
+/**
+ * Renders a generic section row field (e.g., individual stats inside a section).
+ */
+const renderSectionRow = (label, placeholder, icon = null) => `
+  <div class="section-row">
     <div class="stat-icon">
       ${icon ? `<img src="/icons/${icon}.svg" width="18" height="18" alt="${label} Icon">` : ''}
     </div>
-    <span class="defense-label">${label}:</span>
-    <span class="editable-field defense-editable" contenteditable="true" data-placeholder="${placeholder}" style="flex-grow: 1; padding-left: 5px;"></span>
+    <span class="section-label">${label}:</span>
+    <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="${placeholder}" style="flex-grow: 1; padding-left: 5px;"></span>
   </div>
 `
 
-const defenseContent = `
-  <div class="defense-container">
-    <div class="defense-row">
+// Content for the structured sections
+const defensesSectionContent = `
+  <div class="section-container">
+    <div class="section-row">
       <div class="stat-icon"><img src="/icons/heart.svg" width="18" height="18" alt="HP Icon"></div>
-      <span class="defense-label">Health Points (HP):</span>
+      <span class="section-label">Health Points (HP):</span>
       <div class="hp-split">
-        <span class="editable-field defense-editable" contenteditable="true" data-placeholder="Cur" style="min-width: 25px; text-align: right;"></span>
+        <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="Cur" style="min-width: 25px; text-align: right;"></span>
         <span class="hp-slash">/</span>
-        <span class="editable-field defense-editable" contenteditable="true" data-placeholder="Max" style="min-width: 25px;"></span>
+        <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="Max" style="min-width: 25px;"></span>
       </div>
     </div>
-    ${renderDefenseRow('Damage Reduction (DR)', '0', 'armor')}
-    <div class="defense-separator"></div>
-    ${renderDefenseRow('Deflection', '0')}
-    ${renderDefenseRow('Fortitude', '0')}
-    ${renderDefenseRow('Will', '0')}
-    <div class="defense-separator"></div>
+    ${renderSectionRow('Damage Reduction (DR)', '0', 'armor')}
+    <div class="section-separator"></div>
+    ${renderSectionRow('Deflection', '0')}
+    ${renderSectionRow('Fortitude', '0')}
+    ${renderSectionRow('Will', '0')}
+    <div class="section-separator"></div>
     <div style="margin-top: 6px;">
-      <div class="defense-subsection-label">Armor Training:</div>
+      <div class="section-subsection-label">Armor Training:</div>
       <div class="checkbox-group">
         <label class="checkbox-item"><input type="checkbox"> Light</label>
         <label class="checkbox-item"><input type="checkbox"> Medium</label>
@@ -139,7 +143,7 @@ const defenseContent = `
       </div>
     </div>
     <div style="margin-top: 6px;">
-      <div class="defense-subsection-label">Shield Training:</div>
+      <div class="section-subsection-label">Shield Training:</div>
       <div class="checkbox-group">
         <label class="checkbox-item"><input type="checkbox"> Heavy Shields</label>
         <label class="checkbox-item"><input type="checkbox"> Tower Shields</label>
@@ -149,9 +153,9 @@ const defenseContent = `
 `
 
 // Content for the structured Speed section
-const speedContent = `
-  <div class="defense-container">
-    ${renderDefenseRow('Movement', '3')}
+const speedSectionContent = `
+  <div class="section-container">
+    ${renderSectionRow('Movement', '3')}
   </div>
 `
 
@@ -189,8 +193,8 @@ document.querySelector('#app').innerHTML = `
         
         <main class="sheet-middle">
           <section class="sheet-column">
-            ${renderSection('Defenses', defenseContent, { isStructured: true })}
-            ${renderSection('Speed', speedContent, { isStructured: true })}
+            ${renderSection('Defenses', defensesSectionContent, { isStructured: true })}
+            ${renderSection('Speed', speedSectionContent, { isStructured: true })}
             ${renderSection('Combat Skills', renderSkillRow('combat'), { isStructured: true, isDynamic: true })}
             ${renderSection('Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
           </section>

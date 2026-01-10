@@ -147,13 +147,13 @@ document.querySelector('#app').innerHTML = `
           <div style="flex-grow: 1;">
             <h1 class="editable-field sheet-title" contenteditable="true" data-placeholder="Character Name"></h1>
             <div class="header-row">
-              ${renderHeaderField('Player Name', '...', 2)}
+              ${renderHeaderField('Player Name', 'Player Name', 2)}
               ${renderHeaderField('Level', '0', 1)}
               ${renderHeaderField('Experience', '0', 1)}
             </div>
             <div class="header-row">
-              ${renderHeaderField('Class', '...', 1)}
-              ${renderHeaderField('Species', '...', 1)}
+              ${renderHeaderField('Class', 'Class', 1)}
+              ${renderHeaderField('Species', 'Species', 1)}
             </div>
           </div>
           <div class="logo-box">
@@ -290,11 +290,16 @@ document.querySelector('#app').addEventListener('click', (e) => {
   if (e.target.classList.contains('remove-row-btn')) {
     e.target.closest('.skill-row').remove();
   }
+});
 
-  // Close dropdowns when clicking outside
-  if (!e.target.closest('.autocomplete-wrapper')) {
-    document.querySelectorAll('.suggestions-dropdown').forEach(d => d.style.display = 'none');
-  }
+// Close dropdowns on mouse press
+document.querySelector('#app').addEventListener('mousedown', (e) => {
+  const activeWrapper = e.target.closest('.autocomplete-wrapper');
+  document.querySelectorAll('.suggestions-dropdown').forEach(dropdown => {
+    if (dropdown.closest('.autocomplete-wrapper') !== activeWrapper) {
+      dropdown.style.display = 'none';
+    }
+  });
 });
 
 // Initial cleanup

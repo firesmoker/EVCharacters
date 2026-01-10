@@ -142,12 +142,15 @@ html, body {
   outline: none;
 }
 
-.editable-field:empty::before {
+.editable-field:empty::before,
+.editable-field[contenteditable="true"]:empty::before {
   content: attr(data-placeholder);
   color: #ccc;
   font-style: italic;
   font-family: Inter, sans-serif;
   font-size: 14px;
+  pointer-events: none;
+  display: inline-block; /* Ensure it takes up space */
 }
 
 .editable-field:focus {

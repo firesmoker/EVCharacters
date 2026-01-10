@@ -118,3 +118,22 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
 `
+
+// Helper to handle placeholders in contenteditable
+document.querySelector('#app').addEventListener('input', (e) => {
+  const el = e.target;
+  if (el.classList.contains('editable-field')) {
+    // Some browsers leave a <br> or whitespace. 
+    // If it's visually empty, make it truly empty for CSS :empty
+    if (el.innerHTML === '<br>' || el.innerText === '\n' || el.innerText.trim() === '') {
+      if (el.innerText.trim() === '') {
+        el.replaceChildren();
+      }
+    }
+  }
+});
+
+// Initial setup to ensure all empty fields are truly empty
+document.querySelectorAll('.editable-field').forEach(el => {
+  if (el.innerText.trim() === '') el.replaceChildren();
+});

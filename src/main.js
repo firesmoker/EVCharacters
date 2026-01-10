@@ -77,7 +77,11 @@ document.querySelector('#app').innerHTML = `
                       <img src="/icons/heart.svg" width="18" height="18" alt="Heart Icon">
                     </div>
                     <span style="font-size: 11px; color: #666; font-family: Inter, sans-serif; text-transform: uppercase; margin-right: 8px; font-weight: bold; white-space: nowrap;">Health Points (HP):</span>
-                    <span class="editable-field" contenteditable="true" style="flex-grow: 1; font-size: 20px; padding-left: 5px;"></span>
+                    <div style="display: flex; align-items: center; flex-grow: 1; font-size: 20px; gap: 5px;">
+                      <span class="editable-field" contenteditable="true" style="min-width: 25px; text-align: right; outline: none;"></span>
+                      <span style="font-family: Inter, sans-serif; color: #999; font-size: 16px;">/</span>
+                      <span class="editable-field" contenteditable="true" style="min-width: 25px; outline: none;"></span>
+                    </div>
                   </div>
                   <div style="display: flex; align-items: center; border-bottom: 1px solid #ccc; padding-bottom: 4px;">
                     <div style="display: flex; align-items: center; margin-right: 8px;">

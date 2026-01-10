@@ -11,6 +11,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Global variables for the handwritten style */
+  --handwritten-font: 'Kalam', cursive;
+  --handwritten-color: #000080;
 }
 
 *, *::before, *::after {
@@ -136,9 +140,11 @@ html, body {
   flex-direction: column;
   gap: 8mm;
 }
+
+/* Shared Handwritten Style */
 .editable-field {
-  font-family: 'Kalam', cursive;
-  color: #000080; /* Navy blue "ink" look */
+  font-family: var(--handwritten-font);
+  color: var(--handwritten-color); /* Navy blue "ink" look */
   outline: none;
 }
 
@@ -157,6 +163,7 @@ html, body {
   background-color: rgba(0, 0, 128, 0.05);
 }
 
+/* Section Boxes */
 .section-box {
   flex: 1; /* Grow to fill column height */
   border: 1px solid #ccc;
@@ -180,10 +187,8 @@ html, body {
 .section-content {
   flex-grow: 1;
   padding: 8px;
-  font-family: 'Kalam', cursive;
-  color: #000080;
+  /* Font and color inherited from .editable-field */
   font-size: 14px;
-  outline: none;
   white-space: pre-wrap; /* Preserve formatting */
   overflow-y: auto; /* Scroll if content overflows, though hidden by print usually */
 }
@@ -192,24 +197,7 @@ html, body {
   background-color: rgba(0, 0, 128, 0.02);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #e0e0e0;
-    background-color: #1a1a1a;
-  }
-  /* ... existing dark mode styles ... */
-  /* Ensure sections stay light on the white page */
-  .section-box {
-    border-color: #999;
-  }
-  .section-header {
-    background-color: #ddd;
-    border-bottom-color: #999;
-    color: #222;
-  }
-}
-
-
+/* Dark Mode Overrides */
 @media (prefers-color-scheme: dark) {
   :root {
     color: #e0e0e0;
@@ -237,9 +225,12 @@ html, body {
     /* Kept white as per user request */
     border-color: #555;
   }
-  .placeholder-box {
-    background-color: #f9f9f9; /* Keep light for the white page */
-    border-color: #ddd;
-    color: #999;
+  .section-box {
+    border-color: #999;
+  }
+  .section-header {
+    background-color: #ddd;
+    border-bottom-color: #999;
+    color: #222;
   }
 }

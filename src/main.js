@@ -84,6 +84,15 @@ const skillsContent = `
   </div>
 `
 
+const combatSkillsContent = `
+  <div class="skills-container">
+    ${renderSkillRow()}
+    ${renderSkillRow()}
+    ${renderSkillRow()}
+    ${renderSkillRow()}
+  </div>
+`
+
 document.querySelector('#app').innerHTML = `
   <div class="top-bar">
     <div class="menu-item">File<div class="dropdown-content"><div>New</div><div>Open</div><div>Save</div></div></div>
@@ -114,7 +123,11 @@ document.querySelector('#app').innerHTML = `
         <main class="sheet-middle">
           <section class="sheet-column">
             ${renderSection('Defenses', defenseContent, true)}
-            ${renderSection('Speed', '')}
+            <div class="section-box">
+              <div class="section-header">Speed</div>
+              <div class="section-content editable-field" contenteditable="true" data-placeholder="Enter speed details..."></div>
+            </div>
+            ${renderSection('Combat Skills', combatSkillsContent, true)}
             ${renderSection('Skills', skillsContent, true)}
           </section>
           

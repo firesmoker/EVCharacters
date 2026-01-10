@@ -45,6 +45,21 @@ const renderAutocomplete = (placeholder, type, inputClass = 'skill-name') => `
 `
 
 /**
+ * Renders a datalist for a given set of options.
+ */
+const renderDatalist = (id, options) => `
+  <datalist id="${id}">
+    ${options.map(opt => {
+      // Handle Grouped Options (optgroup logic flattened for datalist)
+      if (typeof opt === 'object' && opt.groupLabel && Array.isArray(opt.options)) {
+        return opt.options.map(subOpt => `<option value="${subOpt}">`).join('');
+      }
+      return `<option value="${opt}">`;
+    }).join('')}
+  </datalist>
+`
+
+/**
  * Renders a skill row for Combat Skills and Skills sections.
  */
 const renderSkillRow = (type = 'skills') => {
@@ -133,7 +148,14 @@ const defenseContent = `
   </div>
 `
 
-// Main Rendering
+// Content for the structured Speed section
+const speedContent = `
+  <div class="defense-container">
+    ${renderDefenseRow('Movement', '3')}
+  </div>
+`
+
+// Render the application
 document.querySelector('#app').innerHTML = `
   <div class="top-bar">
     <div class="menu-item">File<div class="dropdown-content"><div>New</div><div>Open</div><div>Save</div></div></div>
@@ -143,17 +165,21 @@ document.querySelector('#app').innerHTML = `
   <div class="main-area">
     <div class="editor-canvas">
       <div class="a4-page">
+        <!-- Define Datalists -->
+        ${renderDatalist('skills-list', SKILLS_LIST)}
+        ${renderDatalist('combat-skills-list', COMBAT_SKILLS_LIST)}
+
         <header class="sheet-header">
           <div style="flex-grow: 1;">
             <h1 class="editable-field sheet-title" contenteditable="true" data-placeholder="Character Name"></h1>
             <div class="header-row">
-              ${renderHeaderField('Player Name', 'Player Name', 2)}
+              ${renderHeaderField('Player Name', '...', 2)}
               ${renderHeaderField('Level', '0', 1)}
               ${renderHeaderField('Experience', '0', 1)}
             </div>
             <div class="header-row">
-              ${renderHeaderField('Class', 'Class', 1)}
-              ${renderHeaderField('Species', 'Species', 1)}
+              ${renderHeaderField('Class', '...', 1)}
+              ${renderHeaderField('Species', '...', 1)}
             </div>
           </div>
           <div class="logo-box">
@@ -164,7 +190,7 @@ document.querySelector('#app').innerHTML = `
         <main class="sheet-middle">
           <section class="sheet-column">
             ${renderSection('Defenses', defenseContent, { isStructured: true })}
-            ${renderSection('Speed', '')}
+            ${renderSection('Speed', speedContent, { isStructured: true })}
             ${renderSection('Combat Skills', renderSkillRow('combat'), { isStructured: true, isDynamic: true })}
             ${renderSection('Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
           </section>

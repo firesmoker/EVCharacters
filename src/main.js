@@ -35,29 +35,29 @@ document.querySelector('#app').innerHTML = `
       <div class="a4-page">
         <header class="sheet-header">
           <div style="flex-grow: 1;">
-            <h1 class="editable-field" contenteditable="true" style="margin: 0; font-size: 24px; text-transform: uppercase; border-bottom: 1px dashed transparent;">Character Name</h1>
+            <h1 class="editable-field" contenteditable="true" data-placeholder="Character Name" style="margin: 0; font-size: 24px; text-transform: uppercase; border-bottom: 1px dashed transparent;"></h1>
             <div style="display: flex; gap: 15px; margin-top: 10px;">
               <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 2; display: flex;">
                 <span style="color: #666; margin-right: 4px;">Player Name:</span>
-                <span class="editable-field" contenteditable="true" style="flex-grow: 1; outline: none;"></span>
+                <span class="editable-field" contenteditable="true" data-placeholder="..." style="flex-grow: 1; outline: none;"></span>
               </div>
               <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1; display: flex;">
                 <span style="color: #666; margin-right: 4px;">Level:</span>
-                <span class="editable-field" contenteditable="true" style="flex-grow: 1; outline: none;"></span>
+                <span class="editable-field" contenteditable="true" data-placeholder="0" style="flex-grow: 1; outline: none;"></span>
               </div>
               <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1; display: flex;">
                 <span style="color: #666; margin-right: 4px;">Experience:</span>
-                <span class="editable-field" contenteditable="true" style="flex-grow: 1; outline: none;"></span>
+                <span class="editable-field" contenteditable="true" data-placeholder="0" style="flex-grow: 1; outline: none;"></span>
               </div>
             </div>
             <div style="display: flex; gap: 15px; margin-top: 10px;">
               <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1; display: flex;">
                 <span style="color: #666; margin-right: 4px;">Class:</span>
-                <span class="editable-field" contenteditable="true" style="flex-grow: 1; outline: none;"></span>
+                <span class="editable-field" contenteditable="true" data-placeholder="..." style="flex-grow: 1; outline: none;"></span>
               </div>
               <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1; display: flex;">
                 <span style="color: #666; margin-right: 4px;">Species:</span>
-                <span class="editable-field" contenteditable="true" style="flex-grow: 1; outline: none;"></span>
+                <span class="editable-field" contenteditable="true" data-placeholder="..." style="flex-grow: 1; outline: none;"></span>
               </div>
             </div>
           </div>
@@ -78,9 +78,9 @@ document.querySelector('#app').innerHTML = `
                     </div>
                     <span style="font-size: 11px; color: #666; font-family: Inter, sans-serif; text-transform: uppercase; margin-right: 8px; font-weight: bold; white-space: nowrap;">Health Points (HP):</span>
                     <div style="display: flex; align-items: center; flex-grow: 1; font-size: 20px; gap: 5px;">
-                      <span class="editable-field" contenteditable="true" style="min-width: 25px; text-align: right; outline: none;"></span>
+                      <span class="editable-field" contenteditable="true" data-placeholder="Cur" style="min-width: 25px; text-align: right; outline: none;"></span>
                       <span style="font-family: Inter, sans-serif; color: #999; font-size: 16px;">/</span>
-                      <span class="editable-field" contenteditable="true" style="min-width: 25px; outline: none;"></span>
+                      <span class="editable-field" contenteditable="true" data-placeholder="Max" style="min-width: 25px; outline: none;"></span>
                     </div>
                   </div>
                   <div style="display: flex; align-items: center; border-bottom: 1px solid #ccc; padding-bottom: 4px;">
@@ -88,29 +88,29 @@ document.querySelector('#app').innerHTML = `
                       <img src="/icons/armor.svg" width="18" height="18" alt="Armor Icon">
                     </div>
                     <span style="font-size: 11px; color: #666; font-family: Inter, sans-serif; text-transform: uppercase; margin-right: 8px; font-weight: bold; white-space: nowrap;">Damage Reduction (DR):</span>
-                    <span class="editable-field" contenteditable="true" style="flex-grow: 1; font-size: 20px; padding-left: 5px;"></span>
+                    <span class="editable-field" contenteditable="true" data-placeholder="0" style="flex-grow: 1; font-size: 20px; padding-left: 5px;"></span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="section-box">
               <div class="section-header">Speed</div>
-              <div class="section-content" contenteditable="true"></div>
+              <div class="section-content editable-field" contenteditable="true" data-placeholder="Enter speed details..."></div>
             </div>
             <div class="section-box">
               <div class="section-header">Skills</div>
-              <div class="section-content" contenteditable="true"></div>
+              <div class="section-content editable-field" contenteditable="true" data-placeholder="List skills and bonuses..."></div>
             </div>
           </section>
           
           <section class="sheet-column">
             <div class="section-box">
               <div class="section-header">Main Actions</div>
-              <div class="section-content" contenteditable="true"></div>
+              <div class="section-content editable-field" contenteditable="true" data-placeholder="Attacks, spells, etc."></div>
             </div>
             <div class="section-box">
               <div class="section-header">Features</div>
-              <div class="section-content" contenteditable="true"></div>
+              <div class="section-content editable-field" contenteditable="true" data-placeholder="Traits, feats, abilities..."></div>
             </div>
           </section>
         </main>

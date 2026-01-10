@@ -77,7 +77,7 @@ const renderSkillRow = (type = 'skills') => {
   return `
     <div class="skill-row">
       ${renderAutocomplete("Skill", type)}
-      ${renderAutocomplete("+0", "bonus", "skill-bonus")}
+      ${renderAutocomplete("Untrained (+0)", "bonus", "skill-bonus")}
       <button class="remove-row-btn" title="Remove Row">-</button>
       <button class="add-row-btn" title="Add Row">+</button>
     </div>
@@ -362,6 +362,9 @@ document.querySelector('#app').innerHTML = `
           
           <main class="sheet-middle">
             <section class="sheet-column">
+              ${renderSection('Languages', '')}
+              ${renderSection('Equipment', '')}
+              ${renderSection('More Features', '')}
             </section>
             
             <section class="sheet-column">

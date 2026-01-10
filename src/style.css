@@ -17,15 +17,19 @@
   --handwritten-color: #000080;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* App handles scrolling */
+  overflow: hidden;
+  /* App handles scrolling */
 }
 
 #app {
@@ -68,7 +72,7 @@ html, body {
   left: 0;
   background-color: #ffffff;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
   z-index: 1000;
 }
@@ -91,14 +95,16 @@ html, body {
   flex-grow: 1;
   overflow: auto;
   position: relative;
-  background-color: #e0e0e0; /* Fallback */
+  background-color: #e0e0e0;
+  /* Fallback */
 }
 
 /* Editor Canvas - The Content Wrapper */
 .editor-canvas {
   min-height: 100%;
   min-width: 100%;
-  width: fit-content; /* Expands if content is wider than screen */
+  width: fit-content;
+  /* Expands if content is wider than screen */
   display: flex;
   justify-content: center;
   padding: 40px;
@@ -107,11 +113,13 @@ html, body {
 
 /* A4 Page */
 .a4-page {
-  background-color: #ffffff; /* Always white for the sheet */
-  color: #213547; /* Always dark text for the sheet */
+  background-color: #ffffff;
+  /* Always white for the sheet */
+  color: #213547;
+  /* Always dark text for the sheet */
   width: 210mm;
   min-height: 297mm;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 1px solid #bbb;
   padding: 15mm;
   flex-shrink: 0;
@@ -125,7 +133,8 @@ html, body {
   padding-bottom: 5mm;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
+  /* Align tops */
 }
 
 .sheet-middle {
@@ -141,14 +150,6 @@ html, body {
   gap: 8mm;
 }
 
-/* Shared Handwritten Style */
-.editable-field {
-  font-family: var(--handwritten-font);
-  color: var(--handwritten-color); /* Navy blue "ink" look */
-  font-size: 16px; /* Increased default size */
-  outline: none;
-}
-
 .header-editable {
   font-size: 18px;
 }
@@ -161,21 +162,29 @@ html, body {
   text-transform: uppercase;
 }
 
-.sheet-title {
+h1.sheet-title {
   margin: 0;
-  font-size: 24px;
+  font-size: 32px;
+  /* Specific title size */
   text-transform: uppercase;
   border-bottom: 1px dashed transparent;
+  line-height: 1.1;
 }
 
 .logo-box {
-  width: 50mm;
-  height: 22mm;
+  width: 55mm;
+  /* Slightly wider for the brand name */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-end;
   margin-left: 20px;
   flex-shrink: 0;
+}
+
+.logo-box img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Defense Section Styles */
@@ -201,6 +210,16 @@ html, body {
   margin-right: 8px;
 }
 
+/* Shared Handwritten Style */
+.editable-field {
+  font-family: var(--handwritten-font);
+  color: var(--handwritten-color);
+  /* Navy blue "ink" look */
+  font-size: 16px;
+  /* Increased default size */
+  outline: none;
+}
+
 .editable-field:empty::before,
 .editable-field[contenteditable="true"]:empty::before {
   content: attr(data-placeholder);
@@ -209,7 +228,8 @@ html, body {
   font-family: Inter, sans-serif;
   font-size: 14px;
   pointer-events: none;
-  display: inline-block; /* Ensure it takes up space */
+  display: inline-block;
+  /* Ensure it takes up space */
 }
 
 .editable-field:focus {
@@ -218,13 +238,15 @@ html, body {
 
 /* Section Boxes */
 .section-box {
-  flex: 1; /* Grow to fill column height */
+  flex: 1;
+  /* Grow to fill column height */
   border: 1px solid #ccc;
-  min-height: 20mm; 
+  min-height: 20mm;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  margin-bottom: 2mm; /* Small gap if flex doesn't handle it */
+  margin-bottom: 2mm;
+  /* Small gap if flex doesn't handle it */
 }
 
 .section-header {
@@ -242,8 +264,10 @@ html, body {
   padding: 8px;
   /* Font and color inherited from .editable-field */
   font-size: 14px;
-  white-space: pre-wrap; /* Preserve formatting */
-  overflow-y: auto; /* Scroll if content overflows, though hidden by print usually */
+  white-space: pre-wrap;
+  /* Preserve formatting */
+  overflow-y: auto;
+  /* Scroll if content overflows, though hidden by print usually */
 }
 
 .section-content:focus {
@@ -256,31 +280,40 @@ html, body {
     color: #e0e0e0;
     background-color: #1a1a1a;
   }
+
   .top-bar {
     background-color: #2a2a2a;
     border-bottom: 1px solid #444;
   }
+
   .menu-item:hover {
     background-color: #3a3a3a;
   }
+
   .dropdown-content {
     background-color: #2a2a2a;
     border: 1px solid #444;
     color: #e0e0e0;
   }
+
   .dropdown-content div:hover {
     background-color: #3a3a3a;
   }
-  .main-area, .editor-canvas {
+
+  .main-area,
+  .editor-canvas {
     background-color: #1a1a1a;
   }
+
   .a4-page {
     /* Kept white as per user request */
     border-color: #555;
   }
+
   .section-box {
     border-color: #999;
   }
+
   .section-header {
     background-color: #ddd;
     border-bottom-color: #999;

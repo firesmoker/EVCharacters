@@ -61,9 +61,9 @@ document.querySelector('#app').innerHTML = `
                     </div>
                   </div>
                 </div>
-                          <div class="logo-box">
-                            <img src="/Logo.png" alt="Eternal Valor Logo" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                          </div>              </header>
+                                    <div class="logo-box">
+                                      <img src="/Logo.png" alt="Eternal Valor Logo">
+                                    </div>              </header>
         
         <main class="sheet-middle">
           <section class="sheet-column">

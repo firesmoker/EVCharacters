@@ -36,12 +36,17 @@ document.querySelector('#app').innerHTML = `
         <header class="sheet-header">
           <div style="flex-grow: 1;">
             <h1 style="margin: 0; font-size: 24px; text-transform: uppercase;">Character Name</h1>
-            <div style="display: flex; gap: 10px; margin-top: 5px;">
-              <span style="font-size: 12px; border-bottom: 1px solid #ccc; flex-grow: 1;">Class & Level:</span>
-              <span style="font-size: 12px; border-bottom: 1px solid #ccc; flex-grow: 1;">Background:</span>
+            <div style="display: flex; gap: 15px; margin-top: 10px;">
+              <span style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 2;">Player Name:</span>
+              <span style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1;">Level:</span>
+              <span style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1;">Experience:</span>
+            </div>
+            <div style="display: flex; gap: 15px; margin-top: 10px;">
+              <span style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1;">Class:</span>
+              <span style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1;">Species:</span>
             </div>
           </div>
-          <div style="width: 40mm; height: 15mm; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-left: 20px;">
+          <div style="width: 40mm; height: 18mm; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-left: 20px; flex-shrink: 0;">
             LOGO / RPG SYSTEM
           </div>
         </header>

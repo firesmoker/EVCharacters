@@ -41,9 +41,25 @@ const defenseContent = `
       </div>
     </div>
     ${renderDefenseRow('Damage Reduction (DR)', '0', 'armor')}
+    <div class="defense-separator"></div>
     ${renderDefenseRow('Deflection', '0')}
     ${renderDefenseRow('Fortitude', '0')}
     ${renderDefenseRow('Will', '0')}
+    <div style="margin-top: 6px;">
+      <div class="defense-subsection-label">Armor Training:</div>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox"> Light</label>
+        <label class="checkbox-item"><input type="checkbox"> Medium</label>
+        <label class="checkbox-item"><input type="checkbox"> Heavy</label>
+      </div>
+    </div>
+    <div style="margin-top: 6px;">
+      <div class="defense-subsection-label">Shield Training:</div>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox"> Heavy Shields</label>
+        <label class="checkbox-item"><input type="checkbox"> Tower Shields</label>
+      </div>
+    </div>
   </div>
 `
 

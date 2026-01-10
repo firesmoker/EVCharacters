@@ -208,10 +208,47 @@ h1.sheet-title {
   white-space: nowrap;
 }
 
+.defense-subsection-label {
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #444;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-item input {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
 .defense-container {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.defense-separator {
+  height: 1px;
+  background-color: #ddd;
+  margin: 4px 0;
 }
 
 .hp-split {

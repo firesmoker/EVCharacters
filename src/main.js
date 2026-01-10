@@ -166,7 +166,7 @@ document.querySelector('#app').innerHTML = `
             ${renderSection('Defenses', defenseContent, { isStructured: true })}
             ${renderSection('Speed', '')}
             ${renderSection('Combat Skills', renderSkillRow('combat'), { isStructured: true, isDynamic: true })}
-            ${renderSection('Standard Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
+            ${renderSection('Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
           </section>
           
           <section class="sheet-column">
@@ -195,7 +195,7 @@ const updateSuggestions = (wrapper) => {
 
   let html = '';
   list.forEach(group => {
-    const filteredOptions = group.options.filter(opt => opt.toLowerCase().startsWith(query));
+    const filteredOptions = group.options.filter(opt => opt.toLowerCase().includes(query));
     if (filteredOptions.length > 0) {
       html += `<div class="suggestion-group-title">${group.groupLabel}</div>`;
       filteredOptions.forEach(opt => {

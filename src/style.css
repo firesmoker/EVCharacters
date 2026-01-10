@@ -366,6 +366,20 @@ h1.sheet-title {
   font-size: 14px;
 }
 
+select.skill-name {
+  font-family: var(--handwritten-font);
+  color: var(--handwritten-color);
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  padding: 0;
+  flex-grow: 1;
+}
+
 .skill-bonus {
   width: 25mm; /* Widened to fit dropdown text */
   text-align: center;
@@ -373,26 +387,34 @@ h1.sheet-title {
   font-weight: bold;
 }
 
-select.skill-bonus {
+select.skill-bonus, select.skill-name {
   font-family: var(--handwritten-font);
   color: var(--handwritten-color);
-  font-size: 14px;
   background: transparent;
   border: none;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
   outline: none;
-  appearance: none; /* Hide default arrow for cleaner look */
-  text-align: center;
+  appearance: none; /* Hide default arrow */
   padding: 0 4px;
 }
 
-select.skill-bonus:hover {
+select.skill-bonus {
+  font-size: 14px;
+  text-align: center;
+}
+
+select.skill-name {
+  font-size: 16px;
+  text-align: left;
+}
+
+select.skill-bonus:hover, select.skill-name:hover {
   background-color: rgba(0, 0, 128, 0.05);
 }
 
-select.skill-bonus option {
-  font-family: Inter, sans-serif; /* System font for dropdown options for readability */
+select.skill-bonus option, select.skill-name option {
+  font-family: Inter, sans-serif;
   color: #333;
   background-color: #fff;
 }

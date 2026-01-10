@@ -45,6 +45,7 @@ const defenseContent = `
     ${renderDefenseRow('Deflection', '0')}
     ${renderDefenseRow('Fortitude', '0')}
     ${renderDefenseRow('Will', '0')}
+    <div class="defense-separator"></div>
     <div style="margin-top: 6px;">
       <div class="defense-subsection-label">Armor Training:</div>
       <div class="checkbox-group">

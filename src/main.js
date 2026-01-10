@@ -36,31 +36,30 @@ document.querySelector('#app').innerHTML = `
         <header class="sheet-header">
           <div style="flex-grow: 1;">
             <h1 class="editable-field" contenteditable="true" data-placeholder="Character Name" style="margin: 0; font-size: 24px; text-transform: uppercase; border-bottom: 1px dashed transparent;"></h1>
-            <div style="display: flex; gap: 15px; margin-top: 10px;">
-              <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 2; display: flex;">
-                <span style="color: #666; margin-right: 4px;">Player Name:</span>
-                <span class="editable-field" contenteditable="true" data-placeholder="..." style="flex-grow: 1; outline: none;"></span>
-              </div>
-              <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1; display: flex;">
-                <span style="color: #666; margin-right: 4px;">Level:</span>
-                <span class="editable-field" contenteditable="true" data-placeholder="0" style="flex-grow: 1; outline: none;"></span>
-              </div>
-              <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1; display: flex;">
-                <span style="color: #666; margin-right: 4px;">Experience:</span>
-                <span class="editable-field" contenteditable="true" data-placeholder="0" style="flex-grow: 1; outline: none;"></span>
-              </div>
-            </div>
-            <div style="display: flex; gap: 15px; margin-top: 10px;">
-              <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1; display: flex;">
-                <span style="color: #666; margin-right: 4px;">Class:</span>
-                <span class="editable-field" contenteditable="true" data-placeholder="..." style="flex-grow: 1; outline: none;"></span>
-              </div>
-              <div style="font-size: 11px; border-bottom: 1px solid #ccc; flex: 1; display: flex;">
-                <span style="color: #666; margin-right: 4px;">Species:</span>
-                <span class="editable-field" contenteditable="true" data-placeholder="..." style="flex-grow: 1; outline: none;"></span>
-              </div>
-            </div>
-          </div>
+                                    <div style="display: flex; gap: 15px; margin-top: 10px;">
+                                      <div style="border-bottom: 1px solid #ccc; flex: 2; display: flex; align-items: baseline;">
+                                        <span class="header-label">Player Name:</span>
+                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
+                                      </div>
+                                      <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
+                                        <span class="header-label">Level:</span>
+                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="0" style="flex-grow: 1;"></span>
+                                      </div>
+                                      <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
+                                        <span class="header-label">Experience:</span>
+                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="0" style="flex-grow: 1;"></span>
+                                      </div>
+                                    </div>
+                                    <div style="display: flex; gap: 15px; margin-top: 10px;">
+                                      <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
+                                        <span class="header-label">Class:</span>
+                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
+                                      </div>
+                                      <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
+                                        <span class="header-label">Species:</span>
+                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
+                                      </div>
+                                    </div>          </div>
           <div style="width: 40mm; height: 18mm; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-left: 20px; flex-shrink: 0;">
             LOGO / RPG SYSTEM
           </div>

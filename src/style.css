@@ -153,6 +153,14 @@ html, body {
   font-size: 18px;
 }
 
+.header-label {
+  font-size: 11px;
+  color: #666;
+  margin-right: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .editable-field:empty::before,
 .editable-field[contenteditable="true"]:empty::before {
   content: attr(data-placeholder);

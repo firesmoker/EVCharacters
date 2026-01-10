@@ -305,15 +305,16 @@ h1.sheet-title {
 }
 
 .add-row-btn {
+  display: none; /* Hidden by default */
   position: absolute;
   left: -28px;
-  bottom: 8px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 22px;
   height: 22px;
   background-color: #4CAF50;
   color: white;
   border-radius: 50%;
-  display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
@@ -323,8 +324,22 @@ h1.sheet-title {
   user-select: none;
   border: none;
   line-height: 1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 20;
+}
+
+.skill-row:last-child .add-row-btn,
+.main-action-container:last-child .add-row-btn {
+  display: flex;
+}
+
+.section-box:hover .add-row-btn {
+  opacity: 1;
+}
+
+.add-row-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .remove-row-btn {
@@ -580,19 +595,50 @@ select.skill-name optgroup {
 
 /* Main Action Component Styles */
 
+
+
 .main-action-container {
+
+
 
   display: flex;
 
+
+
   flex-direction: column;
+
+
 
   gap: 4px;
 
+
+
   margin-bottom: 12px;
+
+
 
   position: relative;
 
+
+
+  border: 2px solid #f0f0f0;
+  /* Soft border */
+
+
+
+  padding: 8px;
+
+
+
+  border-radius: 4px;
+
+
+
 }
+
+
+
+
 
 
 
@@ -621,7 +667,6 @@ select.skill-name optgroup {
 
 
   font-size: 13px;
-  /* Increased ~40% from 12px */
 
 
 
@@ -809,87 +854,220 @@ select.skill-name optgroup {
 
 
 
-.main-action-note-separator {
-
-
-
-  height: 2px;
-
-
-
-  background-color: #333;
-
-
-
-  margin: 8px 0 4px 0;
-
-
-
-}
-
-
-
-
-
-
-
 .main-action-table td:focus {
+
+
 
   background-color: rgba(0, 0, 128, 0.05);
 
+
+
   outline: none;
 
+
+
 }
+
+
+
+
 
 
 
 .section-content:focus {
+
+
+
   background-color: rgba(0, 0, 128, 0.02);
+
+
+
 }
 
+
+
+
+
+
+
 /* Dark Mode Overrides */
+
+
+
 @media (prefers-color-scheme: dark) {
+
+
+
   :root {
+
+
+
     color: #e0e0e0;
+
+
+
     background-color: #1a1a1a;
+
+
+
   }
+
+
+
+
+
+
 
   .top-bar {
+
+
+
     background-color: #2a2a2a;
+
+
+
     border-bottom: 1px solid #444;
+
+
+
   }
+
+
+
+
+
+
 
   .menu-item:hover {
+
+
+
     background-color: #3a3a3a;
+
+
+
   }
+
+
+
+
+
+
 
   .dropdown-content {
+
+
+
     background-color: #2a2a2a;
+
+
+
     border: 1px solid #444;
+
+
+
     color: #e0e0e0;
+
+
+
   }
+
+
+
+
+
+
 
   .dropdown-content div:hover {
+
+
+
     background-color: #3a3a3a;
+
+
+
   }
+
+
+
+
+
+
 
   .main-area,
+
+
+
   .editor-canvas {
+
+
+
     background-color: #1a1a1a;
+
+
+
   }
+
+
+
+
+
+
 
   .a4-page {
+
+
+
     /* Kept white as per user request */
+
+
+
     border-color: #555;
+
+
+
   }
+
+
+
+
+
+
 
   .section-box {
+
+
+
     border-color: #999;
+
+
+
   }
 
+
+
+
+
+
+
   .section-header {
+
+
+
     background-color: #ddd;
+
+
+
     border-bottom-color: #999;
+
+
+
     color: #222;
+
+
+
   }
+
+
+
 }

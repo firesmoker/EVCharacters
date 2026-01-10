@@ -71,6 +71,7 @@ const renderSkillRow = (type = 'skills') => {
       ${renderAutocomplete("Skill", type)}
       ${renderAutocomplete("+0", "bonus", "skill-bonus")}
       <button class="remove-row-btn" title="Remove Row">-</button>
+      <button class="add-row-btn" title="Add Row">+</button>
     </div>
   `;
 }
@@ -82,6 +83,7 @@ const renderDragsIgnoredRow = () => `
   <div class="skill-row">
     ${renderAutocomplete("Penalty...", "drags", "skill-name")}
     <button class="remove-row-btn" title="Remove Row">-</button>
+    <button class="add-row-btn" title="Add Row">+</button>
   </div>
 `
 
@@ -104,7 +106,6 @@ const renderSection = (title, content, options = {}) => {
            data-placeholder="Enter ${title.toLowerCase()}...">
         ${content}
       </div>
-      ${isDynamic ? '<button class="add-row-btn" title="Add Row">+</button>' : ''}
     </div>
   `
 }
@@ -209,8 +210,8 @@ const renderMainAction = () => `
       </tr>
     </table>
     <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Additional notes..."></div>
-    <div class="main-action-note-separator"></div>
     <button class="remove-row-btn" title="Remove Action">-</button>
+    <button class="add-row-btn" title="Add Action">+</button>
   </div>
 `
 

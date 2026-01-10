@@ -26,7 +26,19 @@ const renderSkillRow = () => `
 
     <span class="editable-field skill-name" contenteditable="true" data-placeholder="Skill"></span>
 
-    <span class="editable-field skill-bonus" contenteditable="true" data-placeholder="+0"></span>
+        <select class="skill-bonus">
+
+          <option value="0"></option>
+
+          <option value="5">Trained (+5)</option>
+
+      <option value="10">Expert (+10)</option>
+
+      <option value="15">Master (+15)</option>
+
+      <option value="20">Legend (+20)</option>
+
+    </select>
 
     <button class="remove-row-btn" title="Remove Row">-</button>
 

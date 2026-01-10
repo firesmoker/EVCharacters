@@ -367,10 +367,34 @@ h1.sheet-title {
 }
 
 .skill-bonus {
-  width: 10mm;
+  width: 25mm; /* Widened to fit dropdown text */
   text-align: center;
   border-bottom: 1px solid #ccc;
   font-weight: bold;
+}
+
+select.skill-bonus {
+  font-family: var(--handwritten-font);
+  color: var(--handwritten-color);
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  outline: none;
+  appearance: none; /* Hide default arrow for cleaner look */
+  text-align: center;
+  padding: 0 4px;
+}
+
+select.skill-bonus:hover {
+  background-color: rgba(0, 0, 128, 0.05);
+}
+
+select.skill-bonus option {
+  font-family: Inter, sans-serif; /* System font for dropdown options for readability */
+  color: #333;
+  background-color: #fff;
 }
 
 /* Shared Handwritten Style */

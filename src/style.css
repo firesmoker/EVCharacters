@@ -368,7 +368,8 @@ h1.sheet-title {
   transform: translateY(-50%) scale(1.1);
 }
 
-.skill-row:only-child .remove-row-btn {
+.skill-row:only-child .remove-row-btn,
+.main-action-container:only-child .remove-row-btn {
   display: none;
 }
 

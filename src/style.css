@@ -351,6 +351,10 @@ h1.sheet-title {
   transform: translateY(-50%) scale(1.1);
 }
 
+.skill-row:only-child .remove-row-btn {
+  display: none;
+}
+
 .section-box:hover .add-row-btn {
   opacity: 1;
 }

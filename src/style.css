@@ -164,11 +164,10 @@ body {
 
 h1.sheet-title {
   margin: 0;
-  font-size: 32px;
-  /* Specific title size */
-  text-transform: uppercase;
+  font-size: 45px; /* Specific title size */
+  font-variant: small-caps; /* Changed from text-transform: uppercase */
   border-bottom: 1px dashed transparent;
-  line-height: 1.1;
+  line-height: 1.1; 
 }
 
 .logo-box {

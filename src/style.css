@@ -145,7 +145,12 @@ html, body {
 .editable-field {
   font-family: var(--handwritten-font);
   color: var(--handwritten-color); /* Navy blue "ink" look */
+  font-size: 16px; /* Increased default size */
   outline: none;
+}
+
+.header-editable {
+  font-size: 18px;
 }
 
 .editable-field:empty::before,

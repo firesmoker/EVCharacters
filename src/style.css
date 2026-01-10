@@ -154,6 +154,10 @@ body {
   font-size: 18px;
 }
 
+.defense-editable {
+  font-size: 20px;
+}
+
 .header-label {
   font-size: 11px;
   color: #666;
@@ -164,10 +168,12 @@ body {
 
 h1.sheet-title {
   margin: 0;
-  font-size: 45px; /* Specific title size */
-  font-variant: small-caps; /* Changed from text-transform: uppercase */
+  font-size: 24px;
+  /* Specific title size */
+  font-variant: small-caps;
+  /* Changed from text-transform: uppercase */
   border-bottom: 1px dashed transparent;
-  line-height: 1.1; 
+  line-height: 1.1;
 }
 
 .logo-box {
@@ -190,8 +196,7 @@ h1.sheet-title {
 .defense-row {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
+  padding-bottom: 0px; /* Reduced from 4px */
 }
 
 .defense-label {
@@ -201,6 +206,38 @@ h1.sheet-title {
   margin-right: 8px;
   font-weight: bold;
   white-space: nowrap;
+}
+
+.defense-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hp-split {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  font-size: 20px;
+  gap: 5px;
+}
+
+.hp-slash {
+  font-family: Inter, sans-serif;
+  color: #999;
+  font-size: 16px;
+}
+
+.header-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.header-field-container {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: baseline;
 }
 
 .stat-icon {
@@ -262,11 +299,13 @@ h1.sheet-title {
   flex-grow: 1;
   padding: 8px;
   /* Font and color inherited from .editable-field */
-  font-size: 14px;
-  white-space: pre-wrap;
-  /* Preserve formatting */
-  overflow-y: auto;
-  /* Scroll if content overflows, though hidden by print usually */
+  outline: none;
+  white-space: pre-wrap; /* Preserve formatting for free-text sections */
+  overflow-y: auto; /* Scroll if content overflows, though hidden by print usually */
+}
+
+.section-content-structured {
+  white-space: normal; /* Reset for sections with complex HTML layout */
 }
 
 .section-content:focus {

@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #213547;
+  background-color: #f0f0f0;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,24 +13,130 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  overflow: hidden; /* App handles scrolling */
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-color-scheme: light) {
+/* Top Bar */
+.top-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 40px;
+  flex-shrink: 0;
+  user-select: none;
+  z-index: 10;
+}
+
+.menu-item {
+  position: relative;
+  padding: 0 12px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
+  z-index: 1000;
+}
+
+.menu-item:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content div {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.dropdown-content div:hover {
+  background-color: #f1f1f1;
+}
+
+/* Main Area - The Scroll Window */
+.main-area {
+  flex-grow: 1;
+  overflow: auto;
+  position: relative;
+  background-color: #e0e0e0; /* Fallback */
+}
+
+/* Editor Canvas - The Content Wrapper */
+.editor-canvas {
+  min-height: 100%;
+  min-width: 100%;
+  width: fit-content; /* Expands if content is wider than screen */
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: #e0e0e0;
+}
+
+/* A4 Page */
+.a4-page {
+  background-color: #ffffff;
+  width: 210mm;
+  min-height: 297mm;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 20mm;
+  /* margin is handled by canvas padding/flex centering */
+  flex-shrink: 0; /* Don't shrink below 210mm */
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #e0e0e0;
+    background-color: #1a1a1a;
+  }
+  .top-bar {
+    background-color: #2a2a2a;
+    border-bottom: 1px solid #444;
+  }
+  .menu-item:hover {
+    background-color: #3a3a3a;
+  }
+  .dropdown-content {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #e0e0e0;
+  }
+  .dropdown-content div:hover {
+    background-color: #3a3a3a;
+  }
+  .main-area, .editor-canvas {
+    background-color: #1a1a1a;
+  }
+  .a4-page {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
   }
 }

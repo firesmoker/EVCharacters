@@ -169,13 +169,11 @@ html, body {
 }
 
 .logo-box {
-  width: 40mm;
-  height: 18mm;
-  border: 1px solid #ccc;
+  width: 50mm;
+  height: 22mm;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
   margin-left: 20px;
   flex-shrink: 0;
 }

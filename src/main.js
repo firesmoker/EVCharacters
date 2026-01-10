@@ -32,38 +32,39 @@ document.querySelector('#app').innerHTML = `
   </div>
   <div class="main-area">
     <div class="editor-canvas">
-      <div class="a4-page">
-        <header class="sheet-header">
-          <div style="flex-grow: 1;">
-            <h1 class="editable-field" contenteditable="true" data-placeholder="Character Name" style="margin: 0; font-size: 24px; text-transform: uppercase; border-bottom: 1px dashed transparent;"></h1>
-                                    <div style="display: flex; gap: 15px; margin-top: 10px;">
-                                      <div style="border-bottom: 1px solid #ccc; flex: 2; display: flex; align-items: baseline;">
-                                        <span class="header-label">Player Name:</span>
-                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
-                                      </div>
-                                      <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
-                                        <span class="header-label">Level:</span>
-                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="0" style="flex-grow: 1;"></span>
-                                      </div>
-                                      <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
-                                        <span class="header-label">Experience:</span>
-                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="0" style="flex-grow: 1;"></span>
-                                      </div>
-                                    </div>
-                                    <div style="display: flex; gap: 15px; margin-top: 10px;">
-                                      <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
-                                        <span class="header-label">Class:</span>
-                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
-                                      </div>
-                                      <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
-                                        <span class="header-label">Species:</span>
-                                        <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
-                                      </div>
-                                    </div>          </div>
-          <div style="width: 40mm; height: 18mm; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-left: 20px; flex-shrink: 0;">
-            LOGO / RPG SYSTEM
-          </div>
-        </header>
+            <div class="a4-page">
+              <header class="sheet-header">
+                <div style="flex-grow: 1;">
+                  <h1 class="editable-field sheet-title" contenteditable="true" data-placeholder="Character Name"></h1>
+                  <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <div style="border-bottom: 1px solid #ccc; flex: 2; display: flex; align-items: baseline;">
+                      <span class="header-label">Player Name:</span>
+                      <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
+                    </div>
+                    <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
+                      <span class="header-label">Level:</span>
+                      <span class="editable-field header-editable" contenteditable="true" data-placeholder="0" style="flex-grow: 1;"></span>
+                    </div>
+                    <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
+                      <span class="header-label">Experience:</span>
+                      <span class="editable-field header-editable" contenteditable="true" data-placeholder="0" style="flex-grow: 1;"></span>
+                    </div>
+                  </div>
+                  <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
+                      <span class="header-label">Class:</span>
+                      <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
+                    </div>
+                    <div style="border-bottom: 1px solid #ccc; flex: 1; display: flex; align-items: baseline;">
+                      <span class="header-label">Species:</span>
+                      <span class="editable-field header-editable" contenteditable="true" data-placeholder="..." style="flex-grow: 1;"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="logo-box">
+                  LOGO / RPG SYSTEM
+                </div>
+              </header>
         
         <main class="sheet-middle">
           <section class="sheet-column">
@@ -71,22 +72,22 @@ document.querySelector('#app').innerHTML = `
               <div class="section-header">Defenses</div>
               <div class="section-content">
                 <div style="display: flex; flex-direction: column; gap: 12px;">
-                  <div style="display: flex; align-items: center; border-bottom: 1px solid #ccc; padding-bottom: 4px;">
-                    <div style="display: flex; align-items: center; margin-right: 8px;">
+                  <div class="defense-row">
+                    <div class="stat-icon">
                       <img src="/icons/heart.svg" width="18" height="18" alt="Heart Icon">
                     </div>
-                    <span style="font-size: 11px; color: #666; font-family: Inter, sans-serif; text-transform: uppercase; margin-right: 8px; font-weight: bold; white-space: nowrap;">Health Points (HP):</span>
+                    <span class="defense-label">Health Points (HP):</span>
                     <div style="display: flex; align-items: center; flex-grow: 1; font-size: 20px; gap: 5px;">
                       <span class="editable-field" contenteditable="true" data-placeholder="Cur" style="min-width: 25px; text-align: right; outline: none;"></span>
                       <span style="font-family: Inter, sans-serif; color: #999; font-size: 16px;">/</span>
                       <span class="editable-field" contenteditable="true" data-placeholder="Max" style="min-width: 25px; outline: none;"></span>
                     </div>
                   </div>
-                  <div style="display: flex; align-items: center; border-bottom: 1px solid #ccc; padding-bottom: 4px;">
-                    <div style="display: flex; align-items: center; margin-right: 8px;">
+                  <div class="defense-row">
+                    <div class="stat-icon">
                       <img src="/icons/armor.svg" width="18" height="18" alt="Armor Icon">
                     </div>
-                    <span style="font-size: 11px; color: #666; font-family: Inter, sans-serif; text-transform: uppercase; margin-right: 8px; font-weight: bold; white-space: nowrap;">Damage Reduction (DR):</span>
+                    <span class="defense-label">Damage Reduction (DR):</span>
                     <span class="editable-field" contenteditable="true" data-placeholder="0" style="flex-grow: 1; font-size: 20px; padding-left: 5px;"></span>
                   </div>
                 </div>

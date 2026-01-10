@@ -161,6 +161,48 @@ html, body {
   text-transform: uppercase;
 }
 
+.sheet-title {
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+  border-bottom: 1px dashed transparent;
+}
+
+.logo-box {
+  width: 40mm;
+  height: 18mm;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+/* Defense Section Styles */
+.defense-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.defense-label {
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  margin-right: 8px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
 .editable-field:empty::before,
 .editable-field[contenteditable="true"]:empty::before {
   content: attr(data-placeholder);

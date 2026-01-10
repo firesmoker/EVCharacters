@@ -387,7 +387,7 @@ select.skill-name {
   font-weight: bold;
 }
 
-select.skill-bonus, select.skill-name {
+select.skill-bonus, select.skill-name, input.skill-name, input.skill-bonus {
   font-family: var(--handwritten-font);
   color: var(--handwritten-color);
   background: transparent;
@@ -397,6 +397,12 @@ select.skill-bonus, select.skill-name {
   outline: none;
   appearance: none; /* Hide default arrow */
   padding: 0 4px;
+}
+
+input.skill-bonus {
+  width: 30mm; /* Slightly wider for the text */
+  text-align: center;
+  font-weight: bold;
 }
 
 select.skill-bonus {
@@ -409,26 +415,7 @@ select.skill-name {
   text-align: left;
 }
 
-input.skill-name {
-  font-family: var(--handwritten-font);
-  color: var(--handwritten-color);
-  font-size: 16px;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #eee;
-  outline: none;
-  padding: 0;
-  flex-grow: 1;
-}
-
-input.skill-name::placeholder {
-  color: #ccc;
-  font-family: Inter, sans-serif;
-  font-style: italic;
-  font-size: 14px;
-}
-
-select.skill-bonus:hover, select.skill-name:hover, input.skill-name:hover {
+select.skill-bonus:hover, select.skill-name:hover, input.skill-name:hover, input.skill-bonus:hover {
   background-color: rgba(0, 0, 128, 0.05);
 }
 
@@ -495,7 +482,7 @@ select.skill-bonus optgroup, select.skill-name optgroup {
   cursor: pointer;
 }
 
-.suggestion-item:hover {
+.suggestion-item:hover, .suggestion-item.selected {
   background-color: rgba(0, 0, 128, 0.05);
 }
 

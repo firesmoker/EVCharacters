@@ -16,6 +16,10 @@ const COMBAT_SKILLS_LIST = [
   { groupLabel: "Unarmed", options: ["Unarmed Strike", "Grapple"] }
 ];
 
+const BONUS_LIST = [
+  { groupLabel: "Training", options: ["Trained (+5)", "Expert (+10)", "Master (+15)", "Legend (+20)"] }
+];
+
 /**
  * Renders a standard dropdown menu.
  */
@@ -23,19 +27,19 @@ const renderDropdown = (options, className) => `
   <select class="${className}">
     <option value=""></option>
     ${options.map(opt => {
-      const val = typeof opt === 'object' ? opt.value : opt;
-      const label = typeof opt === 'object' ? opt.label : opt;
-      return `<option value="${val}">${label}</option>`;
-    }).join('')}
+  const val = typeof opt === 'object' ? opt.value : opt;
+  const label = typeof opt === 'object' ? opt.label : opt;
+  return `<option value="${val}">${label}</option>`;
+}).join('')}
   </select>
 `
 
 /**
  * Renders an autocomplete input field.
  */
-const renderAutocomplete = (placeholder, type) => `
+const renderAutocomplete = (placeholder, type, inputClass = 'skill-name') => `
   <div class="autocomplete-wrapper" data-type="${type}">
-    <input type="text" class="skill-name" placeholder="${placeholder}">
+    <input type="text" class="${inputClass}" placeholder="${placeholder}">
     <div class="suggestions-dropdown"></div>
   </div>
 `
@@ -44,18 +48,10 @@ const renderAutocomplete = (placeholder, type) => `
  * Renders a skill row for Combat Skills and Skills sections.
  */
 const renderSkillRow = (type = 'skills') => {
-  const bonusOptions = [
-    { value: "0", label: "" },
-    { value: "5", label: "Trained (+5)" },
-    { value: "10", label: "Expert (+10)" },
-    { value: "15", label: "Master (+15)" },
-    { value: "20", label: "Legend (+20)" }
-  ];
-
   return `
     <div class="skill-row">
       ${renderAutocomplete("Skill", type)}
-      ${renderDropdown(bonusOptions, "skill-bonus")}
+      ${renderAutocomplete("+0", "bonus", "skill-bonus")}
       <button class="remove-row-btn" title="Remove Row">-</button>
     </div>
   `;
@@ -76,7 +72,7 @@ const renderSection = (title, content, options = {}) => {
     <div class="section-box">
       <div class="section-header">${title}</div>
       <div class="${contentClasses}" 
-           ${isStructured ? '' : 'contenteditable="true"'}
+           ${isStructured ? '' : 'contenteditable="true"'} 
            data-placeholder="Enter ${title.toLowerCase()}...">
         ${content}
       </div>
@@ -170,7 +166,7 @@ document.querySelector('#app').innerHTML = `
             ${renderSection('Defenses', defenseContent, { isStructured: true })}
             ${renderSection('Speed', '')}
             ${renderSection('Combat Skills', renderSkillRow('combat'), { isStructured: true, isDynamic: true })}
-            ${renderSection('Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
+            ${renderSection('Standard Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
           </section>
           
           <section class="sheet-column">
@@ -191,7 +187,11 @@ const updateSuggestions = (wrapper) => {
   const dropdown = wrapper.querySelector('.suggestions-dropdown');
   const type = wrapper.getAttribute('data-type');
   const query = input.value.toLowerCase();
-  const list = type === 'combat' ? COMBAT_SKILLS_LIST : SKILLS_LIST;
+
+  let list;
+  if (type === 'combat') list = COMBAT_SKILLS_LIST;
+  else if (type === 'skills') list = SKILLS_LIST;
+  else if (type === 'bonus') list = BONUS_LIST;
 
   let html = '';
   list.forEach(group => {
@@ -208,6 +208,8 @@ const updateSuggestions = (wrapper) => {
   dropdown.style.display = html ? 'block' : 'none';
 }
 
+const isAutocompleteInput = (el) => el.tagName === 'INPUT' && (el.classList.contains('skill-name') || el.classList.contains('skill-bonus'));
+
 document.querySelector('#app').addEventListener('input', (e) => {
   // Contenteditable cleanup
   if (e.target.classList.contains('editable-field')) {
@@ -216,14 +218,48 @@ document.querySelector('#app').addEventListener('input', (e) => {
     }
   }
   // Autocomplete
-  if (e.target.classList.contains('skill-name') && e.target.tagName === 'INPUT') {
+  if (isAutocompleteInput(e.target)) {
     updateSuggestions(e.target.closest('.autocomplete-wrapper'));
   }
 });
 
 document.querySelector('#app').addEventListener('focusin', (e) => {
-  if (e.target.classList.contains('skill-name') && e.target.tagName === 'INPUT') {
+  if (isAutocompleteInput(e.target)) {
     updateSuggestions(e.target.closest('.autocomplete-wrapper'));
+  }
+});
+
+document.querySelector('#app').addEventListener('keydown', (e) => {
+  if (isAutocompleteInput(e.target)) {
+    const wrapper = e.target.closest('.autocomplete-wrapper');
+    const dropdown = wrapper.querySelector('.suggestions-dropdown');
+    const items = Array.from(dropdown.querySelectorAll('.suggestion-item'));
+
+    if (dropdown.style.display !== 'block') return;
+
+    let selectedIndex = items.findIndex(item => item.classList.contains('selected'));
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      selectedIndex++;
+      if (selectedIndex >= items.length) selectedIndex = 0;
+      items.forEach((item, i) => item.classList.toggle('selected', i === selectedIndex));
+      if (items[selectedIndex]) items[selectedIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      selectedIndex--;
+      if (selectedIndex < 0) selectedIndex = items.length - 1;
+      items.forEach((item, i) => item.classList.toggle('selected', i === selectedIndex));
+      if (items[selectedIndex]) items[selectedIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter') {
+      if (selectedIndex > -1) {
+        e.preventDefault();
+        e.target.value = items[selectedIndex].innerText;
+        dropdown.style.display = 'none';
+      }
+    } else if (e.key === 'Escape') {
+      dropdown.style.display = 'none';
+    }
   }
 });
 
@@ -249,7 +285,7 @@ document.querySelector('#app').addEventListener('click', (e) => {
       container.appendChild(tempDiv.firstElementChild);
     }
   }
-  
+
   // Remove Row
   if (e.target.classList.contains('remove-row-btn')) {
     e.target.closest('.skill-row').remove();

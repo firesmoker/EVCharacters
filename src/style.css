@@ -283,6 +283,27 @@ h1.sheet-title {
   margin-right: 8px;
 }
 
+/* Skill Section Styles */
+.skill-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.skill-name {
+  flex-grow: 1;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.skill-bonus {
+  width: 10mm;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
+
 /* Shared Handwritten Style */
 .editable-field {
   font-family: var(--handwritten-font);

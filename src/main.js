@@ -81,7 +81,7 @@ const renderSkillRow = (type = 'skills') => {
  */
 const renderDragsIgnoredRow = () => `
   <div class="skill-row">
-    ${renderAutocomplete("Penalty...", "drags", "skill-name")}
+    ${renderAutocomplete("Drag Source", "drags", "skill-name")}
     <button class="remove-row-btn" title="Remove Row">-</button>
     <button class="add-row-btn" title="Add Row">+</button>
   </div>
@@ -366,7 +366,7 @@ document.querySelector('#app').addEventListener('click', (e) => {
   if (e.target.classList.contains('add-row-btn')) {
     const sectionBox = e.target.closest('.section-box');
     const title = sectionBox.querySelector('.section-header').textContent.trim();
-    const container = sectionBox.querySelector('.dynamic-rows');
+    const container = e.target.closest('.dynamic-rows');
     if (container) {
       let html = '';
       if (title === 'Skills') html = renderSkillRow('skills');

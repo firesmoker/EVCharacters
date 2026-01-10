@@ -328,6 +328,11 @@ h1.sheet-title {
   z-index: 20;
 }
 
+.skill-row:not(:last-child) .add-row-btn,
+.main-action-container:not(:last-child) .add-row-btn {
+  display: none !important;
+}
+
 .skill-row:last-child .add-row-btn,
 .main-action-container:last-child .add-row-btn {
   display: flex;
@@ -388,14 +393,7 @@ h1.sheet-title {
   display: none;
 }
 
-.section-box:hover .add-row-btn {
-  opacity: 1;
-}
 
-.add-row-btn:hover {
-  background-color: #45a049;
-  transform: scale(1.1);
-}
 
 .skill-name {
   flex-grow: 1;

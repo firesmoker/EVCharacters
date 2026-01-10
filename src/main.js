@@ -271,9 +271,9 @@ const renderHeader = () => `
     <div style="flex-grow: 1;">
       <h1 class="editable-field sheet-title" contenteditable="true" data-placeholder="Character Name" data-sync-id="character-name"></h1>
       <div class="header-row">
-        ${renderHeaderField('Player Name', '...', 2)}
-        ${renderHeaderField('Level', '0', 1)}
-        ${renderHeaderField('Experience', '0', 1)}
+        ${renderHeaderField('Player Name', '...', 2.07)}
+        ${renderHeaderField('Level', '0', 0.65)}
+        ${renderHeaderField('Experience', '0', 1.28)}
       </div>
       <div class="header-row">
         ${renderHeaderField('Class', '...', 1)}

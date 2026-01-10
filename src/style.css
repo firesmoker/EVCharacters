@@ -15,6 +15,10 @@
   /* Global variables for the handwritten style */
   --handwritten-font: 'Kalam', cursive;
   --handwritten-color: #000080;
+
+  /* Global variables for layout */
+  --section-gap: 1mm;
+  /* YOU CAN ADJUST THE GAP BETWEEN SECTIONS HERE */
 }
 
 *,
@@ -118,7 +122,8 @@ body {
   color: #213547;
   /* Always dark text for the sheet */
   width: 210mm;
-  height: 297mm; /* Fixed height for A4 */
+  height: 297mm;
+  /* Fixed height for A4 */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 1px solid #bbb;
   padding: 15mm;
@@ -126,7 +131,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10mm;
-  overflow: hidden; /* respect physical page boundaries */
+  overflow: hidden;
+  /* respect physical page boundaries */
   position: relative;
 }
 
@@ -143,13 +149,13 @@ body {
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10mm;
+  gap: var(--section-gap);
 }
 
 .sheet-column {
   display: flex;
   flex-direction: column;
-  gap: 8mm;
+  gap: var(--section-gap);
 }
 
 .header-editable {
@@ -198,7 +204,8 @@ h1.sheet-title {
 .section-row {
   display: flex;
   align-items: center;
-  padding-bottom: 0px; /* Reduced from 4px */
+  padding-bottom: 0px;
+  /* Reduced from 4px */
 }
 
 .section-label {
@@ -291,7 +298,8 @@ h1.sheet-title {
   align-items: baseline;
   gap: 8px;
   margin-bottom: 2px;
-  position: relative; /* Needed for remove button positioning */
+  position: relative;
+  /* Needed for remove button positioning */
 }
 
 .add-row-btn {
@@ -313,24 +321,27 @@ h1.sheet-title {
   user-select: none;
   border: none;
   line-height: 1;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 20;
 }
 
 .remove-row-btn {
   position: absolute;
-  right: -32px; /* Increased offset to ensure it's clearly outside */
+  right: -32px;
+  /* Increased offset to ensure it's clearly outside */
   top: 50%;
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  background-color: #f44336; /* Red */
+  background-color: #f44336;
+  /* Red */
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px; /* Minus sign size */
+  font-size: 14px;
+  /* Minus sign size */
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.2s, transform 0.2s;
@@ -341,7 +352,8 @@ h1.sheet-title {
 }
 
 .dynamic-rows {
-  overflow: visible !important; /* Prevent clipping of the minus button */
+  overflow: visible !important;
+  /* Prevent clipping of the minus button */
 }
 
 .skill-row:hover .remove-row-btn {
@@ -387,13 +399,17 @@ select.skill-name {
 }
 
 .skill-bonus {
-  width: 25mm; /* Widened to fit dropdown text */
+  width: 25mm;
+  /* Widened to fit dropdown text */
   text-align: center;
   border-bottom: 1px solid #ccc;
   font-weight: bold;
 }
 
-select.skill-bonus, select.skill-name, input.skill-name, input.skill-bonus {
+select.skill-bonus,
+select.skill-name,
+input.skill-name,
+input.skill-bonus {
   font-family: var(--handwritten-font);
   color: var(--handwritten-color);
   background: transparent;
@@ -401,12 +417,14 @@ select.skill-bonus, select.skill-name, input.skill-name, input.skill-bonus {
   border-bottom: 1px solid #ccc;
   cursor: pointer;
   outline: none;
-  appearance: none; /* Hide default arrow */
+  appearance: none;
+  /* Hide default arrow */
   padding: 0 4px;
 }
 
 input.skill-bonus {
-  width: 30mm; /* Slightly wider for the text */
+  width: 30mm;
+  /* Slightly wider for the text */
   text-align: center;
   font-weight: bold;
 }
@@ -421,20 +439,26 @@ select.skill-name {
   text-align: left;
 }
 
-select.skill-bonus:hover, select.skill-name:hover, input.skill-name:hover, input.skill-bonus:hover {
+select.skill-bonus:hover,
+select.skill-name:hover,
+input.skill-name:hover,
+input.skill-bonus:hover {
   background-color: rgba(0, 0, 128, 0.05);
 }
 
-select.skill-bonus option, select.skill-name option {
+select.skill-bonus option,
+select.skill-name option {
   font-family: Inter, sans-serif;
   color: #333;
   background-color: #fff;
 }
 
-select.skill-bonus optgroup, select.skill-name optgroup {
+select.skill-bonus optgroup,
+select.skill-name optgroup {
   font-family: Inter, sans-serif;
   color: #000;
-  background-color: #f0f0f0; /* Darker background for titles */
+  background-color: #f0f0f0;
+  /* Darker background for titles */
   font-style: normal;
 }
 
@@ -464,7 +488,7 @@ select.skill-bonus optgroup, select.skill-name optgroup {
   overflow-y: auto;
   background-color: #fff;
   border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 100;
   display: none;
 }
@@ -477,7 +501,8 @@ select.skill-bonus optgroup, select.skill-name optgroup {
   color: #000;
   background-color: #f0f0f0;
   padding: 4px 8px;
-  pointer-events: none; /* Can't click headers */
+  pointer-events: none;
+  /* Can't click headers */
 }
 
 .suggestion-item {
@@ -488,7 +513,8 @@ select.skill-bonus optgroup, select.skill-name optgroup {
   cursor: pointer;
 }
 
-.suggestion-item:hover, .suggestion-item.selected {
+.suggestion-item:hover,
+.suggestion-item.selected {
   background-color: rgba(0, 0, 128, 0.05);
 }
 
@@ -512,11 +538,10 @@ select.skill-bonus optgroup, select.skill-name optgroup {
 .section-box {
   position: relative;
   border: 1px solid #ccc;
-  min-height: 20mm; 
+  min-height: 20mm;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  margin-bottom: 8mm; /* Added spacing between stacked boxes */
 }
 
 .section-header {
@@ -534,12 +559,15 @@ select.skill-bonus optgroup, select.skill-name optgroup {
   padding: 8px;
   /* Font and color inherited from .editable-field */
   outline: none;
-  white-space: pre-wrap; /* Preserve formatting for free-text sections */
-  overflow-y: auto; /* Scroll if content overflows, though hidden by print usually */
+  white-space: pre-wrap;
+  /* Preserve formatting for free-text sections */
+  overflow-y: auto;
+  /* Scroll if content overflows, though hidden by print usually */
 }
 
 .section-content-structured {
-  white-space: normal; /* Reset for sections with complex HTML layout */
+  white-space: normal;
+  /* Reset for sections with complex HTML layout */
 }
 
 .section-content:focus {

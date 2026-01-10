@@ -27,10 +27,10 @@ const renderDropdown = (options, className) => `
   <select class="${className}">
     <option value=""></option>
     ${options.map(opt => {
-      const val = typeof opt === 'object' ? opt.value : opt;
-      const label = typeof opt === 'object' ? opt.label : opt;
-      return `<option value="${val}">${label}</option>`;
-    }).join('')}
+  const val = typeof opt === 'object' ? opt.value : opt;
+  const label = typeof opt === 'object' ? opt.label : opt;
+  return `<option value="${val}">${label}</option>`;
+}).join('')}
   </select>
 `
 
@@ -50,12 +50,12 @@ const renderAutocomplete = (placeholder, type, inputClass = 'skill-name') => `
 const renderDatalist = (id, options) => `
   <datalist id="${id}">
     ${options.map(opt => {
-      // Handle Grouped Options (optgroup logic flattened for datalist)
-      if (typeof opt === 'object' && opt.groupLabel && Array.isArray(opt.options)) {
-        return opt.options.map(subOpt => `<option value="${subOpt}">`).join('');
-      }
-      return `<option value="${opt}">`;
-    }).join('')}
+  // Handle Grouped Options (optgroup logic flattened for datalist)
+  if (typeof opt === 'object' && opt.groupLabel && Array.isArray(opt.options)) {
+    return opt.options.map(subOpt => `<option value="${subOpt}">`).join('');
+  }
+  return `<option value="${opt}">`;
+}).join('')}
   </datalist>
 `
 
@@ -130,7 +130,7 @@ const defensesSectionContent = `
     </div>
     ${renderSectionRow('Damage Reduction (DR)', '0', 'armor')}
     <div class="section-separator"></div>
-    ${renderSectionRow('Deflection', '0')}
+    ${renderSectionRow('Deflection', '5')}
     ${renderSectionRow('Fortitude', '0')}
     ${renderSectionRow('Will', '0')}
     <div class="section-separator"></div>

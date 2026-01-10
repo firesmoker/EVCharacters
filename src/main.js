@@ -24,6 +24,14 @@ const DRAGS_IGNORED_LIST = [
   { groupLabel: "Common Drag Sources", options: ["Two-Handed Weapons", "Ranged Weapons", "Aiming for Weak Spots", "Reach Weapons", "Heavy Weapons"] }
 ];
 
+const SPELLS_LIST = [
+  { groupLabel: "Arcane", options: ["Arcane Shield"] },
+  { groupLabel: "Bardic", options: ["Rainbow Eruption"] },
+  { groupLabel: "Divine", options: ["Divine Intervention"] },
+  { groupLabel: "Nature", options: ["Entangle"] },
+  { groupLabel: "Occult", options: ["Summon Shade"] }
+];
+
 /**
  * Renders a standard dropdown menu.
  */
@@ -84,6 +92,35 @@ const renderDragsIgnoredRow = () => `
     ${renderAutocomplete("Drag Source", "drags", "skill-name")}
     <button class="remove-row-btn" title="Remove Row">-</button>
     <button class="add-row-btn" title="Add Row">+</button>
+  </div>
+`
+
+/**
+ * Renders a row for the Spells Known section.
+ */
+const renderSpellRow = () => `
+  <div class="skill-row">
+    <div class="autocomplete-wrapper" style="flex: 0 0 12mm;">
+        <input type="text" class="skill-bonus" placeholder="Lvl" style="width: 100%; text-align: center;">
+    </div>
+    ${renderAutocomplete("Spell Name", "spells", "skill-name")}
+    <div class="autocomplete-wrapper" style="flex: 0 0 15mm;">
+        <input type="text" class="skill-bonus" placeholder="Cost" style="width: 100%; text-align: center;">
+    </div>
+    <button class="remove-row-btn" title="Remove Row">-</button>
+    <button class="add-row-btn" title="Add Row">+</button>
+  </div>
+`
+
+// Content for the Spells Known section with headings
+const spellsKnownSectionContent = `
+  <div class="skill-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
+    <div style="flex: 0 0 12mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Level</div>
+    <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Spell Name</div>
+    <div style="flex: 0 0 15mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Cost</div>
+  </div>
+  <div class="dynamic-rows">
+    ${renderSpellRow()}
   </div>
 `
 
@@ -280,6 +317,7 @@ document.querySelector('#app').innerHTML = `
             </section>
             
             <section class="sheet-column">
+              ${renderSection('Spells Known', spellsKnownSectionContent, { isStructured: true, isDynamic: true })}
             </section>
           </main>
         </div>
@@ -302,6 +340,7 @@ const updateSuggestions = (wrapper) => {
   else if (type === 'skills') list = SKILLS_LIST;
   else if (type === 'bonus') list = BONUS_LIST;
   else if (type === 'drags') list = DRAGS_IGNORED_LIST;
+  else if (type === 'spells') list = SPELLS_LIST;
 
   let html = '';
   list.forEach(group => {
@@ -406,6 +445,7 @@ document.querySelector('#app').addEventListener('click', (e) => {
       else if (title === 'Combat Skills') html = renderSkillRow('combat');
       else if (title === 'Speed') html = renderDragsIgnoredRow();
       else if (title === 'Main Actions') html = renderMainAction();
+      else if (title === 'Spells Known') html = renderSpellRow();
 
       if (html) {
         const tempDiv = document.createElement('div');

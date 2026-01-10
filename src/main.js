@@ -81,7 +81,7 @@ document.querySelector('#app').innerHTML = `
                   </div>
                   <div style="display: flex; align-items: center; border-bottom: 1px solid #ccc; padding-bottom: 4px;">
                     <div style="display: flex; align-items: center; margin-right: 8px;">
-                      <img src="/icons/shield.svg" width="18" height="18" alt="Shield Icon">
+                      <img src="/icons/armor.svg" width="18" height="18" alt="Armor Icon">
                     </div>
                     <span style="font-size: 11px; color: #666; font-family: Inter, sans-serif; text-transform: uppercase; margin-right: 8px; font-weight: bold; white-space: nowrap;">Damage Reduction (DR):</span>
                     <span class="editable-field" contenteditable="true" style="flex-grow: 1; font-size: 20px; padding-left: 5px;"></span>

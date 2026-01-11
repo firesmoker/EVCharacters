@@ -588,13 +588,13 @@ const saveToCSV = () => {
       pushRow('CHECKBOX', title, label, checked ? 'true' : 'false');
     });
 
-    // Simple editable fields inside structured sections (excluding dynamic rows and header fields)
-    box.querySelectorAll('.section-row-editable, .editable-field:not(.dynamic-rows *):not([data-sync-id])').forEach(field => {
+    // Simple editable fields inside structured sections (excluding dynamic rows, header fields, and hp-split children)
+    box.querySelectorAll('.section-row-editable, .editable-field:not(.dynamic-rows *):not([data-sync-id]):not(.hp-split *)').forEach(field => {
        const labelEl = field.previousElementSibling;
        if (labelEl && labelEl.classList.contains('section-label')) {
          pushRow('FIELD', title, labelEl.innerText.replace(':', '').trim(), field.innerText);
-       } else if (field.hasAttribute('data-placeholder')) {
-         pushRow('FREEFIELD', title, field.getAttribute('data-placeholder'), field.innerText);
+       } else if (field.classList.contains('section-content')) {
+         pushRow('SECTION_BODY', title, 'CONTENT', field.innerText);
        }
     });
 
@@ -717,10 +717,10 @@ const loadFromCSV = (csv) => {
           });
         }
       });
-    } else if (type === 'FREEFIELD') {
+    } else if (type === 'SECTION_BODY') {
         document.querySelectorAll('.section-box').forEach(box => {
           if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
-            const field = box.querySelector(`.editable-field[data-placeholder="${values[0]}"]`);
+            const field = box.querySelector('.section-content.editable-field');
             if (field) field.innerText = values[1];
           }
         });

@@ -328,7 +328,7 @@ const renderMainAction = () => `
 // Render the application
 document.querySelector('#app').innerHTML = `
   <div class="top-bar">
-    <div class="menu-item">File<div class="dropdown-content"><div>New</div><div>Open</div><div>Save</div></div></div>
+    <div class="menu-item">File<div class="dropdown-content"><div>New</div><div>Open</div><div>Save</div><div id="export-pdf">Export to PDF</div></div></div>
     <div class="menu-item">Edit<div class="dropdown-content"><div>Undo</div><div>Redo</div></div></div>
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
   </div>
@@ -518,6 +518,11 @@ document.querySelector('#app').addEventListener('click', (e) => {
   if (e.target.classList.contains('remove-row-btn')) {
     const target = e.target.closest('.skill-row') || e.target.closest('.main-action-container');
     if (target) target.remove();
+  }
+
+  // Export to PDF
+  if (e.target.id === 'export-pdf') {
+    window.print();
   }
 });
 

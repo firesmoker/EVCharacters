@@ -480,15 +480,6 @@ select.skill-name optgroup {
   font-style: normal;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: #ccc;
-  font-style: normal;
-  font-family: inherit;
-  font-size: inherit;
-  opacity: 1;
-}
-
 /* Shared Handwritten Style */
 .editable-field {
   font-family: var(--handwritten-font);
@@ -559,6 +550,15 @@ textarea::placeholder {
 
 .editable-field:focus {
   background-color: rgba(0, 0, 128, 0.05);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ccc;
+  font-style: normal;
+  font-family: inherit;
+  font-size: inherit;
+  opacity: 1;
 }
 
 /* Section Boxes */
@@ -1081,4 +1081,74 @@ textarea::placeholder {
 
 
 
+}
+
+/* Print Styling for Export to PDF */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body, html {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    background-color: white;
+  }
+
+  #app {
+    display: block;
+    height: auto;
+    overflow: visible;
+  }
+
+  .top-bar {
+    display: none !important;
+  }
+
+  .main-area {
+    overflow: visible;
+    background-color: white;
+    height: auto;
+    display: block;
+  }
+
+  .editor-canvas {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .a4-page {
+    box-shadow: none;
+    border: none;
+    margin: 0;
+    page-break-after: always;
+    width: 100%;
+    height: 297mm;
+    /* Ensure exact A4 height for paging */
+    overflow: hidden;
+  }
+
+  .a4-page:last-child {
+    page-break-after: auto;
+  }
+
+  /* Hide interactive elements */
+  .add-row-btn,
+  .remove-row-btn {
+    display: none !important;
+  }
+
+  /* Force background colors */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 }

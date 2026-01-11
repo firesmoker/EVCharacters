@@ -347,12 +347,12 @@ document.querySelector('#app').innerHTML = `
             <section class="sheet-column">
               ${renderSection('Defenses', defensesSectionContent, { isStructured: true })}
               ${renderSection('Speed', speedSectionContent, { isStructured: true, isDynamic: true })}
-              ${renderSection('Combat Skills', renderSkillRow('combat'), { isStructured: true, isDynamic: true })}
-              ${renderSection('Standard Skills', renderSkillRow('skills'), { isStructured: true, isDynamic: true })}
+              ${renderSection('Combat Skills', `<div class="dynamic-rows">${renderSkillRow('combat')}</div>`, { isStructured: true, isDynamic: true })}
+              ${renderSection('Standard Skills', `<div class="dynamic-rows">${renderSkillRow('skills')}</div>`, { isStructured: true, isDynamic: true })}
             </section>
             
             <section class="sheet-column">
-              ${renderSection('Main Actions', renderMainAction(), { isStructured: true, isDynamic: true })}
+              ${renderSection('Main Actions', `<div class="dynamic-rows">${renderMainAction()}</div>`, { isStructured: true, isDynamic: true })}
               ${renderSection('Features', '')}
             </section>
           </main>
@@ -613,6 +613,8 @@ const saveToCSV = () => {
     box.querySelectorAll('.skill-row, .main-action-container').forEach(row => {
       if (row.classList.contains('skill-row')) {
         const inputs = Array.from(row.querySelectorAll('input'));
+        // Skip header rows or rows with no inputs
+        if (inputs.length === 0) return;
         const values = inputs.map(i => i.value);
         pushRow('DYNAMIC_SKILL', title, ...values);
       } else if (row.classList.contains('main-action-container')) {
@@ -655,9 +657,13 @@ document.getElementById('file-input').addEventListener('change', (e) => {
 });
 
 const loadFromCSV = (csv) => {
-  // Clear existing dynamic rows
+  // Clear existing dynamic rows first
+  // Robustness: Only clear dynamic containers that are NOT the main section content wrapper.
+  // This preserves static structure in sections like "Speed" that have mixed content.
   document.querySelectorAll('.dynamic-rows').forEach(container => {
-    container.innerHTML = '';
+    if (!container.classList.contains('section-content')) {
+      container.innerHTML = '';
+    }
   });
 
   // Robust CSV Parser
@@ -753,15 +759,21 @@ const loadFromCSV = (csv) => {
           else if (title === 'Speed') html = renderDragsIgnoredRow();
           else if (title === 'Spells Known') html = renderSpellRow();
           
-          if (html) {
+          if (html && values.length > 0) {
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = html;
             const newRow = tempDiv.firstElementChild;
             const inputs = newRow.querySelectorAll('input');
             values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
-            // For nested dynamic rows, we need to find the innermost .dynamic-rows
-            const targetContainer = container.classList.contains('dynamic-rows') ? container : container.querySelector('.dynamic-rows');
-            if (targetContainer) targetContainer.appendChild(newRow);
+            
+            // Precise container targeting
+            // If the main container has a nested .dynamic-rows (like Speed), use that.
+            // Otherwise use the main container itself.
+            let targetContainer = container;
+            const nested = container.querySelector('.dynamic-rows');
+            if (nested) targetContainer = nested;
+
+            targetContainer.appendChild(newRow);
           }
         }
       });

@@ -169,11 +169,12 @@ body {
 }
 
 .header-label {
-  font-size: 11px;
+  font-size: 14px;
   color: #666;
-  margin-right: 4px;
+  margin-right: 8px;
   font-weight: bold;
   text-transform: uppercase;
+  font-family: 'Crimson Pro', serif;
 }
 
 h1.sheet-title {
@@ -211,21 +212,23 @@ h1.sheet-title {
 }
 
 .section-label {
-  font-size: 11px;
+  font-size: 12px;
   color: #666;
-  text-transform: uppercase;
-  margin-right: 8px;
+  margin-right: 4px;
   font-weight: bold;
   white-space: nowrap;
+  font-family: 'Gentium Plus', serif;
+  font-variant: small-caps;
 }
 
 .section-subsection-label {
-  font-size: 10px;
-  color: #888;
-  text-transform: uppercase;
+  font-size: 12px;
+  color: #666;
   font-weight: bold;
   margin-top: 4px;
   margin-bottom: 2px;
+  font-family: 'Gentium Plus', serif;
+  font-variant: small-caps;
 }
 
 .checkbox-group {
@@ -582,6 +585,7 @@ textarea::placeholder {
   color: #333;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+  font-family: 'Crimson Pro', serif;
 }
 
 .section-content {
@@ -790,73 +794,24 @@ textarea::placeholder {
 
 
 .main-action-table tr:first-child td {
-
-
-
-  font-family: Inter, sans-serif;
-
-
-
+  font-family: 'Gentium Plus', serif;
   font-weight: bold;
-
-
-
-  font-size: 10px;
-
-
-
-  text-transform: uppercase;
-
-
-
+  font-size: 11px;
+  text-transform: none;
+  font-variant: small-caps;
   color: #666;
-
-
-
   background-color: #f9f9f9;
-
-
-
 }
 
-
-
-
-
-
-
 .main-action-table td:first-child {
-
-
-
-  font-family: Inter, sans-serif;
-
-
-
+  font-family: 'Gentium Plus', serif;
   font-weight: bold;
-
-
-
-  font-size: 10px;
-
-
-
-  text-transform: uppercase;
-
-
-
+  font-size: 11px;
+  text-transform: none;
+  font-variant: small-caps;
   color: #666;
-
-
-
   text-align: left;
-
-
-
   padding-left: 4px;
-
-
-
 }
 
 

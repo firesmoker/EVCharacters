@@ -328,7 +328,8 @@ const renderMainAction = () => `
 // Render the application
 document.querySelector('#app').innerHTML = `
   <div class="top-bar">
-    <div class="menu-item">File<div class="dropdown-content"><div>New</div><div>Open</div><div>Save</div><div id="export-pdf">Export to PDF</div></div></div>
+    <div class="menu-item">File<div class="dropdown-content"><div id="menu-new">New</div><div id="menu-open">Open</div><div id="menu-save">Save</div><div id="export-pdf">Export to PDF</div></div></div>
+    <input type="file" id="file-input" style="display: none;" accept=".csv">
     <div class="menu-item">Edit<div class="dropdown-content"><div>Undo</div><div>Redo</div></div></div>
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
   </div>
@@ -524,7 +525,279 @@ document.querySelector('#app').addEventListener('click', (e) => {
   if (e.target.id === 'export-pdf') {
     window.print();
   }
+
+  // Save to CSV
+  if (e.target.id === 'menu-save') {
+    saveToCSV();
+  }
+
+  // Open CSV
+  if (e.target.id === 'menu-open') {
+    document.getElementById('file-input').click();
+  }
+
+  // New Sheet
+  if (e.target.id === 'menu-new') {
+    if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {
+      // Clear headers and fields
+      document.querySelectorAll('.editable-field').forEach(el => el.innerText = '');
+      // Clear checkboxes
+      document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+      // Purge dynamic rows
+      document.querySelectorAll('.dynamic-rows').forEach(container => {
+        container.innerHTML = '';
+      });
+      // Restore placeholders
+      document.querySelectorAll('.editable-field').forEach(el => {
+        if (el.innerText.trim() === '') el.replaceChildren();
+      });
+    }
+  }
 });
+
+/**
+ * CSV SAVE LOGIC
+ */
+const saveToCSV = () => {
+  const data = [];
+
+  // Helper to push rows
+  const pushRow = (type, key, ...values) => {
+    const escapedValues = values.map(v => `"${(v || '').toString().replace(/"/g, '""')}"`);
+    data.push([type, key, ...escapedValues].join(','));
+  };
+
+  // 1. Headers (data-sync-id)
+  const uniqueSyncIds = new Set();
+  document.querySelectorAll('[data-sync-id]').forEach(el => {
+    const id = el.getAttribute('data-sync-id');
+    if (!uniqueSyncIds.has(id)) {
+      pushRow('HEADER', id, el.innerText);
+      uniqueSyncIds.add(id);
+    }
+  });
+
+  // 2. Structured Sections (Defenses, Speed, etc.)
+  document.querySelectorAll('.section-box').forEach(box => {
+    const title = box.querySelector('.section-header').textContent.trim();
+    
+    // Checkboxes
+    box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
+      const label = item.innerText.trim() || `index-${idx}`;
+      const checked = item.querySelector('input').checked;
+      pushRow('CHECKBOX', title, label, checked ? 'true' : 'false');
+    });
+
+    // Simple editable fields inside structured sections (excluding dynamic rows and header fields)
+    box.querySelectorAll('.section-row-editable, .editable-field:not(.dynamic-rows *):not([data-sync-id])').forEach(field => {
+       const labelEl = field.previousElementSibling;
+       if (labelEl && labelEl.classList.contains('section-label')) {
+         pushRow('FIELD', title, labelEl.innerText.replace(':', '').trim(), field.innerText);
+       } else if (field.hasAttribute('data-placeholder')) {
+         pushRow('FREEFIELD', title, field.getAttribute('data-placeholder'), field.innerText);
+       }
+    });
+
+    // HP-style split fields
+    box.querySelectorAll('.hp-split').forEach(split => {
+      const labelEl = split.previousElementSibling;
+      if (labelEl && labelEl.classList.contains('section-label')) {
+        const label = labelEl.innerText.replace(':', '').trim();
+        const cur = split.children[0].innerText;
+        const max = split.children[2].innerText;
+        pushRow('SPLITFIELD', title, label, cur, max);
+      }
+    });
+
+    // Dynamic Rows (reaches nested ones like in Speed section)
+    box.querySelectorAll('.skill-row, .main-action-container').forEach(row => {
+      if (row.classList.contains('skill-row')) {
+        const inputs = Array.from(row.querySelectorAll('input'));
+        const values = inputs.map(i => i.value);
+        pushRow('DYNAMIC_SKILL', title, ...values);
+      } else if (row.classList.contains('main-action-container')) {
+        const titleVal = row.querySelector('.main-action-title').innerText;
+        const subtitleVal = row.querySelector('.main-action-subtitle').innerText;
+        const details = Array.from(row.querySelectorAll('.main-action-text')).map(t => t.innerText);
+        const tableVals = Array.from(row.querySelectorAll('.main-action-table td[contenteditable]')).map(td => td.innerText);
+        pushRow('DYNAMIC_ACTION', title, titleVal, subtitleVal, ...details, ...tableVals);
+      }
+    });
+  });
+
+  const csvContent = data.join('\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  const charName = document.querySelector('[data-sync-id="character-name"]').innerText.trim() || 'character';
+  link.setAttribute('href', url);
+  link.setAttribute('download', `${charName.replace(/[^a-z0-9]/gi, '_')}.csv`);
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+/**
+ * CSV OPEN LOGIC
+ */
+document.getElementById('file-input').addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    const csv = event.target.result;
+    loadFromCSV(csv);
+  };
+  reader.readAsText(file);
+  e.target.value = ''; // Reset input
+});
+
+const loadFromCSV = (csv) => {
+  // Clear existing dynamic rows
+  document.querySelectorAll('.dynamic-rows').forEach(container => {
+    container.innerHTML = '';
+  });
+
+  // Robust CSV Parser
+  const parseCSV = (text) => {
+    const rows = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      const nextChar = text[i+1];
+      if (inQuotes) {
+        if (char === '"') {
+          if (nextChar === '"') { field += '"'; i++; }
+          else { inQuotes = false; }
+        } else { field += char; }
+      } else {
+        if (char === '"') { inQuotes = true; }
+        else if (char === ',') { row.push(field); field = ''; }
+        else if (char === '\n' || char === '\r') {
+          row.push(field); rows.push(row); field = ''; row = [];
+          if (char === '\r' && nextChar === '\n') i++;
+        } else { field += char; }
+      }
+    }
+    if (field || row.length > 0) { row.push(field); rows.push(row); }
+    return rows;
+  };
+
+  const rows = parseCSV(csv);
+  rows.forEach(parts => {
+    if (parts.length < 2) return;
+    const [type, category, ...values] = parts;
+
+    if (type === 'HEADER') {
+      document.querySelectorAll(`[data-sync-id="${category}"]`).forEach(el => el.innerText = values[0]);
+    } else if (type === 'CHECKBOX') {
+      document.querySelectorAll('.section-box').forEach(box => {
+        if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
+          box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
+            const label = item.innerText.trim() || `index-${idx}`;
+            if (label.toUpperCase() === values[0].toUpperCase()) {
+              item.querySelector('input').checked = values[1] === 'true';
+            }
+          });
+        }
+      });
+    } else if (type === 'FIELD') {
+      document.querySelectorAll('.section-box').forEach(box => {
+        if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
+          box.querySelectorAll('.section-row').forEach(row => {
+            const label = row.querySelector('.section-label');
+            if (label && label.innerText.replace(':', '').trim().toUpperCase() === values[0].toUpperCase()) {
+              const field = row.querySelector('.editable-field');
+              if (field) field.innerText = values[1];
+            }
+          });
+        }
+      });
+    } else if (type === 'FREEFIELD') {
+        document.querySelectorAll('.section-box').forEach(box => {
+          if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
+            const field = box.querySelector(`.editable-field[data-placeholder="${values[0]}"]`);
+            if (field) field.innerText = values[1];
+          }
+        });
+    } else if (type === 'SPLITFIELD') {
+      document.querySelectorAll('.section-box').forEach(box => {
+        if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
+          box.querySelectorAll('.section-row').forEach(row => {
+            const label = row.querySelector('.section-label');
+            if (label && label.innerText.replace(':', '').trim().toUpperCase() === values[0].toUpperCase()) {
+              const split = row.querySelector('.hp-split');
+              if (split) {
+                split.children[0].innerText = values[1];
+                split.children[2].innerText = values[2];
+              }
+            }
+          });
+        }
+      });
+    } else if (type === 'DYNAMIC_SKILL') {
+      document.querySelectorAll('.section-box').forEach(box => {
+        const title = box.querySelector('.section-header').textContent.trim();
+        if (title.toUpperCase() === category.toUpperCase()) {
+          // Find the appropriate dynamic container (handles nested ones like in Speed)
+          const container = box.querySelector('.dynamic-rows') || box.querySelector('.section-content');
+          if (!container) return;
+          
+          let html = '';
+          if (title === 'Standard Skills') html = renderSkillRow('skills');
+          else if (title === 'Combat Skills') html = renderSkillRow('combat');
+          else if (title === 'Speed') html = renderDragsIgnoredRow();
+          else if (title === 'Spells Known') html = renderSpellRow();
+          
+          if (html) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const newRow = tempDiv.firstElementChild;
+            const inputs = newRow.querySelectorAll('input');
+            values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
+            // For nested dynamic rows, we need to find the innermost .dynamic-rows
+            const targetContainer = container.classList.contains('dynamic-rows') ? container : container.querySelector('.dynamic-rows');
+            if (targetContainer) targetContainer.appendChild(newRow);
+          }
+        }
+      });
+    } else if (type === 'DYNAMIC_ACTION') {
+      document.querySelectorAll('.section-box').forEach(box => {
+        const title = box.querySelector('.section-header').textContent.trim();
+        if (title.toUpperCase() === category.toUpperCase() && title === 'Main Actions') {
+          const container = box.querySelector('.dynamic-rows');
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = renderMainAction();
+          const newRow = tempDiv.firstElementChild;
+          
+          newRow.querySelector('.main-action-title').innerText = values[0];
+          newRow.querySelector('.main-action-subtitle').innerText = values[1];
+          
+          const texts = newRow.querySelectorAll('.main-action-text');
+          if (texts[0]) texts[0].innerText = values[2];
+          if (texts[1]) texts[1].innerText = values[3];
+          
+          const tds = newRow.querySelectorAll('.main-action-table td[contenteditable]');
+          values.slice(4).forEach((val, i) => { if (tds[i]) tds[i].innerText = val; });
+          
+          container.appendChild(newRow);
+        }
+      });
+    }
+  });
+
+  // Final cleanup: Restore placeholders for empty fields
+  document.querySelectorAll('.editable-field').forEach(el => {
+    if (el.innerText.trim() === '') {
+      el.innerText = '';
+      el.replaceChildren();
+    }
+  });
+};
 
 // Close dropdowns on mouse press
 document.querySelector('#app').addEventListener('mousedown', (e) => {

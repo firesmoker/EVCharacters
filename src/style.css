@@ -1146,6 +1146,14 @@ textarea::placeholder {
     display: none !important;
   }
 
+  /* Hide placeholders in print */
+  .editable-field::before,
+  input::placeholder,
+  textarea::placeholder {
+    content: none !important;
+    color: transparent !important;
+  }
+
   /* Force background colors */
   * {
     -webkit-print-color-adjust: exact !important;

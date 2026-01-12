@@ -2,7 +2,8 @@ import {
   renderSkillRow, 
   renderDragsIgnoredRow, 
   renderMainAction, 
-  renderSpellRow 
+  renderSpellRow,
+  renderRowForSection
 } from './components.js';
 
 /**
@@ -24,12 +25,7 @@ export const prepareSheetForData = (restoreDefaults = false) => {
       const sectionBox = container.closest('.section-box');
       if (sectionBox) {
         const title = sectionBox.querySelector('.section-header').textContent.trim();
-        let html = '';
-        if (title === 'Standard Skills') html = renderSkillRow('skills');
-        else if (title === 'Combat Skills') html = renderSkillRow('combat');
-        else if (title === 'Speed') html = renderDragsIgnoredRow();
-        else if (title === 'Main Actions') html = renderMainAction();
-        else if (title === 'Spells Known') html = renderSpellRow();
+        const html = renderRowForSection(title);
         
         if (html) {
           const tempDiv = document.createElement('div');
@@ -245,11 +241,7 @@ export const loadFromCSV = (csv) => {
         const container = box.querySelector('.dynamic-rows');
         if (!container) return;
         
-        let html = '';
-        if (title === 'Standard Skills') html = renderSkillRow('skills');
-        else if (title === 'Combat Skills') html = renderSkillRow('combat');
-        else if (title === 'Speed') html = renderDragsIgnoredRow();
-        else if (title === 'Spells Known') html = renderSpellRow();
+        const html = renderRowForSection(title);
         
         if (html && values.length > 0) {
           const tempDiv = document.createElement('div');

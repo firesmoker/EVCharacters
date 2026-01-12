@@ -43,7 +43,10 @@ const updateSuggestions = (wrapper) => {
 
 const isAutocompleteInput = (el) => el.tagName === 'INPUT' && (el.classList.contains('skill-name') || el.classList.contains('skill-bonus'));
 
-document.querySelector('#app').addEventListener('input', (e) => {
+/**
+ * Global Input Handler
+ */
+const handleInput = (e) => {
   // Contenteditable cleanup
   if (e.target.classList.contains('editable-field')) {
     if (e.target.innerHTML === '<br>' || e.target.innerText === '\n' || e.target.innerText.trim() === '') {
@@ -66,7 +69,68 @@ document.querySelector('#app').addEventListener('input', (e) => {
   if (isAutocompleteInput(e.target)) {
     updateSuggestions(e.target.closest('.autocomplete-wrapper'));
   }
-});
+};
+
+/**
+ * Global Click Handler
+ */
+const handleClick = (e) => {
+  // Suggestion Item Click
+  if (e.target.classList.contains('suggestion-item')) {
+    const wrapper = e.target.closest('.autocomplete-wrapper');
+    const input = wrapper.querySelector('input');
+    input.value = e.target.innerText;
+    wrapper.querySelector('.suggestions-dropdown').style.display = 'none';
+    return;
+  }
+
+  // Add Row
+  if (e.target.classList.contains('add-row-btn')) {
+    const sectionBox = e.target.closest('.section-box');
+    const title = sectionBox.querySelector('.section-header').textContent.trim();
+    const container = e.target.closest('.dynamic-rows');
+    if (container) {
+      const rowTemplates = {
+        'Standard Skills': () => renderSkillRow('skills'),
+        'Combat Skills': () => renderSkillRow('combat'),
+        'Speed': () => renderDragsIgnoredRow(),
+        'Main Actions': () => renderMainAction(),
+        'Spells Known': () => renderSpellRow()
+      };
+
+      const getHtml = rowTemplates[title];
+      if (getHtml) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = getHtml();
+        container.appendChild(tempDiv.firstElementChild);
+      }
+    }
+  }
+
+  // Remove Row
+  if (e.target.classList.contains('remove-row-btn')) {
+    const target = e.target.closest('.skill-row') || e.target.closest('.main-action-container');
+    if (target) target.remove();
+  }
+
+  // Menu Handlers
+  const menuActions = {
+    'export-pdf': () => window.print(),
+    'menu-save': () => saveToCSV(),
+    'menu-open': () => document.getElementById('file-input').click(),
+    'menu-new': () => {
+      if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {
+        prepareSheetForData(true);
+      }
+    }
+  };
+
+  if (menuActions[e.target.id]) {
+    menuActions[e.target.id]();
+  }
+};
+
+document.querySelector('#app').addEventListener('input', handleInput);
 
 document.querySelector('#app').addEventListener('focusin', (e) => {
   if (isAutocompleteInput(e.target)) {
@@ -124,65 +188,7 @@ document.querySelector('#app').addEventListener('change', (e) => {
   }
 });
 
-document.querySelector('#app').addEventListener('click', (e) => {
-  // Suggestion Item Click
-  if (e.target.classList.contains('suggestion-item')) {
-    const wrapper = e.target.closest('.autocomplete-wrapper');
-    const input = wrapper.querySelector('input');
-    input.value = e.target.innerText;
-    wrapper.querySelector('.suggestions-dropdown').style.display = 'none';
-    return;
-  }
-
-  // Add Row
-  if (e.target.classList.contains('add-row-btn')) {
-    const sectionBox = e.target.closest('.section-box');
-    const title = sectionBox.querySelector('.section-header').textContent.trim();
-    const container = e.target.closest('.dynamic-rows');
-    if (container) {
-      let html = '';
-      if (title === 'Standard Skills') html = renderSkillRow('skills');
-      else if (title === 'Combat Skills') html = renderSkillRow('combat');
-      else if (title === 'Speed') html = renderDragsIgnoredRow();
-      else if (title === 'Main Actions') html = renderMainAction();
-      else if (title === 'Spells Known') html = renderSpellRow();
-
-      if (html) {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = html;
-        container.appendChild(tempDiv.firstElementChild);
-      }
-    }
-  }
-
-  // Remove Row
-  if (e.target.classList.contains('remove-row-btn')) {
-    const target = e.target.closest('.skill-row') || e.target.closest('.main-action-container');
-    if (target) target.remove();
-  }
-
-  // Export to PDF
-  if (e.target.id === 'export-pdf') {
-    window.print();
-  }
-
-  // Save to CSV
-  if (e.target.id === 'menu-save') {
-    saveToCSV();
-  }
-
-  // Open CSV
-  if (e.target.id === 'menu-open') {
-    document.getElementById('file-input').click();
-  }
-
-  // New Sheet
-  if (e.target.id === 'menu-new') {
-    if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {
-      prepareSheetForData(true);
-    }
-  }
-});
+document.querySelector('#app').addEventListener('click', handleClick);
 
 // Close dropdowns on mouse press
 document.querySelector('#app').addEventListener('mousedown', (e) => {

@@ -353,3 +353,17 @@ export const renderApp = () => {
   </div>
 `
 };
+
+/**
+ * Returns the HTML for a new row based on the section title.
+ */
+export const renderRowForSection = (title) => {
+  const templates = {
+    'Standard Skills': () => renderSkillRow('skills'),
+    'Combat Skills': () => renderSkillRow('combat'),
+    'Speed': () => renderDragsIgnoredRow(),
+    'Main Actions': () => renderMainAction(),
+    'Spells Known': () => renderSpellRow()
+  };
+  return templates[title] ? templates[title]() : null;
+};

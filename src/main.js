@@ -1,6 +1,6 @@
 import './style.css'
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
-import { renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, renderSpellRow } from './components.js';
+import { renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, renderSpellRow, renderRowForSection } from './components.js';
 import { saveToCSV, loadFromCSV, prepareSheetForData } from './io.js';
 
 // Initial Render
@@ -90,18 +90,10 @@ const handleClick = (e) => {
     const title = sectionBox.querySelector('.section-header').textContent.trim();
     const container = e.target.closest('.dynamic-rows');
     if (container) {
-      const rowTemplates = {
-        'Standard Skills': () => renderSkillRow('skills'),
-        'Combat Skills': () => renderSkillRow('combat'),
-        'Speed': () => renderDragsIgnoredRow(),
-        'Main Actions': () => renderMainAction(),
-        'Spells Known': () => renderSpellRow()
-      };
-
-      const getHtml = rowTemplates[title];
-      if (getHtml) {
+      const html = renderRowForSection(title);
+      if (html) {
         const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = getHtml();
+        tempDiv.innerHTML = html;
         container.appendChild(tempDiv.firstElementChild);
       }
     }

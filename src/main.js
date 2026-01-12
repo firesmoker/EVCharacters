@@ -137,7 +137,7 @@ const renderSectionRow = (label, placeholder, icon = null) => `
 
 // Content for the Spells Known section with headings
 const spellsKnownSectionContent = `
-  <div class="skill-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
+  <div class="skill-header-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
     <div style="flex: 0 0 12mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Level</div>
     <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Spell Name</div>
     <div style="flex: 0 0 15mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Cost</div>
@@ -642,8 +642,6 @@ const saveToCSV = () => {
     box.querySelectorAll('.skill-row, .main-action-container').forEach(row => {
       if (row.classList.contains('skill-row')) {
         const inputs = Array.from(row.querySelectorAll('input'));
-        // Skip header rows or rows with no inputs
-        if (inputs.length === 0) return;
         const values = inputs.map(i => i.value);
         pushRow('DYNAMIC_SKILL', title, ...values);
       } else if (row.classList.contains('main-action-container')) {

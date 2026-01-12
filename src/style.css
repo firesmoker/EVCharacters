@@ -299,7 +299,8 @@ h1.sheet-title {
 }
 
 /* Skill Section Styles */
-.skill-row {
+.skill-row,
+.skill-header-row {
   display: flex;
   align-items: baseline;
   gap: 8px;

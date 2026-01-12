@@ -46,6 +46,66 @@ export const prepareSheetForData = (restoreDefaults = false) => {
   });
 };
 
+const scrapeHeaders = (pushRow) => {
+  const uniqueSyncIds = new Set();
+  document.querySelectorAll('[data-sync-id]').forEach(el => {
+    const id = el.getAttribute('data-sync-id');
+    if (!uniqueSyncIds.has(id)) {
+      pushRow('HEADER', id, el.innerText);
+      uniqueSyncIds.add(id);
+    }
+  });
+};
+
+const scrapeCheckboxes = (box, title, pushRow) => {
+  box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
+    const label = item.innerText.trim() || `index-${idx}`;
+    const checked = item.querySelector('input').checked;
+    pushRow('CHECKBOX', title, label, checked ? 'true' : 'false');
+  });
+};
+
+const scrapeFields = (box, title, pushRow) => {
+  box.querySelectorAll('.section-row-editable, .editable-field:not(.dynamic-rows *):not([data-sync-id]):not(.hp-split *)').forEach(field => {
+    const labelEl = field.previousElementSibling;
+    if (labelEl && labelEl.classList.contains('section-label')) {
+      pushRow('FIELD', title, labelEl.innerText.replace(':', '').trim(), field.innerText);
+    } else if (field.classList.contains('section-content')) {
+      pushRow('SECTION_BODY', title, 'CONTENT', field.innerText);
+    }
+  });
+};
+
+const scrapeSplitFields = (box, title, pushRow) => {
+  box.querySelectorAll('.hp-split').forEach(split => {
+    const labelEl = split.previousElementSibling;
+    if (labelEl && labelEl.classList.contains('section-label')) {
+      const label = labelEl.innerText.replace(':', '').trim();
+      const cur = split.children[0].innerText;
+      const max = split.children[2].innerText;
+      pushRow('SPLITFIELD', title, label, cur, max);
+    }
+  });
+};
+
+const scrapeDynamicRows = (box, title, pushRow) => {
+  box.querySelectorAll('.skill-row, .main-action-container').forEach(row => {
+    if (row.classList.contains('skill-row')) {
+      const inputs = Array.from(row.querySelectorAll('input'));
+      // Skip header rows or rows with no inputs
+      if (inputs.length === 0) return;
+      const values = inputs.map(i => i.value);
+      pushRow('DYNAMIC_SKILL', title, ...values);
+    } else if (row.classList.contains('main-action-container')) {
+      const titleVal = row.querySelector('.main-action-title').innerText;
+      const subtitleVal = row.querySelector('.main-action-subtitle').innerText;
+      const details = Array.from(row.querySelectorAll('.main-action-text')).map(t => t.innerText);
+      const tableVals = Array.from(row.querySelectorAll('.main-action-table td[contenteditable]')).map(td => td.innerText);
+      pushRow('DYNAMIC_ACTION', title, titleVal, subtitleVal, ...details, ...tableVals);
+    }
+  });
+};
+
 /**
  * CSV SAVE LOGIC
  */
@@ -59,63 +119,16 @@ export const saveToCSV = () => {
   };
 
   // 1. Headers (data-sync-id)
-  const uniqueSyncIds = new Set();
-  document.querySelectorAll('[data-sync-id]').forEach(el => {
-    const id = el.getAttribute('data-sync-id');
-    if (!uniqueSyncIds.has(id)) {
-      pushRow('HEADER', id, el.innerText);
-      uniqueSyncIds.add(id);
-    }
-  });
+  scrapeHeaders(pushRow);
 
   // 2. Structured Sections (Defenses, Speed, etc.)
   document.querySelectorAll('.section-box').forEach(box => {
     const title = box.querySelector('.section-header').textContent.trim();
     
-    // Checkboxes
-    box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
-      const label = item.innerText.trim() || `index-${idx}`;
-      const checked = item.querySelector('input').checked;
-      pushRow('CHECKBOX', title, label, checked ? 'true' : 'false');
-    });
-
-    // Simple editable fields inside structured sections (excluding dynamic rows, header fields, and hp-split children)
-    box.querySelectorAll('.section-row-editable, .editable-field:not(.dynamic-rows *):not([data-sync-id]):not(.hp-split *)').forEach(field => {
-       const labelEl = field.previousElementSibling;
-       if (labelEl && labelEl.classList.contains('section-label')) {
-         pushRow('FIELD', title, labelEl.innerText.replace(':', '').trim(), field.innerText);
-       } else if (field.classList.contains('section-content')) {
-         pushRow('SECTION_BODY', title, 'CONTENT', field.innerText);
-       }
-    });
-
-    // HP-style split fields
-    box.querySelectorAll('.hp-split').forEach(split => {
-      const labelEl = split.previousElementSibling;
-      if (labelEl && labelEl.classList.contains('section-label')) {
-        const label = labelEl.innerText.replace(':', '').trim();
-        const cur = split.children[0].innerText;
-        const max = split.children[2].innerText;
-        pushRow('SPLITFIELD', title, label, cur, max);
-      }
-    });
-
-    // Dynamic Rows (reaches nested ones like in Speed section)
-    box.querySelectorAll('.skill-row, .main-action-container').forEach(row => {
-      if (row.classList.contains('skill-row')) {
-        const inputs = Array.from(row.querySelectorAll('input'));
-        // Skip header rows or rows with no inputs
-        if (inputs.length === 0) return;
-        const values = inputs.map(i => i.value);
-        pushRow('DYNAMIC_SKILL', title, ...values);
-      } else if (row.classList.contains('main-action-container')) {
-        const titleVal = row.querySelector('.main-action-title').innerText;
-        const subtitleVal = row.querySelector('.main-action-subtitle').innerText;
-        const details = Array.from(row.querySelectorAll('.main-action-text')).map(t => t.innerText);
-        const tableVals = Array.from(row.querySelectorAll('.main-action-table td[contenteditable]')).map(td => td.innerText);
-        pushRow('DYNAMIC_ACTION', title, titleVal, subtitleVal, ...details, ...tableVals);
-      }
-    });
+    scrapeCheckboxes(box, title, pushRow);
+    scrapeFields(box, title, pushRow);
+    scrapeSplitFields(box, title, pushRow);
+    scrapeDynamicRows(box, title, pushRow);
   });
 
   const csvContent = data.join('\n');

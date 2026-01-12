@@ -382,6 +382,10 @@ h1.sheet-title {
   /* Prevent clipping of the minus button */
 }
 
+.allow-section-overflow {
+  overflow: visible !important;
+}
+
 .skill-row:hover .remove-row-btn,
 .main-action-container:hover .remove-row-btn {
   opacity: 1;

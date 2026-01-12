@@ -203,7 +203,7 @@ const renderSection = (title, content, options = {}) => {
   const contentClasses = [
     'section-content',
     isStructured ? 'section-content-structured' : 'editable-field',
-    isDynamic ? 'dynamic-rows' : ''
+    isDynamic ? 'allow-section-overflow' : ''
   ].filter(Boolean).join(' ');
 
   return `
@@ -552,31 +552,27 @@ const prepareSheetForData = (restoreDefaults = false) => {
   document.querySelectorAll('.editable-field').forEach(el => el.innerText = '');
   // Clear checkboxes
   document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
-  
+
   // Purge/Reset dynamic rows
-  // Only clear dynamic containers that are NOT the main section content wrapper.
-  // This preserves static structure in sections like "Speed" that have mixed content.
   document.querySelectorAll('.dynamic-rows').forEach(container => {
-    if (!container.classList.contains('section-content')) {
-      container.innerHTML = '';
-      
-      if (restoreDefaults) {
-        // Find parent section to determine type
-        const sectionBox = container.closest('.section-box');
-        if (sectionBox) {
-          const title = sectionBox.querySelector('.section-header').textContent.trim();
-          let html = '';
-          if (title === 'Standard Skills') html = renderSkillRow('skills');
-          else if (title === 'Combat Skills') html = renderSkillRow('combat');
-          else if (title === 'Speed') html = renderDragsIgnoredRow();
-          else if (title === 'Main Actions') html = renderMainAction();
-          else if (title === 'Spells Known') html = renderSpellRow();
-          
-          if (html) {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = html;
-            container.appendChild(tempDiv.firstElementChild);
-          }
+    container.innerHTML = '';
+
+    if (restoreDefaults) {
+      // Find parent section to determine type
+      const sectionBox = container.closest('.section-box');
+      if (sectionBox) {
+        const title = sectionBox.querySelector('.section-header').textContent.trim();
+        let html = '';
+        if (title === 'Standard Skills') html = renderSkillRow('skills');
+        else if (title === 'Combat Skills') html = renderSkillRow('combat');
+        else if (title === 'Speed') html = renderDragsIgnoredRow();
+        else if (title === 'Main Actions') html = renderMainAction();
+        else if (title === 'Spells Known') html = renderSpellRow();
+
+        if (html) {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = html;
+          container.appendChild(tempDiv.firstElementChild);
         }
       }
     }
@@ -776,8 +772,7 @@ const loadFromCSV = (csv) => {
       document.querySelectorAll('.section-box').forEach(box => {
         const title = box.querySelector('.section-header').textContent.trim();
         if (title.toUpperCase() === category.toUpperCase()) {
-          // Find the appropriate dynamic container (handles nested ones like in Speed)
-          const container = box.querySelector('.dynamic-rows') || box.querySelector('.section-content');
+          const container = box.querySelector('.dynamic-rows');
           if (!container) return;
 
           let html = '';
@@ -793,14 +788,7 @@ const loadFromCSV = (csv) => {
             const inputs = newRow.querySelectorAll('input');
             values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
 
-            // Precise container targeting
-            // If the main container has a nested .dynamic-rows (like Speed), use that.
-            // Otherwise use the main container itself.
-            let targetContainer = container;
-            const nested = container.querySelector('.dynamic-rows');
-            if (nested) targetContainer = nested;
-
-            targetContainer.appendChild(newRow);
+            container.appendChild(newRow);
           }
         }
       });
@@ -823,14 +811,9 @@ const loadFromCSV = (csv) => {
           const tds = newRow.querySelectorAll('.main-action-table td[contenteditable]');
           values.slice(4).forEach((val, i) => { if (tds[i]) tds[i].innerText = val; });
 
-          // Precise container targeting
-          // If the main container has a nested .dynamic-rows, use that.
-          // Otherwise use the main container itself.
-          let targetContainer = container;
-          const nested = container.querySelector('.dynamic-rows');
-          if (nested) targetContainer = nested;
-
-          targetContainer.appendChild(newRow);
+          // Precise container targeting not needed anymore
+          // because .dynamic-rows is only on the inner list.
+          if (container) container.appendChild(newRow);
         }
       });
     }

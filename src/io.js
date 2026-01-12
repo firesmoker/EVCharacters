@@ -131,36 +131,38 @@ export const saveToCSV = () => {
   document.body.removeChild(link);
 };
 
+/**
+ * Robust CSV Parser
+ */
+const parseCSV = (text) => {
+  const rows = [];
+  let row = [];
+  let field = '';
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const nextChar = text[i+1];
+    if (inQuotes) {
+      if (char === '"') {
+        if (nextChar === '"') { field += '"'; i++; }
+        else { inQuotes = false; }
+      } else { field += char; }
+    } else {
+      if (char === '"') { inQuotes = true; }
+      else if (char === ',') { row.push(field); field = ''; }
+      else if (char === '\n' || char === '\r') {
+        row.push(field); rows.push(row); field = ''; row = [];
+        if (char === '\r' && nextChar === '\n') i++;
+      } else { field += char; }
+    }
+  }
+  if (field || row.length > 0) { row.push(field); rows.push(row); }
+  return rows;
+};
+
 export const loadFromCSV = (csv) => {
   // Clear existing sheet using robust logic (no defaults restored as CSV will populate)
   prepareSheetForData(false);
-
-  // Robust CSV Parser
-  const parseCSV = (text) => {
-    const rows = [];
-    let row = [];
-    let field = '';
-    let inQuotes = false;
-    for (let i = 0; i < text.length; i++) {
-      const char = text[i];
-      const nextChar = text[i+1];
-      if (inQuotes) {
-        if (char === '"') {
-          if (nextChar === '"') { field += '"'; i++; }
-          else { inQuotes = false; }
-        } else { field += char; }
-      } else {
-        if (char === '"') { inQuotes = true; }
-        else if (char === ',') { row.push(field); field = ''; }
-        else if (char === '\n' || char === '\r') {
-          row.push(field); rows.push(row); field = ''; row = [];
-          if (char === '\r' && nextChar === '\n') i++;
-        } else { field += char; }
-      }
-    }
-    if (field || row.length > 0) { row.push(field); rows.push(row); }
-    return rows;
-  };
 
   const rows = parseCSV(csv);
 

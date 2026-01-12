@@ -130,6 +130,43 @@ const handleClick = (e) => {
   }
 };
 
+/**
+ * Handle Autocomplete Keyboard Navigation
+ */
+const handleAutocompleteKeydown = (e) => {
+  if (!isAutocompleteInput(e.target)) return;
+
+  const wrapper = e.target.closest('.autocomplete-wrapper');
+  const dropdown = wrapper.querySelector('.suggestions-dropdown');
+  const items = Array.from(dropdown.querySelectorAll('.suggestion-item'));
+
+  if (dropdown.style.display !== 'block') return;
+
+  let selectedIndex = items.findIndex(item => item.classList.contains('selected'));
+
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    selectedIndex++;
+    if (selectedIndex >= items.length) selectedIndex = 0;
+    items.forEach((item, i) => item.classList.toggle('selected', i === selectedIndex));
+    if (items[selectedIndex]) items[selectedIndex].scrollIntoView({ block: 'nearest' });
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    selectedIndex--;
+    if (selectedIndex < 0) selectedIndex = items.length - 1;
+    items.forEach((item, i) => item.classList.toggle('selected', i === selectedIndex));
+    if (items[selectedIndex]) items[selectedIndex].scrollIntoView({ block: 'nearest' });
+  } else if (e.key === 'Enter') {
+    if (selectedIndex > -1) {
+      e.preventDefault();
+      e.target.value = items[selectedIndex].innerText;
+      dropdown.style.display = 'none';
+    }
+  } else if (e.key === 'Escape') {
+    dropdown.style.display = 'none';
+  }
+};
+
 document.querySelector('#app').addEventListener('input', handleInput);
 
 document.querySelector('#app').addEventListener('focusin', (e) => {
@@ -138,39 +175,7 @@ document.querySelector('#app').addEventListener('focusin', (e) => {
   }
 });
 
-document.querySelector('#app').addEventListener('keydown', (e) => {
-  if (isAutocompleteInput(e.target)) {
-    const wrapper = e.target.closest('.autocomplete-wrapper');
-    const dropdown = wrapper.querySelector('.suggestions-dropdown');
-    const items = Array.from(dropdown.querySelectorAll('.suggestion-item'));
-
-    if (dropdown.style.display !== 'block') return;
-
-    let selectedIndex = items.findIndex(item => item.classList.contains('selected'));
-
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      selectedIndex++;
-      if (selectedIndex >= items.length) selectedIndex = 0;
-      items.forEach((item, i) => item.classList.toggle('selected', i === selectedIndex));
-      if (items[selectedIndex]) items[selectedIndex].scrollIntoView({ block: 'nearest' });
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      selectedIndex--;
-      if (selectedIndex < 0) selectedIndex = items.length - 1;
-      items.forEach((item, i) => item.classList.toggle('selected', i === selectedIndex));
-      if (items[selectedIndex]) items[selectedIndex].scrollIntoView({ block: 'nearest' });
-    } else if (e.key === 'Enter') {
-      if (selectedIndex > -1) {
-        e.preventDefault();
-        e.target.value = items[selectedIndex].innerText;
-        dropdown.style.display = 'none';
-      }
-    } else if (e.key === 'Escape') {
-      dropdown.style.display = 'none';
-    }
-  }
-});
+document.querySelector('#app').addEventListener('keydown', handleAutocompleteKeydown);
 
 // Listen for file input change via delegation
 document.querySelector('#app').addEventListener('change', (e) => {

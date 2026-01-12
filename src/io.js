@@ -163,6 +163,20 @@ export const loadFromCSV = (csv) => {
   };
 
   const rows = parseCSV(csv);
+
+  // Cache section boxes by title for efficient lookup
+  const boxesByTitle = {};
+  document.querySelectorAll('.section-box').forEach(box => {
+    const title = box.querySelector('.section-header').textContent.trim().toUpperCase();
+    if (!boxesByTitle[title]) boxesByTitle[title] = [];
+    boxesByTitle[title].push(box);
+  });
+
+  const forEachSection = (category, cb) => {
+    const boxes = boxesByTitle[category.toUpperCase()] || [];
+    boxes.forEach(cb);
+  };
+
   rows.forEach(parts => {
     if (parts.length < 2) return;
     
@@ -174,78 +188,68 @@ export const loadFromCSV = (csv) => {
     if (type === 'HEADER') {
       document.querySelectorAll(`[data-sync-id="${category}"]`).forEach(el => el.innerText = values[0]);
     } else if (type === 'CHECKBOX') {
-      document.querySelectorAll('.section-box').forEach(box => {
-        if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
-          box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
-            const label = item.innerText.trim() || `index-${idx}`;
-            if (label.toUpperCase() === values[0].toUpperCase()) {
-              item.querySelector('input').checked = values[1] === 'true';
-            }
-          });
-        }
+      forEachSection(category, box => {
+        box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
+          const label = item.innerText.trim() || `index-${idx}`;
+          if (label.toUpperCase() === values[0].toUpperCase()) {
+            item.querySelector('input').checked = values[1] === 'true';
+          }
+        });
       });
     } else if (type === 'FIELD') {
-      document.querySelectorAll('.section-box').forEach(box => {
-        if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
-          box.querySelectorAll('.section-row').forEach(row => {
-            const label = row.querySelector('.section-label');
-            if (label && label.innerText.replace(':', '').trim().toUpperCase() === values[0].toUpperCase()) {
-              const field = row.querySelector('.editable-field');
-              if (field) field.innerText = values[1];
-            }
-          });
-        }
-      });
-    } else if (type === 'SECTION_BODY') {
-        document.querySelectorAll('.section-box').forEach(box => {
-          if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
-            const field = box.querySelector('.section-content.editable-field');
+      forEachSection(category, box => {
+        box.querySelectorAll('.section-row').forEach(row => {
+          const label = row.querySelector('.section-label');
+          if (label && label.innerText.replace(':', '').trim().toUpperCase() === values[0].toUpperCase()) {
+            const field = row.querySelector('.editable-field');
             if (field) field.innerText = values[1];
           }
         });
+      });
+    } else if (type === 'SECTION_BODY') {
+      forEachSection(category, box => {
+        const field = box.querySelector('.section-content.editable-field');
+        if (field) field.innerText = values[1];
+      });
     } else if (type === 'SPLITFIELD') {
-      document.querySelectorAll('.section-box').forEach(box => {
-        if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
-          box.querySelectorAll('.section-row').forEach(row => {
-            const label = row.querySelector('.section-label');
-            if (label && label.innerText.replace(':', '').trim().toUpperCase() === values[0].toUpperCase()) {
-              const split = row.querySelector('.hp-split');
-              if (split) {
-                split.children[0].innerText = values[1];
-                split.children[2].innerText = values[2];
-              }
+      forEachSection(category, box => {
+        box.querySelectorAll('.section-row').forEach(row => {
+          const label = row.querySelector('.section-label');
+          if (label && label.innerText.replace(':', '').trim().toUpperCase() === values[0].toUpperCase()) {
+            const split = row.querySelector('.hp-split');
+            if (split) {
+              split.children[0].innerText = values[1];
+              split.children[2].innerText = values[2];
             }
-          });
-        }
+          }
+        });
       });
     } else if (type === 'DYNAMIC_SKILL') {
-      document.querySelectorAll('.section-box').forEach(box => {
+      forEachSection(category, box => {
         const title = box.querySelector('.section-header').textContent.trim();
-        if (title.toUpperCase() === category.toUpperCase()) {
-          const container = box.querySelector('.dynamic-rows');
-          if (!container) return;
+        const container = box.querySelector('.dynamic-rows');
+        if (!container) return;
+        
+        let html = '';
+        if (title === 'Standard Skills') html = renderSkillRow('skills');
+        else if (title === 'Combat Skills') html = renderSkillRow('combat');
+        else if (title === 'Speed') html = renderDragsIgnoredRow();
+        else if (title === 'Spells Known') html = renderSpellRow();
+        
+        if (html && values.length > 0) {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = html;
+          const newRow = tempDiv.firstElementChild;
+          const inputs = newRow.querySelectorAll('input');
+          values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
           
-          let html = '';
-          if (title === 'Standard Skills') html = renderSkillRow('skills');
-          else if (title === 'Combat Skills') html = renderSkillRow('combat');
-          else if (title === 'Speed') html = renderDragsIgnoredRow();
-          else if (title === 'Spells Known') html = renderSpellRow();
-          
-          if (html && values.length > 0) {
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = html;
-            const newRow = tempDiv.firstElementChild;
-            const inputs = newRow.querySelectorAll('input');
-            values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
-            
-            container.appendChild(newRow);
-          }
+          container.appendChild(newRow);
         }
       });
     } else if (type === 'DYNAMIC_ACTION') {
-      document.querySelectorAll('.section-box').forEach(box => {
+      forEachSection(category, box => {
         const title = box.querySelector('.section-header').textContent.trim();
-        if (title.toUpperCase() === category.toUpperCase() && title === 'Main Actions') {
+        if (title === 'Main Actions') {
           const container = box.querySelector('.dynamic-rows');
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = renderMainAction();
@@ -261,8 +265,6 @@ export const loadFromCSV = (csv) => {
           const tds = newRow.querySelectorAll('.main-action-table td[contenteditable]');
           values.slice(4).forEach((val, i) => { if (tds[i]) tds[i].innerText = val; });
 
-          // Precise container targeting not needed anymore
-          // because .dynamic-rows is only on the inner list.
           if (container) container.appendChild(newRow);
         }
       });

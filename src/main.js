@@ -15,12 +15,16 @@ const updateSuggestions = (wrapper) => {
   const type = wrapper.getAttribute('data-type');
   const query = input.value.toLowerCase();
 
-  let list;
-  if (type === 'combat') list = COMBAT_SKILLS_LIST;
-  else if (type === 'skills') list = SKILLS_LIST;
-  else if (type === 'bonus') list = BONUS_LIST;
-  else if (type === 'drags') list = DRAGS_IGNORED_LIST;
-  else if (type === 'spells') list = SPELLS_LIST;
+  const listMap = {
+    'combat': COMBAT_SKILLS_LIST,
+    'skills': SKILLS_LIST,
+    'bonus': BONUS_LIST,
+    'drags': DRAGS_IGNORED_LIST,
+    'spells': SPELLS_LIST
+  };
+
+  const list = listMap[type];
+  if (!list) return;
 
   let html = '';
   list.forEach(group => {

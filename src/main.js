@@ -539,21 +539,54 @@ document.querySelector('#app').addEventListener('click', (e) => {
   // New Sheet
   if (e.target.id === 'menu-new') {
     if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {
-      // Clear headers and fields
-      document.querySelectorAll('.editable-field').forEach(el => el.innerText = '');
-      // Clear checkboxes
-      document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
-      // Purge dynamic rows
-      document.querySelectorAll('.dynamic-rows').forEach(container => {
-        container.innerHTML = '';
-      });
-      // Restore placeholders
-      document.querySelectorAll('.editable-field').forEach(el => {
-        if (el.innerText.trim() === '') el.replaceChildren();
-      });
+      prepareSheetForData(true);
     }
   }
 });
+
+/**
+ * Helper to clear the sheet and optionally restore default rows
+ */
+const prepareSheetForData = (restoreDefaults = false) => {
+  // Clear headers and fields
+  document.querySelectorAll('.editable-field').forEach(el => el.innerText = '');
+  // Clear checkboxes
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+  
+  // Purge/Reset dynamic rows
+  // Only clear dynamic containers that are NOT the main section content wrapper.
+  // This preserves static structure in sections like "Speed" that have mixed content.
+  document.querySelectorAll('.dynamic-rows').forEach(container => {
+    if (!container.classList.contains('section-content')) {
+      container.innerHTML = '';
+      
+      if (restoreDefaults) {
+        // Find parent section to determine type
+        const sectionBox = container.closest('.section-box');
+        if (sectionBox) {
+          const title = sectionBox.querySelector('.section-header').textContent.trim();
+          let html = '';
+          if (title === 'Standard Skills') html = renderSkillRow('skills');
+          else if (title === 'Combat Skills') html = renderSkillRow('combat');
+          else if (title === 'Speed') html = renderDragsIgnoredRow();
+          else if (title === 'Main Actions') html = renderMainAction();
+          else if (title === 'Spells Known') html = renderSpellRow();
+          
+          if (html) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            container.appendChild(tempDiv.firstElementChild);
+          }
+        }
+      }
+    }
+  });
+
+  // Restore placeholders
+  document.querySelectorAll('.editable-field').forEach(el => {
+    if (el.innerText.trim() === '') el.replaceChildren();
+  });
+};
 
 /**
  * CSV SAVE LOGIC
@@ -580,7 +613,7 @@ const saveToCSV = () => {
   // 2. Structured Sections (Defenses, Speed, etc.)
   document.querySelectorAll('.section-box').forEach(box => {
     const title = box.querySelector('.section-header').textContent.trim();
-    
+
     // Checkboxes
     box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
       const label = item.innerText.trim() || `index-${idx}`;
@@ -590,12 +623,12 @@ const saveToCSV = () => {
 
     // Simple editable fields inside structured sections (excluding dynamic rows, header fields, and hp-split children)
     box.querySelectorAll('.section-row-editable, .editable-field:not(.dynamic-rows *):not([data-sync-id]):not(.hp-split *)').forEach(field => {
-       const labelEl = field.previousElementSibling;
-       if (labelEl && labelEl.classList.contains('section-label')) {
-         pushRow('FIELD', title, labelEl.innerText.replace(':', '').trim(), field.innerText);
-       } else if (field.classList.contains('section-content')) {
-         pushRow('SECTION_BODY', title, 'CONTENT', field.innerText);
-       }
+      const labelEl = field.previousElementSibling;
+      if (labelEl && labelEl.classList.contains('section-label')) {
+        pushRow('FIELD', title, labelEl.innerText.replace(':', '').trim(), field.innerText);
+      } else if (field.classList.contains('section-content')) {
+        pushRow('SECTION_BODY', title, 'CONTENT', field.innerText);
+      }
     });
 
     // HP-style split fields
@@ -657,14 +690,8 @@ document.getElementById('file-input').addEventListener('change', (e) => {
 });
 
 const loadFromCSV = (csv) => {
-  // Clear existing dynamic rows first
-  // Robustness: Only clear dynamic containers that are NOT the main section content wrapper.
-  // This preserves static structure in sections like "Speed" that have mixed content.
-  document.querySelectorAll('.dynamic-rows').forEach(container => {
-    if (!container.classList.contains('section-content')) {
-      container.innerHTML = '';
-    }
-  });
+  // Clear existing sheet using robust logic (no defaults restored as CSV will populate)
+  prepareSheetForData(false);
 
   // Robust CSV Parser
   const parseCSV = (text) => {
@@ -674,7 +701,7 @@ const loadFromCSV = (csv) => {
     let inQuotes = false;
     for (let i = 0; i < text.length; i++) {
       const char = text[i];
-      const nextChar = text[i+1];
+      const nextChar = text[i + 1];
       if (inQuotes) {
         if (char === '"') {
           if (nextChar === '"') { field += '"'; i++; }
@@ -724,12 +751,12 @@ const loadFromCSV = (csv) => {
         }
       });
     } else if (type === 'SECTION_BODY') {
-        document.querySelectorAll('.section-box').forEach(box => {
-          if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
-            const field = box.querySelector('.section-content.editable-field');
-            if (field) field.innerText = values[1];
-          }
-        });
+      document.querySelectorAll('.section-box').forEach(box => {
+        if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
+          const field = box.querySelector('.section-content.editable-field');
+          if (field) field.innerText = values[1];
+        }
+      });
     } else if (type === 'SPLITFIELD') {
       document.querySelectorAll('.section-box').forEach(box => {
         if (box.querySelector('.section-header').textContent.trim().toUpperCase() === category.toUpperCase()) {
@@ -752,20 +779,20 @@ const loadFromCSV = (csv) => {
           // Find the appropriate dynamic container (handles nested ones like in Speed)
           const container = box.querySelector('.dynamic-rows') || box.querySelector('.section-content');
           if (!container) return;
-          
+
           let html = '';
           if (title === 'Standard Skills') html = renderSkillRow('skills');
           else if (title === 'Combat Skills') html = renderSkillRow('combat');
           else if (title === 'Speed') html = renderDragsIgnoredRow();
           else if (title === 'Spells Known') html = renderSpellRow();
-          
+
           if (html && values.length > 0) {
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = html;
             const newRow = tempDiv.firstElementChild;
             const inputs = newRow.querySelectorAll('input');
             values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
-            
+
             // Precise container targeting
             // If the main container has a nested .dynamic-rows (like Speed), use that.
             // Otherwise use the main container itself.
@@ -785,18 +812,25 @@ const loadFromCSV = (csv) => {
           const tempDiv = document.createElement('div');
           tempDiv.innerHTML = renderMainAction();
           const newRow = tempDiv.firstElementChild;
-          
+
           newRow.querySelector('.main-action-title').innerText = values[0];
           newRow.querySelector('.main-action-subtitle').innerText = values[1];
-          
+
           const texts = newRow.querySelectorAll('.main-action-text');
           if (texts[0]) texts[0].innerText = values[2];
           if (texts[1]) texts[1].innerText = values[3];
-          
+
           const tds = newRow.querySelectorAll('.main-action-table td[contenteditable]');
           values.slice(4).forEach((val, i) => { if (tds[i]) tds[i].innerText = val; });
-          
-          container.appendChild(newRow);
+
+          // Precise container targeting
+          // If the main container has a nested .dynamic-rows, use that.
+          // Otherwise use the main container itself.
+          let targetContainer = container;
+          const nested = container.querySelector('.dynamic-rows');
+          if (nested) targetContainer = nested;
+
+          targetContainer.appendChild(newRow);
         }
       });
     }

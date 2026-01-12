@@ -104,7 +104,7 @@ export const renderSectionRow = (label, placeholder, icon = null) => `
 `
 
 // Content for the Spells Known section with headings
-export const spellsKnownSectionContent = `
+export const renderSpellsKnownSection = () => `
   <div class="skill-header-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
     <div style="flex: 0 0 12mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Level</div>
     <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Spell Name</div>
@@ -116,7 +116,7 @@ export const spellsKnownSectionContent = `
 `
 
 // Content for the structured Spellcasting section
-export const spellcastingSectionContent = `
+export const renderSpellcastingSection = () => `
   <div class="section-container" style="flex-direction: row; gap: 10px;">
     <div style="flex: 1; display: flex; flex-direction: column; gap: 2px;">
       <div class="section-row">
@@ -142,7 +142,7 @@ export const spellcastingSectionContent = `
 `
 
 // Content for the structured Death section
-export const deathSectionContent = `
+export const renderDeathSection = () => `
   <div class="section-container">
     <div class="section-row">
        <span class="section-label" style="flex: 1;">Successes:</span>
@@ -187,7 +187,7 @@ export const renderSection = (title, content, options = {}) => {
 }
 
 // Content for the structured Defense section
-export const defensesSectionContent = `
+export const renderDefensesSection = () => `
   <div class="section-container">
     <div class="section-row">
       <div class="stat-icon"><img src="/icons/heart.svg" width="18" height="18" alt="HP Icon"></div>
@@ -223,7 +223,7 @@ export const defensesSectionContent = `
 `
 
 // Content for the structured Speed section
-export const speedSectionContent = `
+export const renderSpeedSection = () => `
   <div class="section-container">
     ${renderSectionRow('Movement', '3')}
     <div class="section-separator"></div>
@@ -312,8 +312,8 @@ export const renderApp = () => {
           
           <main class="sheet-middle">
             <section class="sheet-column">
-              ${renderSection('Defenses', defensesSectionContent, { isStructured: true })}
-              ${renderSection('Speed', speedSectionContent, { isStructured: true, isDynamic: true })}
+              ${renderSection('Defenses', renderDefensesSection(), { isStructured: true })}
+              ${renderSection('Speed', renderSpeedSection(), { isStructured: true, isDynamic: true })}
               ${renderSection('Combat Skills', `<div class="dynamic-rows">${renderSkillRow('combat')}</div>`, { isStructured: true, isDynamic: true })}
               ${renderSection('Standard Skills', `<div class="dynamic-rows">${renderSkillRow('skills')}</div>`, { isStructured: true, isDynamic: true })}
             </section>
@@ -338,13 +338,13 @@ export const renderApp = () => {
             <section class="sheet-column">
               <div style="display: flex; gap: var(--section-gap);">
                 <div style="flex: 1.4;">
-                  ${renderSection('Spellcasting', spellcastingSectionContent, { isStructured: true, style: 'height: 100%;' })}
+                  ${renderSection('Spellcasting', renderSpellcastingSection(), { isStructured: true, style: 'height: 100%;' })}
                 </div>
                 <div style="flex: 1;">
-                   ${renderSection('Death', deathSectionContent, { isStructured: true, style: 'height: 100%;' })}
+                   ${renderSection('Death', renderDeathSection(), { isStructured: true, style: 'height: 100%;' })}
                 </div>
               </div>
-              ${renderSection('Spells Known', spellsKnownSectionContent, { isStructured: true, isDynamic: true })}
+              ${renderSection('Spells Known', renderSpellsKnownSection(), { isStructured: true, isDynamic: true })}
             </section>
           </main>
         </div>

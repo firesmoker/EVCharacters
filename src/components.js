@@ -291,15 +291,22 @@ export const renderMainAction = () => `
   </div>
 `
 
-// Application Rendering Logic
-export const renderApp = () => {
-  document.querySelector('#app').innerHTML = `
+/**
+ * Renders the top toolbar.
+ */
+export const renderToolbar = () => `
   <div class="top-bar">
     <div class="menu-item">File<div class="dropdown-content"><div id="menu-new">New</div><div id="menu-open">Open</div><div id="menu-save">Save</div><div id="export-pdf">Export to PDF</div></div></div>
     <input type="file" id="file-input" style="display: none;" accept=".csv">
     <div class="menu-item">Edit<div class="dropdown-content"><div>Undo</div><div>Redo</div></div></div>
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
   </div>
+`
+
+// Application Rendering Logic
+export const renderApp = () => {
+  document.querySelector('#app').innerHTML = `
+  ${renderToolbar()}
   <div class="main-area">
     <div class="editor-canvas">
       <div style="display: flex; flex-direction: column; gap: 20px;">

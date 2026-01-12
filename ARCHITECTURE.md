@@ -1,48 +1,59 @@
 # EVCharacters Architecture Documentation
 
 ## Overview
-**EVCharacters** is a lightweight, client-side single-page application (SPA) designed for managing "Eternal Valor" RPG character sheets. It is built with vanilla JavaScript and Vite, emphasizing a "DOM-as-state" architecture where the HTML document itself serves as the primary source of truth for character data.
+**EVCharacters** is a lightweight, single-page application (SPA) for managing "Eternal Valor" RPG character sheets. 
+
+It is designed with a **"DOM-as-State"** philosophy: instead of maintaining a complex JavaScript object for the character data, the HTML DOM itself is the source of truth. The application reads from and writes directly to the DOM elements (`contenteditable` spans, inputs, checkboxes).
 
 ## Core Technologies
-*   **Framework:** Vanilla JavaScript (ES Modules).
-*   **Build Tool:** Vite.
-*   **Styling:** CSS (via `style.css`).
-*   **Data Format:** CSV (for save/load persistence).
+*   **Language:** Vanilla JavaScript (ES Modules).
+*   **Build System:** Vite.
+*   **Storage:** CSV files (the app imports/exports character data to local CSV files).
+*   **Styling:** Native CSS.
 
-## Module Structure
+## Architecture & Modules
 
-### 1. Entry & Orchestration (`src/main.js`)
-*   **Bootstrapping:** Initializes the application by calling `renderApp()` from `components.js`.
-*   **Event Handling:** Implements a global event delegation strategy on the `#app` root to handle:
-    *   **Autocomplete:** Manages suggestions for skills, spells, and bonuses.
-    *   **Data Synchronization:** Updates all instances of a field (e.g., Character Name) when one is edited, using `data-sync-id`.
-    *   **Dynamic UI:** Handles adding/removing rows for skills, actions, and spells.
-    *   **File I/O:** Triggers CSV parsing logic when a file is uploaded.
+The application is structured into four primary responsibilities:
+
+### 1. Orchestration (`src/main.js`)
+This module acts as the application's entry point and "controller."
+*   **Initialization:** Bootstraps the application by rendering the initial UI layout.
+*   **Event Delegation:** Instead of attaching listeners to every button or input, it attaches global listeners (`input`, `click`, `keydown`) to the root `#app` element. This allows the app to handle events for dynamic elements (like new skill rows) without needing to re-attach listeners.
+*   **User Interaction:** It routes user actions (like clicking "Save", editing a field, or selecting an autocomplete suggestion) to the appropriate logic.
 
 ### 2. Rendering System (`src/components.js`)
-*   **Template Functions:** Uses pure functions that return HTML strings (e.g., `renderApp`, `renderSection`, `renderSkillRow`) to generate the UI.
-*   **Layout:** Constructs a print-friendly A4 layout with specific sections for Attributes, Skills, Combat Actions, and Spellcasting.
-*   **Component Composition:** High-level functions assemble smaller atomic components (like `renderHeaderField` or `renderAutocomplete`) into complete sections.
+This module serves as the "view" layer. It contains a collection of pure functions that return HTML strings.
+*   **Stateless Components:** Components (like `renderHeader`, `renderSkillRow`) do not hold state. They simply return the HTML structure required for that section.
+*   **Dynamic Row Factory:** It centralizes the logic for creating new dynamic items (e.g., adding a new Skill or Spell), ensuring that the View layer controls the HTML structure, not the Controller.
+*   **A4 Layout:** The main app layout is designed to mimic a physical A4 paper sheet for easy printing.
 
-### 3. Data & Configuration (`src/data.js`)
-*   **Static Constants:** Exports configuration arrays/objects used to populate autocomplete lists and dropdowns (e.g., `SKILLS_LIST`, `COMBAT_SKILLS_LIST`, `SPELLS_LIST`).
+### 3. Persistence (`src/io.js`)
+This module handles data serialization and deserialization. Since there is no central state object, this module interfaces directly with the DOM.
+*   **Saving (Scraping):** To save a file, it traverses the DOM, "scraping" values from headers, checkboxes, and dynamic lists, and serializes them into a CSV format.
+*   **Loading (Populating):** To load a file, it parses the CSV and reconstructs the DOM state. It is smart enough to clear the current sheet and dynamically generate the correct number of rows (e.g., if the saved character has 5 spells, it creates 5 spell rows) before populating them.
 
-### 4. Input/Output (`src/io.js`)
-*   **Persistence Strategy:** Since the state lives in the DOM, persistence is achieved by scraping or populating the HTML elements.
-*   **`saveToCSV()`:** Traverses the DOM, identifying fields by their structure (headers, checkboxes, dynamic rows), and serializes them into a custom CSV format.
-*   **`loadFromCSV(csv)`:** Parses the CSV, clears the current sheet, and reconstructs the DOM state. It dynamically creates necessary DOM elements (like skill rows) to match the saved data.
+### 4. Configuration (`src/data.js`)
+A simple data file containing static constants, such as the lists of available skills, spells, and autocomplete options.
 
-## Key Patterns
-*   **DOM-as-State:** The application avoids a parallel JavaScript state object. `contenteditable` elements and `<input type="checkbox">` elements hold the active data.
-*   **Event Delegation:** Interactions are captured at the root level to support dynamically added elements without needing to attach individual listeners.
-*   **Content Synchronization:** Fields that appear in multiple places (like headers) are linked via `data-sync-id` attributes to ensure consistency.
+## Key Design Patterns
 
-## File Tree Summary
+### DOM-as-State
+The most distinct feature of this architecture. If a user types into a field, the state is updated because the state *is* the field.
+*   **Pros:** Extremely simple, no state synchronization bugs, easy "What you see is what you get."
+*   **Cons:** Business logic (like calculating total hit points) requires reading from the DOM, parsing the text, calculating, and writing back.
+
+### Global Event Delegation
+Because rows for skills and actions are added and removed dynamically by the user, we use event delegation on the root container. This avoids the complexity of managing thousands of individual event listeners.
+
+### Data Synchronization
+Some data appears in multiple places (e.g., the Character Name appears in the header of both pages). Elements share a `data-sync-id` attribute. When one is updated, the `main.js` controller automatically updates all other elements with the same ID.
+
+## Directory Structure
 ```text
 src/
-├── main.js         # Entry point, event listeners, and coordination
-├── components.js   # HTML template generators and rendering logic
-├── io.js           # CSV import/export logic and DOM scraping/population
-├── data.js         # Static data lists for autocomplete and dropdowns
-├── style.css       # Application styling
+├── main.js         # Controller: Handles events and coordination.
+├── components.js   # View: Generates HTML templates.
+├── io.js           # Model/Persistence: Reads/Writes DOM state to CSV.
+├── data.js         # Config: Static lists and options.
+├── style.css       # Visual styling.
 ```

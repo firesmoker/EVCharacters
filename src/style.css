@@ -1233,3 +1233,39 @@ textarea::placeholder {
   display: none;
 }
 
+
+.variant-btn-container {
+  position: absolute;
+  bottom: 4px;
+  left: -25px; /* Outside left */
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.main-action-container:hover .variant-btn-container {
+  opacity: 1;
+}
+
+
+.variant-actions-container {
+  margin-bottom: 8px;
+}
+
+
+.remove-variant-btn {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.variant-action-row {
+  position: relative;
+}
+
+.variant-action-row:hover .remove-variant-btn {
+  opacity: 1;
+}
+

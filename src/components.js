@@ -255,6 +255,16 @@ export const renderHeader = () => `
 `
 
 /**
+ * Renders a variant action row.
+ */
+export const renderVariantActionRow = () => `
+  <div class="variant-action-row" style="display: flex; align-items: center; margin-top: 4px; gap: 4px;">
+    <div class="editable-field variant-action-text" contenteditable="true" data-placeholder="Variant..." style="flex-grow: 1; font-style: italic;"></div>
+    <button class="remove-variant-btn" title="Remove Variant" style="font-size: 10px; cursor: pointer;">-</button>
+  </div>
+`
+
+/**
  * Renders a complex Main Action block.
  */
 export const renderMainAction = () => `
@@ -291,6 +301,10 @@ export const renderMainAction = () => `
           </tr>
         </table>
       </div>
+    </div>
+    <div class="variant-actions-container"></div>
+    <div class="variant-btn-container">
+       <button class="add-variant-btn" title="Add Variant" style="font-size: 10px; padding: 2px 6px; cursor: pointer;">+ Variant</button>
     </div>
     <button class="remove-row-btn" title="Remove Action">-</button>
     <button class="add-row-btn" title="Add Action">+</button>

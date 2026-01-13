@@ -1,6 +1,6 @@
 import './style.css'
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
-import { renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, renderSpellRow, renderRowForSection } from './components.js';
+import { renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, renderSpellRow, renderRowForSection, renderVariantActionRow } from './components.js';
 import { saveToJSON, loadFromJSON, prepareSheetForData } from './io.js';
 
 // Initial Render
@@ -102,6 +102,22 @@ const handleClick = (e) => {
   // Remove Row
   if (e.target.classList.contains('remove-row-btn')) {
     const target = e.target.closest('.skill-row') || e.target.closest('.main-action-container');
+    if (target) target.remove();
+  }
+
+  // Add Variant Row
+  if (e.target.classList.contains('add-variant-btn')) {
+    const container = e.target.closest('.main-action-container').querySelector('.variant-actions-container');
+    if (container) {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = renderVariantActionRow();
+      container.appendChild(tempDiv.firstElementChild);
+    }
+  }
+
+  // Remove Variant Row
+  if (e.target.classList.contains('remove-variant-btn')) {
+    const target = e.target.closest('.variant-action-row');
     if (target) target.remove();
   }
 

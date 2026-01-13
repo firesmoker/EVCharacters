@@ -1,6 +1,7 @@
 import { 
   renderMainAction, 
-  renderRowForSection
+  renderRowForSection,
+  renderVariantActionRow
 } from './components.js';
 
 /**
@@ -120,12 +121,15 @@ const scrapeDynamicRows = (box, title, data) => {
       // Use textContent instead of innerText to ensure hidden tables are saved correctly
       const tableVals = Array.from(row.querySelectorAll('.main-action-table td[contenteditable]')).map(td => td.textContent);
       
+      const variants = Array.from(row.querySelectorAll('.variant-action-text')).map(t => t.innerHTML);
+      
       section.dynamicRows.push({
         type: 'action',
         title: titleVal,
         subtitle: subtitleVal,
         details: details,
-        table: tableVals
+        table: tableVals,
+        variants: variants
       });
     }
   });
@@ -269,6 +273,17 @@ export const loadFromJSON = (jsonString) => {
               
               const tds = newRow.querySelectorAll('.main-action-table td[contenteditable]');
               rowData.table.forEach((val, i) => { if (tds[i]) tds[i].innerText = val; });
+
+              if (rowData.variants && rowData.variants.length > 0) {
+                const variantContainer = newRow.querySelector('.variant-actions-container');
+                rowData.variants.forEach(variantHtml => {
+                   const tempDiv = document.createElement('div');
+                   tempDiv.innerHTML = renderVariantActionRow();
+                   const variantRow = tempDiv.firstElementChild;
+                   variantRow.querySelector('.variant-action-text').innerHTML = variantHtml;
+                   variantContainer.appendChild(variantRow);
+                });
+              }
             }
 
             container.appendChild(newRow);

@@ -265,26 +265,29 @@ export const renderMainAction = () => `
     </div>
     <div class="section-separator"></div>
     <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Action details..."></div>
-    <table class="main-action-table">
-      <tr>
-        <td></td>
-        <td>Normal Success</td>
-        <td>Major Success</td>
-        <td>Critical Success</td>
-      </tr>
-      <tr>
-        <td>Damage</td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-      </tr>
-      <tr>
-        <td>Ignores DR</td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-      </tr>
-    </table>
+    <div class="table-wrapper">
+      <div class="table-toggle-btn" title="Toggle Table">👁️</div>
+      <table class="main-action-table">
+        <tr>
+          <td></td>
+          <td>Normal Success</td>
+          <td>Major Success</td>
+          <td>Critical Success</td>
+        </tr>
+        <tr>
+          <td>Damage</td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+        <tr>
+          <td>Ignores DR</td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+      </table>
+    </div>
     <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Additional notes..."></div>
     <button class="remove-row-btn" title="Remove Action">-</button>
     <button class="add-row-btn" title="Add Action">+</button>

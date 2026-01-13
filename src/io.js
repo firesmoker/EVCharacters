@@ -117,7 +117,8 @@ const scrapeDynamicRows = (box, title, data) => {
       
       // Use innerHTML for Action Details to preserve styling
       const details = Array.from(row.querySelectorAll('.main-action-text')).map(t => t.innerHTML);
-      const tableVals = Array.from(row.querySelectorAll('.main-action-table td[contenteditable]')).map(td => td.innerText);
+      // Use textContent instead of innerText to ensure hidden tables are saved correctly
+      const tableVals = Array.from(row.querySelectorAll('.main-action-table td[contenteditable]')).map(td => td.textContent);
       
       section.dynamicRows.push({
         type: 'action',

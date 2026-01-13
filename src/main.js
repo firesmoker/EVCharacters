@@ -105,6 +105,15 @@ const handleClick = (e) => {
     if (target) target.remove();
   }
 
+  // Table Toggle
+  if (e.target.classList.contains('table-toggle-btn')) {
+    const table = e.target.nextElementSibling;
+    if (table) {
+      table.classList.toggle('hidden');
+      e.target.innerText = table.classList.contains('hidden') ? 'Show Table' : '👁️';
+    }
+  }
+
   // Menu Handlers
   const menuActions = {
     'export-pdf': () => window.print(),

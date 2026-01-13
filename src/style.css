@@ -1120,3 +1120,29 @@ textarea::placeholder {
     print-color-adjust: exact !important;
   }
 }
+
+/* Table Toggle Styles */
+.table-wrapper {
+  position: relative;
+  margin-top: 4px;
+}
+
+.table-toggle-btn {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  user-select: none;
+}
+
+.table-wrapper:hover .table-toggle-btn {
+  opacity: 1;
+}
+
+.main-action-table.hidden {
+  display: none;
+}
+

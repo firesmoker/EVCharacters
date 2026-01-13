@@ -142,6 +142,19 @@ const handleClick = (e) => {
   if (fontActions[e.target.id]) {
     document.documentElement.style.setProperty('--readable-font', fontActions[e.target.id]);
   }
+
+  // Color Handlers
+  const colorActions = {
+    'color-navy': '#000080',
+    'color-black': '#000000',
+    'color-red': '#8B0000',
+    'color-green': '#006400',
+    'color-purple': '#4B0082'
+  };
+
+  if (colorActions[e.target.id]) {
+    document.documentElement.style.setProperty('--field-color', colorActions[e.target.id]);
+  }
 };
 
 /**

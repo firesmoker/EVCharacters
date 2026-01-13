@@ -304,6 +304,7 @@ export const renderToolbar = () => `
     <div class="menu-item">Edit<div class="dropdown-content"><div>Undo</div><div>Redo</div></div></div>
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
     <div class="menu-item">Font<div class="dropdown-content"><div id="font-pt-sans">PT Sans (Default)</div><div id="font-kalam">Kalam (Handwritten)</div><div id="font-inter">Inter (Modern)</div><div id="font-crimson">Crimson Pro (Serif)</div><div id="font-gentium">Gentium Plus (Classic)</div></div></div>
+    <div class="menu-item">Color<div class="dropdown-content"><div id="color-navy">Navy Blue</div><div id="color-black">Black</div><div id="color-red">Dark Red</div><div id="color-green">Dark Green</div><div id="color-purple">Purple</div></div></div>
   </div>
 `
 

@@ -191,14 +191,18 @@ export const renderDefensesSection = () => `
   <div class="section-container">
     <div class="section-row">
       <div class="stat-icon"><img src="/icons/heart.svg" width="18" height="18" alt="HP Icon"></div>
-      <span class="section-label">Health Points (HP):</span>
+      <span class="section-label"><span class="highlight-char">H</span>ealth<br><span class="highlight-char">P</span>oints:</span>
       <div class="hp-split">
         <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="Cur" style="min-width: 25px; text-align: right;"></span>
         <span class="hp-slash">/</span>
         <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="Max" style="min-width: 25px;"></span>
       </div>
     </div>
-    ${renderSectionRow('Damage Reduction (DR)', '0', 'armor')}
+    <div class="section-row" style="margin-top: 4px;">
+      <div class="stat-icon"><img src="/icons/armor.svg" width="18" height="18" alt="DR Icon"></div>
+      <span class="section-label"><span class="highlight-char">D</span>amage<br><span class="highlight-char">R</span>eduction:</span>
+      <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="0" style="flex-grow: 1; padding-left: 5px;"></span>
+    </div>
     <div class="section-separator"></div>
     ${renderSectionRow('Deflection', '5')}
     ${renderSectionRow('Fortitude', '0')}

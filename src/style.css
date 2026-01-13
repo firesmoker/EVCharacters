@@ -218,7 +218,7 @@ h1.sheet-title {
   color: #666;
   margin-right: 4px;
   font-weight: bold;
-  white-space: nowrap;
+  line-height: 1.1;
   font-family: 'Gentium Plus', serif;
   font-variant: small-caps;
 }
@@ -1288,5 +1288,11 @@ textarea::placeholder {
 .editable-field p {
   margin-bottom: 0.4em;
   /* min-height: 1em; */
+}
+
+
+.highlight-char {
+  font-weight: bold;
+  color: #000;
 }
 

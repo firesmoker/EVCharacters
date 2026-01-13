@@ -129,6 +129,19 @@ const handleClick = (e) => {
   if (menuActions[e.target.id]) {
     menuActions[e.target.id]();
   }
+
+  // Font Handlers
+  const fontActions = {
+    'font-pt-sans': "'PT Sans', sans-serif",
+    'font-kalam': "'Kalam', cursive",
+    'font-inter': "'Inter', sans-serif",
+    'font-crimson': "'Crimson Pro', serif",
+    'font-gentium': "'Gentium Plus', serif"
+  };
+
+  if (fontActions[e.target.id]) {
+    document.documentElement.style.setProperty('--readable-font', fontActions[e.target.id]);
+  }
 };
 
 /**

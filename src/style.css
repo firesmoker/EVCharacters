@@ -656,9 +656,9 @@ textarea::placeholder {
 
 
 
-  border: 2px solid #f0f0f0;
+  border: 1px solid #dedddd;
     /* Soft border */
-    padding: 4px 8px;
+    padding: 4px 8px 0px 8px;
 
 
 
@@ -790,7 +790,7 @@ textarea::placeholder {
 
 
 
-  margin: 4px 0;
+  margin: 2px 0;
 
 
 

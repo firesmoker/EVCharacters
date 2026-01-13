@@ -123,13 +123,16 @@ const scrapeDynamicRows = (box, title, data) => {
       
       const variants = Array.from(row.querySelectorAll('.variant-action-text')).map(t => t.innerHTML);
       
+      const isTableHidden = row.querySelector('.main-action-table').classList.contains('hidden');
+
       section.dynamicRows.push({
         type: 'action',
         title: titleVal,
         subtitle: subtitleVal,
         details: details,
         table: tableVals,
-        variants: variants
+        variants: variants,
+        isTableHidden: isTableHidden
       });
     }
   });
@@ -273,6 +276,13 @@ export const loadFromJSON = (jsonString) => {
               
               const tds = newRow.querySelectorAll('.main-action-table td[contenteditable]');
               rowData.table.forEach((val, i) => { if (tds[i]) tds[i].innerText = val; });
+
+              if (rowData.isTableHidden) {
+                const table = newRow.querySelector('.main-action-table');
+                const btn = newRow.querySelector('.table-toggle-btn');
+                if (table) table.classList.add('hidden');
+                if (btn) btn.innerText = 'Show Table';
+              }
 
               if (rowData.variants && rowData.variants.length > 0) {
                 const variantContainer = newRow.querySelector('.variant-actions-container');

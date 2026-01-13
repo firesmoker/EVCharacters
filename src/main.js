@@ -1,7 +1,7 @@
 import './style.css'
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
 import { renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, renderSpellRow, renderRowForSection } from './components.js';
-import { saveToCSV, loadFromCSV, prepareSheetForData } from './io.js';
+import { saveToJSON, loadFromJSON, prepareSheetForData } from './io.js';
 
 // Initial Render
 renderApp();
@@ -108,7 +108,7 @@ const handleClick = (e) => {
   // Menu Handlers
   const menuActions = {
     'export-pdf': () => window.print(),
-    'menu-save': () => saveToCSV(),
+    'menu-save': () => saveToJSON(),
     'menu-open': () => document.getElementById('file-input').click(),
     'menu-new': () => {
       if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {
@@ -177,8 +177,8 @@ document.querySelector('#app').addEventListener('change', (e) => {
 
     const reader = new FileReader();
     reader.onload = (event) => {
-      const csv = event.target.result;
-      loadFromCSV(csv);
+      const json = event.target.result;
+      loadFromJSON(json);
     };
     reader.readAsText(file);
     e.target.value = ''; // Reset input

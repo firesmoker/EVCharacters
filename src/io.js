@@ -1,8 +1,5 @@
 import { 
-  renderSkillRow, 
-  renderDragsIgnoredRow, 
   renderMainAction, 
-  renderSpellRow,
   renderRowForSection
 } from './components.js';
 
@@ -42,98 +39,126 @@ export const prepareSheetForData = (restoreDefaults = false) => {
   });
 };
 
-const scrapeHeaders = (pushRow) => {
-  const uniqueSyncIds = new Set();
+const scrapeHeaders = (data) => {
+  data.headers = {};
   document.querySelectorAll('[data-sync-id]').forEach(el => {
     const id = el.getAttribute('data-sync-id');
-    if (!uniqueSyncIds.has(id)) {
-      pushRow('HEADER', id, el.innerText);
-      uniqueSyncIds.add(id);
+    // Save innerText for simple headers
+    if (!data.headers[id]) {
+      data.headers[id] = el.innerText;
     }
   });
 };
 
-const scrapeCheckboxes = (box, title, pushRow) => {
+const getSectionData = (data, title) => {
+  if (!data.sections[title]) {
+    data.sections[title] = {
+      checkboxes: {},
+      fields: {},
+      sectionBody: '',
+      splitFields: {},
+      dynamicRows: []
+    };
+  }
+  return data.sections[title];
+};
+
+const scrapeCheckboxes = (box, title, data) => {
+  const section = getSectionData(data, title);
   box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
     const label = item.innerText.trim() || `index-${idx}`;
     const checked = item.querySelector('input').checked;
-    pushRow('CHECKBOX', title, label, checked ? 'true' : 'false');
+    section.checkboxes[label] = checked;
   });
 };
 
-const scrapeFields = (box, title, pushRow) => {
+const scrapeFields = (box, title, data) => {
+  const section = getSectionData(data, title);
   box.querySelectorAll('.section-row-editable, .editable-field:not(.dynamic-rows *):not([data-sync-id]):not(.hp-split *)').forEach(field => {
     const labelEl = field.previousElementSibling;
     if (labelEl && labelEl.classList.contains('section-label')) {
-      pushRow('FIELD', title, labelEl.innerText.replace(':', '').trim(), field.innerText);
+      const label = labelEl.innerText.replace(':', '').trim();
+      // Use innerText for standard stats
+      section.fields[label] = field.innerText;
     } else if (field.classList.contains('section-content')) {
-      pushRow('SECTION_BODY', title, 'CONTENT', field.innerText);
+      // Use innerHTML for big text blocks (Features, etc.) to capture styling
+      section.sectionBody = field.innerHTML;
     }
   });
 };
 
-const scrapeSplitFields = (box, title, pushRow) => {
+const scrapeSplitFields = (box, title, data) => {
+  const section = getSectionData(data, title);
   box.querySelectorAll('.hp-split').forEach(split => {
     const labelEl = split.previousElementSibling;
     if (labelEl && labelEl.classList.contains('section-label')) {
       const label = labelEl.innerText.replace(':', '').trim();
-      const cur = split.children[0].innerText;
-      const max = split.children[2].innerText;
-      pushRow('SPLITFIELD', title, label, cur, max);
+      section.splitFields[label] = {
+        cur: split.children[0].innerText,
+        max: split.children[2].innerText
+      };
     }
   });
 };
 
-const scrapeDynamicRows = (box, title, pushRow) => {
+const scrapeDynamicRows = (box, title, data) => {
+  const section = getSectionData(data, title);
   box.querySelectorAll('.skill-row, .main-action-container').forEach(row => {
     if (row.classList.contains('skill-row')) {
       const inputs = Array.from(row.querySelectorAll('input'));
-      // Skip header rows or rows with no inputs
       if (inputs.length === 0) return;
-      const values = inputs.map(i => i.value);
-      pushRow('DYNAMIC_SKILL', title, ...values);
+      section.dynamicRows.push({
+        type: 'skill',
+        values: inputs.map(i => i.value)
+      });
     } else if (row.classList.contains('main-action-container')) {
       const titleVal = row.querySelector('.main-action-title').innerText;
       const subtitleVal = row.querySelector('.main-action-subtitle').innerText;
-      const details = Array.from(row.querySelectorAll('.main-action-text')).map(t => t.innerText);
+      
+      // Use innerHTML for Action Details to preserve styling
+      const details = Array.from(row.querySelectorAll('.main-action-text')).map(t => t.innerHTML);
       const tableVals = Array.from(row.querySelectorAll('.main-action-table td[contenteditable]')).map(td => td.innerText);
-      pushRow('DYNAMIC_ACTION', title, titleVal, subtitleVal, ...details, ...tableVals);
+      
+      section.dynamicRows.push({
+        type: 'action',
+        title: titleVal,
+        subtitle: subtitleVal,
+        details: details,
+        table: tableVals
+      });
     }
   });
 };
 
 /**
- * CSV SAVE LOGIC
+ * JSON SAVE LOGIC
  */
-export const saveToCSV = () => {
-  const data = [];
-
-  // Helper to push rows
-  const pushRow = (type, key, ...values) => {
-    const escapedValues = values.map(v => `"${(v || '').toString().replace(/"/g, '""')}"`);
-    data.push([type, key, ...escapedValues].join(','));
+export const saveToJSON = () => {
+  const data = {
+    version: 1,
+    headers: {},
+    sections: {}
   };
 
-  // 1. Headers (data-sync-id)
-  scrapeHeaders(pushRow);
+  // 1. Headers
+  scrapeHeaders(data);
 
-  // 2. Structured Sections (Defenses, Speed, etc.)
+  // 2. Structured Sections
   document.querySelectorAll('.section-box').forEach(box => {
     const title = box.querySelector('.section-header').textContent.trim();
-    
-    scrapeCheckboxes(box, title, pushRow);
-    scrapeFields(box, title, pushRow);
-    scrapeSplitFields(box, title, pushRow);
-    scrapeDynamicRows(box, title, pushRow);
+    scrapeCheckboxes(box, title, data);
+    scrapeFields(box, title, data);
+    scrapeSplitFields(box, title, data);
+    scrapeDynamicRows(box, title, data);
   });
 
-  const csvContent = data.join('\n');
-  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const jsonContent = JSON.stringify(data, null, 2);
+  const blob = new Blob([jsonContent], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   const charName = document.querySelector('[data-sync-id="character-name"]').innerText.trim() || 'character';
   link.setAttribute('href', url);
-  link.setAttribute('download', `${charName.replace(/[^a-z0-9]/gi, '_')}.csv`);
+  link.setAttribute('download', `${charName.replace(/[^a-z0-9]/gi, '_')}.json`);
   link.style.visibility = 'hidden';
   document.body.appendChild(link);
   link.click();
@@ -141,144 +166,118 @@ export const saveToCSV = () => {
 };
 
 /**
- * Robust CSV Parser
+ * JSON LOAD LOGIC
  */
-const parseCSV = (text) => {
-  const rows = [];
-  let row = [];
-  let field = '';
-  let inQuotes = false;
-  for (let i = 0; i < text.length; i++) {
-    const char = text[i];
-    const nextChar = text[i+1];
-    if (inQuotes) {
-      if (char === '"') {
-        if (nextChar === '"') { field += '"'; i++; }
-        else { inQuotes = false; }
-      } else { field += char; }
-    } else {
-      if (char === '"') { inQuotes = true; }
-      else if (char === ',') { row.push(field); field = ''; }
-      else if (char === '\n' || char === '\r') {
-        row.push(field); rows.push(row); field = ''; row = [];
-        if (char === '\r' && nextChar === '\n') i++;
-      } else { field += char; }
-    }
+export const loadFromJSON = (jsonString) => {
+  let data;
+  try {
+    data = JSON.parse(jsonString);
+  } catch (e) {
+    alert('Invalid JSON file');
+    return;
   }
-  if (field || row.length > 0) { row.push(field); rows.push(row); }
-  return rows;
-};
 
-export const loadFromCSV = (csv) => {
-  // Clear existing sheet using robust logic (no defaults restored as CSV will populate)
+  // Clear existing sheet
   prepareSheetForData(false);
 
-  const rows = parseCSV(csv);
+  // 1. Headers
+  if (data.headers) {
+    Object.entries(data.headers).forEach(([id, val]) => {
+      document.querySelectorAll(`[data-sync-id="${id}"]`).forEach(el => el.innerText = val);
+    });
+  }
 
   // Cache section boxes by title for efficient lookup
   const boxesByTitle = {};
   document.querySelectorAll('.section-box').forEach(box => {
-    const title = box.querySelector('.section-header').textContent.trim().toUpperCase();
+    const title = box.querySelector('.section-header').textContent.trim();
     if (!boxesByTitle[title]) boxesByTitle[title] = [];
     boxesByTitle[title].push(box);
   });
 
-  const forEachSection = (category, cb) => {
-    const boxes = boxesByTitle[category.toUpperCase()] || [];
-    boxes.forEach(cb);
-  };
+  if (!data.sections) return;
 
-  rows.forEach(parts => {
-    if (parts.length < 2) return;
-    
-    // Normalize values: handle quotes and normalize line breaks
-    // We replace \r\n (CRLF) and \r (CR) with \n (LF) to prevent double spacing in contenteditable
-    const [type, category, ...rawValues] = parts;
-    const values = rawValues.map(v => v.replace(/\r\n/g, '\n').replace(/\r/g, '\n'));
-
-    if (type === 'HEADER') {
-      document.querySelectorAll(`[data-sync-id="${category}"]`).forEach(el => el.innerText = values[0]);
-    } else if (type === 'CHECKBOX') {
-      forEachSection(category, box => {
+  Object.entries(data.sections).forEach(([title, section]) => {
+    const boxes = boxesByTitle[title] || [];
+    boxes.forEach(box => {
+      // Checkboxes
+      if (section.checkboxes) {
         box.querySelectorAll('.checkbox-item').forEach((item, idx) => {
           const label = item.innerText.trim() || `index-${idx}`;
-          if (label.toUpperCase() === values[0].toUpperCase()) {
-            item.querySelector('input').checked = values[1] === 'true';
+          if (section.checkboxes.hasOwnProperty(label)) {
+            item.querySelector('input').checked = section.checkboxes[label];
           }
         });
-      });
-    } else if (type === 'FIELD') {
-      forEachSection(category, box => {
+      }
+
+      // Fields
+      if (section.fields) {
         box.querySelectorAll('.section-row').forEach(row => {
-          const label = row.querySelector('.section-label');
-          if (label && label.innerText.replace(':', '').trim().toUpperCase() === values[0].toUpperCase()) {
-            const field = row.querySelector('.editable-field');
-            if (field) field.innerText = values[1];
-          }
-        });
-      });
-    } else if (type === 'SECTION_BODY') {
-      forEachSection(category, box => {
-        const field = box.querySelector('.section-content.editable-field');
-        if (field) field.innerText = values[1];
-      });
-    } else if (type === 'SPLITFIELD') {
-      forEachSection(category, box => {
-        box.querySelectorAll('.section-row').forEach(row => {
-          const label = row.querySelector('.section-label');
-          if (label && label.innerText.replace(':', '').trim().toUpperCase() === values[0].toUpperCase()) {
-            const split = row.querySelector('.hp-split');
-            if (split) {
-              split.children[0].innerText = values[1];
-              split.children[2].innerText = values[2];
+          const labelEl = row.querySelector('.section-label');
+          if (labelEl) {
+            const label = labelEl.innerText.replace(':', '').trim();
+            if (section.fields.hasOwnProperty(label)) {
+              row.querySelector('.editable-field').innerText = section.fields[label];
             }
           }
         });
-      });
-    } else if (type === 'DYNAMIC_SKILL') {
-      forEachSection(category, box => {
-        const title = box.querySelector('.section-header').textContent.trim();
-        const container = box.querySelector('.dynamic-rows');
-        if (!container) return;
-        
-        const html = renderRowForSection(title);
-        
-        if (html && values.length > 0) {
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = html;
-          const newRow = tempDiv.firstElementChild;
-          const inputs = newRow.querySelectorAll('input');
-          values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
-          
-          container.appendChild(newRow);
-        }
-      });
-    } else if (type === 'DYNAMIC_ACTION') {
-      forEachSection(category, box => {
-        const title = box.querySelector('.section-header').textContent.trim();
-        if (title === 'Main Actions') {
-          const container = box.querySelector('.dynamic-rows');
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = renderMainAction();
-          const newRow = tempDiv.firstElementChild;
-          
-          newRow.querySelector('.main-action-title').innerText = values[0];
-          newRow.querySelector('.main-action-subtitle').innerText = values[1];
-          
-          const texts = newRow.querySelectorAll('.main-action-text');
-          if (texts[0]) texts[0].innerText = values[2];
-          if (texts[1]) texts[1].innerText = values[3];
-          
-          const tds = newRow.querySelectorAll('.main-action-table td[contenteditable]');
-          values.slice(4).forEach((val, i) => { if (tds[i]) tds[i].innerText = val; });
+      }
 
-          if (container) container.appendChild(newRow);
+      // Section Body (Rich Text)
+      if (section.sectionBody) {
+        const field = box.querySelector('.section-content.editable-field');
+        if (field) field.innerHTML = section.sectionBody;
+      }
+
+      // Split Fields
+      if (section.splitFields) {
+        box.querySelectorAll('.hp-split').forEach(split => {
+          const labelEl = split.previousElementSibling;
+          if (labelEl) {
+            const label = labelEl.innerText.replace(':', '').trim();
+            if (section.splitFields[label]) {
+              split.children[0].innerText = section.splitFields[label].cur;
+              split.children[2].innerText = section.splitFields[label].max;
+            }
+          }
+        });
+      }
+
+      // Dynamic Rows
+      if (section.dynamicRows) {
+        const container = box.querySelector('.dynamic-rows');
+        if (container) {
+          section.dynamicRows.forEach(rowData => {
+            const html = renderRowForSection(title);
+            if (!html) return;
+            
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const newRow = tempDiv.firstElementChild;
+
+            if (rowData.type === 'skill') {
+              const inputs = newRow.querySelectorAll('input');
+              rowData.values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
+            } else if (rowData.type === 'action') {
+              newRow.querySelector('.main-action-title').innerText = rowData.title;
+              newRow.querySelector('.main-action-subtitle').innerText = rowData.subtitle;
+              
+              const texts = newRow.querySelectorAll('.main-action-text');
+              if (texts[0] && rowData.details[0]) texts[0].innerHTML = rowData.details[0]; // Rich Text
+              if (texts[1] && rowData.details[1]) texts[1].innerHTML = rowData.details[1]; // Rich Text
+              
+              const tds = newRow.querySelectorAll('.main-action-table td[contenteditable]');
+              rowData.table.forEach((val, i) => { if (tds[i]) tds[i].innerText = val; });
+            }
+
+            container.appendChild(newRow);
+          });
         }
-      });
-    }
+      }
+    });
   });
 
-  // Final cleanup: Restore placeholders for empty fields
+  // Final cleanup
   document.querySelectorAll('.editable-field').forEach(el => {
     if (el.innerText.trim() === '') {
       el.innerText = '';

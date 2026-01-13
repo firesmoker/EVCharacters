@@ -105,12 +105,18 @@ const handleClick = (e) => {
     if (target) target.remove();
   }
 
-  // Table Toggle
+  // Table/Notes Toggle
   if (e.target.classList.contains('table-toggle-btn')) {
-    const table = e.target.nextElementSibling;
-    if (table) {
-      table.classList.toggle('hidden');
-      e.target.innerText = table.classList.contains('hidden') ? 'Show Table' : '👁️';
+    const targetEl = e.target.nextElementSibling;
+    if (targetEl) {
+      targetEl.classList.toggle('hidden');
+      const isHidden = targetEl.classList.contains('hidden');
+      
+      if (targetEl.tagName === 'TABLE') {
+        e.target.innerText = isHidden ? 'Show Table' : '👁️';
+      } else {
+        e.target.innerText = isHidden ? 'Show Notes' : '👁️';
+      }
     }
   }
 

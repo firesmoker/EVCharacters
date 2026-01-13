@@ -264,31 +264,38 @@ export const renderMainAction = () => `
       <div class="editable-field main-action-subtitle" contenteditable="true" data-placeholder="Action Speed"></div>
     </div>
     <div class="section-separator"></div>
-    <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Action details..."></div>
-    <div class="table-wrapper">
-      <div class="table-toggle-btn" title="Toggle Table">👁️</div>
-      <table class="main-action-table">
-        <tr>
-          <td></td>
-          <td>Normal Success</td>
-          <td>Major Success</td>
-          <td>Critical Success</td>
-        </tr>
-        <tr>
-          <td>Damage</td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-        </tr>
-        <tr>
-          <td>Ignores DR</td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-        </tr>
-      </table>
+    <div class="action-split-row" style="display: flex; align-items: flex-start;">
+      <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Action details..." style="flex-grow: 1; padding-right: 8px; min-width: 0;"></div>
+      <div class="table-wrapper" style="flex-shrink: 0; margin-top: 0;">
+        <div class="table-toggle-btn" title="Toggle Table">👁️</div>
+        <table class="main-action-table">
+          <tr>
+            <td></td>
+            <td>Damage</td>
+            <td>Ignores DR</td>
+          </tr>
+          <tr>
+            <td>Normal</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>Major</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+          <tr>
+            <td>Critical</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Additional notes..."></div>
+    <div class="table-wrapper" style="margin-top: 4px;">
+      <div class="table-toggle-btn" title="Toggle Notes">👁️</div>
+      <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Additional notes..."></div>
+    </div>
     <button class="remove-row-btn" title="Remove Action">-</button>
     <button class="add-row-btn" title="Add Action">+</button>
   </div>

@@ -741,6 +741,22 @@ textarea::placeholder {
 
 
 
+  overflow-wrap: break-word;
+
+
+
+
+
+
+
+  word-break: break-word;
+
+
+
+
+
+
+
 }
 
 
@@ -753,7 +769,15 @@ textarea::placeholder {
 
 
 
-  width: 100%;
+
+
+
+
+  width: auto;
+
+
+
+
 
 
 
@@ -761,11 +785,23 @@ textarea::placeholder {
 
 
 
+
+
+
+
   margin: 4px 0;
 
 
 
+
+
+
+
   table-layout: fixed;
+
+
+
+
 
 
 
@@ -781,7 +817,15 @@ textarea::placeholder {
 
 
 
+
+
+
+
   border: 1px solid #ccc;
+
+
+
+
 
 
 
@@ -789,7 +833,15 @@ textarea::placeholder {
 
 
 
-  padding: 2px;
+
+
+
+
+  padding: 2px 4px;
+
+
+
+
 
 
 
@@ -1174,5 +1226,10 @@ textarea::placeholder {
 
 .main-action-container:last-child {
   margin-bottom: 0;
+}
+
+
+.main-action-text.hidden {
+  display: none;
 }
 

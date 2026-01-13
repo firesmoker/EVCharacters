@@ -259,7 +259,7 @@ export const renderHeader = () => `
  */
 export const renderVariantActionRow = () => `
   <div class="variant-action-row" style="display: flex; align-items: center; margin-top: 4px; gap: 4px;">
-    <div class="editable-field variant-action-text" contenteditable="true" data-placeholder="Variant..." style="flex-grow: 1; font-style: italic;"></div>
+    <div class="editable-field variant-action-text" contenteditable="true" data-placeholder="Variant..." style="flex-grow: 1;"></div>
     <button class="remove-variant-btn" title="Remove Variant" style="font-size: 10px; cursor: pointer;">-</button>
   </div>
 `

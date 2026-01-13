@@ -1269,3 +1269,15 @@ textarea::placeholder {
   opacity: 1;
 }
 
+
+.variant-action-text {
+  background-color: color-mix(in srgb, var(--field-color), transparent 90%);
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+
+.variant-action-text * {
+  background-color: transparent !important;
+}
+

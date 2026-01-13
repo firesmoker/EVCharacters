@@ -140,7 +140,7 @@ body {
 
 .sheet-header {
   border-bottom: 2px solid #333;
-  padding-bottom: 5mm;
+  padding-bottom: 2mm;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -190,7 +190,7 @@ h1.sheet-title {
 }
 
 .logo-box {
-  width: 55mm;
+  width: 40mm;
   /* Slightly wider for the brand name */
   display: flex;
   align-items: flex-start;
@@ -427,11 +427,10 @@ select.skill-name {
 }
 
 .skill-bonus {
-  width: 25mm;
-  /* Widened to fit dropdown text */
+  width: 17mm;
+  /* Reduced from 25mm */
   text-align: center;
   border-bottom: 1px solid #ccc;
-  font-weight: bold;
 }
 
 select.skill-bonus,
@@ -451,10 +450,9 @@ input.skill-bonus {
 }
 
 input.skill-bonus {
-  width: 30mm;
-  /* Slightly wider for the text */
+  width: 24mm;
+  /* Reduced from 30mm */
   text-align: center;
-  font-weight: bold;
 }
 
 select.skill-bonus {
@@ -504,6 +502,21 @@ select.skill-name optgroup {
   position: relative;
   flex-grow: 1;
   display: flex;
+}
+
+.autocomplete-wrapper input {
+  width: 100%;
+}
+
+.autocomplete-wrapper[data-type="bonus"] {
+  flex-grow: 0;
+  flex-basis: 24mm;
+}
+
+.autocomplete-wrapper[data-type="skills"],
+.autocomplete-wrapper[data-type="combat"] {
+  flex-grow: 0;
+  flex-basis: 36mm;
 }
 
 .suggestions-dropdown {
@@ -643,11 +656,8 @@ textarea::placeholder {
 
 
   border: 2px solid #f0f0f0;
-  /* Soft border */
-
-
-
-  padding: 8px;
+    /* Soft border */
+    padding: 4px 8px;
 
 
 
@@ -711,7 +721,15 @@ textarea::placeholder {
 
 
 
+
+
+
+
   font-size: 14px;
+
+
+
+
 
 
 
@@ -719,7 +737,7 @@ textarea::placeholder {
 
 
 
-  border-bottom: 1px dashed #eee;
+
 
 
 
@@ -1125,7 +1143,7 @@ textarea::placeholder {
 /* Table Toggle Styles */
 .table-wrapper {
   position: relative;
-  margin-top: 4px;
+  margin-top: 0;
 }
 
 .table-toggle-btn {
@@ -1145,5 +1163,16 @@ textarea::placeholder {
 
 .main-action-table.hidden {
   display: none;
+}
+
+
+/* Reduced spacing for Main Action separator */
+.main-action-container .section-separator {
+  margin: 0;
+}
+
+
+.main-action-container:last-child {
+  margin-bottom: 0;
 }
 

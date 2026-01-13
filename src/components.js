@@ -204,7 +204,7 @@ export const renderDefensesSection = () => `
     ${renderSectionRow('Fortitude', '0')}
     ${renderSectionRow('Will', '0')}
     <div class="section-separator"></div>
-    <div style="margin-top: 6px;">
+    <div>
       <div class="section-subsection-label">Armor Training:</div>
       <div class="checkbox-group">
         <label class="checkbox-item"><input type="checkbox"> Light</label>

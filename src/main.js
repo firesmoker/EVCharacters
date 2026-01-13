@@ -123,9 +123,31 @@ const handleClick = (e) => {
 };
 
 /**
- * Handle Autocomplete Keyboard Navigation
+ * Global Keydown Handler
  */
-const handleAutocompleteKeydown = (e) => {
+const handleGlobalKeydown = (e) => {
+  // Font Size Shortcuts: Shift + [ (Decrease) / Shift + ] (Increase)
+  if (e.shiftKey && (e.key === '{' || e.key === '}' || e.code === 'BracketLeft' || e.code === 'BracketRight')) {
+    // Check if we are inside an editable field
+    if (e.target.isContentEditable) {
+      e.preventDefault();
+      
+      // Get current size (approximate) or default to 3 (normal)
+      const currentSizeStr = document.queryCommandValue('fontSize');
+      let currentSize = parseInt(currentSizeStr) || 3;
+
+      if (e.key === '}' || e.code === 'BracketRight') {
+        currentSize = Math.min(currentSize + 1, 7);
+      } else {
+        currentSize = Math.max(currentSize - 1, 1);
+      }
+
+      document.execCommand('fontSize', false, currentSize);
+      return;
+    }
+  }
+
+  // Autocomplete Logic
   if (!isAutocompleteInput(e.target)) return;
 
   const wrapper = e.target.closest('.autocomplete-wrapper');
@@ -167,7 +189,7 @@ document.querySelector('#app').addEventListener('focusin', (e) => {
   }
 });
 
-document.querySelector('#app').addEventListener('keydown', handleAutocompleteKeydown);
+document.querySelector('#app').addEventListener('keydown', handleGlobalKeydown);
 
 // Listen for file input change via delegation
 document.querySelector('#app').addEventListener('change', (e) => {

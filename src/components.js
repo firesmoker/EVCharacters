@@ -292,10 +292,6 @@ export const renderMainAction = () => `
         </table>
       </div>
     </div>
-    <div class="table-wrapper" style="margin-top: 4px;">
-      <div class="table-toggle-btn" title="Toggle Notes">👁️</div>
-      <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Additional notes..."></div>
-    </div>
     <button class="remove-row-btn" title="Remove Action">-</button>
     <button class="add-row-btn" title="Add Action">+</button>
   </div>

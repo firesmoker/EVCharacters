@@ -14,7 +14,9 @@
 
   /* Global variables for the handwritten style */
   --handwritten-font: 'Kalam', cursive;
+  --readable-font: 'PT Sans', sans-serif;
   --handwritten-color: #000080;
+  --readable-color: #333;
 
   /* Global variables for layout */
   --section-gap: 4mm;
@@ -411,8 +413,8 @@ h1.sheet-title {
 }
 
 select.skill-name {
-  font-family: var(--handwritten-font);
-  color: var(--handwritten-color);
+  font-family: var(--readable-font);
+  color: var(--readable-color);
   font-size: 16px;
   background: transparent;
   border: none;
@@ -436,8 +438,8 @@ select.skill-bonus,
 select.skill-name,
 input.skill-name,
 input.skill-bonus {
-  font-family: var(--handwritten-font);
-  color: var(--handwritten-color);
+  font-family: var(--readable-font);
+  color: var(--readable-color);
   background: transparent;
   border: none;
   border-bottom: 1px solid #ccc;
@@ -488,13 +490,13 @@ select.skill-name optgroup {
   font-style: normal;
 }
 
-/* Shared Handwritten Style */
+/* Shared Readable Style */
 .editable-field {
-  font-family: var(--handwritten-font);
-  color: var(--handwritten-color);
-  /* Navy blue "ink" look */
-  font-size: 16px;
-  /* Increased default size */
+  font-family: var(--readable-font);
+  color: #333;
+  /* Darker color for better legibility */
+  font-size: 14px;
+  /* Optimized for PT Sans */
   outline: none;
 }
 
@@ -532,8 +534,8 @@ select.skill-name optgroup {
 }
 
 .suggestion-item {
-  font-family: var(--handwritten-font);
-  color: var(--handwritten-color);
+  font-family: var(--readable-font);
+  color: var(--readable-color);
   font-size: 14px;
   padding: 6px 12px;
   cursor: pointer;
@@ -774,11 +776,11 @@ textarea::placeholder {
 
 
 
-  font-family: var(--handwritten-font);
+  font-family: var(--readable-font);
 
 
 
-  color: var(--handwritten-color);
+  color: var(--readable-color);
 
 
 

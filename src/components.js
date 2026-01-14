@@ -130,6 +130,7 @@ export const renderSpellcastingSection = () => `
       </div>
       ${renderSectionRow('Spells Known', '0')}
       ${renderSectionRow('Cantrips Known', '0')}
+      ${renderSectionRow('Summon Slots', '0')}
     </div>
     <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 4px; padding-left: 10px; border-left: 1px solid #ccc;">
       <label class="checkbox-item"><input type="checkbox"> Arcane</label>

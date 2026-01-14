@@ -1296,3 +1296,29 @@ textarea::placeholder {
   color: #000;
 }
 
+
+.expanded-damage-table {
+  width: 100% !important; /* Override the auto width from main-action-table */
+}
+
+
+.table-toggle-btn {
+  z-index: 10;
+}
+
+/* Ensure spacing for the expanded table button */
+.table-wrapper {
+  margin-top: 0px; /* Reverted to small gap */
+}
+
+/* Fix for split row table wrapper specifically */
+.action-split-row .table-wrapper {
+  margin-top: 0;
+}
+
+
+/* Force expanded table display */
+.expanded-damage-table {
+  display: table;
+}
+

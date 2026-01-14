@@ -282,7 +282,7 @@ export const renderMainAction = () => `
       <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Action details..." style="flex-grow: 1; padding-right: 8px; min-width: 0;"></div>
       <div class="table-wrapper" style="flex-shrink: 0; margin-top: 0;">
         <div class="table-toggle-btn" title="Toggle Table">👁️</div>
-        <table class="main-action-table">
+        <table class="main-action-table standard-damage-table">
           <tr>
             <td></td>
             <td>Damage</td>
@@ -305,6 +305,35 @@ export const renderMainAction = () => `
           </tr>
         </table>
       </div>
+    </div>
+    <div class="table-wrapper">
+      <div class="table-toggle-btn" title="Toggle Expanded Table">👁️</div>
+      <table class="main-action-table expanded-damage-table">
+        <tr>
+          <td></td>
+          <td>Damage</td>
+          <td>Ignores DR</td>
+          <td>Special Effects</td>
+        </tr>
+        <tr>
+          <td>Normal</td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+        <tr>
+          <td>Major</td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+        <tr>
+          <td>Critical</td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+          <td contenteditable="true"></td>
+        </tr>
+      </table>
     </div>
     <div class="variant-actions-container"></div>
     <div class="variant-btn-container">

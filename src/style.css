@@ -268,7 +268,7 @@ h1.sheet-title {
   margin: 4px 0;
 }
 
-.hp-split {
+.stat-split {
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -276,7 +276,7 @@ h1.sheet-title {
   gap: 5px;
 }
 
-.hp-slash {
+.stat-slash {
   font-family: Inter, sans-serif;
   color: #999;
   font-size: 16px;

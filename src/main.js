@@ -1,10 +1,25 @@
 import './style.css'
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
 import { renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, renderSpellRow, renderRowForSection, renderVariantActionRow } from './components.js';
-import { saveToJSON, loadFromJSON, prepareSheetForData } from './io.js';
+import { saveToJSON, loadFromJSON, prepareSheetForData, serializeSheet } from './io.js';
 
 // Initial Render
 renderApp();
+
+// Auto-Load
+const savedData = localStorage.getItem('ev-char-sheet');
+if (savedData) {
+  loadFromJSON(savedData);
+}
+
+// Auto-Save Logic
+let autoSaveTimeout;
+const autoSave = () => {
+  clearTimeout(autoSaveTimeout);
+  autoSaveTimeout = setTimeout(() => {
+    localStorage.setItem('ev-char-sheet', serializeSheet());
+  }, 1000);
+};
 
 /**
  * Autocomplete Logic
@@ -69,6 +84,8 @@ const handleInput = (e) => {
   if (isAutocompleteInput(e.target)) {
     updateSuggestions(e.target.closest('.autocomplete-wrapper'));
   }
+
+  autoSave();
 };
 
 /**
@@ -143,6 +160,7 @@ const handleClick = (e) => {
     'menu-open': () => document.getElementById('file-input').click(),
     'menu-new': () => {
       if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {
+        localStorage.removeItem('ev-char-sheet');
         prepareSheetForData(true);
       }
     }
@@ -177,6 +195,8 @@ const handleClick = (e) => {
   if (colorActions[e.target.id]) {
     document.documentElement.style.setProperty('--field-color', colorActions[e.target.id]);
   }
+
+  autoSave();
 };
 
 /**

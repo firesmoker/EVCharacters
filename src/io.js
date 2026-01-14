@@ -139,9 +139,9 @@ const scrapeDynamicRows = (box, title, data) => {
 };
 
 /**
- * JSON SAVE LOGIC
+ * Serializes the current sheet to a JSON string.
  */
-export const saveToJSON = () => {
+export const serializeSheet = () => {
   const data = {
     version: 1,
     headers: {},
@@ -160,7 +160,14 @@ export const saveToJSON = () => {
     scrapeDynamicRows(box, title, data);
   });
 
-  const jsonContent = JSON.stringify(data, null, 2);
+  return JSON.stringify(data, null, 2);
+};
+
+/**
+ * JSON SAVE LOGIC
+ */
+export const saveToJSON = () => {
+  const jsonContent = serializeSheet();
   const blob = new Blob([jsonContent], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');

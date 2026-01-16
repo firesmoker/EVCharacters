@@ -648,7 +648,7 @@ textarea::placeholder {
 
 
 
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 
 
 
@@ -1249,7 +1249,7 @@ textarea::placeholder {
 
 
 .variant-actions-container {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 
@@ -1309,11 +1309,23 @@ textarea::placeholder {
 /* Ensure spacing for the expanded table button */
 .table-wrapper {
   margin-top: 0px; /* Reverted to small gap */
+  position: relative;
+}
+
+/* Fix for hidden tables causing double gaps in flex containers */
+.main-action-container > .table-wrapper:has(> .main-action-table.hidden) {
+  margin-top: -4px; /* Matches the parent gap: 4px to neutralize one gap */
 }
 
 /* Fix for split row table wrapper specifically */
 .action-split-row .table-wrapper {
   margin-top: 0;
+}
+
+.action-split-row .table-wrapper:has(> .main-action-table.hidden) {
+  margin-right: -8px; /* Neutralize the padding-right of the text sibling */
+  width: 0;
+  overflow: visible;
 }
 
 

@@ -231,7 +231,6 @@ export const renderDefensesSection = () => `
 export const renderSpeedSection = () => `
   <div class="section-container">
     ${renderSectionRow('Movement', '3')}
-    <div class="section-separator"></div>
     <div class="section-subsection-label">Drags Ignored:</div>
     <div class="dynamic-rows">
       ${renderDragsIgnoredRow()}

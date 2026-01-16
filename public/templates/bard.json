@@ -1,0 +1,411 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "Bard",
+    "player-name": "",
+    "level": "1",
+    "experience": "",
+    "class": "Bard",
+    "species": ""
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {
+        "Light": true,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": false,
+        "Tower Shields": false
+      },
+      "fields": {
+        "Damage\nReduction": "1 vs Piercing",
+        "Deflection": "5",
+        "Fortitude": "0",
+        "Will": "5"
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "5"
+        }
+      },
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "3"
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Ranged Weapons"
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Ranged Strike",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Performance",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "brd",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "brd",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "brd",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "brd",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "orgn",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Main Actions": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "title": "Ranged Strike (Shortbow)",
+          "subtitle": "Average Action",
+          "details": [
+            "<div>Roll Ranged Strike vs. Deflection</div>If you roll 20 on the die:<br>ignore all DR<div>Disadvantage if you are in an&nbsp; enemy's melee range</div>"
+          ],
+          "table": [
+            "1 piercing",
+            "-",
+            "2 piercing",
+            "-",
+            "3 piercing",
+            "-"
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [],
+          "isTableHidden": false,
+          "isExpandedTableHidden": true
+        }
+      ]
+    },
+    "Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><div><b>Melody of Rest (1 / Day): </b>Heal all party members for 1 HP, outside of combat.</div><div><b>Feat: Inspired (2 / Day):</b> Get advantage on a standard skill check.</div></div><div><b>War Singing: </b>No action needed. Choose 1 phrase at the start of each round that hasn't been used yet this combat.</div><div>   • <b>Rise to the Challenge: </b>All allies in the affected area are\n      inspired (they deal +1 damage) until the end of the round.\n    • <b>Onward We Go: </b>All allies in the affected area gain +1\n      Movement until the end of the round.\n<b>    • Looming Darkness: </b>Roll Bardic Magic against Will for enemies\n      in the area. Enemies you've succeeded against become\n      discouraged (they deal -1 damage) until the end of the round.\n    • <b>Sweet, Sweet Revenge</b> (Requirements: one or more enemies\n      dealt damage to you this combat.): Choose an enemy that\n      dealt damage to you this combat. They become vulnerable (-5\n      to all Defenses) and discouraged (they deal -1 damage) until\n      the end of the round.\n    • <b>For Our Friends </b>(Requirements: a party member became dying\n      this combat.) All allies in the affected area have advantage on\n      all rolls until the end of the round.</div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "Common,",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div>Studded Armor</div><div>Shortbow</div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "More Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><b>Bardic Music:</b> Play any instrument. You can add magical sounds. You have advantage on Performance checks for musical performances.</div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div>'</div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": true,
+        "Divine": false,
+        "Nature": false,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "1",
+        "Cantrips Known": "2",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": "2"
+        }
+      },
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Minor Illustion",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Light",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Guilibility",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  }
+}

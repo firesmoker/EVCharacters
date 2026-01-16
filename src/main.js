@@ -138,6 +138,29 @@ const handleClick = (e) => {
     if (target) target.remove();
   }
 
+  // New from Template Handler
+  if (e.target.classList.contains('template-item')) {
+    e.stopPropagation();
+    const fileName = e.target.getAttribute('data-file');
+    if (fileName) {
+      if (confirm(`Load template "${e.target.innerText}"? Current unsaved changes will be lost.`)) {
+        fetch(`/templates/${fileName}`)
+          .then(response => {
+            if (!response.ok) throw new Error('Failed to load template');
+            return response.json();
+          })
+          .then(data => {
+            loadFromJSON(JSON.stringify(data));
+          })
+          .catch(err => {
+            console.error(err);
+            alert('Error loading template.');
+          });
+      }
+    }
+    return;
+  }
+
   // Table/Notes Toggle
   if (e.target.classList.contains('table-toggle-btn')) {
     const targetEl = e.target.nextElementSibling;

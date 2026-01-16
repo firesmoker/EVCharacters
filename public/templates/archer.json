@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "Archer",
+    "player-name": "",
+    "level": "1",
+    "experience": "",
+    "class": "Archer",
+    "species": ""
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {
+        "Light": true,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": false,
+        "Tower Shields": false
+      },
+      "fields": {
+        "Damage\nReduction": "1 DR vs. Piercing",
+        "Deflection": "5",
+        "Fortitude": "5",
+        "Will": "0"
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "5"
+        }
+      },
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "3"
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Heavy Weapons"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Ranged Weapons"
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Ranged Strike",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "ar",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "ar",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "ar",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "ar",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "org",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Main Actions": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "title": "Ranged Strike (Longbow)",
+          "subtitle": "Fast Action",
+          "details": [
+            "<div><span style=\"font-size: small;\">• Roll Melee Strike vs. Deflection</span></div><div><font size=\"2\">• Roll 20 on the die: ignore all DR</font></div><div><span style=\"font-size: small;\">• Roll 19-20 on the die: +1 damage</span></div><div><span style=\"font-size: small;\">• Disadvantage if you are within an enemy's melee range</span></div>"
+          ],
+          "table": [
+            "1 piercing",
+            "1",
+            "2 piercing",
+            "1",
+            "3 piercing",
+            "1"
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [
+            "<b>Variant: Pinning Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">On a successful hit,  </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">reduce the target’s Movement score by 2\nuntil the end of the turn.</span></font></div></div>",
+            "<b>Variant: Puncturing Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">On a successful hit, </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">the target is Breached (it gets-1 DR) until the\nend of the next round.</span></font></div></div>",
+            "<b>Variant: Power Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">This attack is done with one additional Drag. On a successful hit, </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">you deal +1 damage.</span></font></div></div>"
+          ],
+          "isTableHidden": false,
+          "isExpandedTableHidden": true
+        },
+        {
+          "type": "action",
+          "title": "Sliding Shot",
+          "subtitle": "Fast Action • Uses Stride",
+          "details": [
+            "<div><font size=\"2\">Double your movement for the turn and&nbsp;</font><span style=\"font-size: small;\">Stride at least 3 units. Then, perform a&nbsp;</span><span style=\"font-size: small;\"><b>Ranged Strike</b> against a target within 3 units&nbsp;</span><span style=\"font-size: small;\">of you. You have advantage for this strike.&nbsp;</span><span style=\"font-size: small;\">You then become prone.</span></div>"
+          ],
+          "table": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [],
+          "isTableHidden": true,
+          "isExpandedTableHidden": true
+        }
+      ]
+    },
+    "Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "Common, ",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<font size=\"2\">Studded Armor</font><div><span style=\"font-size: small;\">Longbow</span></div><div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"3\"><br></font></div></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "More Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><font size=\"2\"><b style=\"\">Melee Weapon Proficiency</b></font></div><div><font size=\"2\"><b style=\"\">Bullseye: </b>deal +1 damage when rolling 19-20 with ranged strike (already calculated into the Ranged Strike section)</font></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": false,
+        "Divine": false,
+        "Nature": false,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "",
+        "Cantrips Known": "",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  }
+}

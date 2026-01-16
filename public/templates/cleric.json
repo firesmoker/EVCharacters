@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "Cleric",
+    "player-name": "",
+    "level": "1",
+    "experience": "",
+    "class": "Cleric",
+    "species": ""
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {
+        "Light": true,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": true,
+        "Tower Shields": false
+      },
+      "fields": {
+        "Damage\nReduction": "1 vs Piercing",
+        "Deflection": "10",
+        "Fortitude": "0",
+        "Will": "5"
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "5"
+        }
+      },
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "3"
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            ""
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Divine Magic",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Religion",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Medicine",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "clc",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "clc",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "clc",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "orgn",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Main Actions": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "title": "Melee Strike (Light Mace)",
+          "subtitle": "Average Action",
+          "details": [
+            "<div>Roll Divine Magic vs. Deflection<br>(\"Blessed Strike\" feature)</div>If you roll 20 on the die:<br>ignore all DR"
+          ],
+          "table": [
+            "1 radiant",
+            "-",
+            "2 radiant",
+            "-",
+            "3 radiant",
+            "-"
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [],
+          "isTableHidden": false,
+          "isExpandedTableHidden": true
+        },
+        {
+          "type": "action",
+          "title": "Prayer                                                  (1 / Combat)",
+          "subtitle": "Fast Action",
+          "details": [
+            "<div>Range: 20 units</div>Spend faith to perform one effect of your choice:"
+          ],
+          "table": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [
+            "<b>Weapons of Light (1 Faith)</b><div><div>Until the end of the next round,&nbsp; when your affected party members perform any type of strike, they deal radiant damage instead of their normal damage type and deal +1 damage against undead.</div></div>",
+            "<b>Martial Guidance (2 Faith)</b><div><div>Your affected party members gain advantage on all attacks until the end of the round.</div></div>",
+            "<b>Guarding Light (2 Faith)</b><div><div>Attacks against your affected party members suffer disadvantage until the end of the round.</div></div>"
+          ],
+          "isTableHidden": true,
+          "isExpandedTableHidden": true
+        }
+      ]
+    },
+    "Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><b>Faith: </b>Start each combat with 1 Faith. You gain 1 more Faith at the start of each round.  You can use Faith to perform a Prayer.</div><div><b>Feat: Inspired (2 / Day): </b>Gain advantage on a standard skill check.</div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "Common,",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "Light Mace",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "More Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": true,
+        "Divine": false,
+        "Nature": false,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "2",
+        "Cantrips Known": "3",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": "3"
+        }
+      },
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Radiant Beam",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Light",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  }
+}

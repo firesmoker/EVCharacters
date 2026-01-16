@@ -349,7 +349,23 @@ export const renderMainAction = () => `
  */
 export const renderToolbar = () => `
   <div class="top-bar">
-    <div class="menu-item">File<div class="dropdown-content"><div id="menu-new">New</div><div id="menu-open">Open</div><div id="menu-save">Save</div><div id="export-pdf">Export to PDF</div></div></div>
+    <div class="menu-item">File
+      <div class="dropdown-content">
+        <div id="menu-new">New</div>
+        <div class="menu-item-nested">New from Template
+          <div class="nested-dropdown-content">
+            <div class="template-item" data-file="archer.json">Archer</div>
+            <div class="template-item" data-file="bard.json">Bard</div>
+            <div class="template-item" data-file="cleric.json">Cleric</div>
+            <div class="template-item" data-file="rogue.json">Rogue</div>
+            <div class="template-item" data-file="surface_dwarf_warrior.json">Surface Dwarf Warrior</div>
+          </div>
+        </div>
+        <div id="menu-open">Open</div>
+        <div id="menu-save">Save</div>
+        <div id="export-pdf">Export to PDF</div>
+      </div>
+    </div>
     <input type="file" id="file-input" style="display: none;" accept=".json">
     <div class="menu-item">Edit<div class="dropdown-content"><div>Undo</div><div>Redo</div></div></div>
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>

@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "Surface Dwarf Warrior",
+    "player-name": "",
+    "level": "1",
+    "experience": "",
+    "class": "Warrior",
+    "species": "Surface Dwarf"
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {
+        "Light": true,
+        "Medium": true,
+        "Heavy": false,
+        "Heavy Shields": true,
+        "Tower Shields": false
+      },
+      "fields": {
+        "Damage\nReduction": "1 DR\n+1 DR vs. Poison\n-1 DR vs. Bludgeoning",
+        "Deflection": "10",
+        "Fortitude": "5",
+        "Will": "5"
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "6"
+        }
+      },
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "3"
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Heavy Weapons"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Two-Handed Weapons"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Reach Weapons"
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Melee Strike",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Unarmed Strike",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Warfare",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Athletics",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "wr",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "wr",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "org",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "srf",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "srf",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Main Actions": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "title": "Melee Strike (Bastard Sword)",
+          "subtitle": "Fast Action",
+          "details": [
+            "<div><span style=\"font-size: small;\">• Roll Melee Strike vs. Deflection</span></div><div><font size=\"2\">• Roll 20 on the die: ignore all DR</font></div>"
+          ],
+          "table": [
+            "1 slashing",
+            "1",
+            "2 slashing",
+            "1",
+            "3 slashing",
+            "1"
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [
+            "<b>Variant: Tactical Strike (2 / Combat)</b><div><div style=\"white-space-collapse: preserve; background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\">On a successful hit, apply one of the following to the target:</font></div><font size=\"2\" style=\"white-space-collapse: preserve; background-color: rgba(0, 0, 128, 0.02);\">• Push 1 unit away from you\n• Trip (target becomes prone if large or smaller)\n• Apply disadvantage to the target’s next attack.\n• The target is Breached (-1 DR) until the end of the next round</font></div>"
+          ],
+          "isTableHidden": false,
+          "isExpandedTableHidden": true
+        },
+        {
+          "type": "action",
+          "title": "Intercept",
+          "subtitle": "Fast Action",
+          "details": [
+            "<div><font size=\"2\">You assume a protective stance. Once until the end of the round, if an enemy attacks an ally that is within 1 unit of yourself, you may change the target of the attack to yourself, if you are a legal target. The attack must be made against Deflection.</font></div><div><span style=\"font-size: small;\">Immediately after the attack, if the enemy is within melee range, you may perform a Melee Strike on them.</span></div>"
+          ],
+          "table": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [],
+          "isTableHidden": true,
+          "isExpandedTableHidden": true
+        }
+      ]
+    },
+    "Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><font size=\"2\"><b>Student of War (1 / Combat):</b> reveal the action of one humanoid enemy at the start of the round. </font></div><div><span style=\"font-size: small;\"><b>Sturdy Form (1 / Combat):</b> If any effect would make you become prone or pushed, roll an Easy check. On success, you don't become prone, and you are pushed for 2 units less (to a minimum of 0).</span></div><div><font size=\"2\"><b>Opportunity Attacks:</b> Once per round when an enemy leaves your melee reach after starting their turn within it, you may perform a Melee Strike against them </font></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "Common, Dwarven, ",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<font size=\"2\">Scale Armor</font><div><font size=\"2\">Heavy Shield\n</font><span style=\"font-size: small;\">Bastard Sword</span></div><div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"3\"><br></font></div></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "More Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><font size=\"2\"><b style=\"\">Melee Weapon Proficiency</b></font></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": false,
+        "Divine": false,
+        "Nature": false,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "",
+        "Cantrips Known": "",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  }
+}

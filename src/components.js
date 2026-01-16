@@ -287,7 +287,7 @@ export const renderMainAction = () => `
           <tr>
             <td></td>
             <td>Damage</td>
-            <td>Ignores DR</td>
+            <td>Ignores<br>DR</td>
           </tr>
           <tr>
             <td>Normal</td>

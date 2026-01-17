@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "Primal Orc Barbarian",
+    "player-name": "",
+    "level": "1",
+    "experience": "",
+    "class": "Barbarian",
+    "species": "Primal Orc"
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {
+        "Light": false,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": false,
+        "Tower Shields": false
+      },
+      "fields": {
+        "Damage\nReduction": "1 DR\n",
+        "Deflection": "5",
+        "Fortitude": "5",
+        "Will": "0"
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "7"
+        }
+      },
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "3"
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Heavy Weapons"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Two-Handed Weapons"
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Melee Strike",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Unarmed Strike",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Weapon Throw",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Athletics",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "bar",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "bar",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "org",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Intimidation",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Main Actions": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "title": "Melee Strike (Greataxe)",
+          "subtitle": "Fast Action",
+          "details": [
+            "<div><span style=\"font-size: small;\">• Roll Melee Strike vs. Deflection</span></div><div><span style=\"font-size: small;\">• If you roll 19-20 on the die:<br>&nbsp; &nbsp;deal +1 damage</span><font size=\"2\"></font></div><div><font size=\"2\">• If you roll 20 on the die:<br>&nbsp; &nbsp;ignore all DR</font></div>"
+          ],
+          "table": [
+            "2 slashing",
+            "1",
+            "3 slashing",
+            "1",
+            "4 slashing",
+            "1"
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [
+            "<b>Variant: Cleave (Costs 1 Rage)</b><div><div style=\"white-space-collapse: preserve; background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\">When you perform the Melee Strike, choose two additional targets within your Melee Reach. Use the same result of the Melee Strike check against their Deflection. You deal 1 damage to each one you succeed against.</font></div></div>",
+            "<b>Variant: Rage Attack (Costs 3 Rage)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02); white-space-collapse: preserve;\"><font size=\"2\">On a successful hit, deal +1 damage.</font></div><font size=\"2\" style=\"background-color: rgba(0, 0, 128, 0.02); white-space-collapse: preserve;\"></font></div>"
+          ],
+          "isTableHidden": false,
+          "isExpandedTableHidden": true
+        },
+        {
+          "type": "action",
+          "title": "Primal Endurance                                (1 / Combat)",
+          "subtitle": "Fast Action",
+          "details": [
+            "<div><font size=\"2\">Spend any amount of Rage. For each Rage&nbsp;</font><span style=\"font-size: small;\">spent, gain 1 temporary hit point. The temporary hit&nbsp;</span><span style=\"font-size: small;\">points disappear when combat ends.</span></div>"
+          ],
+          "table": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [],
+          "isTableHidden": true,
+          "isExpandedTableHidden": true
+        }
+      ]
+    },
+    "Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><font size=\"2\"><b>Rage:</b> During combat, you get 1 Rage point whenever:\n• You damage an enemy.\n• You get Critical Success on a Melee Strike, Unarmed Strike,\n   or Weapon Throw.\n• You lose HP (1 Rage per 1 HP lost. Losing temporary HP also\n   counts.)\n</font><span style=\"font-size: small;\">You lose all unspent Rage at the end of combat.</span></div><div><font size=\"2\"><b>Erupting Brutality (1 / Day):</b> After you see the results of a strike or a damaging cantrip you’ve performed, before damage happens, you may add 1 damage of the appropriate type to it.</font></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "Common, Orcish",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><div><font size=\"2\">Greataxe</font></div><div><font size=\"2\">2 Hatchets</font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><br></div></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "More Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><font size=\"2\"><b>Orcish Fury (1 / Day):</b> If damage would reduce you to -2, -1, or 0 HP, roll a Medium check. On success, you are reduced to 1 HP.</font></div><div><font size=\"2\"><b style=\"\">Melee Weapon Proficiency</b></font></div><div><font size=\"2\"><b style=\"\">Iron Body: </b>you have 1 DR (already calculated in the damage reduction field)</font></div><div><font size=\"2\"><br></font></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": false,
+        "Divine": false,
+        "Nature": false,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "",
+        "Cantrips Known": "",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  }
+}

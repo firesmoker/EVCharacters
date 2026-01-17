@@ -172,18 +172,40 @@ export const serializeSheet = () => {
 /**
  * JSON SAVE LOGIC
  */
-export const saveToJSON = () => {
+export const saveToJSON = async () => {
   const jsonContent = serializeSheet();
-  const blob = new Blob([jsonContent], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
   const charName = document.querySelector('[data-sync-id="character-name"]').innerText.trim() || 'character';
-  link.setAttribute('href', url);
-  link.setAttribute('download', `${charName.replace(/[^a-z0-9]/gi, '_')}.json`);
-  link.style.visibility = 'hidden';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  const fileName = `${charName.replace(/[^a-z0-9]/gi, '_')}.json`;
+
+  if ('showSaveFilePicker' in window) {
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: fileName,
+        types: [{
+          description: 'Character Sheet JSON',
+          accept: { 'application/json': ['.json'] },
+        }],
+      });
+      const writable = await handle.createWritable();
+      await writable.write(jsonContent);
+      await writable.close();
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        console.error('Save failed:', err);
+      }
+    }
+  } else {
+    // Fallback for browsers without File System Access API
+    const blob = new Blob([jsonContent], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', fileName);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 };
 
 /**

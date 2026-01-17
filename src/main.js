@@ -6,6 +6,38 @@ import { saveToJSON, loadFromJSON, prepareSheetForData, serializeSheet } from '.
 // Initial Render
 renderApp();
 
+// Dynamically discover all templates in src/templates/
+const templateModules = import.meta.glob('./templates/*.json', { eager: true });
+
+const updateTemplateMenu = () => {
+  const container = document.querySelector('.nested-dropdown-content');
+  if (!container) return;
+
+  // Build list from discovered modules
+  let html = Object.keys(templateModules).map(path => {
+    const fileName = path.split('/').pop();
+    const displayName = fileName.replace('.json', '').split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return `<div class="template-item" data-file="${path}">${displayName}</div>`;
+  }).join('');
+
+  // Add custom templates from localStorage
+  const customTemplates = JSON.parse(localStorage.getItem('ev-custom-templates') || '{}');
+  const customKeys = Object.keys(customTemplates);
+  
+  if (customKeys.length > 0) {
+    html += '<div style="border-top: 1px solid #ddd; margin: 4px 0;"></div>';
+    customKeys.forEach(key => {
+      // Simple capitalization for display
+      const displayName = key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      html += `<div class="template-item" data-file="${key}" data-custom="true">${displayName}</div>`;
+    });
+  }
+
+  container.innerHTML = html;
+};
+
+updateTemplateMenu();
+
 // Auto-Load
 const savedData = localStorage.getItem('ev-char-sheet');
 if (savedData) {
@@ -141,21 +173,27 @@ const handleClick = (e) => {
   // New from Template Handler
   if (e.target.classList.contains('template-item')) {
     e.stopPropagation();
-    const fileName = e.target.getAttribute('data-file');
-    if (fileName) {
+    const filePath = e.target.getAttribute('data-file');
+    const isCustom = e.target.hasAttribute('data-custom');
+    if (filePath) {
       if (confirm(`Load template "${e.target.innerText}"? Current unsaved changes will be lost.`)) {
-        fetch(`/templates/${fileName}`)
-          .then(response => {
-            if (!response.ok) throw new Error('Failed to load template');
-            return response.json();
-          })
-          .then(data => {
+        if (isCustom) {
+          const customTemplates = JSON.parse(localStorage.getItem('ev-custom-templates') || '{}');
+          if (customTemplates[filePath]) {
+            loadFromJSON(JSON.stringify(customTemplates[filePath]));
+          }
+        } else {
+          // Use the data already loaded by Vite glob
+          const templateData = templateModules[filePath];
+          if (templateData) {
+            // templateModules[filePath] is the module object; for JSON it's often the default or the object itself
+            // In Vite, JSON glob eager imports return the object directly or { default: object }
+            const data = templateData.default || templateData;
             loadFromJSON(JSON.stringify(data));
-          })
-          .catch(err => {
-            console.error(err);
-            alert('Error loading template.');
-          });
+          } else {
+            alert('Template data not found.');
+          }
+        }
       }
     }
     return;
@@ -180,6 +218,19 @@ const handleClick = (e) => {
   const menuActions = {
     'export-pdf': () => window.print(),
     'menu-save': () => saveToJSON(),
+    'menu-save-template': () => {
+      const charName = document.querySelector('[data-sync-id="character-name"]').innerText.trim() || 'New Template';
+      const templateName = prompt('Enter template name:', charName);
+      if (!templateName) return;
+
+      const fileKey = templateName.toLowerCase().replace(/[^a-z0-9]/gi, '_');
+      const customTemplates = JSON.parse(localStorage.getItem('ev-custom-templates') || '{}');
+      customTemplates[fileKey] = JSON.parse(serializeSheet());
+      localStorage.setItem('ev-custom-templates', JSON.stringify(customTemplates));
+      
+      updateTemplateMenu();
+      alert(`Template "${templateName}" saved!`);
+    },
     'menu-open': () => document.getElementById('file-input').click(),
     'menu-new': () => {
       if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {

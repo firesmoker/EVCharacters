@@ -354,15 +354,12 @@ export const renderToolbar = () => `
         <div id="menu-new">New</div>
         <div class="menu-item-nested">New from Template
           <div class="nested-dropdown-content">
-            <div class="template-item" data-file="archer.json">Archer</div>
-            <div class="template-item" data-file="bard.json">Bard</div>
-            <div class="template-item" data-file="cleric.json">Cleric</div>
-            <div class="template-item" data-file="rogue.json">Rogue</div>
-            <div class="template-item" data-file="surface_dwarf_warrior.json">Surface Dwarf Warrior</div>
+            <!-- Populated dynamically -->
           </div>
         </div>
         <div id="menu-open">Open</div>
         <div id="menu-save">Save</div>
+        <div id="menu-save-template">Save as Template</div>
         <div id="export-pdf">Export to PDF</div>
       </div>
     </div>

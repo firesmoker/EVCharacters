@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "Wood Elf Ranger",
+    "player-name": "",
+    "level": "1",
+    "experience": "",
+    "class": "Ranger",
+    "species": "Wood Elf"
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {
+        "Light": true,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": false,
+        "Tower Shields": false
+      },
+      "fields": {
+        "Damage\nReduction": "1 vs Piercing",
+        "Deflection": "5",
+        "Fortitude": "5",
+        "Will": "5"
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "5"
+        }
+      },
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "3"
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Ranged Weapons"
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Melee Strike",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Ranged Strike",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Survival",
+            "Expert (+10)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "rng",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "rng",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "rng",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "orgn",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "woodelf",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "woodelf",
+            "Trained (+5)"
+          ]
+        }
+      ]
+    },
+    "Main Actions": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "title": "Melee Strike (Shortsword)",
+          "subtitle": "Fast Action",
+          "details": [
+            "<div>Roll Melee Strike vs. Deflection</div><div><div>If you roll 20 on the die: ignore all DR</div></div>"
+          ],
+          "table": [
+            "1 slashing / piercing",
+            "<br>",
+            "2 slashing / piercing",
+            "<br>",
+            "3 slashing / piercing",
+            "<br>"
+          ],
+          "expandedTable": [
+            "<br>",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [],
+          "isTableHidden": false,
+          "isExpandedTableHidden": true
+        },
+        {
+          "type": "action",
+          "title": "Ranged Strike (Shortbow)",
+          "subtitle": "Fast Action",
+          "details": [
+            "Roll Ranged Strike vs. Deflection<div>Effective Range: 10<br>Maximum Range: 20</div><div><div>Disadvantage if an enemy is within melee range</div></div><div>Disadvantage if you shoot further than your effective range (up to max range)</div>"
+          ],
+          "table": [
+            "1 piercing",
+            "-",
+            "2 piercing",
+            "-",
+            "3 piercing",
+            "-"
+          ],
+          "expandedTable": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "variants": [],
+          "isTableHidden": false,
+          "isExpandedTableHidden": true
+        }
+      ]
+    },
+    "Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><div><b>Hunter's Edge: </b>On the first round of combat, you have advantage on Ranged Strikes and Melee Strikes against enemies that have an not yet acted.</div><div><b>Expose Weakness: </b>Beginning of each round, you may choose one enemy. On the next round, you know all its vulnerabilities, and you and your allies have advantage with strikes and spells against them for that round.</div><div><b>Feat: Inspired (2 / Day):</b> Get advantage on a standard skill check.</div></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "Common,",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div>Studded Armor</div><div>Shortsword</div><div>Shortbow</div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "More Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "<div><b>Favored Enemy: </b>You have one category of chosen enemies (see book). You deal +1 damage to them, and have advantage on Stealth, Survival, Nature, and Notice Movement checks against them.\nYou don't get drag when you use \"aim for weak spots\" against them.</div><div>You may spend one week of downtime to replace the category.</div><div><b>Know Your Enemy (1 / Combat):\n</b>Reveal the action of one enemy of the favored enemy type.</div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": false,
+        "Divine": false,
+        "Nature": true,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "",
+        "Cantrips Known": "2",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Speak with Animals",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Mold Earth",
+            "-"
+          ]
+        }
+      ]
+    }
+  }
+}

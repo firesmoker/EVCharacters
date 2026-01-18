@@ -1,27 +1,27 @@
 {
   "version": 1,
   "headers": {
-    "character-name": "Archer",
+    "character-name": "",
     "player-name": "",
     "level": "1",
     "experience": "",
-    "class": "Archer",
-    "species": ""
+    "class": "Paladin",
+    "species": "Human"
   },
   "sections": {
     "Defenses": {
       "checkboxes": {
         "Light": true,
-        "Medium": false,
+        "Medium": true,
         "Heavy": false,
-        "Heavy Shields": false,
+        "Heavy Shields": true,
         "Tower Shields": false
       },
       "fields": {
-        "Damage\nReduction": "1 DR vs. Piercing",
-        "Deflection": "5",
+        "Damage\nReduction": "1 DR\n-1 DR vs. Bludgeoning",
+        "Deflection": "10",
         "Fortitude": "5",
-        "Will": "0"
+        "Will": "5"
       },
       "sectionBody": "",
       "splitFields": {
@@ -45,12 +45,6 @@
           "values": [
             "Heavy Weapons"
           ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "Ranged Weapons"
-          ]
         }
       ]
     },
@@ -63,7 +57,7 @@
         {
           "type": "skill",
           "values": [
-            "Ranged Strike",
+            "Melee Strike",
             "Trained (+5)"
           ]
         }
@@ -78,35 +72,56 @@
         {
           "type": "skill",
           "values": [
-            "ar",
+            "Athletics",
             "Trained (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "ar",
+            "Diplomacy",
             "Trained (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "ar",
+            "Warfare",
             "Trained (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "ar",
+            "Animal Handling",
             "Trained (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "org",
+            "Notice Movement",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cooking",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Medicine",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Charm",
             "Trained (+5)"
           ]
         }
@@ -120,17 +135,17 @@
       "dynamicRows": [
         {
           "type": "action",
-          "title": "Ranged Strike (Longbow)",
+          "title": "Melee Strike (Bastard Sword)",
           "subtitle": "Fast Action",
           "details": [
-            "<div><span style=\"font-size: small;\">• Roll Ranged Strike vs. Deflection</span></div><div><font size=\"2\">• Roll 20 on the die: ignore all DR</font></div><div><span style=\"font-size: small;\">• Roll 19-20 on the die: +1 damage</span></div><div><span style=\"font-size: small;\">• Disadvantage if you are within an enemy's melee range</span></div>"
+            "<div><span style=\"font-size: small;\">• Roll Melee Strike vs. Deflection</span></div><div><font size=\"2\">• Roll 20 on the die: ignore all DR</font></div>"
           ],
           "table": [
-            "1 piercing",
+            "1 slashing",
             "1",
-            "2 piercing",
+            "2 slashing",
             "1",
-            "3 piercing",
+            "3 slashing",
             "1"
           ],
           "expandedTable": [
@@ -145,19 +160,17 @@
             ""
           ],
           "variants": [
-            "<b>Variant: Pinning Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">On a successful hit,  </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">reduce the target’s Movement score by 2\nuntil the end of the turn.</span></font></div></div>",
-            "<b>Variant: Puncturing Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">On a successful hit, </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">the target is Breached (it gets-1 DR) until the\nend of the next round.</span></font></div></div>",
-            "<b>Variant: Power Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">This attack is done with one additional Drag. On a successful hit, </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">you deal +1 damage.</span></font></div></div>"
+            "<b>Variant: Holy Smite (1 / Combat)</b><div><div style=\"white-space-collapse: preserve; background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\">On a successful hit, deal +1 Radiant damage, or +2 if the target is undead or demon.</font></div></div>"
           ],
           "isTableHidden": false,
           "isExpandedTableHidden": true
         },
         {
           "type": "action",
-          "title": "Sliding Shot",
-          "subtitle": "Fast Action • Uses Stride",
+          "title": "Renewal",
+          "subtitle": "Fast Action",
           "details": [
-            "<div><font size=\"2\">Double your movement for the turn and&nbsp;</font><span style=\"font-size: small;\">Stride at least 3 units. Then, perform a&nbsp;</span><span style=\"font-size: small;\"><b>Ranged Strike</b> against a target within 3 units&nbsp;</span><span style=\"font-size: small;\">of you. You have advantage for this strike.&nbsp;</span><span style=\"font-size: small;\">You then become prone.</span></div>"
+            "<div>Range: touch</div>Spend any amount of devotion points. Heal the target for the same amount."
           ],
           "table": [
             "",
@@ -187,28 +200,28 @@
     "Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div>",
+      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><b style=\"font-size: small;\">Feat: Inspired (2 / Day): </b><span style=\"font-size: small;\">Gain advantage on a standard skill check.</span><font size=\"2\"></font></div><div><font size=\"2\"><b>Rally: </b>At the beginning of combat, you may rally your allies. The area of the effect is 6 units radius centered on yourself.\n</font>Choose one of the following:\n• Allies in range gain 1 temporary hit point until end of combat\n• Allies in range become immune to the frightened (they may only use the Dash action and can't finish their movement near the source of the effect) and discouraged (they deal -1 damage) conditions until the end of combat<br></div><div><br></div>",
       "splitFields": {},
       "dynamicRows": []
     },
     "Languages": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "Common, ",
+      "sectionBody": "Common, Celestial",
       "splitFields": {},
       "dynamicRows": []
     },
     "Equipment": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<font size=\"2\">Studded Armor</font><div><span style=\"font-size: small;\">Longbow</span></div><div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"3\"><br></font></div></div>",
+      "sectionBody": "<font size=\"2\">Scale Armor</font><div><font size=\"2\">Heavy Shield\n</font><span style=\"font-size: small;\">Bastard Sword</span></div><div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"3\"><br></font></div></div>",
       "splitFields": {},
       "dynamicRows": []
     },
     "More Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><font size=\"2\"><b style=\"\">Melee Weapon Proficiency</b></font></div><div><font size=\"2\"><b style=\"\">Bullseye: </b>deal +1 damage when rolling 19-20 with ranged strike (already calculated into the Ranged Strike section)</font></div>",
+      "sectionBody": "<div><font size=\"2\"><b style=\"\">Melee Weapon Proficiency</b></font></div>",
       "splitFields": {},
       "dynamicRows": []
     },

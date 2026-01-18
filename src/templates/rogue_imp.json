@@ -1,11 +1,11 @@
 {
   "version": 1,
   "headers": {
-    "character-name": "Archer",
+    "character-name": "",
     "player-name": "",
     "level": "1",
     "experience": "",
-    "class": "Archer",
+    "class": "Rogue",
     "species": ""
   },
   "sections": {
@@ -18,10 +18,10 @@
         "Tower Shields": false
       },
       "fields": {
-        "Damage\nReduction": "1 DR vs. Piercing",
+        "Damage\nReduction": "1 vs Piercing\n1 vs Fire (can't be ignored)",
         "Deflection": "5",
-        "Fortitude": "5",
-        "Will": "0"
+        "Fortitude": "0",
+        "Will": "5"
       },
       "sectionBody": "",
       "splitFields": {
@@ -35,7 +35,7 @@
     "Speed": {
       "checkboxes": {},
       "fields": {
-        "Movement": "3"
+        "Movement": "4"
       },
       "sectionBody": "",
       "splitFields": {},
@@ -43,13 +43,7 @@
         {
           "type": "skill",
           "values": [
-            "Heavy Weapons"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "Ranged Weapons"
+            "Aiming for Weak Spots"
           ]
         }
       ]
@@ -63,7 +57,14 @@
         {
           "type": "skill",
           "values": [
-            "Ranged Strike",
+            "Melee Strike",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Weapon Throw",
             "Trained (+5)"
           ]
         }
@@ -78,35 +79,49 @@
         {
           "type": "skill",
           "values": [
-            "ar",
+            "Sneak",
+            "Expert (+10)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Sleight of Hand",
             "Trained (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "ar",
+            "Mechanics (Traps)",
             "Trained (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "ar",
+            "rog",
             "Trained (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "ar",
+            "rog",
             "Trained (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "org",
+            "rog",
+            "Trained (+5)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "orgn",
             "Trained (+5)"
           ]
         }
@@ -120,10 +135,10 @@
       "dynamicRows": [
         {
           "type": "action",
-          "title": "Ranged Strike (Longbow)",
+          "title": "Melee Strike (Dagger)",
           "subtitle": "Fast Action",
           "details": [
-            "<div><span style=\"font-size: small;\">• Roll Ranged Strike vs. Deflection</span></div><div><font size=\"2\">• Roll 20 on the die: ignore all DR</font></div><div><span style=\"font-size: small;\">• Roll 19-20 on the die: +1 damage</span></div><div><span style=\"font-size: small;\">• Disadvantage if you are within an enemy's melee range</span></div>"
+            "<div>Roll Melee Strike vs. Deflection</div><div><div>If you roll 20 on the die:<br>ignore all DR</div></div><div>Using \"Aiming for Weak Spots\" (ignoring 1 DR)</div>"
           ],
           "table": [
             "1 piercing",
@@ -145,27 +160,25 @@
             ""
           ],
           "variants": [
-            "<b>Variant: Pinning Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">On a successful hit,  </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">reduce the target’s Movement score by 2\nuntil the end of the turn.</span></font></div></div>",
-            "<b>Variant: Puncturing Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">On a successful hit, </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">the target is Breached (it gets-1 DR) until the\nend of the next round.</span></font></div></div>",
-            "<b>Variant: Power Shot (1 / Combat)</b><div><div style=\"background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\" style=\"white-space-collapse: preserve;\">This attack is done with one additional Drag. On a successful hit, </font><font size=\"2\"><span style=\"white-space-collapse: preserve;\">you deal +1 damage.</span></font></div></div>"
+            "<b>Sneak Attack:</b> if you have advantage on the attack, you deal +1 damage."
           ],
           "isTableHidden": false,
           "isExpandedTableHidden": true
         },
         {
           "type": "action",
-          "title": "Sliding Shot",
-          "subtitle": "Fast Action • Uses Stride",
+          "title": "Weapon Throw (Dagger)",
+          "subtitle": "Average Action",
           "details": [
-            "<div><font size=\"2\">Double your movement for the turn and&nbsp;</font><span style=\"font-size: small;\">Stride at least 3 units. Then, perform a&nbsp;</span><span style=\"font-size: small;\"><b>Ranged Strike</b> against a target within 3 units&nbsp;</span><span style=\"font-size: small;\">of you. You have advantage for this strike.&nbsp;</span><span style=\"font-size: small;\">You then become prone.</span></div>"
+            "Roll Melee Strike vs. Deflection<div>Effective Range: 3<br>Maximum Range: 6</div><div><div>Disadvantage if an enemy is within melee range</div></div><div>Disadvantage if you throw further than your effective range (up to max range)</div>"
           ],
           "table": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
+            "1",
+            "-",
+            "2",
+            "-",
+            "3",
+            "-"
           ],
           "expandedTable": [
             "",
@@ -179,7 +192,7 @@
             ""
           ],
           "variants": [],
-          "isTableHidden": true,
+          "isTableHidden": false,
           "isExpandedTableHidden": true
         }
       ]
@@ -187,28 +200,28 @@
     "Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div>",
+      "sectionBody": "<div><div><b>Seize the Moment: </b>You have advantage on Melee Strikes against enemies that have an ally adjacent to them.</div><div><b>Quick Dodge (1 / Combat):</b> You may perform the Dodge action for free, at any time you  wish during the round. lasts until the end of the round.</div><div><b>Feat: Inspired (2 / Day):</b> Get advantage on a standard skill check.</div></div>",
       "splitFields": {},
       "dynamicRows": []
     },
     "Languages": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "Common, ",
+      "sectionBody": "Common,",
       "splitFields": {},
       "dynamicRows": []
     },
     "Equipment": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<font size=\"2\">Studded Armor</font><div><span style=\"font-size: small;\">Longbow</span></div><div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"2\"><br></font></div><div><font size=\"3\"><br></font></div></div>",
+      "sectionBody": "<div>Studded Armor</div><div>Dagger</div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div><div><font size=\"3\"><br></font></div>",
       "splitFields": {},
       "dynamicRows": []
     },
     "More Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><font size=\"2\"><b style=\"\">Melee Weapon Proficiency</b></font></div><div><font size=\"2\"><b style=\"\">Bullseye: </b>deal +1 damage when rolling 19-20 with ranged strike (already calculated into the Ranged Strike section)</font></div>",
+      "sectionBody": "<div><div><b>Small:</b> can't use heavy weapons</div><div><b>Basic fire resistance:</b> 1 DR vs Fire damage, can't be ignored. (already calculated in the DR section)</div></div>",
       "splitFields": {},
       "dynamicRows": []
     },

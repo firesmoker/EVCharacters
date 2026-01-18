@@ -1,5 +1,6 @@
 import './style.css'
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
+import { SPELLS_DATABASE } from './spells_data.js';
 import { renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, renderSpellRow, renderRowForSection, renderVariantActionRow } from './components.js';
 import { saveToJSON, loadFromJSON, prepareSheetForData, serializeSheet } from './io.js';
 
@@ -128,8 +129,23 @@ const handleClick = (e) => {
   if (e.target.classList.contains('suggestion-item')) {
     const wrapper = e.target.closest('.autocomplete-wrapper');
     const input = wrapper.querySelector('input');
-    input.value = e.target.innerText;
+    const value = e.target.innerText;
+    input.value = value;
     wrapper.querySelector('.suggestions-dropdown').style.display = 'none';
+
+    // Auto-fill logic for Spells Known
+    if (wrapper.getAttribute('data-type') === 'spells') {
+      const spellRow = wrapper.closest('.skill-row');
+      if (spellRow) {
+        const spell = SPELLS_DATABASE.find(s => s.name === value);
+        if (spell) {
+          const levelInput = spellRow.querySelector('input[placeholder="Lvl"]');
+          const costInput = spellRow.querySelector('input[placeholder="Cost"]');
+          if (levelInput) levelInput.value = spell.level === 'Cantrip' ? 'Cntrp' : spell.level;
+          if (costInput) costInput.value = spell.cost;
+        }
+      }
+    }
     return;
   }
 

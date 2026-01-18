@@ -1,0 +1,349 @@
+Arcane Shield
+Arcane
+Level 1 ◆ Costs 1+
+Fast Action
+Range: Self ◆ Duration: end of next round 
+
+Get +10 deflection and +1 DR for the duration. You are immune to one Magic Missile for the duration.
+Successfully casting a cantrip, casting a spell, or performing any kind of strike ends this spell.
+
+You may pay additional Spell Points to cast the spell, raising the number of Magic Missiles you are immune to by one for each additional point you pay.
+Burning Hands
+Arcane
+Level 1 ◆ Costs 1+
+Fast Action
+Range: 2 units burst 
+
+You unleash a wide flame from your hands. Roll Magic against Deflection for each creature in the area. Those you succeed against receive 2 fire damage. The rest receive 1 fire damage.
+Bestow Curse
+Occult
+Level 1 ◆ Costs 1+
+Slow Action ◆ Interruptible
+Range: 10 Units
+
+Occult Magic check against target's Will. On success, choose two of the following:
+
+•	They become disoriented (-5 penalty on all rolls) until the end of the next 2 rounds.
+•	They become slowed (+1 drag to all actions, -1 Movement) until the end of the next 2 rounds.
+•	They become vulnerable (-5 to all defenses) until the end of the next 2 rounds.
+•	They become discouraged (they deal -1 damage) until the end of combat.
+
+If you roll a natural 20, the target also receives 1 damage (ignores all DR).
+You may spend additional spell points as you cast the spell. Choose one additional mode for each additional spell point spent.
+Cure
+Divine / Nature / Bardic
+Level 1 ◆ Costs 1+
+Fast Action
+Range: 10 Units
+
+Choose a target within range. Heal them for 1 HP, or 2 if the spell was cast using Divine magic.
+If the target is dying, it becomes stabilized.
+
+You may spend additional spell points as you cast this spell. For each additional spell point you heal them for 1 more HP.
+You may choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
+Dissonant Whispers
+Occult / Bardic
+Level 1 ◆ Costs 1+Average Action
+Slow Action ◆ Interruptible
+Range: 12 Units
+
+Magic check against Will.
+You channel psychic disturbance into the mind of an you can see within range. On success, the target becomes disoriented (-5 penalty on all rolls) and receives:
+•	Normal Success: 1 Psychic Damage, ignoring all DR. 
+•	Major Success: 2 Psychic Damage, ignoring all DR. disoriented (-5 penalty on all rolls)
+•	Critical Success: 3 Psychic Damage, ignoring all DR.
+On success, if you rolled 20 on the die, the target is also frightened (they must use the dodge or dash action, and stride as far away as possible from the source)
+ 
+Divine Guidance
+Divine
+Cantrip
+Average Action
+Range: Touch
+
+Choose a target within range. They gain advantage on checks of: Religion, Speech skills in conversations with religious context, Insight, Medicine, Perception checks against demons and undead.
+The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it.
+Divine Interference
+Divine
+Level 1 ◆ Costs 1
+Fast Action
+Range: 15 units
+Duration: end of current round
+
+Choose a target within range. They get +5 Deflection against the first attack for the duration.
+Eldritch Shield
+Occult
+Level 1 ◆ Costs 1
+Fast Action
+Range: Self ◆ Duration: end of next round
+
+Get +10 Deflection. If you are hit by an attack against your Deflection, the enemy that dealt the damage loses 1 HP.
+Successfully casting another spell or cantrip ends this spell.
+Elemental Flare
+Arcane
+Cantrip
+Average Action
+Range: 12 Units 
+
+Arcane Magic check against Deflection.
+Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:
+•	Normal Success: deal 2 Damage.
+•	Major Success: deal 3 Damage.
+•	Critical Success: deal 4 Damage.
+
+On success, if you rolled 20, depending on the damage type, the target also:
+•	Fire: they start burning until the end of the next round (at the end of each round they receive 1 fire damage, unless they use a fast action to distinguish the flame)
+•	Lightning: they become vulnerable (-5 to all defenses) for 1 round
+•	Ice: they become slowed (+1 drag to all actions, -1 movement) for 1 round
+Elemental Pulse
+Arcane
+Level 1 ◆ Costs 1+
+Slow Action ◆ Interruptible
+Range: 10 Units
+
+Choose an ally within range or yourself. Choose fire, ice, or lightning. A pulse of the chosen elemental energy bursts from the chosen target, with a 2-unit radius from it.  Roll Magic against each Deflection for each creature within the radius. Those you succeed against receive 2 damage of the chosen type. The rest receive 1 damage of the chosen type.
+Entangle
+Nature
+Level 1 ◆ Costs 1
+Slow Action ◆ Interruptible
+Range: 15 units
+Duration: 10 minutes
+
+Vines erupt from the ground, twisting around all who stand in the area. Roll Nature Magic against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes restrained (they can’t move from their place).
+The affected area is considered difficult terrain for all creatures.
+At the start of each round each affected enemy may make a Hard Acrobatics or Athletics check. On success, they break free of the restrained effect.
+ 
+Goodberry
+Nature
+Level 1 ◆ Costs 1
+Special Action
+
+Spend a minute to create three Goodberry fruits. Each fruit can be consumed to heal 1 HP. It also provides enough nutrition for an entire day. Consuming a Goodberry takes one minute (therefore it cannot be consumed in combat). The fruits last only for a day, after which they spoil.
+Gullibility
+Bardic / Occult
+Level 1 ◆ Costs 1
+Fast Action
+Range: 5 Units ◆ Duration: 10 minutes 
+
+Magic check against Will of a target creature that you can see and that can see your face. If you succeed, all Speech and Performance checks against the target made by you or your allies have advantage.
+The target is not aware of the magical effect, even if you failed on the check.
+They feel unexplained discomfort if the spell was cast using Occult magic, regardless of success.
+Healing Touch
+Divine / Nature
+Level 1 ◆ Cost: 1
+Fast Action
+Range: Touch
+
+Heal a target for 2 HP, or 3 HP if cast with Divine magic.
+Outside of combat, heal the target to its maximum HP.
+If the target is dying, it becomes stabilized.
+You may spend additional spell points when you cast this spell. You heal 2 additional HP for each of those spell points.
+Hex
+Occult
+Level 1 ◆ Costs 1
+Fast Action
+Range: 10 Units
+Duration: end of the next round
+
+Occult Magic check against target's Will. On success, until the end of the duration, each time the target receives damage from any Strike or Spell Attack, they also lose 1 life.
+Ice Knife
+Arcane
+Level 1 ◆ Costs 1+
+Slow Action ◆ Interruptible
+Range: 10 Units
+
+Magic check against Deflection. Launch a large ice shard on an enemy within range that you can see. On success:
+•	Normal Success: Deal 3 ice damage.
+•	Major Success: Deal 4 ice damage.
+•	Critical Success: Deal 5 ice damage.
+
+The shard shatters on impact (whether you succeed or not), sending small ice shard to each enemy within 2 units of the target. Use the same roll against their deflection. Those you succeed against receive 1 ice damage.
+You may spend additional spell points when you cast this spell. For every additional spell point spent, you deal +1 damage to the target.
+Leech
+Occult
+Level 1 ◆ Costs 1+
+Slow Action ◆ Interruptible
+Range: 10 Units
+
+Magic check against Deflection. Shoot a ray of dark siphoning energy at a target. On success:
+•	Normal Success: Deal 2 Necrotic Damage and heal yourself or an ally within range for 1 HP. Ignore 1 DR.
+•	Major Success: Deal 3 Necrotic Damage and heal yourself or an ally within range for 2 HP. Ignore 1 DR.
+•	Critical Success: Deal 4 Necrotic Damage and heal yourself or an ally within range for 3 HP. Ignore 1 DR.
+
+On success, if you rolled 20, you or the ally you healed gets +1 DR until the end of the next round.
+Choose which target to heal when the spell resolves.
+
+You may spend additional spell points when you cast the spell. For each 1 additional point spent, you deal +1 Necrotic damage (doesn’t change the healing amount).
+Light
+Arcane / Bardic / Divine / Nature
+Cantrip
+Fast Action
+Range: 15 Units 
+
+Create up to two stationary floating balls of light or make one item or limb luminous.
+The light provides 6 units of bright light and further 6 units of dim light.
+You may try to make an item or a limb of an enemy luminous. Roll Magic against Deflection. On success, it becomes luminous, and if the enemy is invisible, it doesn’t benefit from the associated advantages.
+The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it.
+Mage Hand
+Arcane
+Cantrip
+Fast Action
+Range: 12 Units
+
+[Mage Hand]
+Magic Missile
+Arcane
+Level 1 ◆ Cost: 1+
+Average Action
+Range: 15 units
+
+Shoot three magical missiles at any creature within range (you only need to know their general location). You may target the same creature more than once. Each missile successfully hits its target and deals 1 force damage to it, ignoring all DR.
+You may spend additional spell points when you cast the spell. For each additional point spent, shoot one more missile.
+Magic Tricks
+Arcane
+Cantrip
+Fast Action
+Range: 12 Units
+
+[Like prestidigitation, but maybe more free form.]
+Minor Illusion
+Arcane / Bardic / Occult
+Cantrip
+Fast Action
+Range: 12 Units
+
+[Minor Illusion]
+Message
+? / Bardic
+Cantrip
+Fast Action
+Range: 50 Units ◆ Duration: 10 minutes
+
+Choose a target within range. You send a telepathic message to it, and it may reply back. The casting of this spell is visible unless you pass a Sneak or Sleight of hand check. (The difficulty of the check will be determined by the GM according to the situation).
+Mold Earth
+Nature
+Cantrip
+Fast Action
+Range: 10 Units
+
+You manipulate the ground at a point within range. 
+Choose one or both:
+•	Create 1 unit cube of earth. It provides half cover (or full cover while being prone next to it). You cannot target an occupied space.
+•	Dig 1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
+If you choose both, the hole and the cube must be adjacent.
+
+Natural Guidance
+Nature
+Cantrip
+Average Action
+Range: Touch ◆ Duration: Unlimited
+
+Choose one creature. It gains advantage on Survival, Nature, Animal handling, Cooking, Medicine, and Perception skill checks against beasts and natural world phenomena.
+The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it.
+Necrotic Bolt
+Occult
+Cantrip
+Average Action
+Range: 10 Units
+
+Occult Magic check against Deflection.
+Launch a dark bolt of necrotic energy at an enemy. On success:
+•	Normal Success: deal 1 Necrotic Damage, ignoring 1 DR. The target becomes discouraged (they deal -1 damage) until the end of the next round.
+•	Major Success: deal 1 Necrotic Damage, ignoring 1 DR. The target becomes discouraged (they deal -1 damage) and vulnerable (-5 to all defenses) until the end of the next round.
+•	Critical Success: deal 2 Necrotic Damage, ignoring 1 DR. The target becomes discouraged (they deal -1 damage) and vulnerable (-5 to all defenses) until the end of the next round.
+
+On success, if you rolled 20, the target becomes disoriented (-5 penalty on all rolls) until the end of the next round.
+Radiant Beam
+Divine
+Cantrip
+Average Action
+Range: 10 Units
+
+Divine Magic check against Deflection.
+Launch a beam of radiant energy at an enemy. On success:
+•	Normal Success: deal 1 Radiant Damage. Ignore 1 DR.
+•	Major Success: deal 1 Radiant Damage. Ignore 1 DR. They become discouraged (they deal -1 damage) until the end of the next round.
+•	Critical Success: deal 2 Radiant Damage. Ignore 1 DR. They become discouraged (they deal -1 damage) until the end of the next round.
+On success, if you rolled 20, they get disadvantage on attacks against you and your allies until the end of the next round.
+Rainbow Eruption
+Nature / Bardic
+Level 1 ◆ Costs 1
+Slow Action ◆ Interruptible
+Range: 10 units
+Duration: 1 minute or end of combat
+
+You create a chaotic eruption of rainbows at a point within range. The rainbows are attracted to each enemy within 5 units radius of that point.
+Roll a Magic check against Deflection for the enemies inside the radius. Those that you succeed against become luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.
+Sanctuary
+Divine
+Level 1 ◆ Cost: 1
+Slow Action ◆ Interruptible
+Range: 15 units
+Duration: end of the next two rounds.
+Choose an ally within range or yourself. The target cannot be targeted by any enemy for the duration. When the target performs any action other than Dash or Dodge, the spell ends.
+
+Scorching Rays
+Arcane
+Level 1 ◆ Cost: 1+
+Slow Action ◆ Interruptible
+Range: 10 Units
+
+You get a pool of 4 points of fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see. Roll Magic against their Deflection. Targets that you've succeeded against receive the fire damage, while targets you've failed against receive only half the damage (rounded down).
+You may spend additional spell points when you cast the spell. For each 1 additional point spent, you get 2 additional fire damage to your damage pool.
+Shield of Faith
+Divine
+Level 1 ◆ Cost: 1
+Slow Action ◆ Interruptible
+Range: 15 units
+Duration: end of the next two rounds.
+
+Choose a target within range. They get +5 Deflection and +1 DR for the duration.
+Speak with Animals
+Nature
+Cantrip
+Fast Action
+Range: 30 Units ◆ Duration: 10 minutes
+
+Choose an animal within range. They understand your speech, and you understand theirs. The effect stops at the end of its duration or when you use this cantrip again.
+ 
+Summon Beast
+Nature
+Level 1 ◆ Costs 1
+Requires 1 summon slot
+Slow Action
+Range: 10 Units ◆ Duration: 1 day
+
+Summons a Large or smaller beast (your choice) in an unoccupied location you can see.
+It can’t be a flying beast unless it’s small.
+The beast is a separate actor than your character that you control in the same manner.
+You must take the Command fast action on your turn to enable the beast to use the specific actions that require it. (it may still move and take other actions without it)
+ 
+Summon Shade
+Occult
+Level 1 ◆ Costs 1
+Requires 1 summon slot
+Slow Action ◆ Interruptible
+Range: 10 Units ◆ Duration: 1 minute
+
+Summon a shade (Undead spirit) in an unoccupied location you can see within range.
+If the location is not available when the spell resolves, choose an adjacent location within range.
+The shade is a separate actor than your character that you control in the same manner. Start controlling it in the next round.
+You must take the Command fast action in your turn to enable the spirit to use the specific actions that require it.
+If the action of the shade has the same speed as the Command action, it happens at the same time.
+When the shade is summoned, it can immediately use Shadow Claw on an enemy within its range as a free action.
+
+Thaumaturgy
+Divine
+Cantrip
+Fast Action
+Range: Self
+You do thaumaturgy
+
+Vine Whip
+Nature
+Cantrip
+Fast Action
+Range: 10 Units
+
+Nature Magic vs Deflection Launch a thorny vine at an enemy you can see within range. On success:
+•	Normal Success: deal 1 Piercing Damage, ignoring 1 DR, and push or pull 1 unit to any direction.
+•	Great Success: deal 1 Piercing Damage, ignoring 1 DR, and push or pull 2 units to any direction.

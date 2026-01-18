@@ -26,8 +26,14 @@ export const DRAGS_IGNORED_LIST = [
 
 // Dynamically generate SPELLS_LIST from SPELLS_DATABASE
 const spellsByType = SPELLS_DATABASE.reduce((acc, spell) => {
-  if (!acc[spell.spellType]) acc[spell.spellType] = [];
-  acc[spell.spellType].push(spell.name);
+  // Split by " / " to handle multiple types
+  const types = spell.spellType.split('/').map(t => t.trim());
+  types.forEach(type => {
+    if (!acc[type]) acc[type] = [];
+    if (!acc[type].includes(spell.name)) {
+      acc[type].push(spell.name);
+    }
+  });
   return acc;
 }, {});
 

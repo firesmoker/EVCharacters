@@ -4,7 +4,7 @@ import { SPELLS_DATABASE } from './spells_data.js';
 import { 
   renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, 
   renderSpellRow, renderRowForSection, renderVariantActionRow,
-  renderSpellDescriptionBlock 
+  renderSpellDescriptionBlock, renderHeader 
 } from './components.js';
 import { saveToJSON, loadFromJSON, prepareSheetForData, serializeSheet } from './io.js';
 
@@ -12,9 +12,19 @@ import { saveToJSON, loadFromJSON, prepareSheetForData, serializeSheet } from '.
 renderApp();
 
 const updateSpellDescriptions = () => {
+  const basePage = document.querySelector('.spell-page');
+  if (!basePage) return;
+
+  // Cleanup dynamic pages
+  document.querySelectorAll('.spell-page-dynamic').forEach(el => el.remove());
+
   const col1 = document.getElementById('spells-col-1');
   const col2 = document.getElementById('spells-col-2');
   if (!col1 || !col2) return;
+
+  // Clear base columns
+  col1.innerHTML = '';
+  col2.innerHTML = '';
 
   // Find all selected spell names
   const selectedSpellNames = Array.from(document.querySelectorAll('.autocomplete-wrapper[data-type="spells"] input'))
@@ -32,21 +42,83 @@ const updateSpellDescriptions = () => {
     .filter(Boolean)
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  // Clear columns
-  col1.innerHTML = '';
-  col2.innerHTML = '';
+  if (uniqueSpells.length === 0) return;
 
-  // Calculate midpoint for vertical distribution
-  const midPoint = Math.ceil(uniqueSpells.length / 2);
+  let currentPage = basePage;
+  let currentCol = col1;
+  let isSecondCol = false;
 
-  // Distribute into columns: first half in col 1, second half in col 2
-  uniqueSpells.forEach((spell, index) => {
+  // Height check helper (with slight tolerance)
+  const isOverflowing = (page) => page.scrollHeight > page.clientHeight + 2;
+
+  const createNewPage = () => {
+    const pageDiv = document.createElement('div');
+    pageDiv.className = 'a4-page spell-page spell-page-dynamic';
+    pageDiv.innerHTML = `
+        ${renderHeader()}
+        <main class="sheet-middle" style="grid-template-columns: 1fr 1fr;">
+          <section class="sheet-column spell-descriptions-container" style="gap: 1px;"></section>
+          <section class="sheet-column spell-descriptions-container" style="gap: 1px;"></section>
+        </main>
+    `;
+    const allPages = document.querySelectorAll('.a4-page');
+    allPages[allPages.length - 1].after(pageDiv);
+    const cols = pageDiv.querySelectorAll('.sheet-column');
+    return { page: pageDiv, col1: cols[0], col2: cols[1] };
+  };
+
+  uniqueSpells.forEach((spell) => {
     const html = renderSpellDescriptionBlock(spell);
-    if (index < midPoint) {
-      col1.insertAdjacentHTML('beforeend', html);
-    } else {
-      col2.insertAdjacentHTML('beforeend', html);
+    
+    // Append to check height
+    currentCol.insertAdjacentHTML('beforeend', html);
+    
+    if (isOverflowing(currentPage)) {
+      // Remove the block we just added
+      currentCol.lastElementChild.remove();
+      
+      // Try next column or next page
+      if (!isSecondCol) {
+        // Switch to second column
+        isSecondCol = true;
+        if (currentPage === basePage) {
+           currentCol = col2;
+        } else {
+           currentCol = currentPage.querySelectorAll('.sheet-column')[1];
+        }
+        currentCol.insertAdjacentHTML('beforeend', html);
+        
+        // Check overflow again (if spell is huge)
+        if (isOverflowing(currentPage)) {
+           currentCol.lastElementChild.remove();
+           // New Page needed
+           const newPage = createNewPage();
+           currentPage = newPage.page;
+           currentCol = newPage.col1;
+           isSecondCol = false;
+           currentCol.insertAdjacentHTML('beforeend', html);
+        }
+      } else {
+         // New Page needed
+         const newPage = createNewPage();
+         currentPage = newPage.page;
+         currentCol = newPage.col1;
+         isSecondCol = false;
+         currentCol.insertAdjacentHTML('beforeend', html);
+      }
     }
+  });
+
+  // Sync Headers for new pages
+  const syncIds = ['character-name', 'player-name', 'level', 'experience', 'class', 'species'];
+  syncIds.forEach(id => {
+      const master = document.querySelector(`[data-sync-id="${id}"]`);
+      if (master) {
+          const val = master.innerText;
+           document.querySelectorAll(`[data-sync-id="${id}"]`).forEach(el => {
+              if (el !== master) el.innerText = val;
+           });
+      }
   });
 };
 

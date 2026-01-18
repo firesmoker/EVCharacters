@@ -357,4 +357,7 @@ export const loadFromJSON = (jsonString) => {
       el.replaceChildren();
     }
   });
+
+  // Notify the app that data has been loaded
+  document.dispatchEvent(new CustomEvent('sheet-loaded'));
 };

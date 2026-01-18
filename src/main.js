@@ -1,11 +1,54 @@
 import './style.css'
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
 import { SPELLS_DATABASE } from './spells_data.js';
-import { renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, renderSpellRow, renderRowForSection, renderVariantActionRow } from './components.js';
+import { 
+  renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, 
+  renderSpellRow, renderRowForSection, renderVariantActionRow,
+  renderSpellDescriptionBlock 
+} from './components.js';
 import { saveToJSON, loadFromJSON, prepareSheetForData, serializeSheet } from './io.js';
 
 // Initial Render
 renderApp();
+
+const updateSpellDescriptions = () => {
+  const col1 = document.getElementById('spells-col-1');
+  const col2 = document.getElementById('spells-col-2');
+  if (!col1 || !col2) return;
+
+  // Find all selected spell names
+  const selectedSpellNames = Array.from(document.querySelectorAll('.autocomplete-wrapper[data-type="spells"] input'))
+    .map(input => input.value.trim())
+    .filter(val => val !== '');
+
+  // Get unique, sorted spell data
+  const uniqueSpells = [...new Set(selectedSpellNames)]
+    .map(rawName => {
+      // Strip everything in parentheses for matching
+      // e.g., "Cure (Mend Flesh)" becomes "Cure"
+      const cleanName = rawName.replace(/\s*\(.*\)/, '').trim();
+      return SPELLS_DATABASE.find(s => s.name.toLowerCase() === cleanName.toLowerCase());
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  // Clear columns
+  col1.innerHTML = '';
+  col2.innerHTML = '';
+
+  // Calculate midpoint for vertical distribution
+  const midPoint = Math.ceil(uniqueSpells.length / 2);
+
+  // Distribute into columns: first half in col 1, second half in col 2
+  uniqueSpells.forEach((spell, index) => {
+    const html = renderSpellDescriptionBlock(spell);
+    if (index < midPoint) {
+      col1.insertAdjacentHTML('beforeend', html);
+    } else {
+      col2.insertAdjacentHTML('beforeend', html);
+    }
+  });
+};
 
 // Dynamically discover all templates in src/templates/
 const templateModules = import.meta.glob('./templates/*.json', { eager: true });
@@ -38,11 +81,17 @@ const updateTemplateMenu = () => {
 };
 
 updateTemplateMenu();
+updateSpellDescriptions();
+
+let devMode = false;
+// Listen for data loads (from file or template) to update descriptions
+document.addEventListener('sheet-loaded', updateSpellDescriptions);
 
 // Auto-Load
 const savedData = localStorage.getItem('ev-char-sheet');
 if (savedData) {
   loadFromJSON(savedData);
+  // No need for explicit call here as loadFromJSON now dispatches 'sheet-loaded'
 }
 
 // Auto-Save Logic
@@ -116,6 +165,9 @@ const handleInput = (e) => {
   // Autocomplete
   if (isAutocompleteInput(e.target)) {
     updateSuggestions(e.target.closest('.autocomplete-wrapper'));
+    if (e.target.closest('.autocomplete-wrapper').getAttribute('data-type') === 'spells') {
+      updateSpellDescriptions();
+    }
   }
 
   autoSave();
@@ -141,11 +193,13 @@ const handleClick = (e) => {
         if (spell) {
           const levelInput = spellRow.querySelector('input[placeholder="Lvl"]');
           const costInput = spellRow.querySelector('input[placeholder="Cost"]');
-          if (levelInput) levelInput.value = spell.level === 'Cantrip' ? 'Cntrp' : spell.level;
-          if (costInput) costInput.value = spell.cost;
+          const isCantrip = spell.level === 'Cantrip';
+          if (levelInput) levelInput.value = isCantrip ? 'Cntrp' : spell.level;
+          if (costInput) costInput.value = isCantrip ? '-' : spell.cost;
         }
       }
     }
+    updateSpellDescriptions();
     return;
   }
 
@@ -167,7 +221,10 @@ const handleClick = (e) => {
   // Remove Row
   if (e.target.classList.contains('remove-row-btn')) {
     const target = e.target.closest('.skill-row') || e.target.closest('.main-action-container');
-    if (target) target.remove();
+    if (target) {
+      target.remove();
+      updateSpellDescriptions();
+    }
   }
 
   // Add Variant Row
@@ -197,6 +254,7 @@ const handleClick = (e) => {
           const customTemplates = JSON.parse(localStorage.getItem('ev-custom-templates') || '{}');
           if (customTemplates[filePath]) {
             loadFromJSON(JSON.stringify(customTemplates[filePath]));
+            updateSpellDescriptions();
           }
         } else {
           // Use the data already loaded by Vite glob
@@ -206,6 +264,7 @@ const handleClick = (e) => {
             // In Vite, JSON glob eager imports return the object directly or { default: object }
             const data = templateData.default || templateData;
             loadFromJSON(JSON.stringify(data));
+            updateSpellDescriptions();
           } else {
             alert('Template data not found.');
           }

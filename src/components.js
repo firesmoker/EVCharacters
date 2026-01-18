@@ -345,6 +345,26 @@ export const renderMainAction = () => `
 `
 
 /**
+ * Renders a detailed spell block for the reference page.
+ */
+export const renderSpellDescriptionBlock = (spell) => `
+  <div class="spell-description-block" style="margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #eee;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <strong style="font-size: 15px; font-family: 'Crimson Pro', serif; text-transform: uppercase;">${spell.name}</strong>
+      <em style="font-size: 11px; color: #666;">${spell.spellType} • ${spell.level === 'Cantrip' ? 'Cantrip' : 'Level ' + spell.level}</em>
+    </div>
+    <div style="font-size: 10px; color: #444; margin-bottom: 4px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.1;">
+      <span><strong>Speed:</strong> ${spell.actionSpeed}</span>
+      <span><strong>Range:</strong> ${spell.range}</span>
+      <span><strong>Area:</strong> ${spell.area}</span>
+      <span><strong>Duration:</strong> ${spell.duration}</span>
+      <span><strong>Cost:</strong> ${spell.cost}</span>
+    </div>
+    <div style="font-size: 12px; line-height: 1.3; white-space: pre-wrap;" class="editable-field">${spell.description}</div>
+  </div>
+`
+
+/**
  * Renders the top toolbar.
  */
 export const renderToolbar = () => `
@@ -420,6 +440,18 @@ export const renderApp = () => {
                 </div>
               </div>
               ${renderSection('Spells Known', renderSpellsKnownSection(), { isStructured: true, isDynamic: true })}
+            </section>
+          </main>
+        </div>
+
+        <div class="a4-page">
+          ${renderHeader()}
+          
+          <main class="sheet-middle" style="grid-template-columns: 1fr 1fr;">
+            <section class="sheet-column spell-descriptions-container" id="spells-col-1">
+            </section>
+            
+            <section class="sheet-column spell-descriptions-container" id="spells-col-2">
             </section>
           </main>
         </div>

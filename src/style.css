@@ -1362,6 +1362,16 @@ textarea::placeholder {
   /* min-height: 1em; */
 }
 
+/* Bullet Point Styles */
+.editable-field ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.editable-field li {
+  margin-bottom: 0.2em;
+}
+
 
 .highlight-char {
   font-weight: bold;

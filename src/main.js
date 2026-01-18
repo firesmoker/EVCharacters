@@ -373,6 +373,15 @@ const handleGlobalKeydown = (e) => {
     }
   }
 
+  // Bullet Points Shortcut: Ctrl + Shift + 8
+  if (e.ctrlKey && e.shiftKey && (e.key === '8' || e.code === 'Digit8')) {
+    if (e.target.isContentEditable) {
+      e.preventDefault();
+      document.execCommand('insertUnorderedList', false, null);
+      return;
+    }
+  }
+
   // Autocomplete Logic
   if (!isAutocompleteInput(e.target)) return;
 

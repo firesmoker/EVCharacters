@@ -29,7 +29,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "Varies",
-    description: "Occult Magic check against target's Will. On success, choose two of the following:\n• They become disoriented (-5 penalty on all rolls) until the end of the next 2 rounds.\n• They become slowed (+1 drag to all actions, -1 Movement) until the end of the next 2 rounds.\n• They become vulnerable (-5 to all defenses) until the end of the next 2 rounds.\n• They become discouraged (they deal -1 damage) until the end of combat.\nIf you roll a natural 20, the target also receives 1 damage (ignores all DR). You may spend additional spell points as you cast the spell. Choose one additional mode for each additional spell point spent.",
+    description: "Occult Magic check against target's Will. On success, choose two of the following:\n<ul><li>They become disoriented (-5 penalty on all rolls) until the end of the next 2 rounds.</li><li>They become slowed (+1 drag to all actions, -1 Movement) until the end of the next 2 rounds.</li><li>They become vulnerable (-5 to all defenses) until the end of the next 2 rounds.</li><li>They become discouraged (they deal -1 damage) until the end of combat.</li></ul>If you roll a natural 20, the target also receives 1 damage (ignores all DR). You may spend additional spell points as you cast the spell. Choose one additional mode for each additional spell point spent.",
     cost: "1+"
   },
   {
@@ -51,7 +51,7 @@ export const SPELLS_DATABASE = [
     range: "12 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Magic check against Will. You channel psychic disturbance into the mind of an you can see within range. On success, the target becomes disoriented (-5 penalty on all rolls) and receives:\n• Normal Success: 1 Psychic Damage, ignoring all DR.\n• Major Success: 2 Psychic Damage, ignoring all DR.\n• Critical Success: 3 Psychic Damage, ignoring all DR.\nOn success, if you rolled 20 on the die, the target is also frightened (they must use the dodge or dash action, and stride as far away as possible from the source).",
+    description: "Magic check against Will. You channel psychic disturbance into the mind of an you can see within range. On success, the target becomes disoriented (-5 penalty on all rolls) and receives:\n<ul><li>Normal Success: 1 Psychic Damage, ignoring all DR.</li><li>Major Success: 2 Psychic Damage, ignoring all DR.</li><li>Critical Success: 3 Psychic Damage, ignoring all DR.</li></ul>On success, if you rolled 20 on the die, the target is also frightened (they must use the dodge or dash action, and stride as far away as possible from the source).",
     cost: "1+"
   },
   {
@@ -95,7 +95,7 @@ export const SPELLS_DATABASE = [
     range: "12 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Arcane Magic check against Deflection. Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:\n• Normal Success: deal 2 Damage.\n• Major Success: deal 3 Damage.\n• Critical Success: deal 4 Damage.\nOn success, if you rolled 20, depending on the damage type, the target also:\n• Fire: they start burning until the end of the next round (1 fire damage/round).\n• Lightning: they become vulnerable (-5 to all defenses) for 1 round.\n• Ice: they become slowed (+1 drag to all actions, -1 movement) for 1 round.",
+    description: "Arcane Magic check against Deflection. Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:\n<ul><li>Normal Success: deal 2 Damage.</li><li>Major Success: deal 3 Damage.</li><li>Critical Success: deal 4 Damage.</li></ul>On success, if you rolled 20, depending on the damage type, the target also:\n<ul><li>Fire: they start burning until the end of the next round (1 fire damage/round).</li><li>Lightning: they become vulnerable (-5 to all defenses) for 1 round.</li><li>Ice: they become slowed (+1 drag to all actions, -1 movement) for 1 round.</li></ul>",
     cost: "0"
   },
   {
@@ -161,7 +161,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "End of the next round",
-    description: "Occult Magic check against target's Will. On success, each time the target receives damage from any Strike or Spell Attack, they also lose 1 life.",
+    description: "Occult Magic check against target's Will. On success, until the end of the duration, each time the target receives damage from any Strike or Spell Attack, they also lose 1 life.",
     cost: "1"
   },
   {
@@ -172,7 +172,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target + 2-unit splash",
     duration: "Instantaneous",
-    description: "Magic check against Deflection. Launch an ice shard. On success:\n• Normal Success: Deal 3 ice damage.\n• Major Success: Deal 4 ice damage.\n• Critical Success: Deal 5 ice damage.\nThe shard shatters, sending shards to each enemy within 2 units. Use same roll: success deals 1 ice damage. Additional SP deals +1 damage to the target.",
+    description: "Magic check against Deflection. Launch an ice shard. On success:\n<ul><li>Normal Success: Deal 3 ice damage.</li><li>Major Success: Deal 4 ice damage.</li><li>Critical Success: Deal 5 ice damage.</li></ul>The shard shatters, sending shards to each enemy within 2 units. Use same roll: success deals 1 ice damage. Additional SP deals +1 damage to the target.",
     cost: "1+"
   },
   {
@@ -183,7 +183,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Magic check against Deflection. On success:\n• Normal Success: Deal 2 Necrotic Damage and heal self/ally for 1 HP. Ignore 1 DR.\n• Major Success: Deal 3 Necrotic Damage and heal self/ally for 2 HP. Ignore 1 DR.\n• Critical Success: Deal 4 Necrotic Damage and heal self/ally for 3 HP. Ignore 1 DR.\nOn success, if you rolled 20, you or the ally healed gets +1 DR for 1 round. Additional SP deals +1 Necrotic damage.",
+    description: "Magic check against Deflection. On success:\n<ul><li>Normal Success: Deal 2 Necrotic Damage and heal self/ally for 1 HP. Ignore 1 DR.</li><li>Major Success: Deal 3 Necrotic Damage and heal self/ally for 2 HP. Ignore 1 DR.</li><li>Critical Success: Deal 4 Necrotic Damage and heal self/ally for 3 HP. Ignore 1 DR.</li></ul>On success, if you rolled 20, you or the ally healed gets +1 DR for 1 round. Additional SP deals +1 Necrotic damage.",
     cost: "1+"
   },
   {
@@ -260,7 +260,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "1 unit cube",
     duration: "Instantaneous (Permanent change)",
-    description: "Manipulate ground. Choose one/both:\n• Create 1 unit cube of earth (Half/Full cover).\n• Dig 1 unit cube into the ground (Half cover).",
+    description: "Manipulate ground. Choose one/both:\n<ul><li>Create 1 unit cube of earth (Half/Full cover).</li><li>Dig 1 unit cube into the ground (Half cover).</li></ul>",
     cost: "0"
   },
   {
@@ -282,7 +282,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "End of the next round",
-    description: "Occult Magic check against Deflection. On success:\n• Normal Success: 1 Necrotic Damage (Ignore 1 DR), discouraged (-1 damage) 1 round.\n• Major Success: 1 Necrotic Damage (Ignore 1 DR), discouraged and vulnerable (-5 defenses) 1 round.\n• Critical Success: 2 Necrotic Damage (Ignore 1 DR), discouraged and vulnerable 1 round.\nNatural 20 also disorients target (-5 penalty).",
+    description: "Occult Magic check against Deflection. On success:\n<ul><li>Normal Success: deal 1 Necrotic Damage (Ignore 1 DR), discouraged (-1 damage) 1 round.</li><li>Major Success: deal 1 Necrotic Damage (Ignore 1 DR), discouraged and vulnerable (-5 defenses) 1 round.</li><li>Critical Success: deal 2 Necrotic Damage (Ignore 1 DR), discouraged and vulnerable 1 round.</li></ul>Natural 20 also disorients target (-5 penalty).",
     cost: "0"
   },
   {
@@ -293,7 +293,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "End of the next round",
-    description: "Divine Magic check against Deflection. On success:\n• Normal Success: 1 Radiant Damage (Ignore 1 DR).\n• Major Success: 1 Radiant Damage (Ignore 1 DR), discouraged (-1 damage) 1 round.\n• Critical Success: 2 Radiant Damage (Ignore 1 DR), discouraged 1 round.\nNatural 20 gives target disadvantage on attacks vs you/allies.",
+    description: "Divine Magic check against Deflection. On success:\n<ul><li>Normal Success: deal 1 Radiant Damage (Ignore 1 DR).</li><li>Major Success: deal 1 Radiant Damage (Ignore 1 DR), discouraged (-1 damage) 1 round.</li><li>Critical Success: deal 2 Radiant Damage (Ignore 1 DR), discouraged 1 round.</li></ul>Natural 20 gives target disadvantage on attacks vs you/allies.",
     cost: "0"
   },
   {
@@ -392,7 +392,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Nature Magic vs Deflection. Thorny vine. On success:\n• Normal Success: 1 Piercing Damage (Ignore 1 DR), push/pull 1 unit.\n• Great Success: 1 Piercing Damage (Ignore 1 DR), push/pull 2 units.",
+    description: "Nature Magic vs Deflection. Thorny vine. On success:\n<ul><li>Normal Success: deal 1 Piercing Damage (Ignore 1 DR), push/pull 1 unit.</li><li>Great Success: deal 1 Piercing Damage (Ignore 1 DR), push/pull 2 units.</li></ul>",
     cost: "0"
   }
 ];

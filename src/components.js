@@ -348,12 +348,12 @@ export const renderMainAction = () => `
  * Renders a detailed spell block for the reference page.
  */
 export const renderSpellDescriptionBlock = (spell) => `
-  <div class="spell-description-block" style="margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #eee;">
-    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+  <div class="spell-description-block" style="margin-bottom: 12px; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px;">
       <strong style="font-size: 15px; font-family: 'Crimson Pro', serif; text-transform: uppercase;">${spell.name}</strong>
       <em style="font-size: 11px; color: #666;">${spell.spellType} • ${spell.level === 'Cantrip' ? 'Cantrip' : 'Level ' + spell.level}</em>
     </div>
-    <div style="font-size: 12px; color: #444; margin-bottom: 4px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.2;">
+    <div style="font-size: 12px; color: #444; margin-bottom: 8px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.2;">
       <span><strong>Speed:</strong> ${spell.actionSpeed}</span>
       <span><strong>Range:</strong> ${spell.range}</span>
       <span><strong>Area:</strong> ${spell.area}</span>

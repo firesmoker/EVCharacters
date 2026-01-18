@@ -348,7 +348,7 @@ export const renderMainAction = () => `
  * Renders a detailed spell block for the reference page.
  */
 export const renderSpellDescriptionBlock = (spell) => `
-  <div class="spell-description-block" style="margin-bottom: 12px; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff;">
+  <div class="spell-description-block" style="margin-bottom: 6px; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff;">
     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px;">
       <strong style="font-size: 15px; font-family: 'Crimson Pro', serif; text-transform: uppercase;">${spell.name}</strong>
       <em style="font-size: 11px; color: #666;">${spell.spellType} • ${spell.level === 'Cantrip' ? 'Cantrip' : 'Level ' + spell.level}</em>
@@ -448,10 +448,10 @@ export const renderApp = () => {
           ${renderHeader()}
           
           <main class="sheet-middle" style="grid-template-columns: 1fr 1fr;">
-            <section class="sheet-column spell-descriptions-container" id="spells-col-1">
+            <section class="sheet-column spell-descriptions-container" id="spells-col-1" style="gap: 1px;">
             </section>
             
-            <section class="sheet-column spell-descriptions-container" id="spells-col-2">
+            <section class="sheet-column spell-descriptions-container" id="spells-col-2" style="gap: 1px;">
             </section>
           </main>
         </div>

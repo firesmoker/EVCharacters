@@ -1,3 +1,5 @@
+import { SPELLS_DATABASE } from './spells_data.js';
+
 /**
  * Metadata and Helper Lists
  */
@@ -22,10 +24,14 @@ export const DRAGS_IGNORED_LIST = [
   { groupLabel: "Common Drag Sources", options: ["Two-Handed Weapons", "Ranged Weapons", "Aiming for Weak Spots", "Reach Weapons", "Heavy Weapons"] }
 ];
 
-export const SPELLS_LIST = [
-  { groupLabel: "Arcane", options: ["Arcane Shield"] },
-  { groupLabel: "Bardic", options: ["Rainbow Eruption"] },
-  { groupLabel: "Divine", options: ["Divine Intervention"] },
-  { groupLabel: "Nature", options: ["Entangle"] },
-  { groupLabel: "Occult", options: ["Summon Shade"] }
-];
+// Dynamically generate SPELLS_LIST from SPELLS_DATABASE
+const spellsByType = SPELLS_DATABASE.reduce((acc, spell) => {
+  if (!acc[spell.spellType]) acc[spell.spellType] = [];
+  acc[spell.spellType].push(spell.name);
+  return acc;
+}, {});
+
+export const SPELLS_LIST = Object.entries(spellsByType).map(([groupLabel, options]) => ({
+  groupLabel,
+  options: options.sort()
+}));

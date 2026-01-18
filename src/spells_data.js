@@ -6,8 +6,8 @@ export const SPELLS_DATABASE = [
     spellType: "Arcane",
     range: "Self",
     area: "Self",
-    duration: "end of next round",
-    description: "Get +10 deflection and +1 DR for the duration. You are immune to one Magic Missile for the duration. Successfully casting a cantrip, casting a spell, or performing any kind of strike ends this spell.\n\nYou may pay additional Spell Points to cast the spell, raising the number of Magic Missiles you are immune to by one for each additional point you pay.",
+    duration: "End of next round",
+    description: "Get +10 deflection and +1 DR for the duration. You are immune to one Magic Missile for the duration. Successfully casting a cantrip, casting a spell, or performing any kind of strike ends this spell.\nYou may pay additional Spell Points to cast the spell, raising the number of Magic Missiles you are immune to by one for each additional point you pay.",
     cost: "1+"
   },
   {
@@ -29,7 +29,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "Varies",
-    description: "Occult Magic check against target's Will. On success, choose two of the following:\n• They become disoriented (-5 penalty on all rolls) until the end of the next 2 rounds.\n• They become slowed (+1 drag to all actions, -1 Movement) until the end of the next 2 rounds.\n• They become vulnerable (-5 to all defenses) until the end of the next 2 rounds.\n• They become discouraged (they deal -1 damage) until the end of combat.\n\nIf you roll a natural 20, the target also receives 1 damage (ignores all DR). You may spend additional spell points as you cast the spell. Choose one additional mode for each additional spell point spent.",
+    description: "Occult Magic check against target's Will. On success, choose two of the following:\n• They become disoriented (-5 penalty on all rolls) until the end of the next 2 rounds.\n• They become slowed (+1 drag to all actions, -1 Movement) until the end of the next 2 rounds.\n• They become vulnerable (-5 to all defenses) until the end of the next 2 rounds.\n• They become discouraged (they deal -1 damage) until the end of combat.\nIf you roll a natural 20, the target also receives 1 damage (ignores all DR). You may spend additional spell points as you cast the spell. Choose one additional mode for each additional spell point spent.",
     cost: "1+"
   },
   {
@@ -40,7 +40,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Choose a target within range. Heal them for 1 HP, or 2 if the spell was cast using Divine magic. If the target is dying, it becomes stabilized.\n\nYou may spend additional spell points as you cast this spell. For each additional spell point you heal them for 1 more HP. You may choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.",
+    description: "Choose a target within range. Heal them for 1 HP, or 2 if the spell was cast using Divine magic. If the target is dying, it becomes stabilized.\nYou may spend additional spell points as you cast this spell. For each additional spell point you heal them for 1 more HP. You may choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.",
     cost: "1+"
   },
   {
@@ -72,7 +72,7 @@ export const SPELLS_DATABASE = [
     spellType: "Divine",
     range: "15 units",
     area: "Single Target",
-    duration: "end of current round",
+    duration: "End of current round",
     description: "Choose a target within range. They get +5 Deflection against the first attack for the duration.",
     cost: "1"
   },
@@ -83,7 +83,7 @@ export const SPELLS_DATABASE = [
     spellType: "Occult",
     range: "Self",
     area: "Self",
-    duration: "end of next round",
+    duration: "End of next round",
     description: "Get +10 Deflection. If you are hit by an attack against your Deflection, the enemy that dealt the damage loses 1 HP. Successfully casting another spell or cantrip ends this spell.",
     cost: "1"
   },
@@ -95,7 +95,7 @@ export const SPELLS_DATABASE = [
     range: "12 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Arcane Magic check against Deflection. Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:\n• Normal Success: deal 2 Damage.\n• Major Success: deal 3 Damage.\n• Critical Success: deal 4 Damage.\n\nOn success, if you rolled 20, depending on the damage type, the target also:\n• Fire: they start burning until the end of the next round (1 fire damage/round).\n• Lightning: they become vulnerable (-5 to all defenses) for 1 round.\n• Ice: they become slowed (+1 drag to all actions, -1 movement) for 1 round.",
+    description: "Arcane Magic check against Deflection. Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:\n• Normal Success: deal 2 Damage.\n• Major Success: deal 3 Damage.\n• Critical Success: deal 4 Damage.\nOn success, if you rolled 20, depending on the damage type, the target also:\n• Fire: they start burning until the end of the next round (1 fire damage/round).\n• Lightning: they become vulnerable (-5 to all defenses) for 1 round.\n• Ice: they become slowed (+1 drag to all actions, -1 movement) for 1 round.",
     cost: "0"
   },
   {
@@ -160,7 +160,7 @@ export const SPELLS_DATABASE = [
     spellType: "Occult",
     range: "10 Units",
     area: "Single Target",
-    duration: "end of the next round",
+    duration: "End of the next round",
     description: "Occult Magic check against target's Will. On success, each time the target receives damage from any Strike or Spell Attack, they also lose 1 life.",
     cost: "1"
   },
@@ -281,7 +281,7 @@ export const SPELLS_DATABASE = [
     spellType: "Occult",
     range: "10 Units",
     area: "Single Target",
-    duration: "end of the next round",
+    duration: "End of the next round",
     description: "Occult Magic check against Deflection. On success:\n• Normal Success: 1 Necrotic Damage (Ignore 1 DR), discouraged (-1 damage) 1 round.\n• Major Success: 1 Necrotic Damage (Ignore 1 DR), discouraged and vulnerable (-5 defenses) 1 round.\n• Critical Success: 2 Necrotic Damage (Ignore 1 DR), discouraged and vulnerable 1 round.\nNatural 20 also disorients target (-5 penalty).",
     cost: "0"
   },
@@ -292,7 +292,7 @@ export const SPELLS_DATABASE = [
     spellType: "Divine",
     range: "10 Units",
     area: "Single Target",
-    duration: "end of the next round",
+    duration: "End of the next round",
     description: "Divine Magic check against Deflection. On success:\n• Normal Success: 1 Radiant Damage (Ignore 1 DR).\n• Major Success: 1 Radiant Damage (Ignore 1 DR), discouraged (-1 damage) 1 round.\n• Critical Success: 2 Radiant Damage (Ignore 1 DR), discouraged 1 round.\nNatural 20 gives target disadvantage on attacks vs you/allies.",
     cost: "0"
   },
@@ -314,7 +314,7 @@ export const SPELLS_DATABASE = [
     spellType: "Divine",
     range: "15 units",
     area: "Single Target",
-    duration: "end of the next two rounds",
+    duration: "End of the next two rounds",
     description: "Target cannot be targeted by any enemy. Ends if target performs any action other than Dash or Dodge.",
     cost: "1"
   },
@@ -336,7 +336,7 @@ export const SPELLS_DATABASE = [
     spellType: "Divine",
     range: "15 units",
     area: "Single Target",
-    duration: "end of the next two rounds",
+    duration: "End of the next two rounds",
     description: "Target gets +5 Deflection and +1 DR.",
     cost: "1"
   },

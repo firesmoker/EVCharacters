@@ -353,14 +353,14 @@ export const renderSpellDescriptionBlock = (spell) => `
       <strong style="font-size: 15px; font-family: 'Crimson Pro', serif; text-transform: uppercase;">${spell.name}</strong>
       <em style="font-size: 11px; color: #666;">${spell.spellType} • ${spell.level === 'Cantrip' ? 'Cantrip' : 'Level ' + spell.level}</em>
     </div>
-    <div style="font-size: 10px; color: #444; margin-bottom: 4px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.1;">
+    <div style="font-size: 12px; color: #444; margin-bottom: 4px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.2;">
       <span><strong>Speed:</strong> ${spell.actionSpeed}</span>
       <span><strong>Range:</strong> ${spell.range}</span>
       <span><strong>Area:</strong> ${spell.area}</span>
       <span><strong>Duration:</strong> ${spell.duration}</span>
-      <span><strong>Cost:</strong> ${spell.cost}</span>
+      ${spell.level !== 'Cantrip' ? `<span><strong>Cost:</strong> ${spell.cost}</span>` : ''}
     </div>
-    <div style="font-size: 12px; line-height: 1.3; white-space: pre-wrap;" class="editable-field">${spell.description}</div>
+    <div style="font-size: 12px; line-height: 1.3; white-space: pre-wrap; background-color: #f7f7f7; padding: 6px; border-radius: 4px;" class="editable-field">${spell.description}</div>
   </div>
 `
 

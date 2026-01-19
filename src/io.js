@@ -151,8 +151,16 @@ export const serializeSheet = () => {
   const data = {
     version: 1,
     headers: {},
-    sections: {}
+    sections: {},
+    preferences: {}
   };
+
+  // 0. Preferences
+  const style = getComputedStyle(document.documentElement);
+  // We want the inline style value if set, or computed if we want to persist defaults (though usually we only care if user changed it)
+  // Actually, better to check the inline style on document.documentElement directly as that's where we set it.
+  data.preferences.font = document.documentElement.style.getPropertyValue('--readable-font') || '';
+  data.preferences.color = document.documentElement.style.getPropertyValue('--field-color') || '';
 
   // 1. Headers
   scrapeHeaders(data);
@@ -222,6 +230,16 @@ export const loadFromJSON = (jsonString) => {
 
   // Clear existing sheet
   prepareSheetForData(false);
+
+  // 0. Preferences
+  if (data.preferences) {
+    if (data.preferences.font) {
+      document.documentElement.style.setProperty('--readable-font', data.preferences.font);
+    }
+    if (data.preferences.color) {
+      document.documentElement.style.setProperty('--field-color', data.preferences.color);
+    }
+  }
 
   // 1. Headers
   if (data.headers) {

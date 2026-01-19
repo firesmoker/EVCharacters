@@ -302,9 +302,9 @@ export const SPELLS_DATABASE = [
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Nature / Bardic",
     range: "10 units",
-    area: "5-unit radius",
+    area: "3-units cube",
     duration: "1 minute or end of combat",
-    description: "Chaotic eruption. Magic check vs Deflection for enemies in radius. Successes become luminous: advantage on attacks against them, they give off light, and lose invisibility advantages.",
+    description: "You create a chaotic eruption of rainbows at a point within range. The rainbows are attracted to each enemy within the area. Roll a Magic check against Deflection for the enemies inside the radius. Those that you succeed against become luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.",
     cost: "1"
   },
   {

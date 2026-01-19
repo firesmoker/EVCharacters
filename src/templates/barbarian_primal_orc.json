@@ -137,7 +137,7 @@
           "title": "Melee Strike (Greataxe)",
           "subtitle": "Fast Action",
           "details": [
-            "<div><span style=\"font-size: small;\">• Roll Melee Strike vs. Deflection</span></div><div><span style=\"font-size: small;\">• If you roll 19-20 on the die:<br>&nbsp; &nbsp;deal +1 damage</span><font size=\"2\"></font></div><div><font size=\"2\">• If you roll 20 on the die:<br>&nbsp; &nbsp;ignore all DR</font></div>"
+            "<div><ul><li><span style=\"font-size: small;\">Roll Melee Strike vs. Deflection</span></li><li>If you roll 19-20 on the die:<br>deal +1 damage</li><li>If you roll 20 on the die:<br>ignore all DR</li></ul></div>"
           ],
           "table": [
             "2 slashing",
@@ -200,7 +200,7 @@
     "Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><font size=\"2\"><b>Rage:</b> During combat, you get 1 Rage point whenever:\n• You damage an enemy.\n• You get Critical Success on a Melee Strike, Unarmed Strike,\n   or Weapon Throw.\n• You lose HP (1 Rage per 1 HP lost. Losing temporary HP also\n   counts.)\n</font><span style=\"font-size: small;\">You lose all unspent Rage at the end of combat.</span></div><div><font size=\"2\"><b>Erupting Brutality (1 / Day):</b> After you see the results of a strike or a damaging cantrip you’ve performed, before damage happens, you may add 1 damage of the appropriate type to it.</font></div>",
+      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><font size=\"2\"><b>Rage:</b> During combat, you get 1 Rage point whenever:</font></div><div><ul><li><font size=\"2\">You damage an enemy.</font></li><li><font size=\"2\">You get Critical Success on a Melee Strike, Unarmed Strike,\nor Weapon Throw.</font></li><li><font size=\"2\">You lose HP (1 Rage per 1 HP lost. Losing temporary HP also counts.)\n</font></li></ul><font size=\"2\"></font><span style=\"font-size: small;\">You lose all unspent Rage at the end of combat.</span></div><div><font size=\"2\"><b>Erupting Brutality (1 / Day):</b> After you see the results of a strike or a damaging cantrip you’ve performed, before damage happens, you may add 1 damage of the appropriate type to it.</font></div>",
       "splitFields": {},
       "dynamicRows": []
     },

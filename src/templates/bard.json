@@ -154,7 +154,7 @@
     "Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><div><b>Melody of Rest (1 / Day): </b>Heal all party members for 1 HP, outside of combat.</div><div><b>Feat: Inspired (2 / Day):</b> Get advantage on a standard skill check.</div></div><div><b>War Singing: </b>No action needed. Choose 1 phrase at the start of each round that hasn't been used yet this combat.</div><div>   • <b>Rise to the Challenge: </b>All allies in the affected area are\n      inspired (they deal +1 damage) until the end of the round.\n    • <b>Onward We Go: </b>All allies in the affected area gain +1\n      Movement until the end of the round.\n<b>    • Looming Darkness: </b>Roll Bardic Magic against Will for enemies\n      in the area. Enemies you've succeeded against become\n      discouraged (they deal -1 damage) until the end of the round.\n    • <b>Sweet, Sweet Revenge</b> (Requirements: one or more enemies\n      dealt damage to you this combat.): Choose an enemy that\n      dealt damage to you this combat. They become vulnerable (-5\n      to all Defenses) and discouraged (they deal -1 damage) until\n      the end of the round.\n    • <b>For Our Friends </b>(Requirements: a party member became dying\n      this combat.) All allies in the affected area have advantage on\n      all rolls until the end of the round.</div><div><br></div><div><br></div>",
+      "sectionBody": "<div><div><b>Melody of Rest (1 / Day): </b>Heal all party members for 1 HP, outside of combat.</div><div><b>Feat: Inspired (2 / Day):</b> Get advantage on a standard skill check.</div></div><div><b>War Singing: </b>No action needed. Choose 1 phrase at the start of each round that hasn't been used yet this combat. Each phrase is applied once at the beginning of the round. Area: 6 units radius centered on yourself:</div><div>   • <b>Rise to the Challenge: </b>All allies in the affected area are\n      inspired (they deal +1 damage) until the end of the round.\n    • <b>Onward We Go: </b>All allies in the affected area gain +1\n      Movement until the end of the round.\n<b>    • Looming Darkness: </b>Roll Bardic Magic against Will for enemies\n      in the area. Enemies you've succeeded against become\n      discouraged (they deal -1 damage) until the end of the round.\n    • <b>Sweet, Sweet Revenge</b> (Requirements: one or more enemies\n      dealt damage to you this combat.): Choose an enemy that\n      dealt damage to you this combat. They become vulnerable (-5\n      to all Defenses) and discouraged (they deal -1 damage) until\n      the end of the round.\n    • <b>For Our Friends </b>(Requirements: a party member became dying\n      this combat.) All allies in the affected area have advantage on\n      all rolls until the end of the round.</div>",
       "splitFields": {},
       "dynamicRows": []
     },
@@ -407,5 +407,9 @@
         }
       ]
     }
+  },
+  "preferences": {
+    "font": "'Gentium Plus', serif",
+    "color": "#4B0082"
   }
 }

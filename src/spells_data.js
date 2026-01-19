@@ -52,7 +52,7 @@ export const SPELLS_DATABASE = [
     area: "Single Target",
     duration: "Instantaneous",
     description: "Magic check against Will. You channel psychic disturbance into the mind of an you can see within range. On success, the target becomes disoriented (-5 penalty on all rolls) and receives:\n<ul><li>Normal Success: 1 Psychic Damage, ignoring all DR.</li><li>Major Success: 2 Psychic Damage, ignoring all DR.</li><li>Critical Success: 3 Psychic Damage, ignoring all DR.</li></ul>On success, if you rolled 20 on the die, the target is also frightened (they must use the dodge or dash action, and stride as far away as possible from the source).",
-    cost: "1+"
+    cost: "1"
   },
   {
     name: "Divine Guidance",

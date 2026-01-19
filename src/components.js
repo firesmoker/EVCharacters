@@ -357,7 +357,7 @@ export const renderSpellDescriptionBlock = (spell) => `
       <span><strong>Speed:</strong> ${spell.actionSpeed}</span>
       <span><strong>Range:</strong> ${spell.range}</span>
       <span><strong>Area:</strong> ${spell.area}</span>
-      <span><strong>Duration:</strong> ${spell.duration}</span>
+      ${!/^instantaneous$/i.test(spell.duration.trim()) ? `<span><strong>Duration:</strong> ${spell.duration}</span>` : ''}
       ${spell.level !== 'Cantrip' ? `<span><strong>Cost:</strong> ${spell.cost}</span>` : ''}
     </div>
     <div style="font-size: 12px; line-height: 1.3; white-space: pre-wrap; background-color: #f7f7f7; padding: 6px; border-radius: 4px;" class="editable-field">${spell.description}</div>

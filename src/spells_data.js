@@ -132,6 +132,17 @@ export const SPELLS_DATABASE = [
     cost: "1"
   },
   {
+    name: "Guardian Tree",
+    level: "1",
+    actionSpeed: "Slow Action (Interruptible)",
+    spellType: "Nature",
+    range: "10 Units",
+    area: "1 unit",
+    duration: "1 day",
+    description: "You cause a large tree to sprout from the ground at a target location. The tree trunk occupies 1 unit. When allies (including you) that are adjacent to the tree are attacked by an attack against deflection, the tree becomes the target instead.\nThe tree has 7 HP and 0 Deflection. It has weakness to fire damage (takes double damage from fire).\nYou may spend additional spell points when you cast the spell. For each 1 additional point spent, the tree has 3 more HP.",
+    cost: "1+"
+  },
+  {
     name: "Gullibility",
     level: "1",
     actionSpeed: "Fast Action",
@@ -251,6 +262,17 @@ export const SPELLS_DATABASE = [
     duration: "10 minutes",
     description: "Send a telepathic message to a target, and it may reply. Visible unless passing a Sneak or Sleight of Hand check.",
     cost: "0"
+  },
+  {
+    name: "Mind Spike",
+    level: "1",
+    actionSpeed: "Fast Action",
+    spellType: "Arcane / Bardic / Occult",
+    range: "15 units",
+    area: "Single Target",
+    duration: "End of the round",
+    description: "Roll Magic check against Will. On success, the target is interrupted and disoriented (-5 penalty to all rolls) until the end of the round.\nIf cast using Occult magic, they are also discouraged (they deal -1 damage) until the end of the round.",
+    cost: "1"
   },
   {
     name: "Mold Earth",

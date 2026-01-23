@@ -271,7 +271,7 @@ export const SPELLS_DATABASE = [
     range: "15 units",
     area: "Single Target",
     duration: "End of the round",
-    description: "Roll Magic check against Will. On success, the target is interrupted and disoriented (-5 penalty to all rolls) until the end of the round.\nIf cast using Occult magic, they are also discouraged (they deal -1 damage) until the end of the round.",
+    description: "Choose an enemy you can see within range. Roll Magic against Will. On success, the target is interrupted and disoriented (-5 penalty to all rolls) until the end of the round.\nIf cast using Occult magic, they are also discouraged (they deal -1 damage) until the end of the round.",
     cost: "1"
   },
   {

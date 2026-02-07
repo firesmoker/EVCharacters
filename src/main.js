@@ -42,7 +42,12 @@ const updateSpellDescriptions = () => {
     .filter(Boolean)
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  if (uniqueSpells.length === 0) return;
+  if (uniqueSpells.length === 0) {
+    basePage.classList.add('hidden');
+    return;
+  }
+  
+  basePage.classList.remove('hidden');
 
   let currentPage = basePage;
   let currentCol = col1;
@@ -389,6 +394,7 @@ const handleClick = (e) => {
       if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {
         localStorage.removeItem('ev-char-sheet');
         prepareSheetForData(true);
+        updateSpellDescriptions();
       }
     }
   };

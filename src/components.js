@@ -444,7 +444,7 @@ export const renderApp = () => {
           </main>
         </div>
 
-        <div class="a4-page spell-page">
+        <div class="a4-page spell-page hidden">
           ${renderHeader()}
           
           <main class="sheet-middle" style="grid-template-columns: 1fr 1fr;">

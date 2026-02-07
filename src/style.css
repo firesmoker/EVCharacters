@@ -1291,6 +1291,10 @@ textarea::placeholder {
 }
 
 
+.hidden {
+  display: none !important;
+}
+
 /* Reduced spacing for Main Action separator */
 .main-action-container .section-separator {
   margin: 0;

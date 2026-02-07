@@ -363,7 +363,13 @@ const handleClick = (e) => {
 
   // Menu Handlers
   const menuActions = {
-    'export-pdf': () => window.print(),
+    'export-pdf': () => {
+      const charName = document.querySelector('[data-sync-id="character-name"]').innerText.trim();
+      const originalTitle = document.title;
+      document.title = charName || 'ev_character';
+      window.print();
+      document.title = originalTitle;
+    },
     'menu-save': () => saveToJSON(),
     'menu-save-template': () => {
       const charName = document.querySelector('[data-sync-id="character-name"]').innerText.trim() || 'New Template';

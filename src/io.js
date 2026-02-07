@@ -182,7 +182,7 @@ export const serializeSheet = () => {
  */
 export const saveToJSON = async () => {
   const jsonContent = serializeSheet();
-  const charName = document.querySelector('[data-sync-id="character-name"]').innerText.trim() || 'character';
+  const charName = document.querySelector('[data-sync-id="character-name"]').innerText.trim() || 'ev_character';
   const fileName = `${charName.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.json`;
 
   if ('showSaveFilePicker' in window) {

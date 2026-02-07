@@ -7,18 +7,7 @@ export const SPELLS_DATABASE = [
     range: "Self",
     area: "Self",
     duration: "End of next round",
-    description: "Get +10 deflection and +1 DR for the duration. You are immune to one Magic Missile for the duration. Successfully casting a cantrip, casting a spell, or performing any kind of strike ends this spell.\nYou may pay additional Spell Points to cast the spell, raising the number of Magic Missiles you are immune to by one for each additional point you pay.",
-    cost: "1+"
-  },
-  {
-    name: "Burning Hands",
-    level: "1",
-    actionSpeed: "Fast Action",
-    spellType: "Arcane",
-    range: "2 units burst",
-    area: "2 units burst",
-    duration: "Instantaneous",
-    description: "You unleash a wide flame from your hands. Roll Magic against Deflection for each creature in the area. Those you succeed against receive 2 fire damage. The rest receive 1 fire damage.",
+    description: "Get +1 Deflection and +1 DR for the duration. You are immune to one Magic Missile for the duration. Successfully casting a cantrip, casting a spell, or performing any kind of strike ends this spell.\nYou may pay additional Spell Points to cast the spell, raising the number of Magic Missiles you are immune to by one for each additional point you pay.",
     cost: "1+"
   },
   {
@@ -29,8 +18,19 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "Varies",
-    description: "Occult Magic check against target's Will. On success, choose two of the following:\n<ul><li>They become disoriented (-5 penalty on all rolls) until the end of the next 2 rounds.</li><li>They become slowed (+1 drag to all actions, -1 Movement) until the end of the next 2 rounds.</li><li>They become vulnerable (-5 to all defenses) until the end of the next 2 rounds.</li><li>They become discouraged (they deal -1 damage) until the end of combat.</li></ul>If you roll a natural 20, the target also receives 1 damage (ignores all DR). You may spend additional spell points as you cast the spell. Choose one additional mode for each additional spell point spent.",
+    description: "Roll Magic difficulty check against Will. On success, choose two of the following:\n<ul><li>They become disoriented (-1 penalty on all rolls) until the end of the next 2 rounds.</li><li>They become slowed (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.</li><li>They become vulnerable (-1 to all defenses) until the end of the next 2 rounds.</li><li>They become discouraged (they deal -1 damage) until the end of combat.</li></ul>On success, if you roll a double 6, choose all four options.\nYou may spend additional spell points as you cast the spell. Choose one additional mode for each additional spell point spent.",
     cost: "1+"
+  },
+  {
+    name: "Burning Hands",
+    level: "1",
+    actionSpeed: "Fast Action",
+    spellType: "Arcane",
+    range: "2 units burst",
+    area: "2 units burst",
+    duration: "Instantaneous",
+    description: "You unleash a wide flame from your hands. Roll Magic Difficulty Check against Deflection for each creature in the area. Those you succeed against receive 2 fire damage. The rest receive 1 fire damage.",
+    cost: "1"
   },
   {
     name: "Cure",
@@ -40,7 +40,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Choose a target within range. Heal them for 1 HP, or 2 if the spell was cast using Divine magic. If the target is dying, it becomes stabilized.\nYou may spend additional spell points as you cast this spell. For each additional spell point you heal them for 1 more HP. You may choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.",
+    description: "Choose a target within range. Heal them for 1 HP, or 2 if the spell was cast using Divine magic. If the target is dying, it becomes stabilized. You may spend additional spell points as you cast this spell. For each additional spell point you heal them for 1 more HP. You may choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.",
     cost: "1+"
   },
   {
@@ -48,10 +48,10 @@ export const SPELLS_DATABASE = [
     level: "1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Occult / Bardic",
-    range: "12 Units",
+    range: "8 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Magic check against Will. You channel psychic disturbance into the mind of an you can see within range. On success, the target becomes disoriented (-5 penalty on all rolls) and receives:\n<ul><li>Normal Success: 1 Psychic Damage, ignoring all DR.</li><li>Major Success: 2 Psychic Damage, ignoring all DR.</li><li>Critical Success: 3 Psychic Damage, ignoring all DR.</li></ul>On success, if you rolled 20 on the die, the target is also frightened (they must use the dodge or dash action, and stride as far away as possible from the source).",
+    description: "Roll Magic incremental check against Will. You channel psychic disturbance into the mind of an you can see within range. On success, the target becomes disoriented (-1 penalty on all rolls) and receives:\n<ul><li>1 Success Die: 1 Psychic Damage, ignoring all DR.</li><li>2 Success Dice: 2 Psychic Damage, ignoring all DR.</li><li>3 Success Dice: 3 Psychic Damage, ignoring all DR.</li></ul>On success, if you rolled a double six, the target is also frightened (they must use the dodge or dash action, and stride as far away as possible from the source)",
     cost: "1"
   },
   {
@@ -73,7 +73,7 @@ export const SPELLS_DATABASE = [
     range: "15 units",
     area: "Single Target",
     duration: "End of current round",
-    description: "Choose a target within range. They get +5 Deflection against the first attack for the duration.",
+    description: "Choose a target within range. They get +1 Deflection until the end of the current round.",
     cost: "1"
   },
   {
@@ -84,7 +84,7 @@ export const SPELLS_DATABASE = [
     range: "Self",
     area: "Self",
     duration: "End of next round",
-    description: "Get +10 Deflection. If you are hit by an attack against your Deflection, the enemy that dealt the damage loses 1 HP. Successfully casting another spell or cantrip ends this spell.",
+    description: "Get +1 Deflection. If you are hit by an attack against your Deflection, the enemy that dealt the damage loses 1 HP. Successfully casting another spell or cantrip ends this spell.",
     cost: "1"
   },
   {
@@ -95,7 +95,7 @@ export const SPELLS_DATABASE = [
     range: "12 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Arcane Magic check against Deflection. Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:\n<ul><li>Normal Success: deal 2 Damage.</li><li>Major Success: deal 3 Damage.</li><li>Critical Success: deal 4 Damage.</li></ul>On success, if you rolled 20, depending on the damage type, the target also:\n<ul><li>Fire: they start burning until the end of the next round (1 fire damage/round).</li><li>Lightning: they become vulnerable (-5 to all defenses) for 1 round.</li><li>Ice: they become slowed (+1 drag to all actions, -1 movement) for 1 round.</li></ul>",
+    description: "Magic incremental check against Deflection. Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:\n<ul><li>1 Success Die: deal 2 Damage.</li><li>2 Success Dice: deal 3 Damage.</li><li>3 Success Dice: deal 4 Damage.</li></ul>On success, if you rolled a double six, depending on the damage type, the target also:\n<ul><li>Fire: they start burning until the end of the next round (at the end of each round they receive 1 fire damage, unless they use a fast action to distinguish the flame)</li><li>Lightning: they become vulnerable (-1 to all defenses) for 1 round</li><li>Ice: they become slowed (+1 Drag to all actions, -1 movement) for 1 round</li></ul>",
     cost: "0"
   },
   {
@@ -106,8 +106,8 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "2-unit radius",
     duration: "Instantaneous",
-    description: "Choose an ally within range or yourself. Choose fire, ice, or lightning. A pulse of the chosen elemental energy bursts from the chosen target, with a 2-unit radius. Roll Magic against each Deflection for each creature within the radius. Those you succeed against receive 2 damage of the chosen type. The rest receive 1 damage of the chosen type.",
-    cost: "1+"
+    description: "Choose an ally within range or yourself. Choose fire, ice, or lightning. A pulse of the chosen elemental energy bursts from the chosen target in a 2-unit radius. Roll Magic difficulty check against Deflection for all creatures within the radius (other than the chosen target). Creatures you succeed against take 2 damage of the chosen type; the rest take 1 damage of the chosen type.",
+    cost: "1"
   },
   {
     name: "Entangle",
@@ -117,7 +117,7 @@ export const SPELLS_DATABASE = [
     range: "15 units",
     area: "Targeted area",
     duration: "10 minutes",
-    description: "Vines erupt from the ground. Roll Nature Magic against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes restrained. The affected area is difficult terrain. At the start of each round, affected enemies may make a Hard Acrobatics or Athletics check to break free.",
+    description: "Vines erupt from the ground, twisting around all who stand in the area. Roll Nature Magic difficulty check against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes restrained (they can’t move from their place). The affected area is considered difficult terrain for all creatures. At the start of each round each affected enemy may make an Acrobatics or Athletics incremental checks. When they get a total of 3 Success Dice in one roll or more, they break free of the restrained effect.",
     cost: "1"
   },
   {
@@ -128,7 +128,7 @@ export const SPELLS_DATABASE = [
     range: "Touch",
     area: "Three berries",
     duration: "1 day",
-    description: "Spend a minute to create three Goodberry fruits. Each fruit can be consumed to heal 1 HP and provides nutrition for a day. Consuming takes one minute (cannot be done in combat). Fruits last for one day.",
+    description: "Spend a minute to create three Goodberry fruits. Each fruit can be consumed to heal 1 HP. It also provides enough nutrition for an entire day. Consuming a Goodberry takes one minute (therefore it cannot be consumed in combat). The fruits last only for a day, after which they spoil.",
     cost: "1"
   },
   {
@@ -139,7 +139,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "1 unit",
     duration: "1 day",
-    description: "You cause a large tree to sprout from the ground at a target location. The tree trunk occupies 1 unit. When allies (including you) that are adjacent to the tree are attacked by an attack against deflection, the tree becomes the target instead.\nThe tree has 7 HP and 0 Deflection. It has weakness to fire damage (takes double damage from fire).\nYou may spend additional spell points when you cast the spell. For each 1 additional point spent, the tree has 3 more HP.",
+    description: "You cause a large tree to sprout from the ground at a target location. The tree trunk occupies 1 unit. When allies (including you) that are adjacent to the tree are attacked by an attack against deflection, the tree becomes the target instead. The tree has 0 Deflection and 7 HP. It has weakness to fire damage (takes double damage from fire). You may spend additional spell points when you cast the spell. For each 1 additional point spent, the tree has 3 more HP",
     cost: "1+"
   },
   {
@@ -149,8 +149,8 @@ export const SPELLS_DATABASE = [
     spellType: "Bardic / Occult",
     range: "5 Units",
     area: "Single Target",
-    duration: "10 minutes",
-    description: "Magic check against Will of a target creature that you can see and that can see your face. If you succeed, all Speech and Performance checks against the target have advantage. They feel unexplained discomfort if cast with Occult magic.",
+    duration: "Varies",
+    description: "Roll Magic incremental check against Will of a target creature that you can see and that can see your face. If you succeed, Speech and Performance checks against the target made by you or your allies have advantage. The number of Success Dice you rolled determines the duration and number of checks:\n<ul><li>1 Success Die: 1 check in the next minute</li><li>2 Success Dice: 2 checks in the next minute</li><li>3 Success Dice: 3 checks in the next 2 hours</li></ul>The target is not aware of the magical effect, even if you failed on the check. They feel unexplained discomfort if the spell was cast using Occult magic, regardless of success.",
     cost: "1"
   },
   {
@@ -161,8 +161,8 @@ export const SPELLS_DATABASE = [
     range: "Touch",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Heal a target for 2 HP, or 3 HP if cast with Divine magic. Outside of combat, heal the target to its maximum HP. If the target is dying, it becomes stabilized. Spend additional SP for +2 HP per point.",
-    cost: "1+"
+    description: "Heal a target for 2 HP, or 3 HP if cast with Divine magic. Outside of combat, heal the target to its maximum HP. If the target is dying, it becomes stabilized. You may spend additional spell points when you cast this spell. You heal 2 additional HP for each of those spell points.",
+    cost: "1"
   },
   {
     name: "Hex",
@@ -172,7 +172,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "End of the next round",
-    description: "Occult Magic check against target's Will. On success, until the end of the duration, each time the target receives damage from any Strike or Spell Attack, they also lose 1 life.",
+    description: "Choose a target you can see within range. Roll Magic difficulty check against Will. On success, until the end of the duration, each time the target receives damage from any Strike or Spell Attack, they also lose 1 life.",
     cost: "1"
   },
   {
@@ -183,7 +183,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target + 2-unit splash",
     duration: "Instantaneous",
-    description: "Magic check against Deflection. Launch an ice shard. On success:\n<ul><li>Normal Success: Deal 3 ice damage.</li><li>Major Success: Deal 4 ice damage.</li><li>Critical Success: Deal 5 ice damage.</li></ul>The shard shatters, sending shards to each enemy within 2 units. Use same roll: success deals 1 ice damage. Additional SP deals +1 damage to the target.",
+    description: "Roll Magic incremental check against Deflection. Launch a large ice shard on an enemy within range that you can see. On success:\n<ul><li>1 Success Die: Deal 3 ice damage.</li><li>2 Success Dice: Deal 4 ice damage.</li><li>3 Success Dice: Deal 5 ice damage.</li></ul>The shard shatters on impact (whether you succeed or not), sending small ice shard to each enemy within 2 units of the target. Use the same roll against their deflection. Enemies you succeed against take 1 ice damage. You may spend additional spell points when you cast this spell. For every additional spell point spent, you deal +1 damage to the target.",
     cost: "1+"
   },
   {
@@ -194,7 +194,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Magic check against Deflection. On success:\n<ul><li>Normal Success: Deal 2 Necrotic Damage and heal self/ally for 1 HP. Ignore 1 DR.</li><li>Major Success: Deal 3 Necrotic Damage and heal self/ally for 2 HP. Ignore 1 DR.</li><li>Critical Success: Deal 4 Necrotic Damage and heal self/ally for 3 HP. Ignore 1 DR.</li></ul>On success, if you rolled 20, you or the ally healed gets +1 DR for 1 round. Additional SP deals +1 Necrotic damage.",
+    description: "Roll Magic incremental check against Deflection. Shoot a ray of dark siphoning energy at a target. On success:\n<ul><li>1 Success Die: Deal 2 Necrotic Damage and heal yourself or an ally within range for 1 HP. Ignore all DR.</li><li>2 Success Dice: Deal 3 Necrotic Damage and heal yourself or an ally within range for 2 HP. Ignore all DR.</li><li>3 Success Dice: Deal 4 Necrotic Damage and heal yourself or an ally within range for 3 HP. Ignore all DR.</li></ul>On success, if you rolled a double six, you or the ally you healed gets +1 DR until the end of the next round. Choose which target to heal when the spell resolves. You may spend additional spell points when you cast the spell. For each 1 additional point spent, you deal +1 Necrotic damage (doesn’t change the healing amount).",
     cost: "1+"
   },
   {
@@ -205,7 +205,7 @@ export const SPELLS_DATABASE = [
     range: "15 Units",
     area: "Two balls or one item",
     duration: "Until dismissed/unconscious",
-    description: "Create two stationary floating balls of light or make one item/limb luminous (6 units bright, 6 units dim). Enemy items/limbs require Magic check vs Deflection. Ends on unconsciousness, recast, or dismissal.",
+    description: "Create up to two stationary floating balls of light or make one item or limb luminous. The light provides 6 units of bright light and further 6 units of dim light. You may try to make an item or a limb of an enemy luminous. Roll Magic against Deflection. On success, it becomes luminous, and if the enemy is invisible, it doesn’t benefit from the associated advantages. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it.",
     cost: "0"
   },
   {
@@ -215,7 +215,7 @@ export const SPELLS_DATABASE = [
     spellType: "Arcane",
     range: "12 Units",
     area: "Spectral Hand",
-    duration: "1 minute (estimated)",
+    duration: "Instantaneous",
     description: "[Mage Hand]",
     cost: "0"
   },
@@ -227,7 +227,7 @@ export const SPELLS_DATABASE = [
     range: "15 units",
     area: "Up to 3 targets",
     duration: "Instantaneous",
-    description: "Shoot three magical missiles. Each hits automatically and deals 1 force damage, ignoring all DR. Target same/multiple creatures. Additional SP shoots one more missile per point.",
+    description: "Shoot three magical missiles at any creature within range (you only need to know their general location). You may target the same creature more than once. Each missile automatically and successfully hits its target and deals 1 force damage to it, ignoring all DR. If the missile has no way to reach the target, it fails. You may spend additional spell points when you cast the spell. For each additional point spent, shoot one more missile.",
     cost: "1+"
   },
   {
@@ -238,8 +238,30 @@ export const SPELLS_DATABASE = [
     range: "12 Units",
     area: "Small effects",
     duration: "Instantaneous",
-    description: "[Like prestidigitation, but more free form.]",
+    description: "[Like prestidigitation, but maybe more free form.]",
     cost: "0"
+  },
+  {
+    name: "Message",
+    level: "Cantrip",
+    actionSpeed: "Fast Action",
+    spellType: "Arcane / Bardic",
+    range: "50 Units",
+    area: "Single Target",
+    duration: "10 minutes",
+    description: "Choose a target within range. You send a telepathic message to it, and it may reply back. The casting of this spell is visible unless you pass a Sneak or Sleight of hand check. (The difficulty of the check will be determined by the GM according to the situation).",
+    cost: "0"
+  },
+  {
+    name: "Mind Spike",
+    level: "1",
+    actionSpeed: "Fast Action",
+    spellType: "Arcane / Bardic / Occult",
+    range: "15 units",
+    area: "Single Target",
+    duration: "End of the round",
+    description: "Choose an enemy you can see within range. Roll Magic check against their Will. On success, the target is interrupted and disoriented (-1 penalty to all rolls) until the end of the round. If cast using Occult magic, they are also discouraged (they deal -1 damage) until the end of the round.",
+    cost: "1"
   },
   {
     name: "Minor Illusion",
@@ -253,26 +275,15 @@ export const SPELLS_DATABASE = [
     cost: "0"
   },
   {
-    name: "Message",
+    name: "Minor Ward",
     level: "Cantrip",
-    actionSpeed: "Fast Action",
-    spellType: "Bardic",
-    range: "50 Units",
-    area: "Single Target",
-    duration: "10 minutes",
-    description: "Send a telepathic message to a target, and it may reply. Visible unless passing a Sneak or Sleight of Hand check.",
+    actionSpeed: "Average Action",
+    spellType: "Arcane / Bardic / Divine/ Nature / Occult",
+    range: "Self",
+    area: "Self",
+    duration: "End of next round",
+    description: "You get +1 Deflection until the end of the next round.",
     cost: "0"
-  },
-  {
-    name: "Mind Spike",
-    level: "1",
-    actionSpeed: "Fast Action",
-    spellType: "Arcane / Bardic / Occult",
-    range: "15 units",
-    area: "Single Target",
-    duration: "End of the round",
-    description: "Choose an enemy you can see within range. Roll Magic against Will. On success, the target is interrupted and disoriented (-5 penalty to all rolls) until the end of the round.\nIf cast using Occult magic, they are also discouraged (they deal -1 damage) until the end of the round.",
-    cost: "1"
   },
   {
     name: "Mold Earth",
@@ -282,7 +293,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "1 unit cube",
     duration: "Instantaneous (Permanent change)",
-    description: "Manipulate ground. Choose one/both:\n<ul><li>Create 1 unit cube of earth (Half/Full cover).</li><li>Dig 1 unit cube into the ground (Half cover).</li></ul>",
+    description: "You manipulate the ground at a point within range. Choose one or both:\n<ul><li>Create 1 unit cube of earth. It provides half cover (or full cover while being prone next to it). You cannot target an occupied space.</li><li>Dig 1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.</li></ul>If you choose both, the hole and the cube must be adjacent to each other.",
     cost: "0"
   },
   {
@@ -292,8 +303,8 @@ export const SPELLS_DATABASE = [
     spellType: "Nature",
     range: "Touch",
     area: "Single Target",
-    duration: "Until dismissed/unconscious",
-    description: "Target gains advantage on Survival, Nature, Animal Handling, Cooking, Medicine, and Perception vs beasts/nature. Ends on unconsciousness, recast, or dismissal.",
+    duration: "Unlimited",
+    description: "Choose one creature. It gains advantage on Survival, Nature, Animal handling, Cooking, Medicine, and Perception skill checks against beasts and natural world phenomena. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it.",
     cost: "0"
   },
   {
@@ -304,7 +315,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "End of the next round",
-    description: "Occult Magic check against Deflection. On success:\n<ul><li>Normal Success: deal 1 Necrotic Damage (Ignore 1 DR), discouraged (-1 damage) 1 round.</li><li>Major Success: deal 1 Necrotic Damage (Ignore 1 DR), discouraged and vulnerable (-5 defenses) 1 round.</li><li>Critical Success: deal 2 Necrotic Damage (Ignore 1 DR), discouraged and vulnerable 1 round.</li></ul>Natural 20 also disorients target (-5 penalty).",
+    description: "Ranged Spell Attack. Occult Magic check against Deflection. Launch a dark bolt of necrotic energy at an enemy. On success:\n<ul><li>1 Success Die: deal 1 Necrotic Damage, ignoring 1 DR. The target becomes discouraged (they deal -1 damage) until the end of the next round.</li><li>2 Success Dice: deal 1 Necrotic Damage, ignoring 1 DR. The target becomes discouraged (they deal -1 damage) and vulnerable (-1 to all defenses) until the end of the next round.</li><li>3 Success Dice: deal 2 Necrotic Damage, ignoring 1 DR. The target becomes discouraged (they deal -1 damage) and vulnerable (-1 to all defenses) until the end of the next round.</li></ul>On success, if you rolled a double six, the target becomes disoriented (-1 penalty on all rolls) until the end of the next round.",
     cost: "0"
   },
   {
@@ -315,7 +326,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Single Target",
     duration: "End of the next round",
-    description: "Divine Magic check against Deflection. On success:\n<ul><li>Normal Success: deal 1 Radiant Damage (Ignore 1 DR).</li><li>Major Success: deal 1 Radiant Damage (Ignore 1 DR), discouraged (-1 damage) 1 round.</li><li>Critical Success: deal 2 Radiant Damage (Ignore 1 DR), discouraged 1 round.</li></ul>Natural 20 gives target disadvantage on attacks vs you/allies.",
+    description: "Divine Magic check against Deflection. Launch a beam of divine energy at an enemy. If you are a Cleric, change the damage type to the one associated with your domain. On success:\n<ul><li>1 Success Die: deal 1 Radiant Damage. Ignore 1 DR.</li><li>2 Success Dice: deal 1 Radiant Damage. Ignore 1 DR. They become discouraged (they deal -1 damage) until the end of the next round.</li><li>3 Success Dice: deal 2 Radiant Damage. Ignore 1 DR. They become discouraged (they deal -1 damage) until the end of the next round.</li></ul>On success, if you rolled a double six, they get disadvantage on attacks against you and your allies until the end of the next round.",
     cost: "0"
   },
   {
@@ -326,18 +337,18 @@ export const SPELLS_DATABASE = [
     range: "10 units",
     area: "3-units cube",
     duration: "1 minute or end of combat",
-    description: "You create a chaotic eruption of rainbows at a point within range. The rainbows are attracted to each enemy within the area. Roll a Magic check against Deflection for the enemies inside the radius. Those that you succeed against become luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.",
+    description: "You create a chaotic eruption of rainbows at a point within range. The rainbows are attracted to each enemy within 5 units radius of that point. Roll a Magic check against Deflection for the enemies inside the radius. Those that you succeed against become luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.",
     cost: "1"
   },
   {
     name: "Sanctuary",
     level: "1",
-    actionSpeed: "Slow Action (Interruptible)",
+    actionSpeed: "Fast Action",
     spellType: "Divine",
     range: "15 units",
     area: "Single Target",
     duration: "End of the next two rounds",
-    description: "Target cannot be targeted by any enemy. Ends if target performs any action other than Dash or Dodge.",
+    description: "Choose an ally within range or yourself. The target cannot be targeted by any enemy for the duration. When the target performs any action other than Dash or Dodge, the spell ends.",
     cost: "1"
   },
   {
@@ -348,7 +359,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Up to 3 rays",
     duration: "Instantaneous",
-    description: "Pool of 4 fire damage. Distribute between one, two, or three rays. Magic vs Deflection. Success deals damage, failure deals half. Additional SP adds 2 fire damage per point.",
+    description: "You get a pool of 4 points of fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see. Roll Magic against their Deflection. Targets that you've succeeded against receive the fire damage, while targets you've failed against receive only half the damage (rounded down). You may spend additional spell points when you cast the spell. For each 1 additional point spent, you get 2 additional fire damage to your damage pool.",
     cost: "1+"
   },
   {
@@ -359,7 +370,7 @@ export const SPELLS_DATABASE = [
     range: "15 units",
     area: "Single Target",
     duration: "End of the next two rounds",
-    description: "Target gets +5 Deflection and +1 DR.",
+    description: "Choose a target within range. They get +1 Deflection and +1 DR for the duration.",
     cost: "1"
   },
   {
@@ -370,7 +381,7 @@ export const SPELLS_DATABASE = [
     range: "30 Units",
     area: "Single Target",
     duration: "10 minutes",
-    description: "Animal understands you, and you understand them. Stops at end of duration or recast.",
+    description: "Choose an animal within range. They understand your speech, and you understand theirs. The effect stops at the end of its duration or when you use this cantrip again.",
     cost: "0"
   },
   {
@@ -381,7 +392,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Unoccupied space",
     duration: "1 day",
-    description: "Requires 1 summon slot. Summons a Large or smaller beast. Separate actor you control. Command fast action required for specific actions.",
+    description: "Summons a Large or smaller beast (your choice) in an unoccupied location you can see. It can’t be a flying beast unless it’s small. The beast is a separate actor than your character that you control in the same manner. You must take the Command fast action on your turn to enable the beast to use the specific actions that require it. (it may still move and take other actions without it)",
     cost: "1"
   },
   {
@@ -392,7 +403,7 @@ export const SPELLS_DATABASE = [
     range: "10 Units",
     area: "Unoccupied space",
     duration: "1 minute",
-    description: "Requires 1 summon slot. Summon spirit. Separate actor you control. Command fast action required for specific actions. Immediate Shadow Claw on summon.",
+    description: "Summon a shade (Undead spirit) in an unoccupied location you can see within range. If the location is not available when the spell resolves, choose an adjacent location within range. The shade is a separate actor than your character that you control in the same manner. Start controlling it in the next round. You must take the Command fast action in your turn to enable the spirit to use the specific actions that require it. When the shade is summoned, it can immediately use Shadow Claw on an enemy within its range as a free action.",
     cost: "1"
   },
   {
@@ -403,7 +414,40 @@ export const SPELLS_DATABASE = [
     range: "Self",
     area: "Self",
     duration: "Instantaneous",
-    description: "You perform minor wonders.",
+    description: "[Thaumaturgy]",
+    cost: "0"
+  },
+  {
+    name: "Thunder Fist",
+    level: "Cantrip",
+    actionSpeed: "Average Action",
+    spellType: "Arcane / Bardic / Nature",
+    range: "Touch",
+    area: "Single Target",
+    duration: "Instantaneous",
+    description: "You release thunderous energy from your hand into a nearby enemy. Melee Spell Attack. Roll Magic against Deflection. On success:\n<ul><li>1 Success Die: deal 2 Thunder Damage</li><li>Great Success: deal 2 Thunder Damage and push the target 2 units away from you.</li><li>3 Success Dice: deal 3 Thunder Damage and push the target 2 units away from you.</li></ul>On success, if you rolled a double six, push or pull for 2 units forcefully (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)",
+    cost: "0"
+  },
+  {
+    name: "Thunder Wave",
+    level: "Cantrip",
+    actionSpeed: "Average Action",
+    spellType: "Arcane / Bardic / Nature",
+    range: "Self",
+    area: "Adjacent creatures",
+    duration: "Instantaneous",
+    description: "You release a small wave of thunderous energy in an outward direction. Roll Magic against Deflection against all creatures adjacent to you. Those you succeed against receive 1 Thunder Damage and are pushed 1 unit away from you. If you rolled double six, the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)",
+    cost: "0"
+  },
+  {
+    name: "Touch of Decay",
+    level: "Cantrip",
+    actionSpeed: "Average Action",
+    spellType: "Occult",
+    range: "Touch",
+    area: "Single Target",
+    duration: "Instantaneous",
+    description: "Melee Spell Attack. Occult Magic check against Deflection. Channel dark energy into an adjacent enemy. On success:\n<ul><li>1 Success Die: deal 1 Necrotic Damage, ignoring 1 DR. They can’t be healed until the end of the next round.</li><li>2 Success Dice: deal 2 Necrotic Damage, ignoring 1 DR. They can’t be healed until the end of the next round.</li><li>3 Success Dice: deal 3 Necrotic Damage, ignoring 1 DR. They can’t be healed until the end of the next round.</li></ul>On success, if you rolled a double six, the target also becomes vulnerable (-1 to all defenses) until the end of the next round.",
     cost: "0"
   },
   {
@@ -411,10 +455,10 @@ export const SPELLS_DATABASE = [
     level: "Cantrip",
     actionSpeed: "Fast Action",
     spellType: "Nature",
-    range: "10 Units",
+    range: "5 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Nature Magic vs Deflection. Thorny vine. On success:\n<ul><li>Normal Success: deal 1 Piercing Damage (Ignore 1 DR), push/pull 1 unit.</li><li>Great Success: deal 1 Piercing Damage (Ignore 1 DR), push/pull 2 units.</li></ul>",
+    description: "Ranged Spell Attack. Roll Nature Magic vs the target Deflection. Launch a thorny vine at an enemy you can see within range. On success:\n<ul><li>1 Success Die: deal 1 Piercing Damage and push or pull 1 unit to any direction.</li><li>Great Success: deal 2 Piercing Damage and push or pull 1 unit to any direction.</li><li>3 Success Dice: deal 3 Piercing Damage and push or pull 1 unit to any direction.</li></ul>On success, if you rolled a double six, push or pull for 2 units forcefully (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)\nYou may only push or pull the target if it’s up to one size larger than you.",
     cost: "0"
   }
 ];

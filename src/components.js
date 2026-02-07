@@ -45,7 +45,7 @@ export const renderSkillRow = (type = 'skills') => {
   return `
     <div class="skill-row">
       ${renderAutocomplete("Skill", type)}
-      ${renderAutocomplete("Untrained (+0)", "bonus", "skill-bonus")}
+      ${renderAutocomplete("Untrained (3d6)", "bonus", "skill-bonus")}
       <button class="remove-row-btn" title="Remove Row">-</button>
       <button class="add-row-btn" title="Add Row">+</button>
     </div>

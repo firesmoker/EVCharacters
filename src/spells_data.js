@@ -95,7 +95,7 @@ export const SPELLS_DATABASE = [
     range: "12 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Magic incremental check against Deflection. Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:\n<ul><li>1 Success Die: deal 2 Damage.</li><li>2 Success Dice: deal 3 Damage.</li><li>3 Success Dice: deal 4 Damage.</li></ul>On success, if you rolled a double six, depending on the damage type, the target also:\n<ul><li>Fire: they start burning until the end of the next round (at the end of each round they receive 1 fire damage, unless they use a fast action to distinguish the flame)</li><li>Lightning: they become vulnerable (-1 to all defenses) for 1 round</li><li>Ice: they become slowed (+1 Drag to all actions, -1 movement) for 1 round</li></ul>",
+    description: "Magic incremental check against Deflection. Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:\n<ul><li>1 Success Die: deal 2 Damage.</li><li>2 Success Dice: deal 3 Damage.</li><li>3 Success Dice: deal 4 Damage.</li></ul>On success, if you rolled a double six, depending on the damage type, the target also:\n<ul><li>Fire: becomes burning 1 until the end of the round (1 fire, ignoring 1 DR, at the end of the round)</li><li>Lightning: they become disoriented (-1 to all rolls) until the end of the next round</li><li>Ice: they become chilled (-1 Movement) until the end of the next round</li></ul>",
     cost: "0"
   },
   {

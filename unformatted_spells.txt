@@ -86,14 +86,14 @@ Range: 12 Units
 
 Magic incremental check against Deflection.
 Shoot an elemental flare at a target in range. Choose its damage type: lightning, fire or ice. On success:
-•	1 Success Die: deal 2 Damage.
-•	2 Success Dice: deal 3 Damage.
-•	3 Success Dice: deal 4 Damage.
+•1 Success Die: deal 2 Damage.
+•2 Success Dice: deal 3 Damage.
+•3 Success Dice: deal 4 Damage.
 
 On success, if you rolled a double six, depending on the damage type, the target also:
-•	Fire: they start burning until the end of the next round (at the end of each round they receive 1 fire damage, unless they use a fast action to distinguish the flame)
-•	Lightning: they become vulnerable (-1 to all defenses) for 1 round
-•	Ice: they become slowed (+1 Drag to all actions, -1 movement) for 1 round
+•Fire: becomes burning 1 until the end of the round (1 fire, ignoring 1 DR, at the end of the round)
+•Lightning: they become disoriented (-1 to all rolls) until the end of the next round
+•Ice: they become chilled (-1 Movement) until the end of the next round
 Elemental Pulse
 Arcane
 Level 1 ◆ Costs 1

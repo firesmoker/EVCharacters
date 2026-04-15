@@ -102,10 +102,18 @@ const scrapeSplitFields = (box, title, data) => {
     const labelEl = split.previousElementSibling;
     if (labelEl && labelEl.classList.contains('section-label')) {
       const label = labelEl.innerText.replace(':', '').trim();
+      const curField = split.querySelector('.editable-field[data-split-part="cur"]');
+      const maxField = split.querySelector('.editable-field[data-split-part="max"]');
+      const tempField = split.querySelector('.editable-field[data-split-part="temp"]');
+
       section.splitFields[label] = {
-        cur: split.children[0].innerText,
-        max: split.children[2].innerText
+        cur: curField ? curField.innerText : '',
+        max: maxField ? maxField.innerText : ''
       };
+
+      if (tempField) {
+        section.splitFields[label].temp = tempField.innerText;
+      }
     }
   });
 };
@@ -311,8 +319,13 @@ export const loadFromJSON = (jsonString) => {
           if (labelEl) {
             const label = labelEl.innerText.replace(':', '').trim();
             if (section.splitFields[label]) {
-              split.children[0].innerText = section.splitFields[label].cur;
-              split.children[2].innerText = section.splitFields[label].max;
+              const curField = split.querySelector('.editable-field[data-split-part="cur"]');
+              const maxField = split.querySelector('.editable-field[data-split-part="max"]');
+              const tempField = split.querySelector('.editable-field[data-split-part="temp"]');
+
+              if (curField) curField.innerText = section.splitFields[label].cur || '';
+              if (maxField) maxField.innerText = section.splitFields[label].max || '';
+              if (tempField) tempField.innerText = section.splitFields[label].temp || '';
             }
           }
         });

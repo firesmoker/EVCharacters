@@ -297,6 +297,7 @@ export const renderStrikesDamagingCantripsBlock = () => `
       </div>
     </div>
     <div class="strikes-cantrips-table-line">
+      <button class="weapon-column-toggle-btn" title="Toggle Weapon Column">👁️</button>
       <table class="strikes-cantrips-slots-table">
         <colgroup>
           <col class="strikes-cantrips-col-weapon">

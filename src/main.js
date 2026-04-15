@@ -331,6 +331,17 @@ const handleClick = (e) => {
     return;
   }
 
+  // Toggle Weapon Column
+  if (e.target.classList.contains('weapon-column-toggle-btn')) {
+    const strikesContainer = e.target.closest('.strikes-cantrips-container');
+    if (strikesContainer) {
+      strikesContainer.classList.toggle('weapon-column-hidden');
+      const isHidden = strikesContainer.classList.contains('weapon-column-hidden');
+      e.target.innerText = isHidden ? 'Show Weapon' : '👁️';
+    }
+    return;
+  }
+
   // New from Template Handler
   if (e.target.classList.contains('template-item')) {
     e.stopPropagation();

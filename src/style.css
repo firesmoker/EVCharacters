@@ -732,8 +732,36 @@ textarea::placeholder {
 }
 
 .strikes-cantrips-table-line {
+  position: relative;
   width: 100%;
   min-width: 0;
+  --col-speed: 5.4ch;
+  --col-roll: 3.41ch;
+  --col-damage: 10.27ch;
+  --col-range: 5.184ch;
+  --col-double-six: 8.4ch;
+}
+
+.weapon-column-toggle-btn {
+  position: absolute;
+  top: -12px;
+  right: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  user-select: none;
+  border: none;
+  background: transparent;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+  z-index: 25;
+}
+
+.strikes-cantrips-table-line:hover .weapon-column-toggle-btn,
+.weapon-column-toggle-btn:hover {
+  opacity: 1;
 }
 
 .strikes-cantrips-slots-table {
@@ -747,23 +775,37 @@ textarea::placeholder {
 }
 
 .strikes-cantrips-col-speed {
-  width: 5.4ch;
+  width: var(--col-speed);
 }
 
 .strikes-cantrips-col-roll {
-  width: 3.41ch;
+  width: var(--col-roll);
 }
 
 .strikes-cantrips-col-damage {
-  width: 10.27ch;
+  width: var(--col-damage);
 }
 
 .strikes-cantrips-col-range {
-  width: 5.184ch;
+  width: var(--col-range);
 }
 
 .strikes-cantrips-col-double-six {
-  width: 8.4ch;
+  width: var(--col-double-six);
+}
+
+.strikes-cantrips-container.weapon-column-hidden .strikes-cantrips-col-weapon {
+  display: none;
+  width: 0 !important;
+}
+
+.strikes-cantrips-container.weapon-column-hidden .strikes-cantrips-col-double-six {
+  width: calc(100% - var(--col-speed) - var(--col-roll) - var(--col-damage) - var(--col-range));
+}
+
+.strikes-cantrips-container.weapon-column-hidden .strikes-cantrips-slots-table th:nth-child(1),
+.strikes-cantrips-container.weapon-column-hidden .strikes-cantrips-slots-table td:nth-child(1) {
+  display: none;
 }
 
 .strikes-cantrips-slots-table th,

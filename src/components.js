@@ -334,8 +334,8 @@ export const renderStrikesDamagingCantripsBlock = () => `
         <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="notes" data-placeholder="notes"></div>
       </div>
     </div>
-    <div class="variants-region">
-      <button class="variants-toggle-btn" title="Toggle Variants">👁️</button>
+    <div class="variants-region variants-hidden">
+      <button class="variants-toggle-btn" title="Toggle Variants">Show Variants</button>
       <div class="variants-container">
         <div class="section-subsection-label">Variants</div>
         <div class="variant-actions-container"></div>

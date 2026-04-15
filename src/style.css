@@ -1473,8 +1473,14 @@ textarea::placeholder {
   opacity: 1;
 }
 
+.variants-container {
+  background-color: color-mix(in srgb, var(--field-color), transparent 90%);
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
 .variant-actions-container {
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 
@@ -1491,15 +1497,19 @@ textarea::placeholder {
   position: relative;
 }
 
+.variant-action-row + .variant-action-row {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid color-mix(in srgb, var(--field-color), transparent 82%);
+}
+
 .variant-action-row:hover .remove-variant-btn {
   opacity: 1;
 }
 
 
 .variant-action-text {
-  background-color: color-mix(in srgb, var(--field-color), transparent 90%);
-  border-radius: 4px;
-  padding: 2px 4px;
+  padding: 0;
   font-size: 0.7em;
 }
 

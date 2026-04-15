@@ -328,8 +328,10 @@ export const renderMainAction = () => `
         </tbody>
       </table>
     </div>
-    <div class="section-subsection-label">Variants</div>
-    <div class="variant-actions-container"></div>
+    <div class="variants-container">
+      <div class="section-subsection-label">Variants</div>
+      <div class="variant-actions-container"></div>
+    </div>
     <div class="variant-btn-container">
        <button class="add-variant-btn" title="Add Variant" style="font-size: 10px; padding: 2px 6px; cursor: pointer;">+ Variant</button>
     </div>

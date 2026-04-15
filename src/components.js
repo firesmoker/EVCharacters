@@ -208,7 +208,12 @@ export const renderDefensesSection = () => `
     ${renderSectionRow('Deflection', '5')}
     ${renderSectionRow('Fortitude', '0')}
     ${renderSectionRow('Will', '0')}
-    <div class="section-separator"></div>
+  </div>
+`
+
+// Content for the structured Equipment Proficiencies section
+export const renderEquipmentProficienciesSection = () => `
+  <div class="section-container">
     <div>
       <div class="section-subsection-label">Armor Training:</div>
       <div class="checkbox-group">
@@ -224,6 +229,12 @@ export const renderDefensesSection = () => `
         <label class="checkbox-item"><input type="checkbox"> Tower Shields</label>
       </div>
     </div>
+    <div style="margin-top: 6px;">
+      <div class="section-subsection-label">Weapon Training:</div>
+      <div class="checkbox-group">
+        <label class="checkbox-item"><input type="checkbox"> Martial Weapons</label>
+      </div>
+    </div>
   </div>
 `
 
@@ -231,7 +242,7 @@ export const renderDefensesSection = () => `
 export const renderSpeedSection = () => `
   <div class="section-container">
     ${renderSectionRow('Movement', '3')}
-    ${renderSectionRow('Instinct', '3')}
+    ${renderSectionRow('Instinct', '0')}
     <div class="section-subsection-label">Drags Ignored:</div>
     <div class="dynamic-rows">
       ${renderDragsIgnoredRow()}
@@ -410,6 +421,7 @@ export const renderApp = () => {
           <main class="sheet-middle">
             <section class="sheet-column">
               ${renderSection('Defenses', renderDefensesSection(), { isStructured: true })}
+              ${renderSection('Equipment Proficiencies', renderEquipmentProficienciesSection(), { isStructured: true })}
               ${renderSection('Speed', renderSpeedSection(), { isStructured: true, isDynamic: true })}
               ${renderSection('Combat Skills', `<div class="dynamic-rows">${renderSkillRow('combat')}</div>`, { isStructured: true, isDynamic: true })}
               ${renderSection('Standard Skills', `<div class="dynamic-rows">${renderSkillRow('skills')}</div>`, { isStructured: true, isDynamic: true })}
@@ -436,6 +448,7 @@ export const renderApp = () => {
                 </div>
               </div>
               ${renderSection('Equipment', '')}
+              ${renderSection('Items', '')}
             </section>
             
             <section class="sheet-column">

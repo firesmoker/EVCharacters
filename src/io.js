@@ -116,7 +116,9 @@ const scrapeDynamicRows = (box, title, data) => {
       row.querySelectorAll('.strikes-cantrips-slot-value').forEach(field => {
         const slotName = field.getAttribute('data-slot');
         if (slotName) {
-          slots[slotName] = field.innerText;
+          const isTableField = Boolean(field.closest('.strikes-cantrips-slots-table'));
+          // Preserve rich formatting in table cells; keep plain text behavior elsewhere.
+          slots[slotName] = isTableField ? field.innerHTML : field.innerText;
         }
       });
       const variants = Array.from(row.querySelectorAll('.variant-action-text')).map(t => t.innerHTML);
@@ -317,7 +319,12 @@ export const loadFromJSON = (jsonString) => {
                 const slotName = field.getAttribute('data-slot');
                 if (!slotName) return;
                 if (slots.hasOwnProperty(slotName)) {
-                  field.innerText = slots[slotName];
+                  const isTableField = Boolean(field.closest('.strikes-cantrips-slots-table'));
+                  if (isTableField) {
+                    field.innerHTML = slots[slotName];
+                  } else {
+                    field.innerText = slots[slotName];
+                  }
                 }
               });
 

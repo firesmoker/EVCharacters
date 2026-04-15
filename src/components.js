@@ -205,7 +205,7 @@ export const renderDefensesSection = () => `
       <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="0" style="flex-grow: 1; padding-left: 5px;"></span>
     </div>
     <div class="section-separator"></div>
-    ${renderSectionRow('Deflection', '5')}
+    ${renderSectionRow('Deflection', '0')}
     ${renderSectionRow('Fortitude', '0')}
     ${renderSectionRow('Will', '0')}
   </div>
@@ -291,9 +291,9 @@ export const renderStrikesDamagingCantripsBlock = () => `
         <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="name" data-placeholder="name"></div>
       </div>
     </div>
-    <div class="strikes-cantrips-notes-line">
-      <div class="strikes-cantrips-slot slot-notes">
-        <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="notes" data-placeholder=""></div>
+    <div class="strikes-cantrips-roll-description-line">
+      <div class="strikes-cantrips-slot slot-roll-description">
+        <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="rollDescription" data-placeholder="roll description"></div>
       </div>
     </div>
     <div class="strikes-cantrips-table-line">
@@ -327,6 +327,11 @@ export const renderStrikesDamagingCantripsBlock = () => `
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="strikes-cantrips-notes-line">
+      <div class="strikes-cantrips-slot slot-notes">
+        <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="notes" data-placeholder="notes"></div>
+      </div>
     </div>
     <div class="variants-container">
       <div class="section-subsection-label">Variants</div>

@@ -698,7 +698,7 @@ textarea::placeholder {
 
 
 
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 
 
 
@@ -706,13 +706,13 @@ textarea::placeholder {
 
 
 
-  border: 1px solid #dedddd;
-    /* Soft border */
-    padding: 4px 8px 0px 8px;
+  padding: 6px 8px 4px 8px;
 
 
 
-  border-radius: 4px;
+  border-radius: 6px;
+  background-color: color-mix(in srgb, var(--field-color), transparent 96%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 
 
 
@@ -795,6 +795,7 @@ textarea::placeholder {
   word-break: break-word;
 }
 
+.strikes-cantrips-roll-description-line,
 .strikes-cantrips-notes-line {
   display: flex;
   align-items: center;
@@ -862,12 +863,14 @@ textarea::placeholder {
   flex: 0 0 auto;
 }
 
+.strikes-cantrips-roll-description-line .slot-roll-description,
 .strikes-cantrips-notes-line .slot-notes {
   flex: 1 1 auto;
   width: 100%;
   min-width: 0;
 }
 
+.strikes-cantrips-roll-description-line .slot-roll-description .strikes-cantrips-slot-value,
 .strikes-cantrips-notes-line .slot-notes .strikes-cantrips-slot-value {
   flex: 1 1 auto;
   width: 100%;
@@ -1477,6 +1480,7 @@ textarea::placeholder {
   background-color: color-mix(in srgb, var(--field-color), transparent 90%);
   border-radius: 4px;
   padding: 2px 4px;
+  margin-bottom: 4px;
 }
 
 .variant-actions-container {

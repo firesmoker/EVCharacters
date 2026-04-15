@@ -1,7 +1,16 @@
 import {
   renderRowForSection,
-  renderVariantActionRow
+  renderVariantActionRow,
+  renderStrikesCantripsTableRow
 } from './components.js';
+
+const STRIKES_CANTRIPS_TABLE_SLOT_ORDER = ['weapon', 'speed', 'roll', 'damage', 'range', 'doubleSix'];
+
+const createStrikesCantripsTableRowElement = () => {
+  const table = document.createElement('table');
+  table.innerHTML = `<tbody>${renderStrikesCantripsTableRow()}</tbody>`;
+  return table.querySelector('tbody tr');
+};
 
 /**
  * Helper to clear the sheet and optionally restore default rows
@@ -115,12 +124,22 @@ const scrapeDynamicRows = (box, title, data) => {
       const slots = {};
       row.querySelectorAll('.strikes-cantrips-slot-value').forEach(field => {
         const slotName = field.getAttribute('data-slot');
-        if (slotName) {
-          const isTableField = Boolean(field.closest('.strikes-cantrips-slots-table'));
-          // Preserve rich formatting in table cells; keep plain text behavior elsewhere.
-          slots[slotName] = isTableField ? field.innerHTML : field.innerText;
+        if (!slotName) return;
+        const isTableField = Boolean(field.closest('.strikes-cantrips-slots-table'));
+        if (!isTableField) {
+          slots[slotName] = field.innerText;
         }
       });
+
+      const tableRows = Array.from(row.querySelectorAll('.strikes-cantrips-slots-table tbody tr')).map(tableRow => {
+        const rowData = {};
+        STRIKES_CANTRIPS_TABLE_SLOT_ORDER.forEach(slotName => {
+          const field = tableRow.querySelector(`.strikes-cantrips-slot-value[data-slot="${slotName}"]`);
+          rowData[slotName] = field ? field.innerHTML : '';
+        });
+        return rowData;
+      });
+
       const variants = Array.from(row.querySelectorAll('.variant-action-text')).map(t => t.innerHTML);
       const variantsRegion = row.querySelector('.variants-region');
       const ui = {
@@ -131,6 +150,7 @@ const scrapeDynamicRows = (box, title, data) => {
       section.dynamicRows.push({
         type: 'action',
         slots,
+        tableRows,
         variants,
         ui
       });
@@ -318,15 +338,45 @@ export const loadFromJSON = (jsonString) => {
               newRow.querySelectorAll('.strikes-cantrips-slot-value').forEach(field => {
                 const slotName = field.getAttribute('data-slot');
                 if (!slotName) return;
-                if (slots.hasOwnProperty(slotName)) {
-                  const isTableField = Boolean(field.closest('.strikes-cantrips-slots-table'));
-                  if (isTableField) {
-                    field.innerHTML = slots[slotName];
-                  } else {
-                    field.innerText = slots[slotName];
-                  }
+                const isTableField = Boolean(field.closest('.strikes-cantrips-slots-table'));
+                if (!isTableField && slots.hasOwnProperty(slotName)) {
+                  field.innerText = slots[slotName];
                 }
               });
+
+              const tableBody = newRow.querySelector('.strikes-cantrips-slots-table tbody');
+              if (tableBody) {
+                tableBody.innerHTML = '';
+                const tableRows = Array.isArray(rowData.tableRows) && rowData.tableRows.length > 0
+                  ? rowData.tableRows
+                  : [{
+                      weapon: slots.weapon || '',
+                      speed: slots.speed || '',
+                      roll: slots.roll || '',
+                      damage: slots.damage || '',
+                      range: slots.range || '',
+                      doubleSix: slots.doubleSix || ''
+                    }];
+
+                tableRows.forEach(tableRowData => {
+                  const tableRow = createStrikesCantripsTableRowElement();
+                  if (!tableRow) return;
+
+                  STRIKES_CANTRIPS_TABLE_SLOT_ORDER.forEach(slotName => {
+                    const field = tableRow.querySelector(`.strikes-cantrips-slot-value[data-slot="${slotName}"]`);
+                    if (field) {
+                      field.innerHTML = tableRowData[slotName] || '';
+                    }
+                  });
+
+                  tableBody.appendChild(tableRow);
+                });
+
+                const removeTableRowBtn = newRow.querySelector('.remove-strikes-table-row-btn');
+                if (removeTableRowBtn) {
+                  removeTableRowBtn.classList.toggle('hidden', tableRows.length <= 1);
+                }
+              }
 
               if (rowData.ui && typeof rowData.ui.variantsHidden === 'boolean') {
                 const variantsRegion = newRow.querySelector('.variants-region');

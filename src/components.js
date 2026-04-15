@@ -282,6 +282,20 @@ export const renderVariantActionRow = () => `
 `
 
 /**
+ * Renders a table row for Strikes & Damaging Cantrips.
+ */
+export const renderStrikesCantripsTableRow = () => `
+  <tr>
+    <td class="strikes-cantrips-cell-weapon"><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="weapon" data-placeholder="weapon"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="speed" data-placeholder="speed"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="roll" data-placeholder="roll"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="damage" data-placeholder="damage"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="range" data-placeholder="range"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="double six"></div></td>
+  </tr>
+`
+
+/**
  * Renders a complex Strikes & Damaging Cantrips block.
  */
 export const renderStrikesDamagingCantripsBlock = () => `
@@ -297,6 +311,10 @@ export const renderStrikesDamagingCantripsBlock = () => `
       </div>
     </div>
     <div class="strikes-cantrips-table-line">
+      <div class="strikes-cantrips-table-row-controls">
+        <button class="remove-strikes-table-row-btn hidden" title="Remove Table Row">-</button>
+        <button class="add-strikes-table-row-btn" title="Add Table Row">+</button>
+      </div>
       <button class="weapon-column-toggle-btn" title="Toggle Weapon Column">👁️</button>
       <table class="strikes-cantrips-slots-table">
         <colgroup>
@@ -318,14 +336,7 @@ export const renderStrikesDamagingCantripsBlock = () => `
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="strikes-cantrips-cell-weapon"><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="weapon" data-placeholder="weapon"></div></td>
-            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="speed" data-placeholder="speed"></div></td>
-            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="roll" data-placeholder="roll"></div></td>
-            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="damage" data-placeholder="damage"></div></td>
-            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="range" data-placeholder="range"></div></td>
-            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="double six"></div></td>
-          </tr>
+          ${renderStrikesCantripsTableRow()}
         </tbody>
       </table>
     </div>

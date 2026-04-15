@@ -4,7 +4,7 @@ import { SPELLS_DATABASE } from './spells_data.js';
 import { 
   renderApp, renderSkillRow, renderDragsIgnoredRow, 
   renderSpellRow, renderRowForSection, renderVariantActionRow,
-  renderSpellDescriptionBlock, renderHeader 
+  renderSpellDescriptionBlock, renderHeader, renderStrikesCantripsTableRow
 } from './components.js';
 import { saveToJSON, loadFromJSON, prepareSheetForData, serializeSheet } from './io.js';
 
@@ -157,12 +157,34 @@ const updateTemplateMenu = () => {
   container.innerHTML = html;
 };
 
+const updateStrikesCantripsTableRowControls = (strikesContainer) => {
+  if (!strikesContainer) return;
+  const tbody = strikesContainer.querySelector('.strikes-cantrips-slots-table tbody');
+  const removeBtn = strikesContainer.querySelector('.remove-strikes-table-row-btn');
+  if (!tbody || !removeBtn) return;
+
+  const rowCount = tbody.querySelectorAll('tr').length;
+  removeBtn.classList.toggle('hidden', rowCount <= 1);
+};
+
+const createStrikesCantripsTableRowElement = () => {
+  const table = document.createElement('table');
+  table.innerHTML = `<tbody>${renderStrikesCantripsTableRow()}</tbody>`;
+  return table.querySelector('tbody tr');
+};
+
+const updateAllStrikesCantripsTableRowControls = () => {
+  document.querySelectorAll('.strikes-cantrips-container').forEach(updateStrikesCantripsTableRowControls);
+};
+
 updateTemplateMenu();
 updateSpellDescriptions();
+updateAllStrikesCantripsTableRowControls();
 
 let devMode = false;
 // Listen for data loads (from file or template) to update descriptions
 document.addEventListener('sheet-loaded', updateSpellDescriptions);
+document.addEventListener('sheet-loaded', updateAllStrikesCantripsTableRowControls);
 
 // Auto-Load
 const savedData = localStorage.getItem('ev-char-sheet');
@@ -290,7 +312,11 @@ const handleClick = (e) => {
       if (html) {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = html;
-        container.appendChild(tempDiv.firstElementChild);
+        const newRow = tempDiv.firstElementChild;
+        container.appendChild(newRow);
+        if (newRow && newRow.classList.contains('strikes-cantrips-container')) {
+          updateStrikesCantripsTableRowControls(newRow);
+        }
       }
     }
   }
@@ -299,8 +325,38 @@ const handleClick = (e) => {
   if (e.target.classList.contains('remove-row-btn')) {
     const target = e.target.closest('.skill-row') || e.target.closest('.strikes-cantrips-container');
     if (target) {
+      const dynamicRows = target.closest('.dynamic-rows');
       target.remove();
+      if (dynamicRows) {
+        updateAllStrikesCantripsTableRowControls();
+      }
       updateSpellDescriptions();
+    }
+  }
+
+  // Add Table Row (Strikes & Damaging Cantrips)
+  if (e.target.classList.contains('add-strikes-table-row-btn')) {
+    const strikesContainer = e.target.closest('.strikes-cantrips-container');
+    const tbody = strikesContainer?.querySelector('.strikes-cantrips-slots-table tbody');
+    if (tbody) {
+      const newRow = createStrikesCantripsTableRowElement();
+      if (newRow) {
+        tbody.appendChild(newRow);
+        updateStrikesCantripsTableRowControls(strikesContainer);
+      }
+    }
+  }
+
+  // Remove Table Row (Strikes & Damaging Cantrips)
+  if (e.target.classList.contains('remove-strikes-table-row-btn')) {
+    const strikesContainer = e.target.closest('.strikes-cantrips-container');
+    const tbody = strikesContainer?.querySelector('.strikes-cantrips-slots-table tbody');
+    if (tbody) {
+      const rows = tbody.querySelectorAll('tr');
+      if (rows.length > 1) {
+        rows[rows.length - 1].remove();
+        updateStrikesCantripsTableRowControls(strikesContainer);
+      }
     }
   }
 

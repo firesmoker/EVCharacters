@@ -113,32 +113,19 @@ const scrapeDynamicRows = (box, title, data) => {
         values: inputs.map(i => i.value)
       });
     } else if (row.classList.contains('main-action-container')) {
-      const titleVal = row.querySelector('.main-action-title').innerText;
-      const subtitleVal = row.querySelector('.main-action-subtitle').innerText;
-
-      // Use innerHTML for Action Details to preserve styling
-      const details = Array.from(row.querySelectorAll('.main-action-text')).map(t => t.innerHTML);
-      // Use textContent instead of innerText to ensure hidden tables are saved correctly
-      const stdTable = row.querySelector('.standard-damage-table');
-      const stdVals = stdTable ? Array.from(stdTable.querySelectorAll('td[contenteditable]')).map(td => td.innerHTML) : [];
-      const isStdHidden = stdTable ? stdTable.classList.contains('hidden') : false;
-
-      const expTable = row.querySelector('.expanded-damage-table');
-      const expVals = expTable ? Array.from(expTable.querySelectorAll('td[contenteditable]')).map(td => td.innerHTML) : [];
-      const isExpHidden = expTable ? expTable.classList.contains('hidden') : false;
-
+      const slots = {};
+      row.querySelectorAll('.main-action-slot-value').forEach(field => {
+        const slotName = field.getAttribute('data-slot');
+        if (slotName) {
+          slots[slotName] = field.innerText;
+        }
+      });
       const variants = Array.from(row.querySelectorAll('.variant-action-text')).map(t => t.innerHTML);
 
       section.dynamicRows.push({
         type: 'action',
-        title: titleVal,
-        subtitle: subtitleVal,
-        details: details,
-        table: stdVals,
-        expandedTable: expVals,
-        variants: variants,
-        isTableHidden: isStdHidden,
-        isExpandedTableHidden: isExpHidden
+        slots,
+        variants
       });
     }
   });
@@ -320,34 +307,14 @@ export const loadFromJSON = (jsonString) => {
               const inputs = newRow.querySelectorAll('input');
               rowData.values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
             } else if (rowData.type === 'action') {
-              newRow.querySelector('.main-action-title').innerText = rowData.title;
-              newRow.querySelector('.main-action-subtitle').innerText = rowData.subtitle;
-
-              const texts = newRow.querySelectorAll('.main-action-text');
-              if (texts[0] && rowData.details[0]) texts[0].innerHTML = rowData.details[0]; // Rich Text
-              if (texts[1] && rowData.details[1]) texts[1].innerHTML = rowData.details[1]; // Rich Text
-
-                            const stdTable = newRow.querySelector('.standard-damage-table');
-                            if (stdTable && rowData.table) {
-                               const tds = stdTable.querySelectorAll('td[contenteditable]');
-                               rowData.table.forEach((val, i) => { if (tds[i]) tds[i].innerHTML = val; });
-                               
-                               if (rowData.isTableHidden) {                  stdTable.classList.add('hidden');
-                  const btn = stdTable.previousElementSibling;
-                  if (btn) btn.innerText = 'Show Table';
+              const slots = rowData.slots || {};
+              newRow.querySelectorAll('.main-action-slot-value').forEach(field => {
+                const slotName = field.getAttribute('data-slot');
+                if (!slotName) return;
+                if (slots.hasOwnProperty(slotName)) {
+                  field.innerText = slots[slotName];
                 }
-              }
-
-                            const expTable = newRow.querySelector('.expanded-damage-table');
-                            if (expTable && rowData.expandedTable) {
-                               const tds = expTable.querySelectorAll('td[contenteditable]');
-                               rowData.expandedTable.forEach((val, i) => { if (tds[i]) tds[i].innerHTML = val; });
-              
-                               if (rowData.isExpandedTableHidden) {                  expTable.classList.add('hidden');
-                  const btn = expTable.previousElementSibling;
-                  if (btn) btn.innerText = 'Show Table';
-                }
-              }
+              });
 
               if (rowData.variants && rowData.variants.length > 0) {
                 const variantContainer = newRow.querySelector('.variant-actions-container');

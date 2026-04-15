@@ -286,68 +286,49 @@ export const renderVariantActionRow = () => `
  */
 export const renderMainAction = () => `
   <div class="main-action-container">
-    <div style="display: flex; flex-direction: column;">
-      <div class="editable-field main-action-title" contenteditable="true" data-placeholder="Action Title"></div>
-      <div class="editable-field main-action-subtitle" contenteditable="true" data-placeholder="Action Speed"></div>
-    </div>
-    <div class="section-separator"></div>
-    <div class="action-split-row" style="display: flex; align-items: flex-start;">
-      <div class="editable-field main-action-text" contenteditable="true" data-placeholder="Action details..." style="flex-grow: 1; padding-right: 8px; min-width: 0;"></div>
-      <div class="table-wrapper" style="flex-shrink: 0; margin-top: 0;">
-        <div class="table-toggle-btn" title="Toggle Table">👁️</div>
-        <table class="main-action-table standard-damage-table">
-          <tr>
-            <td></td>
-            <td>Damage</td>
-            <td>Ignores<br>DR</td>
-          </tr>
-          <tr>
-            <td>1 Success Die</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-          </tr>
-          <tr>
-            <td>2 Success Dice</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-          </tr>
-          <tr>
-            <td>3 Success Dice</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true"></td>
-          </tr>
-        </table>
+    <div class="main-action-name-line">
+      <div class="main-action-slot slot-name">
+        <div class="editable-field main-action-slot-value" contenteditable="true" data-slot="name" data-placeholder="name"></div>
       </div>
     </div>
-    <div class="table-wrapper">
-      <div class="table-toggle-btn" title="Toggle Expanded Table">👁️</div>
-      <table class="main-action-table expanded-damage-table">
-        <tr>
-          <td></td>
-          <td>Damage</td>
-          <td>Ignores DR</td>
-          <td>Special Effects</td>
-        </tr>
-        <tr>
-          <td>1 Success Die</td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-        </tr>
-        <tr>
-          <td>2 Success Dice</td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-        </tr>
-        <tr>
-          <td>3 Success Dice</td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
-        </tr>
+    <div class="main-action-notes-line">
+      <div class="main-action-slot slot-notes">
+        <div class="editable-field main-action-slot-value" contenteditable="true" data-slot="notes" data-placeholder=""></div>
+      </div>
+    </div>
+    <div class="main-action-table-line">
+      <table class="main-action-slots-table">
+        <colgroup>
+          <col class="main-action-col-weapon">
+          <col class="main-action-col-speed">
+          <col class="main-action-col-roll">
+          <col class="main-action-col-damage">
+          <col class="main-action-col-range">
+          <col class="main-action-col-double-six">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Weapon</th>
+            <th>Speed</th>
+            <th>Roll</th>
+            <th>Damage</th>
+            <th>Range</th>
+            <th>Double Six</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="main-action-cell-weapon"><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="weapon" data-placeholder="weapon"></div></td>
+            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="speed" data-placeholder="speed"></div></td>
+            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="roll" data-placeholder="roll"></div></td>
+            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="damage" data-placeholder="damage"></div></td>
+            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="range" data-placeholder="range"></div></td>
+            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="double six"></div></td>
+          </tr>
+        </tbody>
       </table>
     </div>
+    <div class="section-subsection-label">Variants</div>
     <div class="variant-actions-container"></div>
     <div class="variant-btn-container">
        <button class="add-variant-btn" title="Add Variant" style="font-size: 10px; padding: 2px 6px; cursor: pointer;">+ Variant</button>

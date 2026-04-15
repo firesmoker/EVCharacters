@@ -19,9 +19,9 @@
       },
       "fields": {
         "Damage\nReduction": "1 vs Piercing",
-        "Deflection": "5",
+        "Deflection": "1",
         "Fortitude": "0",
-        "Will": "5"
+        "Will": "1"
       },
       "sectionBody": "",
       "splitFields": {
@@ -58,7 +58,7 @@
           "type": "skill",
           "values": [
             "Ranged Strike",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]
@@ -73,42 +73,42 @@
           "type": "skill",
           "values": [
             "Performance",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "brd",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "brd",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "brd",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "brd",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "orgn",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]

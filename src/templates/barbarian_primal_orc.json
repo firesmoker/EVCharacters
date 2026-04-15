@@ -19,8 +19,8 @@
       },
       "fields": {
         "Damage\nReduction": "1 DR\n",
-        "Deflection": "5",
-        "Fortitude": "5",
+        "Deflection": "1",
+        "Fortitude": "1",
         "Will": "0"
       },
       "sectionBody": "",
@@ -64,21 +64,21 @@
           "type": "skill",
           "values": [
             "Melee Strike",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Unarmed Strike",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Weapon Throw",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]
@@ -93,35 +93,35 @@
           "type": "skill",
           "values": [
             "Athletics",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "bar",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "bar",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "org",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Intimidation",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]

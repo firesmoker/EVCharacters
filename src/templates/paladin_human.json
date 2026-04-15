@@ -19,9 +19,9 @@
       },
       "fields": {
         "Damage\nReduction": "1 DR\n-1 DR vs. Bludgeoning",
-        "Deflection": "10",
-        "Fortitude": "5",
-        "Will": "5"
+        "Deflection": "2",
+        "Fortitude": "1",
+        "Will": "1"
       },
       "sectionBody": "",
       "splitFields": {
@@ -58,7 +58,7 @@
           "type": "skill",
           "values": [
             "Melee Strike",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]
@@ -73,56 +73,56 @@
           "type": "skill",
           "values": [
             "Athletics",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Diplomacy",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Warfare",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Animal Handling",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Notice Movement",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Cooking",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Medicine",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Charm",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]

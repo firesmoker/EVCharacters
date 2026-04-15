@@ -19,9 +19,9 @@
       },
       "fields": {
         "Damage\nReduction": "1 vs Piercing",
-        "Deflection": "10",
+        "Deflection": "2",
         "Fortitude": "0",
-        "Will": "5"
+        "Will": "1"
       },
       "sectionBody": "",
       "splitFields": {
@@ -58,7 +58,7 @@
           "type": "skill",
           "values": [
             "Divine Magic",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]
@@ -73,42 +73,42 @@
           "type": "skill",
           "values": [
             "Religion",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Medicine",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "clc",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "clc",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "clc",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "orgn",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]

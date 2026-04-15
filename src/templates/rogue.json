@@ -19,9 +19,9 @@
       },
       "fields": {
         "Damage\nReduction": "1 vs Piercing",
-        "Deflection": "5",
+        "Deflection": "1",
         "Fortitude": "0",
-        "Will": "5"
+        "Will": "1"
       },
       "sectionBody": "",
       "splitFields": {
@@ -58,14 +58,14 @@
           "type": "skill",
           "values": [
             "Melee Strike",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Weapon Throw",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]
@@ -87,42 +87,42 @@
           "type": "skill",
           "values": [
             "Sleight of Hand",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "Mechanics (Traps)",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "rog",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "rog",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "rog",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         },
         {
           "type": "skill",
           "values": [
             "orgn",
-            "Trained (+5)"
+            "Adept (+5)"
           ]
         }
       ]

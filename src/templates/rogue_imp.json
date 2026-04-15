@@ -1,4 +1,4 @@
-{
+﻿{
   "version": 1,
   "headers": {
     "character-name": "",
@@ -18,7 +18,6 @@
         "Tower Shields": false
       },
       "fields": {
-        "Damage\nReduction": "1 vs Piercing\n1 vs Fire (can't be ignored)",
         "Deflection": "1",
         "Fortitude": "0",
         "Will": "1"
@@ -279,4 +278,5 @@
     }
   }
 }
+
 

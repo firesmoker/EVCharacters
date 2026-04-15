@@ -1,4 +1,4 @@
-{
+﻿{
   "version": 1,
   "headers": {
     "character-name": "Barbarian",
@@ -18,7 +18,6 @@
         "Tower Shields": false
       },
       "fields": {
-        "Damage\nReduction": "1 DR\n",
         "Deflection": "1",
         "Fortitude": "1",
         "Will": "0"
@@ -130,7 +129,7 @@
           "title": "Melee Strike (Greataxe)",
           "subtitle": "Fast Action",
           "details": [
-            "<div><span style=\"font-size: small;\">• Roll Melee Strike vs. Deflection</span></div><div><span style=\"font-size: small;\">• If you roll 19-20 on the die:<br>&nbsp; &nbsp;deal +1 damage</span><font size=\"2\"></font></div><div><font size=\"2\">• If you roll 20 on the die:<br>&nbsp; &nbsp;ignore all DR</font></div>"
+            "<div><span style=\"font-size: small;\">â€¢ Roll Melee Strike vs. Deflection</span></div><div><span style=\"font-size: small;\">â€¢ If you roll 19-20 on the die:<br>&nbsp; &nbsp;deal +1 damage</span><font size=\"2\"></font></div><div><font size=\"2\">â€¢ If you roll 20 on the die:<br>&nbsp; &nbsp;ignore all DR</font></div>"
           ],
           "table": [
             "2 slashing",
@@ -160,7 +159,7 @@
         },
         {
           "type": "action",
-          "title": "Primal Endurance                                (1 / Combat)",
+          "title": "Primal EnduranceÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â Â (1 / Combat)",
           "subtitle": "Fast Action",
           "details": [
             "<div><font size=\"2\">Spend any amount of Rage. For each Rage&nbsp;</font><span style=\"font-size: small;\">spent, gain 1 temporary hit point. The temporary hit&nbsp;</span><span style=\"font-size: small;\">points disappear when combat ends.</span></div>"
@@ -193,7 +192,7 @@
     "Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><font size=\"2\"><b>Rage:</b> During combat, you get 1 Rage point whenever:\n• You damage an enemy.\n• You get 3 Success Dice on a Melee Strike, Unarmed Strike,\n   or Weapon Throw.\n• You lose HP (1 Rage per 1 HP lost. Losing temporary HP also\n   counts.)\n</font><span style=\"font-size: small;\">You lose all unspent Rage at the end of combat.</span></div>",
+      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><font size=\"2\"><b>Rage:</b> During combat, you get 1 Rage point whenever:\nâ€¢ You damage an enemy.\nâ€¢ You get 3 Success Dice on a Melee Strike, Unarmed Strike,\n   or Weapon Throw.\nâ€¢ You lose HP (1 Rage per 1 HP lost. Losing temporary HP also\n   counts.)\n</font><span style=\"font-size: small;\">You lose all unspent Rage at the end of combat.</span></div>",
       "splitFields": {},
       "dynamicRows": []
     },
@@ -214,7 +213,7 @@
     "More Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><b style=\"font-size: small;\">Melee Weapon Proficiency</b></div><div><font size=\"2\"><b style=\"\">Iron Body: </b>you have 1 DR (already calculated in the damage reduction field)</font></div><div><font size=\"2\"><br></font></div>",
+      "sectionBody": "<div><b style=\"font-size: small;\">Melee Weapon Proficiency</b></div><div><font size=\"2\"><b style=\"\">Iron Body: </b>you have 1 DR </font></div><div><font size=\"2\"><br></font></div>",
       "splitFields": {},
       "dynamicRows": []
     },
@@ -272,4 +271,5 @@
     }
   }
 }
+
 

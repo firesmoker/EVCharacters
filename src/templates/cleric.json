@@ -1,4 +1,4 @@
-{
+﻿{
   "version": 1,
   "headers": {
     "character-name": "Cleric",
@@ -18,7 +18,6 @@
         "Tower Shields": false
       },
       "fields": {
-        "Damage\nReduction": "1 vs Piercing",
         "Deflection": "2",
         "Fortitude": "0",
         "Will": "1"
@@ -151,7 +150,7 @@
         },
         {
           "type": "action",
-          "title": "Prayer                                                  (1 / Combat)",
+          "title": "PrayerÂ  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  Â  (1 / Combat)",
           "subtitle": "Fast Action",
           "details": [
             "<div>Range: 20 units</div>Spend faith to perform one effect of your choice:"
@@ -443,4 +442,5 @@
     }
   }
 }
+
 

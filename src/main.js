@@ -320,6 +320,17 @@ const handleClick = (e) => {
     if (target) target.remove();
   }
 
+  // Toggle Variants Container
+  if (e.target.classList.contains('variants-toggle-btn')) {
+    const variantsRegion = e.target.closest('.variants-region');
+    if (variantsRegion) {
+      variantsRegion.classList.toggle('variants-hidden');
+      const isCollapsed = variantsRegion.classList.contains('variants-hidden');
+      e.target.innerText = isCollapsed ? 'Show Variants' : '👁️';
+    }
+    return;
+  }
+
   // New from Template Handler
   if (e.target.classList.contains('template-item')) {
     e.stopPropagation();

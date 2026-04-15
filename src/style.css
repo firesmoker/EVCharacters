@@ -1476,6 +1476,10 @@ textarea::placeholder {
   opacity: 1;
 }
 
+.variants-region {
+  position: relative;
+}
+
 .variants-container {
   background-color: color-mix(in srgb, var(--field-color), transparent 90%);
   border-radius: 4px;
@@ -1483,8 +1487,39 @@ textarea::placeholder {
   margin-bottom: 4px;
 }
 
+.variants-toggle-btn {
+  position: absolute;
+  top: -12px;
+  right: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  user-select: none;
+  border: none;
+  background: transparent;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+  z-index: 30;
+}
+
+.strikes-cantrips-container:hover .variants-toggle-btn,
+.variants-toggle-btn:hover {
+  opacity: 1;
+}
+
+.variants-region.variants-hidden .variants-container {
+  display: none;
+}
+
 .variant-actions-container {
   margin-bottom: 2px;
+}
+
+.variants-region.variants-hidden + .variant-btn-container {
+  opacity: 0 !important;
+  pointer-events: none;
 }
 
 

@@ -17,7 +17,7 @@ export const COMBAT_SKILLS_LIST = [
 ];
 
 export const BONUS_LIST = [
-  { groupLabel: "Training", options: ["Trained (4d6)", "Expert (5d6)", "Master (6d6)", "Grandmaster (7d6)", "Legend (8d6)"] }
+  { groupLabel: "Training", options: ["Adept (4d6)", "Expert (5d6)", "Master (6d6)", "Grandmaster (7d6)", "Legend (8d6)"] }
 ];
 
 export const DRAGS_IGNORED_LIST = [
@@ -41,3 +41,4 @@ export const SPELLS_LIST = Object.entries(spellsByType).map(([groupLabel, option
   groupLabel,
   options: options.sort()
 }));
+

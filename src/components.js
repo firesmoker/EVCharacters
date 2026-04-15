@@ -231,6 +231,7 @@ export const renderDefensesSection = () => `
 export const renderSpeedSection = () => `
   <div class="section-container">
     ${renderSectionRow('Movement', '3')}
+    ${renderSectionRow('Instinct', '3')}
     <div class="section-subsection-label">Drags Ignored:</div>
     <div class="dynamic-rows">
       ${renderDragsIgnoredRow()}
@@ -249,6 +250,7 @@ export const renderHeader = () => `
       </div>
       <div class="header-row">
         ${renderHeaderField('Class', '...', 1)}
+        ${renderHeaderField('Subclass', '...', 1)}
         ${renderHeaderField('Species', '...', 1)}
       </div>
     </div>
@@ -415,7 +417,7 @@ export const renderApp = () => {
             
             <section class="sheet-column">
               ${renderSection('Main Actions', `<div class="dynamic-rows">${renderMainAction()}</div>`, { isStructured: true, isDynamic: true })}
-              ${renderSection('Features', '')}
+              ${renderSection('Feats', '')}
             </section>
           </main>
         </div>
@@ -425,20 +427,30 @@ export const renderApp = () => {
           
           <main class="sheet-middle">
             <section class="sheet-column">
-              ${renderSection('Languages', '')}
-              ${renderSection('Equipment', '')}
-              ${renderSection('More Features', '')}
-            </section>
-            
-            <section class="sheet-column">
               <div style="display: flex; gap: var(--section-gap);">
                 <div style="flex: 1.4;">
-                  ${renderSection('Spellcasting', renderSpellcastingSection(), { isStructured: true, style: 'height: 100%;' })}
+                  ${renderSection('Languages', '', { style: 'height: 100%;' })}
                 </div>
                 <div style="flex: 1;">
                    ${renderSection('Death', renderDeathSection(), { isStructured: true, style: 'height: 100%;' })}
                 </div>
               </div>
+              ${renderSection('Equipment', '')}
+            </section>
+            
+            <section class="sheet-column">
+              ${renderSection('Species Features', '')}
+              ${renderSection('Class Features', '')}
+            </section>
+          </main>
+        </div>
+
+        <div class="a4-page">
+          ${renderHeader()}
+          
+          <main class="sheet-middle" style="grid-template-columns: 1fr;">
+            <section class="sheet-column">
+              ${renderSection('Spellcasting', renderSpellcastingSection(), { isStructured: true })}
               ${renderSection('Spells Known', renderSpellsKnownSection(), { isStructured: true, isDynamic: true })}
             </section>
           </main>

@@ -193,7 +193,7 @@
     "Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><font size=\"2\"><b>Rage:</b> During combat, you get 1 Rage point whenever:\n• You damage an enemy.\n• You get Critical Success on a Melee Strike, Unarmed Strike,\n   or Weapon Throw.\n• You lose HP (1 Rage per 1 HP lost. Losing temporary HP also\n   counts.)\n</font><span style=\"font-size: small;\">You lose all unspent Rage at the end of combat.</span></div>",
+      "sectionBody": "<div><font size=\"2\"><b>Feat: Ferocious (1 / Day): </b>Gain advantage on a Melee Strike</font></div><div><font size=\"2\"><b>Rage:</b> During combat, you get 1 Rage point whenever:\n• You damage an enemy.\n• You get 3 Success Dice on a Melee Strike, Unarmed Strike,\n   or Weapon Throw.\n• You lose HP (1 Rage per 1 HP lost. Losing temporary HP also\n   counts.)\n</font><span style=\"font-size: small;\">You lose all unspent Rage at the end of combat.</span></div>",
       "splitFields": {},
       "dynamicRows": []
     },

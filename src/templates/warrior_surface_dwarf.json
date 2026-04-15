@@ -150,10 +150,10 @@
           "title": "Melee Strike (Bastard Sword)",
           "subtitle": "Fast Action",
           "details": [
-            "<div><span style=\"font-size: small;\">• Roll Melee Strike vs. Deflection</span></div><div><font size=\"2\">• Roll 20 on the die: ignore all DR</font></div>"
+            "<div><span style=\"font-size: small;\">• Roll Melee Strike vs. Deflection</span></div><div><font size=\"2\">• Roll 20 on the die: ignore all DR</font></div><div><font size=\"2\">Tactical Strike: choose an effect&nbsp; to apply on your target when you successfully land a Melee Strike:</font></div><div><ul><li><span style=\"font-size: small; white-space-collapse: preserve;\">Push 1 unit away from you</span></li><li><span style=\"font-size: small; white-space-collapse: preserve;\">Trip (target becomes prone if large or smaller)</span></li><li><span style=\"font-size: small; white-space-collapse: preserve;\">Apply disadvantage to the target’s next attack.</span></li><li><span style=\"font-size: small; white-space-collapse: preserve;\">The target is Breached (-1 DR) until the end of the next round</span></li></ul><span style=\"font-size: small; white-space-collapse: preserve;\"></span><font size=\"2\"></font></div>"
           ],
           "table": [
-            "1 slashing",
+            "2 slashing",
             "1",
             "2 slashing",
             "1",
@@ -171,9 +171,7 @@
             "",
             ""
           ],
-          "variants": [
-            "<b>Variant: Tactical Strike (2 / Combat)</b><div><div style=\"white-space-collapse: preserve; background-color: rgba(0, 0, 128, 0.02);\"><font size=\"2\">On a successful hit, apply one of the following to the target:</font></div><font size=\"2\" style=\"white-space-collapse: preserve; background-color: rgba(0, 0, 128, 0.02);\">• Push 1 unit away from you\n• Trip (target becomes prone if large or smaller)\n• Apply disadvantage to the target’s next attack.\n• The target is Breached (-1 DR) until the end of the next round</font></div>"
-          ],
+          "variants": [],
           "isTableHidden": false,
           "isExpandedTableHidden": true
         },
@@ -289,5 +287,9 @@
         }
       ]
     }
+  },
+  "preferences": {
+    "font": "'Gentium Plus', serif",
+    "color": "#006400"
   }
 }

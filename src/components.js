@@ -289,17 +289,17 @@ export const renderMainAction = () => `
             <td>Ignores<br>DR</td>
           </tr>
           <tr>
-            <td>Normal</td>
+            <td>1 Success Die</td>
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
           </tr>
           <tr>
-            <td>Major</td>
+            <td>2 Success Dice</td>
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
           </tr>
           <tr>
-            <td>Critical</td>
+            <td>3 Success Dice</td>
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
           </tr>
@@ -316,19 +316,19 @@ export const renderMainAction = () => `
           <td>Special Effects</td>
         </tr>
         <tr>
-          <td>Normal</td>
+          <td>1 Success Die</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
         </tr>
         <tr>
-          <td>Major</td>
+          <td>2 Success Dice</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
         </tr>
         <tr>
-          <td>Critical</td>
+          <td>3 Success Dice</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>

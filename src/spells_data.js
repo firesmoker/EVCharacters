@@ -425,7 +425,7 @@ export const SPELLS_DATABASE = [
     range: "Touch",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "You release thunderous energy from your hand into a nearby enemy. Melee Spell Attack. Roll Magic against Deflection. On success:\n<ul><li>1 Success Die: deal 2 Thunder Damage</li><li>Great Success: deal 2 Thunder Damage and push the target 2 units away from you.</li><li>3 Success Dice: deal 3 Thunder Damage and push the target 2 units away from you.</li></ul>On success, if you rolled a double six, push or pull for 2 units forcefully (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)",
+    description: "You release thunderous energy from your hand into a nearby enemy. Melee Spell Attack. Roll Magic against Deflection. On success:\n<ul><li>1 Success Die: deal 2 Thunder Damage</li><li>2 Success Dice: deal 2 Thunder Damage and push the target 2 units away from you.</li><li>3 Success Dice: deal 3 Thunder Damage and push the target 2 units away from you.</li></ul>On success, if you rolled a double six, push or pull for 2 units forcefully (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)",
     cost: "0"
   },
   {
@@ -458,7 +458,7 @@ export const SPELLS_DATABASE = [
     range: "5 Units",
     area: "Single Target",
     duration: "Instantaneous",
-    description: "Ranged Spell Attack. Roll Nature Magic vs the target Deflection. Launch a thorny vine at an enemy you can see within range. On success:\n<ul><li>1 Success Die: deal 1 Piercing Damage and push or pull 1 unit to any direction.</li><li>Great Success: deal 2 Piercing Damage and push or pull 1 unit to any direction.</li><li>3 Success Dice: deal 3 Piercing Damage and push or pull 1 unit to any direction.</li></ul>On success, if you rolled a double six, push or pull for 2 units forcefully (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)\nYou may only push or pull the target if it’s up to one size larger than you.",
+    description: "Ranged Spell Attack. Roll Nature Magic vs the target Deflection. Launch a thorny vine at an enemy you can see within range. On success:\n<ul><li>1 Success Die: deal 1 Piercing Damage and push or pull 1 unit to any direction.</li><li>2 Success Dice: deal 2 Piercing Damage and push or pull 1 unit to any direction.</li><li>3 Success Dice: deal 3 Piercing Damage and push or pull 1 unit to any direction.</li></ul>On success, if you rolled a double six, push or pull for 2 units forcefully (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)\nYou may only push or pull the target if it’s up to one size larger than you.",
     cost: "0"
   }
 ];

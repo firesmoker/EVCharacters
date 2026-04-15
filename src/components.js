@@ -282,29 +282,29 @@ export const renderVariantActionRow = () => `
 `
 
 /**
- * Renders a complex Main Action block.
+ * Renders a complex Strikes & Damaging Cantrips block.
  */
-export const renderMainAction = () => `
-  <div class="main-action-container">
-    <div class="main-action-name-line">
-      <div class="main-action-slot slot-name">
-        <div class="editable-field main-action-slot-value" contenteditable="true" data-slot="name" data-placeholder="name"></div>
+export const renderStrikesDamagingCantripsBlock = () => `
+  <div class="strikes-cantrips-container">
+    <div class="strikes-cantrips-name-line">
+      <div class="strikes-cantrips-slot slot-name">
+        <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="name" data-placeholder="name"></div>
       </div>
     </div>
-    <div class="main-action-notes-line">
-      <div class="main-action-slot slot-notes">
-        <div class="editable-field main-action-slot-value" contenteditable="true" data-slot="notes" data-placeholder=""></div>
+    <div class="strikes-cantrips-notes-line">
+      <div class="strikes-cantrips-slot slot-notes">
+        <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="notes" data-placeholder=""></div>
       </div>
     </div>
-    <div class="main-action-table-line">
-      <table class="main-action-slots-table">
+    <div class="strikes-cantrips-table-line">
+      <table class="strikes-cantrips-slots-table">
         <colgroup>
-          <col class="main-action-col-weapon">
-          <col class="main-action-col-speed">
-          <col class="main-action-col-roll">
-          <col class="main-action-col-damage">
-          <col class="main-action-col-range">
-          <col class="main-action-col-double-six">
+          <col class="strikes-cantrips-col-weapon">
+          <col class="strikes-cantrips-col-speed">
+          <col class="strikes-cantrips-col-roll">
+          <col class="strikes-cantrips-col-damage">
+          <col class="strikes-cantrips-col-range">
+          <col class="strikes-cantrips-col-double-six">
         </colgroup>
         <thead>
           <tr>
@@ -318,12 +318,12 @@ export const renderMainAction = () => `
         </thead>
         <tbody>
           <tr>
-            <td class="main-action-cell-weapon"><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="weapon" data-placeholder="weapon"></div></td>
-            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="speed" data-placeholder="speed"></div></td>
-            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="roll" data-placeholder="roll"></div></td>
-            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="damage" data-placeholder="damage"></div></td>
-            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="range" data-placeholder="range"></div></td>
-            <td><div class="editable-field main-action-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="double six"></div></td>
+            <td class="strikes-cantrips-cell-weapon"><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="weapon" data-placeholder="weapon"></div></td>
+            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="speed" data-placeholder="speed"></div></td>
+            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="roll" data-placeholder="roll"></div></td>
+            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="damage" data-placeholder="damage"></div></td>
+            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="range" data-placeholder="range"></div></td>
+            <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="double six"></div></td>
           </tr>
         </tbody>
       </table>
@@ -411,7 +411,7 @@ export const renderApp = () => {
             </section>
             
             <section class="sheet-column">
-              ${renderSection('Main Actions', `<div class="dynamic-rows">${renderMainAction()}</div>`, { isStructured: true, isDynamic: true })}
+              ${renderSection('Strikes & Damaging Cantrips', `<div class="dynamic-rows">${renderStrikesDamagingCantripsBlock()}</div>`, { isStructured: true, isDynamic: true })}
               ${renderSection('Feats', '')}
             </section>
           </main>
@@ -477,8 +477,9 @@ export const renderRowForSection = (title) => {
     'Standard Skills': () => renderSkillRow('skills'),
     'Combat Skills': () => renderSkillRow('combat'),
     'Speed': () => renderDragsIgnoredRow(),
-    'Main Actions': () => renderMainAction(),
+    'Strikes & Damaging Cantrips': () => renderStrikesDamagingCantripsBlock(),
     'Spells Known': () => renderSpellRow()
   };
   return templates[title] ? templates[title]() : null;
 };
+

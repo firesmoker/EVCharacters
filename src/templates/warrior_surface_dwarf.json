@@ -139,7 +139,7 @@
         }
       ]
     },
-    "Main Actions": {
+    "Strikes & Damaging Cantrips": {
       "checkboxes": {},
       "fields": {},
       "sectionBody": "",
@@ -293,3 +293,4 @@
     "color": "#006400"
   }
 }
+

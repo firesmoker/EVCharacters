@@ -2,7 +2,7 @@ import './style.css'
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
 import { SPELLS_DATABASE } from './spells_data.js';
 import { 
-  renderApp, renderSkillRow, renderDragsIgnoredRow, renderMainAction, 
+  renderApp, renderSkillRow, renderDragsIgnoredRow, 
   renderSpellRow, renderRowForSection, renderVariantActionRow,
   renderSpellDescriptionBlock, renderHeader 
 } from './components.js';
@@ -297,7 +297,7 @@ const handleClick = (e) => {
 
   // Remove Row
   if (e.target.classList.contains('remove-row-btn')) {
-    const target = e.target.closest('.skill-row') || e.target.closest('.main-action-container');
+    const target = e.target.closest('.skill-row') || e.target.closest('.strikes-cantrips-container');
     if (target) {
       target.remove();
       updateSpellDescriptions();
@@ -306,7 +306,7 @@ const handleClick = (e) => {
 
   // Add Variant Row
   if (e.target.classList.contains('add-variant-btn')) {
-    const container = e.target.closest('.main-action-container').querySelector('.variant-actions-container');
+    const container = e.target.closest('.strikes-cantrips-container').querySelector('.variant-actions-container');
     if (container) {
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = renderVariantActionRow();

@@ -133,7 +133,7 @@
         }
       ]
     },
-    "Main Actions": {
+    "Strikes & Damaging Cantrips": {
       "checkboxes": {},
       "fields": {},
       "sectionBody": "",
@@ -287,3 +287,4 @@
     }
   }
 }
+

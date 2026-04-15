@@ -386,12 +386,12 @@ h1.sheet-title {
 }
 
 .skill-row:not(:last-child) .add-row-btn,
-.main-action-container:not(:last-child) .add-row-btn {
+.strikes-cantrips-container:not(:last-child) .add-row-btn {
   display: none !important;
 }
 
 .skill-row:last-child .add-row-btn,
-.main-action-container:last-child .add-row-btn {
+.strikes-cantrips-container:last-child .add-row-btn {
   display: flex;
 }
 
@@ -440,7 +440,7 @@ h1.sheet-title {
 }
 
 .skill-row:hover .remove-row-btn,
-.main-action-container:hover .remove-row-btn {
+.strikes-cantrips-container:hover .remove-row-btn {
   opacity: 1;
 }
 
@@ -450,7 +450,7 @@ h1.sheet-title {
 }
 
 .skill-row:only-child .remove-row-btn,
-.main-action-container:only-child .remove-row-btn {
+.strikes-cantrips-container:only-child .remove-row-btn {
   display: none;
 }
 
@@ -678,11 +678,11 @@ textarea::placeholder {
 
 
 
-/* Main Action Component Styles */
+/* Strikes & Damaging Cantrips Component Styles */
 
 
 
-.main-action-container {
+.strikes-cantrips-container {
 
 
 
@@ -724,50 +724,50 @@ textarea::placeholder {
 
 
 
-.main-action-name-line {
+.strikes-cantrips-name-line {
   display: flex;
   align-items: center;
   gap: 0;
   min-width: 0;
 }
 
-.main-action-table-line {
+.strikes-cantrips-table-line {
   width: 100%;
   min-width: 0;
 }
 
-.main-action-slots-table {
+.strikes-cantrips-slots-table {
   border-collapse: collapse;
   width: 100%;
   table-layout: fixed;
 }
 
-.main-action-col-weapon {
+.strikes-cantrips-col-weapon {
   width: auto;
 }
 
-.main-action-col-speed {
+.strikes-cantrips-col-speed {
   width: 5.4ch;
 }
 
-.main-action-col-roll {
+.strikes-cantrips-col-roll {
   width: 3.41ch;
 }
 
-.main-action-col-damage {
+.strikes-cantrips-col-damage {
   width: 10.27ch;
 }
 
-.main-action-col-range {
+.strikes-cantrips-col-range {
   width: 5.184ch;
 }
 
-.main-action-col-double-six {
+.strikes-cantrips-col-double-six {
   width: 8.4ch;
 }
 
-.main-action-slots-table th,
-.main-action-slots-table td {
+.strikes-cantrips-slots-table th,
+.strikes-cantrips-slots-table td {
   border: 1px solid #ccc;
   padding: 1px 3px;
   text-align: left;
@@ -775,7 +775,7 @@ textarea::placeholder {
   vertical-align: middle;
 }
 
-.main-action-slots-table th {
+.strikes-cantrips-slots-table th {
   font-family: 'Gentium Plus', serif;
   font-size: 10px;
   font-variant: small-caps;
@@ -784,7 +784,7 @@ textarea::placeholder {
   background-color: #f9f9f9;
 }
 
-.main-action-slots-table td .main-action-slot-value {
+.strikes-cantrips-slots-table td .strikes-cantrips-slot-value {
   width: 100%;
   max-width: 100%;
   min-width: 0;
@@ -795,14 +795,14 @@ textarea::placeholder {
   word-break: break-word;
 }
 
-.main-action-notes-line {
+.strikes-cantrips-notes-line {
   display: flex;
   align-items: center;
   gap: 0;
   min-width: 0;
 }
 
-.main-action-slot {
+.strikes-cantrips-slot {
   display: flex;
   align-items: center;
   gap: 0;
@@ -810,7 +810,7 @@ textarea::placeholder {
   flex: 0 0 auto;
 }
 
-.main-action-slot-label {
+.strikes-cantrips-slot-label {
   font-family: 'Gentium Plus', serif;
   font-size: 10px;
   font-variant: small-caps;
@@ -819,7 +819,7 @@ textarea::placeholder {
   white-space: nowrap;
 }
 
-.main-action-slot-value {
+.strikes-cantrips-slot-value {
   min-height: 1.2em;
   width: max-content;
   white-space: nowrap;
@@ -829,7 +829,7 @@ textarea::placeholder {
   display: inline-block;
 }
 
-.main-action-name-line .slot-name .main-action-slot-value {
+.strikes-cantrips-name-line .slot-name .strikes-cantrips-slot-value {
   font-size: 0.82em;
   font-weight: 700;
 }
@@ -862,19 +862,19 @@ textarea::placeholder {
   flex: 0 0 auto;
 }
 
-.main-action-notes-line .slot-notes {
+.strikes-cantrips-notes-line .slot-notes {
   flex: 1 1 auto;
   width: 100%;
   min-width: 0;
 }
 
-.main-action-notes-line .slot-notes .main-action-slot-value {
+.strikes-cantrips-notes-line .slot-notes .strikes-cantrips-slot-value {
   flex: 1 1 auto;
   width: 100%;
   min-width: 0;
 }
 
-.main-action-title {
+.strikes-cantrips-title {
 
 
 
@@ -894,7 +894,7 @@ textarea::placeholder {
 
 
 
-.main-action-subtitle {
+.strikes-cantrips-subtitle {
 
 
 
@@ -918,7 +918,7 @@ textarea::placeholder {
 
 
 
-.main-action-text {
+.strikes-cantrips-text {
 
 
 
@@ -966,7 +966,7 @@ textarea::placeholder {
 
 
 
-.main-action-table {
+.strikes-cantrips-table {
 
 
 
@@ -1014,7 +1014,7 @@ textarea::placeholder {
 
 
 
-.main-action-table td {
+.strikes-cantrips-table td {
 
 
 
@@ -1070,7 +1070,7 @@ textarea::placeholder {
 
 
 
-.main-action-table tr:first-child td {
+.strikes-cantrips-table tr:first-child td {
   font-family: 'Gentium Plus', serif;
   font-weight: bold;
   font-size: 11px;
@@ -1080,7 +1080,7 @@ textarea::placeholder {
   background-color: #f9f9f9;
 }
 
-.main-action-table td:first-child {
+.strikes-cantrips-table td:first-child {
   font-family: 'Gentium Plus', serif;
   font-weight: bold;
   font-size: 11px;
@@ -1097,7 +1097,7 @@ textarea::placeholder {
 
 
 
-.main-action-table td:focus {
+.strikes-cantrips-table td:focus {
 
 
 
@@ -1436,7 +1436,7 @@ textarea::placeholder {
   opacity: 1;
 }
 
-.main-action-table.hidden {
+.strikes-cantrips-table.hidden {
   display: none;
 }
 
@@ -1445,18 +1445,18 @@ textarea::placeholder {
   display: none !important;
 }
 
-/* Reduced spacing for Main Action separator */
-.main-action-container .section-separator {
+/* Reduced spacing for Strikes & Damaging Cantrips separator */
+.strikes-cantrips-container .section-separator {
   margin: 0;
 }
 
 
-.main-action-container:last-child {
+.strikes-cantrips-container:last-child {
   margin-bottom: 0;
 }
 
 
-.main-action-text.hidden {
+.strikes-cantrips-text.hidden {
   display: none;
 }
 
@@ -1469,7 +1469,7 @@ textarea::placeholder {
   transition: opacity 0.2s;
 }
 
-.main-action-container:hover .variant-btn-container {
+.strikes-cantrips-container:hover .variant-btn-container {
   opacity: 1;
 }
 
@@ -1545,7 +1545,7 @@ textarea::placeholder {
 
 
 .expanded-damage-table {
-  width: 100% !important; /* Override the auto width from main-action-table */
+  width: 100% !important; /* Override the auto width from strikes-cantrips-table */
 }
 
 
@@ -1560,7 +1560,7 @@ textarea::placeholder {
 }
 
 /* Fix for hidden tables causing double gaps in flex containers */
-.main-action-container > .table-wrapper:has(> .main-action-table.hidden) {
+.strikes-cantrips-container > .table-wrapper:has(> .strikes-cantrips-table.hidden) {
   margin-top: -4px; /* Matches the parent gap: 4px to neutralize one gap */
 }
 
@@ -1569,7 +1569,7 @@ textarea::placeholder {
   margin-top: 0;
 }
 
-.action-split-row .table-wrapper:has(> .main-action-table.hidden) {
+.action-split-row .table-wrapper:has(> .strikes-cantrips-table.hidden) {
   margin-right: -8px; /* Neutralize the padding-right of the text sibling */
   width: 0;
   overflow: visible;
@@ -1580,4 +1580,5 @@ textarea::placeholder {
 .expanded-damage-table {
   display: table;
 }
+
 

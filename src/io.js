@@ -1,5 +1,4 @@
 import {
-  renderMainAction,
   renderRowForSection,
   renderVariantActionRow
 } from './components.js';
@@ -104,7 +103,7 @@ const scrapeSplitFields = (box, title, data) => {
 
 const scrapeDynamicRows = (box, title, data) => {
   const section = getSectionData(data, title);
-  box.querySelectorAll('.skill-row, .main-action-container').forEach(row => {
+  box.querySelectorAll('.skill-row, .strikes-cantrips-container').forEach(row => {
     if (row.classList.contains('skill-row')) {
       const inputs = Array.from(row.querySelectorAll('input'));
       if (inputs.length === 0) return;
@@ -112,9 +111,9 @@ const scrapeDynamicRows = (box, title, data) => {
         type: 'skill',
         values: inputs.map(i => i.value)
       });
-    } else if (row.classList.contains('main-action-container')) {
+    } else if (row.classList.contains('strikes-cantrips-container')) {
       const slots = {};
-      row.querySelectorAll('.main-action-slot-value').forEach(field => {
+      row.querySelectorAll('.strikes-cantrips-slot-value').forEach(field => {
         const slotName = field.getAttribute('data-slot');
         if (slotName) {
           slots[slotName] = field.innerText;
@@ -308,7 +307,7 @@ export const loadFromJSON = (jsonString) => {
               rowData.values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
             } else if (rowData.type === 'action') {
               const slots = rowData.slots || {};
-              newRow.querySelectorAll('.main-action-slot-value').forEach(field => {
+              newRow.querySelectorAll('.strikes-cantrips-slot-value').forEach(field => {
                 const slotName = field.getAttribute('data-slot');
                 if (!slotName) return;
                 if (slots.hasOwnProperty(slotName)) {
@@ -346,3 +345,4 @@ export const loadFromJSON = (jsonString) => {
   // Notify the app that data has been loaded
   document.dispatchEvent(new CustomEvent('sheet-loaded'));
 };
+

@@ -328,6 +328,7 @@ const handleClick = (e) => {
       const isCollapsed = variantsRegion.classList.contains('variants-hidden');
       e.target.innerText = isCollapsed ? 'Show Variants' : '👁️';
     }
+    autoSave();
     return;
   }
 
@@ -339,6 +340,7 @@ const handleClick = (e) => {
       const isHidden = strikesContainer.classList.contains('weapon-column-hidden');
       e.target.innerText = isHidden ? 'Show Weapon' : '👁️';
     }
+    autoSave();
     return;
   }
 
@@ -564,3 +566,4 @@ document.querySelector('#app').addEventListener('mousedown', (e) => {
 document.querySelectorAll('.editable-field').forEach(el => {
   if (el.innerText.trim() === '') el.replaceChildren();
 });
+

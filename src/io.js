@@ -120,11 +120,17 @@ const scrapeDynamicRows = (box, title, data) => {
         }
       });
       const variants = Array.from(row.querySelectorAll('.variant-action-text')).map(t => t.innerHTML);
+      const variantsRegion = row.querySelector('.variants-region');
+      const ui = {
+        variantsHidden: variantsRegion ? variantsRegion.classList.contains('variants-hidden') : false,
+        weaponColumnHidden: row.classList.contains('weapon-column-hidden')
+      };
 
       section.dynamicRows.push({
         type: 'action',
         slots,
-        variants
+        variants,
+        ui
       });
     }
   });
@@ -314,6 +320,25 @@ export const loadFromJSON = (jsonString) => {
                   field.innerText = slots[slotName];
                 }
               });
+
+              if (rowData.ui && typeof rowData.ui.variantsHidden === 'boolean') {
+                const variantsRegion = newRow.querySelector('.variants-region');
+                const variantsToggleBtn = newRow.querySelector('.variants-toggle-btn');
+                if (variantsRegion) {
+                  variantsRegion.classList.toggle('variants-hidden', rowData.ui.variantsHidden);
+                }
+                if (variantsToggleBtn) {
+                  variantsToggleBtn.innerText = rowData.ui.variantsHidden ? 'Show Variants' : '👁️';
+                }
+              }
+
+              if (rowData.ui && typeof rowData.ui.weaponColumnHidden === 'boolean') {
+                const weaponToggleBtn = newRow.querySelector('.weapon-column-toggle-btn');
+                newRow.classList.toggle('weapon-column-hidden', rowData.ui.weaponColumnHidden);
+                if (weaponToggleBtn) {
+                  weaponToggleBtn.innerText = rowData.ui.weaponColumnHidden ? 'Show Weapon' : '👁️';
+                }
+              }
 
               if (rowData.variants && rowData.variants.length > 0) {
                 const variantContainer = newRow.querySelector('.variant-actions-container');

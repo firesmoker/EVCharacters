@@ -276,7 +276,8 @@
         "Bardic": false,
         "Divine": true,
         "Nature": false,
-        "Occult": false
+        "Occult": false,
+        "Chrono": false
       },
       "fields": {
         "Spells Known": "",

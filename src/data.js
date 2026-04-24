@@ -12,7 +12,7 @@ export const SKILLS_LIST = [
 
 export const COMBAT_SKILLS_LIST = [
   { groupLabel: "Weapons", options: ["Melee Strike", "Ranged Strike", "Weapon Throw"] },
-  { groupLabel: "Magic", options: ["Arcane Magic", "Bardic Magic", "Divine Magic", "Nature Magic", "Occult Magic"] },
+  { groupLabel: "Magic", options: ["Arcane Magic", "Bardic Magic", "Divine Magic", "Nature Magic", "Occult Magic", "Chrono Magic"] },
   { groupLabel: "Unarmed", options: ["Unarmed Strike", "Grapple"] }
 ];
 
@@ -40,5 +40,11 @@ const spellsByType = SPELLS_DATABASE.reduce((acc, spell) => {
 export const SPELLS_LIST = Object.entries(spellsByType).map(([groupLabel, options]) => ({
   groupLabel,
   options: options.sort()
-}));
+})).sort((a, b) => {
+  const aIsChrono = a.groupLabel.toLowerCase() === 'chrono';
+  const bIsChrono = b.groupLabel.toLowerCase() === 'chrono';
+  if (aIsChrono && !bIsChrono) return 1;
+  if (!aIsChrono && bIsChrono) return -1;
+  return a.groupLabel.localeCompare(b.groupLabel, undefined, { sensitivity: 'base' });
+});
 

@@ -139,6 +139,7 @@ export const renderSpellcastingSection = () => `
       <label class="checkbox-item"><input type="checkbox"> Divine</label>
       <label class="checkbox-item"><input type="checkbox"> Nature</label>
       <label class="checkbox-item"><input type="checkbox"> Occult</label>
+      <label class="checkbox-item"><input type="checkbox"> Chrono</label>
     </div>
   </div>
 `

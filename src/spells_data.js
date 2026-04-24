@@ -847,5 +847,100 @@ You may only push or pull the target if it's up to one size larger than you.`,
     duration: "10 minutes",
     description: `Choose a creature in range that you can see. It is engulfed in windy currents. For the duration, it gets +2 Movement, and it can make its movement through the air as long as it's up to 2 units height and no longer than then 5 seconds.`,
     cost: "1 SP"
+  },
+  {
+    name: "Haste",
+    level: "5",
+    actionSpeed: "Slow Action (Interruptible)",
+    spellType: "Chrono",
+    range: "10 Units",
+    area: "Single Target",
+    duration: "until the end of the next 2 rounds",
+    description: `Choose a creature within range. For the duration, the target may commit to two fast actions during the planning phase. If they do, during the action phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.
+
+These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other.`,
+    cost: "4 SP"
+  },
+  {
+    name: "Slow-Motion",
+    level: "3",
+    actionSpeed: "Fast Action",
+    spellType: "Chrono",
+    range: "10 Units",
+    area: "Single Target",
+    duration: "until the end of the next 2 rounds",
+    description: `Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.`,
+    cost: "2 SP"
+  },
+  {
+    name: "Temporal Clarity",
+    level: "5",
+    actionSpeed: "Fast Action",
+    spellType: "Chrono",
+    range: "10 Units",
+    area: "Single Target",
+    duration: "until the end of the next 2 rounds",
+    description: `Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.`,
+    cost: "4 SP"
+  },
+  {
+    name: "Slow",
+    level: "3",
+    actionSpeed: "Fast Action",
+    spellType: "Chrono",
+    range: "10 Units",
+    area: "Single Target",
+    duration: "until the end of the next 2 rounds",
+    description: `Choose a creature within range. Roll Arcane Magic against Fortitude. The threshold is 1 and is raised by 1 for each size the creature is larger than Medium.
+On success, the creature's movement is halved, and it gets 1 drag on all actions.
+
+If Slow and Haste affect the same creature, both spells immediately dispel each other.`,
+    cost: "2 SP"
+  },
+  {
+    name: "Time Detention",
+    level: "3",
+    actionSpeed: "Fast Action",
+    spellType: "Chrono",
+    range: "10 Units",
+    area: "Single Target",
+    duration: "until the end of the next 2 rounds",
+    description: `Choose a creature within range. Roll Magic against Fortitude. The threshold is 1 and is raised by 1 for each size larger than Medium.
+
+On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
+
+On each subsequent round, you must take the Maintain fast action and make the same roll. The threshold is raised by 1 for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.
+If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.`,
+    cost: "2 SP"
+  },
+  {
+    name: "Stasis",
+    level: "5",
+    actionSpeed: "Fast Action",
+    spellType: "Chrono",
+    range: "10 Units",
+    area: "Single Target",
+    duration: "until the end of the next 2 rounds",
+    description: `Choose a creature within range. Roll Magic against Fortitude. The threshold is 1 and is raised by 1 for each size larger than Medium.
+
+On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
+
+On each subsequent round, you must spend 1 Instinct at the beginning phase and make the same roll. The threshold is raised by 1 for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.
+
+If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.`,
+    cost: "4 SP"
+  },
+  {
+    name: "Accelerate Magic",
+    level: "5",
+    actionSpeed: "Fast Action",
+    spellType: "Chrono",
+    range: "10 Units",
+    area: "Single Target",
+    duration: "Instantaneous",
+    description: `Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.
+
+If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.`,
+    cost: "4 SP"
   }
 ];

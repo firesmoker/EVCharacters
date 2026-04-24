@@ -134,23 +134,28 @@ const updateTemplateMenu = () => {
   const container = document.querySelector('.nested-dropdown-content');
   if (!container) return;
 
+  const compareByDisplayName = (a, b) => a.displayName.localeCompare(b.displayName, undefined, { sensitivity: 'base' });
+
   // Build list from discovered modules
-  let html = Object.keys(templateModules).map(path => {
+  const builtInTemplates = Object.keys(templateModules).map(path => {
     const fileName = path.split('/').pop();
     const displayName = fileName.replace('.json', '').split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    return `<div class="template-item" data-file="${path}">${displayName}</div>`;
-  }).join('');
+    return { path, displayName };
+  }).sort(compareByDisplayName);
+
+  let html = builtInTemplates.map(template => `<div class="template-item" data-file="${template.path}">${template.displayName}</div>`).join('');
 
   // Add custom templates from localStorage
   const customTemplates = JSON.parse(localStorage.getItem('ev-custom-templates') || '{}');
-  const customKeys = Object.keys(customTemplates);
+  const customTemplateItems = Object.keys(customTemplates).map(key => {
+    const displayName = key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return { key, displayName };
+  }).sort(compareByDisplayName);
   
-  if (customKeys.length > 0) {
+  if (customTemplateItems.length > 0) {
     html += '<div style="border-top: 1px solid #ddd; margin: 4px 0;"></div>';
-    customKeys.forEach(key => {
-      // Simple capitalization for display
-      const displayName = key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-      html += `<div class="template-item" data-file="${key}" data-custom="true">${displayName}</div>`;
+    customTemplateItems.forEach(template => {
+      html += `<div class="template-item" data-file="${template.key}" data-custom="true">${template.displayName}</div>`;
     });
   }
 

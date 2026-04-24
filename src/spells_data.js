@@ -106,6 +106,17 @@ Empower Spell: you can increase the duration of this spell to a full day by spen
     cost: "2 SP"
   },
   {
+    name: "Command",
+    level: "3",
+    actionSpeed: "Fast Action",
+    spellType: "Divine",
+    range: "10 Units",
+    area: "Single Target",
+    duration: "Instantaneous",
+    description: `You tether your mind with that of a creature you can see within range. Roll Divine Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br><br><strong>1 Success die:</strong> choose one of the following:<ul><li><strong>Halt:</strong> the target must stay in place and loses all Instinct for this round.</li><li><strong>Move:</strong> in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.</li></ul><strong>2 Success dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Grovel:</strong> the target immediately becomes Prone and doesn't do anything else this round.</li><li><strong>Drop:</strong> the target immediately drops whatever it is holding and doesn't do anything else this round.</li></ul><strong>3+ Success dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Harm:</strong> if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range.</li><li><strong>Flee:</strong> the action for the target this round becomes Dash. They must use their move to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</li></ul><br>You may spend additional Spell Points as you cast this spell. For every 2 additional Spell Points, choose one more target. You may choose a different option for it.`,
+    cost: "1+"
+  },
+  {
     name: "Cure",
     level: "1",
     actionSpeed: "Fast Action",

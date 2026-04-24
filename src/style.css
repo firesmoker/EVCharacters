@@ -1675,6 +1675,26 @@ textarea::placeholder {
   margin-bottom: 0.2em;
 }
 
+/* Spell description bullets should render tightly */
+.spell-description-text ul {
+  list-style: none;
+  padding-left: 0.9em;
+  margin: 0.2em 0;
+}
+
+.spell-description-text li {
+  position: relative;
+  margin-bottom: 0.12em;
+  padding-left: 0.85em;
+}
+
+.spell-description-text li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 
 .highlight-char {
   font-weight: bold;

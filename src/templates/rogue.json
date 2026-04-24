@@ -1,0 +1,347 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "",
+    "player-name": "",
+    "level": "",
+    "experience": "",
+    "class": "Rogue",
+    "subclass": "",
+    "species": ""
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {},
+      "fields": {
+        "Deflection": "",
+        "Fortitude": "",
+        "Will": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "",
+          "temp": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Equipment Proficiencies": {
+      "checkboxes": {
+        "Light": true,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": false,
+        "Tower Shields": false,
+        "Martial Weapons": false
+      },
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "",
+        "Instinct": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            ""
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Melee Strike",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Weapon Throw",
+            ""
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    "Strikes & Damaging Cantrips": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "slots": {
+            "name": "Melee Strike",
+            "rollDescription": "Roll Melee Strike against Deflection",
+            "notes": "Sneak Attack: If you have advantage, deal +2 damage."
+          },
+          "tableRows": [
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            },
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            },
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            }
+          ],
+          "variants": [],
+          "ui": {
+            "variantsHidden": true,
+            "weaponColumnHidden": false
+          }
+        },
+        {
+          "type": "action",
+          "slots": {
+            "name": "Weapon Throw",
+            "rollDescription": "Roll Weapon Throw against Deflection",
+            "notes": ""
+          },
+          "tableRows": [
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            },
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            },
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            }
+          ],
+          "variants": [],
+          "ui": {
+            "variantsHidden": true,
+            "weaponColumnHidden": false
+          }
+        }
+      ]
+    },
+    "Feats": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Items": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Species Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Class Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": false,
+        "Divine": false,
+        "Nature": false,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "",
+        "Cantrips Known": "",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": "",
+          "temp": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "preferences": {
+    "font": "",
+    "color": ""
+  }
+}

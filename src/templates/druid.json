@@ -1,0 +1,533 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "",
+    "player-name": "",
+    "level": "",
+    "experience": "",
+    "class": "Druid",
+    "subclass": "",
+    "species": ""
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {},
+      "fields": {
+        "Deflection": "",
+        "Fortitude": "",
+        "Will": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "",
+          "temp": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Equipment Proficiencies": {
+      "checkboxes": {
+        "Light": true,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": false,
+        "Tower Shields": false,
+        "Martial Weapons": false
+      },
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "",
+        "Instinct": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            ""
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Nature Magic",
+            ""
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    "Strikes & Damaging Cantrips": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "slots": {
+            "name": "Animal Strike (While Shapeshifted)",
+            "rollDescription": "Roll Nature Magic against Deflection",
+            "notes": ""
+          },
+          "tableRows": [
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            },
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            },
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            }
+          ],
+          "variants": [],
+          "ui": {
+            "variantsHidden": true,
+            "weaponColumnHidden": false
+          }
+        },
+        {
+          "type": "action",
+          "slots": {
+            "name": "",
+            "rollDescription": "",
+            "notes": ".\n\n\n\n"
+          },
+          "tableRows": [
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            }
+          ],
+          "variants": [],
+          "ui": {
+            "variantsHidden": true,
+            "weaponColumnHidden": true
+          }
+        }
+      ]
+    },
+    "Feats": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Items": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Species Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Class Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": false,
+        "Divine": false,
+        "Nature": true,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "",
+        "Cantrips Known": "",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": "",
+          "temp": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "preferences": {
+    "font": "",
+    "color": ""
+  }
+}

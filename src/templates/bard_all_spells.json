@@ -1,0 +1,468 @@
+{
+  "version": 1,
+  "headers": {
+    "character-name": "",
+    "player-name": "",
+    "level": "",
+    "experience": "",
+    "class": "Bard",
+    "subclass": "",
+    "species": ""
+  },
+  "sections": {
+    "Defenses": {
+      "checkboxes": {},
+      "fields": {
+        "Deflection": "",
+        "Fortitude": "",
+        "Will": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Health\nPoints": {
+          "cur": "",
+          "max": "",
+          "temp": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Equipment Proficiencies": {
+      "checkboxes": {
+        "Light": true,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": false,
+        "Tower Shields": false,
+        "Martial Weapons": false
+      },
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Speed": {
+      "checkboxes": {},
+      "fields": {
+        "Movement": "",
+        "Instinct": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            ""
+          ]
+        }
+      ]
+    },
+    "Combat Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Melee Strike",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Bardic Magic",
+            ""
+          ]
+        }
+      ]
+    },
+    "Standard Skills": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "",
+            ""
+          ]
+        }
+      ]
+    },
+    "Strikes & Damaging Cantrips": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "action",
+          "slots": {
+            "name": "Melee Strike",
+            "rollDescription": "Roll Melee Strike against Deflection",
+            "notes": ""
+          },
+          "tableRows": [
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            },
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            },
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            }
+          ],
+          "variants": [],
+          "ui": {
+            "variantsHidden": true,
+            "weaponColumnHidden": false
+          }
+        },
+        {
+          "type": "action",
+          "slots": {
+            "name": "",
+            "rollDescription": "",
+            "notes": ".\n\n\n\n"
+          },
+          "tableRows": [
+            {
+              "weapon": "",
+              "speed": "",
+              "roll": "",
+              "damage": "",
+              "range": "",
+              "doubleSix": ""
+            }
+          ],
+          "variants": [],
+          "ui": {
+            "variantsHidden": true,
+            "weaponColumnHidden": true
+          }
+        }
+      ]
+    },
+    "Feats": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Languages": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Death": {
+      "checkboxes": {
+        "index-0": false,
+        "index-1": false,
+        "index-2": false,
+        "index-3": false
+      },
+      "fields": {
+        "Exhaustion": ""
+      },
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Equipment": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Items": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Species Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Class Features": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "splitFields": {},
+      "dynamicRows": []
+    },
+    "Spellcasting": {
+      "checkboxes": {
+        "Arcane": false,
+        "Bardic": true,
+        "Divine": false,
+        "Nature": false,
+        "Occult": false
+      },
+      "fields": {
+        "Spells Known": "",
+        "Cantrips Known": "",
+        "Summon Slots": ""
+      },
+      "sectionBody": "",
+      "splitFields": {
+        "Spell Points": {
+          "cur": "",
+          "max": "",
+          "temp": ""
+        }
+      },
+      "dynamicRows": []
+    },
+    "Spells Known": {
+      "checkboxes": {},
+      "fields": {},
+      "sectionBody": "",
+      "splitFields": {},
+      "dynamicRows": [
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Light",
+            "0"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Message",
+            "0"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Minor Illusion",
+            "0"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Minor Ward",
+            "0"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Thunder Fist",
+            "0"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Thunder Wave",
+            "0"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Animal Messenger",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Cure",
+            "1+"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Dissonant Whispers",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Gullibility",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Mind Spike",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Rainbow Eruption",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "3",
+            "Burrowed Knowledge",
+            "2 SP"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "3",
+            "Comprehend Languages",
+            "2 SP"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "3",
+            "Invisibility",
+            "2 SP"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "3",
+            "Life Giving",
+            "2 SP"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "3",
+            "Nature Spirit",
+            "2+"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "3",
+            "Silence",
+            "2 SP"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "3",
+            "Sleep",
+            "3 SP"
+          ]
+        }
+      ]
+    }
+  },
+  "preferences": {
+    "font": "",
+    "color": ""
+  }
+}

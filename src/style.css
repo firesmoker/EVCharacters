@@ -97,6 +97,14 @@ body {
   font-size: 14px;
 }
 
+.dropdown-content > div.menu-separator {
+  padding: 0;
+  margin: 4px 0;
+  height: 0;
+  border-top: 1px solid #ddd;
+  pointer-events: none;
+}
+
 /* Nested Dropdown Styles */
 .menu-item-nested {
   position: relative;
@@ -1341,6 +1349,10 @@ textarea::placeholder {
     background-color: #2a2a2a;
     border: 1px solid #444;
     color: #e0e0e0;
+  }
+
+  .dropdown-content > div.menu-separator {
+    border-top-color: #444;
   }
 
 

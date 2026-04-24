@@ -469,6 +469,22 @@ const handleClick = (e) => {
       updateTemplateMenu();
       alert(`Template "${templateName}" saved!`);
     },
+    'menu-delete-templates': () => {
+      const customTemplates = JSON.parse(localStorage.getItem('ev-custom-templates') || '{}');
+      const totalTemplates = Object.keys(customTemplates).length;
+      if (totalTemplates === 0) {
+        alert('No custom templates to delete.');
+        return;
+      }
+
+      const label = totalTemplates === 1 ? 'template' : 'templates';
+      const confirmed = confirm(`Delete all ${totalTemplates} custom ${label}? This cannot be undone.`);
+      if (!confirmed) return;
+
+      localStorage.removeItem('ev-custom-templates');
+      updateTemplateMenu();
+      alert(`Deleted ${totalTemplates} custom ${label}.`);
+    },
     'menu-open': () => document.getElementById('file-input').click(),
     'menu-new': () => {
       if (confirm('Are you sure you want to start a new sheet? All unsaved data will be lost.')) {

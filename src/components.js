@@ -394,6 +394,8 @@ export const renderToolbar = () => `
         <div id="menu-save">Save</div>
         <div id="menu-save-template">Save as Template</div>
         <div id="export-pdf">Export to PDF</div>
+        <div class="menu-separator"></div>
+        <div id="menu-delete-templates">Delete All Templates</div>
       </div>
     </div>
     <input type="file" id="file-input" style="display: none;" accept=".json">

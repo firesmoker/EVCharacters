@@ -80,6 +80,25 @@ export const renderSpellRow = () => `
   </div>
 `
 
+/**
+ * Renders a row for the Instinct Abilities section.
+ */
+export const renderInstinctAbilityRow = () => `
+  <div class="skill-row">
+    <div style="flex: 0 0 20mm;">
+      <input type="text" class="instinct-input" placeholder="Source" style="width: 100%;">
+    </div>
+    <div style="flex: 0 0 25mm;">
+      <input type="text" class="instinct-input" placeholder="Ability" style="width: 100%;">
+    </div>
+    <div style="flex: 1 1 auto;">
+      <input type="text" class="instinct-input" placeholder="Description" style="width: 100%;">
+    </div>
+    <button class="remove-row-btn" title="Remove Row">-</button>
+    <button class="add-row-btn" title="Add Row">+</button>
+  </div>
+`
+
 export const renderHeaderField = (label, placeholder, flex = 1) => {
   const syncId = label.toLowerCase().replace(/[^a-z0-9]/g, '-');
   return `
@@ -112,6 +131,18 @@ export const renderSpellsKnownSection = () => `
   </div>
   <div class="dynamic-rows">
     ${renderSpellRow()}
+  </div>
+`
+
+// Content for the Instinct Abilities section with headings
+export const renderInstinctAbilitiesSection = () => `
+  <div class="skill-header-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
+    <div style="flex: 0 0 20mm; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Source</div>
+    <div style="flex: 0 0 25mm; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Ability</div>
+    <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Description</div>
+  </div>
+  <div class="dynamic-rows">
+    ${renderInstinctAbilityRow()}
   </div>
 `
 
@@ -285,11 +316,12 @@ export const renderVariantActionRow = () => `
 export const renderStrikesCantripsTableRow = () => `
   <tr>
     <td class="strikes-cantrips-cell-weapon"><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="weapon" data-placeholder="weapon"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="speed" data-placeholder="speed"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="roll" data-placeholder="roll"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="damage" data-placeholder="damage"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="range" data-placeholder="range"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="double six"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="speed" data-placeholder="Fast"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="roll" data-placeholder="5d6"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="minimum" data-placeholder="1"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="damage" data-placeholder="Piercing"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="range" data-placeholder="Melee"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="Disable"></div></td>
   </tr>
 `
 
@@ -319,6 +351,7 @@ export const renderStrikesDamagingCantripsBlock = () => `
           <col class="strikes-cantrips-col-weapon">
           <col class="strikes-cantrips-col-speed">
           <col class="strikes-cantrips-col-roll">
+          <col class="strikes-cantrips-col-minimum">
           <col class="strikes-cantrips-col-damage">
           <col class="strikes-cantrips-col-range">
           <col class="strikes-cantrips-col-double-six">
@@ -328,6 +361,7 @@ export const renderStrikesDamagingCantripsBlock = () => `
             <th>Weapon</th>
             <th>Speed</th>
             <th>Roll</th>
+            <th>Minimum</th>
             <th>Damage</th>
             <th>Range</th>
             <th>Double Six</th>
@@ -432,7 +466,7 @@ export const renderApp = () => {
             
             <section class="sheet-column">
               ${renderSection('Strikes & Damaging Cantrips', `<div class="dynamic-rows">${renderStrikesDamagingCantripsBlock()}</div>`, { isStructured: true, isDynamic: true })}
-              ${renderSection('Feats', '')}
+              ${renderSection('Instinct Abilities', renderInstinctAbilitiesSection(), { isStructured: true, isDynamic: true })}
             </section>
           </main>
         </div>
@@ -457,6 +491,7 @@ export const renderApp = () => {
             <section class="sheet-column">
               ${renderSection('Species Features', '')}
               ${renderSection('Class Features', '')}
+              ${renderSection('Feats', '')}
             </section>
           </main>
         </div>
@@ -498,7 +533,8 @@ export const renderRowForSection = (title) => {
     'Combat Skills': () => renderSkillRow('combat'),
     'Speed': () => renderDragsIgnoredRow(),
     'Strikes & Damaging Cantrips': () => renderStrikesDamagingCantripsBlock(),
-    'Spells Known': () => renderSpellRow()
+    'Spells Known': () => renderSpellRow(),
+    'Instinct Abilities': () => renderInstinctAbilityRow()
   };
   return templates[title] ? templates[title]() : null;
 };

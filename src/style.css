@@ -19,7 +19,7 @@
   --field-color: #000080;
 
   /* Global variables for layout */
-  --section-gap: 4mm;
+  --section-gap: 2mm;
   /* YOU CAN ADJUST THE GAP BETWEEN SECTIONS HERE */
 }
 
@@ -177,8 +177,7 @@ body {
 
 /* A4 Page */
 .a4-page {
-  background-color: #ffffff;
-  /* Always white for the sheet */
+  background-color: #f0f0f0;
   color: #213547;
   /* Always dark text for the sheet */
   width: 210mm;
@@ -186,7 +185,7 @@ body {
   /* Fixed height for A4 */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 1px solid #bbb;
-  padding: 15mm;
+  padding: 7.5mm;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -494,7 +493,8 @@ select.skill-name {
 select.skill-bonus,
 select.skill-name,
 input.skill-name,
-input.skill-bonus {
+input.skill-bonus,
+input.instinct-input {
   font-family: var(--readable-font);
   color: var(--field-color);
   background: transparent;
@@ -745,6 +745,7 @@ textarea::placeholder {
   min-width: 0;
   --col-speed: 5.4ch;
   --col-roll: 3.41ch;
+  --col-minimum: 6.8ch;
   --col-damage: 10.27ch;
   --col-range: 5.184ch;
   --col-double-six: 8.4ch;
@@ -835,6 +836,10 @@ textarea::placeholder {
   width: var(--col-roll);
 }
 
+.strikes-cantrips-col-minimum {
+  width: var(--col-minimum);
+}
+
 .strikes-cantrips-col-damage {
   width: var(--col-damage);
 }
@@ -853,7 +858,7 @@ textarea::placeholder {
 }
 
 .strikes-cantrips-container.weapon-column-hidden .strikes-cantrips-col-double-six {
-  width: calc(100% - var(--col-speed) - var(--col-roll) - var(--col-damage) - var(--col-range));
+  width: calc(100% - var(--col-speed) - var(--col-roll) - var(--col-minimum) - var(--col-damage) - var(--col-range));
 }
 
 .strikes-cantrips-container.weapon-column-hidden .strikes-cantrips-slots-table th:nth-child(1),

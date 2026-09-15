@@ -429,6 +429,22 @@ export const loadFromJSON = (jsonString) => {
     });
   });
 
+  // Ensure any dynamic container with no rows gets a default row
+  document.querySelectorAll('.dynamic-rows').forEach(container => {
+    if (container.children.length === 0) {
+      const sectionBox = container.closest('.section-box');
+      if (sectionBox) {
+        const title = sectionBox.querySelector('.section-header').textContent.trim();
+        const html = renderRowForSection(title);
+        if (html) {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = html;
+          container.appendChild(tempDiv.firstElementChild);
+        }
+      }
+    }
+  });
+
   // Final cleanup
   document.querySelectorAll('.editable-field').forEach(el => {
     if (el.innerText.trim() === '') {

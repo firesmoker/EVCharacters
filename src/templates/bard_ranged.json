@@ -67,14 +67,14 @@
         {
           "type": "skill",
           "values": [
-            "Ranged Strike",
+            "Ranged",
             ""
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Bardic Magic",
+            "Magic",
             ""
           ]
         }
@@ -161,7 +161,7 @@
           "type": "action",
           "slots": {
             "name": "Ranged Strike",
-            "rollDescription": "Roll Ranged Strike against Deflection",
+            "rollDescription": "Roll Ranged against Deflection",
             "notes": ""
           },
           "tableRows": [

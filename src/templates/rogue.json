@@ -67,7 +67,7 @@
         {
           "type": "skill",
           "values": [
-            "Melee Strike",
+            "Melee",
             ""
           ]
         },
@@ -168,7 +168,7 @@
           "type": "action",
           "slots": {
             "name": "Melee Strike",
-            "rollDescription": "Roll Melee Strike against Deflection",
+            "rollDescription": "Roll Melee against Deflection",
             "notes": "Sneak Attack: If you have advantage, deal +2 damage."
           },
           "tableRows": [

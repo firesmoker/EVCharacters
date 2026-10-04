@@ -67,7 +67,7 @@
         {
           "type": "skill",
           "values": [
-            "Divine Magic",
+            "Magic",
             ""
           ]
         }
@@ -154,7 +154,7 @@
           "type": "action",
           "slots": {
             "name": "Melee Strike (Using Blessed Strike)",
-            "rollDescription": "Roll Divine Magic against Deflection",
+            "rollDescription": "Roll Magic against Deflection",
             "notes": ""
           },
           "tableRows": [

@@ -67,7 +67,7 @@
         {
           "type": "skill",
           "values": [
-            "Nature Magic",
+            "Magic",
             ""
           ]
         }
@@ -154,7 +154,7 @@
           "type": "action",
           "slots": {
             "name": "Animal Strike (While Shapeshifted)",
-            "rollDescription": "Roll Nature Magic against Deflection",
+            "rollDescription": "Roll Magic against Deflection",
             "notes": ""
           },
           "tableRows": [

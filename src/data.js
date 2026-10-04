@@ -11,9 +11,9 @@ export const SKILLS_LIST = [
 ];
 
 export const COMBAT_SKILLS_LIST = [
-  { groupLabel: "Weapons", options: ["Melee Strike", "Ranged Strike", "Weapon Throw"] },
-  { groupLabel: "Magic", options: ["Arcane Magic", "Bardic Magic", "Divine Magic", "Nature Magic", "Occult Magic", "Chrono Magic"] },
-  { groupLabel: "Unarmed", options: ["Unarmed Strike", "Grapple"] }
+  { groupLabel: "Weapons", options: ["Melee", "Ranged", "Weapon Throw"] },
+  { groupLabel: "Magic", options: ["Magic"] },
+  { groupLabel: "Unarmed", options: ["Unarmed", "Grapple"] }
 ];
 
 export const BONUS_LIST = [

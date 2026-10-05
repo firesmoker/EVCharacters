@@ -14,7 +14,7 @@
 
 # Document body
 
-> **Text box**
+
 >
 > # 0.52
 
@@ -74,7 +74,7 @@ Each die that results in a 4 or higher is a Success Die (also appears as SD). Th
 
 To succeed in a roll, you need to meet or surpass a minimum number of Success Dice. That number is called a threshold. If the number of Success Dice is equal to or higher than the threshold, you pass.
 
-> **Text box**
+
 >
 > John searches for a hidden lever. The GM calls for a roll with a threshold of 2.
 >
@@ -84,7 +84,7 @@ To succeed in a roll, you need to meet or surpass a minimum number of Success Di
 
 For some rolls, the more Success Dice you get, the more powerful the effect is. Each action or spell will tell you exactly what each success adds to the result.
 
-> **Text box**
+
 >
 > Example: The Melee Strike Action
 >
@@ -102,7 +102,7 @@ Some effects may provide you with extra dice to throw. For example, if you would
 
 Penalties reduce the number of successes you get. For each penalty you get one fewer success.
 
-> **Text box**
+
 >
 > For example: if you roll and get 3 Success Dice, and you have a penalty of 1, it changes your result as if you've rolled 2 Success Dice instead.
 
@@ -112,18 +112,13 @@ Penalties reduce the number of successes you get. For each penalty you get one f
 
 Advantage is a benefit you can get from many different sources. It helps you succeed in rolls more easily. When you get advantage for a roll, you roll the dice twice and choose one result
 
-> **Text box**
+
 >
-> Example
->
+> **Example**
 > You roll 5d6 once and get:
->
 > 1,2,3,3,4 (One Success Die)
->
 > You roll 5d6 for a second time and get:
->
 > 1,3,4,4,6 (Three Success Dice).
->
 > You then decide to choose the second roll, as it has more Success Dice.
 
 ### Disadvantage
@@ -209,240 +204,62 @@ For example, the Rogue class starts as Adept (4d6) in Mechanical (Disarm Traps).
 
 ### Standard skills table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td colspan="2">Speech</td>
->   </tr>
->   <tr>
->     <td>Bartering</td>
->     <td>Negotiating terms or prices in a trade</td>
->   </tr>
->   <tr>
->     <td>Charm</td>
->     <td>Winning someone over with charisma or likability</td>
->   </tr>
->   <tr>
->     <td>Deception</td>
->     <td>Misleading others with false information</td>
->   </tr>
->   <tr>
->     <td>Diplomacy</td>
->     <td>Navigating complex social situations, resolving conflicts peacefully</td>
->   </tr>
->   <tr>
->     <td>Intimidation</td>
->     <td>Coercing someone through threats or forceful tactics</td>
->   </tr>
->   <tr>
->     <td>Leadership</td>
->     <td>Inspiring and guiding others, commanding respect and loyalty</td>
->   </tr>
->   <tr>
->     <td>Manipulation</td>
->     <td>Influencing others for personal gain through subtle means</td>
->   </tr>
->   <tr>
->     <td>Reasoning</td>
->     <td>Using logic to persuade or explain</td>
->   </tr>
->   <tr>
->     <td colspan="2">Knowledge</td>
->   </tr>
->   <tr>
->     <td>Arcana</td>
->     <td>Understanding magical principles, spells, and lore</td>
->   </tr>
->   <tr>
->     <td>History</td>
->     <td>Understanding past events, people, and cultures</td>
->   </tr>
->   <tr>
->     <td>Nature</td>
->     <td>Knowledge of the natural world, plants, animals, and ecosystems</td>
->   </tr>
->   <tr>
->     <td>Occult</td>
->     <td>Understanding hidden or forbidden lore, dark rituals, and mysteries</td>
->   </tr>
->   <tr>
->     <td>Politics</td>
->     <td>Knowledge of governments, power dynamics, and social structures</td>
->   </tr>
->   <tr>
->     <td>Religion</td>
->     <td>Knowledge of deities, sacred rituals, and divine magic</td>
->   </tr>
->   <tr>
->     <td>Warfare</td>
->     <td>Understanding tactics, strategies, and the art of war</td>
->   </tr>
->   <tr>
->     <td colspan="2">Perception</td>
->   </tr>
->   <tr>
->     <td>Detect Traps</td>
->     <td>Identifying dangerous mechanisms, magical hazards and ambush setups</td>
->   </tr>
->   <tr>
->     <td>Find Hidden Paths</td>
->     <td>Recognizing secret doors, passages, or concealed routes</td>
->   </tr>
->   <tr>
->     <td>Find Hidden Objects</td>
->     <td>Identifying items or weapons hidden from plain view</td>
->   </tr>
->   <tr>
->     <td>Insight</td>
->     <td>Reading motives, spotting lies or hidden feelings</td>
->   </tr>
->   <tr>
->     <td>Notice Movement</td>
->     <td>Detecting creatures through subtle motion or signs, even when hidden</td>
->   </tr>
->   <tr>
->     <td colspan="2">Other</td>
->   </tr>
->   <tr>
->     <td>Acrobatics</td>
->     <td>Tumbling, balancing, agile movement</td>
->   </tr>
->   <tr>
->     <td>Animal Handling</td>
->     <td>Calming, directing, taming or understanding animals</td>
->   </tr>
->   <tr>
->     <td>Athletics</td>
->     <td>Climbing, swimming, feats of strength</td>
->   </tr>
->   <tr>
->     <td>Cooking</td>
->     <td>Preparing food with skill, often for nourishment or special effects</td>
->   </tr>
->   <tr>
->     <td>Deduction</td>
->     <td>Drawing conclusions, noticing inconsistencies</td>
->   </tr>
->   <tr>
->     <td>Disguise</td>
->     <td>Altering appearance or impersonating others</td>
->   </tr>
->   <tr>
->     <td>Mechanics</td>
->     <td>Understanding or manipulating mechanical devices</td>
->   </tr>
->   <tr>
->     <td>Medicine</td>
->     <td>Treating wounds, stabilizing, diagnosing</td>
->   </tr>
->   <tr>
->     <td>Performance</td>
->     <td>Music, acting, oratory, artistic display</td>
->   </tr>
->   <tr>
->     <td>Sleight of Hand</td>
->     <td>Palm tricks, picking pockets, subtle movements</td>
->   </tr>
->   <tr>
->     <td>Sneak</td>
->     <td>Move silently without being detected</td>
->   </tr>
->   <tr>
->     <td>Survival</td>
->     <td>Tracking, foraging, navigation, wilderness know-how</td>
->   </tr>
-> </table>
+| Category | Skill | Description |
+| --- | --- | --- |
+| Speech | Bartering | Negotiating terms or prices in a trade |
+| Speech | Charm | Winning someone over with charisma or likability |
+| Speech | Deception | Misleading others with false information |
+| Speech | Diplomacy | Navigating complex social situations, resolving conflicts peacefully |
+| Speech | Intimidation | Coercing someone through threats or forceful tactics |
+| Speech | Leadership | Inspiring and guiding others, commanding respect and loyalty |
+| Speech | Manipulation | Influencing others for personal gain through subtle means |
+| Speech | Reasoning | Using logic to persuade or explain |
+| Knowledge | Arcana | Understanding magical principles, spells, and lore |
+| Knowledge | History | Understanding past events, people, and cultures |
+| Knowledge | Nature | Knowledge of the natural world, plants, animals, and ecosystems |
+| Knowledge | Occult | Understanding hidden or forbidden lore, dark rituals, and mysteries |
+| Knowledge | Politics | Knowledge of governments, power dynamics, and social structures |
+| Knowledge | Religion | Knowledge of deities, sacred rituals, and divine magic |
+| Knowledge | Warfare | Understanding tactics, strategies, and the art of war |
+| Perception | Detect Traps | Identifying dangerous mechanisms, magical hazards and ambush setups |
+| Perception | Find Hidden Paths | Recognizing secret doors, passages, or concealed routes |
+| Perception | Find Hidden Objects | Identifying items or weapons hidden from plain view |
+| Perception | Insight | Reading motives, spotting lies or hidden feelings |
+| Perception | Notice Movement | Detecting creatures through subtle motion or signs, even when hidden |
+| Other | Acrobatics | Tumbling, balancing, agile movement |
+| Other | Animal Handling | Calming, directing, taming or understanding animals |
+| Other | Athletics | Climbing, swimming, feats of strength |
+| Other | Cooking | Preparing food with skill, often for nourishment or special effects |
+| Other | Deduction | Drawing conclusions, noticing inconsistencies |
+| Other | Disguise | Altering appearance or impersonating others |
+| Other | Mechanics | Understanding or manipulating mechanical devices |
+| Other | Medicine | Treating wounds, stabilizing, diagnosing |
+| Other | Performance | Music, acting, oratory, artistic display |
+| Other | Sleight of Hand | Palm tricks, picking pockets, subtle movements |
+| Other | Sneak | Move silently without being detected |
+| Other | Survival | Tracking, foraging, navigation, wilderness know-how |
 
 ### Combat skills table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td colspan="2">Weapons</td>
->   </tr>
->   <tr>
->     <td>Melee Strike</td>
->     <td>Striking an enemy with a melee weapon</td>
->   </tr>
->   <tr>
->     <td>Ranged Strike</td>
->     <td>Shooting a projectile at an enemy using a ranged weapon</td>
->   </tr>
->   <tr>
->     <td>Weapon Throw</td>
->     <td>Throwing a weapon at an enemy</td>
->   </tr>
->   <tr>
->     <td colspan="2">Magic</td>
->   </tr>
->   <tr>
->     <td>Arcane Magic</td>
->     <td>Mastering the fundamental forces of magic to cast a wide variety of spells</td>
->   </tr>
->   <tr>
->     <td>Bardic Magic</td>
->     <td>Using music and performance to cast spells, inspire allies, and manipulate</td>
->   </tr>
->   <tr>
->     <td>Divine Magic</td>
->     <td>Channeling the power of deities to perform miracles, heal, and protect allies</td>
->   </tr>
->   <tr>
->     <td>Nature Magic</td>
->     <td>Utilizing the forces of nature to control elements and summon creatures</td>
->   </tr>
->   <tr>
->     <td>Occult Magic</td>
->     <td>Harnessing forbidden magical powers to perform dark spells and rituals</td>
->   </tr>
->   <tr>
->     <td colspan="2">Unarmed</td>
->   </tr>
->   <tr>
->     <td>Unarmed Strike</td>
->     <td>Striking an enemy with one of your legs or hands</td>
->   </tr>
->   <tr>
->     <td>Grapple</td>
->     <td>Engaging in a physical struggle to restrain a target</td>
->   </tr>
-> </table>
+| Category | Skill | Description |
+| --- | --- | --- |
+| Weapons | Melee | Attacking with melee weapons |
+| Weapons | Ranged | Attacking with ranged weapons |
+| Weapons | Weapon Throw | Throwing a weapon at an enemy |
+| Magic | Magic | Casting spells and channeling magical effects, regardless of spell tradition. |
+| Unarmed | Unarmed | Attacking without weapons |
+| Unarmed | Grapple | Engaging in a physical struggle to restrain a target |
 
 ### Crafting skills table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td colspan="2">Crafting</td>
->   </tr>
->   <tr>
->     <td>Alchemy</td>
->     <td>Creating potions, poisons, magical concoctions</td>
->   </tr>
->   <tr>
->     <td>Artifice</td>
->     <td>Crafting strange magical items, constructs, curios</td>
->   </tr>
->   <tr>
->     <td>Enchanting</td>
->     <td>Imbuing items with magical properties</td>
->   </tr>
->   <tr>
->     <td>Focusing</td>
->     <td>Creating staves, wands, and spell-channeling tools</td>
->   </tr>
->   <tr>
->     <td>Scribing</td>
->     <td>Creating spell scrolls and spellbooks</td>
->   </tr>
->   <tr>
->     <td>Smithing</td>
->     <td>Forging weapons and armor (non-magical by default)</td>
->   </tr>
-> </table>
+| Category | Skill | Description |
+| --- | --- | --- |
+| Crafting | Alchemy | Creating potions, poisons, magical concoctions |
+| Crafting | Artifice | Crafting strange magical items, constructs, curios |
+| Crafting | Enchanting | Imbuing items with magical properties |
+| Crafting | Focusing | Creating staves, wands, and spell-channeling tools |
+| Crafting | Scribing | Creating spell scrolls and spellbooks |
+| Crafting | Smithing | Forging weapons and armor (non-magical by default) |
 
 # Chapter 3: Combat
 
@@ -488,7 +305,7 @@ Now, it’s time for the actions to resolve in the following order:
 
 - On the contrary, if an actor’s intended action becomes possible by the time it is resolved, the action goes through.
 
-> **Text box**
+
 >
 > You declared that you would shoot an arrow at the goblin who is currently hidden behind a wall (an impossible action). If, by the time your action is resolved, the goblin has moved out from behind the wall and is now visible, you proceed with the shot—the action is now possible and goes through.
 
@@ -546,25 +363,25 @@ Roll (Skill) against (Defense).
 
 Examples:
 
-- Roll Melee Strike against Deflection
+- Roll Melee against Deflection
 
 - Roll Athletics against Fortitude
 
-- Roll Arcane Magic against Will
+- Roll Magic against Will
 
-> **Text box**
+
 >
-> A warrior performs a Melee Strike against a goblin captain. The description says, "Roll Melee Strike against Deflection". The warrior is Expert (5d6) with Melee Strike, so they roll 5d6. He gets 2 Success Dice. The goblin captain’s Deflection is 1, so the warrior suffers a penalty of 1. The warrior result is reduced from 2 Success Dice to 1 Success Die.
+> A warrior performs a Melee Strike against a goblin captain. The description says, "Roll Melee against Deflection". The warrior is Expert (5d6) with Melee, so they roll 5d6. He gets 2 Success Dice. The goblin captain’s Deflection is 1, so the warrior suffers a penalty of 1. The warrior result is reduced from 2 Success Dice to 1 Success Die.
 
 #### Attacks With a Threshold
 
 Some attack descriptions require you to meet or pass a threshold for the full effect.
 
-For example: Roll Arcane Magic against Deflection. The threshold is 2.
+For example: Roll Magic against Deflection. The threshold is 2.
 
-> **Text box**
+
 >
-> A witch casts a "Bestow Curse" spell on a paladin. The spell says: "Roll Occult Magic against Will. The threshold is 1."
+> A witch casts a "Bestow Curse" spell on a paladin. The spell says: "Roll Magic against Will. The threshold is 1."
 >
 > The witch rolls 5d6 and gets 2 Success Dice. Because the paladin’s Will is 1, the witch subtracts 1 from her successes. Her total is reduced from 2 Success Dice to 1 Success Die. This is enough to meet the threshold of 1, so the spell succeeds.
 
@@ -627,11 +444,35 @@ Some actions, most commonly spellcasting, can be interrupted. An interruption oc
 
 - The actor takes damage while performing an interruptible action. A total damage of 2 in the same round, from one source or more, is required.
 
-> **Text box**
+
 >
 > Example
 >
 > A witch is casting the Summon Shade spell (a Slow, interruptible action). An enemy archer hits her for 1 damage. If she takes at least 1 more damage until the end of the round, her spell will be cancelled.
+
+## Conditions
+
+| Condition | Rules |
+| --- | --- |
+| Dying | When a player character reaches 0 HP, they become unconscious and prone and gain 1 level of Exhaustion. At the end of each round, roll 3d6 against Threshold 2 and record a success or failure. At 2 successes, they stabilize; at 2 failures, they die. Taking damage while dying causes 1 failure, and damage greater than their maximum HP causes immediate death. Healing or a successful Stabilize action stabilizes them. A stabilized creature remains unconscious until the end of combat and needs at least 1 HP to regain consciousness. Enemies that reach 0 HP die unless a rule says otherwise. |
+| Exhaustion | Each level adds 1 Drag to all actions. At 3 levels, the creature dies. A long rest removes 1 level. |
+| Prone | The creature is lying on the ground. Any movement, attack, or defense effects involving Prone are specified by the relevant rule. |
+| Restrained | The creature cannot move from its current space. The source effect specifies how and when the condition ends. |
+| Breached | The creature has -1 Deflection per level. |
+| Discouraged | The creature deals 1 less damage per level. |
+| Inspired | The creature gains 1 Extra Die on rolls per level. |
+| Vulnerable | The creature has -1 to all defenses per level. |
+| Disoriented | The creature takes a penalty of 1 on all rolls per level. |
+| Frightened | The creature cannot choose the source of its fear as a target for attacks and cannot finish its movement adjacent to that source. |
+| Slowed | The creature has -1 Movement and +1 Drag to all actions per level. |
+| Burning | At the end of each round, the creature takes Fire damage equal to its Burning level. |
+| Luminous | The affected creature or object emits light and cannot benefit from invisibility. The source effect specifies the light radius and any additional effects. |
+| Engaged | An engaged creature loses 2 HP whenever it targets anyone other than the creature it is engaged with. A creature can be engaged with only one other creature at a time. The condition ends for both creatures when either reaches 0 HP. |
+| Pacified | The creature cannot perform offensive actions against other creatures. |
+| Weakened | The creature has -1 Fortitude and a penalty of 1 on rolls per level. |
+| Paralyzed | The creature cannot move or perform actions. |
+| Poisoned | The creature has -1 Fortitude. At the end of each round, it takes Poison damage equal to its Poisoned level. |
+| Decayed | At the end of each round, the creature takes Necrotic damage equal to its Decayed level. |
 
 # Chapter 4: Actions
 
@@ -647,7 +488,7 @@ You can choose to perform an action at a slower speed. (Perform a Fast action as
 
 Drag is a modifier that slows an action by one speed level. If Drag would reduce the action below Slow, the action is cancelled and cannot be performed.
 
-> **Text box**
+
 >
 > Example
 >
@@ -676,235 +517,133 @@ Some actions have the "Uses Movement" tag. When you commit to such action, you c
 ### Creative Action
 
 Varying Speed
-
 Perform an action not described here or in other relevant places to your character. The GM will decide on its feasibility, its relevant skill (if any), and the required threshold to succeed. The GM may also decide that it can be performed for free together with another action.
 
-### Throw Bomb
+### Bomb Throw
 
 Average Action
-
 Effective Range: 3 units
-
 Maximum Range: 6 units
-
 Throw a bomb at target location. If you throw the bomb within the effective range, it lands in place. If you throw it between the effective and maximum range, roll Bomb Throw. The threshold is 2. On failure, the bomb lands in another location within range. The GM can choose the location or roll for a random result.
-
 Follow the bomb's description for its effects and area when it lands.
-
 If an enemy is within 1 unit of you, the effective range is 1, and the maximum range is equal to your normal effective range.
 
 ### Cast a Cantrip
 
 Varying Action Speed
-
 Cast a known cantrip (Level 0 spell) according to its description.
 
 ### Cast a Spell
 
 Varying Action Speed
-
 Cast a spell according to its description.
-
 You must spend Spell Points as required in the spell description to do so. You may also choose to spend more spell points for greater effects, as described in the spell description.
-
 Notice that many spells are Slow Action and interruptible. If your casting is interrupted, you don't lose the spent spell points.
 
 ### Charge
 
 Average Action ◆ Uses movement
-
 Double your Movement score for this round and move to the chosen enemy. You must finish your movement in a place where that enemy is within your melee reach. Then, perform a Melee Strike or Unarmed Strike on that enemy.
-
 Even if moving to your enemy is no longer possible when your action resolves, you must move as close as possible.
 
-#### Long Charge
+### Long Charge
 
 You may instead perform Charge as a Slow Action, tripling your Movement instead of doubling it.
 
 ### Dash
 
 Fast Action ◆ Uses movement
-
 Double your Movement score for this round and move.
 
-#### Long Dash
+### Long Dash
 
 You may instead perform Dash as an Average Action, tripling your Movement instead of doubling it.
 
 ### Grapple
 
 Fast Action
-
-You grapple an enemy that is adjacent to you. Roll Unarmed Strike against Deflection or Fortitude, whichever is higher. The target’s size must be up to one size larger than you. On success, you grapple the target. See the "Glossary" chapter for grappling rules.
+You grapple an enemy that is adjacent to you. Roll Unarmed against Deflection or Fortitude, whichever is higher. The target’s size must be up to one size larger than you. On success, you grapple the target. See the "Glossary" chapter for grappling rules.
 
 ### Melee Strike
 
 Fast Action
-
-You strike an enemy within your melee range with a melee weapon. Roll Melee Strike against Deflection. Deal 1 damage for each Success Die + any weapon damage bonuses.
-
+You strike an enemy within your melee range with a melee weapon. Roll Melee against Deflection. Deal 1 damage for each Success Die + any weapon damage bonuses.
 The damage type is appropriate to the weapon.
-
 On success, if you rolled a double six, activate the weapon's double six ability.
 
 ### Push
 
 Fast Action
-
 You push a target that is adjacent to you. Roll Athletics against Deflection or Fortitude (whichever is higher). The threshold is 1. The target’s size must be up to one size larger than you.
-
 On success - push target 1 unit away from you and the target is interrupted (if applicable).
 
 ### Ranged Strike
 
 Fast Action
-
 Shoot a target using a ranged weapon.
-
-Roll Ranged Strike against Deflection.
-
+Roll Ranged against Deflection.
 On success, deal SD + any weapon damage bonuses.
-
-1. The damage type is appropriate to the weapon. On success, if you rolled a double six, ignore all the target’s DR
-
+The damage type is appropriate to the weapon. On success, use the weapon-specific Double-6 ability.
 Notice that ranged weapons have the "Ranged" property, which introduces 1 Drag to Ranged Strike, making it an Average Action.
 You must have a feature that lets you ignore this Drag to be able to perform Ranged Strike as a Fast Action.
 
 ### Stabilize
 
 Slow Action
-
 You stabilize a dying creature that is adjacent to you.
-
 Roll Medicine. Add 1 death roll success for each success die.
-
 If you roll 3 SD or more, the target becomes conscious with 1 HP.
-
 On success, if you rolled a double 6, suffers no exhaustion.
 
 ### Unarmed Strike
 
 Fast Action
-
 Strike a target within melee reach with one of your legs or hands.
-
-Roll Unarmed Strikes against Deflection.
-
+Roll Unarmed against Deflection.
 On success, deal SD bludgeoning damage.
 
 ### Utilize
 
 Varying Speed
-
 Varying roll types. May also succeed automatically.
-
 Perform an action with an item or environmental feature according to their description or the GM’s ruling.
 
 ### Weapon Throw
 
 Average Action
-
 Using a weapon with the “thrown weapon” property, throw the weapon at a target within range.
-
 Roll Weapon Throw against Deflection.
-
 On success, deal SD damage + any weapon damage bonuses.
-
 The damage type is appropriate to the weapon.
-
 Modifiers:
+You gain disadvantage on the roll if you are within melee reach of an enemy
+You gain disadvantage if the range of the attack is higher than the weapon’s effective range (you cannot throw further than the maximum range).
 
-- You gain disadvantage on the roll if you are within melee reach of an enemy
+### Dodge
 
-- You gain disadvantage if the range of the attack is higher than the weapon’s effective range (you cannot throw further than the maximum range).
+Referenced in the Action Table, but no complete action description is present.
 
 ## Action Table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td colspan="2">Fast</td>
->   </tr>
->   <tr>
->     <td>Dash</td>
->     <td>Uses movement</td>
->   </tr>
->   <tr>
->     <td>Dodge</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td>Melee Strike</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td>Push</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td>Ranged Strike</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td>Unarmed Strike</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td colspan="2">Average</td>
->   </tr>
->   <tr>
->     <td>Bomb Throw</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td>Charge</td>
->     <td>Uses movement</td>
->   </tr>
->   <tr>
->     <td>Grapple</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td>Long Dash</td>
->     <td>Uses movement</td>
->   </tr>
->   <tr>
->     <td>Weapon Throw</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td colspan="2">Slow</td>
->   </tr>
->   <tr>
->     <td>Long Charge</td>
->     <td>Uses movement</td>
->   </tr>
->   <tr>
->     <td>Stabilize</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td>Special</td>
->     <td></td>
->   </tr>
->   <tr>
->     <td>Cast a Cantrip</td>
->     <td>Speed varies depending on the cantrip description</td>
->   </tr>
->   <tr>
->     <td>Cast a Spell</td>
->     <td>Speed varies depending on the spell's description</td>
->   </tr>
->   <tr>
->     <td>Creative Action</td>
->     <td>Speed varies depending on the action</td>
->   </tr>
->   <tr>
->     <td>Utilize</td>
->     <td>Speed varies depending on the action</td>
->   </tr>
-> </table>
+| Action | Speed | Movement | Range / Area | Notes |
+| --- | --- | --- | --- | --- |
+| Creative Action | Varying |  |  |  |
+| Bomb Throw | Average |  |  |  |
+| Cast a Cantrip | Varying |  |  |  |
+| Cast a Spell | Varying |  |  |  |
+| Charge | Average | Yes |  |  |
+| Long Charge | Slow |  |  |  |
+| Dash | Fast | Yes |  |  |
+| Long Dash | Average |  |  |  |
+| Grapple | Fast |  |  |  |
+| Melee Strike | Fast |  |  |  |
+| Push | Fast |  |  |  |
+| Ranged Strike | Fast |  |  |  |
+| Stabilize | Slow |  |  |  |
+| Unarmed Strike | Fast |  |  |  |
+| Utilize | Varying |  |  |  |
+| Weapon Throw | Average |  |  |  |
+| Dodge | Fast |  |  |  |
 
 # Chapter 5: Player Characters
 
@@ -1094,7 +833,7 @@ Choose one subspecies:
 
   - Known Cantrips: You know two arcane cantrips of your choice.
 
-  - Arcane Magic Training: You are Expert (5d6) in Arcane Magic. If you already have a training level in Arcane Magic, or when you get one, you may replace this benefit with one additional known Arcane Cantrip.
+  - Magic Training: You are Expert (5d6) in Magic. If you already have a training level in Magic, or when you get one, you may replace this benefit with one additional known Arcane Cantrip.
 
 - High Elven Heritage: You are Adept (4d6) in two of the following: Arcana, Diplomacy, History, Insight, Leadership, Mechanics, Politics.
 
@@ -1104,7 +843,7 @@ Choose one subspecies:
 
   - Known Cantrips: You know two nature cantrips of your choice.
 
-  - Nature Magic Training: You are Expert (5d6) in Nature Magic. If you already have a training level in Nature Magic, or when you get one, you may replace this benefit with one additional known Nature cantrip.
+  - Magic Training: You are Expert (5d6) in Magic. If you already have a training level in Magic, or when you get one, you may replace this benefit with one additional known Nature cantrip.
 
 - Wood Elven Heritage: You are Adept (4d6) in one of the following: Acrobatics, Animal Handling, History, Nature, Survival.
 
@@ -1118,11 +857,11 @@ Choose one subspecies:
 
 - Movement: 3
 
-- Occult Cantrips Casting: You can cast known arcane cantrips.
+- Occult Cantrips Casting: You can cast known occult cantrips.
 
   - Known Cantrips: You know two occult cantrips of your choice.
 
-  - Occult Magic Training: You are Expert (5d6) in Occult Magic. If you already have a training level in Occult Magic, or when you get one, you may replace this benefit with one additional known Occult cantrip.
+  - Magic Training: You are Expert (5d6) in Magic. If you already have a training level in Magic, or when you get one, you may replace this benefit with one additional known Occult cantrip.
 
 - Unnatural: Your unnatural presence can make people and beasts feel uncomfortable around you.
 
@@ -1158,7 +897,7 @@ Choose one subspecies:
 
 Roles: Area damage, Control, Support
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -1304,9 +1043,9 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
 
 Roles: Damage, Interruption
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1343,7 +1082,7 @@ Roles: Damage, Interruption
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Ranged Strikes</td>
+>     <td>Ranged</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -1382,9 +1121,9 @@ You start each combat with 3 Archery Points (AP). You may spend them to use vari
 
 You gain the following Ranged Strike variants and actions:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1400,9 +1139,9 @@ You gain the following Ranged Strike variants and actions:
 >   </tr>
 > </table>
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1420,9 +1159,9 @@ You gain the following Ranged Strike variants and actions:
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1465,9 +1204,9 @@ When you roll double six, choose one condition to apply to your target until the
 
 Roles: Combatant and Damage
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1500,7 +1239,7 @@ Roles: Combatant and Damage
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Melee Strikes</td>
+>     <td>Melee</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -1508,7 +1247,7 @@ Roles: Combatant and Damage
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
->     <td>Unarmed Strikes</td>
+>     <td>Unarmed</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -1561,9 +1300,9 @@ At the end of each combat, you lose all unspent Rage points.
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1583,9 +1322,9 @@ You gain the following action:
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1597,7 +1336,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>7. Perform a Grapple (rolling Unarmed Strike). On success, you also SD bludgeoning damage.</td>
+>     <td>7. Perform a Grapple (rolling Unarmed). On success, you also SD bludgeoning damage.</td>
 >   </tr>
 > </table>
 
@@ -1605,9 +1344,9 @@ You gain the following action:
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1622,7 +1361,7 @@ You gain the following action:
 >     <td>Fast Action ◆ Area: Burst 1</td>
 >   </tr>
 >   <tr>
->     <td>Roll Melee Strike against Deflection for all creatures within range. Those you succeed against take your standard Melee Strike damage -2. If you roll double 6, they are also affected by your Melee Strike double 6 effects.</td>
+>     <td>Roll Melee against Deflection for all creatures within range. Those you succeed against take your standard Melee Strike damage -2. If you roll double 6, they are also affected by your Melee Strike double 6 effects.</td>
 >   </tr>
 > </table>
 
@@ -1640,9 +1379,9 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -1668,7 +1407,7 @@ Roles: Support and Utility
 
 Secondary Roles: Control and Healing
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -1705,11 +1444,11 @@ Secondary Roles: Control and Healing
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Bardic Magic</td>
+>     <td>Magic</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
->     <td>One of the following: Melee Strikes, Ranged Strikes</td>
+>     <td>One of the following: Melee, Ranged</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -1740,7 +1479,7 @@ Secondary Roles: Control and Healing
 
 #### Level 1: Spellcasting
 
-The Bard uses his voice and magical instrument to perform his magic using the Bardic Magic skill.
+The Bard uses his voice and magical instrument to perform his magic using the Magic skill.
 
 - Can cast Bardic Cantrips.
 
@@ -1771,7 +1510,7 @@ At the planning phase of each round, select a musical phrase that has not been u
 
 - Onward We Go<br>All allies in the affected area gain +1 Movement until the end of the round.
 
-- Looming Darkness<br>Roll Bardic Magic against Will for enemies in the area. Enemies you've succeeded against become discouraged (they deal -1 damage) until the end of the round.
+- Looming Darkness<br>Roll Magic against Will for enemies in the area. Enemies you've succeeded against become discouraged (they deal -1 damage) until the end of the round.
 
 ###### Unlocked at Level 2:
 
@@ -1863,97 +1602,26 @@ You get 1 temporary Spell Point when combat starts. It can only be used to perfo
 
 If you were already Expert (5d6) in the chosen skill, you become Adept (4d6) in one standard skill in the Speech category and in one standard skill in any category.
 
-### Resource Progression Table
+### Resource / Spell Progression Table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td>Level</td>
->     <td>Instinct</td>
->     <td>Spell Points</td>
->     <td>Spells Known</td>
->     <td>Cantrips Known</td>
->   </tr>
->   <tr>
->     <td>1</td>
->     <td>0</td>
->     <td>2</td>
->     <td>3</td>
->     <td>2</td>
->   </tr>
->   <tr>
->     <td>2</td>
->     <td>0</td>
->     <td>3</td>
->     <td>4</td>
->     <td>2</td>
->   </tr>
->   <tr>
->     <td>3</td>
->     <td>1</td>
->     <td>4</td>
->     <td>6</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>4</td>
->     <td>1</td>
->     <td>5</td>
->     <td>7</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>5</td>
->     <td>1</td>
->     <td>6</td>
->     <td>9</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>6</td>
->     <td>1</td>
->     <td>7</td>
->     <td>10</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>7</td>
->     <td>2</td>
->     <td>8</td>
->     <td>12</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>8</td>
->     <td>2</td>
->     <td>9</td>
->     <td>13</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>9</td>
->     <td>2</td>
->     <td>10</td>
->     <td>15</td>
->     <td>6</td>
->   </tr>
->   <tr>
->     <td>10</td>
->     <td>2</td>
->     <td>12</td>
->     <td>18</td>
->     <td>7</td>
->   </tr>
-> </table>
-
-.
+| Level | Instinct | Spell Points | Spells Known | Cantrips Known |
+| --- | --- | --- | --- | --- |
+| 1 | 0 | 2 | 3 | 2 |
+| 2 | 0 | 3 | 4 | 2 |
+| 3 | 1 | 4 | 6 | 3 |
+| 4 | 1 | 5 | 7 | 3 |
+| 5 | 1 | 6 | 9 | 4 |
+| 6 | 1 | 7 | 10 | 4 |
+| 7 | 2 | 8 | 12 | 5 |
+| 8 | 2 | 9 | 13 | 5 |
+| 9 | 2 | 10 | 15 | 6 |
+| 10 | 2 | 12 | 18 | 7 |
 
 ## Cleric
 
 Roles: Healing and Support
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -1994,7 +1662,7 @@ Roles: Healing and Support
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Divine Magic</td>
+>     <td>Magic</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -2033,7 +1701,7 @@ Roles: Healing and Support
 
 #### Spellcasting
 
-The Cleric performs pure, otherworldly magic using the Divine Magic skill.
+The Cleric performs pure, otherworldly magic using the Magic skill.
 
 - Can cast Divine Cantrips.
 
@@ -2053,7 +1721,7 @@ The cleric's powers are directly related to the domain – the main themes and p
 
 Choose one domain. According to your choice, a specific damage type will be used in different spells and features:
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -2095,16 +1763,16 @@ Choose one domain. According to your choice, a specific damage type will be used
 
 #### Level 1: Blessed Strike
 
-Your Melee Strikes are blessed by the divine. When you perform a Melee Strike using a one-handed weapon, you may use your Divine Magic bonus for the roll instead of your Melee Strike bonus. You may choose to deal Radiant or your Domain damage instead of the weapon’s damage type.
+Your Melee Strikes are blessed by the divine. When you perform a Melee Strike using a one-handed weapon, you may use your Magic bonus for the roll instead of your Melee bonus. You may choose to deal Radiant or your Domain damage instead of the weapon’s damage type.
 
 #### Level 1: Prayer
 
 You utter a powerful, one word prayer in combat, using a resource called Faith. You start each combat with 1 Faith. You gain 1 Faith every time you perform an action.
 Different prayers have different Faith costs. You unlock Prayer options as you level up, as shown in the Prayer Options section below.
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -2204,7 +1872,7 @@ Casting Thaumaturgy requires no time or effort, and you may do so any time you c
   </tr>
 </table>
 
-When an enemy attacks you, you may spend 1 Instinct and 1 Spell Point. Roll Divine Magic against Will.
+When an enemy attacks you, you may spend 1 Instinct and 1 Spell Point. Roll Magic against Will.
 
 On success, they must choose a different valid target or cancel their attack. This effect doesn't work against enemies that are immune to the frightened condition.
 
@@ -2216,7 +1884,7 @@ You also get 1 temporary Spell Point at the start of each combat. You can only u
 
 <table>
   <tr>
-    <td>Command<br>Divine<br>Level 3 ◆ Costs 1+<br>Fast Action<br>Range: 10 Units<br>You tether your mind with that of a creature you can see within range. Roll Divine Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br>- 1 Success die: choose one of the following:<br>  - Halt: the target must stay in place and loses all Instinct for this round.<br>  - Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.<br>- 2 Success dice: choose any previous option, or one of the following:<br>  - Grovel: the target immediately becomes Prone and doesn't do anything else this round.<br>  - Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.<br>- 3+ Success dice: choose any previous option, or one of the following:<br>  - Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.<br>  - Flee the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</td>
+    <td>Command<br>Divine<br>Level 3 ◆ Costs 1+<br>Fast Action<br>Range: 10 Units<br>You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br>- 1 Success die: choose one of the following:<br>  - Halt: the target must stay in place and loses all Instinct for this round.<br>  - Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.<br>- 2 Success dice: choose any previous option, or one of the following:<br>  - Grovel: the target immediately becomes Prone and doesn't do anything else this round.<br>  - Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.<br>- 3+ Success dice: choose any previous option, or one of the following:<br>  - Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.<br>  - Flee the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</td>
   </tr>
   <tr>
     <td>You may spend additional Spell Points as you cast this spell. For every 2 additional Spell Points, choose one more target. You may choose a different option for it.</td>
@@ -2251,96 +1919,27 @@ You learn the Cure spell. If you already knew it before, you learn another Divin
 
 When you cast Cure normally as a fast action, you may heal two targets, as if you've cast it as a slow, interruptible action.
 
-### Resource Progression Table
+### Resource / Spell Progression Table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td>Level</td>
->     <td>Instinct</td>
->     <td>Spell Points</td>
->     <td>Spells Known</td>
->     <td>Cantrips Known</td>
->   </tr>
->   <tr>
->     <td>1</td>
->     <td>0</td>
->     <td>3</td>
->     <td>3</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>2</td>
->     <td>0</td>
->     <td>4</td>
->     <td>4</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>3</td>
->     <td>1</td>
->     <td>5</td>
->     <td>6</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>4</td>
->     <td>1</td>
->     <td>6</td>
->     <td>7</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>5</td>
->     <td>1</td>
->     <td>7</td>
->     <td>9</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>6</td>
->     <td>1</td>
->     <td>8</td>
->     <td>10</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>7</td>
->     <td>2</td>
->     <td>9</td>
->     <td>12</td>
->     <td>6</td>
->   </tr>
->   <tr>
->     <td>8</td>
->     <td>2</td>
->     <td>10</td>
->     <td>13</td>
->     <td>7</td>
->   </tr>
->   <tr>
->     <td>9</td>
->     <td>2</td>
->     <td>11</td>
->     <td>15</td>
->     <td>8</td>
->   </tr>
->   <tr>
->     <td>10</td>
->     <td>2</td>
->     <td>12</td>
->     <td>18</td>
->     <td>9</td>
->   </tr>
-> </table>
+| Level | Instinct | Spell Points | Spells Known | Cantrips Known |
+| --- | --- | --- | --- | --- |
+| 1 | 0 | 3 | 3 | 3 |
+| 2 | 0 | 4 | 4 | 3 |
+| 3 | 1 | 5 | 6 | 4 |
+| 4 | 1 | 6 | 7 | 4 |
+| 5 | 1 | 7 | 9 | 5 |
+| 6 | 1 | 8 | 10 | 5 |
+| 7 | 2 | 9 | 12 | 6 |
+| 8 | 2 | 10 | 13 | 7 |
+| 9 | 2 | 11 | 15 | 8 |
+| 10 | 2 | 12 | 18 | 9 |
 
 ## Druid
 
 Main Roles: Support, Control, Utility, Summoning
 Secondary: Healing
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -2377,7 +1976,7 @@ Secondary: Healing
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Nature Magic</td>
+>     <td>Magic</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -2412,7 +2011,7 @@ Secondary: Healing
 
 #### Spellcasting
 
-The Druid connects with nature to perform magic using the Nature Magic skill.
+The Druid connects with nature to perform magic using the Magic skill.
 
 - Can cast Nature Cantrips.
 
@@ -2440,9 +2039,9 @@ You gain the following Instinct ability:
   </tr>
 </table>
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -2457,7 +2056,7 @@ You gain the following Instinct ability:
 >     <td>Fast Action</td>
 >   </tr>
 >   <tr>
->     <td>Strike an enemy within melee range. Roll Nature Magic against Deflection.<br>On success, deal SD damage.<br>The damage type is appropriate to the animal form (bludgeoning, piercing, or slashing). Deal -1 damage if you are Small.<br>On success, if you roll a double 6, activate the effect associated with your chosen animal form.</td>
+>     <td>Strike an enemy within melee range. Roll Magic against Deflection.<br>On success, deal SD damage.<br>The damage type is appropriate to the animal form (bludgeoning, piercing, or slashing). Deal -1 damage if you are Small.<br>On success, if you roll a double 6, activate the effect associated with your chosen animal form.</td>
 >   </tr>
 > </table>
 
@@ -2539,7 +2138,7 @@ Roles: Combatant
 
 Secondary Roles: Healing and Support
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -2584,7 +2183,7 @@ Secondary Roles: Healing and Support
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Melee Strike</td>
+>     <td>Melee</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -2633,9 +2232,9 @@ You have a pool of 3 devotion points. You may spend them to power certain abilit
 
 You get the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -2658,9 +2257,9 @@ You get the following action:
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -2734,9 +2333,8 @@ You gain the following Instinct ability:
 
 You gain the following action:
 
-> **Text box**
->
-> fa
+
+
 >
 > <table>
 >   <tr>
@@ -2803,78 +2401,20 @@ You gain the following options to the Rally feature. Decrees require spending de
 
 - Decree of the Fair Fight<br>(2 Devotion Points):<br>"Outnumbering a single opponent is dishonorable."<br>Choose a point within range. Until end of combat, any creature within 10 units of that point that deals damage to a target already damaged by another creature this round loses 2 HP. Swarms and Hordes instead lose 2 hp each time they attack.
 
-### Resource Progression Table
+### Resource / Spell Progression Table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td>Level</td>
->     <td>HP</td>
->     <td>Instinct</td>
->     <td>Devotion Points</td>
->   </tr>
->   <tr>
->     <td>1</td>
->     <td>5</td>
->     <td>0</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>2</td>
->     <td>6</td>
->     <td>0</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>3</td>
->     <td>6</td>
->     <td>1</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>4</td>
->     <td>7</td>
->     <td>1</td>
->     <td>6</td>
->   </tr>
->   <tr>
->     <td>5</td>
->     <td>8</td>
->     <td>1</td>
->     <td>7</td>
->   </tr>
->   <tr>
->     <td>6</td>
->     <td>8</td>
->     <td>1</td>
->     <td>8</td>
->   </tr>
->   <tr>
->     <td>7</td>
->     <td>9</td>
->     <td>2</td>
->     <td>9</td>
->   </tr>
->   <tr>
->     <td>8</td>
->     <td>10</td>
->     <td>2</td>
->     <td>10</td>
->   </tr>
->   <tr>
->     <td>9</td>
->     <td>11</td>
->     <td>2</td>
->     <td>11</td>
->   </tr>
->   <tr>
->     <td>10</td>
->     <td>12</td>
->     <td>2</td>
->     <td>12</td>
->   </tr>
-> </table>
+| Level | HP | Instinct | Devotion Points |
+| --- | --- | --- | --- |
+| 1 | 5 | 0 | 3 |
+| 2 | 6 | 0 | 4 |
+| 3 | 6 | 1 | 5 |
+| 4 | 7 | 1 | 6 |
+| 5 | 8 | 1 | 7 |
+| 6 | 8 | 1 | 8 |
+| 7 | 9 | 2 | 9 |
+| 8 | 10 | 2 | 10 |
+| 9 | 11 | 2 | 11 |
+| 10 | 12 | 2 | 12 |
 
 ## Ranger
 
@@ -2882,7 +2422,7 @@ Roles: Support and Utility
 
 Secondary Role: Damage
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -2923,11 +2463,11 @@ Secondary Role: Damage
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Melee Strike</td>
+>     <td>Melee</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
->     <td>Ranged Strike</td>
+>     <td>Ranged</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -2990,7 +2530,7 @@ At the planning phase of the round, reveal the action of one enemy of the favore
 
 Roles: Damage and Utility
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -3031,7 +2571,7 @@ Roles: Damage and Utility
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Melee Strike</td>
+>     <td>Melee</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -3158,9 +2698,9 @@ When you use Evasive Maneuver, you may also immediately teleport a distance up t
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -3245,7 +2785,7 @@ The following mechanisms can be created using Mechanism Points (MP):
 Main Role: Damage
 Secondary Roles: Combatant / Varies
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -3282,11 +2822,11 @@ Secondary Roles: Combatant / Varies
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Melee Strike</td>
+>     <td>Melee</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
->     <td>Arcane Magic</td>
+>     <td>Magic</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -3317,7 +2857,7 @@ Secondary Roles: Combatant / Varies
 
 #### Spellcasting
 
-You may perform Arcane Magic.
+You may perform Magic.
 
 - You can cast known Arcane cantrips
 
@@ -3359,7 +2899,7 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
 
 Roles: Combatant, Defense, Interruption
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -3404,11 +2944,11 @@ Roles: Combatant, Defense, Interruption
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Melee Strike</td>
+>     <td>Melee</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
->     <td>Unarmed Strike</td>
+>     <td>Unarmed</td>
 >     <td>Adept (4d6)</td>
 >   </tr>
 >   <tr>
@@ -3535,9 +3075,9 @@ Infuse occult magic into your fighting.
 
 #### Level 3: Occult Spellcasting
 
-You are Expert (5d6) in Occult Magic.
+You are Expert (5d6) in Magic.
 
-You can use the Occult Magic skill to:
+You can use the Magic skill to:
 
 - Can cast Occult Cantrips.
 
@@ -3572,9 +3112,9 @@ One minute after drinking a potion, you get advantage on the first Melee Strike 
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -3595,7 +3135,7 @@ You gain the following action:
 Role: Control, Summoning
 Secondary Role: Support
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -3628,7 +3168,7 @@ Secondary Role: Support
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Occult Magic</td>
+>     <td>Magic</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -3655,7 +3195,7 @@ Secondary Role: Support
 
 #### Spellcasting
 
-The Witch performs vile chants and gestures to perform dark magic using the Occult Magic skill.
+The Witch performs vile chants and gestures to perform dark magic using the Magic skill.
 
 - Can cast Occult Cantrips.
 
@@ -3696,85 +3236,27 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
 
 - Still Mind: When you are attacked, gain +1 Will against the attack.
 
-### Spell Progression Table
+### Resource / Spell Progression Table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td>Level</td>
->     <td>Spell Points</td>
->     <td>Spells Known</td>
->     <td>Cantrips Known</td>
->   </tr>
->   <tr>
->     <td>1</td>
->     <td>4</td>
->     <td>4</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>2</td>
->     <td>5</td>
->     <td>5</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>3</td>
->     <td>7</td>
->     <td>7</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>4</td>
->     <td>8</td>
->     <td>8</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>5</td>
->     <td>10</td>
->     <td>10</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>6</td>
->     <td>11</td>
->     <td>11</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>7</td>
->     <td>13</td>
->     <td>13</td>
->     <td>6</td>
->   </tr>
->   <tr>
->     <td>8</td>
->     <td>14</td>
->     <td>14</td>
->     <td>7</td>
->   </tr>
->   <tr>
->     <td>9</td>
->     <td>16</td>
->     <td>16</td>
->     <td>8</td>
->   </tr>
->   <tr>
->     <td>10</td>
->     <td>18</td>
->     <td>20</td>
->     <td>9</td>
->   </tr>
-> </table>
+| Level | Spell Points | Spells Known | Cantrips Known |
+| --- | --- | --- | --- |
+| 1 | 4 | 4 | 3 |
+| 2 | 5 | 5 | 3 |
+| 3 | 7 | 7 | 4 |
+| 4 | 8 | 8 | 4 |
+| 5 | 10 | 10 | 5 |
+| 6 | 11 | 11 | 5 |
+| 7 | 13 | 13 | 6 |
+| 8 | 14 | 14 | 7 |
+| 9 | 16 | 16 | 8 |
+| 10 | 18 | 20 | 9 |
 
 ## Wizard
 
 Main Role: Damage
 Secondary Roles: Varies
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -3807,7 +3289,7 @@ Secondary Roles: Varies
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Arcane Magic</td>
+>     <td>Magic</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -3838,7 +3320,7 @@ Secondary Roles: Varies
 
 #### Level 1: Spellcasting
 
-The Wizard performs arcane chants and gestures to perform magic using the Arcane Magic skill.
+The Wizard performs arcane chants and gestures to perform magic using the Magic skill.
 
 - Can cast Arcane Cantrips.
 
@@ -3954,7 +3436,7 @@ You gain access to Chrono spells. Whenever you learn new spells, including when 
 
 When you gain this feature, choose two Chrono spells to learn.
 
-Use your Arcane Magic skill to cast Chrono spells.
+Use your Magic skill to cast Chrono spells.
 
 #### Level 3: Redo
 
@@ -3970,121 +3452,30 @@ If done during combat, this also requires spending 1 Instinct.
 
 <table>
   <tr>
-    <td>Chrono Spells<br>Haste<br>Chrono<br>Level 5 ◆ Costs 4<br>Slow Action ◆ Interruptible<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, the target may commit to two fast actions during the planning phase. If they do, during the action phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.<br>These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other<br>Slow-Motion<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.<br>Temporal Clarity<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.<br>Slow<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Arcane Magic against Fortitude. You get -1 on your roll for each size the creature is larger than Medium.<br>On success, the creature movement is halved, and it gets 1 drag on all actions.<br>If Slow and Haste affect the same creature, both spells immediately dispel each other.<br>Time Detention<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must take the Maintain fast action and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.<br>If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.<br>Stasis<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must spend 1 Instinct at the beginning phase and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.<br>If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.<br>Accelerate Magic<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Choose a non-permanent magical effect within range, such as a spell affecting a <br><br>&lt;!-- page break --&gt;<br><br>creature, object, or area. Reduce its duration by up to 3 rounds.<br>If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.</td>
+    <td>Chrono Spells<br>Haste<br>Chrono<br>Level 5 ◆ Costs 4<br>Slow Action ◆ Interruptible<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, the target may commit to two fast actions during the planning phase. If they do, during the action phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.<br>These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other<br>Slow-Motion<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.<br>Temporal Clarity<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.<br>Slow<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size the creature is larger than Medium.<br>On success, the creature movement is halved, and it gets 1 drag on all actions.<br>If Slow and Haste affect the same creature, both spells immediately dispel each other.<br>Time Detention<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must take the Maintain fast action and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.<br>If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.<br>Stasis<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must spend 1 Instinct at the beginning phase and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.<br>If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.<br>Accelerate Magic<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Choose a non-permanent magical effect within range, such as a spell affecting a <br><br>&lt;!-- page break --&gt;<br><br>creature, object, or area. Reduce its duration by up to 3 rounds.<br>If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.</td>
   </tr>
 </table>
 
-### Resource Progression Table
+### Resource / Spell Progression Table
 
-> **Text box**
->
-> <table>
->   <tr>
->     <td>Level</td>
->     <td>HP</td>
->     <td>Instinct</td>
->     <td>Spell Points</td>
->     <td>Maximum Arcane Spells Rank</td>
->     <td>Arcane Spells Known</td>
->     <td>Arcane Cantrips Known</td>
->   </tr>
->   <tr>
->     <td>1</td>
->     <td>5</td>
->     <td>0</td>
->     <td>4</td>
->     <td>Rank 1</td>
->     <td>4</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>2</td>
->     <td>5</td>
->     <td>0</td>
->     <td>5</td>
->     <td>Rank 1</td>
->     <td>5</td>
->     <td>3</td>
->   </tr>
->   <tr>
->     <td>3</td>
->     <td>6</td>
->     <td>1</td>
->     <td>6</td>
->     <td>Rank 2</td>
->     <td>7</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>4</td>
->     <td>6</td>
->     <td>1</td>
->     <td>7</td>
->     <td>Rank 2</td>
->     <td>9</td>
->     <td>4</td>
->   </tr>
->   <tr>
->     <td>5</td>
->     <td>7</td>
->     <td>1</td>
->     <td>9</td>
->     <td>Rank 3</td>
->     <td>11</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>6</td>
->     <td>7</td>
->     <td>1</td>
->     <td>10</td>
->     <td>Rank 3</td>
->     <td>13</td>
->     <td>5</td>
->   </tr>
->   <tr>
->     <td>7</td>
->     <td>8</td>
->     <td>2</td>
->     <td>12</td>
->     <td>Rank 4</td>
->     <td>15</td>
->     <td>6</td>
->   </tr>
->   <tr>
->     <td>8</td>
->     <td>8</td>
->     <td>2</td>
->     <td>13</td>
->     <td>Rank 4</td>
->     <td>17</td>
->     <td>7</td>
->   </tr>
->   <tr>
->     <td>9</td>
->     <td>9</td>
->     <td>2</td>
->     <td>15</td>
->     <td>Rank 5</td>
->     <td>20</td>
->     <td>8</td>
->   </tr>
->   <tr>
->     <td>10</td>
->     <td>10</td>
->     <td>2</td>
->     <td>17</td>
->     <td>Rank 5</td>
->     <td>24</td>
->     <td>9</td>
->   </tr>
-> </table>
+| Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | 5 | 0 | 4 | 4 | 3 | Rank 1 |
+| 2 | 5 | 0 | 5 | 5 | 3 | Rank 1 |
+| 3 | 6 | 1 | 6 | 7 | 4 | Rank 2 |
+| 4 | 6 | 1 | 7 | 9 | 4 | Rank 2 |
+| 5 | 7 | 1 | 9 | 11 | 5 | Rank 3 |
+| 6 | 7 | 1 | 10 | 13 | 5 | Rank 3 |
+| 7 | 8 | 2 | 12 | 15 | 6 | Rank 4 |
+| 8 | 8 | 2 | 13 | 17 | 7 | Rank 4 |
+| 9 | 9 | 2 | 15 | 20 | 8 | Rank 5 |
+| 10 | 10 | 2 | 17 | 24 | 9 | Rank 5 |
 
 ## Zephyr
 
 Role: Combatant, Interruption
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -4117,7 +3508,7 @@ Role: Combatant, Interruption
 >     <td colspan="2">Combat Skills</td>
 >   </tr>
 >   <tr>
->     <td>Unarmed Strike</td>
+>     <td>Unarmed</td>
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
@@ -4140,7 +3531,7 @@ Role: Combatant, Interruption
 >   </tr>
 > </table>
 >
-> fa
+
 
 ### Zephyr Features
 
@@ -4148,7 +3539,7 @@ Role: Combatant, Interruption
 
 - Deal +1 damage with Unarmed Strikes and Melee Strikes using daggers.
 
-- You may roll with the Unarmed Strike skill when you perform a Melee Strike with daggers and quarterstaffs.
+- You may roll with the Unarmed skill when you perform a Melee Strike with daggers and quarterstaffs.
 
 #### Level 1: Wind Walk
 
@@ -4170,7 +3561,7 @@ You start each combat in Momentum tier 1.
 
 Whenever you finish your turn, if you've moved at least 4 units, you gain 1 tier of Momentum (maximum tier 3).
 
-When combat starts and whenever you gain a tier, roll Unarmed Strike to determine the additional benefit you get from your new tier. See the table at the bottom.
+When combat starts and whenever you gain a tier, roll Unarmed to determine the additional benefit you get from your new tier. See the table at the bottom.
 
 Whenever you receive damage, you lose one tier (minimum tier 1). All associated benefits of the tier you lost are lost as well.
 
@@ -4178,7 +3569,7 @@ Whenever you receive damage, you lose one tier (minimum tier 1). All associated 
 
 When you get the Shadow Clone benefit, you immediately create a clone of yourself in a nearby location that is closest to you. The clone is a separate actor you control in a similar manner.
 
-> **Text box**
+
 >
 > Momentum Tiers Table
 >
@@ -4213,12 +3604,12 @@ When you get the Shadow Clone benefit, you immediately create a clone of yoursel
 >   </tr>
 > </table>
 
-The clone shares your Movement score and your Unarmed Strike bonus. The clone can only perform Unarmed Strike, dealing the same damage as you normally deal. It doesn't get the Strike damage benefit from Momentum. The Shadow Clone cannot be affected or damaged.
+The clone shares your Movement score and your Unarmed bonus. The clone can only perform Unarmed Strike, dealing the same damage as you normally deal. It doesn't get the Strike damage benefit from Momentum. The Shadow Clone cannot be affected or damaged.
 If you lose the ability or become unconscious, or if the clone moved less than 4 units in a turn, the clone dissipates.
 
 ##### Whirlwind
 
-When you get the Whirlwind benefit, starting next round, at the end of each of your turns, you create a slashing wind around you. Roll Unarmed Strike against Deflection for all enemies that are adjacent to you. Deal 1 slashing damage to each enemy you succeed against.
+When you get the Whirlwind benefit, starting next round, at the end of each of your turns, you create a slashing wind around you. Roll Unarmed against Deflection for all enemies that are adjacent to you. Deal 1 slashing damage to each enemy you succeed against.
 
 ##### Gale
 
@@ -4236,9 +3627,9 @@ Once per turn, when hit with a Ranged Strike or a Weapon Throw, you may change t
 
 You gain the following action:
 
-> **Text box**
+
 >
-> fa
+
 >
 > <table>
 >   <tr>
@@ -4253,7 +3644,7 @@ You gain the following action:
 >     <td>Fast Action</td>
 >   </tr>
 >   <tr>
->     <td>40. Choose a target within one unit of yourself.  If it's an enemy, roll Unarmed Strike against Deflection. On success, you push or pull that target up to 3 units. You may make the push or pull as forceful (if the target is pushed or pulled against a surface, they receive 1 damage. If they are pushed or pulled against another creature, they both receive 1 damage).&lt;br&gt;The target must be up to one size larger than you.</td>
+>     <td>40. Choose a target within one unit of yourself.  If it's an enemy, roll Unarmed against Deflection. On success, you push or pull that target up to 3 units. You may make the push or pull as forceful (if the target is pushed or pulled against a surface, they receive 1 damage. If they are pushed or pulled against another creature, they both receive 1 damage).&lt;br&gt;The target must be up to one size larger than you.</td>
 >   </tr>
 > </table>
 
@@ -4264,32 +3655,17 @@ You gain the following action:
 ### Ferocious
 
 You gain the following Instinct ability:
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Strike True (1 / Day): When you perform Melee Strike, Unarmed Strike, Ranged Strike, or Weapon Throw, roll with advantage.</td>
-  </tr>
-</table>
+Strike True (1 / Day): When you perform Melee Strike, Unarmed Strike, Ranged Strike, or Weapon Throw, roll with advantage.
 
 ### Focused
 
 You gain the following Instinct ability:
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Cast Marvelously (1 / Day): When you perform Cast a Cantrip, Cast a Spell, or Throw Bomb, roll with advantage.</td>
-  </tr>
-</table>
+Cast Marvelously (1 / Day): When you perform Cast a Cantrip, Cast a Spell, or Throw Bomb, roll with advantage.
 
 ### Inspired
 
 You gain the following Instinct ability:
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Become Inspired (2 / Day): When you roll using a standard skill, roll with advantage. Can be used outside of combat.</td>
-  </tr>
-</table>
+Become Inspired (1 / Day): When you roll using a standard skill, roll with advantage. Can be used outside of combat.
 
 ### Light Armor Proficiency
 
@@ -4315,197 +3691,176 @@ You ignore the Drag of the Ranged weapon property.
 
 You are Adept (4d6) in one crafting skill of your choice.
 
-### Skill Training
+### Skilled
 
-You are Adept (4d6) in one standard skill of your choice.
+You are Adept (4d6) in two standard skills of your choice from different categories.
+
+### Tough
+
+Your maximum HP is increased by half your level, rounded down (minimum 1 HP). Recalculate this bonus whenever your level increases.
 
 ## Minor Feats
 
 ### Actor
 
-Requirements: Trained in Deception or Performance + Trained in Disguise
+**Requirements:** Trained in Deception or Performance + Trained in Disguise
 
-While you're disguised as a real or fictional person, you have Advantage on Deception or Performance rolls to convince others that you are that person.[comment 11]
+While you're disguised as a real or fictional person, you have Advantage on Deception or Performance rolls to convince others that you are that person.
 
 ### Arcane Detection
 
-Requirements: Level 2, Trained in Arcana
+**Requirements:** Level 2, Trained in Arcana
 
-You may perform the Detect Magic action even if you don't have training in any Magic skill. You may only decipher the specifics of Arcane magic, as if you were trained in Arcane Magic skill (If you are already trained in Magic skill that is not Arcane Magic, you may now also decipher the specifics of Arcane Magic).
+You may use Detect Magic even if you are not trained in Magic. When you do, treat the effect as Arcane for determining which magical properties you can discern.
 
 ### Assist in Recovery
 
-Requirements: Trained in Medicine
+**Requirements:** Trained in Medicine
 
-On long rests, choose one ally (or yourself). The chosen ally recovers two levels of exhaustion instead of one. The number of chosen allies increases according to your training level: two 
+On long rests, choose one ally (or yourself). The chosen ally recovers two levels of exhaustion instead of one. The number of chosen allies increases according to your Medicine training level: two for Expert, three for Master, five for Grandmaster, eight for Legend.
 
-<!-- page break -->
+### Assurance
 
-for Expert, three for Master, five for Grandmaster, eight for Legend.
-
-### Assurance[comment 12]
-
-Requirements: Level 2
+**Requirements:** Level 2
 
 Choose one skill you are trained in. When you roll for a roll using this skill, you may instead forgo the roll and choose to get 2 Success Dice instead.
+**Repeatable:** you may choose this feat additional times. Choose a different skill each time you do.
 
-Repeatable: you may choose this feat additional times. Choose a different skill each time you do.
 
 ### Cling to Life
 
-Requirements: Level 2
+**Requirements:** Level 2
 
 When you become dying, you die when you get 3 death rolls failures instead of 2.
 
 ### Communicator
 
-Requirements: Trained in Diplomacy or Politics
+**Requirements:** Trained in Diplomacy or Politics
 
 Learn two non-exotic languages.
 
 ### Courageous Leader
 
-Requirements: Level 2, Trained in Leadership
+**Requirements:** Level 2, Trained in Leadership
 
 You gain the following Instinct ability:
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Instill Courage: At any point during the action phase, choose an ally within range. Roll Leadership. Shorten the duration of the frightened and discouraged conditions that affect them by 1 round for each SD you rolled.</td>
-  </tr>
-</table>
+Instinct AbilitiesInstill Courage: At any point during the action phase, choose an ally within range. Roll Leadership. Shorten the duration of the frightened and discouraged conditions that affect them by 1 round for each SD you rolled.
 
 ### Deep Sleep
 
-Requirements: Level 2
+**Requirements:** Level 2
 
 Long rest removes two levels of exhaustion instead of one.
 
 ### Demoralize
 
-Requirements: Level 2, Trained in Intimidation
+**Requirements:** Level 2, Trained in Intimidation
 
 You gain the following Instinct abilities:
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Demoralize: At the beginning phase of the round, choose an enemy within 6 units of you. Roll Intimidate against Will. On success, they are discouraged SD until the end of the round. You can’t choose the same enemy more than once in the same combat.</td>
-  </tr>
-</table>
+Instinct AbilitiesDemoralize: At the beginning phase of the round, choose an enemy within 6 units of you. Roll Intimidate against Will. On success, they are discouraged SD until the end of the round. You can’t choose the same enemy more than once in the same combat.
 
 ### Expert Melee Training
 
-Requirements: Level 2
+**Requirements:** Level 2
 
-You are Expert (5d6) in Melee Strike.
+You are Expert (5d6) in Melee.
 
 ### Expert Ranged Training
 
-Requirements: Level 2
+**Requirements:** Level 2
 
-You are Expert (5d6) in Ranged Strike.
+You are Expert (5d6) in Ranged.
 
 ### Expert Unarmed Training
 
-Requirements: Level 2
+**Requirements:** Level 2
 
-You are Expert (5d6) in Unarmed Strike.
+You are Expert (5d6) in Unarmed.
 
 ### Expert Weapon Throw Training
 
-Requirements: Level 2
+**Requirements:** Level 2
 
 You are Expert (5d6) in Weapon Throw.
 
 ### Field Medicine
 
-Requirements: Trained in Survival
+**Requirements:** Trained in Survival
 
 You may use Survival instead of Medicine to stabilize a dying character.
 
 ### Jumpstart
 
-Requirements: Level 2, Trained in Acrobatics
+**Requirements:** Level 2, Trained in Acrobatics
 
 You may get up from being prone as 1 unit movement instead of half (rounded up) your Movement score.
 
 ### Lie Detector
 
-Requirements: Trained in Deception
+**Requirements:** Trained in Deception
 
 You may use Deception, instead of Insight, to determine whether someone lies. (It doesn't replace other uses of Insight, such as deeper understanding of emotions)
 
 ### Natural Medicine
 
-Requirements: Trained in Nature
+**Requirements:** Trained in Nature
 
 You may use Nature instead of Medicine to stabilize a dying character.
 
 ### Noble Mannerism
 
-Requirements: Trained in Politics
+**Requirements:** Trained in Politics
 
 People assume you are a noble (unless you do something that gives away that you might not be one).
 
 ### Pet
 
 You have a small pet. It doesn't participate in combat. It has 1 Deflection and 2 HP. It listens to you and follows your orders, unless they are obviously harmful to it. It can't deal any damage to others.
-
 At any time, you may adopt another pet to replace the one you have (or if it died).
 
 ### Potion Chugger
 
-Requirements: Level 2
+**Requirements:** Level 2
 
 You gain the following Instinct ability:
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Chug Potion: At any time within the action phase of the round, drink a potion.</td>
-  </tr>
-</table>
+Instinct AbilitiesChug Potion: At any time within the action phase of the round, drink a potion.
 
 ### Push Through Pain
 
-Requirements: Level 2
+**Requirements:** Level 2
 
 You gain the following Instinct ability:
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Push Through (1 / Day): At any time during the action phase of the round, roll 4d6 and heal SD.</td>
-  </tr>
-</table>
+Instinct AbilitiesPush Through (1 / Day): At any time during the action phase of the round, roll 4d6 and heal SD.
 
 ### Secret Languages
 
-Requirements: Level 2, Trained in History or Religion
+**Requirements:** Level 2, Trained in Arcana, History or Religion
 
 Learn two exotic languages.
 
 ### Skill Training
 
-Requirements: Level 2
+**Requirements:** Level 2
 
 You are Adept (4d6) in one standard skill of your choice.
+**Repeatable:** you may choose this feat additional times. Choose a different skill each time you do.
 
-Repeatable: you may choose this feat additional times. Choose a different skill each time you do.
 
 ### Sprinter
 
-Requirements: Level 2, Trained in Athletics
+**Requirements:** Level 2, Trained in Athletics
 
 You get +1 Movement when you take the Dash or Charge actions.
 
 ### Tool Handler
 
 You are proficient with two selected tools of your choice.
+**Repeatable:** you may choose this feat additional times. Choose a additional tools each time you do.
 
-Repeatable: you may choose this feat additional times. Choose a additional tools each time you do.
 
 ### Train Wild Animal
 
-Requirements: Trained in Animal Handling
+**Requirements:** Trained in Animal Handling
 
 You may attempt to train a wild animal to be your temporary pet. If you are Trained in Nature, you may roll both Animal Handling and Nature and add the Success Dice together. If you also have the Pet minor feat, you may make it your permanent pet if it meets the requirements of a pet under the Pet feat.
 
@@ -4573,7 +3928,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 
 ### Weapons Table
 
-> **Text box**
+
 >
 > <table>
 >   <tr>
@@ -4835,7 +4190,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 
 ## Armor
 
-> **Text box**
+
 >
 > ### Armor Table
 >
@@ -4981,63 +4336,40 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 #### Cantrips
 
 - Elemental Flare
-
 - Light
-
 - Mage Hand
-
 - Magic Tricks
-
+- Mending
 - Message
-
 - Minor Illusion
-
 - Minor Ward
-
 - Thunder Fist
-
 - Thunder Wave
 
 #### Level 1 Spells
 
 - Arcane Shield
-
 - Burning Hands
-
+- Detect Magic
 - Elemental Pulse
-
+- Resistance
 - Elemental Weapon
-
 - Ice Knife
-
 - Lightning Bolt
-
 - Magic Missile
-
-- Mind Spike
-
 - Scorching Rays
 
 #### Level 3 Spells
 
 - Burning Ground
-
 - Comprehend Languages
-
 - Glacial Spike
-
 - Hellfire
-
 - Ice Prison
-
 - Ice Scythe
-
 - Icy Ground
-
 - Invisibility
-
 - Lightning Coil
-
 - Sleep
 
 ### Bardic Spells
@@ -5045,188 +4377,191 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 #### Cantrips
 
 - Light
-
 - Message
-
+- Mind Blast
 - Minor Illusion
-
 - Minor Ward
-
 - Thunder Fist
-
 - Thunder Wave
 
 #### Level 1 Spells
 
-- Animal Messenger
-
+- Animal messenger
+- Aura of Truth
 - Cure
-
+- Detect Magic
 - Dissonant Whispers
-
 - Gullibility
-
-- Mind Spike
-
+- Pacify
 - Rainbow Eruption
+- Restoration
 
 #### Level 3 Spells
 
 - Burrowed Knowledge
-
 - Comprehend Languages
-
 - Invisibility
-
 - Life Giving
-
 - Nature Spirit
-
 - Silence
-
 - Sleep
 
 ### Divine Spells
 
 #### Cantrips
 
-- Divine Guidance
-
 - Light
-
+- Mending
+- Message
 - Minor Ward
-
 - Radiant Beam
-
+- Enhanced Vitality
 - Thaumaturgy
+- Thunder Fist
+- Thunder Wave
 
 #### Level 1 Spells
 
+- Aura of Truth
 - Blessed Weapon
-
 - Cure
-
+- Detect Magic
 - Divine Interference
-
+- Resistance
 - Healing Touch
-
+- Pacify
+- Protection from Evil and Good
+- Restoration
 - Sanctuary
-
 - Shield of Faith
 
 #### Level 3 Spells
 
 - Burrowed Knowledge
-
+- Command
 - Comprehend Languages
-
 - Heavenly Strike
-
 - Life Giving
-
 - Protective Circle
-
 - Silence
 
 ### Nature Spells
 
 #### Cantrips
 
+- Acid Spray
 - Light
-
 - Minor Ward
-
 - Mold Earth
-
-- Natural Guidance
-
 - Speak with Animals
-
+- Enhanced Vitality
 - Thunder Fist
-
 - Thunder Wave
-
 - Vine Whip
 
 #### Level 1 Spells
 
-- Animal Messenger
-
+- Animal messenger
 - Cure
-
+- Detect Magic
+- Resistance
 - Entangle
-
 - Goodberry
-
 - Guardian Tree
-
 - Healing Touch
-
 - Rainbow Eruption
-
+- Restoration
 - Summon Beast
-
 - Windsurf
 
 #### Level 3 Spells
 
 - Life Giving
-
+- Nature Spirit
 - Nature Wall
-
 - Poison Cloud
-
 - Sleep
-
 - Spike Growth
-
 - Vine Knot
 
 ### Occult Spells
 
 #### Cantrips
 
-- Minor Illusion
-
-- Minor Ward
-
+- Acid Spray
+- Life Drain
 - Message
-
+- Mind Blast
+- Minor Illusion
+- Minor Ward
 - Necrotic Bolt
-
 - Touch of Decay
 
 #### Level 1 Spells
 
 - Bestow Curse
-
+- Detect Magic
 - Dissonant Whispers
-
 - Eldritch Shield
-
 - Gullibility
-
 - Hex
-
 - Leech
-
-- Mind Spike
-
 - Summon Shade
 
 #### Level 3 Spells
 
 - Burrowed Knowledge
-
 - Comprehend Languages
-
 - Invisibility
-
+- Poison Cloud
 - Silence
-
 - Sleep
 
+### Chrono Spells
+
+#### Level 3 Spells
+
+- Slow
+- Slow-Motion
+- Time Detention
+
+#### Level 5 Spells
+
+- Accelerate Magic
+- Haste
+- Stasis
+- Temporal Clarity
+
 ## Spell Descriptions
+
+### Accelerate Magic
+
+Chrono
+
+Level 5 ◆ Cost: 4
+
+Fast Action
+
+Range: 10 Units
+
+Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.
+
+If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.
+
+### Acid Spray
+
+Nature, Occult
+
+Cantrip
+
+Average Action
+
+Range: 6 Units
+
+Spray acid at a creature you can see within range.
+Roll Magic +2 against Deflection.
+On success, deal SD Acid damage, and the target becomes weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage.
+If you roll a double six, the target becomes weakened 2 instead.
 
 ### Animal messenger
 
@@ -5234,14 +4569,12 @@ Bardic, Nature
 
 Level 1 ◆ Cost: 1
 
-Casting time: 1 minute
+Casting time: Casting time: 1 minute
 
 Range: 15 units ◆ Duration: 24 hours
 
-Choose a tiny beast you can see within range. Roll Magic -1 against Will. On success, it attempts to deliver a message for you. You automatically fail if the creature is openly hostile towards you.
-
+Choose a tiny beast you can see within range. Roll Magic against Will. On success, it attempts to deliver a message for you. You automatically fail if the creature is openly hostile towards you.
 You specify a location you have visited and a recipient who matches a general description, such as "a person dressed in the uniform of the town guard" or "a red-haired dwarf wearing a pointed hat." You also communicate a message of up to twenty-five words. The Beast travels for the duration toward the specified location, covering about 25 miles per 24 hours or 50 miles if the Beast can fly.
-
 When the Beast arrives, it delivers your message to the creature that you described, mimicking your communication. If the Beast doesn't reach its destination before the spell ends, the message is lost, and the Beast returns to where you cast the spell.
 
 Empowered Spell: The spell's duration increases by 48 hours for each two additional spell points spent.
@@ -5250,17 +4583,46 @@ Empowered Spell: The spell's duration increases by 48 hours for each two additio
 
 Arcane
 
-Level 1 ◆ Costs 1+
+Level 1 ◆ Cost: 1+
+
+Casting time: Instinct
+
+Range: Self ◆ Duration: end of current round
+
+Until the end of the round, you get +2 Deflection and immune to the Magic Missile spell.
+
+For every 2 additional Spell Points spent, you get an additional +1 Deflection.
+
+### Aura of Truth
+
+Bardic, Divine
+
+Level 1 ◆ Cost: 1 SP
 
 Fast Action
 
-Range: Self ◆ Duration: end of next round
+Range: Self ◆ Duration: 10 minutes ◆ Area: 3-unit radius
 
-You get +2 Deflection for the duration. You are also immune to one Magic Missile.
+Roll Magic against Will
 
-Successfully casting a cantrip, casting a spell, or performing any kind of strike ends this spell.
+You emanate a 3-unit-radius aura for the duration. When a creature first enters the aura, including any creature already inside it when the spell is cast, roll Magic against its Will. On success, that creature cannot tell a deliberate lie while inside the aura for the rest of the spell's duration. You know whether you succeeded against each creature. The roll occurs only once per creature for each casting.
 
-You may pay additional Spell Points to cast the spell, raising the number of Magic Missiles you are immune to by one for each additional point you pay.
+### Bestow Curse
+
+Occult
+
+Level 1 ◆ Cost: 1+
+
+Slow Action ◆ Interruptible
+
+Range: 10 Units
+
+Roll Magic against Will. On success, choose two the following modes, or one on failure:
+- They become disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
+- They become slowed 1 (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
+- They become vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
+- They become discouraged 2 (they deal -2 damage) until the end of the next 2 rounds.
+If you roll a double 6, choose an additional mode.
 
 ### Blessed Weapon
 
@@ -5273,8 +4635,7 @@ Fast Action
 Range: 15 units ◆ Duration: 10 minutes
 
 Choose a creature within range. Their weapon is imbued with radiant energy. If you are a cleric, you can instead choose the energy to be the associated element of your domain.
-
-For the duration, they deal +2 damage with strikes using that weapon. The damage type is changed to the chosen energy type.
+For the duration, add +4 to Strike rolls using that weapon. The damage type is changed to the chosen energy type.
 
 Empower Spell: For each additional spell point spent, choose one more creature.
 
@@ -5286,7 +4647,7 @@ Level 3 ◆ Cost: 3
 
 Slow Action ◆ Interruptible
 
-Range: 10 units ◆ Duration: until end of combat
+Range: 10 units ◆ Duration: until end of combat ◆ Area: 4 units cube
 
 Set an area of 4 units cube on magical fire for the duration. When the area first enters the space of a creature, and whenever a creature enters the area or starts their turn there, they get Burning 1 until the end of the round.
 
@@ -5294,21 +4655,21 @@ Set an area of 4 units cube on magical fire for the duration. When the area firs
 
 Arcane
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
 Slow Action ◆ Interruptible
 
 Range: 3 units burst
 
-You unleash a wide flame from your hands. Roll Magic -1 against Deflection for creatures in the area. Those you succeed against take 2 fire damage. The rest take half as much.
+You unleash a wide flame from your hands. Roll Magic against Deflection for creatures in the area. Those you succeed against take 2 fire damage. The rest take half as much.
 
-You may spend additional Spell Points when you cast this spell. For every 2 additional Spell Points spent, you deal +1 damage on success.
+For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.
 
 ### Burrowed Knowledge
 
 Bardic, Divine, Occult
 
-Level 3 ◆ Costs: 2 SP
+Level 3 ◆ Cost: 2 SP
 
 Fast Action
 
@@ -5318,33 +4679,34 @@ Choose a creature within range. It becomes Expert (5d6) in a standard skill of y
 
 Empower Spell: you can increase the duration of this spell to a full day by spending 2 additional SP.
 
-### Bestow Curse
+### Command
 
-Occult
+Divine
 
-Level 1 ◆ Costs 1+
+Level 3 ◆ Cost: 1+
 
-Slow Action ◆ Interruptible
+Fast Action
 
 Range: 10 Units
 
-Roll Magic - 1against Will. On success, choose two the following modes, or one on failure:
+You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.
+1 Success die: choose one of the following:
+Halt: the target must stay in place and loses all Instinct for this round.
+Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.
+2 Success dice: choose any previous option, or one of the following:
+Grovel: the target immediately becomes Prone and doesn't do anything else this round.
+Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.
+3+ Success dice: choose any previous option, or one of the following:
+Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.
+Flee the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.
 
-- They become disoriented (-1 penalty on all rolls) until the end of the next 2 rounds.
-
-- They become slowed (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
-
-- They become vulnerable (-1 to all defenses) until the end of the next 2 rounds.
-
-- They become discouraged (they deal -1 damage) until the end of the next 2 rounds.
-
-On success, if you roll a double 6, choose an additional mode.
+You may spend 2 additional Spell Points per additional target; each target may receive a different command.
 
 ### Comprehend Languages
 
 Arcane, Bardic, Divine, Occult
 
-Level 3 ◆ Costs: 2 SP
+Level 3 ◆ Cost: 2 SP
 
 Slow Action ◆ Interruptible
 
@@ -5354,79 +4716,69 @@ Choose a willing creature within range. For the duration, it can understand any 
 
 ### Cure
 
-Divine / Nature / Bardic
+Bardic, Divine, Nature
 
-Level 1 ◆ Costs 1+
+Level 1 ◆ Cost: 1+
 
 Fast Action
 
 Range: 10 Units
 
-Choose a target within range. Heal them for 1 HP. If the target is dying, it becomes stabilized. If you cast it using Divine Magic, heal them for 1 additional HP.
+Choose a target within range. Heal them for 1 HP. If the target is dying, it becomes stabilized. If you cast it using Divine tradition, heal them for 2 HP instead.
+You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
 
 You may spend additional Spell Points as you cast this spell. For each additional Spell Point you heal them for 1 more HP.
-You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
+
+### Detect Magic
+
+Arcane, Bardic, Divine, Nature, Occult
+
+Level 1 ◆ Cost: 1 SP
+
+Fast Action
+
+Range: Self ◆ Duration: 10 minutes ◆ Area: 20-unit radius
+
+You attune your senses to magic for the duration. You detect the presence and location of magic within 20 units of you and can identify its tradition. If the magic belongs to a tradition you know, you can also discern some or all of its specific properties, at the GM's discretion.
 
 ### Dissonant Whispers
 
-Occult / Bardic
+Bardic, Occult
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
+
 Average Action
 
 Range: 8 Units
 
-Roll Magic against Will.
-
+Roll Magic +2 against Will.
 You channel psychic disturbance into the mind of a creature you can see within range.
-
-On success, the target takes SD + 1 Psychic damage and becomes disoriented (-1 penalty on all rolls) until the end of the next round and receives. On failure, it takes half the damage, and no additional effect take place.
-
+The target becomes disoriented (-1 penalty on all rolls) until the end of the next round. On success, the target takes SD Psychic damage, or half as much on failure.
 If you roll a double six, the target is also frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
-
-### Divine Guidance
-
-Divine
-
-Cantrip
-
-Average Action
-
-Range: Touch
-
-Choose a target within range. They gain advantage on rolls of: Religion, Speech skills in conversations with religious context, Insight, Medicine, Perception rolls against demons and undead.
-
-The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it.
 
 ### Divine Interference
 
 Divine
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
-Fast Action
+Casting time: Instinct
 
-Range: 15 units
+Range: 15 units ◆ Duration: end of current round
 
-Duration: end of current round
-
-Choose a target within range. They get +1 Deflection until the end of the current round.
+Choose a creature within range. Until the end of the round they get +1 to all defenses and can't become frightened or discouraged.
 
 ### Eldritch Shield
 
 Occult
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
-Fast Action
+Casting time: Instinct
 
-Range: Self ◆ Duration: end of next round
+Range: Self
 
 Get +1 Deflection. If you are hit by an attack against your Deflection, the enemy that dealt the damage loses 1 HP.
-
-Successfully casting a spell or cantrip while under the effect of this spell ends this spell.
-
-You may cast this spell by spending 1 Instinct when you are attacked, instead of as a fast action. Doing so shortens the duration to the end of the current round.
 
 ### Elemental Flare
 
@@ -5438,32 +4790,27 @@ Average Action
 
 Range: 12 Units
 
-Shoot an elemental flare at a creature within range. Choose its damage type: lightning, fire or ice. Roll Magic against Deflection. On success, deal SD + 1 damage of the chosen type, or half as much on failure.
-
+Shoot an elemental flare at a creature within range. Choose its damage type: lightning, fire or ice. Roll Magic +3 against Deflection. On success, deal SD damage of the chosen type, or half as much on failure.
 If you roll a double six, depending on the damage type, the target also:
-
 - Fire: becomes burning 1 until the end of the round (receive 1 fire damage at the end of the round)
-
 - Lightning: they become disoriented 1 (-1 to all rolls) until the end of the next round
-
 - Ice: they become chilled 2 (-2 Movement) until the end of the next round
 
 ### Elemental Pulse
 
 Arcane
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
 Slow Action ◆ Interruptible
 
-Range: 10 Units
+Range: 10 Units ◆ Area: 2-unit radius
 
 Choose an ally within range or yourself. Choose damage type: fire, ice, or lightning. A pulse of the chosen elemental energy bursts from the chosen target in a 2-unit radius.
-Roll Magic -1 against Deflection for all creatures within the radius (other than the chosen target). Those that you've succeed against take 2 damage; the rest take half the amount of damage.
-
+Roll Magic against Deflection for all creatures within the radius (other than the chosen target). Those that you've succeed against take 2 damage; the rest take half the amount of damage.
 The spell deals 1 less damage if the chosen ally is not yourself.
 
-You may spend additional Spell Points when you cast this spell. For every 2 additional Spell Points spent, you deal +1 damage
+For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.
 
 ### Elemental Weapon
 
@@ -5476,27 +4823,34 @@ Fast Action
 Range: 15 units ◆ Duration: 10 minutes
 
 Choose a creature within range. Their weapon is imbued with an element of your choice: fire, lightning, or ice.
-
-For the duration, they deal +2 damage with strikes using that weapon, and their damage type becomes the chosen type.
+For the duration, add +4 to Strike rolls using that weapon, and their damage type becomes the chosen type.
 
 Empower Spell: For each additional spell point spent, choose one more creature.
+
+### Enhanced Vitality
+
+Divine, Nature
+
+Cantrip
+
+Fast Action
+
+Range: Touch ◆ Duration: until end of combat
+
+In combat, channel a surge of divine vitality into yourself or an ally within range. The target gains 3 temporary HP until the end of combat.
 
 ### Entangle
 
 Nature
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
 Slow Action ◆ Interruptible
 
-Range: 15 units
+Range: 15 units ◆ Duration: 10 minutes ◆ Area: 3 units cube
 
-Area: 3 units cube ◆ Duration: 10 minutes
-
-Vines erupt from the ground, twisting around all who stand in the area. Roll Nature Magic -1 against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes restrained (they can’t move from their place).
-
+Vines erupt from the ground, twisting around all who stand in the area. Roll Magic against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes restrained (they can’t move from their place).
 The affected area is considered difficult terrain for all creatures.
-
 At the beginning phase of each round each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the restrained effect.
 
 ### Glacial Spike
@@ -5510,22 +4864,19 @@ Slow Action ◆ Interruptible
 Range: 10 units
 
 A large spike of ice bursts from the ground, piercing through a creature you can see within range.
+Roll Magic +8 against Deflection (minimum roll of 6).
+On success, deal SD ice or piercing damage, or half as much on failure.
+If you roll a double 6: the creature is slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
 
-Roll Magic against Deflection.
-
-On success, deal SD + 6 ice or piercing damage, or half as much on failure.
-
-On success, if you roll a double 6: the creature is slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
-
-Empower Spell: Deal +1 damage for each extra spell point you spent.
+Empower Spell: Add +2 to the roll for each extra Spell Point you spent.
 
 ### Goodberry
 
 Nature
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
-Special Action
+Special Action (1 minute)
 
 Spend a minute to create three Goodberry fruits. Each fruit can be consumed to heal 1 HP. It also provides enough nutrition for an entire day. Consuming a Goodberry takes one minute (therefore it cannot be consumed in combat). The fruits last only for a day, after which they spoil.
 
@@ -5533,37 +4884,49 @@ Spend a minute to create three Goodberry fruits. Each fruit can be consumed to h
 
 Nature
 
-Level 1 ◆ Costs 1+
+Level 1 ◆ Cost: 1+
 
 Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Duration: 1 day
 
 You cause a large tree to sprout from the ground at a target location. The tree trunk occupies 1 unit. When allies (including you) that are adjacent to the tree are attacked by an attack against deflection, the tree becomes the target instead.
-
 The tree has 0 Deflection and 7 HP. It has weakness to fire damage (takes double damage from fire).
 
-You may spend additional Spell Points when you cast the spell. For each 1 additional point spent, the tree has 3 more HP
+You may spend additional Spell Points when you cast the spell. For each 1 additional point spent, the tree has 3 more HP.
 
 ### Gullibility
 
-Bardic / Occult
+Bardic, Occult
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
 Fast Action
 
-Duration: 5 minutes ◆ Range: 5 Units
+Range: 5 Units ◆ Duration: 5 minutes
 
 Choose a target creature within range that you can see and that can see your face.
-Roll Magic -1 against Will. If you succeed, any Speech skill or Performance roll against the creature made by you or your allies have advantage.
-
+Roll Magic against Will. If you succeed, any Speech skill or Performance roll against the creature made by you or your allies have advantage.
 The target is not aware of the magical effect, even if you failed on the roll.
 They feel unexplained discomfort if the spell was cast using Occult magic, regardless of success.
 
+### Haste
+
+Chrono
+
+Level 5 ◆ Cost: 4
+
+Slow Action ◆ Interruptible
+
+Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+Choose a creature within range. For the duration, the target may commit to two fast actions during the planning phase. If they do, during the action phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.
+
+These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other
+
 ### Healing Touch
 
-Divine / Nature
+Divine, Nature
 
 Level 1 ◆ Cost: 1
 
@@ -5573,7 +4936,6 @@ Range: Touch
 
 Heal a target for 2 HP, or 3 HP if cast with Divine magic.
 Outside of combat, heal the target to its maximum HP.
-
 If the target is dying, it becomes stabilized.
 
 You may spend additional Spell Points when you cast this spell. You heal 2 additional HP for each of those Spell Points.
@@ -5588,26 +4950,21 @@ Fast Action
 
 Range: 6 units
 
-Choose a creature within range. They get 4 Extra Dice on the next Strike they perform until 
-
-<!-- page break -->
-
-the end of the next round. Its damage type can be radiant.
+Choose a creature within range. They get 8 Extra Dice on the next Strike they perform until the end of the next round. Its damage type can be radiant.
 
 ### Hellfire
 
 Arcane
 
-Level 3 ◆ Costs: 3
+Level 3 ◆ Cost: 3
 
 Slow Action ◆ Interruptible
 
 Range: 10 units
 
 Engulf a creature you can see within range in dark flames.
-Roll Magic -1 against Deflection.
-
-On success, apply Burning 4 for three turns. On failure: apply half of the Burning for three turns.
+Roll Magic +4 against Deflection.
+On success, apply Burning 4 for three turns. On failure, apply only half the Burning amount, rounded down.
 
 Empower Spell: for each additional spell point spent, increase Burning by 1.
 
@@ -5615,47 +4972,44 @@ Empower Spell: for each additional spell point spent, increase Burning by 1.
 
 Occult
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
-Fast Action
+Average Action
 
-Range: 10 Units
+Range: 10 Units ◆ Duration: end of the next round
 
-Duration: end of the next round
-
-Choose a creature you can see within range. For the duration, each time the creature takes damage from any Strike or Spell Attack, they also lose 1 life.
+Choose a creature you can see within range. For the duration, each time the creature takes damage, they also lose 2 life.
 
 ### Ice Knife
 
 Arcane
 
-Level 1 ◆ Costs 1+
+Level 1 ◆ Cost: 1+
 
 Slow Action ◆ Interruptible
 
 Range: 10 Units
 
+Roll Magic +4 against Deflection (main target); same roll without this bonus against secondary targets
+
 Launch a large ice shard on a creature within range that you can see.
+Roll Magic +4 against Deflection. On success, deal SD ice or piercing damage, or half as much on failure.
+The shard shatters on impact, sending small ice shards to each enemy within 2 units of the target. Use the same roll, without the +4 main-target bonus, against their Deflection. Enemies you succeed against take 1 ice damage.
 
-Roll Magic against Deflection. On success, deal SD + 2 ice or piercing damage, or half as much on failure.
-
-The shard shatters on impact, sending small ice shards to each enemy within 2 units of the target. Use the same roll against their deflection. Enemies you succeed against take 1 ice damage.
-
-You may spend additional Spell Points when you cast this spell. For every additional Spell Point spent, you deal +1 damage to the main target.
+For every additional Spell Point spent, add +2 to the roll against the main target only.
 
 ### Ice Prison
 
 Arcane
 
-Level 3 ◆ Costs: 3
+Level 3 ◆ Cost: 3
 
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: until end of combat
 
 Choose a creature within range that is up to one size larger than you.
-Roll Magic -1 against Deflection. On success, you trap the creature inside a thin but strong ice prison. The prison has 9 HP and Vulnerability to fire.
-
+Roll Magic against Deflection. On success, you trap the creature inside a thin but strong ice prison. The prison has 9 HP and Vulnerability to fire.
 The enemy can act as normal inside, but within standard limits.
 
 Empower Spell: for each extra SP, the prison has +3 HP.
@@ -5670,11 +5024,14 @@ Slow Action ◆ Interruptible
 
 Range: 2 ◆ Duration: 10 minutes
 
-You create a large scythe made of ice in your hands for the duration. The scythe is a two-handed weapon with reach. You may perform Melee Strikes with it for the duration, using either Magic or Melee Strike for the roll. When you cast this spell, you may immediately perform a Melee Strike with it.
+Melee Strike roll: Magic +8 or Melee +8 (minimum roll of 2)
 
-The scythe has +4 damage bonus, and deals piercing or ice damage. Its double 6 effect: Slowed 1 until the end of the next turn.
+You create a large scythe made of ice in your hands for the duration. The scythe is a two-handed weapon with reach. You may perform Melee Strikes with it for the duration, using either Magic or Melee for the roll. Add +8 to the roll (minimum roll of 2). When you cast this spell, you may immediately perform a Melee Strike with it.
+The scythe deals SD piercing or ice damage. Its double 6 effect: Slowed 1 until the end of the next turn.
 
-Empower Spell: The scythe damage bonus increases by 1 for each 1 additional spell points spent.
+Empower Spell: Add +2 to Melee rolls with the scythe for each 1 additional Spell Point spent.
+
+Double 6: Slowed 1 until the end of the next turn.
 
 ### Icy Ground
 
@@ -5684,17 +5041,16 @@ Level 3 ◆ Cost: 2 SP
 
 Slow Action ◆ Interruptible
 
-Range: 10 units ◆ Duration: 1 hour
+Range: 10 units ◆ Duration: 1 hour ◆ Area: 4 units cube
 
 Cover an area of 4 units cube with extremely slippery icy ground. Creatures in the area roll Acrobatics against Threshold 3 when entering the area and when it enters their space.
-
 On failure, they are knocked prone and lose the rest of their movement. The area is difficult terrain.
 
 ### Invisibility
 
 Arcane, Bardic, Occult
 
-Level 3 ◆ Costs: 2 SP
+Level 3 ◆ Cost: 2 SP
 
 Fast Action
 
@@ -5706,20 +5062,33 @@ Choose a willing creature within range. It becomes invisible for the duration. I
 
 Occult
 
-Level 1 ◆ Costs 1+
+Level 1 ◆ Cost: 1+
 
 Slow Action ◆ Interruptible
 
 Range: 10 Units
 
 Shoot a ray of dark siphoning energy at a creature you can see within range.
-Roll Magic against Deflection. On success, deal SD + 2 Necrotic damage, and heal yourself or an ally within range for SD health points. On failure, deal half the damage and don’t heal.
-
+Roll Magic +4 against Deflection. On success, deal SD Necrotic damage, and heal yourself or an ally within range for SD health points. On failure, deal half the damage and don’t heal.
 If you roll a double six, you or the ally you healed gets 1 temporary health point until the end of the combat.
-
 Choose which target to heal only when the spell resolves.
 
-You may spend additional Spell Points when you cast the spell. For each 1 additional point spent, you deal +1 Necrotic damage.
+For each 1 additional Spell Point spent, add +2 to the Roll Magic roll.
+
+### Life Drain
+
+Occult
+
+Cantrip
+
+Average Action
+
+Range: 6 Units
+
+Drain the life force from a creature you can see within range.
+Roll Magic against Fortitude.
+On success, deal SD Necrotic damage and heal yourself for half that amount, rounded down. On failure, halve both the damage and healing, rounded down.
+If you roll a double six, you become inspired 1 (1 Extra Die on rolls) until the end of the next round.
 
 ### Life Giving
 
@@ -5731,15 +5100,14 @@ Slow Action ◆ Interruptible
 
 Range: 8 ◆ Duration: 1 day
 
-Increase the maximum HP of up to three creatures by 1 for the duration.
-
+Increase the maximum HP of up to three creatures by 2 for the duration.
 No more than one casting of this spell can affect the same creature at the same time.
 
 Empower Spell: for each 2 additional SP spent, increase the HP maximum by 1 additional HP.
 
 ### Light
 
-Arcane / Bardic / Divine / Nature
+Arcane, Bardic, Divine, Nature
 
 Cantrip
 
@@ -5748,7 +5116,6 @@ Fast Action
 Range: 15 Units
 
 Create up to two stationary floating balls of light or make one item or limb luminous.
-
 The light provides 6 units of bright light and further 6 units of dim light.
 You may try to make an item or a limb of an enemy luminous.
 Roll Magic against Deflection. On success, it becomes luminous, and if the enemy is invisible, it doesn’t get any of the benefits. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it. If cast on an enemy, it ends after an hour.
@@ -5759,18 +5126,18 @@ Arcane
 
 Level 1 ◆ Cost: 1 SP
 
-Average action
+Average Action
 
 Range: 12 units ◆ Duration: until end of combat
 
-Roll Magic against Deflection. You charge your hands with chaotic lightning energy and shoot lightning bolt at a creature you can see within range.
-Roll Magic against Deflection.
+Roll Magic +6 against Deflection
 
-On success, deal SD + 2 lightning damage, or half as much on failure.
+You charge your hands with chaotic lightning energy and shoot a lightning bolt at a creature you can see within range.
+Roll Magic +4 against Deflection.
+On success, deal SD lightning damage, or half as much on failure.
+For the duration, you can perform an average action to shoot a similar lightning bolt without spending Spell Points.
 
-For the duration, you can perform an average action to shoot a similar lightning bolt without spending spell points.
-
-Empower Spell: For each 2 additional SP you deal +1 damage on all shots of this spell.
+Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for all shots of this spell.
 
 ### Lightning Coil
 
@@ -5784,13 +5151,11 @@ Range: 10 ◆ Duration: 10 minutes
 
 Choose a creature you can see within range.
 Roll Magic against Deflection or Fortitude, whichever is higher.
-
 On success, coils of lightning tie the legs of the creature. They become restrained, and the take 3 lightning damage at the end of each round.
-
-At the beginning phase of each round, they roll Acrobatics or Athletic against Threshold 3.
+and roll Acrobatics or Athletic against Threshold 3.
 On success, they break free of the coils. This threshold is reduced after each failed roll.
 
-Empower Spell: For each 2 additional SP you spend, the creature takes +1 damage at the end of each turn.
+Empower Spell: For each 2 additional Spell Points you spend, add +2 to this roll.
 
 ### Mage Hand
 
@@ -5800,9 +5165,10 @@ Cantrip
 
 Fast Action
 
-Range: 12 Units
+Range: 20 Units ◆ Duration: 1 minute
 
-[Mage Hand]
+Conjure a small, floating hand of magical force at a point within range. The hand has Movement 5 (Flying) and lasts for the duration, until you dismiss it, until it moves more than 20 units away from you, or until you cast this cantrip again.
+Spend 1 Instinct to direct the hand to move and perform a simple task, such as manipulating an unattended object. The hand cannot attack, activate magical items, or carry more than 5 kilograms.
 
 ### Magic Missile
 
@@ -5826,49 +5192,32 @@ Cantrip
 
 Fast Action
 
-Range: 12 Units
+Range: 12 Units ◆ Duration: Varies
 
-[Like prestidigitation, but maybe more free form.]
+Produce one harmless minor magical trick within range. Choose one:
+- Create a brief sensory flourish, such as sparks, a puff of air, a faint melody, or an unusual scent.
+- Ignite or extinguish a candle, torch, or small campfire.
+- Instantly clean or soil a small object.
+- Warm, chill, or flavor a serving of nonliving material for 1 hour.
+- Place a simple color, mark, or symbol on a surface for 1 hour.
+- Create a worthless handheld trinket or palm-sized illusory object until the end of the next round. It cannot deal damage.
+You can maintain up to three non-instantaneous effects from this cantrip at once.
 
-### Mind Spike
+### Mending
 
-Arcane / Bardic / Occult
-
-Level 1 ◆ Cost: 1
-
-Fast Action
-
-Range: 15 units
-
-Choose an enemy you can see within range. Roll Magic against Will. On success, the target is interrupted and disoriented (-1 penalty to all rolls) until the end of the round.
-
-If cast using Occult magic, they are also vulnerable (-1 to all defenses) until the end of the round.
-
-### Minor Illusion
-
-Arcane / Bardic / Occult
+Arcane, Divine
 
 Cantrip
 
-Fast Action
+Slow Action ◆ Interruptible
 
-Range: 12 Units
+Range: Touch ◆ Duration: Instantaneous ◆ Area: Single Object
 
-[Minor Illusion]
-
-### Minor Ward
-
-Arcane / Bardic / Divine/ Nature / Occult
-
-Cantrip
-
-Fast Action
-
-You get +1 Deflection until the end of the next round.
+Touch an object with a single break or tear no larger than 1 foot in any dimension. You repair the damaged section, leaving no trace of the former damage. The spell can physically repair a magic item or construct, but it cannot restore lost magical properties.
 
 ### Message
 
-Arcane / Bardic
+Arcane, Bardic, Divine, Occult
 
 Cantrip
 
@@ -5877,6 +5226,47 @@ Fast Action
 Range: 50 Units ◆ Duration: 10 minutes
 
 Choose a target within range. You send a telepathic message to it, and it may reply telepathically as well. The casting of this spell is visible unless you pass a Sneak or Sleight of hand roll. (The difficulty of the roll will be determined by the GM according to the situation).
+
+### Mind Blast
+
+Bardic, Occult
+
+Cantrip
+
+Average Action
+
+Range: 8 Units
+
+Blast the mind of a creature you can see within range with psychic energy.
+Roll Magic against Will.
+On success, deal SD Psychic damage; on failure, deal half as much damage.
+The target becomes vulnerable 1 (-1 to all defenses) until the end of the next round.
+If you roll a double six, the target also becomes disoriented 1 (-1 penalty on all rolls) until the end of the next round.
+
+### Minor Illusion
+
+Arcane, Bardic, Occult
+
+Cantrip
+
+Fast Action
+
+Range: 12 Units ◆ Duration: 1 minute
+
+Create either a sound or a stationary image at a point within range. It lasts for the duration or until you cast this cantrip again.
+- Sound: Create any sound from a whisper to a shout. It may continue throughout the duration or occur at moments you choose.
+- Image: Create the appearance of an object or visible phenomenon that fits within a 1-unit cube. It produces no sound, light, smell, or physical sensation, and creatures and objects pass through it.
+Physical interaction reveals an image as an illusion. A creature that spends an action carefully examining either effect also recognizes it as false.
+
+### Minor Ward
+
+Arcane, Bardic, Divine, Nature, Occult
+
+Cantrip
+
+Casting time: Instinct
+
+You get +1 Deflection until the end of the round.
 
 ### Mold Earth
 
@@ -5890,48 +5280,15 @@ Range: 10 Units
 
 You manipulate the ground at a point within range.
 Choose one or both:
-
 - Create 1 unit cube of earth. It provides half cover (or full cover while being prone next to it). You cannot target an occupied space.
-
 - Dig a hole o1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
-
-41. If you choose both, the hole and the cube must be adjacent to each other.
-
-### Natural Guidance
-
-Nature
-
-Cantrip
-
-Average Action
-
-Range: Touch ◆ Duration: Unlimited
-
-Choose one creature. It gains advantage on Survival, Nature, Animal handling, Cooking, Medicine, and Perception skill rolls against beasts and natural world phenomena.
-
-The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it.
-
-### Nature Wall
-
-Nature
-
-Level 3 ◆ Cost: 2 SP
-
-Average
-
-Range: 6 units
-
-Choose an area 5 units large. It can be of any shape but must be continuous. Create a continuous wall of grown vines and roots that is 1 unit in height. Each section of the wall has 8 HP with vulnerability to fire.
-
-Empower Spell: for each additional SP spent, increase the size of the area by 2 Units
+If you choose both, the hole and the cube must be adjacent to each other.
 
 ### Nature Spirit
 
 Bardic, Nature
 
-Level 1 ◆ Cost: 2+
-
-Summon slot: 1
+Level 3 ◆ Cost: 2+
 
 Average Action
 
@@ -5941,18 +5298,19 @@ You summon a tiny, flying Fae spirit in a point within range. The spirit is a se
 
 Empower Spell: You may pay additional Spell Points when you cast this spell. The spirit gains 2 more HP for each additional SP spent.
 
-> **Text box**
->
-> fa
->
-> <table>
->   <tr>
->     <td>Spirit<br>HP: 3 ◆ Deflection: 2<br>Movement: 8 Flying<br>Immune to all damage except force or psychic<br>Immune to healing</td>
->   </tr>
->   <tr>
->     <td>Available Actions<br>- Dash<br>- Hinder (Costs 1 HP):<br>You annoy an adjacent creature, to make an opening for an ally to attack it. Choose an ally. It gets advantage with one attack this round against that creature.<br>- Heal (Costs HP):<br>Heal an adjacent creature. Pay 1 HP for each 1 point of healing.</td>
->   </tr>
-> </table>
+### Nature Wall
+
+Nature
+
+Level 3 ◆ Cost: 2 SP
+
+Average Action
+
+Range: 6 units ◆ Area: 5 units, continuous, any shape
+
+Choose an area 5 units large. It can be of any shape but must be continuous. Create a continuous wall of grown vines and roots that is 1 unit in height. Each section of the wall has 8 HP with vulnerability to fire.
+
+Empower Spell: for each additional SP spent, increase the size of the area by 2 Units
 
 ### Necrotic Bolt
 
@@ -5963,13 +5321,23 @@ Cantrip
 Average Action
 
 Range: 10 Units
+
 Launch a dark bolt of necrotic energy at an enemy.
-
 Roll Magic against Deflection.
-
 On success, deal SD Necrotic damage, and they become vulnerable 1 until the end of the next round. On failure, deal half as much damage.
-
 If you roll a double six, the creature also becomes disoriented (-1 penalty on all rolls) until the end of the next round.
+
+### Pacify
+
+Bardic, Divine
+
+Level 1 ◆ Cost: 1 SP
+
+Slow Action ◆ Interruptible
+
+Range: 6 units ◆ Duration: 10 minutes
+
+Choose a creature within range. Roll Magic against Will. On success, the target is pacified until the end of the next two rounds  (A pacified creature cannot perform offensive actions against other creatures.). The effect ends early if the target takes damage or is affected by an offensive action.
 
 ### Poison Cloud
 
@@ -5979,15 +5347,23 @@ Level 3 ◆ Cost: 3
 
 Slow Action ◆ Interruptible
 
-Range: 10 units ◆ Duration: 10 minutes
+Range: 10 units ◆ Duration: 10 minutes ◆ Area: 2-unit radius
 
-The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against take 1 poison damage and become disoriented 1 
-
-<!-- page break -->
-
-until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. At the beginning phase of each round, you may choose to disperse the cloud.
+The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. At the beginning phase of each round, you may choose to disperse the cloud.
 
 Empower Spell: You may pay additional Spell Points when you cast this spell. For each additional Spell Point spent, the radius of the spell increases by one.
+
+### Protection from Evil and Good
+
+Divine
+
+Level 1 ◆ Cost: 1 SP
+
+Average Action
+
+Range: 6 units ◆ Duration: 10 minutes
+
+Choose a creature within range. For the duration, Undead, Abominations, Fiends, and Celestials have disadvantage on attacks against the target.
 
 ### Protective Circle
 
@@ -5997,9 +5373,9 @@ Level 3 ◆ Cost: 3
 
 Slow Action ◆ Interruptible
 
-Range: 10 units ◆ Duration: 1 hour
+Range: 10 units ◆ Duration: 1 hour ◆ Area: 3-unit radius
 
-A glowing, divine circle appears on the ground in a 3 units radius in a point within range. Whenever you, your allies, or other creatures you designate take damage while inside the circle, they take 1 less damage instead.
+A glowing, divine circle appears on the ground in a 3 units radius in a point within range. Whenever you, your allies, or other creatures you designate take damage while inside the circle, they take 2 less damage instead.
 
 ### Radiant Beam
 
@@ -6012,28 +5388,46 @@ Average Action
 Range: 10 Units
 
 Launch a beam of divine energy at an enemy. If you are a Cleric, you may choose to change the damage type from Radiant to the one associated with your domain.
-
 Roll Magic against Deflection.
-
 On success, deal SD radiant damage and they become discouraged 1 until the end of the next round. On failure, deal half as much damage.
-
-If you roll a double six, they get disadvantage on attacks against you and your allies until the end of the next round.
+If you roll a double six, the target gets disadvantage on the next attack it makes against you or your allies.
 
 ### Rainbow Eruption
 
-Nature / Bardic
+Bardic, Nature
 
-Level 1 ◆ Costs 1
+Level 1 ◆ Cost: 1
 
 Slow Action ◆ Interruptible
 
-Range: 10 units
-
-Duration: 1 minute or end of combat
+Range: 10 units ◆ Duration: 1 minute or end of combat ◆ Area: 5-unit radius
 
 You create a chaotic eruption of rainbows at a point within range. The rainbows are attracted to each enemy within 5 units radius of that point.
-
 Roll Magic against Deflection for the enemies inside the radius. Those that you succeed against become luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.
+
+### Resistance
+
+Arcane, Divine, Nature
+
+Level 1 ◆ Cost: 1
+
+Fast Action
+
+Range: Touch ◆ Duration: 10 minutes
+
+Touch a creature and ward it against harm. Choose a damage type other than force and psychic. The target gains resistance to the chosen damage type for the duration.
+
+### Restoration
+
+Bardic, Divine, Nature
+
+Level 1 ◆ Cost: 1 SP
+
+Fast Action
+
+Range: Touch ◆ Duration: Instantaneous
+
+Touch an ally and remove all negative conditions affecting them, except Exhaustion and the Paralyzed and Petrified conditions.
 
 ### Sanctuary
 
@@ -6043,12 +5437,9 @@ Level 1 ◆ Cost: 2
 
 Fast Action
 
-Range: 15 units
-
-Duration: end of the next two rounds.
+Range: 15 units ◆ Duration: end of the next two rounds.
 
 Choose an ally within range or yourself. The target cannot be targeted by any enemy for the duration. When the target performs any action other than Dash or Dodge, the spell ends.
-
 If the target is already targeted by attacks when the spell is cast, those attacks go through but suffer 1 penalty.
 
 ### Scorching Rays
@@ -6061,10 +5452,10 @@ Slow Action ◆ Interruptible
 
 Range: 10 Units
 
-You get a pool of 4 points of fire damage. Distribute the damage between one, two or three ray s, each targeting a different enemy you can see.
+You get a pool of 4 points of fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see.
 Roll Magic against Deflection. Targets that you've succeeded against take the fire damage, while targets you've failed against take only half the damage, rounded down.
 
-You may spend additional Spell Points when you cast the spell. For each 1 additional point spent, you get 2 additional fire damage to your damage pool.
+For each 1 additional Spell Point spent, you get 2 additional fire damage to your damage pool.
 
 ### Shield of Faith
 
@@ -6072,11 +5463,9 @@ Divine
 
 Level 1 ◆ Cost: 1
 
-Slow Action ◆ Interruptible
+Average Action
 
-Range: 15 units
-
-Duration: 10 minutes
+Range: 15 units ◆ Duration: 1 minute or until end of combat
 
 Choose a target within range. They get +2 Deflection for the duration.
 
@@ -6084,15 +5473,17 @@ Choose a target within range. They get +2 Deflection for the duration.
 
 Bardic, Divine, Occult
 
-Level 3 ◆ Costs: 2 SP
+Level 3 ◆ Cost: 2 SP
 
 Fast Action
 
 Range: 10 units ◆ Duration: 1 minute.
 
+Roll Magic against Will
+Roll Magic against Will
+
 Choose a creature within range.
 Roll Magic against Will. On success, the physical space of the creature cannot produce sound. It also completely blocks any outside sounds getting into it. The creature is immune to thunder damage. It cannot cast spells that require vocal activity (all spells require this unless described otherwise.)
-
 Starting next round, at the end of each round, Roll Magic against Will again. Your roll gets 1 penalty for each time you’ve made the roll. On failure, the spell ends for that creature.
 
 Empower Spell: you can increase the duration of this by 1 hour for each 2 additional spell points spent.
@@ -6101,31 +5492,41 @@ Empower Spell: you can increase the duration of this by 1 hour for each 2 additi
 
 Arcane, Bardic, Nature, Occult
 
-Level 3 ◆ Costs: 3 SP
+Level 3 ◆ Cost: 3 SP
 
 Slow Action ◆ Interruptible
 
 Range: 8 units ◆ Duration: 1 hour
 
 Choose a point within range.
-
 Roll Magic against Will for each creature within 2 units of it. Each creature you succeed against falls asleep (if sleeping is something that it can do). They wake up if they take damage or if a creature uses a fast action to wake them up.
 
-### Spike Growth
+### Slow
 
-Nature
+Chrono
 
-Level 3 ◆ Cost: 3 SP
+Level 3 ◆ Cost: 2
 
-Slow Action ◆ Interruptible
+Fast Action
 
-Range: 10 units ◆ Duration: 10 minutes
+Range: 10 Units ◆ Duration: until the end of the next two rounds
 
-Spikes grow from the ground in a 4-units cube in a point you can see within range.
+Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size the creature is larger than Medium.
+On success, the creature movement is halved, and it gets 1 drag on all actions.
 
-Roll Magic against Deflection against creatures in the area. Each creature you succeed against takes 1 piercing damage.
+If Slow and Haste affect the same creature, both spells immediately dispel each other.
 
-When a creature first steps on the area during each round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement in the area deals 1 piercing damage to it. The area is difficult terrain.
+### Slow-Motion
+
+Chrono
+
+Level 3 ◆ Cost: 2
+
+Fast Action
+
+Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.
 
 ### Speak with Animals
 
@@ -6139,73 +5540,80 @@ Range: 30 Units ◆ Duration: 10 minutes
 
 Choose an animal within range. They understand your speech, and you understand theirs. The effect stops at the end of its duration or when you use this cantrip again.
 
+### Spike Growth
+
+Nature
+
+Level 3 ◆ Cost: 3 SP
+
+Slow Action ◆ Interruptible
+
+Range: 10 units ◆ Duration: 10 minutes ◆ Area: 4 units cube
+
+Spikes grow from the ground in a 4-units cube in a point you can see within range.
+Roll Magic against Deflection against creatures in the area. Each creature you succeed against takes 1 piercing damage.
+When a creature first steps on the area during each round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement in the area deals 1 piercing damage to it. The area is difficult terrain.
+
+### Stasis
+
+Chrono
+
+Level 5 ◆ Cost: 4
+
+Fast Action
+
+Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
+
+On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
+
+On each subsequent round, you must spend 1 Instinct at the beginning phase and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.
+
+If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.
+
 ### Summon Beast
 
 Nature
 
-Level 1 ◆ Costs 1
-
-Requires 1 summon slot
+Level 1 ◆ Cost: 1
 
 Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Duration: 1 day
 
 Summons a Large or smaller beast (your choice) in an unoccupied location you can see.
-
 It can’t be a flying beast unless it’s small.
-
 The beast is a separate actor than your character that you control in the same manner.
-
 You must take the Command fast action on your turn to enable the beast to use the specific actions that require it. (it may still move and take other actions without it)
-
-> **Text box**
->
-> fa
->
-> <table>
->   <tr>
->     <td>Beast<br>HP: 3 ◆ Deflection: 1<br>Movement: 3</td>
->   </tr>
->   <tr>
->     <td>Available Actions<br>- Dash<br>- Dodge<br>- Animal Strike<br>Unarmed Strike Variant<br>Fast Action<br>Use your Nature Magic skill. Small and smaller beasts deal -1 damage. The damage type is appropriate to the beast.<br>- Enhanced Animal Strike<br>Requires a Command by the Summoner<br>Unarmed Strike Variant<br>Fast Action<br>Use your Nature Magic skill for the roll. On success, the beast deals +1 damage, and the next attack against the target before the end of the next round gets advantage.</td>
->   </tr>
-> </table>
 
 ### Summon Shade
 
-> **Text box**
->
-> fa
->
-> <table>
->   <tr>
->     <td>Shade<br>HP: 1 ◆ Deflection: 1<br>Movement: 5 ◆ ignores difficult terrain<br>Immunity: Slashing, Piercing, Bludgeoning</td>
->   </tr>
->   <tr>
->     <td>Available Actions<br>- Dash<br>- Shadow Claw<br>Requires a Command by the Summoner<br>Melee Strike Variant<br>Fast Action<br>Roll Magic (of the summoner) +6 against Deflection.<br>- Cast Spell: Shadow Burst<br>Costs 2 Summoner Spell Points<br>Requires Summoner of Level 3 or higher<br>Requires a Command by the Summoner<br>Slow Action<br>Area: Radius 1 centered on self<br>The Undead Spirit explodes into a cloud of shadow and destroys itself.<br>Roll Magic (of the summoner) against Deflection for all creatures in the area. Those you succeed against receive 4 Necrotic damage, and the others receive half damage (round down)</td>
->   </tr>
-> </table>
-
 Occult
 
-Level 1 ◆ Costs 1
-
-Requires 1 summon slot
+Level 1 ◆ Cost: 1
 
 Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Duration: 10 minutes
 
 Summon a shade (Undead spirit) in an unoccupied location you can see within range.
-
 If the location is not available when the spell resolves, choose an adjacent location within range.
-
 The shade is a separate actor than your character that you control in the same manner. Start controlling it in the next round.
-
 You must use the Command Instinct ability on your turn to enable the spirit to use the specific actions that require it.
-
 When the shade is summoned, it can immediately perform Shadow Claw on an enemy within its range as a free action.
+
+### Temporal Clarity
+
+Chrono
+
+Level 5 ◆ Cost: 4
+
+Fast Action
+
+Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.
 
 ### Thaumaturgy
 
@@ -6215,13 +5623,20 @@ Cantrip
 
 Fast Action
 
-Range: Self
+Range: Self ◆ Duration: Up to 1 minute
 
-[Thaumaturgy]
+Manifest a minor divine omen. Choose up to three effects:
+- Your voice carries up to three times its normal distance for 1 minute.
+- Nearby flames flicker, brighten, dim, or change color for 1 minute.
+- The ground within 3 units of you trembles harmlessly for a moment.
+- A brief sound emanates from a point within 6 units of you.
+- One unlocked door or window within 6 units flies open or slams shut.
+- Your eyes take on a supernatural appearance for 1 minute. You get advantage on intimidation.
+Casting the spell again while it's active dispells the current casting
 
 ### Thunder Fist
 
-Arcane / Bardic / Nature
+Arcane, Bardic, Divine, Nature
 
 Cantrip
 
@@ -6229,15 +5644,13 @@ Fast Action
 
 Range: Touch
 
-You release thunderous energy from your hand into a nearby enemy. Melee Spell Attack. Roll Magic against Deflection.
-
-On success, deal SD +1 Thunder damage and push them 2 units away from you.
-
+You release thunderous energy from your hand into a nearby enemy. Melee Spell Attack. Roll Magic +2 against Deflection.
+On success, deal SD Thunder damage and push them 2 units away from you. On failure, deal half as much damage.
 If you roll a double six, the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)
 
 ### Thunder Wave
 
-Arcane / Bardic / Nature
+Arcane, Bardic, Divine, Nature
 
 Cantrip
 
@@ -6247,12 +5660,26 @@ Range: Self
 
 You release a small wave of thunderous energy in an outward direction.
 Roll Magic against Deflection for all creatures adjacent to you.
-
 Those you've succeed against receive 1 Thunder Damage and are pushed 1 unit away from you.
-
 If you rolled double six, the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)
-
 You may only push or pull the target if it’s up to one size larger than you.
+
+### Time Detention
+
+Chrono
+
+Level 3 ◆ Cost: 2
+
+Fast Action
+
+Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
+
+On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
+
+On each subsequent round, you must take the Maintain fast action and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.
+If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.
 
 ### Touch of Decay
 
@@ -6265,13 +5692,9 @@ Fast Action
 Range: Touch
 
 Melee Spell Attack.
-
 Roll Magic against Deflection.
-
 Channel dark energy into an adjacent enemy.
-
-Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down).
-
+Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes decayed 1 until the end of the next round (at the end of each round, they take 1 necrotic damage)
 If you roll a double six, the target also becomes vulnerable 1 (-1 to all defenses) until the end of the next round.
 
 ### Vine Knot
@@ -6285,7 +5708,6 @@ Average Action
 Range: 10 units ◆ Duration: 10 minutes
 
 Choose a creature in range that you can see. Vines latch to it. Roll Magic +2 against Deflection or Fortitude (whichever is higher). On success, it is restrained and prone.
-
 At the end of each round, it rolls Athletics or Acrobatics against threshold 3. On success, it breaks loose and the spell ends. The threshold is reduced by 1 after each failed roll.
 
 ### Vine Whip
@@ -6294,16 +5716,13 @@ Nature
 
 Cantrip
 
-Fast Action
+Average Action
 
 Range: 5 Units
 
 Ranged Spell Attack
-
 Roll Magic against Deflection. Launch a thorny vine at an enemy you can see within range. Deal SD piercing damage, and push or pull it 1 unit to any direction. On failure, you deal half damage instead (rounded down).
-
 If you rolled a double six, push or pull for 2 units instead of 1, and the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage).
-
 You may only push or pull the target if it’s up to one size larger than you.
 
 ### Windsurf
@@ -6324,13 +5743,13 @@ Choose a creature in range that you can see. It is engulfed in windy currents. F
 
 4
 
-> **Text box**
+
 >
 > 280`
 
 ### Footer 4
 
-> **Text box**
+
 >
 > 280`
 

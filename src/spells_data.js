@@ -163,7 +163,7 @@ You may spend additional Spell Points as you cast this spell. For each additiona
     range: "Self",
     area: "20-unit radius",
     duration: "10 minutes",
-    description: `You attune your senses to magic for the duration. You detect the presence and location of magic within 20 units of you. If the magic belongs to a tradition you know, you can also discern its specific properties.`,
+    description: `You attune your senses to magic for the duration. You detect the presence and location of magic within 20 units of you and can identify its tradition. If the magic belongs to a tradition you know, you can also discern some or all of its specific properties, at the GM's discretion.`,
     cost: "1"
   },
   {

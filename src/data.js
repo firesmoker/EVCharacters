@@ -21,7 +21,7 @@ export const BONUS_LIST = [
 ];
 
 export const DRAGS_IGNORED_LIST = [
-  { groupLabel: "Common Drag Sources", options: ["Two-Handed Weapons", "Ranged Weapons", "Aiming for Weak Spots", "Reach Weapons", "Heavy Weapons"] }
+  { groupLabel: "Common Drag Sources", options: ["Ranged Weapons", "Aiming for Weak Spots", "Heavy Weapons"] }
 ];
 
 // Dynamically generate SPELLS_LIST from SPELLS_DATABASE

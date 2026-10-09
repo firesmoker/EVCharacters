@@ -1,3 +1,5 @@
+<!-- rpg-scribe:document {"v":1,"page":{"size":"A4","orientation":"portrait","marginsMm":{"top":20,"right":20,"bottom":20,"left":20}},"theme":{"id":"builtin.clean","snapshot":{"v":1,"name":"Clean","fonts":{"body":"\"Segoe UI\", system-ui, sans-serif","heading":"\"Segoe UI\", system-ui, sans-serif","code":"Consolas, \"Cascadia Code\", monospace"},"fontSizesPt":{"body":12,"code":10.8,"headings":[24,21,18,15.6,13.8,12]},"lineHeight":1.65,"colors":{"text":"#202631","background":"#e7edf4","page":"#f7f8fa","heading":"#202631","link":"#1769aa","codeText":"#202631","codeBackground":"#e9edf2","selectionText":"#202631","selectionBackground":"#c7ccd3"}}}} -->
+
 # Document metadata
 
 - **Creator:** Eylon Keshet
@@ -466,6 +468,7 @@ Some actions, most commonly spellcasting, can be interrupted. An interruption oc
 | Frightened | The creature cannot choose the source of its fear as a target for attacks and cannot finish its movement adjacent to that source. |
 | Slowed | The creature has -1 Movement and +1 Drag to all actions per level. |
 | Burning | At the end of each round, the creature takes Fire damage equal to its Burning level. |
+| Bleeding | At the end of each round, the creature loses HP equal to its Bleeding level. This is direct HP loss, not damage, and is unaffected by resistance or other damage modifiers. |
 | Luminous | The affected creature or object emits light and cannot benefit from invisibility. The source effect specifies the light radius and any additional effects. |
 | Engaged | An engaged creature loses 2 HP whenever it targets anyone other than the creature it is engaged with. A creature can be engaged with only one other creature at a time. The condition ends for both creatures when either reaches 0 HP. |
 | Pacified | The creature cannot perform offensive actions against other creatures. |
@@ -600,7 +603,7 @@ On success, if you rolled a double 6, suffers no exhaustion.
 Fast Action
 Strike a target within melee reach with one of your legs or hands.
 Roll Unarmed against Deflection.
-On success, deal SD bludgeoning damage.
+On success, deal SD crushing damage.
 
 ### Utilize
 
@@ -857,7 +860,7 @@ Work in progress. For now, choose one origin feat, one standard skill, and a few
 
 - Uncanny: You have disadvantage on Charm rolls unless disguised and disadvantage on Animal Handling rolls.
 
-- Bonepowder Skin: You have resistance to slashing damage and vulnerability to bludgeoning damage.
+- Bonepowder Skin: You have resistance to slashing damage and vulnerability to crushing damage.
 
 - Occult Affinity I: You are Expert (5d6) in Magic and learn two Occult cantrips of your choice. You may cast them even if you are not trained in a matching tradition.
 
@@ -1186,7 +1189,7 @@ When you roll double six, choose one condition to apply to your target until the
 
 - Disorient 1 (penalty of 1 on all rolls)
 
-- Bleeding 1 (at the end of the round, lose 1 life)
+- Bleeding 1 (at the end of the round, lose 1 HP)
 
 - Disadvantage on their next attack.
 
@@ -1223,7 +1226,7 @@ Roles: Combatant and Damage
 >   </tr>
 >   <tr>
 >     <td>Drags Ignored</td>
->     <td>Heavy Weapons, Two Handed Weapons</td>
+>     <td>Heavy Weapons</td>
 >   </tr>
 >   <tr>
 >     <td colspan="2">Combat Skills</td>
@@ -1326,7 +1329,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>7. Perform a Grapple (rolling Unarmed). On success, you also SD bludgeoning damage.</td>
+>     <td>7. Perform a Grapple (rolling Unarmed). On success, you also SD crushing damage.</td>
 >   </tr>
 > </table>
 
@@ -2046,7 +2049,7 @@ You gain the following Instinct ability:
 >     <td>Fast Action</td>
 >   </tr>
 >   <tr>
->     <td>Strike an enemy within melee range. Roll Magic against Deflection.<br>On success, deal SD damage.<br>The damage type is appropriate to the animal form (bludgeoning, piercing, or slashing). Deal -1 damage if you are Small.<br>On success, if you roll a double 6, activate the effect associated with your chosen animal form.</td>
+>     <td>Strike an enemy within melee range. Roll Magic against Deflection.<br>On success, deal SD damage.<br>The damage type is appropriate to the animal form (crushing, piercing, or slashing). Deal -1 damage if you are Small.<br>On success, if you roll a double 6, activate the effect associated with your chosen animal form.</td>
 >   </tr>
 > </table>
 
@@ -2824,7 +2827,7 @@ Secondary Roles: Combatant / Varies
 >   </tr>
 >   <tr>
 >     <td>Arcana</td>
->     <td>Expert (4d6)</td>
+>     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
 >     <td>Athletics</td>
@@ -2924,7 +2927,7 @@ Roles: Combatant, Defense, Interruption
 >   </tr>
 >   <tr>
 >     <td>Drags Ignored</td>
->     <td>Heavy Weapons, Two Handed Weapons, Reach Weapons</td>
+>     <td>Heavy Weapons</td>
 >   </tr>
 >   <tr>
 >     <td>Instinct</td>
@@ -3870,15 +3873,15 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 
   - Attacks that target enemies who are between the effective range and the maximum range suffer disadvantage.
 
-- Reach: Melee reach of 2 units. Attacks against targets within 1 unit suffer disadvantage.
-
-- Two Handed: Requires both hands to use.
-
 #### Other Properties
 
 - Exotic: cannot be used without specialized training (usually through Exotic Weapons feat)
 
 - Loading: Only exists for Ranged weapons. Attacks suffer 1 additional Drag except the first attack in a combat.
+
+- Reach: Melee reach of 2 units. Attacks against targets within 1 unit suffer disadvantage.
+
+- Two Handed: Requires both hands to use.
 
 - Mounted: Advantage when attacking while mounted.
 
@@ -3886,15 +3889,19 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 
 - Small: Switching into a ‘Small’ weapon doesn’t require any Instinct ability, even from a ‘Heavy’ or ‘Clumsy’ weapon. Easier to hide.
 
-- Versatile: Can be used both as a one-handed and two-handed weapon. If used as a two-handed weapon, the number after the Versatile damage represents the damage bonus. (If used as two-handed weapon Drag is introduced as any other two-handed weapon.)
+- Versatile: Can be used both as a one-handed and two-handed weapon. If used as a two-handed weapon, the number after the Versatile damage represents the damage bonus.
 
 #### Special Properties:
 
 - Rapier: +1 damage if the second hand is free
 
-- Flintlock: only uses one hand.
+- Special: See the specific rules for the weapon.
+
+- Flintlock: This weapon requires only one hand, overriding the Ranged property's normal two-handed requirement.
 
 #### Double 6 Abilities
+
+- Bleeding: The target becomes Bleeding 1 until the end of the round.
 
 - Breach: The target is Breached 1 (-1 Deflection) until the end of the next round
 
@@ -3936,7 +3943,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Slashing</td>
 >     <td>-</td>
 >     <td>-</td>
->     <td>Breach</td>
+>     <td>Bleeding 1 until end of the round</td>
 >   </tr>
 >   <tr>
 >     <td>Shortsword</td>
@@ -3944,22 +3951,22 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>-</td>
 >     <td>Slashing / Piercing</td>
 >     <td>1</td>
->     <td>-</td>
+>     <td>+1</td>
 >     <td>Disable</td>
 >   </tr>
 >   <tr>
 >     <td>Light Mace</td>
 >     <td></td>
 >     <td>-</td>
->     <td>Bludgeoning</td>
+>     <td>Crushing</td>
 >     <td>1</td>
->     <td>-</td>
+>     <td>+1</td>
 >     <td>Push 1</td>
 >   </tr>
 >   <tr>
 >     <td>Spear</td>
->     <td>Reach</td>
->     <td>Versatile (+1)</td>
+>     <td></td>
+>     <td>Reach, Versatile (+1)</td>
 >     <td>Piercing</td>
 >     <td>1</td>
 >     <td>-</td>
@@ -3967,28 +3974,28 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >   </tr>
 >   <tr>
 >     <td>Quarterstaff</td>
->     <td>Reach</td>
->     <td>Versatile (+1)</td>
->     <td>Bludgeoning</td>
+>     <td></td>
+>     <td>Reach, Versatile (+1)</td>
+>     <td>Crushing</td>
 >     <td>1</td>
 >     <td>-</td>
 >     <td>Push 1</td>
 >   </tr>
 >   <tr>
 >     <td>Greatclub</td>
->     <td>Heavy, Two-Handed, Clumsy</td>
+>     <td>Heavy, Clumsy</td>
+>     <td>Two Handed</td>
+>     <td>Crushing</td>
 >     <td>-</td>
->     <td>Bludgeoning</td>
->     <td>-</td>
->     <td>+2</td>
+>     <td>+3</td>
 >     <td>Push 1</td>
 >   </tr>
 >   <tr>
 >     <td>Heavy Mace</td>
 >     <td>Heavy</td>
 >     <td>-</td>
->     <td>Bludgeoning</td>
->     <td>-</td>
+>     <td>Crushing</td>
+>     <td>1</td>
 >     <td>+1</td>
 >     <td>Breach 1</td>
 >   </tr>
@@ -4003,45 +4010,45 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Heavy</td>
 >     <td></td>
 >     <td>Slashing / Piercing</td>
->     <td>1</td>
+>     <td>2</td>
 >     <td>+2</td>
->     <td>Vex</td>
+>     <td>Disable</td>
 >   </tr>
 >   <tr>
 >     <td>Sabre</td>
 >     <td></td>
 >     <td></td>
 >     <td>Slashing</td>
->     <td>-</td>
->     <td>+3</td>
->     <td></td>
+>     <td>1</td>
+>     <td>+2</td>
+>     <td>Bleeding 1 until end of the round</td>
 >   </tr>
 >   <tr>
 >     <td>Greataxe</td>
->     <td>Heavy, Two Handed</td>
->     <td></td>
+>     <td>Heavy</td>
+>     <td>Two Handed</td>
 >     <td>Slashing</td>
 >     <td>1</td>
 >     <td>+4</td>
->     <td></td>
+>     <td>Bleeding 1 until end of the round</td>
 >   </tr>
 >   <tr>
 >     <td>Longsword</td>
->     <td>Heavy, Two Handed</td>
->     <td></td>
+>     <td>Heavy</td>
+>     <td>Two Handed</td>
 >     <td>Slashing / Piercing</td>
 >     <td>2</td>
 >     <td>+3</td>
->     <td></td>
+>     <td>Disable</td>
 >   </tr>
 >   <tr>
 >     <td>War Hammer</td>
->     <td>Heavy, Two Handed</td>
->     <td></td>
->     <td>Bludgeoning</td>
+>     <td>Heavy</td>
+>     <td>Two Handed</td>
+>     <td>Crushing</td>
 >     <td>1</td>
 >     <td>+4</td>
->     <td>Force Push 2</td>
+>     <td>Breach 1</td>
 >   </tr>
 >   <tr>
 >     <td>Lance</td>
@@ -4054,21 +4061,21 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >   </tr>
 >   <tr>
 >     <td>Glaive</td>
->     <td>Heavy, Two Handed, Reach</td>
->     <td></td>
+>     <td>Heavy</td>
+>     <td>Two Handed, Reach</td>
 >     <td>Slashing</td>
 >     <td>1</td>
 >     <td>+3</td>
->     <td></td>
+>     <td>Disable</td>
 >   </tr>
 >   <tr>
 >     <td>Halberd</td>
->     <td>Heavy, Two Handed, Reach</td>
->     <td></td>
+>     <td>Heavy</td>
+>     <td>Two Handed, Reach</td>
 >     <td>Piercing</td>
 >     <td>1</td>
 >     <td>+3</td>
->     <td>Disable</td>
+>     <td>Breach 1</td>
 >   </tr>
 >   <tr>
 >     <td colspan="4">Simple Ranged Weapons</td>
@@ -4083,7 +4090,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Piercing</td>
 >     <td>-</td>
 >     <td></td>
->     <td></td>
+>     <td>Disable</td>
 >   </tr>
 >   <tr>
 >     <td>Shortbow</td>
@@ -4101,7 +4108,16 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Piercing</td>
 >     <td>1</td>
 >     <td>+2</td>
->     <td></td>
+>     <td>Disable</td>
+>   </tr>
+>   <tr>
+>     <td>Flintlock</td>
+>     <td>Ranged, Loading</td>
+>     <td>Range 3 / 6, Special</td>
+>     <td>Crushing</td>
+>     <td>-</td>
+>     <td>+3</td>
+>     <td>Disable</td>
 >   </tr>
 >   <tr>
 >     <td colspan="4">Martial Ranged Weapons</td>
@@ -4114,7 +4130,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Ranged, Heavy</td>
 >     <td>Range 20 / 40</td>
 >     <td>Piercing</td>
->     <td>3</td>
+>     <td>2</td>
 >     <td>+3</td>
 >     <td>Disable</td>
 >   </tr>
@@ -4128,19 +4144,10 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Breach 1</td>
 >   </tr>
 >   <tr>
->     <td>Flintlock</td>
->     <td>Ranged, Loading</td>
->     <td>Range 5 / 10, Special</td>
->     <td>Bludgeoning</td>
->     <td>-</td>
->     <td>+2</td>
->     <td>Disable</td>
->   </tr>
->   <tr>
 >     <td>Musket</td>
 >     <td>Ranged, Loading</td>
 >     <td>Range 8 / 16</td>
->     <td>Bludgeoning</td>
+>     <td>Crushing</td>
 >     <td>-</td>
 >     <td>+3</td>
 >     <td></td>
@@ -4158,7 +4165,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Piercing</td>
 >     <td>-</td>
 >     <td>-</td>
->     <td>+1 damage</td>
+>     <td></td>
 >   </tr>
 > </table>
 
@@ -4188,7 +4195,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Brumble</td>
 >     <td>Light (Wild)</td>
 >     <td>0</td>
->     <td>Resistance to Bludgeoning</td>
+>     <td>Resistance to Crushing</td>
 >   </tr>
 >   <tr>
 >     <td>Quill Coat</td>
@@ -4206,7 +4213,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Jerkin</td>
 >     <td>Light</td>
 >     <td>0</td>
->     <td>Resistance to Bludgeoning</td>
+>     <td>Resistance to Crushing</td>
 >   </tr>
 >   <tr>
 >     <td>Studded</td>
@@ -4233,13 +4240,13 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Rivet Mail</td>
 >     <td>Medium</td>
 >     <td>1</td>
->     <td>Resistance to Bludgeoning</td>
+>     <td>Resistance to Crushing</td>
 >   </tr>
 >   <tr>
 >     <td>Chainmail</td>
 >     <td>Medium</td>
 >     <td>1</td>
->     <td>Resistance to Slashing and Bludgeoning</td>
+>     <td>Resistance to Slashing and Crushing</td>
 >   </tr>
 >   <tr>
 >     <td colspan="4">Heavy Armor</td>
@@ -4248,7 +4255,7 @@ Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' w
 >     <td>Splint</td>
 >     <td>Heavy</td>
 >     <td>2</td>
->     <td>Resistance to Bludgeoning</td>
+>     <td>Resistance to Crushing</td>
 >   </tr>
 >   <tr>
 >     <td>Segment Plate</td>
@@ -5748,69 +5755,3 @@ Fast Action
 Range: 10 ◆ Duration: 10 minutes
 
 Choose a creature in range that you can see. It is engulfed in windy currents. For the duration, it gets +2 Movement, and it can make its movement through the air as long as it's up to 2 units height and no longer than then 5 seconds.
-
-# Headers and footers
-
-### Footer 1
-
-4
-
-
->
-> 280`
-
-### Footer 4
-
-
->
-> 280`
-
-# Comments
-
-### Comment 0 — Eylon Keshet, 2026-03-24T08:43:00Z
-
-Needs an example
-
-### Comment 1 — Eylon Keshet, 2026-02-07T18:05:00Z
-
-Require further standardization
-
-### Comment 2 — Eylon Keshet, 2025-11-09T22:21:00Z
-
-Add an example
-
-### Comment 3 — Eylon Keshet, 2025-11-09T22:34:00Z
-
-TBD
-
-### Comment 4 — Eylon Keshet, 2025-11-09T22:36:00Z
-
-Choose one standard skill for now
-
-### Comment 6 — Eylon Keshet, 2025-11-10T08:53:00Z
-
-Fix to new rules
-
-### Comment 7 — Eylon Keshet, 2026-02-14T21:43:00Z
-
-Consider choosing between  radiant and the other damage type
-
-### Comment 8 — Eylon Keshet, 2026-02-14T21:43:00Z
-
-If I do this - Light should become fire damage
-
-### Comment 9 — Eylon Keshet, 2026-02-14T21:44:00Z
-
-Change text accordingly
-
-### Comment 10 — Eylon Keshet, 2026-03-02T07:17:00Z
-
-Total immunity is a bit too strong
-
-### Comment 11 — Eylon Keshet, 2026-02-18T08:22:00Z
-
-Change text, taken from PF2
-
-### Comment 12 — Eylon Keshet, 2026-02-16T08:48:00Z
-
-Change name? taken from PF2

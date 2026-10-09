@@ -749,147 +749,137 @@ Work in progress. For now, choose one origin feat, one standard skill, and a few
 
 ### Human Traits
 
-- Languages: Common, one other language of your choice
+- Language: One extra language of your choice
 
 - Movement Score: 3
 
-- Human Ingenuity: Choose one Feat that you satisfy the requirements for.
+- Legacy of Discovery: You are Expert (5d6) in one Standard Skill and Adept (4d6) in another Standard Skill.
 
-- Human Curiosity: Choose three standard skills. You are Adept (4d6) in each. You may not select more than one skill from the same category, except for the 'Other' category.
+- Origin Feat: You gain one Origin Feat.
 
-## Dwarf
-
-### Dwarf Traits
-
-- Languages: Common, Dwarven
-
-- Movement Score: 3
-
-- Powerful Build: You have additional HP equal to half your level, rounded up.
-
-- Sturdy Form: If any effect makes you become prone, pushed, or pulled, roll 3d6 against difficulty 1. On success, you don't become prone, and you are pushed or pulled for 2 units less (to a minimum of 0).
-
-- Subspecies: there are two main subspecies of dwarves: Surface Dwarf and Deep Dwarf. Choose one of these subraces.
-
-### Subspecies
-
-Choose one subspecies:
-
-#### Surface Dwarf
-
-- Between Two Worlds: You are Adept (4d6) in two standard skills of your choice, each from a different category.<br>You also know one additional language of your choice.
-
-#### Deep Dwarf
-
-- Resilience: You get +1 Fortitude
-
-- Poison Resistance: You receive half poison damage, rounded down.
+- Level 2 — Human Adaptiveness (1 / Day), Instinct Ability: When you make a roll, gain advantage on it. This ability can be used outside combat.
 
 ## Orc
 
 ### Orc Traits
 
-- Languages: Common, Orcish
+- Language: Orcish
 
 - Movement Score: 3
 
-- Orcish Fury (1 / Day): If damage would reduce you to -2, -1, or 0 HP, roll 3d6 against difficulty 2. On success, you are reduced to 1 HP.
+- Legacy of War: You are Expert (5d6) in one of the following: Athletics, Leadership, Intimidation, Warfare, Notice Movement, Detect Traps, Medicine, Unarmed, Melee, or Ranged.
 
-- Subspecies: there are two main subspecies of orcs: Primal and Half-Breed. Choose one of these subspecies.
+- Last One Standing (1 / Day): When you would be reduced to 0 HP, you are reduced to 1 HP instead.
 
-### Subspecies
+- Battleborn: When you take damage in combat, you become inspired 1 (1 Extra Die on rolls) until the end of the next round.
 
-Choose one subspecies:
+- Level 2 — Orcish Fury, Instinct Ability: Gain +2 Movement and 1 Extra Die on the next attack you make this round, including a spell attack.
 
-#### Primal Orc
+## High Elf
 
-- Powerful Build: You have additional HP equal to half your level, rounded up.
+### High Elf Traits
 
-- Erupting Brutality (2 / Day): Using 'Unleash' Instinct ability provides 2 extra dice instead of 1.
-
-- Intimidating Presence: You are Adept (4d6) in Intimidation.
-
-#### Short-Tusk Orc
-
-- Fast: Your movement increases to 4.
-
-## Elf
-
-### Elf Traits
-
-- Languages: Common, Elven
+- Language: Elvish
 
 - Movement Score: 3
 
-- Subspecies: there are two main subspecies of elves: High Elf and Wood Elf. Choose one of these subraces.
+- Legacy of the Highborn: You are Expert (5d6) in one of the following: Diplomacy, Leadership, Reasoning, Arcana, History, Politics, Insight, Deduction, Mechanics, or Medicine.
 
-### Subspecies
+- Knowledge Cramming: At the end of a long rest, choose one Standard Skill in which you are untrained. You become Adept (4d6) in it until your next long rest.
 
-Choose one subspecies:
+- Arcane Affinity I: You are Expert (5d6) in Magic and learn two Arcane cantrips of your choice. You may cast them even if you are not trained in a matching tradition.
 
-#### High Elf
+- Level 2 — Arcane Affinity II: You know Arcane Shield, Detect Magic, and Magic Missile. Once per day, you may cast one of them without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower that casting. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
 
-- Arcane Cantrips Casting: You can cast known arcane cantrips.
+## Wood Elf
 
-  - Known Cantrips: You know two arcane cantrips of your choice.
+### Wood Elf Traits
 
-  - Magic Training: You are Expert (5d6) in Magic. If you already have a training level in Magic, or when you get one, you may replace this benefit with one additional known Arcane Cantrip.
+- Language: Elvish
 
-- High Elven Heritage: You are Adept (4d6) in two of the following: Arcana, Diplomacy, History, Insight, Leadership, Mechanics, Politics.
+- Movement Score: 3
 
-#### Wood Elf
+- Legacy of the Wild: You are Expert (5d6) in one of the following: Intimidation, Nature, Detect Traps, Find Hidden Paths, Notice Movement, Acrobatics, Animal Handling, Sneak, Survival, or Ranged.
 
-- Nature Cantrips Casting: You can cast known Nature cantrips
+- Danger Sense: During the Beginning Phase of the first round of combat, choose one of the following benefits:
 
-  - Known Cantrips: You know two nature cantrips of your choice.
+  - Hunt: If you commit to a Fast Action this round, you have advantage on its roll, if it has one.
 
-  - Magic Training: You are Expert (5d6) in Magic. If you already have a training level in Magic, or when you get one, you may replace this benefit with one additional known Nature cantrip.
+  - Dodge: Gain +1 Deflection this round.
 
-- Wood Elven Heritage: You are Adept (4d6) in one of the following: Acrobatics, Animal Handling, History, Nature, Survival.
+  - Run: Gain +2 Movement this round.
 
-- Wild Senses: You are Adept (4d6) in one of the following: Find Hidden Paths, Notice Movement.
+- Wild Tongue: You can understand and communicate with land and airborne beasts.
 
-## Ossian
-
-### Ossian Traits
-
-- Languages: Common, Ossian
-
-- Movement: 3
-
-- Occult Cantrips Casting: You can cast known occult cantrips.
-
-  - Known Cantrips: You know two occult cantrips of your choice.
-
-  - Magic Training: You are Expert (5d6) in Magic. If you already have a training level in Magic, or when you get one, you may replace this benefit with one additional known Occult cantrip.
-
-- Unnatural: Your unnatural presence can make people and beasts feel uncomfortable around you.
-
-  - You suffer disadvantage on Animal Handling and Charm rolls against both beasts and humanoids
-
-  - You gain advantage on intimidation rolls against beasts and humanoids.
-
-2. A convincing disguise can disable this feature against humanoids (both the benefit and the drawback).
-
-- Bone Skin: Your bone powder infused skin is both tough and brittle.
-
-  - Slashing Resistance: You receive half slashing damage, rounded down.
-
-  - Bludgeoning Weakness: You receive double bludgeoning damage.
-
-- Ossian Life: You are Adept (4d6) in two of the following: Occult, Disguise, Deception, Intimidation, Insight, Medicine
+- Level 2 — Woodstride, Instinct Ability: Gain +1 Movement and +1 Deflection until the end of the round.
 
 ## Imp
 
 ### Imp Traits
 
-- Languages: Common, Infernal
+- Language: Infernal
 
 - Movement Score: 4
 
-- Small: You cannot use heavy weapons.
+- Legacy of Hell: You are Expert (5d6) in one of the following: Charm, Deception, Manipulation, Arcana, Acrobatics, Athletics, Disguise, Performance, Sleight of Hand, or Sneak.
 
-- Fire Resistance: You receive half fire damage, rounded down.
+- Quick: Your Movement is 4.
+
+- Born of Fire: You have resistance to fire damage. When you deal damage with a weapon, you may have it deal fire damage instead of its normal damage type.
+
+- Level 2 — Mischievous Blink (1 / Combat), Instinct Ability: When you begin to move, teleport the same distance instead to a point you can see within your current movement. You have advantage on the next single-target attack roll you make this round.
+
+## Dwarf
+
+### Dwarf Traits
+
+- Language: Dwarvish
+
+- Movement Score: 3
+
+- Legacy of the Deep Mountains: You are Expert (5d6) in one of the following: Bartering, Diplomacy, History, Politics, Religion, Warfare, Find Hidden Paths, Find Hidden Objects, Athletics, or Mechanics.
+
+- The Long Battle: At the beginning of each round, gain temporary HP based on your level: 1 at levels 1–4, 2 at levels 5–7, 3 at levels 8–9, and 4 at level 10.
+
+- Dwarvish Craftiness: Gain proficiency with one Crafting Skill or tool.
+
+- Level 2 — Dwarvish Stubbornness (1 / Combat), Instinct Ability: Until the end of the round, gain +2 Fortitude and +2 Will, and you cannot be pushed or become prone.
+
+## Ossian
+
+### Ossian Traits
+
+- Language: Ossian
+
+- Movement Score: 3
+
+- Legacy of the Damned: You are Expert (5d6) in one of the following: Deception, Intimidation, Manipulation, Occult, Find Hidden Objects, Find Hidden Paths, Disguise, Sleight of Hand, or Sneak.
+
+- Uncanny: You have disadvantage on Charm rolls unless disguised and disadvantage on Animal Handling rolls.
+
+- Bonepowder Skin: You have resistance to slashing damage and vulnerability to bludgeoning damage.
+
+- Occult Affinity I: You are Expert (5d6) in Magic and learn two Occult cantrips of your choice. You may cast them even if you are not trained in a matching tradition.
+
+- Level 2 — Occult Affinity II: You know Detect Magic, Eldritch Shield, and Hex. Once per day, you may cast one of them without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower that casting. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
+
+## Remnant
+
+### Remnant Traits
+
+- Language: Celestial
+
+- Movement Score: 3
+
+- Legacy of the Gods: You are Expert (5d6) in one of the following: Charm, Diplomacy, Leadership, History, Religion, Find Hidden Paths, Insight, Athletics, Medicine, or Performance.
+
+- Celestial Levitation: When you move, you may float a few inches above the ground, ignoring difficult terrain while remaining affected by ground-based environmental hazards. You land when your movement ends. You also fall slowly and take half damage from falling.
+
+- Godly Force: You learn the unique Godly Force cantrip and may cast it even if you are not trained in a matching tradition.
+
+- Divine Affinity I: You are Expert (5d6) in Magic and learn two Divine cantrips of your choice. You may cast them even if you are not trained in a matching tradition.
+
+- Level 2 — Divine Affinity II: You know Detect Magic, Healing Touch, and Shield of Faith. Once per day, you may cast one of them without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower that casting. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
 
 # Chapter 7: Classes
 
@@ -3380,51 +3370,35 @@ Choose one subclass.
 
 Play with the mind of your enemies, using enchantments and illusions that dance around the line of reality itself.
 
-#### Level 3: Glitch
+#### Level 3: Elusive
 
-You may spend 1 instinct and 1 spell point to create an immediate illusion when you are being attacked by an attack that is made against Deflection.
+You gain the following Instinct ability:
 
-The illusion makes you blurry and creates phantom images of you around yourself.
+- Mind Games: At any point during the round, cast an Illusion spell. The spell costs 1 additional Spell Point when cast this way.
 
-The attacker gets disadvantage on the attack. You also get +1 Deflection. You may choose to spend more spell points to get +1 more Deflection for each additional spell point spent.
+#### Level 3: Fracture Reality
 
-At the end of each round, you lose 1 Deflection gained from this feature as the illusion fades.
+You gain 1 Fracture Spell Point at the beginning of combat. It can only be used to cast spells that are rolled against Will.
 
-You lose all remaining Deflection bonuses from this feature at the end of combat.
-
-The Deflection bonus from this feature only applies to attacks that target you specifically.
-
-#### Level 3: Mind Twist
-
-You get 1 temporary Spell Point at the beginning of combat. It can only be used to cast spells that are rolled against Will.
-
-When you cast a spell using the temporary spell point, choose one of the following:
+When you cast a spell using the Fracture Spell Point, choose one of the following:
 
 - Double: if it only has one target, you may immediately perform it again against a second target. You need to spend spell points on this additional casting.
 
 - Extend: If the spell has a duration, you may increase the duration until the end of the combat
 
-You lose any unspent temporary Spell Points gained from this feature at the end of combat.
+You lose the Fracture Spell Point at the end of combat if you have not spent it.
 
 ### War Mage
 
 Flavor Text
 
-#### Level 3: Battle Instincts
+#### Level 3: Battle Casting
 
-You learn the Arcane Shield spell. If you already learned it before, learn another Arcane spell of your choice that you satisfy the requirements for.
-
-You gain the following Instinct ability:
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Shield: When you are attacked, perform the Arcane Shield spell after the attacker rolls. You must spend spell points as normal. The spell’s duration becomes ‘until the end of the current round’.</td>
-  </tr>
-</table>
+A cantrip that deals damage and normally has Average speed has Fast speed for you instead.
 
 #### Level 3: Evocation Specialist
 
-At the beginning of combat, you gain 1 temporary Spell Point. It may only be used to cast spells that deal damage. If a spell is cast that way, it counts as if you've spent 1 additional spell point. At the end of combat, you lose unspent temporary Spell Points gained from this feature.
+At the beginning of combat, you gain 1 Evocation Spell Point. It may only be used to cast a spell that deals damage. When you cast a spell using the Evocation Spell Point, it counts as if you spent 1 additional Spell Point on that spell. At the end of combat, you lose the Evocation Spell Point if you have not spent it.
 
 ### Chronomancer
 
@@ -4364,6 +4338,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Burning Ground
 - Comprehend Languages
 - Glacial Spike
+- Glitch
 - Hellfire
 - Ice Prison
 - Ice Scythe
@@ -4400,6 +4375,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 
 - Burrowed Knowledge
 - Comprehend Languages
+- Glitch
 - Invisibility
 - Life Giving
 - Nature Spirit
@@ -4419,6 +4395,10 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Thaumaturgy
 - Thunder Fist
 - Thunder Wave
+
+#### Exclusive Cantrips
+
+- Godly Force — Granted by the Remnant's Godly Force trait; cannot be learned by normal means.
 
 #### Level 1 Spells
 
@@ -4567,7 +4547,7 @@ If you roll a double six, the target becomes weakened 2 instead.
 
 Bardic, Nature
 
-Level 1 ◆ Cost: 1
+Level 1 ◆ Cost: 1+
 
 Casting time: Casting time: 1 minute
 
@@ -4597,8 +4577,8 @@ For every 2 additional Spell Points spent, you get an additional +1 Deflection.
 
 Bardic, Divine
 
-Level 1 ◆ Cost: 1 SP
 
+Level 1 ◆ Cost: 1
 Fast Action
 
 Range: Self ◆ Duration: 10 minutes ◆ Area: 3-unit radius
@@ -4611,7 +4591,7 @@ You emanate a 3-unit-radius aura for the duration. When a creature first enters 
 
 Occult
 
-Level 1 ◆ Cost: 1+
+Level 1 ◆ Cost: 1
 
 Slow Action ◆ Interruptible
 
@@ -4628,7 +4608,7 @@ If you roll a double 6, choose an additional mode.
 
 Divine
 
-Level 1 ◆ Cost: 1
+Level 1 ◆ Cost: 1+
 
 Fast Action
 
@@ -4655,7 +4635,7 @@ Set an area of 4 units cube on magical fire for the duration. When the area firs
 
 Arcane
 
-Level 1 ◆ Cost: 1
+Level 1 ◆ Cost: 1+
 
 Slow Action ◆ Interruptible
 
@@ -4669,8 +4649,8 @@ For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.
 
 Bardic, Divine, Occult
 
-Level 3 ◆ Cost: 2 SP
 
+Level 3 ◆ Cost: 2+
 Fast Action
 
 Range: 8 units ◆ Duration: 1 hour
@@ -4706,8 +4686,8 @@ You may spend 2 additional Spell Points per additional target; each target may r
 
 Arcane, Bardic, Divine, Occult
 
-Level 3 ◆ Cost: 2 SP
 
+Level 3 ◆ Cost: 2
 Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 1 hour
@@ -4733,8 +4713,8 @@ You may spend additional Spell Points as you cast this spell. For each additiona
 
 Arcane, Bardic, Divine, Nature, Occult
 
-Level 1 ◆ Cost: 1 SP
 
+Level 1 ◆ Cost: 1
 Fast Action
 
 Range: Self ◆ Duration: 10 minutes ◆ Area: 20-unit radius
@@ -4800,7 +4780,7 @@ If you roll a double six, depending on the damage type, the target also:
 
 Arcane
 
-Level 1 ◆ Cost: 1
+Level 1 ◆ Cost: 1+
 
 Slow Action ◆ Interruptible
 
@@ -4816,7 +4796,7 @@ For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.
 
 Arcane
 
-Level 1 ◆ Cost: 1
+Level 1 ◆ Cost: 2+
 
 Fast Action
 
@@ -4857,7 +4837,7 @@ At the beginning phase of each round each affected enemy rolls Acrobatics or Ath
 
 Arcane
 
-Level 3 ◆ Cost: 3
+Level 3 ◆ Cost: 3+
 
 Slow Action ◆ Interruptible
 
@@ -4869,6 +4849,38 @@ On success, deal SD ice or piercing damage, or half as much on failure.
 If you roll a double 6: the creature is slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
 
 Empower Spell: Add +2 to the roll for each extra Spell Point you spent.
+
+### Glitch
+
+Arcane, Bardic
+
+Level 3 ◆ Cost: 2+
+
+Fast Action
+
+Range: Self ◆ Duration: until end of combat
+
+Create an illusion that blurs your form and surrounds you with phantom images. When an attack against Deflection targets only you, choose that attack when you cast this spell. The attacker has disadvantage on the attack, and you gain +1 Deflection for the spell's duration.
+At the end of each round, reduce the Deflection bonus granted by this spell by 1. The spell ends when this bonus reaches 0 or at the end of combat.
+
+Empower Spell: For each additional Spell Point spent, increase the initial Deflection bonus by 1.
+
+### Godly Force
+
+Divine
+
+Cantrip
+
+Exclusive: This cantrip cannot be learned by normal means. It is only granted by a feature that names it.
+
+Fast Action
+
+Range: 10 units
+
+Choose a creature within range. Roll Magic against Fortitude.
+On success, force-push the target up to 3 units away from you. On failure, force-push it up to 1 unit instead.
+If you roll a double six, the target is knocked prone.
+The target must be no more than one size larger than you.
 
 ### Goodberry
 
@@ -4928,7 +4940,7 @@ These actions cannot be used to cast spells that cost Spell Points. If Slow and 
 
 Divine, Nature
 
-Level 1 ◆ Cost: 1
+Level 1 ◆ Cost: 1+
 
 Fast Action
 
@@ -4956,7 +4968,7 @@ Choose a creature within range. They get 8 Extra Dice on the next Strike they pe
 
 Arcane
 
-Level 3 ◆ Cost: 3
+Level 3 ◆ Cost: 3+
 
 Slow Action ◆ Interruptible
 
@@ -5002,7 +5014,7 @@ For every additional Spell Point spent, add +2 to the roll against the main targ
 
 Arcane
 
-Level 3 ◆ Cost: 3
+Level 3 ◆ Cost: 3+
 
 Slow Action ◆ Interruptible
 
@@ -5018,7 +5030,7 @@ Empower Spell: for each extra SP, the prison has +3 HP.
 
 Arcane
 
-Level 3 ◆ Cost: 3
+Level 3 ◆ Cost: 2+
 
 Slow Action ◆ Interruptible
 
@@ -5037,8 +5049,8 @@ Double 6: Slowed 1 until the end of the next turn.
 
 Arcane
 
-Level 3 ◆ Cost: 2 SP
 
+Level 3 ◆ Cost: 2
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 1 hour ◆ Area: 4 units cube
@@ -5050,8 +5062,8 @@ On failure, they are knocked prone and lose the rest of their movement. The area
 
 Arcane, Bardic, Occult
 
-Level 3 ◆ Cost: 2 SP
 
+Level 3 ◆ Cost: 2
 Fast Action
 
 Range: 6 units ◆ Duration: 1 hour
@@ -5094,8 +5106,8 @@ If you roll a double six, you become inspired 1 (1 Extra Die on rolls) until the
 
 Bardic, Divine, Nature
 
-Level 3 ◆ Cost: 2 SP
 
+Level 3 ◆ Cost: 2+
 Slow Action ◆ Interruptible
 
 Range: 8 ◆ Duration: 1 day
@@ -5124,8 +5136,8 @@ Roll Magic against Deflection. On success, it becomes luminous, and if the enemy
 
 Arcane
 
-Level 1 ◆ Cost: 1 SP
 
+Level 1 ◆ Cost: 1+
 Average Action
 
 Range: 12 units ◆ Duration: until end of combat
@@ -5143,7 +5155,7 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for 
 
 Arcane
 
-Level 3 ◆ Cost: 3
+Level 3 ◆ Cost: 3+
 
 Slow Action ◆ Interruptible
 
@@ -5302,8 +5314,8 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. The
 
 Nature
 
-Level 3 ◆ Cost: 2 SP
 
+Level 3 ◆ Cost: 2+
 Average Action
 
 Range: 6 units ◆ Area: 5 units, continuous, any shape
@@ -5331,8 +5343,8 @@ If you roll a double six, the creature also becomes disoriented (-1 penalty on a
 
 Bardic, Divine
 
-Level 1 ◆ Cost: 1 SP
 
+Level 1 ◆ Cost: 1
 Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 10 minutes
@@ -5343,7 +5355,7 @@ Choose a creature within range. Roll Magic against Will. On success, the target 
 
 Nature, Occult
 
-Level 3 ◆ Cost: 3
+Level 3 ◆ Cost: 3+
 
 Slow Action ◆ Interruptible
 
@@ -5357,8 +5369,8 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. For
 
 Divine
 
-Level 1 ◆ Cost: 1 SP
 
+Level 1 ◆ Cost: 1
 Average Action
 
 Range: 6 units ◆ Duration: 10 minutes
@@ -5421,8 +5433,8 @@ Touch a creature and ward it against harm. Choose a damage type other than force
 
 Bardic, Divine, Nature
 
-Level 1 ◆ Cost: 1 SP
 
+Level 1 ◆ Cost: 1
 Fast Action
 
 Range: Touch ◆ Duration: Instantaneous
@@ -5461,7 +5473,7 @@ For each 1 additional Spell Point spent, you get 2 additional fire damage to you
 
 Divine
 
-Level 1 ◆ Cost: 1
+Level 1 ◆ Cost: 2
 
 Average Action
 
@@ -5473,8 +5485,8 @@ Choose a target within range. They get +2 Deflection for the duration.
 
 Bardic, Divine, Occult
 
-Level 3 ◆ Cost: 2 SP
 
+Level 3 ◆ Cost: 2+
 Fast Action
 
 Range: 10 units ◆ Duration: 1 minute.
@@ -5492,8 +5504,8 @@ Empower Spell: you can increase the duration of this by 1 hour for each 2 additi
 
 Arcane, Bardic, Nature, Occult
 
-Level 3 ◆ Cost: 3 SP
 
+Level 3 ◆ Cost: 3
 Slow Action ◆ Interruptible
 
 Range: 8 units ◆ Duration: 1 hour
@@ -5544,8 +5556,8 @@ Choose an animal within range. They understand your speech, and you understand t
 
 Nature
 
-Level 3 ◆ Cost: 3 SP
 
+Level 3 ◆ Cost: 3
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 10 minutes ◆ Area: 4 units cube
@@ -5701,8 +5713,8 @@ If you roll a double six, the target also becomes vulnerable 1 (-1 to all defens
 
 Nature
 
-Level 3 ◆ Cost: 3 SP
 
+Level 3 ◆ Cost: 3
 Average Action
 
 Range: 10 units ◆ Duration: 10 minutes
@@ -5729,8 +5741,8 @@ You may only push or pull the target if it’s up to one size larger than you.
 
 Nature
 
-Level 1 ◆ Cost: 1 SP
 
+Level 1 ◆ Cost: 1
 Fast Action
 
 Range: 10 ◆ Duration: 10 minutes

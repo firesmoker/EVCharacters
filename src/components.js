@@ -398,7 +398,10 @@ export const renderStrikesDamagingCantripsBlock = () => `
 export const renderSpellDescriptionBlock = (spell) => `
   <div class="spell-description-block" style="margin-bottom: 6px; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff;">
     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px;">
-      <strong style="font-size: 15px; font-family: 'Crimson Pro', serif; text-transform: uppercase;">${spell.name}</strong>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <strong style="font-size: 15px; font-family: 'Crimson Pro', serif; text-transform: uppercase;">${spell.name}</strong>
+        ${spell.exclusive ? '<span class="spell-tag">Exclusive</span>' : ''}
+      </div>
       <em style="font-size: 11px; color: #666;">${spell.spellType} • ${spell.level === 'Cantrip' ? 'Cantrip' : 'Level ' + spell.level}</em>
     </div>
     <div style="font-size: 12px; color: #444; margin-bottom: 8px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.2;">

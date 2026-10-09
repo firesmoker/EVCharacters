@@ -610,6 +610,23 @@ select.skill-name optgroup {
   font-size: 14px;
   padding: 6px 12px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.spell-tag {
+  display: inline-block;
+  padding: 1px 5px;
+  border: 1px solid #8b5e00;
+  border-radius: 999px;
+  color: #6f4b00;
+  background: #fff4cc;
+  font: 700 9px/1.4 Inter, sans-serif;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .suggestion-item:hover,

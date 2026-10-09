@@ -11,7 +11,7 @@ export const SPELLS_DATABASE = [
 Roll Magic +2 against Deflection.
 On success, deal SD Acid damage, and the target becomes weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage.
 If you roll a double six, the target becomes weakened 2 instead.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Animal Messenger",
@@ -26,7 +26,7 @@ You specify a location you have visited and a recipient who matches a general de
 When the Beast arrives, it delivers your message to the creature that you described, mimicking your communication. If the Beast doesn't reach its destination before the spell ends, the message is lost, and the Beast returns to where you cast the spell.
 
 Empowered Spell: The spell's duration increases by 48 hours for each two additional spell points spent.`,
-    cost: "1"
+    cost: "1+"
   },
   {
     name: "Arcane Shield",
@@ -66,7 +66,7 @@ For every 2 additional Spell Points spent, you get an additional +1 Deflection.`
 • They become vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
 • They become discouraged 2 (they deal -2 damage) until the end of the next 2 rounds.
 If you roll a double 6, choose an additional mode.`,
-    cost: "1+"
+    cost: "1"
   },
   {
     name: "Blessed Weapon",
@@ -80,7 +80,7 @@ If you roll a double 6, choose an additional mode.`,
 For the duration, add +4 to Strike rolls using that weapon. The damage type is changed to the chosen energy type.
 
 Empower Spell: For each additional spell point spent, choose one more creature.`,
-    cost: "1"
+    cost: "1+"
   },
   {
     name: "Burning Ground",
@@ -104,7 +104,7 @@ Empower Spell: For each additional spell point spent, choose one more creature.`
     description: `You unleash a wide flame from your hands. Roll Magic against Deflection for creatures in the area. Those you succeed against take 2 fire damage. The rest take half as much.
 
 For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.`,
-    cost: "1"
+    cost: "1+"
   },
   {
     name: "Burrowed Knowledge",
@@ -117,7 +117,7 @@ For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.`,
     description: `Choose a creature within range. It becomes Expert (5d6) in a standard skill of your choice for the duration.
 
 Empower Spell: you can increase the duration of this spell to a full day by spending 2 additional SP.`,
-    cost: "2 SP"
+    cost: "2+"
   },
   {
     name: "Comprehend Languages",
@@ -128,7 +128,7 @@ Empower Spell: you can increase the duration of this spell to a full day by spen
     area: "Single Target",
     duration: "1 hour",
     description: `Choose a willing creature within range. For the duration, it can understand any written and spoken language. This spell doesn’t provide the ability to speak or write in unknown languages.`,
-    cost: "2 SP"
+    cost: "2"
   },
   {
     name: "Command",
@@ -215,7 +215,7 @@ If you roll a double six, depending on the damage type, the target also:
 • Fire: becomes burning 1 until the end of the round (receive 1 fire damage at the end of the round)
 • Lightning: they become disoriented 1 (-1 to all rolls) until the end of the next round
 • Ice: they become chilled 2 (-2 Movement) until the end of the next round`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Elemental Pulse",
@@ -230,7 +230,7 @@ Roll Magic against Deflection for all creatures within the radius (other than th
 The spell deals 1 less damage if the chosen ally is not yourself.
 
 For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.`,
-    cost: "1"
+    cost: "1+"
   },
   {
     name: "Resistance",
@@ -255,7 +255,7 @@ For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.`,
 For the duration, add +4 to Strike rolls using that weapon, and their damage type becomes the chosen type.
 
 Empower Spell: For each additional spell point spent, choose one more creature.`,
-    cost: "1"
+    cost: "2+"
   },
   {
     name: "Entangle",
@@ -284,7 +284,36 @@ On success, deal SD ice or piercing damage, or half as much on failure.
 If you roll a double 6: the creature is slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
 
 Empower Spell: Add +2 to the roll for each extra Spell Point you spent.`,
-    cost: "3"
+    cost: "3+"
+  },
+  {
+    name: "Glitch",
+    level: "3",
+    actionSpeed: "Fast Action",
+    spellType: "Arcane / Bardic",
+    range: "Self",
+    area: "Self",
+    duration: "until end of combat",
+    description: `Create an illusion that blurs your form and surrounds you with phantom images. When an attack against Deflection targets only you, choose that attack when you cast this spell. The attacker has disadvantage on the attack, and you gain +1 Deflection for the spell's duration.
+At the end of each round, reduce the Deflection bonus granted by this spell by 1. The spell ends when this bonus reaches 0 or at the end of combat.
+
+Empower Spell: For each additional Spell Point spent, increase the initial Deflection bonus by 1.`,
+    cost: "2+"
+  },
+  {
+    name: "Godly Force",
+    level: "Cantrip",
+    actionSpeed: "Fast Action",
+    spellType: "Divine",
+    exclusive: true,
+    range: "10 units",
+    area: "Single Target",
+    duration: "Instantaneous",
+    description: `Choose a creature within range. Roll Magic against Fortitude.
+On success, force-push the target up to 3 units away from you. On failure, force-push it up to 1 unit instead.
+If you roll a double six, the target is knocked prone.
+The target must be no more than one size larger than you.`,
+    cost: ""
   },
   {
     name: "Goodberry",
@@ -338,7 +367,7 @@ Outside of combat, heal the target to its maximum HP.
 If the target is dying, it becomes stabilized.
 
 You may spend additional Spell Points when you cast this spell. You heal 2 additional HP for each of those Spell Points.`,
-    cost: "1"
+    cost: "1+"
   },
   {
     name: "Heavenly Strike",
@@ -364,7 +393,7 @@ Roll Magic +4 against Deflection.
 On success, apply Burning 4 for three turns. On failure, apply only half the Burning amount, rounded down.
 
 Empower Spell: for each additional spell point spent, increase Burning by 1.`,
-    cost: "3"
+    cost: "3+"
   },
   {
     name: "Hex",
@@ -405,7 +434,7 @@ Roll Magic against Deflection. On success, you trap the creature inside a thin b
 The enemy can act as normal inside, but within standard limits.
 
 Empower Spell: for each extra SP, the prison has +3 HP.`,
-    cost: "3"
+    cost: "3+"
   },
   {
     name: "Ice Scythe",
@@ -419,7 +448,7 @@ Empower Spell: for each extra SP, the prison has +3 HP.`,
 The scythe deals SD piercing or ice damage. Its double 6 effect: Slowed 1 until the end of the next turn.
 
 Empower Spell: Add +2 to Melee rolls with the scythe for each 1 additional Spell Point spent.`,
-    cost: "3"
+    cost: "2+"
   },
   {
     name: "Icy Ground",
@@ -431,7 +460,7 @@ Empower Spell: Add +2 to Melee rolls with the scythe for each 1 additional Spell
     duration: "1 hour",
     description: `Cover an area of 4 units cube with extremely slippery icy ground. Creatures in the area roll Acrobatics against Threshold 3 when entering the area and when it enters their space.
 On failure, they are knocked prone and lose the rest of their movement. The area is difficult terrain.`,
-    cost: "2 SP"
+    cost: "2"
   },
   {
     name: "Invisibility",
@@ -442,7 +471,7 @@ On failure, they are knocked prone and lose the rest of their movement. The area
     area: "Single Target",
     duration: "1 hour",
     description: `Choose a willing creature within range. It becomes invisible for the duration. If it attacks or casts a spell during the duration of the spell, the spell immediately ends. It has advantage on the first attack it makes while invisible.`,
-    cost: "2 SP"
+    cost: "2"
   },
   {
     name: "Leech",
@@ -472,7 +501,7 @@ For each 1 additional Spell Point spent, add +2 to the Roll Magic roll.`,
 Roll Magic against Fortitude.
 On success, deal SD Necrotic damage and heal yourself for half that amount, rounded down. On failure, halve both the damage and healing, rounded down.
 If you roll a double six, you become inspired 1 (1 Extra Die on rolls) until the end of the next round.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Life Giving",
@@ -486,7 +515,7 @@ If you roll a double six, you become inspired 1 (1 Extra Die on rolls) until the
 No more than one casting of this spell can affect the same creature at the same time.
 
 Empower Spell: for each 2 additional SP spent, increase the HP maximum by 1 additional HP.`,
-    cost: "2 SP"
+    cost: "2+"
   },
   {
     name: "Light",
@@ -500,7 +529,7 @@ Empower Spell: for each 2 additional SP spent, increase the HP maximum by 1 addi
 The light provides 6 units of bright light and further 6 units of dim light.
 You may try to make an item or a limb of an enemy luminous.
 Roll Magic against Deflection. On success, it becomes luminous, and if the enemy is invisible, it doesn’t get any of the benefits. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it. If cast on an enemy, it ends after an hour.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Lightning Bolt",
@@ -516,7 +545,7 @@ On success, deal SD lightning damage, or half as much on failure.
 For the duration, you can perform an average action to shoot a similar lightning bolt without spending Spell Points.
 
 Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for all shots of this spell.`,
-    cost: "1 SP"
+    cost: "1+"
   },
   {
     name: "Lightning Coil",
@@ -533,7 +562,7 @@ and roll Acrobatics or Athletic against Threshold 3.
 On success, they break free of the coils. This threshold is reduced after each failed roll.
 
 Empower Spell: For each 2 additional Spell Points you spend, add +2 to this roll.`,
-    cost: "3"
+    cost: "3+"
   },
   {
     name: "Mage Hand",
@@ -545,7 +574,7 @@ Empower Spell: For each 2 additional Spell Points you spend, add +2 to this roll
     duration: "1 minute",
     description: `Conjure a small, floating hand of magical force at a point within range. The hand has Movement 5 (Flying) and lasts for the duration, until you dismiss it, until it moves more than 20 units away from you, or until you cast this cantrip again.
 Spend 1 Instinct to direct the hand to move and perform a simple task, such as manipulating an unattended object. The hand cannot attack, activate magical items, or carry more than 5 kilograms.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Magic Missile",
@@ -576,7 +605,7 @@ You may spend additional Spell Points when you cast the spell. For each addition
 • Place a simple color, mark, or symbol on a surface for 1 hour.
 • Create a worthless handheld trinket or palm-sized illusory object until the end of the next round. It cannot deal damage.
 You can maintain up to three non-instantaneous effects from this cantrip at once.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Mending",
@@ -587,7 +616,7 @@ You can maintain up to three non-instantaneous effects from this cantrip at once
     area: "Single Object",
     duration: "Instantaneous",
     description: `Touch an object with a single break or tear no larger than 1 foot in any dimension. You repair the damaged section, leaving no trace of the former damage. The spell can physically repair a magic item or construct, but it cannot restore lost magical properties.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Message",
@@ -598,7 +627,7 @@ You can maintain up to three non-instantaneous effects from this cantrip at once
     area: "Single Target",
     duration: "10 minutes",
     description: `Choose a target within range. You send a telepathic message to it, and it may reply telepathically as well. The casting of this spell is visible unless you pass a Sneak or Sleight of hand roll. (The difficulty of the roll will be determined by the GM according to the situation).`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Mind Blast",
@@ -613,7 +642,7 @@ Roll Magic against Will.
 On success, deal SD Psychic damage; on failure, deal half as much damage.
 The target becomes vulnerable 1 (-1 to all defenses) until the end of the next round.
 If you roll a double six, the target also becomes disoriented 1 (-1 penalty on all rolls) until the end of the next round.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Minor Illusion",
@@ -627,7 +656,7 @@ If you roll a double six, the target also becomes disoriented 1 (-1 penalty on a
 • Sound: Create any sound from a whisper to a shout. It may continue throughout the duration or occur at moments you choose.
 • Image: Create the appearance of an object or visible phenomenon that fits within a 1-unit cube. It produces no sound, light, smell, or physical sensation, and creatures and objects pass through it.
 Physical interaction reveals an image as an illusion. A creature that spends an action carefully examining either effect also recognizes it as false.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Minor Ward",
@@ -638,7 +667,7 @@ Physical interaction reveals an image as an illusion. A creature that spends an 
     area: "Self",
     duration: "end of current round",
     description: `You get +1 Deflection until the end of the round.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Mold Earth",
@@ -653,7 +682,7 @@ Choose one or both:
 • Create 1 unit cube of earth. It provides half cover (or full cover while being prone next to it). You cannot target an occupied space.
 • Dig a hole o1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
 If you choose both, the hole and the cube must be adjacent to each other.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Nature Spirit",
@@ -679,7 +708,7 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. The
     description: `Choose an area 5 units large. It can be of any shape but must be continuous. Create a continuous wall of grown vines and roots that is 1 unit in height. Each section of the wall has 8 HP with vulnerability to fire.
 
 Empower Spell: for each additional SP spent, increase the size of the area by 2 Units`,
-    cost: "2 SP"
+    cost: "2+"
   },
   {
     name: "Necrotic Bolt",
@@ -693,7 +722,7 @@ Empower Spell: for each additional SP spent, increase the size of the area by 2 
 Roll Magic against Deflection.
 On success, deal SD Necrotic damage, and they become vulnerable 1 until the end of the next round. On failure, deal half as much damage.
 If you roll a double six, the creature also becomes disoriented (-1 penalty on all rolls) until the end of the next round.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Pacify",
@@ -717,7 +746,7 @@ If you roll a double six, the creature also becomes disoriented (-1 penalty on a
     description: `The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. At the beginning phase of each round, you may choose to disperse the cloud.
 
 Empower Spell: You may pay additional Spell Points when you cast this spell. For each additional Spell Point spent, the radius of the spell increases by one.`,
-    cost: "3"
+    cost: "3+"
   },
   {
     name: "Protection from Evil and Good",
@@ -753,7 +782,7 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. For
 Roll Magic against Deflection.
 On success, deal SD radiant damage and they become discouraged 1 until the end of the next round. On failure, deal half as much damage.
 If you roll a double six, the target gets disadvantage on the next attack it makes against you or your allies.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Rainbow Eruption",
@@ -813,7 +842,7 @@ For each 1 additional Spell Point spent, you get 2 additional fire damage to you
     area: "Single Target",
     duration: "1 minute or until end of combat",
     description: `Choose a target within range. They get +2 Deflection for the duration.`,
-    cost: "1"
+    cost: "2"
   },
   {
     name: "Silence",
@@ -828,7 +857,7 @@ Roll Magic against Will. On success, the physical space of the creature cannot p
 Starting next round, at the end of each round, Roll Magic against Will again. Your roll gets 1 penalty for each time you’ve made the roll. On failure, the spell ends for that creature.
 
 Empower Spell: you can increase the duration of this by 1 hour for each 2 additional spell points spent.`,
-    cost: "2 SP"
+    cost: "2+"
   },
   {
     name: "Sleep",
@@ -840,7 +869,7 @@ Empower Spell: you can increase the duration of this by 1 hour for each 2 additi
     duration: "1 hour",
     description: `Choose a point within range.
 Roll Magic against Will for each creature within 2 units of it. Each creature you succeed against falls asleep (if sleeping is something that it can do). They wake up if they take damage or if a creature uses a fast action to wake them up.`,
-    cost: "3 SP"
+    cost: "3"
   },
   {
     name: "Speak with Animals",
@@ -851,7 +880,7 @@ Roll Magic against Will for each creature within 2 units of it. Each creature yo
     area: "Single Target",
     duration: "10 minutes",
     description: `Choose an animal within range. They understand your speech, and you understand theirs. The effect stops at the end of its duration or when you use this cantrip again.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Spike Growth",
@@ -864,7 +893,7 @@ Roll Magic against Will for each creature within 2 units of it. Each creature yo
     description: `Spikes grow from the ground in a 4-units cube in a point you can see within range.
 Roll Magic against Deflection against creatures in the area. Each creature you succeed against takes 1 piercing damage.
 When a creature first steps on the area during each round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement in the area deals 1 piercing damage to it. The area is difficult terrain.`,
-    cost: "3 SP"
+    cost: "3"
   },
   {
     name: "Summon Beast",
@@ -904,7 +933,7 @@ When the shade is summoned, it can immediately perform Shadow Claw on an enemy w
     area: "Single Target",
     duration: "until end of combat",
     description: `In combat, channel a surge of divine vitality into yourself or an ally within range. The target gains 3 temporary HP until the end of combat.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Thaumaturgy",
@@ -922,7 +951,7 @@ When the shade is summoned, it can immediately perform Shadow Claw on an enemy w
 • One unlocked door or window within 6 units flies open or slams shut.
 • Your eyes take on a supernatural appearance for 1 minute.
 You can maintain up to three 1-minute effects from this cantrip at once. You may dismiss one as a Fast Action.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Thunder Fist",
@@ -935,7 +964,7 @@ You can maintain up to three 1-minute effects from this cantrip at once. You may
     description: `You release thunderous energy from your hand into a nearby enemy. Melee Spell Attack. Roll Magic +2 against Deflection.
 On success, deal SD Thunder damage and push them 2 units away from you. On failure, deal half as much damage.
 If you roll a double six, the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Thunder Wave",
@@ -950,7 +979,7 @@ Roll Magic against Deflection for all creatures adjacent to you.
 Those you've succeed against receive 1 Thunder Damage and are pushed 1 unit away from you.
 If you rolled double six, the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)
 You may only push or pull the target if it’s up to one size larger than you.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Touch of Decay",
@@ -965,7 +994,7 @@ Roll Magic against Deflection.
 Channel dark energy into an adjacent enemy.
 Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes decayed 1 until the end of the next round (at the end of each round, they take 1 necrotic damage).
 If you roll a double six, the target also becomes vulnerable 1 (-1 to all defenses) until the end of the next round.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Vine Knot",
@@ -977,7 +1006,7 @@ If you roll a double six, the target also becomes vulnerable 1 (-1 to all defens
     duration: "10 minutes",
     description: `Choose a creature in range that you can see. Vines latch to it. Roll Magic +2 against Deflection or Fortitude (whichever is higher). On success, it is restrained and prone.
 At the end of each round, it rolls Athletics or Acrobatics against threshold 3. On success, it breaks loose and the spell ends. The threshold is reduced by 1 after each failed roll.`,
-    cost: "3 SP"
+    cost: "3"
   },
   {
     name: "Vine Whip",
@@ -991,7 +1020,7 @@ At the end of each round, it rolls Athletics or Acrobatics against threshold 3. 
 Roll Magic against Deflection. Launch a thorny vine at an enemy you can see within range. Deal SD piercing damage, and push or pull it 1 unit to any direction. On failure, you deal half damage instead (rounded down).
 If you rolled a double six, push or pull for 2 units instead of 1, and the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage).
 You may only push or pull the target if it’s up to one size larger than you.`,
-    cost: "0"
+    cost: ""
   },
   {
     name: "Windsurf",
@@ -1002,7 +1031,7 @@ You may only push or pull the target if it’s up to one size larger than you.`,
     area: "Single Target",
     duration: "10 minutes",
     description: `Choose a creature in range that you can see. It is engulfed in windy currents. For the duration, it gets +2 Movement, and it can make its movement through the air as long as it's up to 2 units height and no longer than then 5 seconds.`,
-    cost: "1 SP"
+    cost: "1"
   },
   {
     name: "Haste",

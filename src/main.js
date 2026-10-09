@@ -233,7 +233,9 @@ const updateSuggestions = (wrapper) => {
     if (filteredOptions.length > 0) {
       html += `<div class="suggestion-group-title">${group.groupLabel}</div>`;
       filteredOptions.forEach(opt => {
-        html += `<div class="suggestion-item">${opt}</div>`;
+        const spell = type === 'spells' ? SPELLS_DATABASE.find(item => item.name === opt) : null;
+        const tag = spell?.exclusive ? '<span class="spell-tag">Exclusive</span>' : '';
+        html += `<div class="suggestion-item" data-value="${opt}"><span>${opt}</span>${tag}</div>`;
       });
     }
   });
@@ -282,10 +284,11 @@ const handleInput = (e) => {
  */
 const handleClick = (e) => {
   // Suggestion Item Click
-  if (e.target.classList.contains('suggestion-item')) {
-    const wrapper = e.target.closest('.autocomplete-wrapper');
+  const suggestionItem = e.target.closest('.suggestion-item');
+  if (suggestionItem) {
+    const wrapper = suggestionItem.closest('.autocomplete-wrapper');
     const input = wrapper.querySelector('input');
-    const value = e.target.innerText;
+    const value = suggestionItem.dataset.value;
     input.value = value;
     wrapper.querySelector('.suggestions-dropdown').style.display = 'none';
 
@@ -593,8 +596,7 @@ const handleGlobalKeydown = (e) => {
   } else if (e.key === 'Enter') {
     if (selectedIndex > -1) {
       e.preventDefault();
-      e.target.value = items[selectedIndex].innerText;
-      dropdown.style.display = 'none';
+      items[selectedIndex].click();
     }
   } else if (e.key === 'Escape') {
     dropdown.style.display = 'none';

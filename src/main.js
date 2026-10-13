@@ -298,10 +298,10 @@ const handleClick = (e) => {
       if (spellRow) {
         const spell = SPELLS_DATABASE.find(s => s.name === value);
         if (spell) {
-          const levelInput = spellRow.querySelector('input[placeholder="Lvl"]');
+          const rankInput = spellRow.querySelector('input[placeholder="Rank"]');
           const costInput = spellRow.querySelector('input[placeholder="Cost"]');
-          const isCantrip = spell.level === 'Cantrip';
-          if (levelInput) levelInput.value = isCantrip ? 'Cntrp' : spell.level;
+          const isCantrip = spell.rank === 'Cantrip';
+          if (rankInput) rankInput.value = isCantrip ? 'Cntrp' : spell.rank;
           if (costInput) costInput.value = isCantrip ? '-' : spell.cost;
         }
       }

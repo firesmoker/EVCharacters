@@ -155,7 +155,7 @@
           "slots": {
             "name": "Animal Strike (While Shapeshifted)",
             "rollDescription": "Roll Magic against Deflection",
-            "notes": ""
+            "notes": "On failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {
@@ -307,25 +307,25 @@
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Light",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Minor Ward",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Mold Earth",
-            "0"
+            "-"
           ]
         },
         {
@@ -339,33 +339,33 @@
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "1",
             "Speak with Animals",
-            "0"
+            "1"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Thunder Fist",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Thunder Wave",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Vine Whip",
-            "0"
+            "-"
           ]
         },
         {
@@ -373,7 +373,7 @@
           "values": [
             "1",
             "Animal Messenger",
-            "1"
+            "1+"
           ]
         },
         {
@@ -413,7 +413,7 @@
           "values": [
             "1",
             "Healing Touch",
-            "1"
+            "1+"
           ]
         },
         {
@@ -437,21 +437,21 @@
           "values": [
             "1",
             "Windsurf",
-            "1 SP"
+            "1"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Life Giving",
-            "2 SP"
+            "2+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Nature Spirit",
             "2+"
           ]
@@ -459,33 +459,33 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Nature Wall",
-            "2 SP"
+            "2+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Sleep",
-            "3 SP"
+            "3"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Spike Growth",
-            "3 SP"
+            "3"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Vine Knot",
-            "3 SP"
+            "3"
           ]
         }
       ]

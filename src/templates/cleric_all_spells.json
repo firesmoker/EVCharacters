@@ -155,7 +155,7 @@
           "slots": {
             "name": "Melee Strike (Using Blessed Strike)",
             "rollDescription": "Roll Magic against Deflection",
-            "notes": ""
+            "notes": "On failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {
@@ -315,33 +315,33 @@
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Light",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Minor Ward",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Radiant Beam",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Thaumaturgy",
-            "0"
+            "-"
           ]
         },
         {
@@ -349,7 +349,7 @@
           "values": [
             "1",
             "Blessed Weapon",
-            "1"
+            "1+"
           ]
         },
         {
@@ -373,7 +373,7 @@
           "values": [
             "1",
             "Healing Touch",
-            "1"
+            "1+"
           ]
         },
         {
@@ -389,29 +389,29 @@
           "values": [
             "1",
             "Shield of Faith",
-            "1"
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Burrowed Knowledge",
-            "2 SP"
+            "2+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Comprehend Languages",
-            "2 SP"
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Heavenly Strike",
             "2"
           ]
@@ -419,15 +419,15 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Life Giving",
-            "2 SP"
+            "2+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Protective Circle",
             "3"
           ]
@@ -435,9 +435,9 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Silence",
-            "2 SP"
+            "2+"
           ]
         }
       ]

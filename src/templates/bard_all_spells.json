@@ -162,7 +162,7 @@
           "slots": {
             "name": "Melee Strike",
             "rollDescription": "Roll Melee against Deflection",
-            "notes": ""
+            "notes": "On failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {
@@ -314,49 +314,49 @@
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Light",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Message",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Minor Illusion",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Minor Ward",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Thunder Fist",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Thunder Wave",
-            "0"
+            "-"
           ]
         },
         {
@@ -364,7 +364,7 @@
           "values": [
             "1",
             "Animal Messenger",
-            "1"
+            "1+"
           ]
         },
         {
@@ -410,39 +410,39 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Burrowed Knowledge",
-            "2 SP"
+            "2+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Comprehend Languages",
-            "2 SP"
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Invisibility",
-            "2 SP"
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Life Giving",
-            "2 SP"
+            "2+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Nature Spirit",
             "2+"
           ]
@@ -450,17 +450,17 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Silence",
-            "2 SP"
+            "2+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Sleep",
-            "3 SP"
+            "3"
           ]
         }
       ]

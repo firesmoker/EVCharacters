@@ -169,7 +169,7 @@
           "slots": {
             "name": "Melee Strike",
             "rollDescription": "Roll Melee against Deflection",
-            "notes": "Sneak Attack: If you have advantage, deal +2 damage."
+            "notes": "Sneak Attack: If you have advantage, deal +2 damage.\nOn failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {
@@ -211,7 +211,7 @@
           "slots": {
             "name": "Weapon Throw",
             "rollDescription": "Roll Weapon Throw against Deflection",
-            "notes": ""
+            "notes": "On failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {

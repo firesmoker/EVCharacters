@@ -289,57 +289,57 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Slow",
-            "2 SP"
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Slow-Motion",
-            "2 SP"
+            "2"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "2",
+            "Time Detention",
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
             "3",
-            "Time Detention",
-            "2 SP"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "5",
             "Accelerate Magic",
-            "4 SP"
+            "4"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "5",
+            "3",
             "Haste",
-            "4 SP"
+            "4"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "5",
+            "3",
             "Stasis",
-            "4 SP"
+            "4"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "5",
+            "3",
             "Temporal Clarity",
-            "4 SP"
+            "4"
           ]
         },
         {

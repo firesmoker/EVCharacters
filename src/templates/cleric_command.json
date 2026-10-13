@@ -155,7 +155,7 @@
           "slots": {
             "name": "Melee Strike (Using Blessed Strike)",
             "rollDescription": "Roll Magic against Deflection",
-            "notes": ""
+            "notes": "On failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {
@@ -307,7 +307,7 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Command",
             "1+"
           ]

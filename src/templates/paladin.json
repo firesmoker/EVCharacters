@@ -168,7 +168,7 @@
           "slots": {
             "name": "Melee Strike",
             "rollDescription": "Roll Melee against Deflection",
-            "notes": ""
+            "notes": "On failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {

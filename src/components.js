@@ -69,7 +69,7 @@ export const renderDragsIgnoredRow = () => `
 export const renderSpellRow = () => `
   <div class="skill-row">
     <div class="autocomplete-wrapper" style="flex: 0 0 12mm;">
-        <input type="text" class="skill-bonus" placeholder="Lvl" style="width: 100%; text-align: center;">
+        <input type="text" class="skill-bonus" placeholder="Rank" style="width: 100%; text-align: center;">
     </div>
     ${renderAutocomplete("Spell Name", "spells", "skill-name")}
     <div class="autocomplete-wrapper" style="flex: 0 0 15mm;">
@@ -125,7 +125,7 @@ export const renderSectionRow = (label, placeholder, icon = null) => `
 // Content for the Spells Known section with headings
 export const renderSpellsKnownSection = () => `
   <div class="skill-header-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
-    <div style="flex: 0 0 12mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Level</div>
+    <div style="flex: 0 0 12mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Rank</div>
     <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Spell Name</div>
     <div style="flex: 0 0 15mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Cost</div>
   </div>
@@ -402,14 +402,15 @@ export const renderSpellDescriptionBlock = (spell) => `
         <strong style="font-size: 15px; font-family: 'Crimson Pro', serif; text-transform: uppercase;">${spell.name}</strong>
         ${spell.exclusive ? '<span class="spell-tag">Exclusive</span>' : ''}
       </div>
-      <em style="font-size: 11px; color: #666;">${spell.spellType} • ${spell.level === 'Cantrip' ? 'Cantrip' : 'Level ' + spell.level}</em>
+      <em style="font-size: 11px; color: #666;">${spell.spellType} • ${spell.rank === 'Cantrip' ? 'Cantrip' : 'Rank ' + spell.rank}</em>
     </div>
     <div style="font-size: 12px; color: #444; margin-bottom: 8px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.2;">
       <span><strong>Speed:</strong> ${spell.actionSpeed}</span>
       <span><strong>Range:</strong> ${spell.range}</span>
       <span><strong>Area:</strong> ${spell.area}</span>
-      ${!/^instantaneous$/i.test(spell.duration.trim()) ? `<span><strong>Duration:</strong> ${spell.duration}</span>` : ''}
-      ${spell.level !== 'Cantrip' ? `<span><strong>Cost:</strong> ${spell.cost}</span>` : ''}
+      ${spell.duration.trim() && !/^instantaneous$/i.test(spell.duration.trim()) ? `<span><strong>Duration:</strong> ${spell.duration}</span>` : ''}
+      ${spell.requirements ? `<span><strong>Requirements:</strong> ${spell.requirements}</span>` : ''}
+      ${spell.rank !== 'Cantrip' ? `<span><strong>Cost:</strong> ${spell.cost}</span>` : ''}
     </div>
     <div style="font-size: 12px; line-height: 1.3; white-space: pre-wrap; background-color: #f7f7f7; padding: 6px; border-radius: 4px;" class="editable-field spell-description-text">${spell.description}</div>
   </div>

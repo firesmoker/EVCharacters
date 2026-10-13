@@ -155,7 +155,7 @@
           "slots": {
             "name": "Animal Strike (While Shapeshifted)",
             "rollDescription": "Roll Magic against Deflection",
-            "notes": ""
+            "notes": "On failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {

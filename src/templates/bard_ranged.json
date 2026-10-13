@@ -162,7 +162,7 @@
           "slots": {
             "name": "Ranged Strike",
             "rollDescription": "Roll Ranged against Deflection",
-            "notes": ""
+            "notes": "On failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {

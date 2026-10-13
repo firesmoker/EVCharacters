@@ -289,73 +289,73 @@
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Elemental Flare",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Light",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Mage Hand",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Magic Tricks",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Message",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Minor Illusion",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Minor Ward",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Thunder Fist",
-            "0"
+            "-"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "Cantrip",
+            "Cntrp",
             "Thunder Wave",
-            "0"
+            "-"
           ]
         },
         {
@@ -371,7 +371,7 @@
           "values": [
             "1",
             "Burning Hands",
-            "1"
+            "1+"
           ]
         },
         {
@@ -379,7 +379,7 @@
           "values": [
             "1",
             "Elemental Pulse",
-            "1"
+            "1+"
           ]
         },
         {
@@ -387,7 +387,7 @@
           "values": [
             "1",
             "Elemental Weapon",
-            "1"
+            "2+"
           ]
         },
         {
@@ -403,7 +403,7 @@
           "values": [
             "1",
             "Lightning Bolt",
-            "1 SP"
+            "1+"
           ]
         },
         {
@@ -433,7 +433,7 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Burning Ground",
             "3"
           ]
@@ -441,73 +441,73 @@
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Comprehend Languages",
-            "2 SP"
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Glacial Spike",
-            "3"
+            "3+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Hellfire",
-            "3"
+            "3+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Ice Prison",
-            "3"
+            "3+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Ice Scythe",
-            "3"
+            "2+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Icy Ground",
-            "2 SP"
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Invisibility",
-            "2 SP"
+            "2"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Lightning Coil",
-            "3"
+            "3+"
           ]
         },
         {
           "type": "skill",
           "values": [
-            "3",
+            "2",
             "Sleep",
-            "3 SP"
+            "3"
           ]
         }
       ]

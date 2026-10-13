@@ -200,7 +200,7 @@
             }
           ],
           "variants": [
-            "<b>Holy Smite (1 / Combat)</b><div>On success, deal +1 radiant damage, or +2 radiant damage if against Undead or Demon.</div>"
+            "<b>Holy Smite (1 / Combat)</b><div>On success, deal +1 Radiant damage, or +2 Radiant damage if against Undead or Demon.</div>"
           ],
           "ui": {
             "variantsHidden": false,

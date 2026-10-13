@@ -26,7 +26,7 @@ If you roll a double six, the target becomes Weakened 2 instead.`,
 You specify a location you have visited and a recipient who matches a general description, such as "a person dressed in the uniform of the town guard" or "a red-haired dwarf wearing a pointed hat." You also communicate a message of up to twenty-five words. The Beast travels for the duration toward the specified location, covering about 25 miles per 24 hours or 50 miles if the Beast can fly.
 When the Beast arrives, it delivers your message to the creature that you described, mimicking your communication. If the Beast doesn't reach its destination before the spell ends, the message is lost, and the Beast returns to where you cast the spell.
 
-Empowered Spell: The spell's duration increases by 48 hours for each two additional spell points spent.`,
+Empowered Spell: The spell's duration increases by 48 hours for each two additional Spell Points spent.`,
     cost: "1+"
   },
   {
@@ -81,10 +81,10 @@ If you roll a double 6, choose an additional mode.`,
     range: "15 units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Choose a creature within range. Their weapon is imbued with radiant energy. If you are a cleric, you can instead choose the energy to be the associated element of your domain.
+    description: `Choose a creature within range. Their weapon is imbued with radiant energy. If you are a Cleric, you can instead choose the energy to be the associated element of your domain.
 For the duration, add +4 to Strike rolls using that weapon. The damage type is changed to the chosen energy type.
 
-Empower Spell: For each additional spell point spent, choose one more creature.`,
+Empower Spell: For each additional Spell Point spent, choose one more creature.`,
     cost: "1+"
   },
   {
@@ -108,7 +108,7 @@ Empower Spell: For each additional spell point spent, choose one more creature.`
     range: "3 units burst",
     area: "3 units burst",
     duration: "",
-    description: `You unleash a wide flame from your hands. Roll Magic against Deflection for creatures in the area. Those you succeed against take 2 fire damage. The rest take half as much damage, rounded down.
+    description: `You unleash a wide flame from your hands. Roll Magic against Deflection for creatures in the area. Those you succeed against take 2 Fire damage. The rest take half as much damage, rounded down.
 
 Empower Spell: For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.`,
     cost: "1+"
@@ -148,7 +148,7 @@ Empower Spell: you can increase the duration of this spell to a full day by spen
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br><br><strong>1 Success die:</strong> choose one of the following:<ul><li><strong>Halt:</strong> the target must stay in place and loses all Instinct for this round.</li><li><strong>Move:</strong> in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.</li></ul><strong>2 Success dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Grovel:</strong> the target immediately becomes Prone and doesn't do anything else this round.</li><li><strong>Drop:</strong> the target immediately drops whatever it is holding and doesn't do anything else this round.</li></ul><strong>3+ Success dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Harm:</strong> if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.</li><li><strong>Flee:</strong> the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</li></ul><br>You may spend 2 additional Spell Points per additional target; each target may receive a different command.`,
+    description: `You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br><br><strong>1 Success Die:</strong> choose one of the following:<ul><li><strong>Halt:</strong> the target must stay in place and loses all Instinct for this round.</li><li><strong>Move:</strong> in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.</li></ul><strong>2 Success Dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Grovel:</strong> the target immediately becomes Prone and doesn't do anything else this round.</li><li><strong>Drop:</strong> the target immediately drops whatever it is holding and doesn't do anything else this round.</li></ul><strong>3+ Success Dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Harm:</strong> if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.</li><li><strong>Flee:</strong> the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</li></ul><br>You may spend 2 additional Spell Points per additional target; each target may receive a different command.`,
     cost: "1+"
   },
   {
@@ -225,9 +225,9 @@ If you roll a double six, the target is also Frightened until the end of the nex
     range: "12 Units",
     area: "Single Target",
     duration: "",
-    description: `Shoot an elemental flare at a creature within range. Choose its damage type: lightning, fire or ice. Roll Magic +3 against Deflection. On success, deal SD damage of the chosen type, or half as much on failure, rounded down.
+    description: `Shoot an elemental flare at a creature within range. Choose its damage type: Lightning, Fire or Ice. Roll Magic +3 against Deflection. On success, deal SD damage of the chosen type, or half as much on failure, rounded down.
 If you roll a double six, depending on the damage type, the target also:
-• Fire: becomes Burning 1 until the end of the round (receive 1 fire damage at the end of the round)
+• Fire: becomes Burning 1 until the end of the round (receive 1 Fire damage at the end of the round)
 • Lightning: they become Disoriented 1 (-1 to all rolls) until the end of the next round
 • Ice: they become Chilled 2 (-2 Movement) until the end of the next round`,
     cost: ""
@@ -241,7 +241,7 @@ If you roll a double six, depending on the damage type, the target also:
     range: "10 Units",
     area: "2-unit radius",
     duration: "",
-    description: `Choose an ally within range or yourself. Choose damage type: fire, ice, or lightning. A pulse of the chosen elemental energy bursts from the chosen target in a 2-unit radius.
+    description: `Choose an ally within range or yourself. Choose damage type: Fire, Ice, or Lightning. A pulse of the chosen elemental energy bursts from the chosen target in a 2-unit radius.
 Roll Magic against Deflection for all creatures within the radius (other than the chosen target). Those that you've succeed against take 2 damage; the rest take half the amount of damage, rounded down.
 The spell deals 1 less damage if the chosen ally is not yourself.
 
@@ -257,7 +257,7 @@ Empower Spell: For every 2 additional Spell Points spent, add +2 to the Roll Mag
     range: "Touch",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Touch a creature and ward it against harm. Choose a damage type other than force and psychic. The target gains resistance to the chosen damage type for the duration.`,
+    description: `Touch a creature and ward it against harm. Choose a damage type other than Force and Psychic. The target gains resistance to the chosen damage type for the duration.`,
     cost: "1"
   },
   {
@@ -269,10 +269,10 @@ Empower Spell: For every 2 additional Spell Points spent, add +2 to the Roll Mag
     range: "15 units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Choose a creature within range. Their weapon is imbued with an element of your choice: fire, lightning, or ice.
+    description: `Choose a creature within range. Their weapon is imbued with an element of your choice: Fire, Lightning, or Ice.
 For the duration, add +4 to Strike rolls using that weapon, and their damage type becomes the chosen type.
 
-Empower Spell: For each two additional spell point spent, choose one more creature.`,
+Empower Spell: For each two additional Spell Point spent, choose one more creature.`,
     cost: "2+"
   },
   {
@@ -299,9 +299,9 @@ During the Beginning Phase of each round, each affected enemy rolls Acrobatics o
     area: "Single Target",
     duration: "",
     description: `A large spike of ice bursts from the ground, piercing through a creature you can see within range.
-Roll Magic +8 against Deflection (minimum roll of 6).
-On success, deal SD ice or piercing damage, or half as much on failure, rounded down.
-If you roll a double 6: the creature is Slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
+Roll Magic +8 against Deflection (Minimum Roll of 6).
+On success, deal SD Ice or Piercing damage, or half as much on failure, rounded down.
+If you roll a double 6: the creature is Slowed 1 (-1 Movement, 1 Drag for all actions) until the end of the next round.
 
 Empower Spell: Add +2 to the roll for each extra Spell Point you spent.`,
     cost: "3+"
@@ -358,7 +358,7 @@ The target must be no more than one size larger than you.`,
     area: "1 unit square",
     duration: "1 day",
     description: `You cause a large tree to sprout from the ground at a target location. The tree trunk occupies 1 unit. When allies (including you) that are adjacent to the tree are attacked by an attack against deflection, the tree becomes the target instead.
-The tree has 0 Deflection and 7 HP. It has weakness to fire damage (takes double damage from fire).
+The tree has 0 Deflection and 7 HP. It has weakness to Fire damage (takes double damage from Fire).
 
 Empower Spell: You may spend additional Spell Points when you cast the spell. For each 1 additional point spent, the tree has 3 more HP.`,
     cost: "1+"
@@ -403,7 +403,7 @@ Empower Spell: You may spend additional Spell Points when you cast this spell. Y
     range: "6 units",
     area: "Single Target",
     duration: "",
-    description: `Choose a creature within range. They get 8 Extra Dice on the next Strike they perform until the end of the next round. Its damage type can be radiant.`,
+    description: `Choose a creature within range. They get 8 Extra Dice on the next Strike they perform until the end of the next round. Its damage type can be Radiant.`,
     cost: "2"
   },
   {
@@ -419,7 +419,7 @@ Empower Spell: You may spend additional Spell Points when you cast this spell. Y
 Roll Magic +4 against Deflection.
 On success, apply Burning 4 for three rounds. On failure, apply only half the Burning amount, rounded down.
 
-Empower Spell: for each additional spell point spent, increase Burning by 1.`,
+Empower Spell: for each additional Spell Point spent, increase Burning by 1.`,
     cost: "3+"
   },
   {
@@ -444,8 +444,8 @@ Empower Spell: for each additional spell point spent, increase Burning by 1.`,
     area: "Single Target",
     duration: "",
     description: `Launch a large ice shard on a creature within range that you can see.
-Roll Magic +4 against Deflection. On success, deal SD ice or piercing damage, or half as much on failure, rounded down.
-The shard shatters on impact, sending small ice shards to each enemy within 2 units of the target. Use the same roll, without the +4 main-target bonus, against their Deflection. Enemies you succeed against take 1 ice damage.
+Roll Magic +4 against Deflection. On success, deal SD Ice or Piercing damage, or half as much on failure, rounded down.
+The shard shatters on impact, sending small ice shards to each enemy within 2 units of the target. Use the same roll, without the +4 main-target bonus, against their Deflection. Enemies you succeed against take 1 Ice damage.
 
 Empower Spell: For every additional Spell Point spent, add +2 to the roll against the main target only.`,
     cost: "1+"
@@ -460,7 +460,7 @@ Empower Spell: For every additional Spell Point spent, add +2 to the roll agains
     area: "Single Target",
     duration: "until end of combat",
     description: `Choose a creature within range that is up to one size larger than you.
-Roll Magic against Deflection. On success, you trap the creature inside a thin but strong ice prison. The prison has 9 HP and Vulnerability to fire.
+Roll Magic against Deflection. On success, you trap the creature inside a thin but strong ice prison. The prison has 9 HP and Vulnerability to Fire.
 The enemy can act as normal inside, but within standard limits.
 
 Empower Spell: for each extra SP, the prison has +3 HP.`,
@@ -476,7 +476,7 @@ Empower Spell: for each extra SP, the prison has +3 HP.`,
     area: "Single Target",
     duration: "10 minutes",
     description: `You create a large scythe made of ice in your hands for the duration. It is a two-handed weapon with reach. While wielding it, you may perform Melee Strikes using either Magic or Melee. The scythe has 8 Extra Dice: roll 8 additional d6 for each strike (Minimum Roll 2). When you cast this spell, you may immediately perform a Melee Strike with it.
-On success, the scythe deals SD piercing or ice damage. On failure, it deals half as much damage, rounded down. Its Double 6 effect is Slowed 1 until the end of the next round.
+On success, the scythe deals SD Piercing or Ice damage. On failure, it deals half as much damage, rounded down. Its Double 6 effect is Slowed 1 until the end of the next round.
 
 Empower Spell: Increase the scythe’s Extra Dice by 2 for each additional Spell Point spent.
 
@@ -579,8 +579,8 @@ Roll Magic against Deflection. On success, it becomes Luminous, and if the enemy
     duration: "until end of combat",
     description: `You charge your hands with chaotic lightning energy and shoot a lightning bolt at a creature you can see within range.
 Roll Magic +6 against Deflection.
-On success, deal SD lightning damage, or half as much on failure, rounded down.
-For the duration, you can perform an average action to shoot a similar lightning bolt without spending Spell Points.
+On success, deal SD Lightning damage, or half as much on failure, rounded down.
+For the duration, you can perform an Average Action to shoot a similar lightning bolt without spending Spell Points.
 
 Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for all shots of this spell.`,
     cost: "1+"
@@ -596,7 +596,7 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for 
     duration: "10 minutes",
     description: `Choose a creature you can see within range.
 Roll Magic against Deflection or Fortitude, whichever is higher.
-On success, coils of lightning tie the legs of the creature. They become Restrained. At the end of each round, they take 3 lightning damage and roll Acrobatics or Athletics against Threshold 3.
+On success, coils of lightning tie the legs of the creature. They become Restrained. At the end of each round, they take 3 Lightning damage and roll Acrobatics or Athletics against Threshold 3.
 On success, they break free of the coils. This threshold is reduced after each failed roll.
 
 Empower Spell: For each 2 additional Spell Points you spend, add +2 to this roll.`,
@@ -623,7 +623,7 @@ Spend 1 Instinct to direct the hand to move and perform a simple task, such as m
     range: "15 units",
     area: "Single Target",
     duration: "",
-    description: `Shoot three magical missiles. Choose a creature to target with each missile. You may choose the same creature for more than one missile. You only need to know the creatures’ general location. Each missile automatically hits its target and deals 1 force damage. If the missile has no way to reach the target, it fails.
+    description: `Shoot three magical missiles. Choose a creature to target with each missile. You may choose the same creature for more than one missile. You only need to know the creatures’ general location. Each missile automatically hits its target and deals 1 Force damage. If the missile has no way to reach the target, it fails.
 
 Empower Spell: You may spend additional Spell Points when you cast the spell. For each additional point spent, shoot one more missile.`,
     cost: "1+"
@@ -746,7 +746,7 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. The
     range: "6 units",
     area: "5 units, continuous, any shape",
     duration: "",
-    description: `Choose an area 5 units large. It can be of any shape but must be continuous. Create a continuous wall of grown vines and roots that is 1 unit in height. Each section of the wall has 8 HP with vulnerability to fire.
+    description: `Choose an area 5 units large. It can be of any shape but must be continuous. Create a continuous wall of grown vines and roots that is 1 unit in height. Each section of the wall has 8 HP with vulnerability to Fire.
 
 Empower Spell: for each additional SP spent, increase the size of the area by 2 Units`,
     cost: "2+"
@@ -786,7 +786,7 @@ If you roll a double six, the creature becomes Decayed 2 instead.`,
     range: "10 units",
     area: "2-unit radius",
     duration: "10 minutes",
-    description: `The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become Poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and Disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. During the Beginning Phase of each round, you may choose to disperse the cloud.
+    description: `The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become Poisoned 1 (they have -1 Fortitude and take 1 Poison damage at the end of each round) and Disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. During the Beginning Phase of each round, you may choose to disperse the cloud.
 
 Empower Spell: You may pay additional Spell Points when you cast this spell. For each additional Spell Point spent, the radius of the spell increases by one.`,
     cost: "3+"
@@ -825,7 +825,7 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. For
     duration: "",
     description: `Launch a beam of divine energy at an enemy. If you are a Cleric, you may choose to change the damage type from Radiant to the one associated with your domain.
 Roll Magic against Deflection.
-On success, deal SD radiant damage and they become Discouraged 1 until the end of the next round. On failure, deal half as much damage, rounded down.
+On success, deal SD Radiant damage and they become Discouraged 1 until the end of the next round. On failure, deal half as much damage, rounded down.
 If you roll a double six, the target gets disadvantage on the next attack it makes against you or your allies.`,
     cost: ""
   },
@@ -876,10 +876,10 @@ If the target is already targeted by attacks when the spell is cast, those attac
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `You get a pool of 4 points of fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see.
-Roll Magic against Deflection. Targets that you've succeeded against take the fire damage, while targets you've failed against take only half the damage, rounded down.
+    description: `You get a pool of 4 points of Fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see.
+Roll Magic against Deflection. Targets that you've succeeded against take the Fire damage, while targets you've failed against take only half the damage, rounded down.
 
-Empower Spell: For each 1 additional Spell Point spent, you get 2 additional fire damage to your damage pool.`,
+Empower Spell: For each 1 additional Spell Point spent, you get 2 additional Fire damage to your damage pool.`,
     cost: "1+"
   },
   {
@@ -904,10 +904,10 @@ Empower Spell: For each 1 additional Spell Point spent, you get 2 additional fir
     area: "Single Target",
     duration: "1 minute.",
     description: `Choose a creature within range.
-Roll Magic against Will. On success, the physical space of the creature cannot produce sound. It also completely blocks any outside sounds getting into it. The creature is immune to thunder damage. It cannot cast spells that require vocal activity (all spells require this unless described otherwise.)
-Starting next round, at the end of each round, Roll Magic against Will again. Your roll gets 1 penalty for each time you’ve made the roll. On failure, the spell ends for that creature.
+Roll Magic against Will. On success, the physical space of the creature cannot produce sound. It also completely blocks any outside sounds getting into it. The creature is immune to Thunder damage. It cannot cast spells that require vocal activity (all spells require this unless described otherwise.)
+Starting next round, at the end of each round, roll Magic against Will again. Your roll gets 1 penalty for each time you’ve made the roll. On failure, the spell ends for that creature.
 
-Empower Spell: you can increase the duration of this by 1 hour for each 2 additional spell points spent.`,
+Empower Spell: you can increase the duration of this by 1 hour for each 2 additional Spell Points spent.`,
     cost: "2+"
   },
   {
@@ -920,7 +920,7 @@ Empower Spell: you can increase the duration of this by 1 hour for each 2 additi
     area: "Single Target",
     duration: "1 hour",
     description: `Choose a point within range.
-Roll Magic against Will for each creature within 2 units of it. Each creature you succeed against falls asleep (if sleeping is something that it can do). They wake up if they take damage or if a creature uses a fast action to wake them up.`,
+Roll Magic against Will for each creature within 2 units of it. Each creature you succeed against falls asleep (if sleeping is something that it can do). They wake up if they take damage or if a creature uses a Fast Action to wake them up.`,
     cost: "3"
   },
   {
@@ -945,8 +945,8 @@ Roll Magic against Will for each creature within 2 units of it. Each creature yo
     area: "4 units cube",
     duration: "10 minutes",
     description: `Spikes grow from the ground in a 4-units cube in a point you can see within range.
-Roll Magic against Deflection against creatures in the area. Each creature you succeed against takes 1 piercing damage.
-When a creature first steps on the area during each round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement in the area deals 1 piercing damage to it. The area is difficult terrain.`,
+Roll Magic against Deflection against creatures in the area. Each creature you succeed against takes 1 Piercing damage.
+When a creature first steps on the area during each round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement in the area deals 1 Piercing damage to it. The area is difficult terrain.`,
     cost: "3"
   },
   {
@@ -977,7 +977,7 @@ You must take the Command Fast Action during the Action Phase to enable the beas
 If the location is not available when the spell resolves, choose an adjacent location within range.
 The shade is a separate actor than your character that you control in the same manner. Start controlling it in the next round.
 You must use the Command Instinct ability during the Action Phase to enable the spirit to use the specific actions that require it.
-When the shade is summoned, it can immediately perform Shadow Claw on an enemy within its range as a free action.`,
+When the shade is summoned, it can immediately perform Shadow Claw on an enemy within its range as a Free Action.`,
     cost: "1"
   },
   {
@@ -1005,7 +1005,7 @@ When the shade is summoned, it can immediately perform Shadow Claw on an enemy w
 • The ground within 3 units of you trembles harmlessly for a moment.
 • A brief sound emanates from a point within 6 units of you.
 • One unlocked door or window within 6 units flies open or slams shut.
-• Your eyes take on a supernatural appearance for 1 minute. You get advantage on intimidation.
+• Your eyes take on a supernatural appearance for 1 minute. You get advantage on Intimidation.
 Casting the spell again while it's active dispells the current casting`,
     cost: ""
   },
@@ -1048,7 +1048,7 @@ You may only push or pull the target if it’s up to one size larger than you.`,
     description: `Melee Spell Attack.
 Roll Magic against Deflection.
 Channel dark energy into an adjacent enemy.
-Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes Decayed 1 until the end of the next round (at the end of each round, they take 1 necrotic damage).
+Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes Decayed 1 until the end of the next round (at the end of each round, they take 1 Necrotic damage).
 If you roll a double six, the target also becomes Vulnerable 1 (-1 to all defenses) until the end of the next round.`,
     cost: ""
   },
@@ -1074,7 +1074,7 @@ At the end of each round, it rolls Athletics or Acrobatics against threshold 3. 
     area: "Single Target",
     duration: "",
     description: `Ranged Spell Attack
-Roll Magic against Deflection. Launch a thorny vine at an enemy you can see within range. Deal SD piercing damage, and push or pull it 1 unit to any direction. On failure, you deal half damage instead (rounded down).
+Roll Magic against Deflection. Launch a thorny vine at an enemy you can see within range. Deal SD Piercing damage, and push or pull it 1 unit to any direction. On failure, you deal half damage instead (rounded down).
 If you rolled a double six, push or pull for 2 units instead of 1, and the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage).
 You may only push or pull the target if it’s up to one size larger than you.`,
     cost: ""
@@ -1126,7 +1126,7 @@ These actions cannot be used to cast spells that cost Spell Points. If Slow and 
     range: "10 Units",
     area: "Single Target",
     duration: "until the end of the next two rounds",
-    description: `Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.`,
+    description: `Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 Instinct and advantage on all rolls.`,
     cost: "4"
   },
   {
@@ -1139,7 +1139,7 @@ These actions cannot be used to cast spells that cost Spell Points. If Slow and 
     area: "Single Target",
     duration: "until the end of the next two rounds",
     description: `Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size the creature is larger than Medium.
-On success, the creature movement is halved, and it gets 1 drag on all actions.
+On success, the creature movement is halved, and it gets 1 Drag on all actions.
 
 If Slow and Haste affect the same creature, both spells immediately dispel each other.`,
     cost: "2"
@@ -1157,7 +1157,7 @@ If Slow and Haste affect the same creature, both spells immediately dispel each 
 
 On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
 
-On each subsequent round, you must take the Maintain fast action and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.
+On each subsequent round, you must take the Maintain Fast Action and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.
 If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.`,
     cost: "2"
   },

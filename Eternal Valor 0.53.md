@@ -1,26 +1,6 @@
 <!-- rpg-scribe:document {"v":1,"page":{"size":"A4","orientation":"portrait","marginsMm":{"top":20,"right":20,"bottom":20,"left":20}},"theme":{"id":"builtin.clean","snapshot":{"v":1,"name":"Clean","fonts":{"body":"\"Segoe UI\", system-ui, sans-serif","heading":"\"Segoe UI\", system-ui, sans-serif","code":"Consolas, \"Cascadia Code\", monospace"},"fontSizesPt":{"body":12,"code":10.8,"headings":[24,21,18,15.6,13.8,12]},"lineHeight":1.65,"colors":{"text":"#202631","background":"#e7edf4","page":"#f7f8fa","heading":"#202631","link":"#1769aa","codeText":"#202631","codeBackground":"#e9edf2","selectionText":"#202631","selectionBackground":"#c7ccd3"}}}} -->
 
-# Document metadata
-
-- **Creator:** Eylon Keshet
-- **Last modified by:** Eylon Keshet
-- **Revision:** 204
-- **lastPrinted:** 2026-07-07T13:20:00Z
-- **Created:** 2026-07-29T04:28:00Z
-- **Modified:** 2026-09-15T17:45:00Z
-- **Pages:** 86
-- **Words:** 19973
-- **Characters:** 99869
-- **Application:** Microsoft Office Word
-- **AppVersion:** 16.0000
-
-# Document body
-
-
->
-> # 0.52
-
-# Eternal Valor Playtest
+# Eternal Valor Playtest 0.53
 
 Eternal Valor is a fantasy tabletop RPG system designed with the following principles:
 
@@ -28,7 +8,7 @@ Eternal Valor is a fantasy tabletop RPG system designed with the following princ
 
 - Minimize players' downtime
 
-  - Combat is fast, and the players all take their turns at the same time.
+  - Combat is fast, and all players act during the same Action Phase.
 
   - Minimum rolls, using d6s exclusively.
 
@@ -92,6 +72,12 @@ For some rolls, the more Success Dice you get, the more powerful the effect is. 
 >
 > When you strike an enemy with a weapon, the damage you deal is equal to the number of success dice you roll
 
+## Minimum Roll
+
+When a weapon or spell specifies a Minimum Roll, treat the number of Success Dice on its roll as at least that value. If the roll produces fewer Success Dice, use the Minimum Roll instead.
+
+For example, if you roll 2 Success Dice with a weapon or spell whose Minimum Roll is 3, treat the result as 3 Success Dice.
+
 ## Double 6
 
 For some rolls, if two or more dice land on a 6, an additional effect takes place.
@@ -133,7 +119,7 @@ If any effect or circumstance provides you with a disadvantage for a roll, you r
 
 If you are provided with both advantage and disadvantage, you roll the dice only once, as if you had no advantage or disadvantage. It does not matter how many sources give you advantage or disadvantage.
 
-# Chapter 2: Skills[comment 0]
+# Chapter 2: Skills
 
 Skills are the foundation of most actions in the game. They define the chance to succeed or fail in different tasks. By getting trained in them, you increase the number of dice you roll. Instead of rolling 3d6, you roll the number of d6 associated with your training level when you are trying to accomplish a task related to those skills.
 
@@ -277,7 +263,7 @@ All actors (players and non-player characters or NPCs) commit to a single Action
 
 ### 2. Beginning Phase
 
-Any effect that happens or needs to be activated “at the beginning phase” occurs now.
+Any effect that happens or must be activated during the Beginning Phase occurs now.
 
 ### 3. Action Phase
 
@@ -299,7 +285,7 @@ Now, it’s time for the actions to resolve in the following order:
 
 1. Slow actions and movements by heroes and their allies resolve one at a time.<br>The players choose the order in which to play them.
 
-3. Slow actions and movements by the enemy NPCs resolve one at a time.<br>The GM chooses the order in which to play them.
+2. Slow actions and movements by the enemy NPCs resolve one at a time.<br>The GM chooses the order in which to play them.
 
 ### Action Validity at Resolution
 
@@ -359,7 +345,7 @@ Will represents a character's mental strength and resolve: their ability to resi
 
 Most offensive actions - such as strikes and some spells - target a specific defense.
 
-The defense is applied as a penalty for the roll. This is written as:
+To succeed, the number of Success Dice must equal or exceed the target’s relevant defense. This is written as:
 
 Roll (Skill) against (Defense).
 
@@ -373,23 +359,20 @@ Examples:
 
 
 >
-> A warrior performs a Melee Strike against a goblin captain. The description says, "Roll Melee against Deflection". The warrior is Expert (5d6) with Melee, so they roll 5d6. He gets 2 Success Dice. The goblin captain’s Deflection is 1, so the warrior suffers a penalty of 1. The warrior result is reduced from 2 Success Dice to 1 Success Die.
+> A warrior performs a Melee Strike against a goblin captain. The description says, "Roll Melee against Deflection". The warrior is Expert (5d6) with Melee, so they roll 5d6 and get 2 Success Dice. The goblin captain’s Deflection is 1. Because 2 Success Dice exceed that defense, the strike succeeds.
 
-#### Attacks With a Threshold
+#### Resolving an Attack
 
-Some attack descriptions require you to meet or pass a threshold for the full effect.
-
-For example: Roll Magic against Deflection. The threshold is 2.
-
+Roll against the defense specified by the action or spell. If you succeed, apply its success effect; otherwise, apply its failure effect, if any.
 
 >
-> A witch casts a "Bestow Curse" spell on a paladin. The spell says: "Roll Magic against Will. The threshold is 1."
+> A witch casts a "Bestow Curse" spell on a paladin. The spell says: "Roll Magic against Will."
 >
-> The witch rolls 5d6 and gets 2 Success Dice. Because the paladin’s Will is 1, the witch subtracts 1 from her successes. Her total is reduced from 2 Success Dice to 1 Success Die. This is enough to meet the threshold of 1, so the spell succeeds.
+> The witch rolls 5d6 and gets 2 Success Dice. The paladin’s Will is 1. Because 2 Success Dice exceed that defense, the spell succeeds.
 
 #### Rolling Against Multiple Targets
 
-If the attack is done against multiple targets, the attacker still only rolls once, but the penalty is different for each affected target, according to their own defense. These attacks often have a threshold for the full effect.
+When an action or spell affects multiple targets, roll once and compare the number of Success Dice with each target’s relevant defense separately. If the number of Success Dice equals or exceeds a target’s defense, apply the success effect to that target. Otherwise, apply the failure effect, if any.
 
 ## Melee Reach
 
@@ -403,6 +386,17 @@ Performing Ranged Attacks and Ranged Spell Attacks while being in an enemy Melee
 ## Damage
 
 Damage deducts Health Points (HP) from the receiver by the amount of damage they receive.
+
+### Damage Types
+
+The damage types are Acid, Crushing, Fire, Force, Ice, Lightning, Necrotic, Piercing, Poison, Psychic, Radiant, Slashing, and Thunder.
+
+### Resistance, Vulnerability, and Immunity
+
+- **Resistance:** The creature takes half damage of the specified type, rounded down.
+- **Vulnerability:** The creature takes double damage of the specified type.
+- If a creature has both resistance and vulnerability to the same damage type, they cancel each other out, and the creature takes the normal amount of damage of that type.
+- **Immunity:** The creature takes no damage of the specified type.
 
 ### Temporary Hit Points
 
@@ -476,12 +470,14 @@ Some actions, most commonly spellcasting, can be interrupted. An interruption oc
 | Paralyzed | The creature cannot move or perform actions. |
 | Poisoned | The creature has -1 Fortitude. At the end of each round, it takes Poison damage equal to its Poisoned level. |
 | Decayed | At the end of each round, the creature takes Necrotic damage equal to its Decayed level. |
+| Chilled | The creature has -1 Movement per level. |
+| Petrified | The creature cannot perform actions or use Instinct abilities. Its Deflection is reduced to 0. |
 
 # Chapter 4: Actions
 
 ## Action Speed
 
-Actions come in four speed levels: Fast, Average, Slow and (rarely) Free[comment 1].
+Actions come in four speed levels: Fast, Average, Slow and (rarely) Free.
 
 Generally, slower actions have higher impact, such as casting powerful spells.
 
@@ -509,7 +505,7 @@ Sources of Drag include:
 
 - Special effects (such as Bestow Curse spell)
 
-Some features allow you to ignore different sources of Drag. Many player character classes have a “Drags Ignored” section that describes which sources of drags are ignored[comment 2], effectively helping you to perform actions at faster speeds.
+Some features allow you to ignore different sources of Drag. Many player character classes have a “Drags Ignored” section that describes which sources of drags are ignored, effectively helping you to perform actions at faster speeds.
 
 ## Actions that Use Movement
 
@@ -534,7 +530,7 @@ If an enemy is within 1 unit of you, the effective range is 1, and the maximum r
 ### Cast a Cantrip
 
 Varying Action Speed
-Cast a known cantrip (Level 0 spell) according to its description.
+Cast a known cantrip according to its description.
 
 ### Cast a Spell
 
@@ -570,14 +566,14 @@ You grapple an enemy that is adjacent to you. Roll Unarmed against Deflection or
 ### Melee Strike
 
 Fast Action
-You strike an enemy within your melee range with a melee weapon. Roll Melee against Deflection. Deal 1 damage for each Success Die + any weapon damage bonuses.
+You strike an enemy within your melee range with a melee weapon. Roll Melee against Deflection. On success, deal SD damage + any weapon damage bonuses. On failure, deal half as much damage, rounded down.
 The damage type is appropriate to the weapon.
 On success, if you rolled a double six, activate the weapon's double six ability.
 
 ### Push
 
 Fast Action
-You push a target that is adjacent to you. Roll Athletics against Deflection or Fortitude (whichever is higher). The threshold is 1. The target’s size must be up to one size larger than you.
+You push a target that is adjacent to you. Roll Athletics against Deflection or Fortitude (whichever is higher). The target’s size must be up to one size larger than you.
 On success - push target 1 unit away from you and the target is interrupted (if applicable).
 
 ### Ranged Strike
@@ -585,7 +581,7 @@ On success - push target 1 unit away from you and the target is interrupted (if 
 Fast Action
 Shoot a target using a ranged weapon.
 Roll Ranged against Deflection.
-On success, deal SD + any weapon damage bonuses.
+On success, deal SD damage + any weapon damage bonuses. On failure, deal half as much damage, rounded down.
 The damage type is appropriate to the weapon. On success, use the weapon-specific Double-6 ability.
 Notice that ranged weapons have the "Ranged" property, which introduces 1 Drag to Ranged Strike, making it an Average Action.
 You must have a feature that lets you ignore this Drag to be able to perform Ranged Strike as a Fast Action.
@@ -598,12 +594,17 @@ Roll Medicine. Add 1 death roll success for each success die.
 If you roll 3 SD or more, the target becomes conscious with 1 HP.
 On success, if you rolled a double 6, suffers no exhaustion.
 
+### Switch
+
+Instinct Ability
+Spend 1 Instinct to switch the weapon or weapons you are holding. Switching weapons is otherwise free, but you must use Switch when changing into or out of a Heavy or Clumsy weapon.
+
 ### Unarmed Strike
 
 Fast Action
 Strike a target within melee reach with one of your legs or hands.
 Roll Unarmed against Deflection.
-On success, deal SD crushing damage.
+On success, deal SD crushing damage. On failure, deal half as much damage, rounded down.
 
 ### Utilize
 
@@ -616,15 +617,16 @@ Perform an action with an item or environmental feature according to their descr
 Average Action
 Using a weapon with the “thrown weapon” property, throw the weapon at a target within range.
 Roll Weapon Throw against Deflection.
-On success, deal SD damage + any weapon damage bonuses.
+On success, deal SD damage + any weapon damage bonuses. On failure, deal half as much damage, rounded down.
 The damage type is appropriate to the weapon.
 Modifiers:
 You gain disadvantage on the roll if you are within melee reach of an enemy
 You gain disadvantage if the range of the attack is higher than the weapon’s effective range (you cannot throw further than the maximum range).
 
-### Dodge
+### Defend
 
-Referenced in the Action Table, but no complete action description is present.
+Fast Action
+Gain +1 Deflection, Fortitude, and Will until the end of the round.
 
 ## Action Table
 
@@ -643,20 +645,21 @@ Referenced in the Action Table, but no complete action description is present.
 | Push | Fast |  |  |  |
 | Ranged Strike | Fast |  |  |  |
 | Stabilize | Slow |  |  |  |
+| Switch | Instinct |  |  | Costs 1 Instinct |
 | Unarmed Strike | Fast |  |  |  |
 | Utilize | Varying |  |  |  |
 | Weapon Throw | Average |  |  |  |
-| Dodge | Fast |  |  |  |
+| Defend | Fast |  |  |  |
 
 # Chapter 5: Player Characters
 
 A player character is defined by 3 things:
 
-1. Origin: what your character did before becoming what they are, and their prominent character traits.[comment 3][comment 4]
+1. Origin: what your character did before becoming what they are, and their prominent character traits.
 
-4. Species: their species, such as Human, Elf, or Dwarf.
+2. Species: their species, such as Human, Elf, or Dwarf.
 
-5. Class: their profession, such as Warrior, Wizard, or Cleric.
+3. Class: their profession, such as Warrior, Wizard, or Cleric.
 
 When you build your character, you may choose them in any order you wish.
 
@@ -688,13 +691,13 @@ Drags Ignored: Heavy Weapons
 
 Playtest Notes
 
-Work in progress. For now, choose one origin feat, one standard skill, and a few traits from this doc.
+Work in progress. For now, choose one origin feat, gain Adept (4d6) training in one standard skill of your choice, and choose a few traits from this doc.
 
 ### Background Advantages
 
 - One origin feat
 
-- One standard skill
+- Adept (4d6) training in one standard skill of your choice
 
 ### Traits
 
@@ -792,7 +795,7 @@ Work in progress. For now, choose one origin feat, one standard skill, and a few
 
 - Arcane Affinity I: You are Expert (5d6) in Magic and learn two Arcane cantrips of your choice. You may cast them even if you are not trained in a matching tradition.
 
-- Level 2 — Arcane Affinity II: You know Arcane Shield, Detect Magic, and Magic Missile. Once per day, you may cast one of them without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower that casting. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
+- Level 2 — Arcane Affinity II: You know Arcane Shield, Detect Magic, and Magic Missile. You may cast each of these spells once per day without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower these free castings. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
 
 ## Wood Elf
 
@@ -864,7 +867,7 @@ Work in progress. For now, choose one origin feat, one standard skill, and a few
 
 - Occult Affinity I: You are Expert (5d6) in Magic and learn two Occult cantrips of your choice. You may cast them even if you are not trained in a matching tradition.
 
-- Level 2 — Occult Affinity II: You know Detect Magic, Eldritch Shield, and Hex. Once per day, you may cast one of them without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower that casting. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
+- Level 2 — Occult Affinity II: You know Detect Magic, Eldritch Shield, and Hex. You may cast each of these spells once per day without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower these free castings. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
 
 ## Remnant
 
@@ -876,13 +879,13 @@ Work in progress. For now, choose one origin feat, one standard skill, and a few
 
 - Legacy of the Gods: You are Expert (5d6) in one of the following: Charm, Diplomacy, Leadership, History, Religion, Find Hidden Paths, Insight, Athletics, Medicine, or Performance.
 
-- Celestial Levitation: When you move, you may float a few inches above the ground, ignoring difficult terrain while remaining affected by ground-based environmental hazards. You land when your movement ends. You also fall slowly and take half damage from falling.
+- Celestial Levitation: When you move, you may float a few inches above the ground, ignoring difficult terrain while remaining affected by ground-based environmental hazards. You land when your movement ends. You also fall slowly and take half damage from falling, rounded down.
 
 - Godly Force: You learn the unique Godly Force cantrip and may cast it even if you are not trained in a matching tradition.
 
 - Divine Affinity I: You are Expert (5d6) in Magic and learn two Divine cantrips of your choice. You may cast them even if you are not trained in a matching tradition.
 
-- Level 2 — Divine Affinity II: You know Detect Magic, Healing Touch, and Shield of Faith. Once per day, you may cast one of them without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower that casting. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
+- Level 2 — Divine Affinity II: You know Detect Magic, Healing Touch, and Shield of Faith. You may cast each of these spells once per day without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower these free castings. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
 
 # Chapter 7: Classes
 
@@ -975,9 +978,7 @@ The Alchemist can create an Unstable Bomb to be used with the Bomb Throw as part
 
 Unstable Bomb: As you commit to the Bomb Throw action, choose one of the following effects:
 
-3. [comment 6]Area: 3-units cube<br>Choose acid or fire. Roll Bomb Throw against Deflection. Threshold is 1.<br>Any creature within the area that you've
-
-4. succeeded against receives 1 damage of the type you chose.
+Area: 3-units cube<br>Choose acid or fire. Roll Bomb Throw against Deflection.<br>Any creature within the area that you've succeeded against receives 1 damage of the type you chose.
 
 - Area: 3-units cube<br>The area is filled with purple smoke. Creatures in the smoke cannot see outside of it and have half cover against ranged attacks of any kind.
 
@@ -1002,7 +1003,7 @@ CP is used as aberration for Concoctions Points.
 
 - Fire Resistance Potion<br>Costs 1 CP<br>You get fire resistance until the end of combat or for one minute.
 
-- Acid Resistance Potion<br>Costs 1 CP<br>You get fire resistance until the end of combat or for one minute.
+- Acid Resistance Potion<br>Costs 1 CP<br>You get acid resistance until the end of combat or for one minute.
 
 - Poison Resistance Potion<br>Costs 1 CP<br>You get poison resistance until the end of combat or for one minute.
 
@@ -1010,7 +1011,7 @@ CP is used as aberration for Concoctions Points.
 
 ###### Bombs
 
-- Poison Bomb<br>Costs 1 CP<br>Area: 2 units square<br>Bomb Throw roll against Fortitude. Threshold is 1. Creatures you've succeeded against suffer 1 poison damage and are discouraged (-1 damage on attacks) until the end of the next round.
+- Poison Bomb<br>Costs 1 CP<br>Area: 2 units square<br>Bomb Throw roll against Fortitude. Creatures you've succeeded against suffer 1 poison damage and are discouraged (-1 damage on attacks) until the end of the next round.
 
 - Nerve Gas Bomb<br>Costs 1 CP<br>Area: 2 units square<br>Bomb Throw roll against Fortitude. Creatures you've succeeded against become vulnerable (-1 to all defenses) until the end of the next round.
 
@@ -1128,7 +1129,7 @@ You gain the following Ranged Strike variants and actions:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>Perform a Ranged strike. Reduce the target’s Movement score by 2 until the end of the turn.</td>
+>     <td>Perform a Ranged strike. Reduce the target’s Movement score by 2 until the end of the round.</td>
 >   </tr>
 > </table>
 
@@ -1169,7 +1170,7 @@ You gain the following action:
 >     <td>Fast Action ◆ Uses movement</td>
 >   </tr>
 >   <tr>
->     <td>5. Double your movement for the round and move at least 3 units. Then, if you did, become prone and perform a Ranged Strike against a target within 3 units of you. You have advantage for this strike (ignoring the disadvantage you normally get from attacking while prone).</td>
+>     <td>Double your movement for the round and move at least 3 units. Then, if you did, become prone and perform a Ranged Strike against a target within 3 units of you. You have advantage for this strike (ignoring the disadvantage you normally get from attacking while prone).</td>
 >   </tr>
 > </table>
 
@@ -1307,7 +1308,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>6. Perform a Charge using Unarmed Strike. On a successful hit, you deal +1 damage. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked prone if it's up to one size larger than you.</td>
+>     <td>Perform a Charge using Unarmed Strike. On a successful hit, you deal +1 damage. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked prone if it's up to one size larger than you.</td>
 >   </tr>
 > </table>
 
@@ -1329,7 +1330,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>7. Perform a Grapple (rolling Unarmed). On success, you also SD crushing damage.</td>
+>     <td>Perform a Grapple (rolling Unarmed). On success, also deal SD crushing damage. On failure, deal half as much damage, rounded down, without grappling the target.</td>
 >   </tr>
 > </table>
 
@@ -1354,7 +1355,7 @@ You gain the following action:
 >     <td>Fast Action ◆ Area: Burst 1</td>
 >   </tr>
 >   <tr>
->     <td>Roll Melee against Deflection for all creatures within range. Those you succeed against take your standard Melee Strike damage -2. If you roll double 6, they are also affected by your Melee Strike double 6 effects.</td>
+>     <td>Roll Melee with a penalty of 2 against Deflection for all creatures within range. On success, deal your standard Melee Strike damage; on failure, deal half as much damage, rounded down. On success, if you roll a double 6, also apply your Melee Strike Double 6 effects.</td>
 >   </tr>
 > </table>
 
@@ -1386,7 +1387,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>8. Perform a Weapon Throw. Throwing between the effective range and the maximum range of the weapon doesn't cause disadvantage.&lt;br&gt;If you are grappling a creature that's up to one size smaller than you, you may throw it instead of your weapon. It counts as a weapon with a range of 2/4 that deals SD damage. On a successful hit, the creature you threw takes half the damage of the attack and is prone.</td>
+>     <td>Perform a Weapon Throw. Throwing between the effective range and the maximum range of the weapon doesn't cause disadvantage.<br>If you are grappling a creature that's up to one size smaller than you, you may throw it instead of your weapon. It counts as a weapon with a range of 2/4 that deals SD damage. On a successful hit, the creature you threw takes half the damage of the attack, rounded down, and is prone.</td>
 >   </tr>
 > </table>
 
@@ -1493,7 +1494,7 @@ You have advantage on Performance rolls for musical performances.
 
 During combat, you perform an arcane song using your voice, your instrument, or both. The song is comprised of musical phases, each with its own unique effect. The song doesn't require using any action.
 
-At the planning phase of each round, select a musical phrase that has not been used during this encounter. Some phrases require specific prerequisites to activate. The song affects all creatures within a 6-unit radius centered on you at the beginning phase of the round; movement after this moment does not change who is affected for the remainder of that round. As you level up, you unlock more phrases.
+During the Planning Phase of each round, select a musical phrase that has not been used during this encounter. Some phrases require specific prerequisites to activate. The song affects all creatures within a 6-unit radius centered on you during the Beginning Phase; movement after this moment does not change who is affected for the remainder of that round. As you level up, you unlock more phrases.
 
 ##### Known Musical Phrases:
 
@@ -1533,7 +1534,7 @@ Choose one subclass.
 
 ### Skald
 
-9. You bask in the glory of battle, using advanced fighting techniques and shaping it with your words.
+You bask in the glory of battle, using advanced fighting techniques and shaping it with your words.
 
 #### Level 3: Art of Fighting
 
@@ -1551,7 +1552,7 @@ You gain the following Instinct abilities;
 
 ### Tale Weaver
 
-10. You reenact epic tales during combat, assigning roles and empowering those who play along.
+You reenact epic tales during combat, assigning roles and empowering those who play along.
 
 #### Level 3: Mythical Reenactment
 
@@ -1559,19 +1560,19 @@ You gain the following Instinct abilities:
 
 <table>
   <tr>
-    <td>Instinct Abilities<br>- Reenact: The Dragon Slayer: At any point during the action phase of the round, spend 1 Spell Point to designate one enemy as the Dragon and one ally as the Knight. Both must be within 12 units of you. The Knight has advantage on all attacks against the Dragon until the end of combat or until the Grand Finale.<br>  - Grand Finale: If the Knight lowers the hit points of the Dragon to 0, all allies within 3 units of the Knight are inspired 1 (+1 damage) on the next round.<br>- Reenact: The Martyr: At any point during the action phase of the round, spend 1 Spell Point to designate one willing ally within 12 units of you as the Martyr. Until the end of combat or the Grand Finale, any damage dealt to its allies within 6 units of it is dealt to the Martyr instead.<br>  - Grand Finale: When the Martyr hit points reach 0, it has 1 hit point instead, and it stops absorbing damage for its allies. All its allies within 6 units gain 1 temporary hit point.</td>
+    <td>Instinct Abilities<br>- Reenact: The Dragon Slayer: At any point during the Action Phase, spend 1 Spell Point to designate one enemy as the Dragon and one ally as the Knight. Both must be within 12 units of you. The Knight has advantage on all attacks against the Dragon until the end of combat or until the Grand Finale.<br>  - Grand Finale: If the Knight lowers the hit points of the Dragon to 0, all allies within 3 units of the Knight are inspired 1 (+1 damage) on the next round.<br>- Reenact: The Martyr: At any point during the Action Phase, spend 1 Spell Point to designate one willing ally within 12 units of you as the Martyr. Until the end of combat or the Grand Finale, any damage dealt to its allies within 6 units of it is dealt to the Martyr instead.<br>  - Grand Finale: When the Martyr hit points reach 0, it has 1 hit point instead, and it stops absorbing damage for its allies. All its allies within 6 units gain 1 temporary hit point.</td>
   </tr>
 </table>
 
 #### Level 3: Historian
 
-11. You become Expert (5d6) in History.<br>If you were already Adept (4d6) in History, you become Adept (4d6) in one standard skill in the Knowledge category.
+You become Expert (5d6) in History.<br>If you were already Adept (4d6) in History, you become Adept (4d6) in one standard skill in the Knowledge category.
 
 If you were already Expert (5d6) in History, you become Adept (4d6) in one standard skill in the Knowledge category and in one standard skill in any category.
 
 ### Muse
 
-12. You burst with artistic and colorful bardic magic, charming those you want to persuade, confusing those who want to hurt you, and casting spells at any opportunity.
+You burst with artistic and colorful bardic magic, charming those you want to persuade, confusing those who want to hurt you, and casting spells at any opportunity.
 
 #### Level 3: Dazzling Charm
 
@@ -1589,9 +1590,9 @@ You get 1 temporary Spell Point when combat starts. It can only be used to perfo
 
 #### Level 3: Difficult to Ignore
 
-13. Choose Charm or Deception. You become Expert (5d6) in it.
+Choose Charm or Deception. You become Expert (5d6) in it.
 
-14. If you were already Adept (4d6) in the chosen skill, you become Adept (4d6) in one standard skill in the Speech category.
+If you were already Adept (4d6) in the chosen skill, you become Adept (4d6) in one standard skill in the Speech category.
 
 If you were already Expert (5d6) in the chosen skill, you become Adept (4d6) in one standard skill in the Speech category and in one standard skill in any category.
 
@@ -1708,7 +1709,7 @@ You will get more Spell Points and learn more spells and cantrips as you level u
 
 Each time you level up, you may replace up to one divine spell with another and up to one divine cantrip with another.
 
-#### Level 1: Domain[comment 7][comment 8][comment 9]
+#### Level 1: Domain
 
 The cleric's powers are directly related to the domain – the main themes and powers - of the entity they worship or connected to
 
@@ -1816,9 +1817,9 @@ Choose one cleric subclass.
 
 ### Exarch
 
-15. “Become the instrument of God’s intentions.”
+“Become the instrument of God’s intentions.”
 
-16. Become the conduit of your God, channeling its powers and its intentions, motivating and instilling zeal in your allies, so they can perform beyond their mortal limits.
+Become the conduit of your God, channeling its powers and its intentions, motivating and instilling zeal in your allies, so they can perform beyond their mortal limits.
 
 #### Level 3: Divine Conduit
 
@@ -1850,7 +1851,7 @@ You can instill divine zeal in allies in the heat of battle. Whenever an ally wi
 
 “Kneel before the one true God.”
 
-17. You are a prime representative of your God on the plane in which you exist. Command others to do as your god bids them, as they are struck in awe by its powers.
+You are a prime representative of your God on the plane in which you exist. Command others to do as your god bids them, as they are struck in awe by its powers.
 
 #### Level 3: Divine Messenger
 
@@ -1877,7 +1878,7 @@ You also get 1 temporary Spell Point at the start of each combat. You can only u
 
 <table>
   <tr>
-    <td>Command<br>Divine<br>Level 3 ◆ Costs 1+<br>Fast Action<br>Range: 10 Units<br>You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br>- 1 Success die: choose one of the following:<br>  - Halt: the target must stay in place and loses all Instinct for this round.<br>  - Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.<br>- 2 Success dice: choose any previous option, or one of the following:<br>  - Grovel: the target immediately becomes Prone and doesn't do anything else this round.<br>  - Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.<br>- 3+ Success dice: choose any previous option, or one of the following:<br>  - Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.<br>  - Flee the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</td>
+    <td>Command<br>Divine<br>Rank 2 ◆ Costs 1+<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br>- 1 Success die: choose one of the following:<br>  - Halt: the target must stay in place and loses all Instinct for this round.<br>  - Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.<br>- 2 Success dice: choose any previous option, or one of the following:<br>  - Grovel: the target immediately becomes Prone and doesn't do anything else this round.<br>  - Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.<br>- 3+ Success dice: choose any previous option, or one of the following:<br>  - Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.<br>  - Flee: the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</td>
   </tr>
   <tr>
     <td>You may spend additional Spell Points as you cast this spell. For every 2 additional Spell Points, choose one more target. You may choose a different option for it.</td>
@@ -2049,7 +2050,7 @@ You gain the following Instinct ability:
 >     <td>Fast Action</td>
 >   </tr>
 >   <tr>
->     <td>Strike an enemy within melee range. Roll Magic against Deflection.<br>On success, deal SD damage.<br>The damage type is appropriate to the animal form (crushing, piercing, or slashing). Deal -1 damage if you are Small.<br>On success, if you roll a double 6, activate the effect associated with your chosen animal form.</td>
+>     <td>Strike an enemy within melee range. Roll Magic against Deflection.<br>On success, deal SD damage. On failure, deal half as much damage, rounded down.<br>The damage type is appropriate to the animal form (crushing, piercing, or slashing). Deal -1 damage if you are Small.<br>On success, if you roll a double 6, activate the effect associated with your chosen animal form.</td>
 >   </tr>
 > </table>
 
@@ -2069,7 +2070,7 @@ Choose one Druid subclass.
 
 ### Worldshaper
 
-18. You become one with the land, bending it to your will and wielding powerful nature magic.
+You become one with the land, bending it to your will and wielding powerful nature magic.
 
 #### Level 3: Earth Bending
 
@@ -2091,7 +2092,7 @@ You excel at performing druidic magic with ease. You get 1 temporary spell point
 
 ### Shephard
 
-19. Your connection to animals is especially strong, allowing you to maintain multiple summons at the same time, summon more quickly, and summon more powerful beasts.
+Your connection to animals is especially strong, allowing you to maintain multiple summons at the same time, summon more quickly, and summon more powerful beasts.
 
 #### Level 3: Multiple Summons
 
@@ -2103,13 +2104,13 @@ You gain the following Instinct ability:
 
 <table>
   <tr>
-    <td>Instinct Abilities<br>- Combat Summoning: at the beginning phase of the round, perform a summoning spell. The Spell Point cost for that spell is doubled for this casting.</td>
+    <td>Instinct Abilities<br>- Combat Summoning: During the Beginning Phase, perform a summoning spell. The Spell Point cost for that spell is doubled for this casting.</td>
   </tr>
 </table>
 
 ### Werebeast
 
-20. You’ve mastered the art of Wildshape, allowing you greater degree of power and control.
+You’ve mastered the art of Wildshape, allowing you greater degree of power and control.
 
 #### Level 3: Combat Shifter
 
@@ -2264,11 +2265,10 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>21. Perform a Melee Strike. You get 2 extra dice on that roll, or 4 extra dice if the target is an Undead or a Demon. The damage type becomes radiant.<br>22. You may perform Holy Smite more than once in the same combat by spending 2 devotion points for each additional time.</td>
+>     <td>Perform a Melee Strike. You get 2 extra dice on that roll, or 4 extra dice if the target is an Undead or a Demon. The damage type becomes radiant.<br>You may perform Holy Smite more than once in the same combat by spending 2 devotion points for each additional time.</td>
 >   </tr>
 > </table>
 >
-> 0
 
 #### Level 1: Inspiring Strike
 
@@ -2280,7 +2280,7 @@ You gain the following Instinct ability:
 
 <table>
   <tr>
-    <td>Instinct Abilities<br>- Rally (1 / Combat): At the beginning phase of the round, choose one 'Rally Option' (described below). It affects you and all allies within 6 units of you.</td>
+    <td>Instinct Abilities<br>- Rally (1 / Combat): During the Beginning Phase, choose one 'Rally Option' (described below). It affects you and all allies within 6 units of you.</td>
   </tr>
 </table>
 
@@ -2288,7 +2288,7 @@ You gain the following Instinct ability:
 
 - Grit: Allies in range gain 1 temporary hit point until end of combat
 
-- Courage[comment 10]: Allies in range become immune to the frightened (they may only use the Dash action and can't finish their movement near the source of the effect) and discouraged (they deal -1 damage) conditions until the end of combat
+- Courage: Allies in range become immune to the frightened (they may only use the Dash action and can't finish their movement near the source of the effect) and discouraged (they deal -1 damage) conditions until the end of combat
 
 #### Level 2: Instinct Abilities
 
@@ -2306,7 +2306,7 @@ Choose one paladin subclass.
 
 ### Exemplar
 
-23. Become the beacon of kindness and selflessness, putting yourself between the danger and those you protect.
+Become the beacon of kindness and selflessness, putting yourself between the danger and those you protect.
 
 #### Level 3: Touch of Kindness
 
@@ -2318,7 +2318,7 @@ You gain the following Instinct ability:
 
 <table>
   <tr>
-    <td>Instinct Abilities<br>- Become the Shield: When an ally within 6 units is hit by an attack, negate the damage they would have taken. You take half of the damage you negated, rounded up. Any other effects from the attack still apply to your ally.</td>
+    <td>Instinct Abilities<br>- Become the Shield: When an ally within 6 units is hit by an attack, negate the damage they would have taken. You take half of the damage you negated, rounded down. Any other effects from the attack still apply to your ally.</td>
   </tr>
 </table>
 
@@ -2495,9 +2495,9 @@ Secondary Role: Damage
 
 #### Level 1: Expose Weaknesses
 
-At the beginning phase of each round, you may spend 1 instinct to choose one enemy you can see to study its weaknesses. On the next round:
+During the Beginning Phase of each round, you may spend 1 Instinct to choose one enemy you can see to study its weaknesses. On the next round:
 
-- You know all (if any) damage type vulnerabilities and resistances it possesses (revealed at the beginning of the planning phase).
+- During the Planning Phase, you learn all its damage vulnerabilities and resistances, if any.
 
 - The first attack against that enemy that's made by you or an ally gets advantage.
 
@@ -2517,7 +2517,7 @@ You may choose a new favored enemy type to replace the current one. To do so, yo
 
 #### Level 1: Know Your Enemy (1 / Combat)
 
-At the planning phase of the round, reveal the action of one enemy of the favored enemy type.
+During the Planning Phase, reveal the action of one enemy of the favored enemy type.
 
 ## Rogue
 
@@ -2637,11 +2637,11 @@ Choose one rogue subclass.
 
 ### Assassin
 
-24. Become the master of murder and infiltration.
+Become the master of murder and infiltration.
 
 #### Level 3: Infiltrator
 
-25. You become Expert (5d6) in Disguise.<br>If you were already Adept (4d6) in Disguise, you additionally become Adept (4d6) in any other standard skill from the "other" category.
+You become Expert (5d6) in Disguise.<br>If you were already Adept (4d6) in Disguise, you additionally become Adept (4d6) in any other standard skill from the "other" category.
 
 If you were already Expert (5d6) in Disguise, you additionally become Adept (4d6) in one standard skill from the "other" category and one additional standard skill of your choice.
 
@@ -2655,17 +2655,17 @@ You may wield two one-handed weapons that don't have the Heavy property. When yo
 
 #### Level 3: Combat Poisoner
 
-You may apply poison at the beginning phase of a round (normally applying poison is a fast action) by spending 1 Instinct. If you do so, you get 1 Drag for your action on the same round.
+During the Beginning Phase, you may spend 1 Instinct to apply poison instead of using the normal Fast Action. If you do, your action gains 1 Drag that round.
 
 ### Fae Trickster
 
-26. Your chaotic and whimsical nature creates a bond to the realm of the Fae, enchanting you with magical abilities.
+Your chaotic and whimsical nature creates a bond to the realm of the Fae, enchanting you with magical abilities.
 
 #### Level 3: Trickery of the Fae
 
-27. You become Expert (5d6) in Deception. If you are already Adept (4d6) in Deception, you additionally become Adept (4d6) in any other Speech skill.
+You become Expert (5d6) in Deception. If you are already Adept (4d6) in Deception, you additionally become Adept (4d6) in any other Speech skill.
 
-28. If you are already Expert in Deception, you additionally become Adept (4d6) in one speech skill and one other standard skill of your choice.
+If you are already Expert in Deception, you additionally become Adept (4d6) in one speech skill and one other standard skill of your choice.
 
 #### Level 3: Fidgety
 
@@ -2708,13 +2708,13 @@ You gain the following action:
 >     <td>Fast Action ◆ Range: Self</td>
 >   </tr>
 >   <tr>
->     <td>You sprinkle Fae dust around yourself in a radius of 2 units centered on yourself. Roll Deception against Will against each enemy in the area. Those you succeed against become disoriented (1 penalty to all rolls) until the end of the next turn.</td>
+>     <td>You sprinkle Fae dust around yourself in a radius of 2 units centered on yourself. Roll Deception against Will against each enemy in the area. Those you succeed against become disoriented (1 penalty to all rolls) until the end of the next round.</td>
 >   </tr>
 > </table>
 
 ### Toymaker
 
-29. You deploy and improvise clockwork "toys" and mechanisms that are both useful and deadly.
+You deploy and improvise clockwork "toys" and mechanisms that are both useful and deadly.
 
 #### Level 3: Mechanist
 
@@ -2745,15 +2745,15 @@ The following mechanisms can be created using Mechanism Points (MP):
 
 - Clockwork Walker<br>Costs 1 MP
 
-30. Tiny, 1 HP, movement 3.
+Tiny, 1 HP, movement 3.
 
-31. In combat, acts as a separate actor that you control in the same manner as your character. It makes clicking noises when it is active. You have advantage on sneak against NPCs who are rolling the walker.
+In combat, acts as a separate actor that you control in the same manner as your character. It makes clicking noises when it is active. You have advantage on sneak against NPCs who are rolling the walker.
 
-32. Activate the walker by using a fast action or by spending 1 Instinct at the beginning phase of the round.
+Activate the walker by using a fast action or by spending 1 Instinct during the Beginning Phase.
 
-33. After two rounds of combat, or twelve seconds, it becomes disabled.<br>When you build the walker, choose its function. You may also modify it to fit a different function later.
+After two rounds of combat, or twelve seconds, it becomes disabled.<br>When you build the walker, choose its function. You may also modify it to fit a different function later.
 
-34. Function
+Function
 
   - Jumper: It can use a fast action to jump up to two units towards the face of an opponent of a large or smaller size. It distracts them, providing advantage on attacks against them for the same round. After the action, the walker is disabled.
 
@@ -2763,15 +2763,15 @@ The following mechanisms can be created using Mechanism Points (MP):
 
 - Beartrap
 
-35. Costs 1 MP<br>Large or smaller creatures that step on the trap receive 1 piercing damage and become slowed (1 drag and -1 movement) until the end of the next turn.
+Costs 1 MP<br>Large or smaller creatures that step on the trap receive 1 piercing damage and become slowed (1 drag and -1 movement) until the end of the next round.
 
 ###### Equipment
 
 - Jumping Boots<br>Costs 1 MP
 
-36. These crude boots are worn on top of the user's own boots. As part of the wearer's movement, they may jump forward using the boots, moving them 3 units in a straight line in addition to their normal movement. They can also be used to jump 2 units higher as part of a vertical jump. The boots are destroyed after one use.
+These crude boots are worn on top of the user's own boots. As part of the wearer's movement, they may jump forward using the boots, moving them 3 units in a straight line in addition to their normal movement. They can also be used to jump 2 units higher as part of a vertical jump. The boots are destroyed after one use.
 
-37. Putting the boots on is a Slow action.
+Putting the boots on is a Slow action.
 
 ## Spellsword
 
@@ -2996,7 +2996,7 @@ Your battle experience taught you how to  react swiftly during combat. You gain 
   </tr>
 </table>
 
-- Opportunity Attacks: When an enemy leaves your melee reach after starting their turn within it, you may immediately perform a Melee Strike against them.
+- Opportunity Attacks: When an enemy leaves your melee reach after beginning the Action Phase within it, you may immediately perform a Melee Strike against them.
 
 - Counter: When you are attacked, gain +1 Deflection against the attack. Right after the attack, you may perform a Melee Strike against the attacker if it is within your melee reach.
 
@@ -3060,7 +3060,7 @@ You may trigger Opportunity Attacks as if your melee reach was larger by 1 unit.
 
 You gain the following options to Tactical Strike
 
-- Challenge: The target suffers disadvantage on all attacks against targets other than you until the end of the next turn.
+- Challenge: The target suffers disadvantage on all attacks against targets other than you until the end of the next round.
 
 ### Witchblade
 
@@ -3119,7 +3119,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>38. Perform a Melee Strike. On a successful hit, deal +1 Necrotic or Acid damage, or +2 if the target is a fiend or abomination.</td>
+>     <td>Perform a Melee Strike. On a successful hit, deal +1 Necrotic or Acid damage, or +2 if the target is a fiend or abomination.</td>
 >   </tr>
 > </table>
 
@@ -3325,7 +3325,7 @@ Cantrips Learned: Elemental Flare and two other arcane cantrips of your choice. 
 
 You will get more Spell Points and learn more spells and cantrips as you level up as shown in the progression table at the end of the class description.
 
-Each time you level up, you may replace up to one nature spell with another and up to one nature cantrip with another.
+Each time you level up, you may replace up to one arcane spell with another and up to one arcane cantrip with another.
 
 #### Level 1: Student of Magic (1 / Combat)
 
@@ -3429,7 +3429,7 @@ If done during combat, this also requires spending 1 Instinct.
 
 <table>
   <tr>
-    <td>Chrono Spells<br>Haste<br>Chrono<br>Level 5 ◆ Costs 4<br>Slow Action ◆ Interruptible<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, the target may commit to two fast actions during the planning phase. If they do, during the action phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.<br>These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other<br>Slow-Motion<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.<br>Temporal Clarity<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.<br>Slow<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size the creature is larger than Medium.<br>On success, the creature movement is halved, and it gets 1 drag on all actions.<br>If Slow and Haste affect the same creature, both spells immediately dispel each other.<br>Time Detention<br>Chrono<br>Level 3 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must take the Maintain fast action and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.<br>If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.<br>Stasis<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must spend 1 Instinct at the beginning phase and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.<br>If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.<br>Accelerate Magic<br>Chrono<br>Level 5 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Choose a non-permanent magical effect within range, such as a spell affecting a <br><br>&lt;!-- page break --&gt;<br><br>creature, object, or area. Reduce its duration by up to 3 rounds.<br>If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.</td>
+    <td>Chrono Spells<br>Haste<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Slow Action ◆ Interruptible<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, the target may commit to two fast actions during the Planning Phase. If they do, during the Action Phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.<br>These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other<br>Slow-Motion<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.<br>Temporal Clarity<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.<br>Slow<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size the creature is larger than Medium.<br>On success, the creature movement is halved, and it gets 1 drag on all actions.<br>If Slow and Haste affect the same creature, both spells immediately dispel each other.<br>Time Detention<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must take the Maintain fast action and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.<br>If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.<br>Stasis<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must spend 1 Instinct during the Beginning Phase and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.<br>If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.<br>Accelerate Magic<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.<br>If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.</td>
   </tr>
 </table>
 
@@ -3526,9 +3526,7 @@ While not wearing armor, holding a shield or wielding a 'Heavy' weapon:
 
 - Gain +1 Deflection.
 
-- When you move at least 4 units and end your movement at least 2 units away from your starting position, gain additional +1
-
-39. Deflection until the end of the current round (including when you move as part of an action that uses movement)
+- When you move at least 4 units and end your movement at least 2 units away from your starting position, gain additional +1 Deflection until the end of the current round (including when you move as part of an action that uses movement)
 
 #### Level 1: Momentum
 
@@ -3536,7 +3534,7 @@ The Zephyr builds momentum through rapid movement and swift attacks, becoming in
 
 You start each combat in Momentum tier 1.
 
-Whenever you finish your turn, if you've moved at least 4 units, you gain 1 tier of Momentum (maximum tier 3).
+At the end of each round, if you moved at least 4 units during that round, you gain 1 tier of Momentum (maximum tier 3).
 
 When combat starts and whenever you gain a tier, roll Unarmed to determine the additional benefit you get from your new tier. See the table at the bottom.
 
@@ -3582,23 +3580,23 @@ When you get the Shadow Clone benefit, you immediately create a clone of yoursel
 > </table>
 
 The clone shares your Movement score and your Unarmed bonus. The clone can only perform Unarmed Strike, dealing the same damage as you normally deal. It doesn't get the Strike damage benefit from Momentum. The Shadow Clone cannot be affected or damaged.
-If you lose the ability or become unconscious, or if the clone moved less than 4 units in a turn, the clone dissipates.
+If you lose the ability or become unconscious, or if the clone moved less than 4 units during the round, the clone dissipates.
 
 ##### Whirlwind
 
-When you get the Whirlwind benefit, starting next round, at the end of each of your turns, you create a slashing wind around you. Roll Unarmed against Deflection for all enemies that are adjacent to you. Deal 1 slashing damage to each enemy you succeed against.
+When you get the Whirlwind benefit, starting next round, at the end of each round, you create a slashing wind around you. Roll Unarmed against Deflection for all enemies that are adjacent to you. Deal 1 slashing damage to each enemy you succeed against.
 
 ##### Gale
 
-When you get the Gale benefit, starting next round, at the beginning phase each round, choose two targets you can see within 10 units of you that are up to one size larger than you. You may forcefully push them up to 2 units. This also counts as 1 damage for the purpose of interruption.
+When you get the Gale benefit, starting next round, during the Beginning Phase of each round, choose two targets you can see within 10 units of you that are up to one size larger than you. You may forcefully push them up to 2 units. This also counts as 1 damage for the purpose of interruption.
 
 #### Level 2: Agile Fall
 
-Halve the damage you receive from fall damage (rounded up). Also, you start to receive fall damage after falling 4 units instead of 2
+Halve the damage you receive from fall damage (rounded down). Also, you start to receive fall damage after falling 4 units instead of 2
 
 #### Level 2: Deflect Missiles
 
-Once per turn, when hit with a Ranged Strike or a Weapon Throw, you may change the target of the attack to another target within 5 units of you. If you don't choose such target, you may avoid the attack instead.
+Once per round, when hit with a Ranged Strike or a Weapon Throw, you may change the target of the attack to another target within 5 units of you. If you don't choose such target, you may avoid the attack instead.
 
 #### Level 2: Forceful Maneuver
 
@@ -3621,7 +3619,7 @@ You gain the following action:
 >     <td>Fast Action</td>
 >   </tr>
 >   <tr>
->     <td>40. Choose a target within one unit of yourself.  If it's an enemy, roll Unarmed against Deflection. On success, you push or pull that target up to 3 units. You may make the push or pull as forceful (if the target is pushed or pulled against a surface, they receive 1 damage. If they are pushed or pulled against another creature, they both receive 1 damage).&lt;br&gt;The target must be up to one size larger than you.</td>
+>     <td>Choose a target within one unit of yourself.  If it's an enemy, roll Unarmed against Deflection. On success, you push or pull that target up to 3 units. You may make the push or pull as forceful (if the target is pushed or pulled against a surface, they receive 1 damage. If they are pushed or pulled against another creature, they both receive 1 damage).<br>The target must be up to one size larger than you.</td>
 >   </tr>
 > </table>
 
@@ -3721,7 +3719,9 @@ Learn two non-exotic languages.
 **Requirements:** Level 2, Trained in Leadership
 
 You gain the following Instinct ability:
-Instinct AbilitiesInstill Courage: At any point during the action phase, choose an ally within range. Roll Leadership. Shorten the duration of the frightened and discouraged conditions that affect them by 1 round for each SD you rolled.
+Instinct Abilities
+
+Instill Courage: At any point during the Action Phase, choose an ally within range. Roll Leadership. Shorten the duration of the frightened and discouraged conditions that affect them by 1 round for each SD you rolled.
 
 ### Deep Sleep
 
@@ -3734,7 +3734,9 @@ Long rest removes two levels of exhaustion instead of one.
 **Requirements:** Level 2, Trained in Intimidation
 
 You gain the following Instinct abilities:
-Instinct AbilitiesDemoralize: At the beginning phase of the round, choose an enemy within 6 units of you. Roll Intimidate against Will. On success, they are discouraged SD until the end of the round. You can’t choose the same enemy more than once in the same combat.
+Instinct Abilities
+
+Demoralize: During the Beginning Phase, choose an enemy within 6 units of you. Roll Intimidate against Will. On success, they are discouraged SD until the end of the round. You can’t choose the same enemy more than once in the same combat.
 
 ### Expert Melee Training
 
@@ -3800,14 +3802,18 @@ At any time, you may adopt another pet to replace the one you have (or if it die
 **Requirements:** Level 2
 
 You gain the following Instinct ability:
-Instinct AbilitiesChug Potion: At any time within the action phase of the round, drink a potion.
+Instinct Abilities
+
+Chug Potion: At any time during the Action Phase, drink a potion.
 
 ### Push Through Pain
 
 **Requirements:** Level 2
 
 You gain the following Instinct ability:
-Instinct AbilitiesPush Through (1 / Day): At any time during the action phase of the round, roll 4d6 and heal SD.
+Instinct Abilities
+
+Push Through (1 / Day): At any time during the Action Phase, roll 4d6 and heal SD.
 
 ### Secret Languages
 
@@ -3847,11 +3853,11 @@ You may attempt to train a wild animal to be your temporary pet. If you are Trai
 
 Any class can use any simple weapon. Martial weapons can only be used if you have proficiency with martial weapons (usually from a feat or a class feature)
 
-Weapons have many properties with various effects. Some properties introduce Drag if a character attacks with them. They are called Drag Properties.
+Weapons have many properties with various effects. Each Drag Property on a weapon adds 1 Drag to attacks made with that weapon. Drag from multiple Drag Properties stacks.
 
 Certain classes and feats provide the ability to ignore the Drag introduced by certain Drag Properties.
 
-Switching between weapons is free, unless it's between two 'Heavy' or 'Clumsy' weapons. In that case, a dedicated average action is required to switch between them.
+Switching weapons is free unless changing into or out of a Heavy or Clumsy weapon. In that case, you must use the Switch Instinct ability.
 
 ### Weapon Properties
 
@@ -4304,11 +4310,15 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 
 - Special
 
-  - Tower Shield: You get 1 Drag to all actions.<br>Hostile effects against Deflection that deal half damage on failure deal no damage to you on failure instead.
+  - Tower Shield: You get 1 Drag to all actions.<br>Hostile effects against Deflection that deal half damage on failure (rounded down) deal no damage to you on failure instead.
 
-  - Buckler: Dodge action provides an additional +1 Deflection vs Melee Strikes and Unarmed Strikes. Can be used by all classes.
+  - Buckler: Defend provides an additional +1 Deflection against Melee Strikes and Unarmed Strikes. Can be used by all classes.
 
 # Chapter 10: Spells
+
+## Spell Rank and Requirements
+
+Spell rank is a category of spell power. Your class progression determines the highest rank of spells you can learn and cast. You must also meet each spell’s Requirements; any minimum character level is listed there.
 
 ## Spells Lists by Type
 
@@ -4327,7 +4337,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Thunder Fist
 - Thunder Wave
 
-#### Level 1 Spells
+#### Rank 1 Spells
 
 - Arcane Shield
 - Burning Hands
@@ -4340,7 +4350,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Magic Missile
 - Scorching Rays
 
-#### Level 3 Spells
+#### Rank 2 Spells
 
 - Burning Ground
 - Comprehend Languages
@@ -4366,7 +4376,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Thunder Fist
 - Thunder Wave
 
-#### Level 1 Spells
+#### Rank 1 Spells
 
 - Animal messenger
 - Aura of Truth
@@ -4378,7 +4388,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Rainbow Eruption
 - Restoration
 
-#### Level 3 Spells
+#### Rank 2 Spells
 
 - Burrowed Knowledge
 - Comprehend Languages
@@ -4407,7 +4417,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 
 - Godly Force — Granted by the Remnant's Godly Force trait; cannot be learned by normal means.
 
-#### Level 1 Spells
+#### Rank 1 Spells
 
 - Aura of Truth
 - Blessed Weapon
@@ -4422,7 +4432,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Sanctuary
 - Shield of Faith
 
-#### Level 3 Spells
+#### Rank 2 Spells
 
 - Burrowed Knowledge
 - Command
@@ -4440,13 +4450,12 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Light
 - Minor Ward
 - Mold Earth
-- Speak with Animals
 - Enhanced Vitality
 - Thunder Fist
 - Thunder Wave
 - Vine Whip
 
-#### Level 1 Spells
+#### Rank 1 Spells
 
 - Animal messenger
 - Cure
@@ -4458,10 +4467,11 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Healing Touch
 - Rainbow Eruption
 - Restoration
+- Speak with Animals
 - Summon Beast
 - Windsurf
 
-#### Level 3 Spells
+#### Rank 2 Spells
 
 - Life Giving
 - Nature Spirit
@@ -4484,7 +4494,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Necrotic Bolt
 - Touch of Decay
 
-#### Level 1 Spells
+#### Rank 1 Spells
 
 - Bestow Curse
 - Detect Magic
@@ -4495,7 +4505,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 - Leech
 - Summon Shade
 
-#### Level 3 Spells
+#### Rank 2 Spells
 
 - Burrowed Knowledge
 - Comprehend Languages
@@ -4506,13 +4516,13 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 
 ### Chrono Spells
 
-#### Level 3 Spells
+#### Rank 2 Spells
 
 - Slow
 - Slow-Motion
 - Time Detention
 
-#### Level 5 Spells
+#### Rank 3 Spells
 
 - Accelerate Magic
 - Haste
@@ -4525,7 +4535,9 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 
 Chrono
 
-Level 5 ◆ Cost: 4
+Rank 3 ◆ Cost: 4
+
+Requirements: Level 5
 
 Fast Action
 
@@ -4547,16 +4559,18 @@ Range: 6 Units
 
 Spray acid at a creature you can see within range.
 Roll Magic +2 against Deflection.
-On success, deal SD Acid damage, and the target becomes weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage.
+On success, deal SD Acid damage, and the target becomes weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage, rounded down.
 If you roll a double six, the target becomes weakened 2 instead.
 
 ### Animal messenger
 
 Bardic, Nature
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
 
-Casting time: Casting time: 1 minute
+Requirements: Level 1
+
+Casting time: 1 minute
 
 Range: 15 units ◆ Duration: 24 hours
 
@@ -4570,22 +4584,27 @@ Empowered Spell: The spell's duration increases by 48 hours for each two additio
 
 Arcane
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
 
-Casting time: Instinct
+Requirements: Level 1
+
+Instinct
 
 Range: Self ◆ Duration: end of current round
 
 Until the end of the round, you get +2 Deflection and immune to the Magic Missile spell.
 
-For every 2 additional Spell Points spent, you get an additional +1 Deflection.
+Empower Spell: For every 2 additional Spell Points spent, you get an additional +1 Deflection.
 
 ### Aura of Truth
 
 Bardic, Divine
 
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
+
 Fast Action
 
 Range: Self ◆ Duration: 10 minutes ◆ Area: 3-unit radius
@@ -4598,7 +4617,9 @@ You emanate a 3-unit-radius aura for the duration. When a creature first enters 
 
 Occult
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -4615,7 +4636,9 @@ If you roll a double 6, choose an additional mode.
 
 Divine
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Fast Action
 
@@ -4630,34 +4653,41 @@ Empower Spell: For each additional spell point spent, choose one more creature.
 
 Arcane
 
-Level 3 ◆ Cost: 3
+Rank 2 ◆ Cost: 3
+
+Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: until end of combat ◆ Area: 4 units cube
 
-Set an area of 4 units cube on magical fire for the duration. When the area first enters the space of a creature, and whenever a creature enters the area or starts their turn there, they get Burning 1 until the end of the round.
+Set an area of 4 units cube on magical fire for the duration. When the area first enters a creature's space, whenever a creature enters the area, and whenever a creature is in the area during the Beginning Phase, that creature gains Burning 1 until the end of the round.
 
 ### Burning Hands
 
 Arcane
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
 Range: 3 units burst
 
-You unleash a wide flame from your hands. Roll Magic against Deflection for creatures in the area. Those you succeed against take 2 fire damage. The rest take half as much.
+You unleash a wide flame from your hands. Roll Magic against Deflection for creatures in the area. Those you succeed against take 2 fire damage. The rest take half as much damage, rounded down.
 
-For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.
+Empower Spell: For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.
 
 ### Burrowed Knowledge
 
 Bardic, Divine, Occult
 
 
-Level 3 ◆ Cost: 2+
+Rank 2 ◆ Cost: 2+
+
+Requirements: Level 3
+
 Fast Action
 
 Range: 8 units ◆ Duration: 1 hour
@@ -4670,7 +4700,9 @@ Empower Spell: you can increase the duration of this spell to a full day by spen
 
 Divine
 
-Level 3 ◆ Cost: 1+
+Rank 2 ◆ Cost: 1+
+
+Requirements: Level 3
 
 Fast Action
 
@@ -4678,23 +4710,26 @@ Range: 10 Units
 
 You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.
 1 Success die: choose one of the following:
-Halt: the target must stay in place and loses all Instinct for this round.
-Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.
+- Halt: the target must stay in place and loses all Instinct for this round.
+- Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.
 2 Success dice: choose any previous option, or one of the following:
-Grovel: the target immediately becomes Prone and doesn't do anything else this round.
-Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.
+- Grovel: the target immediately becomes Prone and doesn't do anything else this round.
+- Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.
 3+ Success dice: choose any previous option, or one of the following:
-Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.
-Flee the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.
+- Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.
+- Flee: the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.
 
-You may spend 2 additional Spell Points per additional target; each target may receive a different command.
+Empower Spell: You may spend 2 additional Spell Points per additional target; each target may receive a different command.
 
 ### Comprehend Languages
 
 Arcane, Bardic, Divine, Occult
 
 
-Level 3 ◆ Cost: 2
+Rank 2 ◆ Cost: 2
+
+Requirements: Level 3
+
 Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 1 hour
@@ -4705,7 +4740,9 @@ Choose a willing creature within range. For the duration, it can understand any 
 
 Bardic, Divine, Nature
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Fast Action
 
@@ -4714,14 +4751,17 @@ Range: 10 Units
 Choose a target within range. Heal them for 1 HP. If the target is dying, it becomes stabilized. If you cast it using Divine tradition, heal them for 2 HP instead.
 You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
 
-You may spend additional Spell Points as you cast this spell. For each additional Spell Point you heal them for 1 more HP.
+Empower Spell: You may spend additional Spell Points as you cast this spell. For each additional Spell Point you heal them for 1 more HP.
 
 ### Detect Magic
 
 Arcane, Bardic, Divine, Nature, Occult
 
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
+
 Fast Action
 
 Range: Self ◆ Duration: 10 minutes ◆ Area: 20-unit radius
@@ -4732,7 +4772,9 @@ You attune your senses to magic for the duration. You detect the presence and lo
 
 Bardic, Occult
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Average Action
 
@@ -4740,16 +4782,18 @@ Range: 8 Units
 
 Roll Magic +2 against Will.
 You channel psychic disturbance into the mind of a creature you can see within range.
-The target becomes disoriented (-1 penalty on all rolls) until the end of the next round. On success, the target takes SD Psychic damage, or half as much on failure.
+The target becomes disoriented (-1 penalty on all rolls) until the end of the next round. On success, the target takes SD Psychic damage, or half as much on failure, rounded down.
 If you roll a double six, the target is also frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
 
 ### Divine Interference
 
 Divine
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
 
-Casting time: Instinct
+Requirements: Level 1
+
+Instinct
 
 Range: 15 units ◆ Duration: end of current round
 
@@ -4759,9 +4803,11 @@ Choose a creature within range. Until the end of the round they get +1 to all de
 
 Occult
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
 
-Casting time: Instinct
+Requirements: Level 1
+
+Instinct
 
 Range: Self
 
@@ -4777,7 +4823,7 @@ Average Action
 
 Range: 12 Units
 
-Shoot an elemental flare at a creature within range. Choose its damage type: lightning, fire or ice. Roll Magic +3 against Deflection. On success, deal SD damage of the chosen type, or half as much on failure.
+Shoot an elemental flare at a creature within range. Choose its damage type: lightning, fire or ice. Roll Magic +3 against Deflection. On success, deal SD damage of the chosen type, or half as much on failure, rounded down.
 If you roll a double six, depending on the damage type, the target also:
 - Fire: becomes burning 1 until the end of the round (receive 1 fire damage at the end of the round)
 - Lightning: they become disoriented 1 (-1 to all rolls) until the end of the next round
@@ -4787,23 +4833,27 @@ If you roll a double six, depending on the damage type, the target also:
 
 Arcane
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Area: 2-unit radius
 
 Choose an ally within range or yourself. Choose damage type: fire, ice, or lightning. A pulse of the chosen elemental energy bursts from the chosen target in a 2-unit radius.
-Roll Magic against Deflection for all creatures within the radius (other than the chosen target). Those that you've succeed against take 2 damage; the rest take half the amount of damage.
+Roll Magic against Deflection for all creatures within the radius (other than the chosen target). Those that you've succeed against take 2 damage; the rest take half the amount of damage, rounded down.
 The spell deals 1 less damage if the chosen ally is not yourself.
 
-For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.
+Empower Spell: For every 2 additional Spell Points spent, add +2 to the Roll Magic roll.
 
 ### Elemental Weapon
 
 Arcane
 
-Level 1 ◆ Cost: 2+
+Rank 1 ◆ Cost: 2+
+
+Requirements: Level 1
 
 Fast Action
 
@@ -4812,7 +4862,7 @@ Range: 15 units ◆ Duration: 10 minutes
 Choose a creature within range. Their weapon is imbued with an element of your choice: fire, lightning, or ice.
 For the duration, add +4 to Strike rolls using that weapon, and their damage type becomes the chosen type.
 
-Empower Spell: For each additional spell point spent, choose one more creature.
+Empower Spell: For each two additional spell point spent, choose one more creature.
 
 ### Enhanced Vitality
 
@@ -4830,7 +4880,9 @@ In combat, channel a surge of divine vitality into yourself or an ally within ra
 
 Nature
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -4838,13 +4890,15 @@ Range: 15 units ◆ Duration: 10 minutes ◆ Area: 3 units cube
 
 Vines erupt from the ground, twisting around all who stand in the area. Roll Magic against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes restrained (they can’t move from their place).
 The affected area is considered difficult terrain for all creatures.
-At the beginning phase of each round each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the restrained effect.
+During the Beginning Phase of each round, each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the restrained effect.
 
 ### Glacial Spike
 
 Arcane
 
-Level 3 ◆ Cost: 3+
+Rank 2 ◆ Cost: 3+
+
+Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -4852,7 +4906,7 @@ Range: 10 units
 
 A large spike of ice bursts from the ground, piercing through a creature you can see within range.
 Roll Magic +8 against Deflection (minimum roll of 6).
-On success, deal SD ice or piercing damage, or half as much on failure.
+On success, deal SD ice or piercing damage, or half as much on failure, rounded down.
 If you roll a double 6: the creature is slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
 
 Empower Spell: Add +2 to the roll for each extra Spell Point you spent.
@@ -4861,7 +4915,9 @@ Empower Spell: Add +2 to the roll for each extra Spell Point you spent.
 
 Arcane, Bardic
 
-Level 3 ◆ Cost: 2+
+Rank 2 ◆ Cost: 2+
+
+Requirements: Level 3
 
 Fast Action
 
@@ -4893,7 +4949,9 @@ The target must be no more than one size larger than you.
 
 Nature
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Special Action (1 minute)
 
@@ -4903,7 +4961,9 @@ Spend a minute to create three Goodberry fruits. Each fruit can be consumed to h
 
 Nature
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -4912,13 +4972,15 @@ Range: 10 Units ◆ Duration: 1 day
 You cause a large tree to sprout from the ground at a target location. The tree trunk occupies 1 unit. When allies (including you) that are adjacent to the tree are attacked by an attack against deflection, the tree becomes the target instead.
 The tree has 0 Deflection and 7 HP. It has weakness to fire damage (takes double damage from fire).
 
-You may spend additional Spell Points when you cast the spell. For each 1 additional point spent, the tree has 3 more HP.
+Empower Spell: You may spend additional Spell Points when you cast the spell. For each 1 additional point spent, the tree has 3 more HP.
 
 ### Gullibility
 
 Bardic, Occult
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Fast Action
 
@@ -4933,13 +4995,15 @@ They feel unexplained discomfort if the spell was cast using Occult magic, regar
 
 Chrono
 
-Level 5 ◆ Cost: 4
+Rank 3 ◆ Cost: 4
+
+Requirements: Level 5
 
 Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Duration: until the end of the next two rounds
 
-Choose a creature within range. For the duration, the target may commit to two fast actions during the planning phase. If they do, during the action phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.
+Choose a creature within range. For the duration, the target may commit to two Fast Actions during the Planning Phase. If they do, during the Action Phase, they perform one as a Fast Action and the other as an Average Action. For each action, the target may move immediately before or after performing it.
 
 These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other
 
@@ -4947,7 +5011,9 @@ These actions cannot be used to cast spells that cost Spell Points. If Slow and 
 
 Divine, Nature
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Fast Action
 
@@ -4957,13 +5023,15 @@ Heal a target for 2 HP, or 3 HP if cast with Divine magic.
 Outside of combat, heal the target to its maximum HP.
 If the target is dying, it becomes stabilized.
 
-You may spend additional Spell Points when you cast this spell. You heal 2 additional HP for each of those Spell Points.
+Empower Spell: You may spend additional Spell Points when you cast this spell. You heal 2 additional HP for each of those Spell Points.
 
 ### Heavenly Strike
 
 Divine
 
-Level 3 ◆ Cost: 2
+Rank 2 ◆ Cost: 2
+
+Requirements: Level 3
 
 Fast Action
 
@@ -4975,7 +5043,9 @@ Choose a creature within range. They get 8 Extra Dice on the next Strike they pe
 
 Arcane
 
-Level 3 ◆ Cost: 3+
+Rank 2 ◆ Cost: 3+
+
+Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -4983,7 +5053,7 @@ Range: 10 units
 
 Engulf a creature you can see within range in dark flames.
 Roll Magic +4 against Deflection.
-On success, apply Burning 4 for three turns. On failure, apply only half the Burning amount, rounded down.
+On success, apply Burning 4 for three rounds. On failure, apply only half the Burning amount, rounded down.
 
 Empower Spell: for each additional spell point spent, increase Burning by 1.
 
@@ -4991,7 +5061,9 @@ Empower Spell: for each additional spell point spent, increase Burning by 1.
 
 Occult
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Average Action
 
@@ -5003,7 +5075,9 @@ Choose a creature you can see within range. For the duration, each time the crea
 
 Arcane
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5012,16 +5086,18 @@ Range: 10 Units
 Roll Magic +4 against Deflection (main target); same roll without this bonus against secondary targets
 
 Launch a large ice shard on a creature within range that you can see.
-Roll Magic +4 against Deflection. On success, deal SD ice or piercing damage, or half as much on failure.
+Roll Magic +4 against Deflection. On success, deal SD ice or piercing damage, or half as much on failure, rounded down.
 The shard shatters on impact, sending small ice shards to each enemy within 2 units of the target. Use the same roll, without the +4 main-target bonus, against their Deflection. Enemies you succeed against take 1 ice damage.
 
-For every additional Spell Point spent, add +2 to the roll against the main target only.
+Empower Spell: For every additional Spell Point spent, add +2 to the roll against the main target only.
 
 ### Ice Prison
 
 Arcane
 
-Level 3 ◆ Cost: 3+
+Rank 2 ◆ Cost: 3+
+
+Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5037,27 +5113,32 @@ Empower Spell: for each extra SP, the prison has +3 HP.
 
 Arcane
 
-Level 3 ◆ Cost: 2+
+Rank 2 ◆ Cost: 2+
+
+Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
 Range: 2 ◆ Duration: 10 minutes
 
-Melee Strike roll: Magic +8 or Melee +8 (minimum roll of 2)
+Roll Magic or Melee against Deflection with 8 Extra Dice (Minimum Roll 2)
 
-You create a large scythe made of ice in your hands for the duration. The scythe is a two-handed weapon with reach. You may perform Melee Strikes with it for the duration, using either Magic or Melee for the roll. Add +8 to the roll (minimum roll of 2). When you cast this spell, you may immediately perform a Melee Strike with it.
-The scythe deals SD piercing or ice damage. Its double 6 effect: Slowed 1 until the end of the next turn.
+You create a large scythe made of ice in your hands for the duration. It is a two-handed weapon with reach. While wielding it, you may perform Melee Strikes using either Magic or Melee. The scythe has 8 Extra Dice: roll 8 additional d6 for each strike (Minimum Roll 2). When you cast this spell, you may immediately perform a Melee Strike with it.
+On success, the scythe deals SD piercing or ice damage. On failure, it deals half as much damage, rounded down. Its Double 6 effect is Slowed 1 until the end of the next round.
 
-Empower Spell: Add +2 to Melee rolls with the scythe for each 1 additional Spell Point spent.
+Empower Spell: Increase the scythe’s Extra Dice by 2 for each additional Spell Point spent.
 
-Double 6: Slowed 1 until the end of the next turn.
+Double 6: Slowed 1 until the end of the next round.
 
 ### Icy Ground
 
 Arcane
 
 
-Level 3 ◆ Cost: 2
+Rank 2 ◆ Cost: 2
+
+Requirements: Level 3
+
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 1 hour ◆ Area: 4 units cube
@@ -5070,7 +5151,10 @@ On failure, they are knocked prone and lose the rest of their movement. The area
 Arcane, Bardic, Occult
 
 
-Level 3 ◆ Cost: 2
+Rank 2 ◆ Cost: 2
+
+Requirements: Level 3
+
 Fast Action
 
 Range: 6 units ◆ Duration: 1 hour
@@ -5081,18 +5165,20 @@ Choose a willing creature within range. It becomes invisible for the duration. I
 
 Occult
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
 Range: 10 Units
 
 Shoot a ray of dark siphoning energy at a creature you can see within range.
-Roll Magic +4 against Deflection. On success, deal SD Necrotic damage, and heal yourself or an ally within range for SD health points. On failure, deal half the damage and don’t heal.
+Roll Magic +4 against Deflection. On success, deal SD Necrotic damage, and heal yourself or an ally within range for SD health points. On failure, deal half the damage, rounded down, and don’t heal.
 If you roll a double six, you or the ally you healed gets 1 temporary health point until the end of the combat.
 Choose which target to heal only when the spell resolves.
 
-For each 1 additional Spell Point spent, add +2 to the Roll Magic roll.
+Empower Spell: For each 1 additional Spell Point spent, add +2 to the Roll Magic roll.
 
 ### Life Drain
 
@@ -5114,7 +5200,10 @@ If you roll a double six, you become inspired 1 (1 Extra Die on rolls) until the
 Bardic, Divine, Nature
 
 
-Level 3 ◆ Cost: 2+
+Rank 2 ◆ Cost: 2+
+
+Requirements: Level 3
+
 Slow Action ◆ Interruptible
 
 Range: 8 ◆ Duration: 1 day
@@ -5143,17 +5232,17 @@ Roll Magic against Deflection. On success, it becomes luminous, and if the enemy
 
 Arcane
 
+Rank 1 ◆ Cost: 1+
 
-Level 1 ◆ Cost: 1+
+Requirements: Level 1
+
 Average Action
 
 Range: 12 units ◆ Duration: until end of combat
 
-Roll Magic +6 against Deflection
-
 You charge your hands with chaotic lightning energy and shoot a lightning bolt at a creature you can see within range.
-Roll Magic +4 against Deflection.
-On success, deal SD lightning damage, or half as much on failure.
+Roll Magic +6 against Deflection.
+On success, deal SD lightning damage, or half as much on failure, rounded down.
 For the duration, you can perform an average action to shoot a similar lightning bolt without spending Spell Points.
 
 Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for all shots of this spell.
@@ -5162,7 +5251,9 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for 
 
 Arcane
 
-Level 3 ◆ Cost: 3+
+Rank 2 ◆ Cost: 3+
+
+Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5170,8 +5261,7 @@ Range: 10 ◆ Duration: 10 minutes
 
 Choose a creature you can see within range.
 Roll Magic against Deflection or Fortitude, whichever is higher.
-On success, coils of lightning tie the legs of the creature. They become restrained, and the take 3 lightning damage at the end of each round.
-and roll Acrobatics or Athletic against Threshold 3.
+On success, coils of lightning tie the legs of the creature. They become restrained. At the end of each round, they take 3 lightning damage and roll Acrobatics or Athletics against Threshold 3.
 On success, they break free of the coils. This threshold is reduced after each failed roll.
 
 Empower Spell: For each 2 additional Spell Points you spend, add +2 to this roll.
@@ -5193,7 +5283,9 @@ Spend 1 Instinct to direct the hand to move and perform a simple task, such as m
 
 Arcane
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Average Action
 
@@ -5201,7 +5293,7 @@ Range: 15 units
 
 Shoot three magical missiles. Choose a creature to target with each missile. You may choose the same creature for more than one missile. You only need to know the creatures’ general location. Each missile automatically hits its target and deals 1 force damage. If the missile has no way to reach the target, it fails.
 
-You may spend additional Spell Points when you cast the spell. For each additional point spent, shoot one more missile.
+Empower Spell: You may spend additional Spell Points when you cast the spell. For each additional point spent, shoot one more missile.
 
 ### Magic Tricks
 
@@ -5258,7 +5350,7 @@ Range: 8 Units
 
 Blast the mind of a creature you can see within range with psychic energy.
 Roll Magic against Will.
-On success, deal SD Psychic damage; on failure, deal half as much damage.
+On success, deal SD Psychic damage; on failure, deal half as much damage, rounded down.
 The target becomes vulnerable 1 (-1 to all defenses) until the end of the next round.
 If you roll a double six, the target also becomes disoriented 1 (-1 penalty on all rolls) until the end of the next round.
 
@@ -5283,7 +5375,7 @@ Arcane, Bardic, Divine, Nature, Occult
 
 Cantrip
 
-Casting time: Instinct
+Instinct
 
 You get +1 Deflection until the end of the round.
 
@@ -5300,14 +5392,16 @@ Range: 10 Units
 You manipulate the ground at a point within range.
 Choose one or both:
 - Create 1 unit cube of earth. It provides half cover (or full cover while being prone next to it). You cannot target an occupied space.
-- Dig a hole o1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
+- Dig a hole of 1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
 If you choose both, the hole and the cube must be adjacent to each other.
 
 ### Nature Spirit
 
 Bardic, Nature
 
-Level 3 ◆ Cost: 2+
+Rank 2 ◆ Cost: 2+
+
+Requirements: Level 3
 
 Average Action
 
@@ -5322,7 +5416,10 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. The
 Nature
 
 
-Level 3 ◆ Cost: 2+
+Rank 2 ◆ Cost: 2+
+
+Requirements: Level 3
+
 Average Action
 
 Range: 6 units ◆ Area: 5 units, continuous, any shape
@@ -5343,32 +5440,37 @@ Range: 10 Units
 
 Launch a dark bolt of necrotic energy at an enemy.
 Roll Magic against Deflection.
-On success, deal SD Necrotic damage, and they become vulnerable 1 until the end of the next round. On failure, deal half as much damage.
-If you roll a double six, the creature also becomes disoriented (-1 penalty on all rolls) until the end of the next round.
+On success, deal SD Necrotic damage, and it becomes decayed 1 until the end of the next round. On failure, deal half as much damage, rounded down.
+If you roll a double six, the creature becomes decayed 2 instead.
 
 ### Pacify
 
 Bardic, Divine
 
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
+
 Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 10 minutes
 
-Choose a creature within range. Roll Magic against Will. On success, the target is pacified until the end of the next two rounds  (A pacified creature cannot perform offensive actions against other creatures.). The effect ends early if the target takes damage or is affected by an offensive action.
+Choose a creature within range. Roll Magic against Will. On success, the target is pacified until the end of the next two rounds (a pacified creature cannot perform offensive actions against other creatures). The effect ends early if the target takes damage or is affected by an offensive action.
 
 ### Poison Cloud
 
 Nature, Occult
 
-Level 3 ◆ Cost: 3+
+Rank 2 ◆ Cost: 3+
+
+Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 10 minutes ◆ Area: 2-unit radius
 
-The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. At the beginning phase of each round, you may choose to disperse the cloud.
+The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. During the Beginning Phase of each round, you may choose to disperse the cloud.
 
 Empower Spell: You may pay additional Spell Points when you cast this spell. For each additional Spell Point spent, the radius of the spell increases by one.
 
@@ -5376,9 +5478,11 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. For
 
 Divine
 
+Rank 1 ◆ Cost: 1
 
-Level 1 ◆ Cost: 1
-Average Action
+Requirements: Level 1
+
+Fast Action
 
 Range: 6 units ◆ Duration: 10 minutes
 
@@ -5388,7 +5492,9 @@ Choose a creature within range. For the duration, Undead, Abominations, Fiends, 
 
 Divine
 
-Level 3 ◆ Cost: 3
+Rank 2 ◆ Cost: 3
+
+Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5408,14 +5514,16 @@ Range: 10 Units
 
 Launch a beam of divine energy at an enemy. If you are a Cleric, you may choose to change the damage type from Radiant to the one associated with your domain.
 Roll Magic against Deflection.
-On success, deal SD radiant damage and they become discouraged 1 until the end of the next round. On failure, deal half as much damage.
+On success, deal SD radiant damage and they become discouraged 1 until the end of the next round. On failure, deal half as much damage, rounded down.
 If you roll a double six, the target gets disadvantage on the next attack it makes against you or your allies.
 
 ### Rainbow Eruption
 
 Bardic, Nature
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5428,7 +5536,9 @@ Roll Magic against Deflection for the enemies inside the radius. Those that you 
 
 Arcane, Divine, Nature
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Fast Action
 
@@ -5441,7 +5551,10 @@ Touch a creature and ward it against harm. Choose a damage type other than force
 Bardic, Divine, Nature
 
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
+
 Fast Action
 
 Range: Touch ◆ Duration: Instantaneous
@@ -5452,20 +5565,24 @@ Touch an ally and remove all negative conditions affecting them, except Exhausti
 
 Divine
 
-Level 1 ◆ Cost: 2
+Rank 1 ◆ Cost: 2
+
+Requirements: Level 1
 
 Fast Action
 
 Range: 15 units ◆ Duration: end of the next two rounds.
 
-Choose an ally within range or yourself. The target cannot be targeted by any enemy for the duration. When the target performs any action other than Dash or Dodge, the spell ends.
+Choose an ally within range or yourself. The target cannot be targeted by any enemy for the duration. When the target performs any action other than Dash or Defend, the spell ends.
 If the target is already targeted by attacks when the spell is cast, those attacks go through but suffer 1 penalty.
 
 ### Scorching Rays
 
 Arcane
 
-Level 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 1+
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5474,17 +5591,19 @@ Range: 10 Units
 You get a pool of 4 points of fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see.
 Roll Magic against Deflection. Targets that you've succeeded against take the fire damage, while targets you've failed against take only half the damage, rounded down.
 
-For each 1 additional Spell Point spent, you get 2 additional fire damage to your damage pool.
+Empower Spell: For each 1 additional Spell Point spent, you get 2 additional fire damage to your damage pool.
 
 ### Shield of Faith
 
 Divine
 
-Level 1 ◆ Cost: 2
+Rank 1 ◆ Cost: 2
 
-Average Action
+Requirements: Level 1
 
-Range: 15 units ◆ Duration: 1 minute or until end of combat
+Fast Action
+
+Range: 15 units ◆ Duration: end of next two rounds
 
 Choose a target within range. They get +2 Deflection for the duration.
 
@@ -5492,14 +5611,13 @@ Choose a target within range. They get +2 Deflection for the duration.
 
 Bardic, Divine, Occult
 
+Rank 2 ◆ Cost: 2+
 
-Level 3 ◆ Cost: 2+
+Requirements: Level 3
+
 Fast Action
 
 Range: 10 units ◆ Duration: 1 minute.
-
-Roll Magic against Will
-Roll Magic against Will
 
 Choose a creature within range.
 Roll Magic against Will. On success, the physical space of the creature cannot produce sound. It also completely blocks any outside sounds getting into it. The creature is immune to thunder damage. It cannot cast spells that require vocal activity (all spells require this unless described otherwise.)
@@ -5512,7 +5630,10 @@ Empower Spell: you can increase the duration of this by 1 hour for each 2 additi
 Arcane, Bardic, Nature, Occult
 
 
-Level 3 ◆ Cost: 3
+Rank 2 ◆ Cost: 3
+
+Requirements: Level 3
+
 Slow Action ◆ Interruptible
 
 Range: 8 units ◆ Duration: 1 hour
@@ -5524,7 +5645,9 @@ Roll Magic against Will for each creature within 2 units of it. Each creature yo
 
 Chrono
 
-Level 3 ◆ Cost: 2
+Rank 2 ◆ Cost: 2
+
+Requirements: Level 3
 
 Fast Action
 
@@ -5539,7 +5662,9 @@ If Slow and Haste affect the same creature, both spells immediately dispel each 
 
 Chrono
 
-Level 3 ◆ Cost: 2
+Rank 2 ◆ Cost: 2
+
+Requirements: Level 3
 
 Fast Action
 
@@ -5551,20 +5676,25 @@ Choose a creature within range. For the duration, they perceive time much slower
 
 Nature
 
-Cantrip
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Fast Action
 
 Range: 30 Units ◆ Duration: 10 minutes
 
-Choose an animal within range. They understand your speech, and you understand theirs. The effect stops at the end of its duration or when you use this cantrip again.
+Choose an animal within range. They understand your speech, and you understand theirs.
 
 ### Spike Growth
 
 Nature
 
 
-Level 3 ◆ Cost: 3
+Rank 2 ◆ Cost: 3
+
+Requirements: Level 3
+
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 10 minutes ◆ Area: 4 units cube
@@ -5577,7 +5707,9 @@ When a creature first steps on the area during each round, it rolls Acrobatics a
 
 Chrono
 
-Level 5 ◆ Cost: 4
+Rank 3 ◆ Cost: 4
+
+Requirements: Level 5
 
 Fast Action
 
@@ -5587,7 +5719,7 @@ Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty 
 
 On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
 
-On each subsequent round, you must spend 1 Instinct at the beginning phase and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.
+During the Beginning Phase of each subsequent round, you must spend 1 Instinct and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.
 
 If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.
 
@@ -5595,7 +5727,9 @@ If you cast this spell or the Time Detention spell while this spell is active on
 
 Nature
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5604,13 +5738,15 @@ Range: 10 Units ◆ Duration: 1 day
 Summons a Large or smaller beast (your choice) in an unoccupied location you can see.
 It can’t be a flying beast unless it’s small.
 The beast is a separate actor than your character that you control in the same manner.
-You must take the Command fast action on your turn to enable the beast to use the specific actions that require it. (it may still move and take other actions without it)
+You must take the Command Fast Action during the Action Phase to enable the beast to use the specific actions that require it. It may still move and take other actions without Command.
 
 ### Summon Shade
 
 Occult
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5619,14 +5755,16 @@ Range: 10 Units ◆ Duration: 10 minutes
 Summon a shade (Undead spirit) in an unoccupied location you can see within range.
 If the location is not available when the spell resolves, choose an adjacent location within range.
 The shade is a separate actor than your character that you control in the same manner. Start controlling it in the next round.
-You must use the Command Instinct ability on your turn to enable the spirit to use the specific actions that require it.
+You must use the Command Instinct ability during the Action Phase to enable the spirit to use the specific actions that require it.
 When the shade is summoned, it can immediately perform Shadow Claw on an enemy within its range as a free action.
 
 ### Temporal Clarity
 
 Chrono
 
-Level 5 ◆ Cost: 4
+Rank 3 ◆ Cost: 4
+
+Requirements: Level 5
 
 Fast Action
 
@@ -5664,7 +5802,7 @@ Fast Action
 Range: Touch
 
 You release thunderous energy from your hand into a nearby enemy. Melee Spell Attack. Roll Magic +2 against Deflection.
-On success, deal SD Thunder damage and push them 2 units away from you. On failure, deal half as much damage.
+On success, deal SD Thunder damage and push them 2 units away from you. On failure, deal half as much damage, rounded down.
 If you roll a double six, the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)
 
 ### Thunder Wave
@@ -5687,7 +5825,9 @@ You may only push or pull the target if it’s up to one size larger than you.
 
 Chrono
 
-Level 3 ◆ Cost: 2
+Rank 2 ◆ Cost: 2
+
+Requirements: Level 3
 
 Fast Action
 
@@ -5721,7 +5861,10 @@ If you roll a double six, the target also becomes vulnerable 1 (-1 to all defens
 Nature
 
 
-Level 3 ◆ Cost: 3
+Rank 2 ◆ Cost: 3
+
+Requirements: Level 3
+
 Average Action
 
 Range: 10 units ◆ Duration: 10 minutes
@@ -5749,7 +5892,10 @@ You may only push or pull the target if it’s up to one size larger than you.
 Nature
 
 
-Level 1 ◆ Cost: 1
+Rank 1 ◆ Cost: 1
+
+Requirements: Level 1
+
 Fast Action
 
 Range: 10 ◆ Duration: 10 minutes

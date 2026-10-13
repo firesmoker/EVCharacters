@@ -331,6 +331,14 @@
           "type": "skill",
           "values": [
             "Cntrp",
+            "Mind Blast",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
             "Minor Illusion",
             "-"
           ]
@@ -371,8 +379,24 @@
           "type": "skill",
           "values": [
             "1",
+            "Aura of Truth",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
             "Cure",
             "1+"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Detect Magic",
+            "1"
           ]
         },
         {
@@ -395,7 +419,7 @@
           "type": "skill",
           "values": [
             "1",
-            "Mind Spike",
+            "Pacify",
             "1"
           ]
         },
@@ -404,6 +428,14 @@
           "values": [
             "1",
             "Rainbow Eruption",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Restoration",
             "1"
           ]
         },
@@ -421,6 +453,14 @@
             "2",
             "Comprehend Languages",
             "2"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "2",
+            "Glitch",
+            "2+"
           ]
         },
         {

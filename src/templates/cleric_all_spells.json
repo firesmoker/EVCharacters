@@ -307,9 +307,17 @@
         {
           "type": "skill",
           "values": [
-            "Cantrip",
-            "Divine Guidance",
-            "0"
+            "Cntrp",
+            "Enhanced Vitality",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Godly Force",
+            "-"
           ]
         },
         {
@@ -317,6 +325,22 @@
           "values": [
             "Cntrp",
             "Light",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Mending",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Message",
             "-"
           ]
         },
@@ -347,6 +371,30 @@
         {
           "type": "skill",
           "values": [
+            "Cntrp",
+            "Thunder Fist",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Thunder Wave",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Aura of Truth",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
             "1",
             "Blessed Weapon",
             "1+"
@@ -364,6 +412,14 @@
           "type": "skill",
           "values": [
             "1",
+            "Detect Magic",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
             "Divine Interference",
             "1"
           ]
@@ -374,6 +430,38 @@
             "1",
             "Healing Touch",
             "1+"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Pacify",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Protection from Evil and Good",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Resistance",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Restoration",
+            "1"
           ]
         },
         {
@@ -398,6 +486,14 @@
             "2",
             "Burrowed Knowledge",
             "2+"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "2",
+            "Command",
+            "1+"
           ]
         },
         {

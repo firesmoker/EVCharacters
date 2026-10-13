@@ -322,6 +322,14 @@
           "type": "skill",
           "values": [
             "Cntrp",
+            "Mending",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
             "Message",
             "-"
           ]
@@ -378,6 +386,14 @@
           "type": "skill",
           "values": [
             "1",
+            "Detect Magic",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
             "Elemental Pulse",
             "1+"
           ]
@@ -418,7 +434,7 @@
           "type": "skill",
           "values": [
             "1",
-            "Mind Spike",
+            "Resistance",
             "1"
           ]
         },
@@ -452,6 +468,14 @@
             "2",
             "Glacial Spike",
             "3+"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "2",
+            "Glitch",
+            "2+"
           ]
         },
         {

@@ -308,6 +308,22 @@
           "type": "skill",
           "values": [
             "Cntrp",
+            "Acid Spray",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
+            "Enhanced Vitality",
+            "-"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cntrp",
             "Light",
             "-"
           ]
@@ -326,22 +342,6 @@
             "Cntrp",
             "Mold Earth",
             "-"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "Cantrip",
-            "Natural Guidance",
-            "0"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "1",
-            "Speak with Animals",
-            "1"
           ]
         },
         {
@@ -388,6 +388,14 @@
           "type": "skill",
           "values": [
             "1",
+            "Detect Magic",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
             "Entangle",
             "1"
           ]
@@ -421,6 +429,30 @@
           "values": [
             "1",
             "Rainbow Eruption",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Resistance",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Restoration",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Speak with Animals",
             "1"
           ]
         },
@@ -462,6 +494,14 @@
             "2",
             "Nature Wall",
             "2+"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "2",
+            "Poison Cloud",
+            "3+"
           ]
         },
         {

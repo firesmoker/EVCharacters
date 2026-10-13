@@ -56,10 +56,10 @@ Range: 10 Units
 
 Roll Magic against Will. Choose a number of the following equal to the number of Success Dice:
 
-• They become disoriented (-1 penalty on all rolls) until the end of the next 2 rounds.
-• They become slowed (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
-• They become vulnerable (-1 to all defenses) until the end of the next 2 rounds.
-• They become discouraged (they deal -1 damage) until the end of the next 2 rounds.
+• They become Disoriented (-1 penalty on all rolls) until the end of the next 2 rounds.
+• They become Slowed (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
+• They become Vulnerable (-1 to all defenses) until the end of the next 2 rounds.
+• They become Discouraged (they deal -1 damage) until the end of the next 2 rounds.
 
 On success, if you roll a double 6, choose an additional mode.
 Comprehend Languages
@@ -74,7 +74,7 @@ Level 1 ? Costs 1+
 Fast Action
 Range: 10 Units
 
-Choose a target within range. Heal them for 1 HP. If the target is dying, it becomes stabilized. If you cast it using Divine Magic, heal them for 1 additional HP.
+Choose a target within range. Heal them for 1 HP. If the target is Dying, it becomes stabilized. If you cast it using Divine Magic, heal them for 1 additional HP.
 
 You may spend additional Spell Points as you cast this spell. For each additional Spell Point you heal them for 1 more HP.
 You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
@@ -88,9 +88,9 @@ Roll Magic against Will.
 You channel psychic disturbance into the mind of a creature you can see within range.
 
 On success, the target takes SD + 1 Psychic damage.
-It also becomes disoriented (-1 penalty on all rolls) until the end of the next round and receives
+It also becomes Disoriented (-1 penalty on all rolls) until the end of the next round and receives
 
-On success, if you roll a double six, the target is also frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
+On success, if you roll a double six, the target is also Frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
 Divine Guidance
 Divine
 Cantrip
@@ -126,9 +126,9 @@ Range: 12 Units
 Shoot an elemental flare at a creature in range. Choose its damage type: lightning, fire or ice. Roll Magic against Deflection. On success, deal SD + 1 damage of the chosen type.
 
 On success, if you roll a double six, depending on the damage type, the target also:
-• Fire: becomes burning 1 until the end of the round (receive 1 fire damage at the end of the round)
-• Lightning: they become disoriented 1 (-1 to all rolls) until the end of the next round
-• Ice: they become chilled 2 (-2 Movement) until the end of the next round
+• Fire: becomes Burning 1 until the end of the round (receive 1 fire damage at the end of the round)
+• Lightning: they become Disoriented 1 (-1 to all rolls) until the end of the next round
+• Ice: they become Chilled 2 (-2 Movement) until the end of the next round
 Elemental Pulse
 Arcane
 Level 1 ? Costs 1
@@ -153,9 +153,9 @@ Slow Action ? Interruptible
 Range: 15 units
 Duration: 10 minutes
 
-Vines erupt from the ground, twisting around all who stand in the area. Roll Nature Magic against Deflection for each enemy in the area. The threshold is 1. Each enemy that you've succeeded against becomes restrained (they can't move from their place).
+Vines erupt from the ground, twisting around all who stand in the area. Roll Nature Magic against Deflection for each enemy in the area. The threshold is 1. Each enemy that you've succeeded against becomes Restrained (they can't move from their place).
 The affected area is considered difficult terrain for all creatures.
-At the beginning phase of each round each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the restrained effect.
+At the beginning phase of each round each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the Restrained effect.
 Glacial Spike
 Arcane
 Level 3 ? Cost: 3
@@ -164,7 +164,7 @@ Range: 10 units
 A large spike of ice bursts from the ground, piercing through a creature you can see within range.
 Roll Magic against Deflection.
 On success, deal SD + 6 ice or piercing damage.
-If you roll a double 6: the creature is slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
+If you roll a double 6: the creature is Slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
 Empower Spell: Deal +2 damage for each extra spell point you spent. 
 Goodberry
 Nature
@@ -198,7 +198,7 @@ Range: Touch
 
 Heal a target for 2 HP, or 3 HP if cast with Divine magic.
 Outside of combat, heal the target to its maximum HP.
-If the target is dying, it becomes stabilized.
+If the target is Dying, it becomes stabilized.
 You may spend additional Spell Points when you cast this spell. You heal 2 additional HP for each of those Spell Points.
 Heavenly Strike
 Divine
@@ -256,7 +256,7 @@ Level 3 ? Cost: 2 SP
 Slow Action ? Interruptible
 Range: 10 units ? Duration: 1 hour
 Cover an area of 4 units cube with extremely slippery icy ground. Creatures in the area roll Acrobatics when entering the area and when it enters their space. Threshold is 3.
-On failure, they are knocked prone and lose the rest of their movement. The area is difficult terrain.
+On failure, they are knocked Prone and lose the rest of their movement. The area is difficult terrain.
 Invisibility
 Arcane, Bardic, Occult
 Level 3 ? Costs: 2 SP
@@ -289,9 +289,9 @@ Cantrip
 Fast Action
 Range: 15 Units 
 
-Create up to two stationary floating balls of light or make one item or limb luminous.
+Create up to two stationary floating balls of light or make one item or limb Luminous.
 The light provides 6 units of bright light and further 6 units of dim light.
-You may try to make an item or a limb of an enemy luminous. Roll Magic against Deflection. The threshold is 1. On success, it becomes luminous, and if the enemy is invisible, it doesn't get any of the benefits. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it. If cast on an enemy, it ends after an hour.
+You may try to make an item or a limb of an enemy Luminous. Roll Magic against Deflection. The threshold is 1. On success, it becomes Luminous, and if the enemy is invisible, it doesn't get any of the benefits. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it. If cast on an enemy, it ends after an hour.
 Lightning Bolt
 Arcane
 Level 1 ? Cost: 1 SP
@@ -307,7 +307,7 @@ Level 3 ? Cost: 3
 Slow Action ? Interruptible
 Range: 10 ? Duration: 10 minutes
 Choose a creature you can see within range. Roll Magic against Deflection or Fortitude, whichever is higher. The threshold is 1.
-On success, coils of lightning tie the legs of the creature. They become restrained, and the take 3 lightning damage at the end of each round.
+On success, coils of lightning tie the legs of the creature. They become Restrained, and the take 3 lightning damage at the end of each round.
 At the beginning of each round, they roll Acrobatics or Athletics. The threshold is 3. On success, they break free of the coils. This threshold is reduced after each failed roll.
 Empower Spell: For each 2 additional SP you spend, the creature takes +1 damage at the end of each turn.
 Mage Hand
@@ -339,8 +339,8 @@ Level 1 ? Cost: 1
 Fast Action
 Range: 15 units
 
-Choose an enemy you can see within range. Roll Magic against Will. The threshold is 1. On success, the target is interrupted and disoriented (-1 penalty to all rolls) until the end of the round.
-If cast using Occult magic, they are also discouraged (they deal -1 damage) until the end of the round.
+Choose an enemy you can see within range. Roll Magic against Will. The threshold is 1. On success, the target is interrupted and Disoriented (-1 penalty to all rolls) until the end of the round.
+If cast using Occult magic, they are also Discouraged (they deal -1 damage) until the end of the round.
 Minor Illusion
 Arcane / Bardic / Occult
 Cantrip
@@ -369,7 +369,7 @@ Range: 10 Units
 
 You manipulate the ground at a point within range. 
 Choose one or both:
-• Create 1 unit cube of earth. It provides half cover (or full cover while being prone next to it). You cannot target an occupied space.
+• Create 1 unit cube of earth. It provides half cover (or full cover while being Prone next to it). You cannot target an occupied space.
 • Dig a hole o1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
 If you choose both, the hole and the cube must be adjacent to each other.
 Natural Guidance
@@ -406,9 +406,9 @@ Average Action
 Range: 10 Units
 
 Ranged Spell Attack. Roll Magic against Deflection.
-Launch a dark bolt of necrotic energy at an enemy. On success, deal SD Necrotic damage, and they become vulnerable 1 until the end of the next round.
+Launch a dark bolt of necrotic energy at an enemy. On success, deal SD Necrotic damage, and they become Vulnerable 1 until the end of the next round.
 
-On success, if you roll a double six, the target also becomes disoriented (-1 penalty on all rolls) until the end of the next round.
+On success, if you roll a double six, the target also becomes Disoriented (-1 penalty on all rolls) until the end of the next round.
 Protective Circle
 Divine
 Level 3 ? Cost: 3
@@ -422,7 +422,7 @@ Average Action
 Range: 10 Units
 
 Divine Magic roll against Deflection.
-Launch a beam of divine energy at an enemy. If you are a Cleric, you may choose to change the damage type from Radiant to the one associated with your domain. On success, deal SD radiant damage and they become discouraged 1 until the end of the next round.
+Launch a beam of divine energy at an enemy. If you are a Cleric, you may choose to change the damage type from Radiant to the one associated with your domain. On success, deal SD radiant damage and they become Discouraged 1 until the end of the next round.
 On success, if you roll a double six, they get disadvantage on attacks against you and your allies until the end of the next round.
 Rainbow Eruption
 Nature / Bardic
@@ -432,7 +432,7 @@ Range: 10 units
 Duration: 1 minute or end of combat
 
 You create a chaotic eruption of rainbows at a point within range. The rainbows are attracted to each enemy within 5 units radius of that point.
-Roll Magic against Deflection for the enemies inside the radius. The threshold is 1. Those that you succeed against become luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.
+Roll Magic against Deflection for the enemies inside the radius. The threshold is 1. Those that you succeed against become Luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.
 Sanctuary
 Divine
 Level 2 ? Cost: 2
@@ -549,13 +549,13 @@ Roll Magic against Deflection.
 Channel dark energy into an adjacent enemy. 
 On success, deal SD Necrotic damage, and they can't be healed until the end of the next round.
 
-On success, if you roll a double six, the target also becomes vulnerable 1 (-1 to all defenses) until the end of the next round.
+On success, if you roll a double six, the target also becomes Vulnerable 1 (-1 to all defenses) until the end of the next round.
 Vine Knot
 Nature
 Level 3 ? Cost: 3 SP
 Average Action
 Range: 10 units ? Duration: 10 minutes
-Choose a creature in range that you can see. Vines latch to him. Roll Magic against Deflection. The threshold is 1. On success, it is restrained and prone. At the end of each round, it rolls Athletics or Acrobatics. The threshold is 3. On success, it breaks loose and the spell ends. The threshold is reduced by 1 after each failed roll.
+Choose a creature in range that you can see. Vines latch to him. Roll Magic against Deflection. The threshold is 1. On success, it is Restrained and Prone. At the end of each round, it rolls Athletics or Acrobatics. The threshold is 3. On success, it breaks loose and the spell ends. The threshold is reduced by 1 after each failed roll.
 Vine Whip
 Nature
 Cantrip

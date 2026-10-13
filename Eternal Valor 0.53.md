@@ -40,7 +40,7 @@ Eternal Valor is a fantasy tabletop RPG system designed with the following princ
 
 - Characters are assumed to be Good, or at least their interests are aligned with Good intentions, unless all players agree not to in advance.
 
-  - For example, even if you play a Witch or other “dark” character, you still align yourself with the party’s overall course of action. A helpful solution might be to find a reason for this course of action to be beneficial for your otherwise shady motivations.
+  - For example, even if you play a Occultist or other “dark” character, you still align yourself with the party’s overall course of action. A helpful solution might be to find a reason for this course of action to be beneficial for your otherwise shady motivations.
 
 ## Exploration
 
@@ -366,9 +366,9 @@ Examples:
 Roll against the defense specified by the action or spell. If you succeed, apply its success effect; otherwise, apply its failure effect, if any.
 
 >
-> A witch casts a "Bestow Curse" spell on a paladin. The spell says: "Roll Magic against Will."
+> A occultist casts a "Bestow Curse" spell on a paladin. The spell says: "Roll Magic against Will."
 >
-> The witch rolls 5d6 and gets 2 Success Dice. The paladin’s Will is 1. Because 2 Success Dice exceed that defense, the spell succeeds.
+> The occultist rolls 5d6 and gets 2 Success Dice. The paladin’s Will is 1. Because 2 Success Dice exceed that defense, the spell succeeds.
 
 #### Rolling Against Multiple Targets
 
@@ -406,7 +406,7 @@ Some effects may provide a character with temporary hit points. When a character
 
 When an enemy drops to 0 HP, they are dead.
 
-When you drop to 0 HP, you are dying. You are unconscious and prone. You also get one level of Exhaustion (described later).
+When you drop to 0 HP, you are Dying. You are unconscious and Prone. You also get one level of Exhaustion (described later).
 
 At the end of each round, roll 3d6. The threshold is 2. Note each time you succeed or fail. Roll until you stabilize or die.
 
@@ -416,19 +416,19 @@ At the end of each round, roll 3d6. The threshold is 2. Note each time you succe
 
 If combat ends before you stabilize or die, keep rolling once per minute until you do.
 
-If you receive additional damage while you are dying, you suffer one failure. If the damage is larger than your maximum HP, you die immediately.
+If you receive additional damage while you are Dying, you suffer one failure. If the damage is larger than your maximum HP, you die immediately.
 
 If you receive healing or an ally successfully performs the Stabilize action on you, you become stabilized.
 
 ### Becoming Stabilized
 
-When you become stabilized you stop dying. You remain unconscious until the end of combat, even if you are healed. You must have at least 1 HP to become conscious again.
+When you become stabilized you stop Dying. You remain unconscious until the end of combat, even if you are healed. You must have at least 1 HP to become conscious again.
 
 ## Exhaustion
 
 You get +1 Drag (explained in the 'Actions' chapter) to all actions for each level of Exhaustion you get. When you get to 3 levels of Exhaustion, you die.
 
-Exhaustion mainly occurs by dying and extreme environmental or magical effects.
+Exhaustion mainly occurs by Dying and extreme environmental or magical effects.
 
 1 level of Exhaustion is removed on each long rest.
 
@@ -444,13 +444,13 @@ Some actions, most commonly spellcasting, can be interrupted. An interruption oc
 >
 > Example
 >
-> A witch is casting the Summon Shade spell (a Slow, interruptible action). An enemy archer hits her for 1 damage. If she takes at least 1 more damage until the end of the round, her spell will be cancelled.
+> A occultist is casting the Summon Shade spell (a Slow, interruptible action). An enemy archer hits her for 1 damage. If she takes at least 1 more damage until the end of the round, her spell will be cancelled.
 
 ## Conditions
 
 | Condition | Rules |
 | --- | --- |
-| Dying | When a player character reaches 0 HP, they become unconscious and prone and gain 1 level of Exhaustion. At the end of each round, roll 3d6 against Threshold 2 and record a success or failure. At 2 successes, they stabilize; at 2 failures, they die. Taking damage while dying causes 1 failure, and damage greater than their maximum HP causes immediate death. Healing or a successful Stabilize action stabilizes them. A stabilized creature remains unconscious until the end of combat and needs at least 1 HP to regain consciousness. Enemies that reach 0 HP die unless a rule says otherwise. |
+| Dying | When a player character reaches 0 HP, they become unconscious and Prone and gain 1 level of Exhaustion. At the end of each round, roll 3d6 against Threshold 2 and record a success or failure. At 2 successes, they stabilize; at 2 failures, they die. Taking damage while Dying causes 1 failure, and damage greater than their maximum HP causes immediate death. Healing or a successful Stabilize action stabilizes them. A stabilized creature remains unconscious until the end of combat and needs at least 1 HP to regain consciousness. Enemies that reach 0 HP die unless a rule says otherwise. |
 | Exhaustion | Each level adds 1 Drag to all actions. At 3 levels, the creature dies. A long rest removes 1 level. |
 | Prone | The creature is lying on the ground. Any movement, attack, or defense effects involving Prone are specified by the relevant rule. |
 | Restrained | The creature cannot move from its current space. The source effect specifies how and when the condition ends. |
@@ -464,7 +464,7 @@ Some actions, most commonly spellcasting, can be interrupted. An interruption oc
 | Burning | At the end of each round, the creature takes Fire damage equal to its Burning level. |
 | Bleeding | At the end of each round, the creature loses HP equal to its Bleeding level. This is direct HP loss, not damage, and is unaffected by resistance or other damage modifiers. |
 | Luminous | The affected creature or object emits light and cannot benefit from invisibility. The source effect specifies the light radius and any additional effects. |
-| Engaged | An engaged creature loses 2 HP whenever it targets anyone other than the creature it is engaged with. A creature can be engaged with only one other creature at a time. The condition ends for both creatures when either reaches 0 HP. |
+| Engaged | An Engaged creature loses 2 HP whenever it targets anyone other than the creature it is Engaged with. A creature can be Engaged with only one other creature at a time. The condition ends for both creatures when either reaches 0 HP. |
 | Pacified | The creature cannot perform offensive actions against other creatures. |
 | Weakened | The creature has -1 Fortitude and a penalty of 1 on rolls per level. |
 | Paralyzed | The creature cannot move or perform actions. |
@@ -589,10 +589,10 @@ You must have a feature that lets you ignore this Drag to be able to perform Ran
 ### Stabilize
 
 Slow Action
-You stabilize a dying creature that is adjacent to you.
+You stabilize a Dying creature that is adjacent to you.
 Roll Medicine. Add 1 death roll success for each success die.
 If you roll 3 SD or more, the target becomes conscious with 1 HP.
-On success, if you rolled a double 6, suffers no exhaustion.
+On success, if you rolled a double 6, suffers no Exhaustion.
 
 ### Switch
 
@@ -777,7 +777,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 - Last One Standing (1 / Day): When you would be reduced to 0 HP, you are reduced to 1 HP instead.
 
-- Battleborn: When you take damage in combat, you become inspired 1 (1 Extra Die on rolls) until the end of the next round.
+- Battleborn: When you take damage in combat, you become Inspired 1 (1 Extra Die on rolls) until the end of the next round.
 
 - Level 2 — Orcish Fury, Instinct Ability: Gain +2 Movement and 1 Extra Die on the next attack you make this round, including a spell attack.
 
@@ -849,7 +849,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 - Dwarvish Craftiness: Gain proficiency with one Crafting Skill or tool.
 
-- Level 2 — Dwarvish Stubbornness (1 / Combat), Instinct Ability: Until the end of the round, gain +2 Fortitude and +2 Will, and you cannot be pushed or become prone.
+- Level 2 — Dwarvish Stubbornness (1 / Combat), Instinct Ability: Until the end of the round, gain +2 Fortitude and +2 Will, and you cannot be pushed or become Prone.
 
 ## Ossian
 
@@ -1011,17 +1011,17 @@ CP is used as aberration for Concoctions Points.
 
 ###### Bombs
 
-- Poison Bomb<br>Costs 1 CP<br>Area: 2 units square<br>Bomb Throw roll against Fortitude. Creatures you've succeeded against suffer 1 poison damage and are discouraged (-1 damage on attacks) until the end of the next round.
+- Poison Bomb<br>Costs 1 CP<br>Area: 2 units square<br>Bomb Throw roll against Fortitude. Creatures you've succeeded against suffer 1 poison damage and are Discouraged (-1 damage on attacks) until the end of the next round.
 
-- Nerve Gas Bomb<br>Costs 1 CP<br>Area: 2 units square<br>Bomb Throw roll against Fortitude. Creatures you've succeeded against become vulnerable (-1 to all defenses) until the end of the next round.
+- Nerve Gas Bomb<br>Costs 1 CP<br>Area: 2 units square<br>Bomb Throw roll against Fortitude. Creatures you've succeeded against become Vulnerable (-1 to all defenses) until the end of the next round.
 
-- Burning Bomb<br>Costs 2 CP<br>Area: 2 units square<br>Bomb Throw roll against Deflection. Targets you succeed against receive 1 fire damage. They also start burning for 1 damage until the end of the next round (at the end of each round, they suffer 1 fire damage unless they perform a fast action to put out the fire.)
+- Burning Bomb<br>Costs 2 CP<br>Area: 2 units square<br>Bomb Throw roll against Deflection. Targets you succeed against receive 1 fire damage. They also start Burning for 1 damage until the end of the next round (at the end of each round, they suffer 1 fire damage unless they perform a fast action to put out the fire.)
 
 ###### Weapon Coatings
 
 - Acid Coating<br>Costs 1 CP<br>Applies to one Melee Strike or Ranged Strike.<br>+1 acid damage on hit.
 
-- Nerve Coating<br>Costs 1 CP<br>Applies to one Melee Strike or Ranged Strike. Effect starts after the strike.<br>On hit, the target becomes vulnerable (-1 to all defenses) until the end of the next round.
+- Nerve Coating<br>Costs 1 CP<br>Applies to one Melee Strike or Ranged Strike. Effect starts after the strike.<br>On hit, the target becomes Vulnerable (-1 to all defenses) until the end of the next round.
 
 #### Level 2: Instinct Abilities
 
@@ -1170,7 +1170,7 @@ You gain the following action:
 >     <td>Fast Action ◆ Uses movement</td>
 >   </tr>
 >   <tr>
->     <td>Double your movement for the round and move at least 3 units. Then, if you did, become prone and perform a Ranged Strike against a target within 3 units of you. You have advantage for this strike (ignoring the disadvantage you normally get from attacking while prone).</td>
+>     <td>Double your movement for the round and move at least 3 units. Then, if you did, become Prone and perform a Ranged Strike against a target within 3 units of you. You have advantage for this strike (ignoring the disadvantage you normally get from attacking while Prone).</td>
 >   </tr>
 > </table>
 
@@ -1308,7 +1308,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>Perform a Charge using Unarmed Strike. On a successful hit, you deal +1 damage. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked prone if it's up to one size larger than you.</td>
+>     <td>Perform a Charge using Unarmed Strike. On a successful hit, you deal +1 damage. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked Prone if it's up to one size larger than you.</td>
 >   </tr>
 > </table>
 
@@ -1387,13 +1387,13 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>Perform a Weapon Throw. Throwing between the effective range and the maximum range of the weapon doesn't cause disadvantage.<br>If you are grappling a creature that's up to one size smaller than you, you may throw it instead of your weapon. It counts as a weapon with a range of 2/4 that deals SD damage. On a successful hit, the creature you threw takes half the damage of the attack, rounded down, and is prone.</td>
+>     <td>Perform a Weapon Throw. Throwing between the effective range and the maximum range of the weapon doesn't cause disadvantage.<br>If you are grappling a creature that's up to one size smaller than you, you may throw it instead of your weapon. It counts as a weapon with a range of 2/4 that deals SD damage. On a successful hit, the creature you threw takes half the damage of the attack, rounded down, and is Prone.</td>
 >   </tr>
 > </table>
 
 #### Level 2: Angry Mind
 
-You get +2 Will against attack and effects against you that cause the discouraged or frightened conditions have disadvantage.
+You get +2 Will against attack and effects against you that cause the Discouraged or Frightened conditions have disadvantage.
 
 ## Bard
 
@@ -1500,17 +1500,17 @@ During the Planning Phase of each round, select a musical phrase that has not be
 
 ###### Unlocked at Level 1:
 
-- Rise to the Challenge<br>All allies in the affected area are inspired (they deal +1 damage) until the end of the round.
+- Rise to the Challenge<br>All allies in the affected area are Inspired (they deal +1 damage) until the end of the round.
 
 - Onward We Go<br>All allies in the affected area gain +1 Movement until the end of the round.
 
-- Looming Darkness<br>Roll Magic against Will for enemies in the area. Enemies you've succeeded against become discouraged (they deal -1 damage) until the end of the round.
+- Looming Darkness<br>Roll Magic against Will for enemies in the area. Enemies you've succeeded against become Discouraged (they deal -1 damage) until the end of the round.
 
 ###### Unlocked at Level 2:
 
-- Sweet, Sweet Revenge<br>Requirements: one or more enemies dealt damage to you this combat.<br>Choose an enemy that dealt damage to you this combat. They become vulnerable (-1 to all Defenses) and discouraged (they deal -1 damage) until the end of the round.
+- Sweet, Sweet Revenge<br>Requirements: one or more enemies dealt damage to you this combat.<br>Choose an enemy that dealt damage to you this combat. They become Vulnerable (-1 to all Defenses) and Discouraged (they deal -1 damage) until the end of the round.
 
-- For Our Friends<br>Requirements: a party member became dying this combat.<br>All allies in the affected area have advantage on all rolls until the end of the round. Dying party members get advantage on their roll to become stabilized.
+- For Our Friends<br>Requirements: a party member became Dying this combat.<br>All allies in the affected area have advantage on all rolls until the end of the round. Dying party members get advantage on their roll to become stabilized.
 
 #### Level 2: Instinct Abilities
 
@@ -1560,7 +1560,7 @@ You gain the following Instinct abilities:
 
 <table>
   <tr>
-    <td>Instinct Abilities<br>- Reenact: The Dragon Slayer: At any point during the Action Phase, spend 1 Spell Point to designate one enemy as the Dragon and one ally as the Knight. Both must be within 12 units of you. The Knight has advantage on all attacks against the Dragon until the end of combat or until the Grand Finale.<br>  - Grand Finale: If the Knight lowers the hit points of the Dragon to 0, all allies within 3 units of the Knight are inspired 1 (+1 damage) on the next round.<br>- Reenact: The Martyr: At any point during the Action Phase, spend 1 Spell Point to designate one willing ally within 12 units of you as the Martyr. Until the end of combat or the Grand Finale, any damage dealt to its allies within 6 units of it is dealt to the Martyr instead.<br>  - Grand Finale: When the Martyr hit points reach 0, it has 1 hit point instead, and it stops absorbing damage for its allies. All its allies within 6 units gain 1 temporary hit point.</td>
+    <td>Instinct Abilities<br>- Reenact: The Dragon Slayer: At any point during the Action Phase, spend 1 Spell Point to designate one enemy as the Dragon and one ally as the Knight. Both must be within 12 units of you. The Knight has advantage on all attacks against the Dragon until the end of combat or until the Grand Finale.<br>  - Grand Finale: If the Knight lowers the hit points of the Dragon to 0, all allies within 3 units of the Knight are Inspired 1 (+1 damage) on the next round.<br>- Reenact: The Martyr: At any point during the Action Phase, spend 1 Spell Point to designate one willing ally within 12 units of you as the Martyr. Until the end of combat or the Grand Finale, any damage dealt to its allies within 6 units of it is dealt to the Martyr instead.<br>  - Grand Finale: When the Martyr hit points reach 0, it has 1 hit point instead, and it stops absorbing damage for its allies. All its allies within 6 units gain 1 temporary hit point.</td>
   </tr>
 </table>
 
@@ -1868,7 +1868,7 @@ Casting Thaumaturgy requires no time or effort, and you may do so any time you c
 
 When an enemy attacks you, you may spend 1 Instinct and 1 Spell Point. Roll Magic against Will.
 
-On success, they must choose a different valid target or cancel their attack. This effect doesn't work against enemies that are immune to the frightened condition.
+On success, they must choose a different valid target or cancel their attack. This effect doesn't work against enemies that are immune to the Frightened condition.
 
 #### Level 3: Commanding Presence
 
@@ -2272,7 +2272,7 @@ You gain the following action:
 
 #### Level 1: Inspiring Strike
 
-Whenever you successfully perform a Melee Strike, choose an ally within 10 units of you. They become inspired (they deal +1 damage with attacks) until the end of the round
+Whenever you successfully perform a Melee Strike, choose an ally within 10 units of you. They become Inspired (they deal +1 damage with attacks) until the end of the round
 
 #### Level 2: Rally
 
@@ -2288,7 +2288,7 @@ You gain the following Instinct ability:
 
 - Grit: Allies in range gain 1 temporary hit point until end of combat
 
-- Courage: Allies in range become immune to the frightened (they may only use the Dash action and can't finish their movement near the source of the effect) and discouraged (they deal -1 damage) conditions until the end of combat
+- Courage: Allies in range become immune to the Frightened (they may only use the Dash action and can't finish their movement near the source of the effect) and Discouraged (they deal -1 damage) conditions until the end of combat
 
 #### Level 2: Instinct Abilities
 
@@ -2310,7 +2310,7 @@ Become the beacon of kindness and selflessness, putting yourself between the dan
 
 #### Level 3: Touch of Kindness
 
-Using Renewal also removes one of the following effects from the target: discouraged, frightened, disoriented.
+Using Renewal also removes one of the following effects from the target: Discouraged, Frightened, Disoriented.
 
 #### Level 3: Become the Shield
 
@@ -2390,7 +2390,7 @@ You gain the following options to the Rally feature. Decrees require spending de
 
 ##### Rally Options
 
-- Decree of the Honorable Duel<br>(Costs 2 Devotion Points):<br>"You must see the fight through to the end."<br>Choose a point within range. Until end of combat, any creature within 10 units of this point that deals damage to another becomes engaged with that target, and the target becomes engaged with them. While engaged, a creature loses 2 HP whenever it targets anyone other than those it is engaged with. This status ends for both parties only if either creature is reduced to 0 HP. A creature can only be engaged with one other creature at a time.
+- Decree of the Honorable Duel<br>(Costs 2 Devotion Points):<br>"You must see the fight through to the end."<br>Choose a point within range. Until end of combat, any creature within 10 units of this point that deals damage to another becomes Engaged with that target, and the target becomes Engaged with them. While Engaged, a creature loses 2 HP whenever it targets anyone other than those it is Engaged with. This status ends for both parties only if either creature is reduced to 0 HP. A creature can only be Engaged with one other creature at a time.
 
 - Decree of the Fair Fight<br>(2 Devotion Points):<br>"Outnumbering a single opponent is dishonorable."<br>Choose a point within range. Until end of combat, any creature within 10 units of that point that deals damage to a target already damaged by another creature this round loses 2 HP. Swarms and Hordes instead lose 2 hp each time they attack.
 
@@ -2708,7 +2708,7 @@ You gain the following action:
 >     <td>Fast Action ◆ Range: Self</td>
 >   </tr>
 >   <tr>
->     <td>You sprinkle Fae dust around yourself in a radius of 2 units centered on yourself. Roll Deception against Will against each enemy in the area. Those you succeed against become disoriented (1 penalty to all rolls) until the end of the next round.</td>
+>     <td>You sprinkle Fae dust around yourself in a radius of 2 units centered on yourself. Roll Deception against Will against each enemy in the area. Those you succeed against become Disoriented (1 penalty to all rolls) until the end of the next round.</td>
 >   </tr>
 > </table>
 
@@ -2763,7 +2763,7 @@ Function
 
 - Beartrap
 
-Costs 1 MP<br>Large or smaller creatures that step on the trap receive 1 piercing damage and become slowed (1 drag and -1 movement) until the end of the next round.
+Costs 1 MP<br>Large or smaller creatures that step on the trap receive 1 piercing damage and become Slowed (1 drag and -1 movement) until the end of the next round.
 
 ###### Equipment
 
@@ -3022,7 +3022,7 @@ Once per round, when you succeed on a Melee Strike, you may choose to apply one 
 
 - Reposition: Move 1 unit.
 
-- Trip (-1 damage): target becomes prone if it's up to one size larger than you.
+- Trip (-1 damage): target becomes Prone if it's up to one size larger than you.
 
 #### Level 3: Subclass
 
@@ -3085,9 +3085,9 @@ Cantrips Learned: 2 Occult Cantrips.
 
 You gain the following options to Tactical Strike
 
-- Condemn (-1 damage): The target becomes vulnerable (-1 to all defenses) until the end of the next round.
+- Condemn (-1 damage): The target becomes Vulnerable (-1 to all defenses) until the end of the next round.
 
-- Sicken: The target becomes disoriented (1 penalty on all rolls) until the end of the next round.
+- Sicken: The target becomes Disoriented (1 penalty on all rolls) until the end of the next round.
 
 You may cast occult spells and cantrips even if you don't have a free hand, by channeling the spell through your weapon.
 
@@ -3123,7 +3123,7 @@ You gain the following action:
 >   </tr>
 > </table>
 
-## Witch
+## Occultist
 
 Role: Control, Summoning
 Secondary Role: Support
@@ -3184,11 +3184,11 @@ Secondary Role: Support
 >   </tr>
 > </table>
 
-### Witch Features
+### Occultist Features
 
 #### Spellcasting
 
-The Witch performs vile chants and gestures to perform dark magic using the Magic skill.
+The Occultist performs vile chants and gestures to perform dark magic using the Magic skill.
 
 - Can cast Occult Cantrips.
 
@@ -3205,7 +3205,7 @@ You will get more Spell Points and learn more spells and cantrips as you level u
 
 Each time you level up, you may replace up to one occult spell with another and up to one occult cantrip with another.
 
-#### Level 2: Witch’s Familiar
+#### Level 2: Occultist’s Familiar
 
 You gain a magical familiar. Its form is of a tiny animal or demon. It can’t perform actions in combat other than the Dash action. It is incorporeal (it can’t be affected by anything, but can’t go through obstacles or walls), and demonic in its nature. It has 1 Deflection and 1 HP. You may choose to cast a spell from the familiar as if you were standing there. Doing so makes it corporeal for the rest of the battle.
 
@@ -3429,7 +3429,7 @@ If done during combat, this also requires spending 1 Instinct.
 
 <table>
   <tr>
-    <td>Chrono Spells<br>Haste<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Slow Action ◆ Interruptible<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, the target may commit to two fast actions during the Planning Phase. If they do, during the Action Phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.<br>These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other<br>Slow-Motion<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.<br>Temporal Clarity<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.<br>Slow<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size the creature is larger than Medium.<br>On success, the creature movement is halved, and it gets 1 drag on all actions.<br>If Slow and Haste affect the same creature, both spells immediately dispel each other.<br>Time Detention<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must take the Maintain fast action and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.<br>If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.<br>Stasis<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must spend 1 Instinct during the Beginning Phase and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.<br>If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.<br>Accelerate Magic<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.<br>If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.</td>
+    <td>Chrono Spells<br>Haste<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Slow Action ◆ Interruptible<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, the target may commit to two fast actions during the Planning Phase. If they do, during the Action Phase, they perform one as a fast action and the other as an average action. For each of these actions, the target may move immediately before or after performing it.<br>These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other<br>Slow-Motion<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.<br>Temporal Clarity<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 instinct and advantage on all rolls.<br>Slow<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size the creature is larger than Medium.<br>On success, the creature movement is halved, and it gets 1 drag on all actions.<br>If Slow and Haste affect the same creature, both spells immediately dispel each other.<br>Time Detention<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must take the Maintain fast action and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.<br>If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.<br>Stasis<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must spend 1 Instinct during the Beginning Phase and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.<br>If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.<br>Accelerate Magic<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.<br>If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.</td>
   </tr>
 </table>
 
@@ -3560,7 +3560,7 @@ When you get the Shadow Clone benefit, you immediately create a clone of yoursel
 >     <td>1</td>
 >     <td>+2 Movement</td>
 >     <td>Strikes push forcefully 1 unit</td>
->     <td>Strikes apply prone</td>
+>     <td>Strikes apply Prone</td>
 >     <td>Choose one Tier 1 benefit</td>
 >   </tr>
 >   <tr>
@@ -3692,7 +3692,7 @@ You may use Detect Magic even if you are not trained in Magic. When you do, trea
 
 **Requirements:** Trained in Medicine
 
-On long rests, choose one ally (or yourself). The chosen ally recovers two levels of exhaustion instead of one. The number of chosen allies increases according to your Medicine training level: two for Expert, three for Master, five for Grandmaster, eight for Legend.
+On long rests, choose one ally (or yourself). The chosen ally recovers two levels of Exhaustion instead of one. The number of chosen allies increases according to your Medicine training level: two for Expert, three for Master, five for Grandmaster, eight for Legend.
 
 ### Assurance
 
@@ -3706,7 +3706,7 @@ Choose one skill you are trained in. When you roll for a roll using this skill, 
 
 **Requirements:** Level 2
 
-When you become dying, you die when you get 3 death rolls failures instead of 2.
+When you become Dying, you die when you get 3 death rolls failures instead of 2.
 
 ### Communicator
 
@@ -3721,13 +3721,13 @@ Learn two non-exotic languages.
 You gain the following Instinct ability:
 Instinct Abilities
 
-Instill Courage: At any point during the Action Phase, choose an ally within range. Roll Leadership. Shorten the duration of the frightened and discouraged conditions that affect them by 1 round for each SD you rolled.
+Instill Courage: At any point during the Action Phase, choose an ally within range. Roll Leadership. Shorten the duration of the Frightened and Discouraged conditions that affect them by 1 round for each SD you rolled.
 
 ### Deep Sleep
 
 **Requirements:** Level 2
 
-Long rest removes two levels of exhaustion instead of one.
+Long rest removes two levels of Exhaustion instead of one.
 
 ### Demoralize
 
@@ -3736,7 +3736,7 @@ Long rest removes two levels of exhaustion instead of one.
 You gain the following Instinct abilities:
 Instinct Abilities
 
-Demoralize: During the Beginning Phase, choose an enemy within 6 units of you. Roll Intimidate against Will. On success, they are discouraged SD until the end of the round. You can’t choose the same enemy more than once in the same combat.
+Demoralize: During the Beginning Phase, choose an enemy within 6 units of you. Roll Intimidate against Will. On success, they are Discouraged SD until the end of the round. You can’t choose the same enemy more than once in the same combat.
 
 ### Expert Melee Training
 
@@ -3766,13 +3766,13 @@ You are Expert (5d6) in Weapon Throw.
 
 **Requirements:** Trained in Survival
 
-You may use Survival instead of Medicine to stabilize a dying character.
+You may use Survival instead of Medicine to stabilize a Dying character.
 
 ### Jumpstart
 
 **Requirements:** Level 2, Trained in Acrobatics
 
-You may get up from being prone as 1 unit movement instead of half (rounded up) your Movement score.
+You may get up from being Prone as 1 unit movement instead of half (rounded up) your Movement score.
 
 ### Lie Detector
 
@@ -3784,7 +3784,7 @@ You may use Deception, instead of Insight, to determine whether someone lies. (I
 
 **Requirements:** Trained in Nature
 
-You may use Nature instead of Medicine to stabilize a dying character.
+You may use Nature instead of Medicine to stabilize a Dying character.
 
 ### Noble Mannerism
 
@@ -4559,8 +4559,8 @@ Range: 6 Units
 
 Spray acid at a creature you can see within range.
 Roll Magic +2 against Deflection.
-On success, deal SD Acid damage, and the target becomes weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage, rounded down.
-If you roll a double six, the target becomes weakened 2 instead.
+On success, deal SD Acid damage, and the target becomes Weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage, rounded down.
+If you roll a double six, the target becomes Weakened 2 instead.
 
 ### Animal messenger
 
@@ -4626,10 +4626,10 @@ Slow Action ◆ Interruptible
 Range: 10 Units
 
 Roll Magic against Will. On success, choose two the following modes, or one on failure:
-- They become disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
-- They become slowed 1 (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
-- They become vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
-- They become discouraged 2 (they deal -2 damage) until the end of the next 2 rounds.
+- They become Disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
+- They become Slowed 1 (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
+- They become Vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
+- They become Discouraged 2 (they deal -2 damage) until the end of the next 2 rounds.
 If you roll a double 6, choose an additional mode.
 
 ### Blessed Weapon
@@ -4748,7 +4748,7 @@ Fast Action
 
 Range: 10 Units
 
-Choose a target within range. Heal them for 1 HP. If the target is dying, it becomes stabilized. If you cast it using Divine tradition, heal them for 2 HP instead.
+Choose a target within range. Heal them for 1 HP. If the target is Dying, it becomes stabilized. If you cast it using Divine tradition, heal them for 2 HP instead.
 You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
 
 Empower Spell: You may spend additional Spell Points as you cast this spell. For each additional Spell Point you heal them for 1 more HP.
@@ -4782,8 +4782,8 @@ Range: 8 Units
 
 Roll Magic +2 against Will.
 You channel psychic disturbance into the mind of a creature you can see within range.
-The target becomes disoriented (-1 penalty on all rolls) until the end of the next round. On success, the target takes SD Psychic damage, or half as much on failure, rounded down.
-If you roll a double six, the target is also frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
+The target becomes Disoriented (-1 penalty on all rolls) until the end of the next round. On success, the target takes SD Psychic damage, or half as much on failure, rounded down.
+If you roll a double six, the target is also Frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
 
 ### Divine Interference
 
@@ -4797,7 +4797,7 @@ Instinct
 
 Range: 15 units ◆ Duration: end of current round
 
-Choose a creature within range. Until the end of the round they get +1 to all defenses and can't become frightened or discouraged.
+Choose a creature within range. Until the end of the round they get +1 to all defenses and can't become Frightened or Discouraged.
 
 ### Eldritch Shield
 
@@ -4825,9 +4825,9 @@ Range: 12 Units
 
 Shoot an elemental flare at a creature within range. Choose its damage type: lightning, fire or ice. Roll Magic +3 against Deflection. On success, deal SD damage of the chosen type, or half as much on failure, rounded down.
 If you roll a double six, depending on the damage type, the target also:
-- Fire: becomes burning 1 until the end of the round (receive 1 fire damage at the end of the round)
-- Lightning: they become disoriented 1 (-1 to all rolls) until the end of the next round
-- Ice: they become chilled 2 (-2 Movement) until the end of the next round
+- Fire: becomes Burning 1 until the end of the round (receive 1 fire damage at the end of the round)
+- Lightning: they become Disoriented 1 (-1 to all rolls) until the end of the next round
+- Ice: they become Chilled 2 (-2 Movement) until the end of the next round
 
 ### Elemental Pulse
 
@@ -4888,9 +4888,9 @@ Slow Action ◆ Interruptible
 
 Range: 15 units ◆ Duration: 10 minutes ◆ Area: 3 units cube
 
-Vines erupt from the ground, twisting around all who stand in the area. Roll Magic against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes restrained (they can’t move from their place).
+Vines erupt from the ground, twisting around all who stand in the area. Roll Magic against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes Restrained (they can’t move from their place).
 The affected area is considered difficult terrain for all creatures.
-During the Beginning Phase of each round, each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the restrained effect.
+During the Beginning Phase of each round, each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the Restrained effect.
 
 ### Glacial Spike
 
@@ -4907,7 +4907,7 @@ Range: 10 units
 A large spike of ice bursts from the ground, piercing through a creature you can see within range.
 Roll Magic +8 against Deflection (minimum roll of 6).
 On success, deal SD ice or piercing damage, or half as much on failure, rounded down.
-If you roll a double 6: the creature is slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
+If you roll a double 6: the creature is Slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
 
 Empower Spell: Add +2 to the roll for each extra Spell Point you spent.
 
@@ -4942,7 +4942,7 @@ Range: 10 units
 
 Choose a creature within range. Roll Magic against Fortitude.
 On success, force-push the target up to 3 units away from you. On failure, force-push it up to 1 unit instead.
-If you roll a double six, the target is knocked prone.
+If you roll a double six, the target is knocked Prone.
 The target must be no more than one size larger than you.
 
 ### Goodberry
@@ -5021,7 +5021,7 @@ Range: Touch
 
 Heal a target for 2 HP, or 3 HP if cast with Divine magic.
 Outside of combat, heal the target to its maximum HP.
-If the target is dying, it becomes stabilized.
+If the target is Dying, it becomes stabilized.
 
 Empower Spell: You may spend additional Spell Points when you cast this spell. You heal 2 additional HP for each of those Spell Points.
 
@@ -5144,7 +5144,7 @@ Slow Action ◆ Interruptible
 Range: 10 units ◆ Duration: 1 hour ◆ Area: 4 units cube
 
 Cover an area of 4 units cube with extremely slippery icy ground. Creatures in the area roll Acrobatics against Threshold 3 when entering the area and when it enters their space.
-On failure, they are knocked prone and lose the rest of their movement. The area is difficult terrain.
+On failure, they are knocked Prone and lose the rest of their movement. The area is difficult terrain.
 
 ### Invisibility
 
@@ -5193,7 +5193,7 @@ Range: 6 Units
 Drain the life force from a creature you can see within range.
 Roll Magic against Fortitude.
 On success, deal SD Necrotic damage and heal yourself for half that amount, rounded down. On failure, halve both the damage and healing, rounded down.
-If you roll a double six, you become inspired 1 (1 Extra Die on rolls) until the end of the next round.
+If you roll a double six, you become Inspired 1 (1 Extra Die on rolls) until the end of the next round.
 
 ### Life Giving
 
@@ -5223,10 +5223,10 @@ Fast Action
 
 Range: 15 Units
 
-Create up to two stationary floating balls of light or make one item or limb luminous.
+Create up to two stationary floating balls of light or make one item or limb Luminous.
 The light provides 6 units of bright light and further 6 units of dim light.
-You may try to make an item or a limb of an enemy luminous.
-Roll Magic against Deflection. On success, it becomes luminous, and if the enemy is invisible, it doesn’t get any of the benefits. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it. If cast on an enemy, it ends after an hour.
+You may try to make an item or a limb of an enemy Luminous.
+Roll Magic against Deflection. On success, it becomes Luminous, and if the enemy is invisible, it doesn’t get any of the benefits. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it. If cast on an enemy, it ends after an hour.
 
 ### Lightning Bolt
 
@@ -5261,7 +5261,7 @@ Range: 10 ◆ Duration: 10 minutes
 
 Choose a creature you can see within range.
 Roll Magic against Deflection or Fortitude, whichever is higher.
-On success, coils of lightning tie the legs of the creature. They become restrained. At the end of each round, they take 3 lightning damage and roll Acrobatics or Athletics against Threshold 3.
+On success, coils of lightning tie the legs of the creature. They become Restrained. At the end of each round, they take 3 lightning damage and roll Acrobatics or Athletics against Threshold 3.
 On success, they break free of the coils. This threshold is reduced after each failed roll.
 
 Empower Spell: For each 2 additional Spell Points you spend, add +2 to this roll.
@@ -5351,8 +5351,8 @@ Range: 8 Units
 Blast the mind of a creature you can see within range with psychic energy.
 Roll Magic against Will.
 On success, deal SD Psychic damage; on failure, deal half as much damage, rounded down.
-The target becomes vulnerable 1 (-1 to all defenses) until the end of the next round.
-If you roll a double six, the target also becomes disoriented 1 (-1 penalty on all rolls) until the end of the next round.
+The target becomes Vulnerable 1 (-1 to all defenses) until the end of the next round.
+If you roll a double six, the target also becomes Disoriented 1 (-1 penalty on all rolls) until the end of the next round.
 
 ### Minor Illusion
 
@@ -5391,7 +5391,7 @@ Range: 10 Units
 
 You manipulate the ground at a point within range.
 Choose one or both:
-- Create 1 unit cube of earth. It provides half cover (or full cover while being prone next to it). You cannot target an occupied space.
+- Create 1 unit cube of earth. It provides half cover (or full cover while being Prone next to it). You cannot target an occupied space.
 - Dig a hole of 1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
 If you choose both, the hole and the cube must be adjacent to each other.
 
@@ -5439,9 +5439,9 @@ Average Action
 Range: 10 Units
 
 Launch a dark bolt of necrotic energy at an enemy.
-Roll Magic against Deflection.
-On success, deal SD Necrotic damage, and it becomes decayed 1 until the end of the next round. On failure, deal half as much damage, rounded down.
-If you roll a double six, the creature becomes decayed 2 instead.
+Roll Magic +2 against Deflection.
+On success, deal SD Necrotic damage, and it becomes Decayed 1 (at the end of each round, it takes 1 Necrotic damage) until the end of the next round. On failure, deal half as much damage, rounded down.
+If you roll a double six, the creature becomes Decayed 2 instead.
 
 ### Pacify
 
@@ -5456,7 +5456,7 @@ Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 10 minutes
 
-Choose a creature within range. Roll Magic against Will. On success, the target is pacified until the end of the next two rounds (a pacified creature cannot perform offensive actions against other creatures). The effect ends early if the target takes damage or is affected by an offensive action.
+Choose a creature within range. Roll Magic against Will. On success, the target is Pacified until the end of the next two rounds (a Pacified creature cannot perform offensive actions against other creatures). The effect ends early if the target takes damage or is affected by an offensive action.
 
 ### Poison Cloud
 
@@ -5470,7 +5470,7 @@ Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 10 minutes ◆ Area: 2-unit radius
 
-The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. During the Beginning Phase of each round, you may choose to disperse the cloud.
+The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become Poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and Disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. During the Beginning Phase of each round, you may choose to disperse the cloud.
 
 Empower Spell: You may pay additional Spell Points when you cast this spell. For each additional Spell Point spent, the radius of the spell increases by one.
 
@@ -5514,7 +5514,7 @@ Range: 10 Units
 
 Launch a beam of divine energy at an enemy. If you are a Cleric, you may choose to change the damage type from Radiant to the one associated with your domain.
 Roll Magic against Deflection.
-On success, deal SD radiant damage and they become discouraged 1 until the end of the next round. On failure, deal half as much damage, rounded down.
+On success, deal SD radiant damage and they become Discouraged 1 until the end of the next round. On failure, deal half as much damage, rounded down.
 If you roll a double six, the target gets disadvantage on the next attack it makes against you or your allies.
 
 ### Rainbow Eruption
@@ -5530,7 +5530,7 @@ Slow Action ◆ Interruptible
 Range: 10 units ◆ Duration: 1 minute or end of combat ◆ Area: 5-unit radius
 
 You create a chaotic eruption of rainbows at a point within range. The rainbows are attracted to each enemy within 5 units radius of that point.
-Roll Magic against Deflection for the enemies inside the radius. Those that you succeed against become luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.
+Roll Magic against Deflection for the enemies inside the radius. Those that you succeed against become Luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.
 
 ### Resistance
 
@@ -5717,7 +5717,7 @@ Range: 10 Units ◆ Duration: until the end of the next two rounds
 
 Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
 
-On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
+On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
 
 During the Beginning Phase of each subsequent round, you must spend 1 Instinct and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.
 
@@ -5835,7 +5835,7 @@ Range: 10 Units ◆ Duration: until the end of the next two rounds
 
 Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
 
-On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
+On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
 
 On each subsequent round, you must take the Maintain fast action and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.
 If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.
@@ -5853,8 +5853,8 @@ Range: Touch
 Melee Spell Attack.
 Roll Magic against Deflection.
 Channel dark energy into an adjacent enemy.
-Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes decayed 1 until the end of the next round (at the end of each round, they take 1 necrotic damage)
-If you roll a double six, the target also becomes vulnerable 1 (-1 to all defenses) until the end of the next round.
+Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes Decayed 1 until the end of the next round (at the end of each round, they take 1 necrotic damage)
+If you roll a double six, the target also becomes Vulnerable 1 (-1 to all defenses) until the end of the next round.
 
 ### Vine Knot
 
@@ -5869,7 +5869,7 @@ Average Action
 
 Range: 10 units ◆ Duration: 10 minutes
 
-Choose a creature in range that you can see. Vines latch to it. Roll Magic +2 against Deflection or Fortitude (whichever is higher). On success, it is restrained and prone.
+Choose a creature in range that you can see. Vines latch to it. Roll Magic +2 against Deflection or Fortitude (whichever is higher). On success, it is Restrained and Prone.
 At the end of each round, it rolls Athletics or Acrobatics against threshold 3. On success, it breaks loose and the spell ends. The threshold is reduced by 1 after each failed roll.
 
 ### Vine Whip

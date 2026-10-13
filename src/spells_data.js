@@ -9,8 +9,8 @@ export const SPELLS_DATABASE = [
     duration: "",
     description: `Spray acid at a creature you can see within range.
 Roll Magic +2 against Deflection.
-On success, deal SD Acid damage, and the target becomes weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage, rounded down.
-If you roll a double six, the target becomes weakened 2 instead.`,
+On success, deal SD Acid damage, and the target becomes Weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage, rounded down.
+If you roll a double six, the target becomes Weakened 2 instead.`,
     cost: ""
   },
   {
@@ -65,10 +65,10 @@ Empower Spell: For every 2 additional Spell Points spent, you get an additional 
     area: "Single Target",
     duration: "",
     description: `Roll Magic against Will. On success, choose two the following modes, or one on failure:
-• They become disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
-• They become slowed 1 (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
-• They become vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
-• They become discouraged 2 (they deal -2 damage) until the end of the next 2 rounds.
+• They become Disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
+• They become Slowed 1 (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
+• They become Vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
+• They become Discouraged 2 (they deal -2 damage) until the end of the next 2 rounds.
 If you roll a double 6, choose an additional mode.`,
     cost: "1"
   },
@@ -160,7 +160,7 @@ Empower Spell: you can increase the duration of this spell to a full day by spen
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `Choose a target within range. Heal them for 1 HP. If the target is dying, it becomes stabilized. If you cast it using Divine tradition, heal them for 2 HP instead.
+    description: `Choose a target within range. Heal them for 1 HP. If the target is Dying, it becomes stabilized. If you cast it using Divine tradition, heal them for 2 HP instead.
 You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
 
 Empower Spell: You may spend additional Spell Points as you cast this spell. For each additional Spell Point you heal them for 1 more HP.`,
@@ -189,8 +189,8 @@ Empower Spell: You may spend additional Spell Points as you cast this spell. For
     duration: "",
     description: `Roll Magic +2 against Will.
 You channel psychic disturbance into the mind of a creature you can see within range.
-The target becomes disoriented (-1 penalty on all rolls) until the end of the next round. On success, the target takes SD Psychic damage, or half as much on failure, rounded down.
-If you roll a double six, the target is also frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)`,
+The target becomes Disoriented (-1 penalty on all rolls) until the end of the next round. On success, the target takes SD Psychic damage, or half as much on failure, rounded down.
+If you roll a double six, the target is also Frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)`,
     cost: "1"
   },
   {
@@ -202,7 +202,7 @@ If you roll a double six, the target is also frightened until the end of the nex
     range: "15 units",
     area: "Single Target",
     duration: "end of current round",
-    description: `Choose a creature within range. Until the end of the round, they get +1 to all defenses and can't become frightened or discouraged.`,
+    description: `Choose a creature within range. Until the end of the round, they get +1 to all defenses and can't become Frightened or Discouraged.`,
     cost: "1"
   },
   {
@@ -227,9 +227,9 @@ If you roll a double six, the target is also frightened until the end of the nex
     duration: "",
     description: `Shoot an elemental flare at a creature within range. Choose its damage type: lightning, fire or ice. Roll Magic +3 against Deflection. On success, deal SD damage of the chosen type, or half as much on failure, rounded down.
 If you roll a double six, depending on the damage type, the target also:
-• Fire: becomes burning 1 until the end of the round (receive 1 fire damage at the end of the round)
-• Lightning: they become disoriented 1 (-1 to all rolls) until the end of the next round
-• Ice: they become chilled 2 (-2 Movement) until the end of the next round`,
+• Fire: becomes Burning 1 until the end of the round (receive 1 fire damage at the end of the round)
+• Lightning: they become Disoriented 1 (-1 to all rolls) until the end of the next round
+• Ice: they become Chilled 2 (-2 Movement) until the end of the next round`,
     cost: ""
   },
   {
@@ -284,9 +284,9 @@ Empower Spell: For each two additional spell point spent, choose one more creatu
     range: "15 units",
     area: "3 units cube",
     duration: "10 minutes",
-    description: `Vines erupt from the ground, twisting around all who stand in the area. Roll Magic against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes restrained (they can’t move from their place).
+    description: `Vines erupt from the ground, twisting around all who stand in the area. Roll Magic against Deflection for each enemy in the area. Each enemy that you've succeeded against becomes Restrained (they can’t move from their place).
 The affected area is considered difficult terrain for all creatures.
-During the Beginning Phase of each round, each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the restrained effect.`,
+During the Beginning Phase of each round, each affected enemy rolls Acrobatics or Athletics. When they get a total of 3 Success Dice in one roll or more, they break free of the Restrained effect.`,
     cost: "1"
   },
   {
@@ -301,7 +301,7 @@ During the Beginning Phase of each round, each affected enemy rolls Acrobatics o
     description: `A large spike of ice bursts from the ground, piercing through a creature you can see within range.
 Roll Magic +8 against Deflection (minimum roll of 6).
 On success, deal SD ice or piercing damage, or half as much on failure, rounded down.
-If you roll a double 6: the creature is slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
+If you roll a double 6: the creature is Slowed 1 (-1 movement, 1 Drag for all actions) until the end of the next round.
 
 Empower Spell: Add +2 to the roll for each extra Spell Point you spent.`,
     cost: "3+"
@@ -332,7 +332,7 @@ Empower Spell: For each additional Spell Point spent, increase the initial Defle
     duration: "",
     description: `Choose a creature within range. Roll Magic against Fortitude.
 On success, force-push the target up to 3 units away from you. On failure, force-push it up to 1 unit instead.
-If you roll a double six, the target is knocked prone.
+If you roll a double six, the target is knocked Prone.
 The target must be no more than one size larger than you.`,
     cost: ""
   },
@@ -389,7 +389,7 @@ They feel unexplained discomfort if the spell was cast using Occult magic, regar
     duration: "",
     description: `Heal a target for 2 HP, or 3 HP if cast with Divine magic.
 Outside of combat, heal the target to its maximum HP.
-If the target is dying, it becomes stabilized.
+If the target is Dying, it becomes stabilized.
 
 Empower Spell: You may spend additional Spell Points when you cast this spell. You heal 2 additional HP for each of those Spell Points.`,
     cost: "1+"
@@ -493,7 +493,7 @@ Double 6: Slowed 1 until the end of the next round.`,
     area: "4 units cube",
     duration: "1 hour",
     description: `Cover an area of 4 units cube with extremely slippery icy ground. Creatures in the area roll Acrobatics against Threshold 3 when entering the area and when it enters their space.
-On failure, they are knocked prone and lose the rest of their movement. The area is difficult terrain.`,
+On failure, they are knocked Prone and lose the rest of their movement. The area is difficult terrain.`,
     cost: "2"
   },
   {
@@ -536,7 +536,7 @@ Empower Spell: For each 1 additional Spell Point spent, add +2 to the Roll Magic
     description: `Drain the life force from a creature you can see within range.
 Roll Magic against Fortitude.
 On success, deal SD Necrotic damage and heal yourself for half that amount, rounded down. On failure, halve both the damage and healing, rounded down.
-If you roll a double six, you become inspired 1 (1 Extra Die on rolls) until the end of the next round.`,
+If you roll a double six, you become Inspired 1 (1 Extra Die on rolls) until the end of the next round.`,
     cost: ""
   },
   {
@@ -562,10 +562,10 @@ Empower Spell: for each 2 additional SP spent, increase the HP maximum by 1 addi
     range: "15 Units",
     area: "Single Target",
     duration: "",
-    description: `Create up to two stationary floating balls of light or make one item or limb luminous.
+    description: `Create up to two stationary floating balls of light or make one item or limb Luminous.
 The light provides 6 units of bright light and further 6 units of dim light.
-You may try to make an item or a limb of an enemy luminous.
-Roll Magic against Deflection. On success, it becomes luminous, and if the enemy is invisible, it doesn’t get any of the benefits. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it. If cast on an enemy, it ends after an hour.`,
+You may try to make an item or a limb of an enemy Luminous.
+Roll Magic against Deflection. On success, it becomes Luminous, and if the enemy is invisible, it doesn’t get any of the benefits. The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it. If cast on an enemy, it ends after an hour.`,
     cost: ""
   },
   {
@@ -596,7 +596,7 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for 
     duration: "10 minutes",
     description: `Choose a creature you can see within range.
 Roll Magic against Deflection or Fortitude, whichever is higher.
-On success, coils of lightning tie the legs of the creature. They become restrained. At the end of each round, they take 3 lightning damage and roll Acrobatics or Athletics against Threshold 3.
+On success, coils of lightning tie the legs of the creature. They become Restrained. At the end of each round, they take 3 lightning damage and roll Acrobatics or Athletics against Threshold 3.
 On success, they break free of the coils. This threshold is reduced after each failed roll.
 
 Empower Spell: For each 2 additional Spell Points you spend, add +2 to this roll.`,
@@ -679,8 +679,8 @@ You can maintain up to three non-instantaneous effects from this cantrip at once
     description: `Blast the mind of a creature you can see within range with psychic energy.
 Roll Magic against Will.
 On success, deal SD Psychic damage; on failure, deal half as much damage, rounded down.
-The target becomes vulnerable 1 (-1 to all defenses) until the end of the next round.
-If you roll a double six, the target also becomes disoriented 1 (-1 penalty on all rolls) until the end of the next round.`,
+The target becomes Vulnerable 1 (-1 to all defenses) until the end of the next round.
+If you roll a double six, the target also becomes Disoriented 1 (-1 penalty on all rolls) until the end of the next round.`,
     cost: ""
   },
   {
@@ -718,7 +718,7 @@ Physical interaction reveals an image as an illusion. A creature that spends an 
     duration: "",
     description: `You manipulate the ground at a point within range. 
 Choose one or both:
-• Create 1 unit cube of earth. It provides half cover (or full cover while being prone next to it). You cannot target an occupied space.
+• Create 1 unit cube of earth. It provides half cover (or full cover while being Prone next to it). You cannot target an occupied space.
 • Dig a hole of 1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
 If you choose both, the hole and the cube must be adjacent to each other.`,
     cost: ""
@@ -760,9 +760,9 @@ Empower Spell: for each additional SP spent, increase the size of the area by 2 
     area: "Single Target",
     duration: "",
     description: `Launch a dark bolt of necrotic energy at an enemy.
-Roll Magic against Deflection.
-On success, deal SD Necrotic damage, and it becomes decayed 1 until the end of the next round. On failure, deal half as much damage, rounded down.
-If you roll a double six, the creature becomes decayed 2 instead.`,
+Roll Magic +2 against Deflection.
+On success, deal SD Necrotic damage, and it becomes Decayed 1 (at the end of each round, it takes 1 Necrotic damage) until the end of the next round. On failure, deal half as much damage, rounded down.
+If you roll a double six, the creature becomes Decayed 2 instead.`,
     cost: ""
   },
   {
@@ -774,7 +774,7 @@ If you roll a double six, the creature becomes decayed 2 instead.`,
     range: "6 units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Choose a creature within range. Roll Magic against Will. On success, the target is pacified until the end of the next two rounds. (A pacified creature cannot perform offensive actions against other creatures.) The effect ends early if the target takes damage or is affected by an offensive action.`,
+    description: `Choose a creature within range. Roll Magic against Will. On success, the target is Pacified until the end of the next two rounds. (A Pacified creature cannot perform offensive actions against other creatures.) The effect ends early if the target takes damage or is affected by an offensive action.`,
     cost: "1"
   },
   {
@@ -786,7 +786,7 @@ If you roll a double six, the creature becomes decayed 2 instead.`,
     range: "10 units",
     area: "2-unit radius",
     duration: "10 minutes",
-    description: `The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. During the Beginning Phase of each round, you may choose to disperse the cloud.
+    description: `The ground releases a 2-units radius poisonous cloud from a point within range. When you cast the spell and at the end of each round, roll Magic against Fortitude for all creatures within the cloud radius. Creatures you succeed against become Poisoned 1 (they have -1 Fortitude and take 1 poison damage at the end of each round) and Disoriented 1 until the end of the next round. The cloud stays for the duration unless its dispersed by strong wind. During the Beginning Phase of each round, you may choose to disperse the cloud.
 
 Empower Spell: You may pay additional Spell Points when you cast this spell. For each additional Spell Point spent, the radius of the spell increases by one.`,
     cost: "3+"
@@ -825,7 +825,7 @@ Empower Spell: You may pay additional Spell Points when you cast this spell. For
     duration: "",
     description: `Launch a beam of divine energy at an enemy. If you are a Cleric, you may choose to change the damage type from Radiant to the one associated with your domain.
 Roll Magic against Deflection.
-On success, deal SD radiant damage and they become discouraged 1 until the end of the next round. On failure, deal half as much damage, rounded down.
+On success, deal SD radiant damage and they become Discouraged 1 until the end of the next round. On failure, deal half as much damage, rounded down.
 If you roll a double six, the target gets disadvantage on the next attack it makes against you or your allies.`,
     cost: ""
   },
@@ -839,7 +839,7 @@ If you roll a double six, the target gets disadvantage on the next attack it mak
     area: "5-unit radius",
     duration: "1 minute or end of combat",
     description: `You create a chaotic eruption of rainbows at a point within range. The rainbows are attracted to each enemy within 5 units radius of that point.
-Roll Magic against Deflection for the enemies inside the radius. Those that you succeed against become luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.`,
+Roll Magic against Deflection for the enemies inside the radius. Those that you succeed against become Luminous for the duration. Attacks against them get advantage, they give off 2 units of bright light, and they can’t get the advantages of invisibility, if relevant.`,
     cost: "1"
   },
   {
@@ -1048,8 +1048,8 @@ You may only push or pull the target if it’s up to one size larger than you.`,
     description: `Melee Spell Attack.
 Roll Magic against Deflection.
 Channel dark energy into an adjacent enemy.
-Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes decayed 1 until the end of the next round (at the end of each round, they take 1 necrotic damage).
-If you roll a double six, the target also becomes vulnerable 1 (-1 to all defenses) until the end of the next round.`,
+Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes Decayed 1 until the end of the next round (at the end of each round, they take 1 necrotic damage).
+If you roll a double six, the target also becomes Vulnerable 1 (-1 to all defenses) until the end of the next round.`,
     cost: ""
   },
   {
@@ -1061,7 +1061,7 @@ If you roll a double six, the target also becomes vulnerable 1 (-1 to all defens
     range: "10 units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Choose a creature in range that you can see. Vines latch to it. Roll Magic +2 against Deflection or Fortitude (whichever is higher). On success, it is restrained and prone.
+    description: `Choose a creature in range that you can see. Vines latch to it. Roll Magic +2 against Deflection or Fortitude (whichever is higher). On success, it is Restrained and Prone.
 At the end of each round, it rolls Athletics or Acrobatics against threshold 3. On success, it breaks loose and the spell ends. The threshold is reduced by 1 after each failed roll.`,
     cost: "3"
   },
@@ -1155,7 +1155,7 @@ If Slow and Haste affect the same creature, both spells immediately dispel each 
     duration: "until the end of the next two rounds",
     description: `Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
 
-On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
+On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
 
 On each subsequent round, you must take the Maintain fast action and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.
 If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.`,
@@ -1172,7 +1172,7 @@ If you cast this spell or the Stasis spell while this spell is active on another
     duration: "until the end of the next two rounds",
     description: `Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
 
-On success, the creature is paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
+On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
 
 During the Beginning Phase of each subsequent round, you must spend 1 Instinct and make the same roll. You get 1 penalty on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.
 

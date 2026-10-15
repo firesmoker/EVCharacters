@@ -30,7 +30,7 @@ export const MONSTERS_DATABASE = [
   },
   {
     "name": "Shade",
-    "type": "Undead summon",
+    "type": "Shadow demon",
     "hp": 1,
     "deflection": 1,
     "fortitude": 1,

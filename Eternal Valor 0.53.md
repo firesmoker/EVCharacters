@@ -4871,7 +4871,7 @@ Slow Action ◆ Interruptible
 
 Range: 10 Units
 
-You lay a baleful curse upon the target, burdening body and spirit.
+Lay a baleful curse upon a creature you can see within range.
 
 Roll Magic against Will. On success, choose two the following modes, or one on failure:
 - The target becomes Disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
@@ -4943,8 +4943,6 @@ Fast Action
 
 Range: 8 units ◆ Duration: 1 hour
 
-Fragments of unfamiliar knowledge settle into the target's mind.
-
 Choose a creature within range. The target becomes Expert (5d6) in a standard skill of your choice for the duration.
 
 Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.
@@ -4987,8 +4985,6 @@ Requirements: Level 3
 Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 1 hour
-
-Unfamiliar words resolve into meaning in the target's mind.
 
 Choose a willing creature within range.
 For the duration, it can understand any written and spoken language.
@@ -5267,8 +5263,6 @@ Fast Action
 
 Range: 5 Units ◆ Duration: 5 minutes
 
-A subtle enchantment lends an air of credibility to words and gestures.
-
 Choose a target creature within range that you can see and that can see your face.
 Roll Magic against Will. If you succeed, any Speech skill or Performance roll against the creature made by you or your allies have advantage.
 The target is not aware of the magical effect, even if you failed on the roll.
@@ -5362,9 +5356,7 @@ Average Action
 
 Range: 10 Units ◆ Duration: end of the next round
 
-You bind the target to a spiteful curse that feeds on its suffering.
-
-Choose a creature you can see within range. For the duration, each time the creature takes damage, they also lose 2 life.
+Bind a creature you can see within range to a spiteful curse that feeds on its suffering. For the duration, each time the creature takes damage, they also lose 2 life.
 
 ### Ice Knife
 
@@ -5456,8 +5448,6 @@ Requirements: Level 3
 Fast Action
 
 Range: 6 units ◆ Duration: 1 hour
-
-The target's outline fades as light slips past it.
 
 Choose a willing creature within range. The target becomes invisible for the duration.
 If it attacks or casts a spell during the duration of the spell, the spell immediately ends.
@@ -5634,8 +5624,6 @@ Slow Action ◆ Interruptible
 
 Range: Touch ◆ Duration: Instantaneous ◆ Area: Single Object
 
-Fine threads of magic draw broken edges back together.
-
 Touch an object with a single break or tear no larger than 1 foot in any dimension.
 You repair the damaged section, leaving no trace of the former damage.
 The spell can physically repair a magic item or construct, but it cannot restore lost magical properties.
@@ -5650,10 +5638,7 @@ Fast Action
 
 Range: 50 Units ◆ Duration: 10 minutes
 
-You send a whisper of thought directly into the target's mind.
-
-Choose a target within range.
-You send a telepathic message to it, and it may reply telepathically as well.
+Send a single telepathic message to a creature within range. It may send one telepathic reply.
 The casting of this spell is visible unless you pass a Sneak or Sleight of hand roll. (The difficulty of the roll will be determined by the GM according to the situation).
 
 ### Mind Blast
@@ -5759,7 +5744,7 @@ Average Action
 
 Range: 10 Units
 
-Launch a dark bolt of necrotic energy at an enemy.
+Launch a dark bolt of necrotic energy at an enemy you can see within range.
 The target becomes Decayed 1 (at the end of each round, it takes 1 Necrotic damage) until the end of the next round.
 Roll Magic +2 against Deflection.
 On success, deal SD Necrotic damage. On failure, deal half as much damage, rounded down.
@@ -5965,9 +5950,7 @@ Fast Action
 
 Range: 10 units ◆ Duration: 1 minute.
 
-An unnatural hush closes around the target, swallowing sound.
-
-Choose a creature within range.
+An unnatural hush closes around a creature you can see within range.
 Roll Magic against Will. On success, the physical space of the creature cannot produce sound. It also completely blocks any outside sounds getting into it.
 The creature is immune to Thunder damage.
 It cannot cast spells that require vocal activity (all spells require this unless described otherwise.)
@@ -5987,9 +5970,7 @@ Slow Action ◆ Interruptible
 
 Range: 8 units ◆ Duration: 1 hour
 
-A dreamlike heaviness settles over the chosen area.
-
-Choose a point within range.
+Choose a point you can see within range. A dreamlike heaviness settles over the chosen area.
 Roll Magic against Will for each creature within 2 units of it. Each creature you succeed against falls asleep (if sleeping is something that it can do).
 They wake up if they take damage or if a creature uses a Fast Action to wake them up.
 
@@ -6124,7 +6105,7 @@ Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Duration: 10 minutes
 
-Summon a shade (Undead spirit) in an unoccupied location you can see within range.
+Summon a shadow demon in an unoccupied location you can see within range.
 If the location is not available when the spell resolves, choose an adjacent location within range.
 The shade is a separate actor than your character that you control in the same manner. Start controlling it in the next round.
 You must use the Command Instinct ability during the Action Phase to enable the spirit to use the specific actions that require it.

@@ -77,7 +77,7 @@ You know whether you succeeded against each creature. The roll occurs only once 
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `You lay a baleful curse upon the target, burdening body and spirit.
+    description: `Lay a baleful curse upon a creature you can see within range.
 
 Roll Magic against Will. On success, choose two the following modes, or one on failure:
   • The target becomes Disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
@@ -141,9 +141,7 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll.`,
     range: "8 units",
     area: "Single Target",
     duration: "1 hour",
-    description: `Fragments of unfamiliar knowledge settle into the target's mind.
-
-Choose a creature within range. The target becomes Expert (5d6) in a standard skill of your choice for the duration.
+    description: `Choose a creature within range. The target becomes Expert (5d6) in a standard skill of your choice for the duration.
 
 Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.`,
     cost: "2+"
@@ -157,9 +155,7 @@ Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.`
     range: "6 units",
     area: "Single Target",
     duration: "1 hour",
-    description: `Unfamiliar words resolve into meaning in the target's mind.
-
-Choose a willing creature within range.
+    description: `Choose a willing creature within range.
 For the duration, it can understand any written and spoken language.
 This spell doesn’t provide the ability to speak or write in unknown languages.`,
     cost: "2"
@@ -429,9 +425,7 @@ Empower Spell: For each additional Spell Point spent, increase the tree's HP by 
     range: "5 Units",
     area: "Single Target",
     duration: "5 minutes",
-    description: `A subtle enchantment lends an air of credibility to words and gestures.
-
-Choose a target creature within range that you can see and that can see your face.
+    description: `Choose a target creature within range that you can see and that can see your face.
 Roll Magic against Will. If you succeed, any Speech skill or Performance roll against the creature made by you or your allies have advantage.
 The target is not aware of the magical effect, even if you failed on the roll.
 They feel unexplained discomfort if the spell was cast using Occult magic, regardless of success.`,
@@ -495,9 +489,7 @@ Empower Spell: For each additional Spell Point spent, increase Burning by 1.`,
     range: "10 Units",
     area: "Single Target",
     duration: "end of the next round",
-    description: `You bind the target to a spiteful curse that feeds on its suffering.
-
-Choose a creature you can see within range. For the duration, each time the creature takes damage, they also lose 2 life.`,
+    description: `Bind a creature you can see within range to a spiteful curse that feeds on its suffering. For the duration, each time the creature takes damage, they also lose 2 life.`,
     cost: "1"
   },
   {
@@ -577,9 +569,7 @@ On failure, they are knocked Prone and lose the rest of their movement. The area
     range: "6 units",
     area: "Single Target",
     duration: "1 hour",
-    description: `The target's outline fades as light slips past it.
-
-Choose a willing creature within range. The target becomes invisible for the duration.
+    description: `Choose a willing creature within range. The target becomes invisible for the duration.
 If it attacks or casts a spell during the duration of the spell, the spell immediately ends.
 It has advantage on the first attack it makes while invisible.`,
     cost: "2"
@@ -741,9 +731,7 @@ You can maintain up to three non-instantaneous effects from this cantrip at once
     range: "Touch",
     area: "Single Object",
     duration: "Instantaneous",
-    description: `Fine threads of magic draw broken edges back together.
-
-Touch an object with a single break or tear no larger than 1 foot in any dimension.
+    description: `Touch an object with a single break or tear no larger than 1 foot in any dimension.
 You repair the damaged section, leaving no trace of the former damage.
 The spell can physically repair a magic item or construct, but it cannot restore lost magical properties.`,
     cost: ""
@@ -756,10 +744,7 @@ The spell can physically repair a magic item or construct, but it cannot restore
     range: "50 Units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `You send a whisper of thought directly into the target's mind.
-
-Choose a target within range.
-You send a telepathic message to it, and it may reply telepathically as well.
+    description: `Send a single telepathic message to a creature within range. It may send one telepathic reply.
 The casting of this spell is visible unless you pass a Sneak or Sleight of hand roll. (The difficulty of the roll will be determined by the GM according to the situation).`,
     cost: ""
   },
@@ -814,7 +799,7 @@ You get +1 Deflection until the end of the round.`,
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `You manipulate the ground at a point within range. 
+    description: `You manipulate the ground at a point within range.
 Choose one or both:
   • Create 1 unit cube of earth. It provides half cover (or full cover while being Prone next to it). You cannot target an occupied space.
   • Dig a hole of 1 unit cube into the ground. Getting into the hole provides half cover. The ground must be earth.
@@ -861,7 +846,7 @@ Empower Spell: For each additional Spell Point spent, increase the wall's size b
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `Launch a dark bolt of necrotic energy at an enemy.
+    description: `Launch a dark bolt of necrotic energy at an enemy you can see within range.
 The target becomes Decayed 1 (at the end of each round, it takes 1 Necrotic damage) until the end of the next round.
 Roll Magic +2 against Deflection.
 On success, deal SD Necrotic damage. On failure, deal half as much damage, rounded down.
@@ -1030,9 +1015,7 @@ Choose a target within range. They get +2 Deflection for the duration.`,
     range: "10 units",
     area: "Single Target",
     duration: "1 minute.",
-    description: `An unnatural hush closes around the target, swallowing sound.
-
-Choose a creature within range.
+    description: `An unnatural hush closes around a creature you can see within range.
 Roll Magic against Will. On success, the physical space of the creature cannot produce sound. It also completely blocks any outside sounds getting into it.
 The creature is immune to Thunder damage.
 It cannot cast spells that require vocal activity (all spells require this unless described otherwise.)
@@ -1050,9 +1033,7 @@ Empower Spell: For each 2 additional Spell Points spent, increase the duration b
     range: "8 units",
     area: "Single Target",
     duration: "1 hour",
-    description: `A dreamlike heaviness settles over the chosen area.
-
-Choose a point within range.
+    description: `Choose a point you can see within range. A dreamlike heaviness settles over the chosen area.
 Roll Magic against Will for each creature within 2 units of it. Each creature you succeed against falls asleep (if sleeping is something that it can do).
 They wake up if they take damage or if a creature uses a Fast Action to wake them up.`,
     cost: "3"
@@ -1112,7 +1093,7 @@ You must use the Command Instinct ability during the Action Phase to enable the 
     range: "10 Units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Summon a shade (Undead spirit) in an unoccupied location you can see within range.
+    description: `Summon a shadow demon in an unoccupied location you can see within range.
 If the location is not available when the spell resolves, choose an adjacent location within range.
 The shade is a separate actor than your character that you control in the same manner. Start controlling it in the next round.
 You must use the Command Instinct ability during the Action Phase to enable the spirit to use the specific actions that require it.

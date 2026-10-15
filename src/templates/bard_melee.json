@@ -539,6 +539,7 @@
     }
   },
   "preferences": {
+    "sectionSize": "fixed",
     "font": "",
     "color": ""
   }

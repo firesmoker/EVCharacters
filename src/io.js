@@ -506,7 +506,7 @@ export const loadFromJSON = (jsonString) => {
   });
 
   // Notify the app that data has been loaded
-  setSectionSize(data.preferences?.sectionSize || 'auto');
+  setSectionSize(data.preferences?.sectionSize || 'fixed');
   document.dispatchEvent(new CustomEvent('sheet-loaded'));
 };
 

@@ -1,6 +1,7 @@
 import { SKILLS_LIST, COMBAT_SKILLS_LIST } from './data.js';
 import { MONSTERS_DATABASE } from './monsters_data.js';
 import defenseCrest from '../public/defense-crest.svg?raw';
+import { ACCENT_THEMES } from './accent.js';
 
 /**
  * Renders a standard dropdown menu.
@@ -499,7 +500,7 @@ export const renderToolbar = () => `
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
     <div class="menu-item">Format<div class="dropdown-content"><div role="menuitemradio" data-section-size="auto">Auto size sections</div><div role="menuitemradio" data-section-size="fixed">Fixed size sections</div></div></div>
     <div class="menu-item">Font<div class="dropdown-content"><div id="font-pt-sans">PT Sans (Default)</div><div id="font-kalam">Kalam (Handwritten)</div><div id="font-inter">Inter (Modern)</div><div id="font-crimson">Crimson Pro (Serif)</div><div id="font-gentium">Gentium Plus (Classic)</div></div></div>
-    <div class="menu-item">Color<div class="dropdown-content"><div id="color-brown">Brown (Default)</div><div id="color-navy">Navy Blue</div><div id="color-black">Black</div><div id="color-red">Dark Red</div><div id="color-green">Dark Green</div><div id="color-purple">Purple</div></div></div>
+    <div class="menu-item">Color<div class="dropdown-content color-menu">${ACCENT_THEMES.map(([id, name, color]) => `<div id="color-${id}" data-accent="${color}"><span class="color-swatch" style="background:${color}"></span>${name}</div>`).join('')}</div></div>
   </div>
 `
 

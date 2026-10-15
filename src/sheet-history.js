@@ -74,11 +74,14 @@ export function initSheetHistory(onRestore) {
       onRestore();
     } finally { restoring = false; }
   }
+  let groupedEdit = false;
   function begin(event) {
+    if (groupedEdit) return;
     if (restoring || !event.target.closest?.('.a4-page')) return;
     pending = { before: serializeSheet(), focusBefore: bookmark(event.target), type: event.inputType, epoch };
   }
   function finish(event) {
+    if (groupedEdit) return;
     if (!pending || restoring) return;
     const entry = pending; pending = undefined;
     if (entry.epoch !== epoch) return;
@@ -100,8 +103,8 @@ export function initSheetHistory(onRestore) {
     } else begin(event);
   }, true);
   document.addEventListener('input', finish);
-  document.addEventListener('sheet-edit-start', begin);
-  document.addEventListener('sheet-edit-end', finish);
+  document.addEventListener('sheet-edit-start', event => { begin(event); groupedEdit = true; });
+  document.addEventListener('sheet-edit-end', event => { groupedEdit = false; finish(event); });
   document.addEventListener('keydown', event => {
     if (event.target.isContentEditable && event.shiftKey &&
       (['BracketLeft', 'BracketRight'].includes(event.code) || (event.ctrlKey && event.code === 'Digit8'))) {

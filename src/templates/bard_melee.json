@@ -228,14 +228,14 @@
     "Feats": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
     "Languages": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
@@ -256,28 +256,28 @@
     "Equipment": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
     "Items": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
     "Species Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
     "Class Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },

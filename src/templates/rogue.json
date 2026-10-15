@@ -253,14 +253,14 @@
     "Feats": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
     "Languages": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
@@ -281,28 +281,28 @@
     "Equipment": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
     "Items": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
     "Species Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "",
       "splitFields": {},
       "dynamicRows": []
     },
     "Class Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": "<div><strong>Sneak Attack</strong><br>When you have advantage on a Melee Strike or Weapon Throw, add 3 Extra Dice to the roll. None of the weapons used for the attack may have the Heavy, Reach, or Two-Handed properties.</div><div><br></div><div><strong>Basic Dual Wielding</strong><br>You may wield two one-handed weapons, provided no more than one has the Heavy property. When you perform a Melee Strike using both weapons, make one attack roll and apply the following:<ul><li>Add the Extra Dice from both weapons to the roll.</li><li>Use the higher of the two weapons' Minimum Roll values.</li><li>Choose one damage type available to either weapon.</li><li>If you roll a double six, choose and apply the Double 6 effect of one weapon.</li></ul></div>",
+      "sectionBody": "<div><strong>Sneak Attack</strong><br>When you have advantage on a Melee Strike or Weapon Throw, add 3 Extra Dice to the roll. None of the weapons used for the attack may have the Heavy, Reach, or Two-Handed properties.</div><div><strong>Basic Dual Wielding</strong><br>You may wield two one-handed weapons, provided no more than one has the Heavy property. When you perform a Melee Strike using both weapons, make one attack roll and apply the following:<ul><li>Add the Extra Dice from both weapons to the roll.</li><li>Use the higher of the two weapons' Minimum Roll values.</li><li>Choose one damage type available to either weapon.</li><li>If you roll a double six, choose and apply the Double 6 effect of one weapon.</li></ul></div>",
       "splitFields": {},
       "dynamicRows": []
     },

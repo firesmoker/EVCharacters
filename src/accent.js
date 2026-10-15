@@ -1,4 +1,18 @@
 export const DEFAULT_ACCENT = '#91703e';
+export const ACCENT_THEMES = [
+  ['brown', 'Antique Brass', '#91703e'], ['navy', 'Midnight Navy', '#23395d'],
+  ['black', 'Obsidian', '#303238'], ['red', 'Crimson', '#8B0000'],
+  ['green', 'Deep Forest', '#285943'], ['purple', 'Royal Amethyst', '#65417d'],
+  ['copper', 'Burnished Copper', '#a65d3d'], ['amber', 'Golden Amber', '#a87923'],
+  ['olive', 'Ancient Olive', '#657039'], ['sage', 'Silver Sage', '#617b6a'],
+  ['emerald', 'Emerald', '#197359'], ['jade', 'Jade', '#348577'],
+  ['teal', 'Deep Teal', '#236b73'], ['ocean', 'Ocean Blue', '#286c93'],
+  ['sapphire', 'Sapphire', '#34569b'], ['slate', 'Storm Slate', '#566c82'],
+  ['indigo', 'Twilight Indigo', '#514a88'], ['iris', 'Iris', '#78639e'],
+  ['plum', 'Velvet Plum', '#754667'], ['rose', 'Dusty Rose', '#a05e70'],
+  ['wine', 'Mulled Wine', '#743747'], ['terracotta', 'Terracotta', '#ac634f'],
+  ['umber', 'Warm Umber', '#705442'], ['graphite', 'Graphite', '#60656b'],
+];
 
 export function applyAccent(color = DEFAULT_ACCENT) {
   if (!/^#[0-9a-f]{6}$/i.test(color)) color = DEFAULT_ACCENT;

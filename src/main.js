@@ -561,17 +561,9 @@ const handleClick = (e) => {
   }
 
   // Color Handlers
-  const colorActions = {
-    'color-brown': '#91703e',
-    'color-navy': '#000080',
-    'color-black': '#000000',
-    'color-red': '#8B0000',
-    'color-green': '#006400',
-    'color-purple': '#4B0082'
-  };
-
-  if (colorActions[e.target.id]) {
-    applyAccent(colorActions[e.target.id]);
+  const colorChoice = e.target.closest('[data-accent]');
+  if (colorChoice) {
+    applyAccent(colorChoice.dataset.accent);
   }
 
   autoSave();
@@ -581,6 +573,29 @@ const handleClick = (e) => {
  * Global Keydown Handler
  */
 const handleGlobalKeydown = (e) => {
+  const richField = e.target.closest('.section-content[contenteditable="true"], .variant-action-text[contenteditable="true"]');
+  if (richField && e.key === ' ' && !e.isComposing && !e.ctrlKey && !e.metaKey && !e.altKey) {
+    const selection = getSelection();
+    if (selection?.isCollapsed && selection.rangeCount && richField.contains(selection.anchorNode)) {
+      const caret = selection.getRangeAt(0);
+      const element = caret.startContainer.nodeType === Node.TEXT_NODE ? caret.startContainer.parentElement : caret.startContainer;
+      const block = element.closest('p, div, li');
+      if (block && richField.contains(block) && !element.closest('li')) {
+        const prefix = caret.cloneRange();
+        prefix.selectNodeContents(block);
+        prefix.setEnd(caret.startContainer, caret.startOffset);
+        if (prefix.toString() === '*') {
+          e.preventDefault();
+          richField.dispatchEvent(new CustomEvent('sheet-edit-start', { bubbles: true }));
+          document.execCommand('insertUnorderedList', false, null);
+          document.execCommand('delete', false, null);
+          richField.dispatchEvent(new CustomEvent('sheet-edit-end', { bubbles: true }));
+          autoSave();
+          return;
+        }
+      }
+    }
+  }
   // Font Size Shortcuts: Shift + [ (Decrease) / Shift + ] (Increase)
   if (e.shiftKey && (e.key === '{' || e.key === '}' || e.code === 'BracketLeft' || e.code === 'BracketRight')) {
     // Check if we are inside an editable field
@@ -603,10 +618,13 @@ const handleGlobalKeydown = (e) => {
   }
 
   // Bullet Points Shortcut: Ctrl + Shift + 8
-  if (e.ctrlKey && e.shiftKey && (e.key === '8' || e.code === 'Digit8')) {
-    if (e.target.isContentEditable) {
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === '8' || e.code === 'Digit8')) {
+    if (richField) {
       e.preventDefault();
+      richField.dispatchEvent(new CustomEvent('sheet-edit-start', { bubbles: true }));
       document.execCommand('insertUnorderedList', false, null);
+      richField.dispatchEvent(new CustomEvent('sheet-edit-end', { bubbles: true }));
+      autoSave();
       return;
     }
   }

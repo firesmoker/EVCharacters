@@ -84,8 +84,8 @@ If you roll a double 6, choose an additional mode.`,
     description: `Choose a creature within range. Their weapon is imbued with radiant energy. If you are a Cleric, you can instead choose the energy to be the associated element of your domain.
 For the duration, add +4 to Strike rolls using that weapon. The damage type is changed to the chosen energy type.
 
-Empower Spell: For each additional Spell Point spent, choose one more creature.`,
-    cost: "1+"
+Empower Spell: For every 2 additional Spell Points spent, choose one more creature.`,
+    cost: "2+"
   },
   {
     name: "Burning Ground",
@@ -148,7 +148,9 @@ Empower Spell: you can increase the duration of this spell to a full day by spen
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br><br><strong>1 Success Die:</strong> choose one of the following:<ul><li><strong>Halt:</strong> the target must stay in place and loses all Instinct for this round.</li><li><strong>Move:</strong> in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.</li></ul><strong>2 Success Dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Grovel:</strong> the target immediately becomes Prone and doesn't do anything else this round.</li><li><strong>Drop:</strong> the target immediately drops whatever it is holding and doesn't do anything else this round.</li></ul><strong>3+ Success Dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Harm:</strong> if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.</li><li><strong>Flee:</strong> the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</li></ul><br>You may spend 2 additional Spell Points per additional target; each target may receive a different command.`,
+    description: `WIP: This spell needs to be updated to the current roll system.
+
+You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br><br><strong>1 Success Die:</strong> choose one of the following:<ul><li><strong>Halt:</strong> the target must stay in place and loses all Instinct for this round.</li><li><strong>Move:</strong> in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.</li></ul><strong>2 Success Dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Grovel:</strong> the target immediately becomes Prone and doesn't do anything else this round.</li><li><strong>Drop:</strong> the target immediately drops whatever it is holding and doesn't do anything else this round.</li></ul><strong>3+ Success Dice:</strong> choose any previous option, or one of the following:<ul><li><strong>Harm:</strong> if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.</li><li><strong>Flee:</strong> the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</li></ul><br>You may spend 2 additional Spell Points per additional target; each target may receive a different command.`,
     cost: "1+"
   },
   {
@@ -213,8 +215,8 @@ If you roll a double six, the target is also Frightened until the end of the nex
     spellType: "Occult",
     range: "Self",
     area: "Self",
-    duration: "",
-    description: `Get +1 Deflection. If you are hit by an attack against your Deflection, the enemy that dealt the damage loses 1 HP.`,
+    duration: "end of current round",
+    description: `Until the end of the current round, you gain +1 Deflection. Whenever an enemy hits you with an attack against your Deflection and deals damage to you, it loses 2 HP. This retaliation counts as AoE against Hordes and Swarms, causing them to lose 6 HP instead.`,
     cost: "1"
   },
   {
@@ -548,7 +550,7 @@ If you roll a double six, you become Inspired 1 (1 Extra Die on rolls) until the
     range: "8",
     area: "Single Target",
     duration: "1 day",
-    description: `Increase the maximum HP of up to three creatures by 2 for the duration.
+    description: `Increase the maximum HP of up to three creatures by 2 for the duration. This spell does not restore current HP.
 No more than one casting of this spell can affect the same creature at the same time.
 
 Empower Spell: for each 2 additional SP spent, increase the HP maximum by 1 additional HP.`,
@@ -624,6 +626,7 @@ Spend 1 Instinct to direct the hand to move and perform a simple task, such as m
     area: "Single Target",
     duration: "",
     description: `Shoot three magical missiles. Choose a creature to target with each missile. You may choose the same creature for more than one missile. You only need to know the creatures’ general location. Each missile automatically hits its target and deals 1 Force damage. If the missile has no way to reach the target, it fails.
+Resolve all missiles that hit a creature as a single damage event, regardless of how many missiles hit it.
 
 Empower Spell: You may spend additional Spell Points when you cast the spell. For each additional point spent, shoot one more missile.`,
     cost: "1+"
@@ -725,6 +728,7 @@ If you choose both, the hole and the cube must be adjacent to each other.`,
   },
   {
     name: "Nature Spirit",
+    summons: ["Spirit"],
     rank: "2",
     requirements: "Level 3",
     actionSpeed: "Average Action",
@@ -944,13 +948,15 @@ Roll Magic against Will for each creature within 2 units of it. Each creature yo
     range: "10 units",
     area: "4 units cube",
     duration: "10 minutes",
-    description: `Spikes grow from the ground in a 4-units cube in a point you can see within range.
-Roll Magic against Deflection against creatures in the area. Each creature you succeed against takes 1 Piercing damage.
-When a creature first steps on the area during each round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement in the area deals 1 Piercing damage to it. The area is difficult terrain.`,
+    description: `Spikes grow from the ground in a 4-unit cube at a point you can see within range.
+Roll Magic against Deflection for creatures in the area. Each creature you succeed against takes 1 Piercing damage.
+The area is difficult terrain. When a creature first enters or moves within it during a round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement within the area deals 1 Piercing damage.
+If a creature is pushed into or through the area, each unit it is pushed within the area deals this movement damage automatically, without an Acrobatics roll, regardless of any earlier successful roll that round.`,
     cost: "3"
   },
   {
     name: "Summon Beast",
+    summons: ["Beast"],
     rank: "1",
     requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
@@ -961,11 +967,12 @@ When a creature first steps on the area during each round, it rolls Acrobatics a
     description: `Summons a Large or smaller beast (your choice) in an unoccupied location you can see.
 It can’t be a flying beast unless it’s small.
 The beast is a separate actor than your character that you control in the same manner.
-You must take the Command Fast Action during the Action Phase to enable the beast to use the specific actions that require it. It may still move and take other actions without Command.`,
+You must use the Command Instinct ability during the Action Phase to enable the beast to use the specific actions that require it. It may still move and take other actions without Command.`,
     cost: "1"
   },
   {
     name: "Summon Shade",
+    summons: ["Shade"],
     rank: "1",
     requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",

@@ -1697,6 +1697,58 @@ textarea::placeholder {
   margin-bottom: 0.2em;
 }
 
+.monster-stat-block {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  color: #222;
+  background: #fff;
+  font-size: 12px;
+  line-height: 1.3;
+  break-inside: avoid;
+}
+
+.monster-stat-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  align-items: baseline;
+}
+
+.monster-stat-heading span {
+  font-size: 11px;
+  color: #555;
+}
+
+.monster-stat-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 6px 0;
+  padding: 4px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.monster-stat-values > div {
+  display: flex;
+  gap: 4px;
+}
+
+.monster-stat-values dt {
+  font-weight: bold;
+}
+
+.monster-stat-values dd {
+  margin: 0;
+}
+
+.monster-stat-actions {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
 /* Spell description bullets should render tightly */
 .spell-description-text ul {
   list-style: none;

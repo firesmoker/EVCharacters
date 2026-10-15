@@ -1,4 +1,5 @@
 import { SKILLS_LIST, COMBAT_SKILLS_LIST } from './data.js';
+import { MONSTERS_DATABASE } from './monsters_data.js';
 
 /**
  * Renders a standard dropdown menu.
@@ -210,7 +211,7 @@ export const renderSection = (title, content, options = {}) => {
 
   return `
     <div class="section-box" style="${style}">
-      <div class="section-header">${title}</div>
+      <div class="section-header"${title === 'Feats' ? ' title="At level 2, choose one Minor Feat for which you meet the requirements, in addition to your Origin Feat."' : ''}>${title}</div>
       <div class="${contentClasses}" 
            ${isStructured ? '' : 'contenteditable="true"'} 
            data-placeholder="Enter ${title.toLowerCase()}...">
@@ -272,7 +273,7 @@ export const renderSpeedSection = () => `
   <div class="section-container">
     ${renderSectionRow('Movement', '3')}
     ${renderSectionRow('Instinct', '0')}
-    <div class="section-subsection-label">Drags Ignored:</div>
+    <div class="section-subsection-label" title="Each point of Drag slows an action by one speed level, to a minimum of Slow. Each additional point adds a penalty of 1 to the Slow action's roll.">Drags Ignored:</div>
     <div class="dynamic-rows">
       ${renderDragsIgnoredRow()}
     </div>
@@ -392,6 +393,23 @@ export const renderStrikesDamagingCantripsBlock = () => `
   </div>
 `
 
+const escapeStatText = (value) => String(value).replace(/[&<>"']/g, char => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+}[char]));
+
+export const renderMonsterStatBlock = (monster) => {
+  if (!monster) return '';
+  const stats = [['HP', monster.hp], ['DEF', monster.deflection ?? 1], ['FOR', monster.fortitude ?? 1],
+    ['WILL', monster.will ?? 1], ['Movement', monster.movement]]
+    .filter(([, value]) => value !== undefined && value !== null && value !== '');
+  return `<section class="monster-stat-block" aria-label="${escapeStatText(monster.name)} stat block">
+    <div class="monster-stat-heading"><strong>${escapeStatText(monster.name)}</strong>
+      <span>${[monster.type, monster.size].filter(Boolean).map(escapeStatText).join(' • ')}</span></div>
+    <dl class="monster-stat-values">${stats.map(([label, value]) => `<div><dt>${label}</dt><dd>${escapeStatText(value)}</dd></div>`).join('')}</dl>
+    <div class="monster-stat-actions">${escapeStatText(monster.actions)}</div>
+  </section>`;
+};
+
 /**
  * Renders a detailed spell block for the reference page.
  */
@@ -413,6 +431,7 @@ export const renderSpellDescriptionBlock = (spell) => `
       ${spell.rank !== 'Cantrip' ? `<span><strong>Cost:</strong> ${spell.cost}</span>` : ''}
     </div>
     <div style="font-size: 12px; line-height: 1.3; white-space: pre-wrap; background-color: #f7f7f7; padding: 6px; border-radius: 4px;" class="editable-field spell-description-text">${spell.description}</div>
+    ${(spell.summons || []).map(name => renderMonsterStatBlock(MONSTERS_DATABASE.find(monster => monster.name === name))).join('')}
   </div>
 `
 

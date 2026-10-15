@@ -169,7 +169,7 @@
           "slots": {
             "name": "Melee Strike",
             "rollDescription": "Roll Melee against Deflection",
-            "notes": "Sneak Attack: If you have advantage, deal +2 damage.\nOn failure, deal half as much damage, rounded down."
+            "notes": "Sneak Attack: With advantage, add 3 Extra Dice to the roll. None of the weapons used may have Heavy, Reach, or Two-Handed.\nOn failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {
@@ -211,7 +211,7 @@
           "slots": {
             "name": "Weapon Throw",
             "rollDescription": "Roll Weapon Throw against Deflection",
-            "notes": "On failure, deal half as much damage, rounded down."
+            "notes": "Sneak Attack: With advantage, add 3 Extra Dice to the roll. None of the weapons used may have Heavy, Reach, or Two-Handed.\nOn failure, deal half as much damage, rounded down."
           },
           "tableRows": [
             {
@@ -302,7 +302,7 @@
     "Class Features": {
       "checkboxes": {},
       "fields": {},
-      "sectionBody": ".<div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div><div><br></div>",
+      "sectionBody": "<div><strong>Sneak Attack</strong><br>When you have advantage on a Melee Strike or Weapon Throw, add 3 Extra Dice to the roll. None of the weapons used for the attack may have the Heavy, Reach, or Two-Handed properties.</div><div><br></div><div><strong>Basic Dual Wielding</strong><br>You may wield two one-handed weapons, provided no more than one has the Heavy property. When you perform a Melee Strike using both weapons, make one attack roll and apply the following:<ul><li>Add the Extra Dice from both weapons to the roll.</li><li>Use the higher of the two weapons' Minimum Roll values.</li><li>Choose one damage type available to either weapon.</li><li>If you roll a double six, choose and apply the Double 6 effect of one weapon.</li></ul></div>",
       "splitFields": {},
       "dynamicRows": []
     },

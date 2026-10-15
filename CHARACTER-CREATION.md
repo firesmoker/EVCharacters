@@ -25,8 +25,8 @@ were changed to introduce this UI.
 
 At the author's request, missing values have placeholders. A defined progression
 table cell always wins. Missing higher-level HP uses base HP plus floor(level/2).
-Missing Instinct uses the starting value (or zero) plus one at level 3 and one at
-level 7. Missing caster progression adds one Spell Point and one spell per level,
+All classes start with 1 Instinct. Missing later progression holds this at 1
+until level 7, then uses a provisional value of 2. Missing caster progression adds one Spell Point and one spell per level,
 and one cantrip every two levels, from the initial casting package. Witchblade's
 package begins at level 3. Unknown maximum spell rank uses ceil(level/2), capped
 at rank 3, and is flagged above level 5. Only the defined level-2 Minor Feat is

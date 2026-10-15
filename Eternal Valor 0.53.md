@@ -319,6 +319,8 @@ Notice: You don’t need to commit to whether you move (or where) during the Pla
 
 ## Instinct
 
+All classes start with 1 Instinct.
+
 Characters and NPCs sometimes have a resource called "Instinct". This allows them to activate certain abilities at different timings throughout the round. There is no need to commit to Instinct abilities during the Planning Phase.
 
 Instinct resets at the beginning of each round for each character, according to their Instinct score.
@@ -665,6 +667,8 @@ A player character is defined by 3 things:
 
 When you build your character, you may choose them in any order you wish.
 
+All characters know Common in addition to the languages granted by their species and other choices.
+
 ## Statistics Descriptions
 
 #### Defenses
@@ -757,7 +761,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 ### Human Traits
 
-- Language: One extra language of your choice
+- Language: Common; One extra language of your choice
 
 - Movement Score: 3
 
@@ -771,7 +775,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 ### Orc Traits
 
-- Language: Orcish
+- Language: Common; Orcish
 
 - Movement Score: 3
 
@@ -787,7 +791,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 ### High Elf Traits
 
-- Language: Elvish
+- Language: Common; Elvish
 
 - Movement Score: 3
 
@@ -803,7 +807,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 ### Wood Elf Traits
 
-- Language: Elvish
+- Language: Common; Elvish
 
 - Movement Score: 4
 
@@ -825,7 +829,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 ### Imp Traits
 
-- Language: Infernal
+- Language: Common; Infernal
 
 - Movement Score: 4
 
@@ -841,7 +845,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 ### Dwarf Traits
 
-- Language: Dwarvish
+- Language: Common; Dwarvish
 
 - Movement Score: 3
 
@@ -857,7 +861,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 ### Ossian Traits
 
-- Language: Ossian
+- Language: Common; Ossian
 
 - Movement Score: 3
 
@@ -875,7 +879,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 ### Remnant Traits
 
-- Language: Celestial
+- Language: Common; Celestial
 
 - Movement Score: 3
 
@@ -1804,8 +1808,8 @@ If you were already Expert (5d6) in the chosen skill, you become Adept (4d6) in 
 
 | Level | Instinct | Spell Points | Spells Known | Cantrips Known |
 | --- | --- | --- | --- | --- |
-| 1 | 0 | 2 | 3 | 2 |
-| 2 | 0 | 3 | 4 | 2 |
+| 1 | 1 | 2 | 3 | 2 |
+| 2 | 1 | 3 | 4 | 2 |
 | 3 | 1 | 4 | 6 | 3 |
 | 4 | 1 | 5 | 7 | 3 |
 | 5 | 1 | 6 | 9 | 4 |
@@ -2123,8 +2127,8 @@ When you cast Cure normally as a Fast Action, you may heal two targets, as if yo
 
 | Level | Instinct | Spell Points | Spells Known | Cantrips Known |
 | --- | --- | --- | --- | --- |
-| 1 | 0 | 3 | 3 | 3 |
-| 2 | 0 | 4 | 4 | 3 |
+| 1 | 1 | 3 | 3 | 3 |
+| 2 | 1 | 4 | 4 | 3 |
 | 3 | 1 | 5 | 6 | 4 |
 | 4 | 1 | 6 | 7 | 4 |
 | 5 | 1 | 7 | 9 | 5 |
@@ -2604,8 +2608,8 @@ You gain the following options to the Rally feature. Decrees require spending de
 
 | Level | HP | Instinct | Devotion Points |
 | --- | --- | --- | --- |
-| 1 | 5 | 0 | 3 |
-| 2 | 6 | 0 | 4 |
+| 1 | 5 | 1 | 3 |
+| 2 | 6 | 1 | 4 |
 | 3 | 6 | 1 | 5 |
 | 4 | 7 | 1 | 6 |
 | 5 | 8 | 1 | 7 |
@@ -3675,8 +3679,8 @@ If done during combat, this also requires spending 1 Instinct.
 
 | Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 5 | 0 | 4 | 4 | 3 | Rank 1 |
-| 2 | 5 | 0 | 5 | 5 | 3 | Rank 1 |
+| 1 | 5 | 1 | 4 | 4 | 3 | Rank 1 |
+| 2 | 5 | 1 | 5 | 5 | 3 | Rank 1 |
 | 3 | 6 | 1 | 6 | 7 | 4 | Rank 2 |
 | 4 | 6 | 1 | 7 | 9 | 4 | Rank 2 |
 | 5 | 7 | 1 | 9 | 11 | 5 | Rank 3 |
@@ -4028,15 +4032,6 @@ People assume you are a noble (unless you do something that gives away that you 
 
 You have a small pet. It doesn't participate in combat. It has 1 Deflection and 2 HP. It listens to you and follows your orders, unless they are obviously harmful to it. It can't deal any damage to others.
 At any time, you may adopt another pet to replace the one you have (or if it died).
-
-### Potion Chugger
-
-**Requirements:** Level 2
-
-You gain the following Instinct ability:
-Instinct Abilities
-
-Chug Potion: At any time during the Action Phase, drink a potion.
 
 ### Push Through Pain
 

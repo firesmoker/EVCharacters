@@ -1,4 +1,5 @@
 import { initSheetHistory } from './sheet-history.js';
+import { applyAccent } from './accent.js';
 import { setSectionSize, isFixedSize } from './section-format.js';
 import { initPortrait } from './portrait.js';
 import './style.css'
@@ -561,6 +562,7 @@ const handleClick = (e) => {
 
   // Color Handlers
   const colorActions = {
+    'color-brown': '#91703e',
     'color-navy': '#000080',
     'color-black': '#000000',
     'color-red': '#8B0000',
@@ -569,7 +571,7 @@ const handleClick = (e) => {
   };
 
   if (colorActions[e.target.id]) {
-    document.documentElement.style.setProperty('--field-color', colorActions[e.target.id]);
+    applyAccent(colorActions[e.target.id]);
   }
 
   autoSave();

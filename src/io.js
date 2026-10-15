@@ -1,5 +1,6 @@
 import { logicalSections, restoreSections, clearSectionSnapshot } from './sheet-tools.js';
 import { readPortrait, writePortrait } from './portrait.js';
+import { applyAccent, DEFAULT_ACCENT } from './accent.js';
 import { setSectionSize, isFixedSize } from './section-format.js';
 import {
   renderRowForSection,
@@ -197,7 +198,7 @@ export const serializeSheet = () => {
   // We want the inline style value if set, or computed if we want to persist defaults (though usually we only care if user changed it)
   // Actually, better to check the inline style on document.documentElement directly as that's where we set it.
   data.preferences.font = document.documentElement.style.getPropertyValue('--readable-font') || '';
-  data.preferences.color = document.documentElement.style.getPropertyValue('--field-color') || '';
+  data.preferences.accentColor = document.documentElement.style.getPropertyValue('--accent') || DEFAULT_ACCENT;
   data.preferences.sectionSize = isFixedSize() ? 'fixed' : 'auto';
 
   // 1. Headers
@@ -305,10 +306,8 @@ export const loadFromJSON = (jsonString) => {
     if (data.preferences.font) {
       document.documentElement.style.setProperty('--readable-font', data.preferences.font);
     }
-    if (data.preferences.color) {
-      document.documentElement.style.setProperty('--field-color', data.preferences.color);
-    }
   }
+  applyAccent(data.preferences?.accentColor);
 
   // 1. Headers
   if (data.headers) {

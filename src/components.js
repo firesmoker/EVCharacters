@@ -1,5 +1,6 @@
 import { SKILLS_LIST, COMBAT_SKILLS_LIST } from './data.js';
 import { MONSTERS_DATABASE } from './monsters_data.js';
+import defenseCrest from '../public/defense-crest.svg?raw';
 
 /**
  * Renders a standard dropdown menu.
@@ -97,12 +98,13 @@ export const renderHeaderField = (label, placeholder, flex = 1) => {
 /**
  * Renders a generic section row field (e.g., individual stats inside a section).
  */
-export const renderSectionRow = (label, placeholder, icon = null) => `
+export const renderSectionRow = (label, placeholder, icon = null, showColon = true, decoration = '') => `
   <div class="section-row">
+    ${decoration}
     <div class="stat-icon">
       ${icon ? `<img src="/icons/${icon}.svg" width="18" height="18" alt="${label} Icon">` : ''}
     </div>
-    <span class="section-label">${label}:</span>
+    <span class="section-label">${label}${showColon ? ':' : ''}</span>
     <span class="editable-field section-row-editable" contenteditable="true" data-placeholder="${placeholder}" style="flex-grow: 1; padding-left: 5px;"></span>
   </div>
 `
@@ -220,9 +222,9 @@ export const renderDefensesSection = () => `
       </div>
     </div>
     <div class="defense-crests">
-    ${renderSectionRow('Deflection', '0')}
-    ${renderSectionRow('Fortitude', '0')}
-    ${renderSectionRow('Will', '0')}
+    ${renderSectionRow('Deflection', '0', null, false, defenseCrest)}
+    ${renderSectionRow('Fortitude', '0', null, false, defenseCrest)}
+    ${renderSectionRow('Will', '0', null, false, defenseCrest)}
     </div>
   </div>
 `
@@ -497,7 +499,7 @@ export const renderToolbar = () => `
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
     <div class="menu-item">Format<div class="dropdown-content"><div role="menuitemradio" data-section-size="auto">Auto size sections</div><div role="menuitemradio" data-section-size="fixed">Fixed size sections</div></div></div>
     <div class="menu-item">Font<div class="dropdown-content"><div id="font-pt-sans">PT Sans (Default)</div><div id="font-kalam">Kalam (Handwritten)</div><div id="font-inter">Inter (Modern)</div><div id="font-crimson">Crimson Pro (Serif)</div><div id="font-gentium">Gentium Plus (Classic)</div></div></div>
-    <div class="menu-item">Color<div class="dropdown-content"><div id="color-navy">Navy Blue</div><div id="color-black">Black</div><div id="color-red">Dark Red</div><div id="color-green">Dark Green</div><div id="color-purple">Purple</div></div></div>
+    <div class="menu-item">Color<div class="dropdown-content"><div id="color-brown">Brown (Default)</div><div id="color-navy">Navy Blue</div><div id="color-black">Black</div><div id="color-red">Dark Red</div><div id="color-green">Dark Green</div><div id="color-purple">Purple</div></div></div>
   </div>
 `
 

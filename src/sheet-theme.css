@@ -1,11 +1,14 @@
 /* Eternal Valor: ivory paper, burgundy banners, and engraved brass. */
 :root {
   color-scheme: light;
-  --paper: #f8f3e8;
+  --accent: #91703e;
+  --paper: color-mix(in srgb, var(--accent) 9%, white);
+  --accent-soft: color-mix(in srgb, var(--accent) 18%, white);
+  --accent-faint: color-mix(in srgb, var(--accent) 3%, white);
   --ink: #29231e;
-  --burgundy: #681e24;
-  --brass: #91703e;
-  --rule: #cfbfa2;
+  --burgundy: color-mix(in srgb, var(--accent) 65%, #211714);
+  --brass: var(--accent);
+  --rule: color-mix(in srgb, var(--accent) 40%, white);
   --field-color: #293e50;
   --field-background: #fff;
   --field-label-size: 13px;
@@ -15,8 +18,8 @@
 .editor-canvas { padding: 32px 40px; }
 .top-bar { color: #e9dfca; background: #2b2826; border-bottom-color: #8c704a; }
 .top-bar .menu-item:hover { background: #433731; }
-.dropdown-content, .nested-dropdown-content { background: #fffaf0; color: var(--ink); border-color: var(--rule); }
-.dropdown-content div:not(.nested-dropdown-content):hover, .template-item:hover { background: #eee3d0; }
+.dropdown-content, .nested-dropdown-content { background: var(--accent-faint); color: var(--ink); border-color: var(--rule); }
+.dropdown-content div:not(.nested-dropdown-content):hover, .template-item:hover { background: var(--accent-soft); }
 
 .a4-page {
   padding: 8mm 7mm 9mm;
@@ -33,7 +36,7 @@
   position: absolute;
   inset: 3mm;
   border: 1px solid var(--brass);
-  outline: 1px solid #cfbfa2;
+  outline: 1px solid var(--rule);
   outline-offset: 2px;
 
   pointer-events: none;
@@ -129,7 +132,7 @@
   border: 1px solid var(--brass);
   border-radius: 2px;
   background: transparent;
-  box-shadow: inset 0 0 0 2px var(--paper), inset 0 0 0 3px #d9c9ac;
+  box-shadow: inset 0 0 0 2px var(--paper), inset 0 0 0 3px var(--rule);
 }
 .section-header, .essentials-heading, .health-heading {
   position: relative;
@@ -148,9 +151,9 @@
   content: '';
   width: 11px;
   height: 11px;
-  background: #e8d3a1;
+  background: color-mix(in srgb, var(--accent) 35%, white);
   clip-path: polygon(50% 0, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0 50%, 37% 37%);
-  color: #e8d3a1;
+  color: color-mix(in srgb, var(--accent) 35%, white);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -186,6 +189,7 @@
 .a4-page input::placeholder, .a4-page textarea::placeholder { color: #73808b; }
 .a4-page .section-content.editable-field { border: 0; margin: 6px; padding: 5px; }
 .a4-page .sheet-title, .a4-page .sheet-title:focus { background: transparent; border: 0; }
+.a4-page h1.sheet-title { color: var(--accent); }
 .a4-page .sheet-title:empty::before { color: #6f6559; }
 .skill-row { gap: 4px; margin-bottom: 4px; align-items: center; }
 .skill-row input { min-height: 23px; min-width: 0; font-size: 13px; }
@@ -197,9 +201,9 @@
 .checkbox-group { flex-wrap: wrap; gap: 4px 10px; }
 .checkbox-item { color: var(--ink); font-size: 12px; }
 .checkbox-item input { accent-color: var(--burgundy); }
-.suggestions-dropdown { border-color: var(--brass); background: #fffaf1; }
-.suggestion-group-title { background: #e9ddc7; color: #514028; }
-.suggestion-item:hover, .suggestion-item.selected { background: #eee3d0; }
+.suggestions-dropdown { border-color: var(--brass); background: var(--accent-faint); }
+.suggestion-group-title { background: var(--accent-soft); color: #514028; }
+.suggestion-item:hover, .suggestion-item.selected { background: var(--accent-soft); }
 
 /* Retain the Defenses and Speed section identities for saved character files. */
 .combat-band { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2mm; flex-shrink: 0; }
@@ -246,13 +250,11 @@
   height: 23mm;
   padding: 0;
 }
-.defense-crests .section-row::before {
-  content: '';
+.defense-crests .section-row > svg {
   position: absolute;
   top: 0;
   width: 15.6mm;
   height: 21.6mm;
-  background: url('/defense-crest.svg') center / 100% 100% no-repeat;
   pointer-events: none;
 }
 .defense-crests .stat-icon { display: none; }
@@ -329,17 +331,17 @@
 .variant-action-text { font-size: 14px; padding: 2px 4px; }
 .strikes-cantrips-table td { border-color: var(--rule); }
 .a4-page .add-row-btn, .a4-page .add-strikes-table-row-btn { background: var(--burgundy); }
-.a4-page .add-variant-btn { color: var(--burgundy); background: #fffaf0; border: 1px solid var(--brass); }
+.a4-page .add-variant-btn { color: var(--burgundy); background: var(--accent-faint); border: 1px solid var(--brass); }
 .a4-page button:focus-visible, .a4-page .table-toggle-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; opacity: 1; }
 .skill-row:focus-within .add-row-btn, .skill-row:focus-within .remove-row-btn,
 .strikes-cantrips-container:focus-within > .add-row-btn,
 .strikes-cantrips-container:focus-within > .remove-row-btn { opacity: 1; }
 
 /* Reference text keeps its own neutral typography, independent of field preferences. */
-.spell-description-block { margin-bottom: 6px; padding: 8px; border: 1px solid var(--brass); border-radius: 0; background: #fffcf5; }
+.spell-description-block { margin-bottom: 6px; padding: 8px; border: 1px solid var(--brass); border-radius: 0; background: var(--accent-faint); }
 .spell-description-block > div:first-child { border-bottom-color: var(--rule) !important; }
 .monster-stat-block { border-color: var(--rule); border-radius: 0; background: transparent; }
-.spell-empowerment { border-radius: 0; background: #eee2cb; color: #382e22; border: 1px solid #d6c19b; }
+.spell-empowerment { border-radius: 0; background: var(--accent-soft); color: #382e22; border: 1px solid var(--rule); }
 
 @media print {
   .main-area, .editor-canvas { background: white; }
@@ -487,8 +489,10 @@
 .traditions-grid { display: flex; align-items: start; gap: 10px; }
 .basic-traditions { display: grid; grid-template-columns: repeat(2, auto); gap: 5px 10px; }
 .basic-traditions > .traditions-heading { grid-column: 1 / -1; }
-.exclusive-traditions { display: flex; flex-direction: column; gap: 5px; padding: 0 7px 5px; background: #b8a68120; border-radius: 3px; }
+.exclusive-traditions { display: flex; flex-direction: column; gap: 5px; padding: 0 7px 5px; background: var(--accent-soft); border-radius: 3px; }
 [data-section='spells-known'] .autocomplete-wrapper[data-type='spells'],
 [data-section='spells-known'] .spell-notes,
 [data-section='spells-known'] .skill-header-row > div:nth-child(2),
 [data-section='spells-known'] .skill-header-row > div:nth-child(4) { flex: 1 1 0 !important; min-width: 0; }
+
+.page-corner { filter: var(--ornament-filter, none); }

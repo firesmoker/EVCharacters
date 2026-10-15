@@ -167,9 +167,23 @@ try {
   await page.locator('[data-sync-id="character-name"]').first().fill('A Changed Name');
   assert((await page.locator('[data-sync-id="character-name"]').allInnerTexts()).every(name => name === 'A Changed Name'));
 
+  const accentBefore = await page.locator('.a4-page').first().evaluate(el => ({ paper: getComputedStyle(el).backgroundColor, border: getComputedStyle(el).borderColor }));
+  const textBefore = await page.locator('[aria-label="Current HP"]').evaluate(el => getComputedStyle(el).color);
   await page.locator('.menu-item').filter({ hasText: /^Color/ }).hover();
   await page.locator('#color-red').click();
-  assert.equal(await page.locator('[aria-label="Current HP"]').evaluate(el => getComputedStyle(el).color), 'rgb(139, 0, 0)');
+  assert.equal(await page.locator('[aria-label="Current HP"]').evaluate(el => getComputedStyle(el).color), textBefore);
+  const accentAfter = await page.locator('.a4-page').first().evaluate(el => ({ paper: getComputedStyle(el).backgroundColor, border: getComputedStyle(el).borderColor }));
+  assert.notEqual(accentAfter.paper, accentBefore.paper);
+  assert.notEqual(accentAfter.border, accentBefore.border);
+  assert.equal((await save()).preferences.accentColor, '#8B0000');
+  const shield = await page.locator('.defense-crests .section-row').first().evaluate(el => ({
+    fill: getComputedStyle(el.querySelector('svg path:nth-child(2)')).fill,
+    label: getComputedStyle(el.querySelector('.section-label')).backgroundColor,
+    outline: getComputedStyle(el.querySelector('svg path')).stroke,
+  }));
+  assert.equal(shield.fill, shield.label, 'Shield fill matches the accent banner exactly');
+  assert.equal(shield.outline, 'rgb(139, 0, 0)');
+  assert((await page.locator('h1.sheet-title').evaluateAll(elements => elements.map(el => getComputedStyle(el).color))).every(color => color === 'rgb(139, 0, 0)'));
   await page.locator('.menu-item').filter({ hasText: /^Font/ }).hover();
   await page.locator('#font-kalam').click();
   assert((await page.locator('[aria-label="Current HP"]').evaluate(el => getComputedStyle(el).fontFamily)).includes('Kalam'));

@@ -4777,6 +4777,8 @@ Fast Action
 
 Range: 10 Units
 
+You hasten a spell's passage through time, drawing its magic toward its conclusion.
+
 Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.
 
 If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.
@@ -4809,6 +4811,8 @@ Casting time: 1 minute
 
 Range: 15 units ◆ Duration: 24 hours
 
+A thread of magic carries your words into a tiny beast's understanding.
+
 Choose a tiny beast you can see within range.
 Roll Magic against Will.
 On success, it attempts to deliver a message for you. You automatically fail if the creature is openly hostile towards you.
@@ -4829,6 +4833,8 @@ Instinct
 
 Range: Self ◆ Duration: end of current round
 
+A shimmering barrier of arcane force springs up around you.
+
 Until the end of the round, you get +2 Deflection and immune to the Magic Missile spell.
 
 Empower Spell: For each 2 additional Spell Points spent, increase the Deflection bonus by 1.
@@ -4847,6 +4853,8 @@ Range: Self ◆ Duration: 10 minutes ◆ Area: 3-unit radius
 
 Roll Magic against Will
 
+A quiet certainty settles around you, making falsehoods falter.
+
 You emanate a 3-unit-radius aura for the duration.
 When a creature first enters the aura, including any creature already inside it when the spell is cast, roll Magic against its Will.
 On success, that creature cannot tell a deliberate lie while inside the aura for the rest of the spell's duration.
@@ -4862,6 +4870,8 @@ Requirements: Level 1
 Slow Action ◆ Interruptible
 
 Range: 10 Units
+
+You lay a baleful curse upon the target, burdening body and spirit.
 
 Roll Magic against Will. On success, choose two the following modes, or one on failure:
 - The target becomes Disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
@@ -4933,6 +4943,8 @@ Fast Action
 
 Range: 8 units ◆ Duration: 1 hour
 
+Fragments of unfamiliar knowledge settle into the target's mind.
+
 Choose a creature within range. The target becomes Expert (5d6) in a standard skill of your choice for the duration.
 
 Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.
@@ -4976,6 +4988,8 @@ Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 1 hour
 
+Unfamiliar words resolve into meaning in the target's mind.
+
 Choose a willing creature within range.
 For the duration, it can understand any written and spoken language.
 This spell doesn’t provide the ability to speak or write in unknown languages.
@@ -4991,6 +5005,8 @@ Requirements: Level 1
 Fast Action
 
 Range: 10 Units
+
+A pulse of restorative magic knits wounds and eases pain.
 
 Choose a target within range. Heal them for 1 HP.
 If the target is Dying, the target becomes stabilized.
@@ -5045,6 +5061,8 @@ Instinct
 
 Range: 15 units ◆ Duration: end of current round
 
+A fleeting divine presence steadies the target against danger.
+
 Choose a creature within range. Until the end of the round they get +1 to all defenses and can't become Frightened or Discouraged.
 
 ### Eldritch Shield
@@ -5060,6 +5078,8 @@ Instinct
 Range: Self
 
 Duration: end of current round
+
+A veil of otherworldly power coils around you, lashing out at those who harm you.
 
 Until the end of the current round, you gain +1 Deflection.
 Whenever an enemy hits you with an attack against your Deflection and deals damage to you, it loses 2 HP.
@@ -5193,6 +5213,8 @@ Fast Action
 
 Range: 10 units
 
+You unleash a surge of divine force that drives the target backward.
+
 Choose a creature within range. Roll Magic against Fortitude.
 On success, force-push the target up to 3 units away from you. On failure, force-push it up to 1 unit instead.
 The target must be no more than one size larger than you.
@@ -5245,6 +5267,8 @@ Fast Action
 
 Range: 5 Units ◆ Duration: 5 minutes
 
+A subtle enchantment lends an air of credibility to words and gestures.
+
 Choose a target creature within range that you can see and that can see your face.
 Roll Magic against Will. If you succeed, any Speech skill or Performance roll against the creature made by you or your allies have advantage.
 The target is not aware of the magical effect, even if you failed on the roll.
@@ -5261,6 +5285,8 @@ Requirements: Level 5
 Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+Time quickens around the target, lending unnatural urgency to its movements.
 
 Choose a creature within range.
 For the duration, the target may commit to two Fast Actions during the Planning Phase.
@@ -5281,6 +5307,8 @@ Fast Action
 
 Range: Touch
 
+Restorative magic flows through your touch, mending the target's wounds.
+
 Heal a target for 2 HP, or 3 HP if cast with Divine magic.
 Outside of combat, heal the target to its maximum HP.
 If the target is Dying, the target becomes stabilized.
@@ -5298,6 +5326,8 @@ Requirements: Level 3
 Fast Action
 
 Range: 6 units
+
+Divine power gathers around the target, ready to surge through its next strike.
 
 Choose a creature within range.
 They get 8 Extra Dice on the next Strike they perform until the end of the next round. Its damage type can be Radiant.
@@ -5331,6 +5361,8 @@ Requirements: Level 1
 Average Action
 
 Range: 10 Units ◆ Duration: end of the next round
+
+You bind the target to a spiteful curse that feeds on its suffering.
 
 Choose a creature you can see within range. For the duration, each time the creature takes damage, they also lose 2 life.
 
@@ -5425,6 +5457,8 @@ Fast Action
 
 Range: 6 units ◆ Duration: 1 hour
 
+The target's outline fades as light slips past it.
+
 Choose a willing creature within range. The target becomes invisible for the duration.
 If it attacks or casts a spell during the duration of the spell, the spell immediately ends.
 It has advantage on the first attack it makes while invisible.
@@ -5474,6 +5508,8 @@ Requirements: Level 3
 Slow Action ◆ Interruptible
 
 Range: 8 ◆ Duration: 1 day
+
+A deep current of vitality fortifies the targets against the trials ahead.
 
 Increase the maximum HP of up to three creatures by 2 for the duration. This spell does not restore current HP.
 No more than one casting of this spell can affect the same creature at the same time.
@@ -5598,6 +5634,8 @@ Slow Action ◆ Interruptible
 
 Range: Touch ◆ Duration: Instantaneous ◆ Area: Single Object
 
+Fine threads of magic draw broken edges back together.
+
 Touch an object with a single break or tear no larger than 1 foot in any dimension.
 You repair the damaged section, leaving no trace of the former damage.
 The spell can physically repair a magic item or construct, but it cannot restore lost magical properties.
@@ -5611,6 +5649,8 @@ Cantrip
 Fast Action
 
 Range: 50 Units ◆ Duration: 10 minutes
+
+You send a whisper of thought directly into the target's mind.
 
 Choose a target within range.
 You send a telepathic message to it, and it may reply telepathically as well.
@@ -5654,6 +5694,8 @@ Arcane, Bardic, Divine, Nature, Occult
 Cantrip
 
 Instinct
+
+A fleeting shimmer of magic turns aside incoming danger.
 
 You get +1 Deflection until the end of the round.
 
@@ -5736,6 +5778,8 @@ Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 10 minutes
 
+You soothe the target's hostile impulses with a calming enchantment.
+
 Choose a creature within range.
 Roll Magic against Will.
 On success, the target is Pacified until the end of the next two rounds (a Pacified creature cannot perform offensive actions against other creatures).
@@ -5772,6 +5816,8 @@ Requirements: Level 1
 Fast Action
 
 Range: 6 units ◆ Duration: 10 minutes
+
+An unseen ward shields the target from otherworldly hostility.
 
 Choose a creature within range. For the duration, Undead, Abominations, Fiends, and Celestials have disadvantage on attacks against the target.
 
@@ -5850,6 +5896,8 @@ Fast Action
 
 Range: Touch ◆ Duration: Instantaneous
 
+Restorative magic sweeps through the target, unraveling lingering afflictions.
+
 Touch an ally and remove all negative conditions affecting them, except Exhaustion and the Paralyzed and Petrified conditions.
 
 ### Sanctuary
@@ -5863,6 +5911,8 @@ Requirements: Level 1
 Fast Action
 
 Range: 15 units ◆ Duration: end of the next two rounds.
+
+A gentle presence surrounds the target, turning hostile intent aside.
 
 Choose an ally within range or yourself. The target cannot be targeted by any enemy for the duration.
 When the target performs any action other than Dash or Defend, the spell ends.
@@ -5879,6 +5929,8 @@ Requirements: Level 1
 Slow Action ◆ Interruptible
 
 Range: 10 Units
+
+You shape fire into searing rays and send them toward your enemies.
 
 You get a pool of 4 points of Fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see.
 Roll Magic against Deflection. Targets that you've succeeded against take the Fire damage, while targets you've failed against take only half the damage, rounded down.
@@ -5897,6 +5949,8 @@ Fast Action
 
 Range: 15 units ◆ Duration: end of next two rounds
 
+A mantle of sacred protection surrounds the target.
+
 Choose a target within range. They get +2 Deflection for the duration.
 
 ### Silence
@@ -5910,6 +5964,8 @@ Requirements: Level 3
 Fast Action
 
 Range: 10 units ◆ Duration: 1 minute.
+
+An unnatural hush closes around the target, swallowing sound.
 
 Choose a creature within range.
 Roll Magic against Will. On success, the physical space of the creature cannot produce sound. It also completely blocks any outside sounds getting into it.
@@ -5931,6 +5987,8 @@ Slow Action ◆ Interruptible
 
 Range: 8 units ◆ Duration: 1 hour
 
+A dreamlike heaviness settles over the chosen area.
+
 Choose a point within range.
 Roll Magic against Will for each creature within 2 units of it. Each creature you succeed against falls asleep (if sleeping is something that it can do).
 They wake up if they take damage or if a creature uses a Fast Action to wake them up.
@@ -5946,6 +6004,8 @@ Requirements: Level 3
 Fast Action
 
 Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+You drag at the target's passage through time, making every motion laborious.
 
 Choose a creature within range.
 Roll Magic against Fortitude.
@@ -5982,6 +6042,8 @@ Fast Action
 
 Range: 30 Units ◆ Duration: 10 minutes
 
+Magic bridges the gap between your speech and the target's animal voice.
+
 Choose an animal within range. They understand your speech, and you understand theirs.
 
 ### Spike Growth
@@ -6012,6 +6074,8 @@ Requirements: Level 5
 Fast Action
 
 Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+You suspend the target in a frozen instant, untouched by the passing world.
 
 Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
 
@@ -6144,6 +6208,8 @@ Requirements: Level 3
 Fast Action
 
 Range: 10 Units ◆ Duration: until the end of the next two rounds
+
+You seal the target within a lingering moment of suspended time.
 
 Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
 

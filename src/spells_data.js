@@ -24,7 +24,9 @@ Double 6: The target becomes Weakened 2 instead.`,
     range: "15 units",
     area: "Single Target",
     duration: "24 hours",
-    description: `Choose a tiny beast you can see within range.
+    description: `A thread of magic carries your words into a tiny beast's understanding.
+
+Choose a tiny beast you can see within range.
 Roll Magic against Will.
 On success, it attempts to deliver a message for you. You automatically fail if the creature is openly hostile towards you.
 You specify a location you have visited and a recipient who matches a general description, such as "a person dressed in the uniform of the town guard" or "a red-haired dwarf wearing a pointed hat." You also communicate a message of up to twenty-five words. The Beast travels for the duration toward the specified location, covering about 25 miles per 24 hours or 50 miles if the Beast can fly.
@@ -42,7 +44,9 @@ Empower Spell: For each 2 additional Spell Points spent, increase the duration b
     range: "Self",
     area: "Self",
     duration: "end of current round",
-    description: `Until the end of the round, you get +2 Deflection and immune to the Magic Missile spell.
+    description: `A shimmering barrier of arcane force springs up around you.
+
+Until the end of the round, you get +2 Deflection and immune to the Magic Missile spell.
 
 Empower Spell: For each 2 additional Spell Points spent, increase the Deflection bonus by 1.`,
     cost: "1+"
@@ -56,7 +60,9 @@ Empower Spell: For each 2 additional Spell Points spent, increase the Deflection
     range: "Self",
     area: "3-unit radius",
     duration: "10 minutes",
-    description: `You emanate a 3-unit-radius aura for the duration.
+    description: `A quiet certainty settles around you, making falsehoods falter.
+
+You emanate a 3-unit-radius aura for the duration.
 When a creature first enters the aura, including any creature already inside it when the spell is cast, roll Magic against its Will.
 On success, that creature cannot tell a deliberate lie while inside the aura for the rest of the spell's duration.
 You know whether you succeeded against each creature. The roll occurs only once per creature for each casting.`,
@@ -71,7 +77,9 @@ You know whether you succeeded against each creature. The roll occurs only once 
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `Roll Magic against Will. On success, choose two the following modes, or one on failure:
+    description: `You lay a baleful curse upon the target, burdening body and spirit.
+
+Roll Magic against Will. On success, choose two the following modes, or one on failure:
   • The target becomes Disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
   • The target becomes Slowed 1 (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
   • The target becomes Vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
@@ -133,7 +141,9 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll.`,
     range: "8 units",
     area: "Single Target",
     duration: "1 hour",
-    description: `Choose a creature within range. The target becomes Expert (5d6) in a standard skill of your choice for the duration.
+    description: `Fragments of unfamiliar knowledge settle into the target's mind.
+
+Choose a creature within range. The target becomes Expert (5d6) in a standard skill of your choice for the duration.
 
 Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.`,
     cost: "2+"
@@ -147,7 +157,9 @@ Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.`
     range: "6 units",
     area: "Single Target",
     duration: "1 hour",
-    description: `Choose a willing creature within range.
+    description: `Unfamiliar words resolve into meaning in the target's mind.
+
+Choose a willing creature within range.
 For the duration, it can understand any written and spoken language.
 This spell doesn’t provide the ability to speak or write in unknown languages.`,
     cost: "2"
@@ -177,7 +189,9 @@ Empower Spell: For each 2 additional Spell Points spent, choose one additional t
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `Choose a target within range. Heal them for 1 HP.
+    description: `A pulse of restorative magic knits wounds and eases pain.
+
+Choose a target within range. Heal them for 1 HP.
 If the target is Dying, the target becomes stabilized.
 If you cast it using Divine tradition, heal them for 2 HP instead.
 You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
@@ -225,7 +239,9 @@ Double 6: The target is also Frightened until the end of the next round. (They c
     range: "15 units",
     area: "Single Target",
     duration: "end of current round",
-    description: `Choose a creature within range. Until the end of the round, they get +1 to all defenses and can't become Frightened or Discouraged.`,
+    description: `A fleeting divine presence steadies the target against danger.
+
+Choose a creature within range. Until the end of the round, they get +1 to all defenses and can't become Frightened or Discouraged.`,
     cost: "1"
   },
   {
@@ -237,7 +253,9 @@ Double 6: The target is also Frightened until the end of the next round. (They c
     range: "Self",
     area: "Self",
     duration: "end of current round",
-    description: `Until the end of the current round, you gain +1 Deflection.
+    description: `A veil of otherworldly power coils around you, lashing out at those who harm you.
+
+Until the end of the current round, you gain +1 Deflection.
 Whenever an enemy hits you with an attack against your Deflection and deals damage to you, it loses 2 HP.
 This retaliation counts as AoE against Hordes and Swarms, causing them to lose 6 HP instead.`,
     cost: "1"
@@ -361,7 +379,9 @@ Empower Spell: For each additional Spell Point spent, increase the initial Defle
     range: "10 units",
     area: "Single Target",
     duration: "",
-    description: `Choose a creature within range. Roll Magic against Fortitude.
+    description: `You unleash a surge of divine force that drives the target backward.
+
+Choose a creature within range. Roll Magic against Fortitude.
 On success, force-push the target up to 3 units away from you. On failure, force-push it up to 1 unit instead.
 The target must be no more than one size larger than you.
 
@@ -409,7 +429,9 @@ Empower Spell: For each additional Spell Point spent, increase the tree's HP by 
     range: "5 Units",
     area: "Single Target",
     duration: "5 minutes",
-    description: `Choose a target creature within range that you can see and that can see your face.
+    description: `A subtle enchantment lends an air of credibility to words and gestures.
+
+Choose a target creature within range that you can see and that can see your face.
 Roll Magic against Will. If you succeed, any Speech skill or Performance roll against the creature made by you or your allies have advantage.
 The target is not aware of the magical effect, even if you failed on the roll.
 They feel unexplained discomfort if the spell was cast using Occult magic, regardless of success.`,
@@ -424,7 +446,9 @@ They feel unexplained discomfort if the spell was cast using Occult magic, regar
     range: "Touch",
     area: "Single Target",
     duration: "",
-    description: `Heal a target for 2 HP, or 3 HP if cast with Divine magic.
+    description: `Restorative magic flows through your touch, mending the target's wounds.
+
+Heal a target for 2 HP, or 3 HP if cast with Divine magic.
 Outside of combat, heal the target to its maximum HP.
 If the target is Dying, the target becomes stabilized.
 
@@ -440,7 +464,9 @@ Empower Spell: For each additional Spell Point spent, increase the healing by 2 
     range: "6 units",
     area: "Single Target",
     duration: "",
-    description: `Choose a creature within range.
+    description: `Divine power gathers around the target, ready to surge through its next strike.
+
+Choose a creature within range.
 They get 8 Extra Dice on the next Strike they perform until the end of the next round. Its damage type can be Radiant.`,
     cost: "2"
   },
@@ -469,7 +495,9 @@ Empower Spell: For each additional Spell Point spent, increase Burning by 1.`,
     range: "10 Units",
     area: "Single Target",
     duration: "end of the next round",
-    description: `Choose a creature you can see within range. For the duration, each time the creature takes damage, they also lose 2 life.`,
+    description: `You bind the target to a spiteful curse that feeds on its suffering.
+
+Choose a creature you can see within range. For the duration, each time the creature takes damage, they also lose 2 life.`,
     cost: "1"
   },
   {
@@ -549,7 +577,9 @@ On failure, they are knocked Prone and lose the rest of their movement. The area
     range: "6 units",
     area: "Single Target",
     duration: "1 hour",
-    description: `Choose a willing creature within range. The target becomes invisible for the duration.
+    description: `The target's outline fades as light slips past it.
+
+Choose a willing creature within range. The target becomes invisible for the duration.
 If it attacks or casts a spell during the duration of the spell, the spell immediately ends.
 It has advantage on the first attack it makes while invisible.`,
     cost: "2"
@@ -596,7 +626,9 @@ Double 6: You become Inspired 1 (1 Extra Die on rolls) until the end of the next
     range: "8",
     area: "Single Target",
     duration: "1 day",
-    description: `Increase the maximum HP of up to three creatures by 2 for the duration. This spell does not restore current HP.
+    description: `A deep current of vitality fortifies the targets against the trials ahead.
+
+Increase the maximum HP of up to three creatures by 2 for the duration. This spell does not restore current HP.
 No more than one casting of this spell can affect the same creature at the same time.
 
 Empower Spell: For each 2 additional Spell Points spent, increase the maximum HP bonus by 1.`,
@@ -709,7 +741,9 @@ You can maintain up to three non-instantaneous effects from this cantrip at once
     range: "Touch",
     area: "Single Object",
     duration: "Instantaneous",
-    description: `Touch an object with a single break or tear no larger than 1 foot in any dimension.
+    description: `Fine threads of magic draw broken edges back together.
+
+Touch an object with a single break or tear no larger than 1 foot in any dimension.
 You repair the damaged section, leaving no trace of the former damage.
 The spell can physically repair a magic item or construct, but it cannot restore lost magical properties.`,
     cost: ""
@@ -722,7 +756,9 @@ The spell can physically repair a magic item or construct, but it cannot restore
     range: "50 Units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Choose a target within range.
+    description: `You send a whisper of thought directly into the target's mind.
+
+Choose a target within range.
 You send a telepathic message to it, and it may reply telepathically as well.
 The casting of this spell is visible unless you pass a Sneak or Sleight of hand roll. (The difficulty of the roll will be determined by the GM according to the situation).`,
     cost: ""
@@ -765,7 +801,9 @@ Physical interaction reveals an image as an illusion. A creature that spends an 
     range: "",
     area: "Self",
     duration: "",
-    description: `You get +1 Deflection until the end of the round.`,
+    description: `A fleeting shimmer of magic turns aside incoming danger.
+
+You get +1 Deflection until the end of the round.`,
     cost: ""
   },
   {
@@ -840,7 +878,9 @@ Double 6: The target becomes Decayed 2 instead.`,
     range: "6 units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Choose a creature within range.
+    description: `You soothe the target's hostile impulses with a calming enchantment.
+
+Choose a creature within range.
 Roll Magic against Will.
 On success, the target is Pacified until the end of the next two rounds. (A Pacified creature cannot perform offensive actions against other creatures.) The effect ends early if the target takes damage or is affected by an offensive action.`,
     cost: "1"
@@ -872,7 +912,9 @@ Empower Spell: For each additional Spell Point spent, increase the cloud's radiu
     range: "6 units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Choose a creature within range. For the duration, Undead, Abominations, Fiends, and Celestials have disadvantage on attacks against the target.`,
+    description: `An unseen ward shields the target from otherworldly hostility.
+
+Choose a creature within range. For the duration, Undead, Abominations, Fiends, and Celestials have disadvantage on attacks against the target.`,
     cost: "1"
   },
   {
@@ -927,7 +969,9 @@ Attacks against them get advantage, they give off 2 units of bright light, and t
     range: "Touch",
     area: "Single Target",
     duration: "Instantaneous",
-    description: `Touch an ally and remove all negative conditions affecting them, except Exhaustion and the Paralyzed and Petrified conditions.`,
+    description: `Restorative magic sweeps through the target, unraveling lingering afflictions.
+
+Touch an ally and remove all negative conditions affecting them, except Exhaustion and the Paralyzed and Petrified conditions.`,
     cost: "1"
   },
   {
@@ -939,7 +983,9 @@ Attacks against them get advantage, they give off 2 units of bright light, and t
     range: "15 units",
     area: "Single Target",
     duration: "end of the next two rounds.",
-    description: `Choose an ally within range or yourself. The target cannot be targeted by any enemy for the duration.
+    description: `A gentle presence surrounds the target, turning hostile intent aside.
+
+Choose an ally within range or yourself. The target cannot be targeted by any enemy for the duration.
 When the target performs any action other than Dash or Defend, the spell ends.
 If the target is already targeted by attacks when the spell is cast, those attacks go through but suffer 1 penalty.`,
     cost: "2"
@@ -953,7 +999,9 @@ If the target is already targeted by attacks when the spell is cast, those attac
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `You get a pool of 4 points of Fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see.
+    description: `You shape fire into searing rays and send them toward your enemies.
+
+You get a pool of 4 points of Fire damage. Distribute the damage between one, two or three rays, each targeting a different enemy you can see.
 Roll Magic against Deflection. Targets that you've succeeded against take the Fire damage, while targets you've failed against take only half the damage, rounded down.
 
 Empower Spell: For each additional Spell Point spent, add 2 Fire damage to the damage pool.`,
@@ -968,7 +1016,9 @@ Empower Spell: For each additional Spell Point spent, add 2 Fire damage to the d
     range: "15 units",
     area: "Single Target",
     duration: "end of next two rounds",
-    description: `Choose a target within range. They get +2 Deflection for the duration.`,
+    description: `A mantle of sacred protection surrounds the target.
+
+Choose a target within range. They get +2 Deflection for the duration.`,
     cost: "2"
   },
   {
@@ -980,7 +1030,9 @@ Empower Spell: For each additional Spell Point spent, add 2 Fire damage to the d
     range: "10 units",
     area: "Single Target",
     duration: "1 minute.",
-    description: `Choose a creature within range.
+    description: `An unnatural hush closes around the target, swallowing sound.
+
+Choose a creature within range.
 Roll Magic against Will. On success, the physical space of the creature cannot produce sound. It also completely blocks any outside sounds getting into it.
 The creature is immune to Thunder damage.
 It cannot cast spells that require vocal activity (all spells require this unless described otherwise.)
@@ -998,7 +1050,9 @@ Empower Spell: For each 2 additional Spell Points spent, increase the duration b
     range: "8 units",
     area: "Single Target",
     duration: "1 hour",
-    description: `Choose a point within range.
+    description: `A dreamlike heaviness settles over the chosen area.
+
+Choose a point within range.
 Roll Magic against Will for each creature within 2 units of it. Each creature you succeed against falls asleep (if sleeping is something that it can do).
 They wake up if they take damage or if a creature uses a Fast Action to wake them up.`,
     cost: "3"
@@ -1012,7 +1066,9 @@ They wake up if they take damage or if a creature uses a Fast Action to wake the
     range: "30 Units",
     area: "Single Target",
     duration: "10 minutes",
-    description: `Choose an animal within range. They understand your speech, and you understand theirs.`,
+    description: `Magic bridges the gap between your speech and the target's animal voice.
+
+Choose an animal within range. They understand your speech, and you understand theirs.`,
     cost: "1"
   },
   {
@@ -1194,7 +1250,9 @@ For the duration, it gets +2 Movement, and it can make its movement through the 
     range: "10 Units",
     area: "Single Target",
     duration: "until the end of the next two rounds",
-    description: `Choose a creature within range.
+    description: `Time quickens around the target, lending unnatural urgency to its movements.
+
+Choose a creature within range.
 For the duration, the target may commit to two Fast Actions during the Planning Phase.
 If they do, during the Action Phase, they perform one as a Fast Action and the other as an Average Action.
 For each action, the target may move immediately before or after performing it.
@@ -1239,7 +1297,9 @@ They get +2 Deflection, +1 Instinct and advantage on all rolls.`,
     range: "10 Units",
     area: "Single Target",
     duration: "until the end of the next two rounds",
-    description: `Choose a creature within range.
+    description: `You drag at the target's passage through time, making every motion laborious.
+
+Choose a creature within range.
 Roll Magic against Fortitude.
 You get 1 penalty on your roll for each size the creature is larger than Medium.
 On success, the creature movement is halved, and it gets 1 Drag on all actions.
@@ -1256,7 +1316,9 @@ If Slow and Haste affect the same creature, both spells immediately dispel each 
     range: "10 Units",
     area: "Single Target",
     duration: "until the end of the next two rounds",
-    description: `Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
+    description: `You seal the target within a lingering moment of suspended time.
+
+Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
 
 On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
 
@@ -1273,7 +1335,9 @@ If you cast this spell or the Stasis spell while this spell is active on another
     range: "10 Units",
     area: "Single Target",
     duration: "until the end of the next two rounds",
-    description: `Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
+    description: `You suspend the target in a frozen instant, untouched by the passing world.
+
+Choose a creature within range. Roll Magic against Fortitude. You get 1 penalty on your roll for each size larger than Medium.
 
 On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.
 
@@ -1291,7 +1355,9 @@ If you cast this spell or the Time Detention spell while this spell is active on
     range: "10 Units",
     area: "Single Target",
     duration: "",
-    description: `Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.
+    description: `You hasten a spell's passage through time, drawing its magic toward its conclusion.
+
+Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.
 
 If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.`,
     cost: "4"

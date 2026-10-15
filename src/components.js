@@ -461,7 +461,7 @@ export const renderSpellDescriptionBlock = (spell) => `
       </div>
       <em style="font-size: 11px; color: #666;">${spell.spellType} • ${spell.rank === 'Cantrip' ? 'Cantrip' : 'Rank ' + spell.rank}</em>
     </div>
-    <div style="font-size: 12px; color: #444; margin-bottom: 8px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.2;">
+    <div style="font-size: 13px; color: #444; margin-bottom: 8px; display: flex; gap: 2px 10px; flex-wrap: wrap; line-height: 1.2;">
       <span><strong>Speed:</strong> ${spell.actionSpeed}</span>
       <span><strong>Range:</strong> ${spell.range}</span>
       <span><strong>Area:</strong> ${spell.area}</span>

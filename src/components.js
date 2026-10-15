@@ -481,6 +481,7 @@ export const renderToolbar = () => `
   <div class="top-bar">
     <div class="menu-item">File
       <div class="dropdown-content">
+        <div id="menu-create-character">Create Character…</div>
         <div id="menu-new">New</div>
         <div class="menu-item-nested">New from Template
           <div class="nested-dropdown-content">

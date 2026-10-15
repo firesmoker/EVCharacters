@@ -710,4 +710,9 @@ initSheetTools();
 initSheetHistory(autoSave);
 initPortrait(autoSave);
 initColorPicker(autoSave);
+let creationWizard;
+document.getElementById('menu-create-character').addEventListener('click', async () => {
+  creationWizard ||= import('./creation-wizard.js').then(module => module.initCreationWizard(autoSave));
+  (await creationWizard)();
+});
 

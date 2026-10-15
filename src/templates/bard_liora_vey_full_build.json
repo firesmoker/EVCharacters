@@ -169,7 +169,7 @@
           "slots": {
             "name": "Elemental Flare",
             "rollDescription": "Roll Magic +3 against Deflection.",
-            "notes": "Choose Fire, Ice, or Lightning. Deal SD damage on success; half as much on failure, rounded down. Double 6: Fire causes Burning 1 through this round; Ice causes Chilled 2 through next round; Lightning causes Disoriented 1 through next round."
+            "notes": "Choose Fire, Ice, or Lightning. On failure, deal half damage, rounded down. Double 6: Fire causes Burning 1 through this round; Ice causes Chilled 2 through next round; Lightning causes Disoriented 1 through next round."
           },
           "tableRows": [
             {
@@ -177,7 +177,7 @@
               "speed": "Average",
               "roll": "8d6",
               "minimum": "—",
-              "damage": "SD elemental",
+              "damage": "Elemental",
               "range": "12 units",
               "doubleSix": "By element"
             }
@@ -193,7 +193,7 @@
           "slots": {
             "name": "Melee Strike",
             "rollDescription": "Roll Melee against Deflection.",
-            "notes": "Deal SD damage on success; half as much on failure, rounded down. Choose Slashing or Piercing. Minimum Roll 1; the Shortsword grants 1 Extra Die."
+            "notes": "On failure, deal half damage, rounded down."
           },
           "tableRows": [
             {
@@ -201,7 +201,7 @@
               "speed": "Fast",
               "roll": "6d6",
               "minimum": "1",
-              "damage": "SD Slashing / Piercing",
+              "damage": "Slashing / Piercing",
               "range": "1 unit",
               "doubleSix": "Disable"
             }
@@ -217,7 +217,7 @@
           "slots": {
             "name": "Thunder Wave",
             "rollDescription": "Roll Magic once against each adjacent creature’s Deflection.",
-            "notes": "On success, deal 1 Thunder damage and push 1 unit away. Push only creatures up to one size larger than you. No damage on failure. This is an area attack. Double 6 makes the push forceful: a collision with a surface deals 1 damage; a collision with a creature deals 1 damage to each."
+            "notes": "On success, push 1 unit away. Push only creatures up to one size larger than you. No damage on failure. This is an area attack. On a forceful push, a collision with a surface deals 1 damage; a collision with a creature deals 1 damage to each."
           },
           "tableRows": [
             {

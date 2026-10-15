@@ -1,4 +1,5 @@
 import { logicalSections, restoreSections, clearSectionSnapshot } from './sheet-tools.js';
+import { readPortrait, writePortrait } from './portrait.js';
 import {
   renderRowForSection,
   renderVariantActionRow,
@@ -18,6 +19,7 @@ const createStrikesCantripsTableRowElement = () => {
  */
 export const prepareSheetForData = (restoreDefaults = false) => {
   restoreSections();
+  writePortrait();
   // Clear headers and fields
   document.querySelectorAll('.editable-field').forEach(el => el.innerText = '');
   // Clear checkboxes
@@ -177,6 +179,7 @@ const scrapeDynamicRows = (box, title, data) => {
 export const serializeSheet = () => {
   const data = {
     version: 1,
+    portrait: readPortrait(),
     headers: {},
     sections: {},
     preferences: {}
@@ -257,8 +260,37 @@ export const loadFromJSON = (jsonString) => {
     return;
   }
 
+  // Preserve saved row-based Instinct abilities when opening them in the rich-text field.
+  const instincts = data.sections?.['Instinct Abilities'];
+  if (instincts && !instincts.sectionBody && instincts.dynamicRows?.length) {
+    const list = document.createElement('ul');
+    for (const row of instincts.dynamicRows) {
+      const [source = '', name = '', description = ''] = row.values || [];
+      if (!name && !description) continue;
+      const item = document.createElement('li'), title = document.createElement('strong');
+      title.textContent = `${name}:`;
+      item.append(title, ' ');
+      const cost = source.split('•').slice(1).join('•').trim();
+      if (cost) item.append(`${cost}. `);
+      description.split('\n').forEach((line, index) => {
+        if (index) item.append(document.createElement('br'));
+        item.append(line);
+      });
+      list.append(item);
+    }
+    instincts.sectionBody = list.children.length ? list.outerHTML : '';
+    instincts.dynamicRows = [];
+  }
+  const features = data.sections?.['Class Features'];
+  if (features?.sectionBody) {
+    features.sectionBody = features.sectionBody
+      .replace('During Planning, choose a phrase not yet used this combat.', 'During the Beginning Phase, choose a phrase not yet used this combat.')
+      .replace('During the Planning Phase of each round, select a musical phrase', 'During the Beginning Phase of each round, select a musical phrase');
+  }
+
   // Clear existing sheet
   prepareSheetForData(false);
+  writePortrait(data.portrait);
 
   // 0. Preferences
   if (data.preferences) {
@@ -354,7 +386,10 @@ export const loadFromJSON = (jsonString) => {
 
             if (rowData.type === 'skill') {
               const inputs = newRow.querySelectorAll('input, textarea');
-              rowData.values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
+              rowData.values.forEach((val, i) => {
+                if (!inputs[i]) return;
+                inputs[i].value = val;
+              });
             } else if (rowData.type === 'action') {
               const slots = rowData.slots || {};
               newRow.querySelectorAll('.strikes-cantrips-slot-value').forEach(field => {

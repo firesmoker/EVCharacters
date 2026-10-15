@@ -23,6 +23,25 @@ try {
   for (const file of readdirSync(templatesDir).filter(name => name.endsWith('.json'))) {
     const template = JSON.parse(readFileSync(`${templatesDir}/${file}`, 'utf8'));
     await load(template);
+    const wrongColumns = await page.locator('.continuation-page .section-box').evaluateAll(boxes => {
+      const left = ['combat-skills', 'standard-skills', 'equipment-proficiencies', 'instinct-abilities', 'languages', 'death', 'equipment', 'items'];
+      const right = ['strikes-damaging-cantrips', 'species-features', 'class-features', 'feats'];
+      return boxes.filter(box => {
+        const column = box.closest('.sheet-column');
+        const index = [...column.parentElement.children].indexOf(column);
+        return (left.includes(box.dataset.section) && index !== 0) || (right.includes(box.dataset.section) && index !== 1);
+      }).map(box => box.dataset.section);
+    });
+    assert.deepEqual(wrongColumns, [], `${file}: continuation keeps its original column`);
+    assert(await page.locator('.a4-page').nth(1).evaluate(el => el.classList.contains('actions-page')), 'Actions remain the second physical page');
+    assert.equal(await page.locator('.actions-page .sheet-column').first().locator('[data-section="instinct-abilities"]').count(), 1);
+    assert.equal(await page.locator('.actions-page .sheet-column').last().locator('[data-section="strikes-damaging-cantrips"]').count(), 1);
+    const beforeReflow = await save();
+    await page.evaluate(async () => {
+      const { paginateSheets } = await import('/src/sheet-tools.js');
+      for (let i = 0; i < 5; i++) paginateSheets();
+    });
+    assert.deepEqual(await save(), beforeReflow, `${file}: repeated pagination preserves content`);
     const saved = await save();
     assert.deepEqual(saved.headers, template.headers, `${file}: headers`);
     for (const [title, section] of Object.entries(template.sections)) {
@@ -52,6 +71,13 @@ try {
     assert.deepEqual(overflow, [], `${file}: A4 overflow`);
     await load(saved);
     assert.deepEqual(await save(), saved, `${file}: save/load stability`);
+    if (file === 'bard_liora_vey_full_build.json') {
+      await page.evaluate(async () => localStorage.setItem('ev-char-sheet', (await import('/src/io.js')).serializeSheet()));
+      await page.reload();
+      await page.evaluate(() => document.fonts.ready);
+      assert.equal((await save()).sections['Class Features'].sectionBody, template.sections['Class Features'].sectionBody, 'All Bard features survive autosave/reload after pagination');
+    }
+
   }
 
   const fixture = JSON.parse(readFileSync(`${templatesDir}/wizard.json`, 'utf8'));
@@ -95,9 +121,10 @@ try {
   await crest.fill('3');
   assert.equal(await page.locator('[data-section="equipment-proficiencies"] .drags-ignored .skill-row').count(), 4, 'Drag entries appear under equipment proficiencies');
   assert.deepEqual((await save()).sections.Speed.dynamicRows, fixture.sections.Speed.dynamicRows, 'Moved Drag entries preserve saved values');
-  assert.deepEqual((await save()).sections['Instinct Abilities'].dynamicRows, fixture.sections['Instinct Abilities'].dynamicRows, 'Multiline Instinct text persists');
-  const instinct = page.locator('.instinct-description').first();
-  assert(await instinct.evaluate(el => el.scrollHeight <= el.clientHeight + 2), 'Instinct description is not clipped');
+  assert.equal((await save()).sections['Instinct Abilities'].sectionBody, '<ul><li><strong>Minor Ward:</strong> Gain +1 Deflection until the end of the round.<br>Use when an incoming attack would otherwise succeed.</li></ul>', 'Saved Instinct rows convert to rich text without a source');
+  const instinct = page.locator('[data-section="instinct-abilities"] .section-content').first();
+  assert.equal(await instinct.evaluate(el => getComputedStyle(el).fontSize), '13px');
+  assert.equal(await page.locator('[data-section="class-features"] .section-content').first().evaluate(el => getComputedStyle(el).fontSize), '13px');
   assert(await page.locator('[data-section="combat-skills"] .skill-icon use').count() > 0, 'Combat skills have icons');
   assert.equal((await save()).sections['Strikes & Damaging Cantrips'].dynamicRows[0].tableRows[0].minimum, '3');
   assert.equal(await page.locator('[data-spell-point-mirror="temp"]').innerText(), '1');

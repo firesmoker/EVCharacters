@@ -1,3 +1,5 @@
+import { initSheetHistory } from './sheet-history.js';
+import { initPortrait } from './portrait.js';
 import './style.css'
 import './sheet-theme.css'
 import { updateSkillIcon } from './skill-icons.js';
@@ -64,7 +66,7 @@ const updateSpellDescriptions = () => {
     pageDiv.className = 'a4-page spell-page spell-page-dynamic';
     pageDiv.innerHTML = `
         ${renderHeader()}
-        <main class="sheet-middle" style="grid-template-columns: 1fr 1fr;">
+        <main class="sheet-middle" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
           <section class="sheet-column spell-descriptions-container" style="gap: 1px;"></section>
           <section class="sheet-column spell-descriptions-container" style="gap: 1px;"></section>
         </main>
@@ -190,13 +192,8 @@ updateSpellDescriptions();
 updateAllStrikesCantripsTableRowControls();
 
 let devMode = false;
-const resizeInstinctDescription = field => {
-  field.style.height = 'auto';
-  field.style.height = `${field.scrollHeight + 2}px`;
-};
 const updateSkillPresentation = () => {
   document.querySelectorAll('.skill-row').forEach(updateSkillIcon);
-  document.querySelectorAll('.instinct-description').forEach(resizeInstinctDescription);
 };
 const spellPointFields = () => document.querySelector('[data-section="spellcasting"] .stat-split');
 const syncSpellPointSummary = () => {
@@ -270,7 +267,6 @@ const isAutocompleteInput = (el) => el.tagName === 'INPUT' && (el.classList.cont
  * Global Input Handler
  */
 const handleInput = (e) => {
-  if (e.target.matches('.instinct-description')) resizeInstinctDescription(e.target);
   if (e.target.matches('input.skill-name')) updateSkillIcon(e.target.closest('.skill-row'));
   // Contenteditable cleanup
   if (e.target.classList.contains('editable-field')) {
@@ -678,4 +674,6 @@ document.querySelectorAll('.editable-field').forEach(el => {
 });
 
 initSheetTools();
+initSheetHistory(autoSave);
+initPortrait(autoSave);
 

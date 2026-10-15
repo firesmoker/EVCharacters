@@ -145,29 +145,23 @@ export function paginateSheets() {
           page.innerHTML = `${renderHeader()}<main class="sheet-middle">${columns.map(() => '<section class="sheet-column"></section>').join('')}</main>`;
           page.querySelector('.sheet-middle').style.gridTemplateColumns = getComputedStyle(root.querySelector('.sheet-middle')).gridTemplateColumns;
           page.querySelector('[data-sync-id="character-name"]').textContent = document.querySelector('[data-sync-id="character-name"]').textContent;
-          pages.at(-1).after(page); pages.push(page);
+          const anchor = pages.length === 1 && root.classList.contains('character-page')
+            ? document.querySelector('.actions-page') : pages.at(-1);
+          anchor.after(page); pages.push(page);
         }
         return pages[index];
       };
-      let overflowPage = 1, overflowColumn = 0;
       columns.forEach((column, columnIndex) => {
-        let index = 0, lane = columnIndex;
-        const advance = () => {
-          if (index === 0) { index = overflowPage; lane = overflowColumn; }
-          else if (++lane === columns.length) { lane = 0; index++; }
-          overflowPage = index; overflowColumn = lane;
-        };
+        let index = 0;
+        const advance = () => { index++; };
         for (const group of groups.filter(g => g.column === column)) {
           let box = group.parts[0];
           let guard = 0;
           while (box && guard++ < 200) {
             let page = continuation(index);
-            let destination = page.querySelector('.sheet-middle').children[lane];
+            let destination = page.querySelector('.sheet-middle').children[columnIndex];
             destination.append(box);
             const fits = () => {
-              for (const field of box.querySelectorAll('.instinct-description')) {
-                field.style.height = 'auto'; field.style.height = `${field.scrollHeight + 2}px`;
-              }
               return box.getBoundingClientRect().bottom <= page.getBoundingClientRect().bottom - 36;
             };
             if (fits()) break;

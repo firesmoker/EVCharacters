@@ -1698,7 +1698,7 @@ You have advantage on Performance rolls for musical performances.
 
 During combat, you perform an arcane song using your voice, your instrument, or both. The song is comprised of musical phases, each with its own unique effect. The song doesn't require using any action.
 
-During the Planning Phase of each round, select a musical phrase that has not been used during this encounter. Some phrases require specific prerequisites to activate. The song affects all creatures within a 6-unit radius centered on you during the Beginning Phase; movement after this moment does not change who is affected for the remainder of that round. As you level up, you unlock more phrases.
+During the Beginning Phase of each round, select a musical phrase that has not been used during this encounter. Some phrases require specific prerequisites to activate. The song affects all creatures within a 6-unit radius centered on you during the Beginning Phase; movement after this moment does not change who is affected for the remainder of that round. As you level up, you unlock more phrases.
 
 ##### Known Musical Phrases:
 

@@ -82,24 +82,6 @@ export const renderSpellRow = () => `
   </div>
 `
 
-/**
- * Renders a row for the Instinct Abilities section.
- */
-export const renderInstinctAbilityRow = () => `
-  <div class="skill-row instinct-entry">
-    <div style="flex: 0 0 20mm;">
-      <input type="text" class="instinct-input" placeholder="Source" style="width: 100%;">
-    </div>
-    <div style="flex: 0 0 25mm;">
-      <input type="text" class="instinct-input" placeholder="Ability" style="width: 100%;">
-    </div>
-    <div style="flex: 1 1 auto;">
-      <textarea class="instinct-input instinct-description" placeholder="Description" aria-label="Instinct description" rows="2" style="width: 100%;"></textarea>
-    </div>
-    <button class="remove-row-btn" title="Remove Row">-</button>
-    <button class="add-row-btn" title="Add Row">+</button>
-  </div>
-`
 
 export const renderHeaderField = (label, placeholder, flex = 1) => {
   const syncId = label.toLowerCase().replace(/[^a-z0-9]/g, '-');
@@ -136,10 +118,6 @@ export const renderSpellsKnownSection = () => `
   </div>
 `
 
-// Content for the Instinct Abilities section with headings
-export const renderInstinctAbilitiesSection = () => `
-  <div class="dynamic-rows">${renderInstinctAbilityRow()}</div>
-`
 
 // Content for the structured Spellcasting section
 export const renderSpellcastingSection = () => `
@@ -287,6 +265,13 @@ export const renderHeader = (showDetails = false) => `
   <span class="page-corner bottom-left" aria-hidden="true"></span>
   <span class="page-corner bottom-right" aria-hidden="true"></span>
   <header class="sheet-header">
+    ${showDetails ? `<label class="portrait-toggle"><input type="checkbox" id="portrait-enabled"> Portrait</label>
+    <label class="portrait-frame" for="portrait-upload" tabindex="0" role="button" aria-label="Upload character portrait" hidden>
+      <img alt="Character portrait" hidden>
+      <span class="portrait-placeholder">Upload image</span>
+    </label>
+    <button class="portrait-crop-button" type="button" hidden>Adjust crop</button>
+    <input type="file" id="portrait-upload" accept="image/png,image/jpeg,image/webp,image/gif" hidden>` : ''}
     <div class="sheet-identity">
       <h1 class="editable-field sheet-title" contenteditable="true" data-placeholder="Character Name" data-sync-id="character-name"></h1>
       <div class="sheet-wordmark" aria-hidden="true">Eternal Valor</div>
@@ -492,7 +477,7 @@ export const renderToolbar = () => `
       </div>
     </div>
     <input type="file" id="file-input" style="display: none;" accept=".json">
-    <div class="menu-item">Edit<div class="dropdown-content"><div>Undo</div><div>Redo</div></div></div>
+    <div class="menu-item">Edit<div class="dropdown-content"><div data-history-action="undo">Undo</div><div data-history-action="redo">Redo</div></div></div>
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
     <div class="menu-item">Font<div class="dropdown-content"><div id="font-pt-sans">PT Sans (Default)</div><div id="font-kalam">Kalam (Handwritten)</div><div id="font-inter">Inter (Modern)</div><div id="font-crimson">Crimson Pro (Serif)</div><div id="font-gentium">Gentium Plus (Classic)</div></div></div>
     <div class="menu-item">Color<div class="dropdown-content"><div id="color-navy">Navy Blue</div><div id="color-black">Black</div><div id="color-red">Dark Red</div><div id="color-green">Dark Green</div><div id="color-purple">Purple</div></div></div>
@@ -530,8 +515,20 @@ export const renderApp = () => {
             </section>
             
             <section class="sheet-column">
+              ${renderSection('Species Features', '')}
+              ${renderSection('Class Features', '')}
+            </section>
+          </main>
+        </div>
+
+        <div class="a4-page actions-page">
+          ${renderHeader()}
+          <main class="sheet-middle">
+            <section class="sheet-column">
+              ${renderSection('Instinct Abilities', '')}
+            </section>
+            <section class="sheet-column">
               ${renderSection('Strikes & Damaging Cantrips', `<div class="dynamic-rows">${renderStrikesDamagingCantripsBlock()}</div>`, { isStructured: true, isDynamic: true })}
-              ${renderSection('Instinct Abilities', renderInstinctAbilitiesSection(), { isStructured: true, isDynamic: true })}
             </section>
           </main>
         </div>
@@ -548,8 +545,6 @@ export const renderApp = () => {
             </section>
             
             <section class="sheet-column">
-              ${renderSection('Species Features', '')}
-              ${renderSection('Class Features', '')}
               ${renderSection('Feats', '')}
             </section>
           </main>
@@ -569,7 +564,7 @@ export const renderApp = () => {
         <div class="a4-page spell-page hidden">
           ${renderHeader()}
           
-          <main class="sheet-middle" style="grid-template-columns: 1fr 1fr;">
+          <main class="sheet-middle" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
             <section class="sheet-column spell-descriptions-container" id="spells-col-1" style="gap: 1px;">
             </section>
             
@@ -593,8 +588,7 @@ export const renderRowForSection = (title) => {
     'Speed': () => renderDragsIgnoredRow(),
     'Equipment Proficiencies': () => renderDragsIgnoredRow(),
     'Strikes & Damaging Cantrips': () => renderStrikesDamagingCantripsBlock(),
-    'Spells Known': () => renderSpellRow(),
-    'Instinct Abilities': () => renderInstinctAbilityRow()
+    'Spells Known': () => renderSpellRow()
   };
   return templates[title] ? templates[title]() : null;
 };

@@ -397,6 +397,9 @@ const escapeStatText = (value) => String(value).replace(/[&<>"']/g, char => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
 }[char]));
 
+const renderMonsterEntries = (entries = [], bullets = false) => entries.length ? entries.map(entry => `
+  <li class="monster-stat-entry">${bullets ? '<span class="monster-stat-bullet" aria-hidden="true">•</span>' : ''}<span class="monster-stat-entry-content"><span class="monster-stat-entry-header"><strong>${escapeStatText(entry.name)}</strong>${entry.speed ? ` <span class="monster-stat-speed">${escapeStatText(entry.speed)}</span>` : ''}${entry.detail ? '' : '.'}</span>${entry.detail ? `<span class="monster-stat-entry-detail">${escapeStatText(entry.detail)}</span>` : ''}${entry.description ? ` <span class="monster-stat-entry-description">${escapeStatText(entry.description)}</span>` : ''}</span></li>`).join('') : '<li class="monster-stat-empty">None.</li>';
+
 export const renderMonsterStatBlock = (monster) => {
   if (!monster) return '';
   const stats = [['HP', monster.hp], ['DEF', monster.deflection ?? 1], ['FOR', monster.fortitude ?? 1],
@@ -406,13 +409,25 @@ export const renderMonsterStatBlock = (monster) => {
     <div class="monster-stat-heading"><strong>${escapeStatText(monster.name)}</strong>
       <span>${[monster.type, monster.size].filter(Boolean).map(escapeStatText).join(' • ')}</span></div>
     <dl class="monster-stat-values">${stats.map(([label, value]) => `<div><dt>${label}</dt><dd>${escapeStatText(value)}</dd></div>`).join('')}</dl>
-    <div class="monster-stat-actions">${escapeStatText(monster.actions)}</div>
+    <section class="monster-stat-section">
+      <h4>Traits</h4>
+      <ul class="monster-stat-traits">${renderMonsterEntries(monster.traits)}</ul>
+    </section>
+    <section class="monster-stat-section">
+      <h4>Actions</h4>
+      <ul class="monster-stat-actions">${renderMonsterEntries(monster.actions, true)}</ul>
+    </section>
   </section>`;
 };
 
 /**
  * Renders a detailed spell block for the reference page.
  */
+const renderSpellText = (description) => description.replace(
+  /(^|\n+)(Empower(?:ed)? Spell:)([\s\S]*?)(?=\n[ \t]*\n|$)/g,
+  (_, prefix, label, text) => `<div class="spell-empowerment"><strong>${label}</strong>${text}</div>`
+).replace(/\n/g, '<span class="spell-paragraph-break"></span>');
+
 export const renderSpellDescriptionBlock = (spell) => `
   <div class="spell-description-block" style="margin-bottom: 6px; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff;">
     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px;">
@@ -430,7 +445,7 @@ export const renderSpellDescriptionBlock = (spell) => `
       ${spell.requirements ? `<span><strong>Requirements:</strong> ${spell.requirements}</span>` : ''}
       ${spell.rank !== 'Cantrip' ? `<span><strong>Cost:</strong> ${spell.cost}</span>` : ''}
     </div>
-    <div style="font-size: 12px; line-height: 1.3; white-space: pre-wrap; background-color: #f7f7f7; padding: 6px; border-radius: 4px;" class="editable-field spell-description-text">${spell.description}</div>
+    <div class="spell-description-text">${renderSpellText(spell.description)}</div>
     ${(spell.summons || []).map(name => renderMonsterStatBlock(MONSTERS_DATABASE.find(monster => monster.name === name))).join('')}
   </div>
 `

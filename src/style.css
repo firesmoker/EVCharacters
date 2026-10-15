@@ -1744,16 +1744,112 @@ textarea::placeholder {
   margin: 0;
 }
 
-.monster-stat-actions {
-  white-space: pre-line;
+.monster-stat-section + .monster-stat-section {
+  margin-top: 8px;
+}
+
+.monster-stat-section h4 {
+  margin: 0 0 4px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.monster-stat-actions,
+.monster-stat-traits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   overflow-wrap: anywhere;
 }
 
+.monster-stat-actions {
+  list-style: none;
+}
+
+.monster-stat-entry {
+  display: list-item;
+  padding: 3px 0;
+  break-inside: avoid;
+}
+
+.monster-stat-actions .monster-stat-entry {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr);
+  column-gap: 4px;
+}
+
+.monster-stat-bullet {
+  color: #222;
+  padding-left: 1px;
+}
+
+.monster-stat-entry-content {
+  min-width: 0;
+}
+
+.monster-stat-entry-header strong {
+  color: #222;
+}
+
+.monster-stat-entry-detail {
+  display: block;
+  font-size: inherit;
+  font-weight: normal;
+  color: #555;
+}
+
+.monster-stat-speed {
+  display: inline-block;
+  padding: 0 4px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  color: #222;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.monster-stat-entry-description {
+  color: #222;
+  white-space: pre-line;
+}
+
+.monster-stat-empty {
+  color: #666;
+  font-style: italic;
+}
+
 /* Spell description bullets should render tightly */
+.spell-description-text {
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #222;
+  white-space: pre-wrap;
+}
+
 .spell-description-text ul {
   list-style: none;
   padding-left: 0.9em;
   margin: 0.2em 0;
+}
+
+.spell-paragraph-break {
+  display: block;
+  height: 4px;
+}
+
+.spell-empowerment {
+  margin-top: 6px;
+  padding: 6px;
+  border-radius: 4px;
+  background-color: #f3f3f3;
 }
 
 .spell-description-text li {

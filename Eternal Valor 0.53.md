@@ -4791,8 +4791,9 @@ Average Action
 Range: 6 Units
 
 Spray acid at a creature you can see within range.
+The target becomes Weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round.
 Roll Magic +2 against Deflection.
-On success, deal SD Acid damage, and the target becomes Weakened 1 (-1 Fortitude and a penalty of 1 on rolls) until the end of the next round. On failure, deal half as much damage, rounded down.
+On success, deal SD Acid damage. On failure, deal half as much damage, rounded down.
 
 **Double 6:** The target becomes Weakened 2 instead.
 
@@ -4863,10 +4864,10 @@ Slow Action ◆ Interruptible
 Range: 10 Units
 
 Roll Magic against Will. On success, choose two the following modes, or one on failure:
-- They become Disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
-- They become Slowed 1 (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
-- They become Vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
-- They become Discouraged 2 (they deal -2 damage) until the end of the next 2 rounds.
+- The target becomes Disoriented 2 (-2 penalty on all rolls) until the end of the next 2 rounds.
+- The target becomes Slowed 1 (+1 Drag to all actions, -1 Movement) until the end of the next 2 rounds.
+- The target becomes Vulnerable 2 (-2 to all defenses) until the end of the next 2 rounds.
+- The target becomes Discouraged 2 (they deal -2 damage) until the end of the next 2 rounds.
 
 **Double 6:** Choose an additional mode.
 
@@ -4932,7 +4933,7 @@ Fast Action
 
 Range: 8 units ◆ Duration: 1 hour
 
-Choose a creature within range. It becomes Expert (5d6) in a standard skill of your choice for the duration.
+Choose a creature within range. The target becomes Expert (5d6) in a standard skill of your choice for the duration.
 
 Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.
 
@@ -4992,7 +4993,7 @@ Fast Action
 Range: 10 Units
 
 Choose a target within range. Heal them for 1 HP.
-If the target is Dying, it becomes stabilized.
+If the target is Dying, the target becomes stabilized.
 If you cast it using Divine tradition, heal them for 2 HP instead.
 You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
 
@@ -5025,9 +5026,10 @@ Average Action
 
 Range: 8 Units
 
-Roll Magic +2 against Will.
 You channel psychic disturbance into the mind of a creature you can see within range.
-The target becomes Disoriented (-1 penalty on all rolls) until the end of the next round. On success, the target takes SD Psychic damage, or half as much on failure, rounded down.
+The target becomes Disoriented (-1 penalty on all rolls) until the end of the next round.
+Roll Magic +2 against Will.
+On success, deal SD Psychic damage. On failure, deal half as much damage, rounded down.
 
 **Double 6:** The target is also Frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
 
@@ -5077,9 +5079,9 @@ Roll Magic +3 against Deflection.
 On success, deal SD damage of the chosen type, or half as much on failure, rounded down.
 
 **Double 6:** Depending on the damage type, the target also:
-- Fire: becomes Burning 1 until the end of the round (receive 1 Fire damage at the end of the round)
-- Lightning: they become Disoriented 1 (-1 to all rolls) until the end of the next round
-- Ice: they become Chilled 2 (-2 Movement) until the end of the next round
+- Fire: the target becomes Burning 1 until the end of the round (receive 1 Fire damage at the end of the round)
+- Lightning: the target becomes Disoriented 1 (-1 to all rolls) until the end of the next round
+- Ice: the target becomes Chilled 2 (-2 Movement) until the end of the next round
 
 ### Elemental Pulse
 
@@ -5159,7 +5161,7 @@ A large spike of ice bursts from the ground, piercing through a creature you can
 Roll Magic +8 against Deflection (Minimum Roll of 6).
 On success, deal SD Ice or Piercing damage, or half as much on failure, rounded down.
 
-**Double 6:** The creature is Slowed 1 (-1 Movement, 1 Drag for all actions) until the end of the next round.
+**Double 6:** The target becomes Slowed 1 (-1 Movement, 1 Drag for all actions) until the end of the next round.
 
 Empower Spell: For each additional Spell Point spent, add +2 to the roll.
 
@@ -5281,7 +5283,7 @@ Range: Touch
 
 Heal a target for 2 HP, or 3 HP if cast with Divine magic.
 Outside of combat, heal the target to its maximum HP.
-If the target is Dying, it becomes stabilized.
+If the target is Dying, the target becomes stabilized.
 
 Empower Spell: For each additional Spell Point spent, increase the healing by 2 HP.
 
@@ -5423,7 +5425,7 @@ Fast Action
 
 Range: 6 units ◆ Duration: 1 hour
 
-Choose a willing creature within range. It becomes invisible for the duration.
+Choose a willing creature within range. The target becomes invisible for the duration.
 If it attacks or casts a spell during the duration of the spell, the spell immediately ends.
 It has advantage on the first attack it makes while invisible.
 
@@ -5491,7 +5493,7 @@ Range: 15 Units
 Create up to two stationary floating balls of light or make one item or limb Luminous.
 The light provides 6 units of bright light and further 6 units of dim light.
 You may try to make an item or a limb of an enemy Luminous.
-Roll Magic against Deflection. On success, it becomes Luminous, and if the enemy is invisible, it doesn’t get any of the benefits.
+Roll Magic against Deflection. On success, the target becomes Luminous, and if the enemy is invisible, it doesn’t get any of the benefits.
 The spell ends when you are unconscious, when you cast this spell again, or when you dismiss it.
 If cast on an enemy, it ends after an hour.
 
@@ -5528,7 +5530,7 @@ Range: 10 ◆ Duration: 10 minutes
 
 Choose a creature you can see within range.
 Roll Magic against Deflection or Fortitude, whichever is higher.
-On success, coils of lightning tie the legs of the creature. They become Restrained. At the end of each round, they take 3 Lightning damage and roll Acrobatics or Athletics against Threshold 3.
+On success, coils of lightning tie the legs of the creature. The target becomes Restrained. At the end of each round, they take 3 Lightning damage and roll Acrobatics or Athletics against Threshold 3.
 On success, they break free of the coils. This threshold is reduced after each failed roll.
 
 Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll.
@@ -5624,9 +5626,9 @@ Average Action
 Range: 8 Units
 
 Blast the mind of a creature you can see within range with psychic energy.
-Roll Magic against Will.
-On success, deal SD Psychic damage; on failure, deal half as much damage, rounded down.
 The target becomes Vulnerable 1 (-1 to all defenses) until the end of the next round.
+Roll Magic against Will.
+On success, deal SD Psychic damage. On failure, deal half as much damage, rounded down.
 
 **Double 6:** The target also becomes Disoriented 1 (-1 penalty on all rolls) until the end of the next round.
 
@@ -5716,10 +5718,11 @@ Average Action
 Range: 10 Units
 
 Launch a dark bolt of necrotic energy at an enemy.
+The target becomes Decayed 1 (at the end of each round, it takes 1 Necrotic damage) until the end of the next round.
 Roll Magic +2 against Deflection.
-On success, deal SD Necrotic damage, and it becomes Decayed 1 (at the end of each round, it takes 1 Necrotic damage) until the end of the next round. On failure, deal half as much damage, rounded down.
+On success, deal SD Necrotic damage. On failure, deal half as much damage, rounded down.
 
-**Double 6:** The creature becomes Decayed 2 instead.
+**Double 6:** The target becomes Decayed 2 instead.
 
 ### Pacify
 
@@ -5797,8 +5800,9 @@ Average Action
 Range: 10 Units
 
 Launch a beam of divine energy at an enemy. If you are a Cleric, you may choose to change the damage type from Radiant to the one associated with your domain.
+The target becomes Discouraged 1 until the end of the next round.
 Roll Magic against Deflection.
-On success, deal SD Radiant damage and they become Discouraged 1 until the end of the next round. On failure, deal half as much damage, rounded down.
+On success, deal SD Radiant damage. On failure, deal half as much damage, rounded down.
 
 **Double 6:** The target gets disadvantage on the next attack it makes against you or your allies.
 
@@ -6106,8 +6110,10 @@ Fast Action
 
 Range: Touch
 
-You release thunderous energy from your hand into a nearby enemy. Melee Spell Attack. Roll Magic +2 against Deflection.
-On success, deal SD Thunder damage and push them 2 units away from you. On failure, deal half as much damage, rounded down.
+You release thunderous energy from your hand into a nearby enemy.
+Push the target 2 units away from you.
+Roll Magic +2 against Deflection.
+On success, deal SD Thunder damage. On failure, deal half as much damage, rounded down.
 
 **Double 6:** The push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage)
 
@@ -6155,10 +6161,11 @@ Fast Action
 
 Range: Touch
 
-Melee Spell Attack.
-Roll Magic against Deflection.
+
 Channel dark energy into an adjacent enemy.
-Deal SD Necrotic damage, and they can’t be healed until the end of the next round. On failure, you deal half damage instead (rounded down). The target also becomes Decayed 1 until the end of the next round (at the end of each round, they take 1 Necrotic damage)
+Until the end of the next round, the target cannot be healed and becomes Decayed 1 (at the end of each round, it takes 1 Necrotic damage).
+Roll Magic against Deflection.
+On success, deal SD Necrotic damage. On failure, deal half as much damage, rounded down.
 
 **Double 6:** The target also becomes Vulnerable 1 (-1 to all defenses) until the end of the next round.
 
@@ -6176,7 +6183,7 @@ Range: 10 units ◆ Duration: 10 minutes
 
 Choose a creature in range that you can see. Vines latch to it.
 Roll Magic +2 against Deflection or Fortitude (whichever is higher).
-On success, it is Restrained and Prone.
+On success, the target becomes Restrained and Prone.
 At the end of each round, it rolls Athletics or Acrobatics against threshold 3.
 On success, it breaks loose and the spell ends. The threshold is reduced by 1 after each failed roll.
 
@@ -6189,11 +6196,11 @@ Average Action
 
 Range: 5 Units
 
-Ranged Spell Attack
-Roll Magic against Deflection.
+
 Launch a thorny vine at an enemy you can see within range.
-Deal SD Piercing damage, and push or pull it 1 unit to any direction. On failure, you deal half damage instead (rounded down).
-You may only push or pull the target if it’s up to one size larger than you.
+Push or pull the target 1 unit in any direction. You may only push or pull it if it is no more than one size larger than you.
+Roll Magic against Deflection.
+On success, deal SD Piercing damage. On failure, deal half as much damage, rounded down.
 
 **Double 6:** Push or pull for 2 units instead of 1, and the push is forceful (if they are pushed into a surface, they receive 1 damage. If they are pushed into a creature, they both receive 1 damage).
 

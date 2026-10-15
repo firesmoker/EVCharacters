@@ -80,7 +80,32 @@ test('spell formatting uses canonical empowerment labels and real bullet lists',
   }
 });
 
+test('damage spell riders are unconditional and precede the damage roll', () => {
+  const riders = {
+    'Acid Spray': 'The target becomes Weakened 1',
+    'Dissonant Whispers': 'The target becomes Disoriented',
+    'Mind Blast': 'The target becomes Vulnerable 1',
+    'Necrotic Bolt': 'The target becomes Decayed 1',
+    'Radiant Beam': 'The target becomes Discouraged 1',
+    'Thunder Fist': 'Push the target 2 units',
+    'Touch of Decay': 'the target cannot be healed and becomes Decayed 1',
+    'Vine Whip': 'Push or pull the target 1 unit'
+  };
+  for (const [name, rider] of Object.entries(riders)) {
+    const {description} = SPELLS_DATABASE.find(spell => spell.name === name);
+    assert(description.indexOf(rider) >= 0, name);
+    assert(description.indexOf(rider) < description.indexOf('Roll Magic'), name);
+    assert(description.includes('On failure, deal half as much damage, rounded down.'), name);
+  }
+  assert(SPELLS_DATABASE.find(spell => spell.name === 'Leech').description.includes('don’t heal'));
+  assert(SPELLS_DATABASE.find(spell => spell.name === 'Life Drain').description.includes('halve both the damage and healing'));
+});
+
 test('traits and actions render in separate labeled sections', () => {
+  for (const spell of SPELLS_DATABASE) {
+    assert(!/\b(?:ranged|melee) spell attack\b/i.test(spell.description), spell.name);
+    assert(!/\b(?:it|they|the creature) becomes\b/i.test(spell.description), spell.name);
+  }
   for (const creature of MONSTERS_DATABASE) {
     const html = renderMonsterStatBlock(creature);
     assert.equal((html.match(/<h4>Traits<\/h4>/g) || []).length, 1);

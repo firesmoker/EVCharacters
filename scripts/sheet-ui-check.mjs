@@ -23,16 +23,7 @@ try {
   for (const file of readdirSync(templatesDir).filter(name => name.endsWith('.json'))) {
     const template = JSON.parse(readFileSync(`${templatesDir}/${file}`, 'utf8'));
     await load(template);
-    const wrongColumns = await page.locator('.continuation-page .section-box').evaluateAll(boxes => {
-      const left = ['combat-skills', 'standard-skills', 'equipment-proficiencies', 'instinct-abilities', 'languages', 'death', 'equipment', 'items'];
-      const right = ['strikes-damaging-cantrips', 'species-features', 'class-features', 'feats'];
-      return boxes.filter(box => {
-        const column = box.closest('.sheet-column');
-        const index = [...column.parentElement.children].indexOf(column);
-        return (left.includes(box.dataset.section) && index !== 0) || (right.includes(box.dataset.section) && index !== 1);
-      }).map(box => box.dataset.section);
-    });
-    assert.deepEqual(wrongColumns, [], `${file}: continuation keeps its original column`);
+    assert.equal(await page.locator('.continuation-page').count(), 0, 'No continuation pages');
     assert(await page.locator('.a4-page').nth(1).evaluate(el => el.classList.contains('actions-page')), 'Actions remain the second physical page');
     assert.equal(await page.locator('.actions-page .sheet-column').first().locator('[data-section="instinct-abilities"]').count(), 1);
     assert.equal(await page.locator('.actions-page .sheet-column').last().locator('[data-section="strikes-damaging-cantrips"]').count(), 1);
@@ -115,7 +106,7 @@ try {
   const sprite = readFileSync(fileURLToPath(new URL('../public/icons/skills.svg', import.meta.url)), 'utf8');
   for (const href of skillIcons) assert(sprite.includes(`id="${href.split('#')[1]}"`), `Missing icon: ${href}`);
   const crest = page.locator('.defense-crests .editable-field').first();
-  await crest.fill('12');
+  await crest.fill('22');
   assert(await crest.evaluate(el => el.scrollWidth <= el.clientWidth + 1), 'Two-digit defense fits its field');
   assert.equal(await crest.evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(255, 255, 255)', 'Focused editable field stays white');
   await crest.fill('3');
@@ -202,14 +193,15 @@ try {
   await load(fixture);
   const longText = Array.from({ length: 90 }, (_, i) => `Feature ${i + 1}: This long character description must remain visible and editable.`).join('\n');
   await page.locator('[data-section="class-features"] .section-content').first().fill(longText);
-  await page.waitForFunction(() => document.querySelectorAll('.section-continuation[data-section="class-features"]').length > 0);
-  assert(await page.locator('.continuation-page').count() > 0);
+  await page.waitForFunction(() => document.querySelector('[data-section="class-features"]').closest('.sheet-column').hasAttribute('data-auto-fit'));
+  assert.equal(await page.locator('.continuation-page').count(), 0);
+  assert(await page.locator('[data-section="class-features"] .section-content').evaluate(el => parseFloat(getComputedStyle(el).fontSize) < 13), 'Long text automatically shrinks');
   assert.equal((await save()).sections['Class Features'].sectionBody.includes('Feature 90'), true);
   assert(await page.locator('[data-section="class-features"] .section-content').first().evaluate(el => el.scrollHeight <= el.clientHeight + 2), 'Long text is not clipped');
   const longSaved = await save();
   await load(longSaved);
   assert.deepEqual(await save(), longSaved, 'Paginated long text round-trips exactly');
-  const continuationField = page.locator('.section-continuation[data-section="class-features"] .section-content').last();
+  const continuationField = page.locator('[data-section="class-features"] .section-content').last();
   await continuationField.press('ControlOrMeta+End');
   await continuationField.pressSequentially(' Continuation edit.');
   assert((await save()).sections['Class Features'].sectionBody.includes('Continuation edit.'), 'Continuation remains editable and saves');
@@ -218,6 +210,10 @@ try {
   const heights = await page.locator('.a4-page:not(.hidden)').evaluateAll(pages => pages.map(p => p.getBoundingClientRect().height));
   assert(heights.every(h => Math.abs(h - 1122.52) < 2), 'Every page is exactly A4 height');
   if (process.env.EV_UI_STRESS_PDF) await page.pdf({ path: process.env.EV_UI_STRESS_PDF, format: 'A4', printBackground: true });
+  await page.emulateMedia({ media: 'screen' });
+  await continuationField.fill('A short feature.');
+  await page.waitForFunction(() => !document.querySelector('[data-section="class-features"]').closest('.sheet-column').hasAttribute('data-auto-fit'));
+  assert.equal(await continuationField.evaluate(el => getComputedStyle(el).fontSize), '13px', 'Text returns to normal size when space is available');
   assert.deepEqual(errors, []);
   console.log('All templates round-trip without data loss or A4 overflow. Editing, autocomplete, row/variant controls, resource sync, preferences, autosave, and print checks passed.');
 } finally {

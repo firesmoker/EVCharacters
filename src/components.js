@@ -292,12 +292,16 @@ export const renderHeader = (showDetails = false) => `
 // These edit the Spellcasting section's existing fields; they are not a second saved resource.
 export const renderSpellPointSummary = () => `
   <div class="spell-point-summary">
+    <div>
     <span class="resource-label">Spell Points</span>
     <div class="resource-values">
       <span class="editable-field" contenteditable="true" data-spell-point-mirror="cur" data-placeholder="Cur" aria-label="Current Spell Points"></span>
       <span aria-hidden="true">/</span>
       <span class="editable-field" contenteditable="true" data-spell-point-mirror="max" data-placeholder="Max" aria-label="Maximum Spell Points"></span>
-      <span class="temp-sp-label">Temp SP</span>
+    </div>
+    </div>
+    <div class="temp-sp-group">
+      <span class="resource-label">Temp SP</span>
       <span class="editable-field" contenteditable="true" data-spell-point-mirror="temp" data-placeholder="—" aria-label="Temporary Spell Points"></span>
     </div>
   </div>

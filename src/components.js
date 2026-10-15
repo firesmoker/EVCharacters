@@ -424,9 +424,12 @@ export const renderMonsterStatBlock = (monster) => {
  * Renders a detailed spell block for the reference page.
  */
 const renderSpellText = (description) => description.replace(
-  /(^|\n+)(Empower(?:ed)? Spell:)([\s\S]*?)(?=\n[ \t]*\n|$)/g,
+  /(^|\n+)(Empower Spell:)([\s\S]*?)(?=\n[ \t]*\n|$)/g,
   (_, prefix, label, text) => `<div class="spell-empowerment"><strong>${label}</strong>${text}</div>`
-).replace(/\n/g, '<span class="spell-paragraph-break"></span>');
+).replace(/(^|\n)(Double 6:)/g, '$1<strong>$2</strong>')
+  .replace(/(^[ \t]*•[^\n]*(?:\n|$))+/gm, list => '<ul>' + list.trimEnd().split('\n')
+    .map(line => `<li>${escapeStatText(line.replace(/^[ \t]*•[ \t]*/, ''))}</li>`).join('') + '</ul>\n')
+  .replace(/\n/g, '<span class="spell-paragraph-break"></span>');
 
 export const renderSpellDescriptionBlock = (spell) => `
   <div class="spell-description-block" style="margin-bottom: 6px; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff;">

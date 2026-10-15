@@ -36,10 +36,48 @@ test('empowerment gets a shaded section with a bold label', () => {
     assert.equal((html.match(/class="spell-empowerment"/g) || []).length, labels.length, spell.name);
   }
   const animal = renderSpellDescriptionBlock(SPELLS_DATABASE.find(spell => spell.name === 'Animal Messenger'));
-  assert(animal.includes('<strong>Empowered Spell:</strong>'));
+  assert(animal.includes('<strong>Empower Spell:</strong>'));
   const scythe = renderSpellDescriptionBlock(SPELLS_DATABASE.find(spell => spell.name === 'Ice Scythe'));
   assert(scythe.includes('<strong>Empower Spell:</strong>'));
-  assert.match(scythe, /spell-empowerment[\s\S]*?<\/div>(?:<span class="spell-paragraph-break"><\/span>)*Double 6:/);
+  assert(scythe.indexOf('<strong>Double 6:</strong>') < scythe.indexOf('class="spell-empowerment"'));
+});
+
+test('spell Double 6 effects are labeled once, at the end before empowerment', () => {
+  const spells = SPELLS_DATABASE.filter(spell => /Double 6:/.test(spell.description));
+  assert.equal(spells.length, 16);
+  for (const spell of spells) {
+    assert.equal((spell.description.match(/Double 6:/g) || []).length, 1, spell.name);
+    assert(!/If you roll(?:ed)? (?:a )?double (?:six|6)/i.test(spell.description), spell.name);
+    assert.equal((renderSpellDescriptionBlock(spell).match(/<strong>Double 6:<\/strong>/g) || []).length, 1, spell.name);
+    const effect = spell.description.split('Double 6:')[1];
+    assert(!/\n\n(?!Empower(?:ed)? Spell:)/.test(effect), spell.name);
+  }
+  const flare = spells.find(spell => spell.name === 'Elemental Flare');
+  for (const type of ['Fire', 'Lightning', 'Ice']) assert(flare.description.includes('• ' + type + ':'));
+  const scythe = spells.find(spell => spell.name === 'Ice Scythe');
+  assert(!scythe.description.includes('Its Double 6 effect'));
+});
+
+test('spell formatting uses canonical empowerment labels and real bullet lists', () => {
+  for (const spell of SPELLS_DATABASE) {
+    assert(!/Empowered Spell:/i.test(spell.description), spell.name);
+    const bullets = spell.description.match(/^[ \t]*•/gm) || [];
+    if (bullets.length) {
+      const html = renderSpellDescriptionBlock(spell);
+      assert.equal((html.match(/<li>/g) || []).length, bullets.length, spell.name);
+      assert(!html.split('<div class="spell-description-text">')[1].includes('• '), spell.name);
+    }
+  }
+  const aura = SPELLS_DATABASE.find(spell => spell.name === 'Aura of Truth');
+  assert(aura.description.includes('\nWhen a creature first enters'));
+  assert(aura.description.includes('\nOn success,'));
+  const empowered = SPELLS_DATABASE.filter(spell => spell.description.includes('Empower Spell:'));
+  assert.equal(empowered.length, 27);
+  for (const spell of empowered) {
+    const text = spell.description.split('Empower Spell:')[1];
+    assert(!/\bextra\b(?! Dice)|\bSP\b|^ For every/i.test(text), spell.name);
+    assert(/^(?: For each (?:2 )?additional Spell Points? spent,| Spend 2 additional Spell Points)/.test(text), spell.name);
+  }
 });
 
 test('traits and actions render in separate labeled sections', () => {

@@ -1835,8 +1835,8 @@ textarea::placeholder {
 }
 
 .spell-description-text ul {
-  list-style: none;
-  padding-left: 0.9em;
+  list-style: disc outside;
+  padding-left: 1.5em;
   margin: 0.2em 0;
 }
 
@@ -1853,16 +1853,8 @@ textarea::placeholder {
 }
 
 .spell-description-text li {
-  position: relative;
   margin-bottom: 0.12em;
-  padding-left: 0.85em;
-}
-
-.spell-description-text li::before {
-  content: "\2022";
-  position: absolute;
-  left: 0;
-  top: 0;
+  padding-left: 0;
 }
 
 

@@ -2,6 +2,7 @@ import { logicalSections, restoreSections, clearSectionSnapshot } from './sheet-
 import { readPortrait, writePortrait } from './portrait.js';
 import { applyAccent, DEFAULT_ACCENT } from './accent.js';
 import { setSectionSize, isFixedSize } from './section-format.js';
+import { tidyCharacterContent } from './sheet-content.js';
 import {
   renderRowForSection,
   renderVariantActionRow,
@@ -54,6 +55,11 @@ export const prepareSheetForData = (restoreDefaults = false) => {
   });
   if (restoreDefaults) {
     setSectionSize('fixed');
+    const languages = document.querySelector('[data-section="languages"] .section-content');
+    if (languages) languages.innerHTML = '<p>Common</p>';
+    document.querySelectorAll('[data-section="speed"] .section-row').forEach(row => {
+      if (row.querySelector('.section-label')?.textContent.trim() === 'Instinct:') row.querySelector('[contenteditable]').textContent = '1';
+    });
     document.querySelectorAll('[data-section="combat-skills"] input[placeholder="Skill"]').forEach((input, i) => {
       input.value = ['Magic', 'Melee', 'Ranged', 'Unarmed'][i];
     });
@@ -297,6 +303,7 @@ export const loadFromJSON = (jsonString) => {
       .replace('During the Planning Phase of each round, select a musical phrase', 'During the Beginning Phase of each round, select a musical phrase');
   }
 
+  tidyCharacterContent(data);
   // Clear existing sheet
   prepareSheetForData(false);
   writePortrait(data.portrait);

@@ -1,6 +1,7 @@
 import DATA from './creation-data.json';
 import { SKILLS_LIST } from './data.js';
 import { SPELLS_DATABASE } from './spells_data.js';
+import { tidyCharacterContent } from './sheet-content.js';
 
 export { DATA };
 export const standardSkills = SKILLS_LIST.flatMap(g => g.options);
@@ -41,7 +42,7 @@ export function progression(s) {
     return fallback;
   }
   const hp = value('HP', +c.HP + Math.floor(s.level / 2), s.level > 1);
-  const instinct = value('Instinct', +(c['Starting Instinct'] || 0) + (s.level >= 3 ? 1 : 0) + (s.level >= 7 ? 1 : 0), !c['Starting Instinct'] || s.level > 1);
+  const instinct = Math.max(1, value('Instinct', 1 + (s.level >= 7 ? 1 : 0), s.level > 1));
   const growth = s.level - (s.subclass === 'Witchblade' ? 3 : 1);
   return {
     hp: s.level === 1 ? +c.HP : hp,
@@ -101,6 +102,14 @@ export function skillPlan(s) {
   }
   for (const g of groups) for (const choice of s.choices[g.id] || []) if (g.options.includes(choice)) grant(choice, g.dice);
   return { fixed, base, groups };
+}
+
+export function skillChoiceWarning(s, groupId, index) {
+  const name = s.choices[groupId]?.[index];
+  if (!name) return '';
+  const otherChoices = { ...s.choices, [groupId]: s.choices[groupId].filter((_, i) => i !== index) };
+  const existing = skillPlan({ ...s, choices: otherChoices }).fixed[name];
+  return existing ? `${name} is already granted elsewhere at ${existing}d6. Only the highest training applies; these grants do not stack.` : '';
 }
 
 export function eligibleFeat(feat, s) {
@@ -255,7 +264,8 @@ export function buildCharacter(s) {
   const chosenFeats = DATA.feats.filter(f => s.feats.includes(f.Feat));
   sections.Feats.sectionBody = chosenFeats.map(f => `<p><strong>${escapeHTML(f.Feat)}:</strong> ${escapeHTML(f['Effect / Rules']).replace(/\n/g, '<br>')}</p>`).join('');
   sections.Languages.sectionBody = p([race.Languages.includes('choice') ? '' : race.Languages, s.languages, ...(s.choices['feat-languages'] || [])].filter(Boolean).join('; '));
-  sections.Equipment.sectionBody = p([equip.armor, equip.shield, ...weaponNames].filter(Boolean).join('; ')) + p(equip.rules) + (armor ? p(armor.Modifiers) : '');
+  const utility = equip.rules.match(/Utility: (.*)/)?.[1];
+  sections.Equipment.sectionBody = p([equip.armor, equip.shield, ...weaponNames, utility].filter(Boolean).join('; ')) + (armor ? p(armor.Modifiers) : '');
   sections.Spellcasting.fields = { 'Summon Slots': String(stats.summons) };
   sections.Spellcasting.splitFields['Spell Points'] = { cur: String(stats.points), max: String(stats.points), temp: '0' };
   sections.Spellcasting.checkboxes = Object.fromEntries(stats.traditions.map(t => [t, true]));
@@ -273,17 +283,17 @@ export function buildCharacter(s) {
       if (inInstinct && /^• /.test(line)) instinct.push(line.slice(2));
     }
     for (const block of text.split(/\n(?=Level \d+:)|\n\n/)) {
-      if (!block.includes('• ') && /Instinct [Aa]bilit|spend (?:1|one) Instinct/.test(block)) instinct.push(block.replace(/^Level \d+: /, '').replace(/\n/, ': ').replace(/\n/g, ' '));
+      if (!block.includes('• ') && /Instinct [Aa]bilit|spend (?:1|one) Instinct/.test(block)) instinct.push(block.replace(/^You gain the following Instinct abilit(?:y|ies):\s*/i, '').replace(/^Level \d+: /, '').replace(/\n/, ': ').replace(/\n/g, ' '));
     }
   }
   for (const trait of speciesText.split('\n')) if (/Instinct Ability:/.test(trait)) instinct.push(trait.replace(/^Level \d+ — /, '').replace(', Instinct Ability:', ':'));
-  for (const name of spells.keys()) { const sp = SPELLS_DATABASE.find(x => x.name === name); if (/Instinct/i.test((sp?.actionSpeed || '') + (sp?.description || ''))) instinct.push(`${name}: ${sp.description}`); }
+  for (const name of spells.keys()) { const sp = SPELLS_DATABASE.find(x => x.name === name); if (/Instinct/i.test(sp?.actionSpeed || '')) instinct.push(`${name}: See spell description.`); }
   sections['Instinct Abilities'].sectionBody = `<ul>${[...new Set(instinct)].map(t => { const i = t.indexOf(':'); return `<li>${i < 0 ? escapeHTML(t) : `<strong>${escapeHTML(t.slice(0, i))}:</strong>${escapeHTML(t.slice(i + 1))}`}</li>`; }).join('')}</ul>`;
   sections['Strikes & Damaging Cantrips'].dynamicRows = weaponNames.map(name => {
     const w = DATA.weapons.find(x => x.Weapon === name); if (!w) return null;
     const ranged = /Ranged/.test(w.Category), skill = s.className === 'Cleric' && !ranged && !w['Other Properties'].includes('Two Handed') ? 'Magic' : ranged ? 'Ranged' : 'Melee';
     const activeDrags = names(w['Drag Properties']).filter(d => !(d === 'Heavy' && drags.includes('Heavy Weapons')) && !(d === 'Ranged' && drags.includes('Ranged Weapons')));
-    return { type: 'action', slots: { name: `${skill} Strike`, rollDescription: `Roll ${skill} against Deflection.`, notes: 'On failure, deal half damage, rounded down.' }, tableRows: [{ weapon: name, speed: ['Fast', 'Average', 'Slow'][Math.min(2, activeDrags.length)], roll: `${(skills[skill] || 3) + Number(w['Extra Dice'] || 0)}d6`, minimum: w['Minimum Roll'], damage: w['Damage Type'], range: ranged ? `${w['Effective Range']} / ${w['Maximum Range']}` : w['Other Properties'].includes('Reach') ? '2' : '1', doubleSix: w['Double 6'] }], variants: [], ui: { variantsHidden: true, weaponColumnHidden: false } };
+    return { type: 'action', slots: { name: `${skill} Strike`, rollDescription: `Roll ${skill} against Deflection.`, notes: `On success, deal SD ${w['Damage Type'].replace(/\s*\/\s*/g, ' or ')} damage. On failure, deal half damage, rounded down.` }, tableRows: [{ weapon: name, speed: ['Fast', 'Average', 'Slow'][Math.min(2, activeDrags.length)], roll: `${(skills[skill] || 3) + Number(w['Extra Dice'] || 0)}d6`, minimum: w['Minimum Roll'], damage: w['Damage Type'], range: ranged ? `${w['Effective Range']} / ${w['Maximum Range']}` : w['Other Properties'].includes('Reach') ? '2' : '1', doubleSix: w['Double 6'] }], variants: [], ui: { variantsHidden: true, weaponColumnHidden: false } };
   }).filter(Boolean);
   for (const name of spells.keys()) {
     const sp = SPELLS_DATABASE.find(x => x.name === name);
@@ -298,5 +308,5 @@ export function buildCharacter(s) {
   if (stats.placeholders.length) sections['Additional Features'].sectionBody += p(`Provisional progression: ${stats.placeholders.join(', ')}. These are placeholder values, pending finalized class progression.`);
   // Preserve large builds rather than dropping skills to meet the fixed row limit.
   const mode = sections['Standard Skills'].dynamicRows.length > 11 || sections['Strikes & Damaging Cantrips'].dynamicRows.length > 5 ? 'auto' : 'fixed';
-  return { version: 1, headers: { 'character-name': s.name.trim(), 'player-name': s.player.trim(), class: s.className, subclass: s.subclass, species: s.species, level: String(s.level), experience: '0' }, sections, preferences: { sectionSize: mode }, creation: { ...s, source: DATA.source } };
+  return tidyCharacterContent({ version: 1, headers: { 'character-name': s.name.trim(), 'player-name': s.player.trim(), class: s.className, subclass: s.subclass, species: s.species, level: String(s.level), experience: '0' }, sections, preferences: { sectionSize: mode }, creation: { ...s, source: DATA.source } });
 }

@@ -444,7 +444,7 @@ export const renderMonsterStatBlock = (monster) => {
 /**
  * Renders a detailed spell block for the reference page.
  */
-const renderSpellText = (description) => description.replace(
+const renderSpellText = (description) => description.trim().replace(/\n[ \t]*\n+/g, '\n').replace(
   /(^|\n+)(Empower Spell:)([\s\S]*?)(?=\n[ \t]*\n|$)/g,
   (_, prefix, label, text) => `<div class="spell-empowerment"><strong>${label}</strong>${text}</div>`
 ).replace(/(^|\n)(Double 6:)/g, '$1<strong>$2</strong>')

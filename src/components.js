@@ -70,13 +70,14 @@ export const renderDragsIgnoredRow = () => `
  */
 export const renderSpellRow = () => `
   <div class="skill-row">
-    <div class="autocomplete-wrapper" style="flex: 0 0 12mm;">
+    <div class="autocomplete-wrapper" style="flex: 0 0 19mm;">
         <input type="text" class="skill-bonus" placeholder="Rank" style="width: 100%; text-align: center;">
     </div>
     ${renderAutocomplete("Spell Name", "spells", "skill-name")}
     <div class="autocomplete-wrapper" style="flex: 0 0 15mm;">
         <input type="text" class="skill-bonus" placeholder="Cost" style="width: 100%; text-align: center;">
     </div>
+    <div class="autocomplete-wrapper spell-notes"><input type="text" class="skill-name" placeholder="Notes" aria-label="Spell notes"></div>
     <button class="remove-row-btn" title="Remove Row">-</button>
     <button class="add-row-btn" title="Add Row">+</button>
   </div>
@@ -109,9 +110,10 @@ export const renderSectionRow = (label, placeholder, icon = null) => `
 // Content for the Spells Known section with headings
 export const renderSpellsKnownSection = () => `
   <div class="skill-header-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
-    <div style="flex: 0 0 12mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Rank</div>
+    <div style="flex: 0 0 19mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Rank</div>
     <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Spell Name</div>
     <div style="flex: 0 0 15mm; text-align: center; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif;">Cost</div>
+    <div style="flex: 1 1 0; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Notes</div>
   </div>
   <div class="dynamic-rows">
     ${renderSpellRow()}
@@ -130,20 +132,30 @@ export const renderSpellcastingSection = () => `
           <span class="editable-field section-row-editable" contenteditable="true" data-split-part="cur" data-placeholder="Cur" style="min-width: 25px; text-align: right;"></span>
           <span class="stat-slash">/</span>
           <span class="editable-field section-row-editable" contenteditable="true" data-split-part="max" data-placeholder="Max" style="min-width: 25px;"></span>
-          <span class="editable-field section-row-editable" contenteditable="true" data-split-part="temp" data-placeholder="Temp" style="min-width: 25px;"></span>
+          <span class="temp-sp-caption">Temporary Spell Points:</span>
+          <span class="editable-field section-row-editable" contenteditable="true" data-split-part="temp" data-placeholder="Temp" aria-label="Temporary Spell Points" style="min-width: 25px;"></span>
         </div>
       </div>
       ${renderSectionRow('Spells Known', '0')}
       ${renderSectionRow('Cantrips Known', '0')}
       ${renderSectionRow('Summon Slots', '0')}
     </div>
-    <div style="flex: 0 0 auto; display: flex; flex-direction: column; gap: 4px; padding-left: 10px; border-left: 1px solid #ccc;">
+    <div class="traditions-panel">
+      <div class="traditions-grid">
+      <div class="basic-traditions">
+      <div class="traditions-heading">Traditions</div>
       <label class="checkbox-item"><input type="checkbox"> Arcane</label>
       <label class="checkbox-item"><input type="checkbox"> Bardic</label>
       <label class="checkbox-item"><input type="checkbox"> Divine</label>
       <label class="checkbox-item"><input type="checkbox"> Nature</label>
       <label class="checkbox-item"><input type="checkbox"> Occult</label>
+      </div>
+      <div class="exclusive-traditions">
+      <div class="traditions-heading">Exclusive</div>
       <label class="checkbox-item"><input type="checkbox"> Chrono</label>
+      <label class="checkbox-item"><input type="checkbox"> Necromancy</label>
+      </div>
+      </div>
     </div>
   </div>
 `
@@ -368,7 +380,7 @@ export const renderStrikesDamagingCantripsBlock = () => `
             <th>Weapon</th>
             <th>Speed</th>
             <th>Roll</th>
-            <th>Minimum</th>
+            <th>Min.</th>
             <th>Damage</th>
             <th>Range</th>
             <th>Double Six</th>
@@ -483,6 +495,7 @@ export const renderToolbar = () => `
     <input type="file" id="file-input" style="display: none;" accept=".json">
     <div class="menu-item">Edit<div class="dropdown-content"><div data-history-action="undo">Undo</div><div data-history-action="redo">Redo</div></div></div>
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
+    <div class="menu-item">Format<div class="dropdown-content"><div role="menuitemradio" data-section-size="auto">Auto size sections</div><div role="menuitemradio" data-section-size="fixed">Fixed size sections</div></div></div>
     <div class="menu-item">Font<div class="dropdown-content"><div id="font-pt-sans">PT Sans (Default)</div><div id="font-kalam">Kalam (Handwritten)</div><div id="font-inter">Inter (Modern)</div><div id="font-crimson">Crimson Pro (Serif)</div><div id="font-gentium">Gentium Plus (Classic)</div></div></div>
     <div class="menu-item">Color<div class="dropdown-content"><div id="color-navy">Navy Blue</div><div id="color-black">Black</div><div id="color-red">Dark Red</div><div id="color-green">Dark Green</div><div id="color-purple">Purple</div></div></div>
   </div>
@@ -549,6 +562,7 @@ export const renderApp = () => {
             </section>
             
             <section class="sheet-column">
+              ${renderSection('Additional Features', '')}
               ${renderSection('Feats', '')}
             </section>
           </main>

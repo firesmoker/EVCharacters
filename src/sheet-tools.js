@@ -1,3 +1,5 @@
+import { isFixedSize, fixedSections, compactSections } from './section-format.js';
+import { renderSpellRow } from './components.js';
 let roots = [];
 let busy = false;
 let queued = false;
@@ -19,8 +21,41 @@ export function paginateSheets() {
     for (const page of roots) {
       const bottom = page.getBoundingClientRect().bottom - 36;
       for (const column of page.querySelector('.sheet-middle').children) {
+        column.querySelectorAll('[data-auto-fit]').forEach(el => { el.removeAttribute('data-auto-fit'); el.style.removeProperty('--fit-scale'); });
+        for (const box of column.children) box.style.removeProperty('height');
         column.removeAttribute('data-auto-fit');
         column.style.removeProperty('--fit-scale');
+        if (isFixedSize()) {
+          const boxes = [...column.children];
+          const titles = boxes.map(box => box.querySelector('.section-header')?.textContent.trim());
+          const weights = titles.map(title => compactSections[title] ? 0 : fixedSections[title] || 1);
+          const total = weights.reduce((a, b) => a + b, 0);
+          const available = bottom - column.getBoundingClientRect().top - parseFloat(getComputedStyle(column).gap || 0) * (boxes.length - 1);
+          const reserved = titles.reduce((sum, title) => sum + (compactSections[title] || 0), 0);
+          boxes.forEach((box, index) => {
+            box.style.height = `${compactSections[titles[index]] || (available - reserved) * weights[index] / total}px`;
+            box.setAttribute('data-auto-fit', '');
+            const fits = () => box.scrollHeight <= box.clientHeight + 1 && [...box.querySelectorAll('.section-content')].every(content => content.scrollHeight <= content.clientHeight + 1);
+            box.style.setProperty('--fit-scale', 1);
+            if (titles[index] === 'Spells Known') {
+              const list = box.querySelector('.dynamic-rows');
+              const content = box.querySelector('.section-content');
+              const capacity = Math.max(1, Math.floor((content.getBoundingClientRect().bottom - parseFloat(getComputedStyle(content).paddingBottom) - list.getBoundingClientRect().top) / 27));
+              while (list.children.length > capacity && ![...list.lastElementChild.querySelectorAll('input')].some(input => input.value.trim())) list.lastElementChild.remove();
+              while (list.children.length < capacity) list.insertAdjacentHTML('beforeend', renderSpellRow());
+            }
+            if (!fits()) {
+              let low = .001, high = 1;
+              for (let i = 0; i < 12; i++) {
+                const mid = (low + high) / 2;
+                box.style.setProperty('--fit-scale', mid);
+                if (fits()) low = mid; else high = mid;
+              }
+              box.style.setProperty('--fit-scale', low);
+            }
+          });
+          continue;
+        }
         const fits = () => [...column.children].every(box => box.getBoundingClientRect().bottom <= bottom);
         if (!fits()) {
           column.setAttribute('data-auto-fit', '');

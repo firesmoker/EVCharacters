@@ -1,4 +1,5 @@
 import { initSheetHistory } from './sheet-history.js';
+import { setSectionSize, isFixedSize } from './section-format.js';
 import { initPortrait } from './portrait.js';
 import './style.css'
 import './sheet-theme.css'
@@ -213,6 +214,9 @@ const savedData = localStorage.getItem('ev-char-sheet');
 if (savedData) {
   loadFromJSON(savedData);
   // No need for explicit call here as loadFromJSON now dispatches 'sheet-loaded'
+} else {
+  prepareSheetForData(true);
+  updateSkillPresentation();
 }
 
 // Auto-Save Logic
@@ -308,6 +312,14 @@ const handleInput = (e) => {
  * Global Click Handler
  */
 const handleClick = (e) => {
+  if (e.target.dataset.sectionSize) {
+    document.dispatchEvent(new CustomEvent('sheet-edit-start'));
+    setSectionSize(e.target.dataset.sectionSize);
+    document.dispatchEvent(new CustomEvent('sheet-edit-end'));
+    autoSave();
+    return;
+  }
+  if (isFixedSize() && e.target.matches('.add-row-btn, .remove-row-btn, .add-strikes-table-row-btn, .remove-strikes-table-row-btn, .add-variant-btn, .remove-variant-btn')) return;
   // Suggestion Item Click
   const suggestionItem = e.target.closest('.suggestion-item');
   if (suggestionItem) {
@@ -327,7 +339,7 @@ const handleClick = (e) => {
           const rankInput = spellRow.querySelector('input[placeholder="Rank"]');
           const costInput = spellRow.querySelector('input[placeholder="Cost"]');
           const isCantrip = spell.rank === 'Cantrip';
-          if (rankInput) rankInput.value = isCantrip ? 'Cntrp' : spell.rank;
+          if (rankInput) rankInput.value = isCantrip ? 'Cantrip' : spell.rank;
           if (costInput) costInput.value = isCantrip ? '-' : spell.cost;
         }
       }

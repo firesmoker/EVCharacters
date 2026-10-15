@@ -385,7 +385,7 @@
 .strikes-cantrips-slots-table th, .strikes-cantrips-slots-table td { border: 1px solid var(--rule); }
 .strikes-cantrips-slots-table td { vertical-align: top; background: white; }
 .strikes-cantrips-slots-table td .editable-field { border: 0; font-size: 13px; min-height: 26px; }
-.strikes-cantrips-table-line { padding-top: 0; --col-speed: 54px; --col-roll: 9%; --col-minimum: 60px; --col-damage: 17%; --col-range: 12%; --col-double-six: 17%; }
+.strikes-cantrips-table-line { padding-top: 0; --col-speed: 54px; --col-roll: 9%; --col-minimum: 36px; --col-damage: 17%; --col-range: 12%; --col-double-six: 17%; }
 .strikes-cantrips-container:last-child { margin-bottom: 0; }
 [data-section='equipment-proficiencies'] .section-subsection-label { font-size: 13px; }
 [data-section='death'] .section-container { grid-template-columns: minmax(0, 1fr) 86px; }
@@ -454,14 +454,41 @@
 
 .temp-sp-group .editable-field { display: block; min-width: 0; font-size: 17px; line-height: 1.3; text-align: center; }
 .sheet-column[data-auto-fit] .section-box { min-height: 0 !important; }
-.sheet-column[data-auto-fit] .section-content,
-.sheet-column[data-auto-fit] .section-content * {
+[data-auto-fit] .section-content,
+[data-auto-fit] .section-content * {
   font-size: calc(13px * var(--fit-scale)) !important;
   line-height: 1.35 !important;
   min-height: 0 !important;
 }
-.sheet-column[data-auto-fit] .section-content p,
-.sheet-column[data-auto-fit] .section-content li { margin-block: calc(2px * var(--fit-scale)); }
-.sheet-column[data-auto-fit] .section-content input,
-.sheet-column[data-auto-fit] .section-content .editable-field { padding-block: calc(2px * var(--fit-scale)) !important; }
+[data-auto-fit] .section-content p,
+[data-auto-fit] .section-content li { margin-block: calc(2px * var(--fit-scale)); }
+[data-auto-fit] .section-content input,
+[data-auto-fit] .section-content .editable-field { padding-block: calc(2px * var(--fit-scale)) !important; }
 .combat-band .speed-stats .editable-field, .spell-point-summary .editable-field, .health-panel .stat-split .editable-field { height: 23px; min-height: 23px; box-sizing: border-box; }
+[data-section-size='fixed'] .sheet-middle .section-box { box-sizing: border-box; min-height: 0 !important; flex: none; }
+[data-section-size='fixed'] .add-row-btn,
+[data-section-size='fixed'] .remove-row-btn,
+[data-section-size='fixed'] .add-strikes-table-row-btn,
+[data-section-size='fixed'] .remove-strikes-table-row-btn,
+[data-section-size='fixed'] .add-variant-btn,
+[data-section-size='fixed'] .remove-variant-btn { display: none !important; }
+.dropdown-content [aria-checked='true']::after { content: ' ✓'; }
+.dropdown-content [data-section-size] { white-space: nowrap; }
+[data-section-size='fixed'] .details-page [data-section='death'] { order: -2; }
+[data-section-size='fixed'] .details-page [data-section='languages'] { order: -1; }
+[data-section-size='fixed'] [data-section='languages'] > .section-content { white-space: nowrap; margin: 2px 6px; padding: 2px 5px; }
+[data-section-size='fixed'] [data-section='spellcasting'] .stat-icon { display: none; }
+[data-section-size='fixed'] [data-section='spellcasting'] .section-row { display: grid; grid-template-columns: 115px minmax(0, 1fr); gap: 6px; }
+[data-section-size='fixed'] [data-section='spellcasting'] .section-row > .section-label { margin: 0; }
+[data-section-size='fixed'] [data-section='spells-known'] .skill-row { height: 26px; min-height: 26px; box-sizing: border-box; margin-bottom: 1px; }
+[data-section='spellcasting'] .temp-sp-caption { margin-left: 10px; white-space: nowrap; font-family: 'Crimson Pro', serif; font-size: var(--field-label-size); }
+.traditions-panel { flex: 0 0 auto; padding-left: 10px; border-left: 1px solid var(--rule); }
+.traditions-heading { font-family: 'Crimson Pro', serif; font-weight: bold; margin-bottom: 4px; }
+.traditions-grid { display: flex; align-items: start; gap: 10px; }
+.basic-traditions { display: grid; grid-template-columns: repeat(2, auto); gap: 5px 10px; }
+.basic-traditions > .traditions-heading { grid-column: 1 / -1; }
+.exclusive-traditions { display: flex; flex-direction: column; gap: 5px; padding: 0 7px 5px; background: #b8a68120; border-radius: 3px; }
+[data-section='spells-known'] .autocomplete-wrapper[data-type='spells'],
+[data-section='spells-known'] .spell-notes,
+[data-section='spells-known'] .skill-header-row > div:nth-child(2),
+[data-section='spells-known'] .skill-header-row > div:nth-child(4) { flex: 1 1 0 !important; min-width: 0; }

@@ -1,5 +1,6 @@
 import { logicalSections, restoreSections, clearSectionSnapshot } from './sheet-tools.js';
 import { readPortrait, writePortrait } from './portrait.js';
+import { setSectionSize, isFixedSize } from './section-format.js';
 import {
   renderRowForSection,
   renderVariantActionRow,
@@ -50,6 +51,12 @@ export const prepareSheetForData = (restoreDefaults = false) => {
   document.querySelectorAll('.editable-field').forEach(el => {
     if (el.innerText.trim() === '') el.replaceChildren();
   });
+  if (restoreDefaults) {
+    setSectionSize('fixed');
+    document.querySelectorAll('[data-section="combat-skills"] input[placeholder="Skill"]').forEach((input, i) => {
+      input.value = ['Magic', 'Melee', 'Ranged', 'Unarmed'][i];
+    });
+  }
 };
 
 const scrapeHeaders = (data) => {
@@ -191,6 +198,7 @@ export const serializeSheet = () => {
   // Actually, better to check the inline style on document.documentElement directly as that's where we set it.
   data.preferences.font = document.documentElement.style.getPropertyValue('--readable-font') || '';
   data.preferences.color = document.documentElement.style.getPropertyValue('--field-color') || '';
+  data.preferences.sectionSize = isFixedSize() ? 'fixed' : 'auto';
 
   // 1. Headers
   scrapeHeaders(data);
@@ -388,7 +396,7 @@ export const loadFromJSON = (jsonString) => {
               const inputs = newRow.querySelectorAll('input, textarea');
               rowData.values.forEach((val, i) => {
                 if (!inputs[i]) return;
-                inputs[i].value = val;
+                inputs[i].value = title === 'Spells Known' && i === 0 && val === 'Cntrp' ? 'Cantrip' : val;
               });
             } else if (rowData.type === 'action') {
               const slots = rowData.slots || {};
@@ -499,6 +507,7 @@ export const loadFromJSON = (jsonString) => {
   });
 
   // Notify the app that data has been loaded
+  setSectionSize(data.preferences?.sectionSize || 'auto');
   document.dispatchEvent(new CustomEvent('sheet-loaded'));
 };
 

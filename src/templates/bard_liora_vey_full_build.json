@@ -447,6 +447,7 @@
     }
   },
   "preferences": {
+    "sectionSize": "fixed",
     "font": "'PT Sans', sans-serif",
     "color": "#293e50"
   },

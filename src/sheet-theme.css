@@ -503,3 +503,16 @@
 .color-menu { min-width: 205px; max-height: min(640px, calc(100vh - 55px)); overflow-y: auto; }
 .color-menu > div { display: flex; align-items: center; gap: 9px; white-space: nowrap; }
 .color-swatch { width: 15px; height: 15px; border: 1px solid #0002; border-radius: 50%; flex: none; }
+.accent-picker { width: 330px; padding: 22px; border: 1px solid #aaa; border-radius: 10px; background: #faf9f6; color: #29231e; box-shadow: 0 12px 45px #0005; }
+.accent-picker::backdrop { background: transparent; }
+.accent-picker h2 { margin: 0 0 16px; font: 600 22px 'Crimson Pro', serif; }
+.accent-wheel { position: relative; width: 220px; height: 220px; margin: 0 auto 22px; border-radius: 50%; touch-action: none; cursor: crosshair; background: radial-gradient(circle, white, transparent 70.7%), conic-gradient(from 90deg, red, yellow, lime, cyan, blue, magenta, red); }
+.accent-wheel::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: black; opacity: calc(1 - var(--wheel-brightness, 1)); pointer-events: none; }
+.accent-wheel span { position: absolute; width: 12px; height: 12px; border: 2px solid white; box-shadow: 0 0 0 1px #333; border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+.accent-picker > label { display: grid; grid-template-columns: 76px minmax(0, 1fr) 40px; align-items: center; gap: 8px; margin: 12px 0; font: 13px 'PT Sans', sans-serif; }
+.accent-picker input { min-width: 0; width: 100%; box-sizing: border-box; }
+.accent-picker input[type='text'] { padding: 6px; background: white; color: #293e50; border: 1px solid #bbb; }
+.accent-picker [aria-invalid='true'] { outline: 1px solid #a33; }
+.accent-preview { height: 28px; border-radius: 4px; border: 1px solid #0003; }
+.accent-picker-buttons { display: flex; justify-content: end; gap: 10px; margin-top: 20px; }
+.accent-picker-buttons button { padding: 7px 15px; cursor: pointer; }

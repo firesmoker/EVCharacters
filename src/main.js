@@ -1,5 +1,6 @@
 import { initSheetHistory } from './sheet-history.js';
 import { applyAccent } from './accent.js';
+import { initColorPicker } from './color-picker.js';
 import { setSectionSize, isFixedSize } from './section-format.js';
 import { initPortrait } from './portrait.js';
 import './style.css'
@@ -708,4 +709,5 @@ document.querySelectorAll('.editable-field').forEach(el => {
 initSheetTools();
 initSheetHistory(autoSave);
 initPortrait(autoSave);
+initColorPicker(autoSave);
 

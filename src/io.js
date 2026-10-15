@@ -1,3 +1,4 @@
+import { logicalSections, restoreSections, clearSectionSnapshot } from './sheet-tools.js';
 import {
   renderRowForSection,
   renderVariantActionRow,
@@ -16,6 +17,7 @@ const createStrikesCantripsTableRowElement = () => {
  * Helper to clear the sheet and optionally restore default rows
  */
 export const prepareSheetForData = (restoreDefaults = false) => {
+  restoreSections();
   // Clear headers and fields
   document.querySelectorAll('.editable-field').forEach(el => el.innerText = '');
   // Clear checkboxes
@@ -191,13 +193,15 @@ export const serializeSheet = () => {
   scrapeHeaders(data);
 
   // 2. Structured Sections
-  document.querySelectorAll('.section-box').forEach(box => {
-    const title = box.querySelector('.section-header').textContent.trim();
-    scrapeCheckboxes(box, title, data);
-    scrapeFields(box, title, data);
-    scrapeSplitFields(box, title, data);
-    scrapeDynamicRows(box, title, data);
-  });
+  try {
+    logicalSections().forEach(box => {
+      const title = box.querySelector('.section-header').textContent.trim();
+      scrapeCheckboxes(box, title, data);
+      scrapeFields(box, title, data);
+      scrapeSplitFields(box, title, data);
+      scrapeDynamicRows(box, title, data);
+    });
+  } finally { clearSectionSnapshot(); }
 
   return JSON.stringify(data, null, 2);
 };

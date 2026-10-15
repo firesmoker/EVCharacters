@@ -13,6 +13,9 @@ try {
   const templatesDir = fileURLToPath(new URL('../src/templates/', import.meta.url));
   const load = data => page.evaluate(async data => {
     (await import('/src/io.js')).loadFromJSON(JSON.stringify(data));
+    await document.fonts.ready;
+    (await import('/src/sheet-tools.js')).paginateSheets();
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   }, data);
   const save = () => page.evaluate(async () => JSON.parse((await import('/src/io.js')).serializeSheet()));
 
@@ -165,14 +168,28 @@ try {
   assert(await page.locator('[aria-label="Beast stat block"]').isVisible());
   assert.equal(await page.locator('.sheet-tools').count(), 0, 'No detached editing toolbar');
   await page.emulateMedia({ media: 'screen' });
+  const richFixture = structuredClone(fixture);
+  richFixture.sections['Class Features'].sectionBody = '<p><strong>Long formatted feature:</strong> ' + 'Formatted words remain editable across pages. '.repeat(300) + '</p><p><em>Final paragraph.</em></p>';
+  await load(richFixture);
+  assert.equal((await save()).sections['Class Features'].sectionBody, richFixture.sections['Class Features'].sectionBody, 'Split rich text preserves exact markup');
+  await load(fixture);
   const longText = Array.from({ length: 90 }, (_, i) => `Feature ${i + 1}: This long character description must remain visible and editable.`).join('\n');
-  await page.locator('[data-section="class-features"] .section-content').fill(longText);
-  await page.waitForFunction(() => document.querySelector('.details-page').dataset.overflow === 'true');
-  assert.equal(await page.locator('.details-page').getAttribute('data-overflow'), 'true');
+  await page.locator('[data-section="class-features"] .section-content').first().fill(longText);
+  await page.waitForFunction(() => document.querySelectorAll('.section-continuation[data-section="class-features"]').length > 0);
+  assert(await page.locator('.continuation-page').count() > 0);
   assert.equal((await save()).sections['Class Features'].sectionBody.includes('Feature 90'), true);
-  assert(await page.locator('[data-section="class-features"] .section-content').evaluate(el => el.scrollHeight <= el.clientHeight + 2), 'Long text is not clipped');
+  assert(await page.locator('[data-section="class-features"] .section-content').first().evaluate(el => el.scrollHeight <= el.clientHeight + 2), 'Long text is not clipped');
+  const longSaved = await save();
+  await load(longSaved);
+  assert.deepEqual(await save(), longSaved, 'Paginated long text round-trips exactly');
+  const continuationField = page.locator('.section-continuation[data-section="class-features"] .section-content').last();
+  await continuationField.press('ControlOrMeta+End');
+  await continuationField.pressSequentially(' Continuation edit.');
+  assert((await save()).sections['Class Features'].sectionBody.includes('Continuation edit.'), 'Continuation remains editable and saves');
   await page.emulateMedia({ media: 'print' });
-  assert.equal(await page.locator('.details-page').evaluate(el => getComputedStyle(el).overflow), 'visible');
+  assert.equal(await page.locator('.details-page').evaluate(el => getComputedStyle(el).overflow), 'hidden');
+  const heights = await page.locator('.a4-page:not(.hidden)').evaluateAll(pages => pages.map(p => p.getBoundingClientRect().height));
+  assert(heights.every(h => Math.abs(h - 1122.52) < 2), 'Every page is exactly A4 height');
   if (process.env.EV_UI_STRESS_PDF) await page.pdf({ path: process.env.EV_UI_STRESS_PDF, format: 'A4', printBackground: true });
   assert.deepEqual(errors, []);
   console.log('All templates round-trip without data loss or A4 overflow. Editing, autocomplete, row/variant controls, resource sync, preferences, autosave, and print checks passed.');

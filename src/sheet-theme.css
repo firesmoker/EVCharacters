@@ -312,8 +312,8 @@
 [data-section='death'] .section-row-editable { width: 100%; min-width: 0; text-align: center; font-size: 18px; padding: 0 !important; }
 .a4-page .add-variant-btn, .a4-page .remove-variant-btn { font-size: 12px !important; }
 
-/* Screen content grows naturally; printing can continue over additional sheets. */
-.a4-page:not(.spell-page) { height: auto; min-height: 297mm; overflow: visible; }
+/* Content is paginated into fixed A4 sheets by sheet-tools.js. */
+.a4-page { height: 297mm; min-height: 297mm; max-height: 297mm; overflow: visible; }
 .a4-page:not(.spell-page) .sheet-middle { flex-grow: 0; align-items: start; }
 .a4-page:not(.spell-page) .section-content { overflow: visible; }
 .details-page .section-content.editable-field { min-height: 70px; }
@@ -372,7 +372,18 @@
 .page-corner.bottom-right { bottom: 2px; right: 2px; transform: scale(-1); }
 @media print {
   .editor-canvas { padding-bottom: 0; }
-  .a4-page[data-overflow='true'] { height: auto !important; overflow: visible !important; break-inside: auto; }
-  .a4-page[data-overflow='true'] .sheet-middle { display: block; }
-  .a4-page[data-overflow='true'] .section-box { margin-bottom: 3mm; break-inside: auto; }
+
 }
+
+/* Pagination preserves physical A4 pages on screen and in print. */
+.continuation-page .sheet-middle { flex-grow: 0; align-items: start; }
+.continuation-page .section-box { flex: 0 0 auto; }
+.section-continuation > .section-header::after { content: 'cont.'; background: none; clip-path: none; width: auto; height: auto; right: 5px; font: 11px 'PT Sans', sans-serif; }
+@media print {
+  @page { size: A4; margin: 0; }
+  .a4-page { height: 297mm !important; min-height: 297mm !important; max-height: 297mm !important; break-after: page; break-inside: avoid; overflow: hidden; }
+}
+
+.dynamic-rows > :not(.logical-last-row) > .add-row-btn { display: none !important; }
+.dynamic-rows > .logical-multiple-rows > .remove-row-btn { display: flex; }
+@media print { .dynamic-rows > .logical-multiple-rows > .remove-row-btn { display: none !important; } }

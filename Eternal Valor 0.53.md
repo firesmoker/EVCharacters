@@ -1,4 +1,4 @@
-<!-- rpg-scribe:document {"v":1,"page":{"size":"A4","orientation":"portrait","marginsMm":{"top":20,"right":20,"bottom":20,"left":20}},"theme":{"id":"builtin.clean","snapshot":{"v":1,"name":"Clean","fonts":{"body":"\"Segoe UI\", system-ui, sans-serif","heading":"\"Segoe UI\", system-ui, sans-serif","code":"Consolas, \"Cascadia Code\", monospace"},"fontSizesPt":{"body":12,"code":10.8,"headings":[24,21,18,15.6,13.8,12]},"lineHeight":1.65,"colors":{"text":"#202631","background":"#e7edf4","page":"#f7f8fa","heading":"#202631","link":"#1769aa","codeText":"#202631","codeBackground":"#e9edf2","selectionText":"#202631","selectionBackground":"#c7ccd3"}}}} -->
+<!-- rpg-scribe:document {"v":1,"page":{"size":"A4","orientation":"portrait","marginsMm":{"top":20,"right":20,"bottom":20,"left":20}},"theme":{"id":"custom.3ab6fb8a-1013-44e7-92bb-df0c6df621ea","snapshot":{"v":1,"name":"EV","fonts":{"body":"\"Crimson Pro\", system-ui","heading":"\"Crimson Pro\", system-ui","code":"\"Crimson Pro\", monospace"},"fontSizesPt":{"body":11.5,"code":10.5,"headings":[28,22,18,15,13,11.5]},"lineHeight":1.55,"colors":{"text":"#2f2923","background":"#f8f3e8","page":"#fffdf7","heading":"#663b2a","link":"#7a3928","codeText":"#352f29","codeBackground":"#eee5d6","selectionText":"#241d18","selectionBackground":"#dbcdb7"}}}} -->
 
 # Eternal Valor Playtest 0.53
 
@@ -485,7 +485,7 @@ You can choose to perform an action at a slower speed. (Perform a Fast Action as
 
 ## Drag
 
-Drag is a modifier that slows an action by one speed level. If Drag would reduce the action below Slow, the action is cancelled and cannot be performed.
+Each point of Drag slows an action by one speed level, to a minimum speed of Slow. For each additional point of Drag that would slow the action below Slow, it remains Slow and takes a penalty of 1 on its roll.
 
 
 >
@@ -497,7 +497,9 @@ Drag is a modifier that slows an action by one speed level. If Drag would reduce
 >
 > With 2 Drag, it becomes Slow Action.
 >
-> With 3 or more Drag, it becomes too slow to perform and is cancelled.
+> With 3 Drag, it remains Slow and takes a penalty of 1 on its roll. With 4 Drag, the penalty is 2, and so on.
+
+An action that is already Slow takes a penalty of 1 on its roll for each point of Drag.
 
 Sources of Drag include:
 
@@ -669,7 +671,7 @@ When you build your character, you may choose them in any order you wish.
 
 All the following statistics help the character to avoid and reduce the effectiveness of negative effects:
 
-Armor Training: Armor the character can use. Armor adds to Deflection.
+Armor Training: Armor the character can use. Light Armor adds +1 Deflection, Medium Armor adds +2, and Heavy Armor adds +3. While wearing Heavy Armor, halve your Movement score, rounded up.
 
 If you wear armor that you are not trained in, you get disadvantage on all rolls and 1 Drag to all actions.
 
@@ -685,7 +687,7 @@ Drags Ignored: Heavy Weapons
 
 #### Feats
 
-[Explained in playtest]
+When you reach level 2, choose one Minor Feat for which you meet the requirements. You gain this feat in addition to your Origin Feat and the features granted by your class and species.
 
 # Character Origin
 
@@ -803,7 +805,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 - Language: Elvish
 
-- Movement Score: 3
+- Movement Score: 4
 
 - Legacy of the Wild: You are Expert (5d6) in one of the following: Intimidation, Nature, Detect Traps, Find Hidden Paths, Notice Movement, Acrobatics, Animal Handling, Sneak, Survival, or Ranged.
 
@@ -831,7 +833,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 - Quick: Your Movement is 4.
 
-- Born of Fire: You have resistance to Fire damage. When you deal damage with a weapon, you may have it deal Fire damage instead of its normal damage type.
+- Born of Fire: You have resistance to Fire damage. When you deal damage with any Strike, you may have it deal Fire damage instead of its normal damage type.
 
 - Level 2 — Mischievous Blink (1 / Combat), Instinct Ability: When you begin to move, teleport the same distance instead to a point you can see within your current movement. You have advantage on the next single-target attack roll you make this round.
 
@@ -845,7 +847,7 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 
 - Legacy of the Deep Mountains: You are Expert (5d6) in one of the following: Bartering, Diplomacy, History, Politics, Religion, Warfare, Find Hidden Paths, Find Hidden Objects, Athletics, or Mechanics.
 
-- The Long Battle: At the beginning of each round, gain temporary HP based on your level: 1 at levels 1–4, 2 at levels 5–7, 3 at levels 8–9, and 4 at level 10.
+- The Long Battle: At the beginning of each round, if you are neither Dying nor unconscious, gain temporary HP based on your level: 1 at levels 1–4, 2 at levels 5–7, 3 at levels 8–9, and 4 at level 10.
 
 - Dwarvish Craftiness: Gain proficiency with one Crafting Skill or tool.
 
@@ -1194,6 +1196,158 @@ When you roll double six, choose one condition to apply to your target until the
 
 - Disadvantage on their next attack.
 
+#### Level 3: Subclasses
+
+Choose Walking Ballista, Bowslinger, or Arcane Archer.
+
+### Walking Ballista
+
+*Work in progress: AP costs and individual feature unlock levels are provisional.*
+
+#### Hardwall
+
+You gain proficiency with Heavy Armor.
+
+#### Mechanical Expert
+
+You become Expert (5d6) in Mechanics.
+
+#### Deployment
+
+Use the Deploy Instinct ability to become deployed. While deployed:
+
+- You gain +1 Deflection and +1 Fortitude.
+- You may use Ballista abilities.
+- You may use only ranged weapons and bombs.
+- You provide Half Cover to adjacent creatures of your size and Full Cover to adjacent creatures smaller than you.
+- You cannot move.
+- You cannot use the Evade Instinct ability.
+
+#### Deploy
+
+**Instinct Ability ◆ 1 Instinct**
+
+Spend 1 Instinct to become deployed.
+
+#### Undeploy
+
+**Instinct Ability ◆ 1 Instinct**
+
+Spend 1 Instinct to stop being deployed.
+
+#### Power Shot
+
+**Ranged Strike Variant / Ballista ability ◆ Slow Action ◆ 1 AP; must be deployed**
+
+While deployed, spend 1 AP to perform a Ranged Strike. Double the Extra Dice granted by your weapon for this roll.
+
+#### Bomb Slinging
+
+**Bomb Throw Variant / Ballista ability ◆ Average Action ◆ Must be deployed**
+
+While deployed, perform a Bomb Throw with an effective range of 6 units and a maximum range of 12 units. For this action, treat your Bomb Throw skill as Expert (5d6), unless your skill level is already higher.
+
+#### Caltrops
+
+**Ranged Strike Variant / Ballista ability ◆ Average Action ◆ 1 AP; must be deployed**
+
+While deployed, spend 1 AP to scatter caltrops throughout a 2-unit radius centered on yourself. The area becomes difficult terrain. Once per turn, when a creature first moves within or enters the area during the round, it must roll Acrobatics against threshold 2. On failure, it takes 1 Piercing damage.
+
+*Design note: Duration and removal rules are unspecified. Confirm once-per-round trigger versus the draft's once-per-turn wording. Listed as a Ranged Strike variant, although it creates a hazard instead of performing a Strike.*
+
+### Bowslinger
+
+*Work in progress: AP costs and individual feature unlock levels are provisional.*
+
+#### Moving Target
+
+When you finish moving at least 3 units from where you started that movement, you gain +1 Deflection until the end of the round. You also become Expert (5d6) in Acrobatics.
+
+#### Combat Archery
+
+Your Ranged Strikes do not suffer disadvantage from being within an enemy's melee reach, and enemies gain no benefit from Half Cover against them.
+
+*Design note: May move to the Archer base class at level 4 or 5; placement is not final.*
+
+#### Multishot
+
+**Ranged Strike Variant / Trick Shot ◆ Fast Action ◆ 1 AP**
+
+Spend 1 AP to perform a Ranged Strike against two enemies using the same roll. You deal half your normal Ranged Strike damage to each target, rounded up.
+
+*Design note: Target-specific advantage/disadvantage and how this damage reduction combines with failure damage remain unresolved.*
+
+#### Quickshot
+
+**Instinct Ability ◆ 1 Instinct; 1 AP**
+
+At any point during the round, spend 1 Instinct and 1 AP to perform a Ranged Strike. You deal half your normal Ranged Strike damage, rounded up.
+
+*Design note: Clarify how the rounded-up damage reduction combines with damage on a failed Strike.*
+
+#### Countershot
+
+**Instinct Ability ◆ 1 Instinct**
+
+When an enemy attacks you or an ally within your weapon's effective range, you may spend 1 Instinct to fire a distracting projectile at the attacker. Its attack has disadvantage. If the attack is a Ranged Strike, you intercept its projectile and cancel the attack instead.
+
+*Design note: Confirm the attacker's range requirement as well as the ally's range requirement.*
+
+*Design note: Sliding Shot may move here from the base class; it remains there pending a decision.*
+
+### Arcane Archer
+
+*Work in progress: AP costs and individual feature unlock levels are provisional.*
+
+#### Arcane Expertise
+
+You become Expert (5d6) in Arcana.
+
+#### Elemental Archery
+
+Whenever you perform a Ranged Strike, you may change its damage type to Fire, Ice, or Lightning. If you do, replace the weapon's Double 6 effect for that Strike with the corresponding effect from Elemental Flare:
+
+- Fire: the target becomes Burning 1 until the end of the round (it takes 1 Fire damage at the end of the round).
+- Ice: the target becomes Chilled 2 (-2 Movement) until the end of the next round.
+- Lightning: the target becomes Disoriented 1 (a penalty of 1 on all rolls) until the end of the next round.
+
+#### Force Arrow
+
+**Special / Trick Shot ◆ Average Action ◆ 1 AP (provisional)**
+
+Spend 1 AP to fire a magical arrow that hits automatically. Roll Ranged without the Extra Dice granted by your weapon, and deal SD Force damage.
+
+*Design note: The draft tentatively lists 1 AP. Range is unspecified.*
+
+#### Exploding Arrow
+
+**Special / Trick Shot ◆ Average Action ◆ 2 AP**
+
+Spend 2 AP to fire an arrow that explodes in a cube measuring 2 units on each side. Roll Ranged once and compare the result against each enemy's Deflection in the area. On success, it takes 2 Fire damage. On failure, it takes half as much damage, rounded down.
+
+*Design note: Range is unspecified.*
+
+#### Thunder Arrow
+
+**Trick Shot ◆ Average Action ◆ 2 AP**
+
+Spend 2 AP to fire an arrow that releases a thunderous blast in a cube measuring 3 units on each side. Roll Ranged once and compare the result against each enemy's Deflection in the area. On success, an enemy of your size or smaller becomes Prone.
+
+*Design note: Range is unspecified.*
+
+#### Ice-Surfing
+
+**Instinct Ability ◆ 1 Instinct**
+
+Spend 1 Instinct to freeze a path beneath you and slide along it as you move. Gain +2 Movement until the end of the round.
+
+#### Arcane Shield
+
+**Instinct Ability ◆ 1 Instinct; 2 AP**
+
+At any point during the round, spend 1 Instinct and 2 AP to gain +2 Deflection and immunity to the Magic Missile spell until the end of the round.
+
+
 ## Barbarian
 
 Roles: Combatant and Damage
@@ -1395,6 +1549,56 @@ You gain the following action:
 
 You get +2 Will against attack and effects against you that cause the Discouraged or Frightened conditions have disadvantage.
 
+
+#### Level 3: Subclasses
+
+Choose one of the following subclasses: Pyre or Berserker.
+
+### Pyre
+
+Your rage erupts as chaotic fire, consuming you and everything that stands in your path.
+
+#### Level 3: Infernal Rage Aura
+
+During the Beginning Phase of each round, you may activate or deactivate your aura. While it is active, at the end of each round, you and every other creature within 1 unit of you take 1 Fire damage automatically, without a roll. The damage to yourself cannot be mitigated. Gain 1 additional Rage for each other creature that takes damage this way. This stacks with your normal Rage gains from damaging enemies. Damage to yourself grants Rage only through the normal rule for losing HP, with no additional Rage from this feature.
+
+#### Level 3: Hot Retaliation
+
+**Instinct Ability**
+
+When an enemy within 6 units of you attacks you, you may spend 1 Instinct to deal 1 Fire damage to yourself and 2 Fire damage to that enemy. The damage to yourself cannot be mitigated. Gain 1 additional Rage for each other creature that takes damage this way. This stacks with your normal Rage gains from damaging enemies. Damage to yourself grants Rage only through the normal rule for losing HP, with no additional Rage from this feature.
+
+#### Level 3: Flaming Strikes
+
+When you perform a Melee Strike or Unarmed Strike, you may spend additional Rage to extend its range by 1 unit for each Rage spent. If you spend Rage this way, the Strike deals Fire damage instead of its normal damage type.
+
+#### Level 3: Ultimate: Fiery Eruption
+
+**Slow Action ◆ Costs 8 Rage ◆ Radius: 2 units from self**
+
+Spend 8 Rage to unleash flames on every other creature within 2 units of you. You are not affected. Roll Athletics once and compare the result against each target's Deflection. On success, the target takes 2 Fire damage and is force-pushed 1 unit away from you. On failure, it takes half as much damage, rounded down, and is not pushed.
+
+### Berserker
+
+Your bloodlust drives your body beyond its limits, turning every battle into a relentless display of violence.
+
+#### Level 3: Bloodlust
+
+When you kill an enemy with Weapon Throw, or an enemy dies within your melee range, you gain 2 temporary hit points. Each enemy's death grants this benefit only once, even if both conditions apply.
+
+#### Level 3: Limit Break
+
+**Instinct Ability**
+
+At any point during the round, you may spend 1 Instinct and lose 2 HP to immediately perform a Melee Strike, Unarmed Strike, Grapple, or Weapon Throw, including any of their variants available to you. The chosen action or variant retains its normal costs, requirements, and usage limits.
+
+#### Level 3: Ultimate: Whirlwind
+
+**Fast Action ◆ Costs 5 Rage ◆ Range: Melee**
+
+Spend 5 Rage to perform a Melee Strike against every enemy within your melee range. Roll Melee once and compare the result against each target's Deflection. Apply your normal Melee Strike damage and effects to each target: full damage on success, or half as much damage on failure, rounded down. On success, apply your usual Double 6 effects if you rolled a Double 6.
+
+
 ## Bard
 
 Roles: Support and Utility
@@ -1560,7 +1764,7 @@ You gain the following Instinct abilities:
 
 <table>
   <tr>
-    <td>Instinct Abilities<br>- Reenact: The Dragon Slayer: At any point during the Action Phase, spend 1 Spell Point to designate one enemy as the Dragon and one ally as the Knight. Both must be within 12 units of you. The Knight has advantage on all attacks against the Dragon until the end of combat or until the Grand Finale.<br>  - Grand Finale: If the Knight lowers the hit points of the Dragon to 0, all allies within 3 units of the Knight are Inspired 1 (+1 damage) on the next round.<br>- Reenact: The Martyr: At any point during the Action Phase, spend 1 Spell Point to designate one willing ally within 12 units of you as the Martyr. Until the end of combat or the Grand Finale, any damage dealt to its allies within 6 units of it is dealt to the Martyr instead.<br>  - Grand Finale: When the Martyr hit points reach 0, it has 1 hit point instead, and it stops absorbing damage for its allies. All its allies within 6 units gain 1 temporary hit point.</td>
+    <td>Instinct Abilities<br>- Reenact: The Dragon Slayer: During the Beginning Phase of the round, spend 1 Spell Point to designate one enemy as the Dragon and one ally as the Knight. Both must be within 12 units of you. The Knight has advantage on all attacks against the Dragon until the end of combat or until the Grand Finale.<br>  - Grand Finale: If the Knight lowers the hit points of the Dragon to 0, all allies within 3 units of the Knight are Inspired 1 (+1 damage) on the next round.<br>- Reenact: The Martyr: During the Beginning Phase of the round, spend 1 Spell Point to designate one willing ally within 12 units of you as the Martyr. Until the end of combat or the Grand Finale, any damage dealt to its allies within 6 units of it is dealt to the Martyr instead.<br>  - Grand Finale: When the Martyr hit points reach 0, it has 1 hit point instead, and it stops absorbing damage for its allies. All its allies within 6 units gain 1 temporary hit point.</td>
   </tr>
 </table>
 
@@ -1874,7 +2078,9 @@ On success, they must choose a different valid target or cancel their attack. Th
 
 You know and have access to the powerful Command spell.
 
-You also get 1 temporary Spell Point at the start of each combat. You can only use it to cast the Command spell. When combat ends, you lose the unspent temporary Spell Points.
+Command is WIP and needs to be updated to the current roll system.
+
+At the beginning of each combat, you gain 1 Hierophant Spell Point. You may spend it to cast or empower any non-damaging spell you can normally cast. At the end of combat, you lose the Hierophant Spell Point if you have not spent it.
 
 <table>
   <tr>
@@ -1905,7 +2111,7 @@ Additionally, your spellcasting is interrupted only after you receive 3 damage i
   </tr>
 </table>
 
-Whenever you perform an action during combat that doesn't require you to spend Spell Points, you may spend 1 Instinct and at least 1 Spell Point to heal an ally within 8 units of you. You heal them for 2 health points for each Spell Point spent.
+Whenever you perform an action during combat that doesn't require you to spend Spell Points, you may spend 1 Instinct and at least 1 Spell Point to heal an ally other than yourself within 8 units of you. You heal them for 2 health points for each Spell Point spent.
 
 #### Level 3: Kindness of God
 
@@ -2144,7 +2350,7 @@ Secondary Roles: Healing and Support
 >   </tr>
 >   <tr>
 >     <td>Armor Proficiency</td>
->     <td>Medium<br>(+1 Deflection)</td>
+>     <td>Medium<br>(+2 Deflection)</td>
 >   </tr>
 >   <tr>
 >     <td>Shield Proficiency</td>
@@ -2615,9 +2821,15 @@ When you perform a Melee Strike against an enemy that is within melee reach of a
 
 #### Level 1: Sneak Attack
 
-You get 3 Extra Dice on Melee Strike and Weapon Throw attacks if you have advantage.
+When you have advantage on a Melee Strike or Weapon Throw, add 3 Extra Dice to the roll. None of the weapons used for the attack may have the Heavy, Reach, or Two-Handed properties.
 
-The weapon used must not have the Heavy, Reach, or Two-Handed properties
+#### Level 1: Basic Dual Wielding
+
+You may wield two one-handed weapons, provided no more than one has the Heavy property. When you perform a Melee Strike using both weapons, make one attack roll and apply the following:
+- Add the Extra Dice from both weapons to the roll.
+- Use the higher of the two weapons' Minimum Roll values.
+- Choose one damage type available to either weapon.
+- If you roll a double six, choose and apply the Double 6 effect of one weapon.
 
 #### Level 1: Slippery
 
@@ -2648,10 +2860,6 @@ If you were already Expert (5d6) in Disguise, you additionally become Adept (4d6
 #### Level 3: First Blood
 
 On the first round of combat, you get additional 2 Extra Dice with Melee Strikes and Weapon Throws against targets that haven't acted this combat yet.
-
-#### Level 3: Basic Dual Wielding
-
-You may wield two one-handed weapons that don't have the Heavy property. When you do so, choose the main weapon. Melee Strikes you perform deal the main weapon's damage +1. If the secondary weapon has any special damage bonuses, they do apply. The base damage type of the Strike could be the type associated with either weapon. On double 6, choose the effect of only one weapon.
 
 #### Level 3: Combat Poisoner
 
@@ -2790,7 +2998,7 @@ Secondary Roles: Combatant / Varies
 >   </tr>
 >   <tr>
 >     <td>Armor Proficiency</td>
->     <td>Medium (+1 Deflection)</td>
+>     <td>Medium (+2 Deflection)</td>
 >   </tr>
 >   <tr>
 >     <td>Deflection</td>
@@ -2904,7 +3112,7 @@ Roles: Combatant, Defense, Interruption
 >   </tr>
 >   <tr>
 >     <td>Armor Proficiency</td>
->     <td>Medium (+1 Deflection)</td>
+>     <td>Medium (+2 Deflection)</td>
 >   </tr>
 >   <tr>
 >     <td>Shield Proficiency</td>
@@ -3038,7 +3246,11 @@ Your incredible technique with weapons allows you to deflect attack as effective
 
 #### Level 3: Basic Dual Wielding
 
-You may wield two one-handed weapons that don't have the Heavy property. When you do so, choose the main weapon. Melee Strikes you perform deal the main weapon's damage +1. If the secondary weapon has any special damage bonuses, they do apply. The base damage type of the Strike could be the type associated with either weapon. On double 6, choose the effect of only one weapon.
+You may wield two one-handed weapons, provided no more than one has the Heavy property. When you perform a Melee Strike using both weapons, make one attack roll and apply the following:
+- Add the Extra Dice from both weapons to the roll.
+- Use the higher of the two weapons' Minimum Roll values.
+- Choose one damage type available to either weapon.
+- If you roll a double six, choose and apply the Double 6 effect of one weapon.
 
 #### Level 3: Bloody Momentum
 
@@ -3243,6 +3455,32 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
 | 8 | 14 | 14 | 7 |
 | 9 | 16 | 16 | 8 |
 | 10 | 18 | 20 | 9 |
+
+#### Level 3: Subclasses
+
+Choose the Defiler subclass.
+
+### Defiler
+
+You wield curses and corrupting magic to weaken your enemies and make their suffering linger.
+
+#### Level 3: Bonus Cantrip
+
+You learn Necrotic Bolt. If you already know it, learn another Occult cantrip of your choice.
+
+#### Level 3: Hexcraft
+
+**Instinct Ability**
+
+When you apply Vulnerable, Poisoned, Decayed, or Weakened to an enemy, you may spend 1 Instinct to choose one of those conditions that you just applied and do one of the following:
+
+- Spread: Apply the chosen condition at the same level to up to two other enemies within 3 units of the original enemy. It lasts until the end of the next round on those enemies.
+- Intensify: Increase the chosen condition's level on the original enemy by 1, keeping its existing duration.
+
+#### Level 3: Vile Spell Point
+
+At the beginning of each combat, you gain 1 Vile Spell Point. You may spend it only to cast or empower a spell that applies negative conditions. When you spend this point on a spell, increase the level of every negative condition applied by that spell by 1. This increase applies to conditions that have levels. At the end of combat, you lose the Vile Spell Point if you have not spent it.
+
 
 ## Wizard
 
@@ -3650,14 +3888,6 @@ You are proficient in Light Armor.
 
 You ignore the Drag of the Heavy weapon property.
 
-### Two Handed Fighter
-
-You ignore the Drag of the Two-Handed weapon property.
-
-### Reach Weapon Wielder
-
-You ignore the Drag of the Reach weapon property.
-
 ### Shooter
 
 You ignore the Drag of the Ranged weapon property.
@@ -3675,6 +3905,8 @@ You are Adept (4d6) in two standard skills of your choice from different categor
 Your maximum HP is increased by half your level, rounded down (minimum 1 HP). Recalculate this bonus whenever your level increases.
 
 ## Minor Feats
+
+When you reach level 2, choose one Minor Feat from this section for which you meet the requirements.
 
 ### Actor
 
@@ -3939,7 +4171,7 @@ Switching weapons is free unless changing into or out of a Heavy or Clumsy weapo
 >     <td>Small, Thrown, Range 3 / 6</td>
 >     <td>Piercing</td>
 >     <td>-</td>
->     <td>-</td>
+>     <td>+1</td>
 >     <td>Disable</td>
 >   </tr>
 >   <tr>
@@ -3948,7 +4180,7 @@ Switching weapons is free unless changing into or out of a Heavy or Clumsy weapo
 >     <td>Small, Thrown, Range 3 / 6</td>
 >     <td>Slashing</td>
 >     <td>-</td>
->     <td>-</td>
+>     <td>+1</td>
 >     <td>Bleeding 1 until end of the round</td>
 >   </tr>
 >   <tr>
@@ -3972,19 +4204,19 @@ Switching weapons is free unless changing into or out of a Heavy or Clumsy weapo
 >   <tr>
 >     <td>Spear</td>
 >     <td></td>
->     <td>Reach, Versatile (+1)</td>
+>     <td>Reach, Two Handed</td>
 >     <td>Piercing</td>
 >     <td>1</td>
->     <td>-</td>
+>     <td>+1</td>
 >     <td>Disable</td>
 >   </tr>
 >   <tr>
 >     <td>Quarterstaff</td>
 >     <td></td>
->     <td>Reach, Versatile (+1)</td>
+>     <td>Reach, Two Handed</td>
 >     <td>Crushing</td>
 >     <td>1</td>
->     <td>-</td>
+>     <td>+1</td>
 >     <td>Push 1</td>
 >   </tr>
 >   <tr>
@@ -4177,6 +4409,8 @@ Switching weapons is free unless changing into or out of a Heavy or Clumsy weapo
 
 ## Armor
 
+Light Armor adds +1 Deflection, Medium Armor adds +2, and Heavy Armor adds +3. While wearing Heavy Armor, halve your Movement score, rounded up.
+
 
 >
 > ### Armor Table
@@ -4194,37 +4428,37 @@ Switching weapons is free unless changing into or out of a Heavy or Clumsy weapo
 >   <tr>
 >     <td>Hide</td>
 >     <td>Light (Wild)</td>
->     <td>0</td>
+>     <td>1</td>
 >     <td>Resistance to Slashing</td>
 >   </tr>
 >   <tr>
 >     <td>Brumble</td>
 >     <td>Light (Wild)</td>
->     <td>0</td>
+>     <td>1</td>
 >     <td>Resistance to Crushing</td>
 >   </tr>
 >   <tr>
 >     <td>Quill Coat</td>
 >     <td>Light (Wild)</td>
->     <td>0</td>
+>     <td>1</td>
 >     <td>Resistance to Piercing</td>
 >   </tr>
 >   <tr>
 >     <td>Gambeson</td>
 >     <td>Light</td>
->     <td>0</td>
+>     <td>1</td>
 >     <td>Resistance to Slashing</td>
 >   </tr>
 >   <tr>
 >     <td>Jerkin</td>
 >     <td>Light</td>
->     <td>0</td>
+>     <td>1</td>
 >     <td>Resistance to Crushing</td>
 >   </tr>
 >   <tr>
 >     <td>Studded</td>
 >     <td>Light</td>
->     <td>0</td>
+>     <td>1</td>
 >     <td>Resistance to Piercing</td>
 >   </tr>
 >   <tr>
@@ -4233,25 +4467,25 @@ Switching weapons is free unless changing into or out of a Heavy or Clumsy weapo
 >   <tr>
 >     <td>Scale</td>
 >     <td>Medium</td>
->     <td>1</td>
+>     <td>2</td>
 >     <td>Resistance to Slashing</td>
 >   </tr>
 >   <tr>
 >     <td>Short Mail</td>
 >     <td>Medium</td>
->     <td>1</td>
+>     <td>2</td>
 >     <td>Resistance to Piercing</td>
 >   </tr>
 >   <tr>
 >     <td>Rivet Mail</td>
 >     <td>Medium</td>
->     <td>1</td>
+>     <td>2</td>
 >     <td>Resistance to Crushing</td>
 >   </tr>
 >   <tr>
 >     <td>Chainmail</td>
 >     <td>Medium</td>
->     <td>1</td>
+>     <td>2</td>
 >     <td>Resistance to Slashing and Crushing</td>
 >   </tr>
 >   <tr>
@@ -4260,26 +4494,26 @@ Switching weapons is free unless changing into or out of a Heavy or Clumsy weapo
 >   <tr>
 >     <td>Splint</td>
 >     <td>Heavy</td>
->     <td>2</td>
->     <td>Resistance to Crushing</td>
+>     <td>3</td>
+>     <td>Resistance to Crushing; Movement halved, rounded up</td>
 >   </tr>
 >   <tr>
 >     <td>Segment Plate</td>
 >     <td>Heavy</td>
->     <td>2</td>
->     <td>Resistance to Piercing</td>
+>     <td>3</td>
+>     <td>Resistance to Piercing; Movement halved, rounded up</td>
 >   </tr>
 >   <tr>
 >     <td>Half Plate</td>
 >     <td>Heavy</td>
->     <td>2</td>
->     <td>Resistance to Slashing</td>
+>     <td>3</td>
+>     <td>Resistance to Slashing; Movement halved, rounded up</td>
 >   </tr>
 >   <tr>
 >     <td>Full Plate</td>
 >     <td>Heavy</td>
->     <td>2</td>
->     <td>Resistance to all Physical Damage</td>
+>     <td>3</td>
+>     <td>Resistance to all Physical Damage; Movement halved, rounded up</td>
 >   </tr>
 >   <tr>
 >     <td colspan="4">Shields</td>
@@ -4636,7 +4870,7 @@ If you roll a double 6, choose an additional mode.
 
 Divine
 
-Rank 1 ◆ Cost: 1+
+Rank 1 ◆ Cost: 2+
 
 Requirements: Level 1
 
@@ -4647,7 +4881,7 @@ Range: 15 units ◆ Duration: 10 minutes
 Choose a creature within range. Their weapon is imbued with radiant energy. If you are a Cleric, you can instead choose the energy to be the associated element of your domain.
 For the duration, add +4 to Strike rolls using that weapon. The damage type is changed to the chosen energy type.
 
-Empower Spell: For each additional Spell Point spent, choose one more creature.
+Empower Spell: For every 2 additional Spell Points spent, choose one more creature.
 
 ### Burning Ground
 
@@ -4697,6 +4931,8 @@ Choose a creature within range. It becomes Expert (5d6) in a standard skill of y
 Empower Spell: you can increase the duration of this spell to a full day by spending 2 additional SP.
 
 ### Command
+
+*WIP: This spell needs to be updated to the current roll system.*
 
 Divine
 
@@ -4811,7 +5047,9 @@ Instinct
 
 Range: Self
 
-Get +1 Deflection. If you are hit by an attack against your Deflection, the enemy that dealt the damage loses 1 HP.
+Duration: end of current round
+
+Until the end of the current round, you gain +1 Deflection. Whenever an enemy hits you with an attack against your Deflection and deals damage to you, it loses 2 HP. This retaliation counts as AoE against Hordes and Swarms, causing them to lose 6 HP instead.
 
 ### Elemental Flare
 
@@ -5208,7 +5446,7 @@ Slow Action ◆ Interruptible
 
 Range: 8 ◆ Duration: 1 day
 
-Increase the maximum HP of up to three creatures by 2 for the duration.
+Increase the maximum HP of up to three creatures by 2 for the duration. This spell does not restore current HP.
 No more than one casting of this spell can affect the same creature at the same time.
 
 Empower Spell: for each 2 additional SP spent, increase the HP maximum by 1 additional HP.
@@ -5292,6 +5530,7 @@ Average Action
 Range: 15 units
 
 Shoot three magical missiles. Choose a creature to target with each missile. You may choose the same creature for more than one missile. You only need to know the creatures’ general location. Each missile automatically hits its target and deals 1 Force damage. If the missile has no way to reach the target, it fails.
+Resolve all missiles that hit a creature as a single damage event, regardless of how many missiles hit it.
 
 Empower Spell: You may spend additional Spell Points when you cast the spell. For each additional point spent, shoot one more missile.
 
@@ -5699,9 +5938,10 @@ Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 10 minutes ◆ Area: 4 units cube
 
-Spikes grow from the ground in a 4-units cube in a point you can see within range.
-Roll Magic against Deflection against creatures in the area. Each creature you succeed against takes 1 Piercing damage.
-When a creature first steps on the area during each round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement in the area deals 1 Piercing damage to it. The area is difficult terrain.
+Spikes grow from the ground in a 4-unit cube at a point you can see within range.
+Roll Magic against Deflection for creatures in the area. Each creature you succeed against takes 1 Piercing damage.
+The area is difficult terrain. When a creature first enters or moves within it during a round, it rolls Acrobatics against Threshold 3. On failure, each unit of movement within the area deals 1 Piercing damage.
+If a creature is pushed into or through the area, each unit it is pushed within the area deals this movement damage automatically, without an Acrobatics roll, regardless of any earlier successful roll that round.
 
 ### Stasis
 
@@ -5738,7 +5978,17 @@ Range: 10 Units ◆ Duration: 1 day
 Summons a Large or smaller beast (your choice) in an unoccupied location you can see.
 It can’t be a flying beast unless it’s small.
 The beast is a separate actor than your character that you control in the same manner.
-You must take the Command Fast Action during the Action Phase to enable the beast to use the specific actions that require it. It may still move and take other actions without Command.
+You must use the Command Instinct ability during the Action Phase to enable the beast to use the specific actions that require it. It may still move and take other actions without Command.
+
+#### Summoned Beast
+
+HP 3 ◆ Deflection 1 ◆ Fortitude 1 ◆ Will 1 ◆ Movement 3
+
+Available actions:
+
+- Dash.
+- **Animal Strike — Fast Action.** Roll 3d6 against Deflection. On success, deal SD damage; on failure, deal half as much, rounded down. Use a damage type appropriate to the beast.
+- **Enhanced Animal Strike — Fast Action; requires Command.** Roll the summoner's Magic against Deflection. On success, deal SD damage; on failure, deal half as much, rounded down. Use a damage type appropriate to the beast. The next attack against the target has advantage.
 
 ### Summon Shade
 

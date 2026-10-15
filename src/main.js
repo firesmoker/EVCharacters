@@ -1,4 +1,7 @@
 import './style.css'
+import './sheet-theme.css'
+import { updateSkillIcon } from './skill-icons.js';
+import { initSheetTools } from './sheet-tools.js';
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
 import { SPELLS_DATABASE } from './spells_data.js';
 import { 
@@ -115,7 +118,7 @@ const updateSpellDescriptions = () => {
   });
 
   // Sync Headers for new pages
-  const syncIds = ['character-name', 'player-name', 'level', 'experience', 'class', 'species'];
+  const syncIds = ['character-name', 'player-name', 'level', 'experience', 'class', 'subclass', 'species'];
   syncIds.forEach(id => {
       const master = document.querySelector(`[data-sync-id="${id}"]`);
       if (master) {
@@ -187,9 +190,26 @@ updateSpellDescriptions();
 updateAllStrikesCantripsTableRowControls();
 
 let devMode = false;
+const resizeInstinctDescription = field => {
+  field.style.height = 'auto';
+  field.style.height = `${field.scrollHeight + 2}px`;
+};
+const updateSkillPresentation = () => {
+  document.querySelectorAll('.skill-row').forEach(updateSkillIcon);
+  document.querySelectorAll('.instinct-description').forEach(resizeInstinctDescription);
+};
+const spellPointFields = () => document.querySelector('[data-section="spellcasting"] .stat-split');
+const syncSpellPointSummary = () => {
+  document.querySelectorAll('[data-spell-point-mirror]').forEach(mirror => {
+    const field = spellPointFields()?.querySelector(`[data-split-part="${mirror.dataset.spellPointMirror}"]`);
+    mirror.innerText = field?.innerText || '';
+  });
+};
 // Listen for data loads (from file or template) to update descriptions
 document.addEventListener('sheet-loaded', updateSpellDescriptions);
 document.addEventListener('sheet-loaded', updateAllStrikesCantripsTableRowControls);
+document.addEventListener('sheet-loaded', syncSpellPointSummary);
+document.addEventListener('sheet-loaded', updateSkillPresentation);
 
 // Auto-Load
 const savedData = localStorage.getItem('ev-char-sheet');
@@ -250,11 +270,20 @@ const isAutocompleteInput = (el) => el.tagName === 'INPUT' && (el.classList.cont
  * Global Input Handler
  */
 const handleInput = (e) => {
+  if (e.target.matches('.instinct-description')) resizeInstinctDescription(e.target);
+  if (e.target.matches('input.skill-name')) updateSkillIcon(e.target.closest('.skill-row'));
   // Contenteditable cleanup
   if (e.target.classList.contains('editable-field')) {
     if (e.target.innerHTML === '<br>' || e.target.innerText === '\n' || e.target.innerText.trim() === '') {
       if (e.target.innerText.trim() === '') e.target.replaceChildren();
     }
+  }
+
+  if (e.target.hasAttribute('data-spell-point-mirror')) {
+    const field = spellPointFields()?.querySelector(`[data-split-part="${e.target.dataset.spellPointMirror}"]`);
+    if (field) field.innerText = e.target.innerText;
+  } else if (e.target.closest('[data-section="spellcasting"] .stat-split')) {
+    syncSpellPointSummary();
   }
 
   // Synchronization logic for header fields
@@ -290,6 +319,7 @@ const handleClick = (e) => {
     const input = wrapper.querySelector('input');
     const value = suggestionItem.dataset.value;
     input.value = value;
+    updateSkillIcon(input.closest('.skill-row'));
     wrapper.querySelector('.suggestions-dropdown').style.display = 'none';
 
     // Auto-fill logic for Spells Known
@@ -518,6 +548,7 @@ const handleClick = (e) => {
 
   if (fontActions[e.target.id]) {
     document.documentElement.style.setProperty('--readable-font', fontActions[e.target.id]);
+    document.fonts.ready.then(updateSkillPresentation);
   }
 
   // Color Handlers
@@ -645,4 +676,6 @@ document.querySelector('#app').addEventListener('mousedown', (e) => {
 document.querySelectorAll('.editable-field').forEach(el => {
   if (el.innerText.trim() === '') el.replaceChildren();
 });
+
+initSheetTools();
 

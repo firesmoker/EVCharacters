@@ -45,8 +45,9 @@ export const renderDatalist = (id, options) => `
 export const renderSkillRow = (type = 'skills') => {
   return `
     <div class="skill-row">
+      <svg class="skill-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="/icons/skills.svg#skill"></use></svg>
       ${renderAutocomplete("Skill", type)}
-      ${renderAutocomplete("Untrained (3d6)", "bonus", "skill-bonus")}
+      ${renderAutocomplete("Training", "bonus", "skill-bonus")}
       <button class="remove-row-btn" title="Remove Row">-</button>
       <button class="add-row-btn" title="Add Row">+</button>
     </div>
@@ -85,7 +86,7 @@ export const renderSpellRow = () => `
  * Renders a row for the Instinct Abilities section.
  */
 export const renderInstinctAbilityRow = () => `
-  <div class="skill-row">
+  <div class="skill-row instinct-entry">
     <div style="flex: 0 0 20mm;">
       <input type="text" class="instinct-input" placeholder="Source" style="width: 100%;">
     </div>
@@ -93,7 +94,7 @@ export const renderInstinctAbilityRow = () => `
       <input type="text" class="instinct-input" placeholder="Ability" style="width: 100%;">
     </div>
     <div style="flex: 1 1 auto;">
-      <input type="text" class="instinct-input" placeholder="Description" style="width: 100%;">
+      <textarea class="instinct-input instinct-description" placeholder="Description" aria-label="Instinct description" rows="2" style="width: 100%;"></textarea>
     </div>
     <button class="remove-row-btn" title="Remove Row">-</button>
     <button class="add-row-btn" title="Add Row">+</button>
@@ -137,14 +138,7 @@ export const renderSpellsKnownSection = () => `
 
 // Content for the Instinct Abilities section with headings
 export const renderInstinctAbilitiesSection = () => `
-  <div class="skill-header-row" style="margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px; pointer-events: none;">
-    <div style="flex: 0 0 20mm; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Source</div>
-    <div style="flex: 0 0 25mm; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Ability</div>
-    <div style="flex: 1 1 auto; text-align: left; font-size: 9px; font-weight: bold; color: #666; text-transform: uppercase; font-family: Inter, sans-serif; padding-left: 4px;">Description</div>
-  </div>
-  <div class="dynamic-rows">
-    ${renderInstinctAbilityRow()}
-  </div>
+  <div class="dynamic-rows">${renderInstinctAbilityRow()}</div>
 `
 
 // Content for the structured Spellcasting section
@@ -210,7 +204,7 @@ export const renderSection = (title, content, options = {}) => {
   ].filter(Boolean).join(' ');
 
   return `
-    <div class="section-box" style="${style}">
+    <div class="section-box" data-section="${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}" style="${style}">
       <div class="section-header"${title === 'Feats' ? ' title="At level 2, choose one Minor Feat for which you meet the requirements, in addition to your Origin Feat."' : ''}>${title}</div>
       <div class="${contentClasses}" 
            ${isStructured ? '' : 'contenteditable="true"'} 
@@ -223,21 +217,23 @@ export const renderSection = (title, content, options = {}) => {
 
 // Content for the structured Defense section
 export const renderDefensesSection = () => `
-  <div class="section-container">
-    <div class="section-row">
-      <div class="stat-icon"><img src="/icons/heart.svg" width="18" height="18" alt="HP Icon"></div>
+  <div class="defense-summary">
+    <div class="section-row health-panel">
+      <div class="health-heading" aria-hidden="true">Health</div>
+      <div class="health-captions" aria-hidden="true"><span>Current</span><span>Maximum</span><span>Temp HP</span></div>
       <span class="section-label"><span class="highlight-char">H</span>ealth<br><span class="highlight-char">P</span>oints:</span>
       <div class="stat-split">
-        <span class="editable-field section-row-editable" contenteditable="true" data-split-part="cur" data-placeholder="Cur" style="min-width: 25px; text-align: right;"></span>
+        <span class="editable-field section-row-editable" contenteditable="true" data-split-part="cur" data-placeholder="Cur" aria-label="Current HP"></span>
         <span class="stat-slash">/</span>
-        <span class="editable-field section-row-editable" contenteditable="true" data-split-part="max" data-placeholder="Max" style="min-width: 25px;"></span>
-        <span class="editable-field section-row-editable" contenteditable="true" data-split-part="temp" data-placeholder="Temp" style="min-width: 25px;"></span>
+        <span class="editable-field section-row-editable" contenteditable="true" data-split-part="max" data-placeholder="Max" aria-label="Maximum HP"></span>
+        <span class="editable-field section-row-editable" contenteditable="true" data-split-part="temp" data-placeholder="Temp" aria-label="Temporary HP"></span>
       </div>
     </div>
-    <div class="section-separator"></div>
+    <div class="defense-crests">
     ${renderSectionRow('Deflection', '0')}
     ${renderSectionRow('Fortitude', '0')}
     ${renderSectionRow('Will', '0')}
+    </div>
   </div>
 `
 
@@ -265,26 +261,36 @@ export const renderEquipmentProficienciesSection = () => `
         <label class="checkbox-item"><input type="checkbox"> Martial Weapons</label>
       </div>
     </div>
+    <div class="drags-ignored">
+    <div class="section-subsection-label" title="Each point of Drag slows an action by one speed level, to a minimum of Slow. Each additional point adds a penalty of 1 to the Slow action's roll.">Drags Ignored:</div>
+    <div class="dynamic-rows">
+      ${renderDragsIgnoredRow()}
+    </div>
+    </div>
   </div>
 `
 
 // Content for the structured Speed section
 export const renderSpeedSection = () => `
   <div class="section-container">
+    <div class="speed-stats">
     ${renderSectionRow('Movement', '3')}
     ${renderSectionRow('Instinct', '0')}
-    <div class="section-subsection-label" title="Each point of Drag slows an action by one speed level, to a minimum of Slow. Each additional point adds a penalty of 1 to the Slow action's roll.">Drags Ignored:</div>
-    <div class="dynamic-rows">
-      ${renderDragsIgnoredRow()}
     </div>
+
   </div>
 `
 
-export const renderHeader = () => `
+export const renderHeader = (showDetails = false) => `
+  <span class="page-corner top-left" aria-hidden="true"></span>
+  <span class="page-corner top-right" aria-hidden="true"></span>
+  <span class="page-corner bottom-left" aria-hidden="true"></span>
+  <span class="page-corner bottom-right" aria-hidden="true"></span>
   <header class="sheet-header">
-    <div style="flex-grow: 1;">
+    <div class="sheet-identity">
       <h1 class="editable-field sheet-title" contenteditable="true" data-placeholder="Character Name" data-sync-id="character-name"></h1>
-      <div class="header-row">
+      <div class="sheet-wordmark" aria-hidden="true">Eternal Valor</div>
+      ${showDetails ? `<div class="header-row player-details">
         ${renderHeaderField('Player Name', '...', 2.07)}
         ${renderHeaderField('Level', '0', 0.65)}
         ${renderHeaderField('Experience', '0', 1.28)}
@@ -293,12 +299,23 @@ export const renderHeader = () => `
         ${renderHeaderField('Class', '...', 1)}
         ${renderHeaderField('Subclass', '...', 1)}
         ${renderHeaderField('Species', '...', 1)}
-      </div>
-    </div>
-    <div class="logo-box">
-      <img src="/Logo.png" alt="Eternal Valor Logo">
+      </div>` : ''}
     </div>
   </header>
+`
+
+// These edit the Spellcasting section's existing fields; they are not a second saved resource.
+export const renderSpellPointSummary = () => `
+  <div class="spell-point-summary">
+    <span class="resource-label">Spell Points</span>
+    <div class="resource-values">
+      <span class="editable-field" contenteditable="true" data-spell-point-mirror="cur" data-placeholder="Cur" aria-label="Current Spell Points"></span>
+      <span aria-hidden="true">/</span>
+      <span class="editable-field" contenteditable="true" data-spell-point-mirror="max" data-placeholder="Max" aria-label="Maximum Spell Points"></span>
+      <span class="temp-sp-label">Temp SP</span>
+      <span class="editable-field" contenteditable="true" data-spell-point-mirror="temp" data-placeholder="—" aria-label="Temporary Spell Points"></span>
+    </div>
+  </div>
 `
 
 /**
@@ -317,12 +334,12 @@ export const renderVariantActionRow = () => `
 export const renderStrikesCantripsTableRow = () => `
   <tr>
     <td class="strikes-cantrips-cell-weapon"><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="weapon" data-placeholder="weapon"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="speed" data-placeholder="Fast"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="roll" data-placeholder="5d6"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="minimum" data-placeholder="1"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="damage" data-placeholder="Piercing"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="range" data-placeholder="Melee"></div></td>
-    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="Disable"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="speed" data-placeholder="—"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="roll" data-placeholder="—"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="minimum" data-placeholder="—"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="damage" data-placeholder="—"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="range" data-placeholder="—"></div></td>
+    <td><div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="doubleSix" data-placeholder="—"></div></td>
   </tr>
 `
 
@@ -432,7 +449,7 @@ const renderSpellText = (description) => description.replace(
   .replace(/\n/g, '<span class="spell-paragraph-break"></span>');
 
 export const renderSpellDescriptionBlock = (spell) => `
-  <div class="spell-description-block" style="margin-bottom: 6px; padding: 10px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff;">
+  <div class="spell-description-block">
     <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid #eee; padding-bottom: 2px;">
       <div style="display: flex; align-items: center; gap: 6px;">
         <strong style="font-size: 15px; font-family: 'Crimson Pro', serif; text-transform: uppercase;">${spell.name}</strong>
@@ -489,20 +506,27 @@ export const renderApp = () => {
   <div class="main-area">
     <div class="editor-canvas">
       <div style="display: flex; flex-direction: column; gap: 20px;">
-        <div class="a4-page">
+        <div class="a4-page character-page">
           <!-- Define Datalists -->
           ${renderDatalist('skills-list', SKILLS_LIST)}
           ${renderDatalist('combat-skills-list', COMBAT_SKILLS_LIST)}
 
-          ${renderHeader()}
+          ${renderHeader(true)}
+
+          <div class="combat-band">
+            ${renderSection('Defenses', renderDefensesSection(), { isStructured: true })}
+            <div class="essentials-panel">
+              <div class="essentials-heading" aria-hidden="true">Essentials</div>
+              ${renderSection('Speed', renderSpeedSection(), { isStructured: true, isDynamic: true })}
+              ${renderSpellPointSummary()}
+            </div>
+          </div>
           
           <main class="sheet-middle">
             <section class="sheet-column">
-              ${renderSection('Defenses', renderDefensesSection(), { isStructured: true })}
-              ${renderSection('Equipment Proficiencies', renderEquipmentProficienciesSection(), { isStructured: true })}
-              ${renderSection('Speed', renderSpeedSection(), { isStructured: true, isDynamic: true })}
               ${renderSection('Combat Skills', `<div class="dynamic-rows">${renderSkillRow('combat')}</div>`, { isStructured: true, isDynamic: true })}
               ${renderSection('Standard Skills', `<div class="dynamic-rows">${renderSkillRow('skills')}</div>`, { isStructured: true, isDynamic: true })}
+              ${renderSection('Equipment Proficiencies', renderEquipmentProficienciesSection(), { isStructured: true })}
             </section>
             
             <section class="sheet-column">
@@ -512,19 +536,13 @@ export const renderApp = () => {
           </main>
         </div>
 
-        <div class="a4-page">
+        <div class="a4-page details-page">
           ${renderHeader()}
           
           <main class="sheet-middle">
             <section class="sheet-column">
-              <div style="display: flex; gap: var(--section-gap);">
-                <div style="flex: 1.4;">
-                  ${renderSection('Languages', '', { style: 'height: 100%;' })}
-                </div>
-                <div style="flex: 1;">
-                   ${renderSection('Death', renderDeathSection(), { isStructured: true, style: 'height: 100%;' })}
-                </div>
-              </div>
+              ${renderSection('Languages', '', { style: 'flex: 0 0 auto; min-height: 65px;' })}
+              ${renderSection('Death', renderDeathSection(), { isStructured: true, style: 'flex: 0 0 auto;' })}
               ${renderSection('Equipment', '')}
               ${renderSection('Items', '')}
             </section>
@@ -537,7 +555,7 @@ export const renderApp = () => {
           </main>
         </div>
 
-        <div class="a4-page">
+        <div class="a4-page spellcasting-page">
           ${renderHeader()}
           
           <main class="sheet-middle" style="grid-template-columns: 1fr;">
@@ -573,6 +591,7 @@ export const renderRowForSection = (title) => {
     'Standard Skills': () => renderSkillRow('skills'),
     'Combat Skills': () => renderSkillRow('combat'),
     'Speed': () => renderDragsIgnoredRow(),
+    'Equipment Proficiencies': () => renderDragsIgnoredRow(),
     'Strikes & Damaging Cantrips': () => renderStrikesDamagingCantripsBlock(),
     'Spells Known': () => renderSpellRow(),
     'Instinct Abilities': () => renderInstinctAbilityRow()

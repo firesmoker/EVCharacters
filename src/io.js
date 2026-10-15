@@ -4,7 +4,7 @@ import {
   renderStrikesCantripsTableRow
 } from './components.js';
 
-const STRIKES_CANTRIPS_TABLE_SLOT_ORDER = ['weapon', 'speed', 'roll', 'damage', 'range', 'doubleSix'];
+const STRIKES_CANTRIPS_TABLE_SLOT_ORDER = ['weapon', 'speed', 'roll', 'minimum', 'damage', 'range', 'doubleSix'];
 
 const createStrikesCantripsTableRowElement = () => {
   const table = document.createElement('table');
@@ -120,9 +120,12 @@ const scrapeSplitFields = (box, title, data) => {
 
 const scrapeDynamicRows = (box, title, data) => {
   const section = getSectionData(data, title);
-  box.querySelectorAll('.skill-row, .strikes-cantrips-container').forEach(row => {
+  // Keep Drag entries in their existing saved location after moving their UI.
+  const rowRoot = title === 'Speed' ? document.querySelector('.drags-ignored') : box;
+  rowRoot.querySelectorAll('.skill-row, .strikes-cantrips-container').forEach(row => {
+    if (title !== 'Speed' && row.closest('.drags-ignored')) return;
     if (row.classList.contains('skill-row')) {
-      const inputs = Array.from(row.querySelectorAll('input'));
+      const inputs = Array.from(row.querySelectorAll('input, textarea'));
       if (inputs.length === 0) return;
       section.dynamicRows.push({
         type: 'skill',
@@ -333,7 +336,9 @@ export const loadFromJSON = (jsonString) => {
 
       // Dynamic Rows
       if (section.dynamicRows) {
-        const container = box.querySelector('.dynamic-rows');
+        const container = title === 'Speed'
+          ? document.querySelector('.drags-ignored .dynamic-rows')
+          : box.querySelector('.dynamic-rows');
         if (container) {
           section.dynamicRows.forEach(rowData => {
             const html = renderRowForSection(title);
@@ -344,7 +349,7 @@ export const loadFromJSON = (jsonString) => {
             const newRow = tempDiv.firstElementChild;
 
             if (rowData.type === 'skill') {
-              const inputs = newRow.querySelectorAll('input');
+              const inputs = newRow.querySelectorAll('input, textarea');
               rowData.values.forEach((val, i) => { if (inputs[i]) inputs[i].value = val; });
             } else if (rowData.type === 'action') {
               const slots = rowData.slots || {};
@@ -366,6 +371,7 @@ export const loadFromJSON = (jsonString) => {
                       weapon: slots.weapon || '',
                       speed: slots.speed || '',
                       roll: slots.roll || '',
+                      minimum: slots.minimum || '',
                       damage: slots.damage || '',
                       range: slots.range || '',
                       doubleSix: slots.doubleSix || ''

@@ -458,7 +458,7 @@
 .temp-sp-group .editable-field { display: block; min-width: 0; font-size: 17px; line-height: 1.3; text-align: center; }
 .sheet-column[data-auto-fit] .section-box { min-height: 0 !important; }
 [data-auto-fit] .section-content,
-[data-auto-fit] .section-content * {
+[data-auto-fit] .section-content *:not(.suggestions-dropdown, .suggestions-dropdown *) {
   font-size: calc(13px * var(--fit-scale)) !important;
   line-height: 1.35 !important;
   min-height: 0 !important;
@@ -517,3 +517,6 @@
 .accent-preview { height: 28px; border-radius: 4px; border: 1px solid #0003; }
 .accent-picker-buttons { display: flex; justify-content: end; gap: 10px; margin-top: 20px; }
 .accent-picker-buttons button { padding: 7px 15px; cursor: pointer; }
+
+/* Autocomplete is an overlay, not content to fit onto the page. */
+[data-measuring-sheet] .suggestions-dropdown { display: none !important; }

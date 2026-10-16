@@ -17,6 +17,8 @@ export function restoreSections() {
 export function paginateSheets() {
   if (!roots.length || busy) return;
   busy = true;
+  // Floating controls must not count toward printable content height.
+  document.documentElement.setAttribute('data-measuring-sheet', '');
   try {
     for (const page of roots) {
       const bottom = page.getBoundingClientRect().bottom - 36;
@@ -77,7 +79,10 @@ export function paginateSheets() {
         row.classList.toggle('logical-multiple-rows', container.children.length > 1);
       });
     });
-  } finally { busy = false; }
+  } finally {
+    document.documentElement.removeAttribute('data-measuring-sheet');
+    busy = false;
+  }
 }
 
 export const initSheetTools = () => {

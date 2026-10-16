@@ -319,7 +319,7 @@
 .strikes-cantrips-slots-table th { color: #62543c; background: transparent; border: 0; font: 13px 'Crimson Pro', serif; padding: 2px 2px; }
 .strikes-cantrips-slots-table td { border: 0; padding: 1px; }
 .strikes-cantrips-slots-table td .editable-field { font-size: 14px; padding: 2px 1px; min-height: 20px; }
-.strikes-cantrips-slots-table td:nth-child(2) .editable-field { background: #fff; color: #354654; font-weight: bold; text-align: left; }
+.strikes-cantrips-slots-table td:nth-child(2) .editable-field { background: #fff; color: #354654; font-weight: normal; text-align: left; }
 .strikes-cantrips-table-line { padding-top: 18px; --col-speed: 13%; --col-roll: 10%; --col-minimum: 14%; --col-damage: 18%; --col-range: 14%; --col-double-six: 17%; }
 .weapon-column-toggle-btn { top: 0; right: 0; font-size: 12px; min-width: 72px; text-align: right; }
 .strikes-cantrips-table-row-controls { top: 0; right: 80px; }

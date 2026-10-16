@@ -158,6 +158,8 @@ body {
 .main-area {
   flex-grow: 1;
   overflow: auto;
+  /* Auto-fitting temporarily changes section heights; don't anchor to those measurements. */
+  overflow-anchor: none;
   position: relative;
   background-color: #e0e0e0;
   /* Fallback */

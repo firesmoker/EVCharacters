@@ -57,6 +57,42 @@ try {
       if (issues.length) failures.push({ subclass: sub.Subclass, species: race.Species, issues });
       else cases.push(m.buildCharacter(s));
     }
+    const actions = sheet => sheet.sections['Strikes & Damaging Cantrips'].dynamicRows;
+    for (const sheet of cases) {
+      const features = ['Class Features', 'Species Features', 'Additional Features'].map(name => sheet.sections[name]?.sectionBody || '').join('');
+      if (/\bfa[A-Z]|VariantCosts|SpecialFast|Variant1 \/ Combat/.test(features)) throw Error('Extracted action artifacts remain');
+      if (actions(sheet).some(a => a.variants.some(v => v.includes('<strong>Ram:</strong>'))) && features.includes('Perform a Charge using Unarmed Strike')) throw Error('Ram rules duplicated in features');
+    }
+    for (const sheet of cases) for (const name of ['Melee Strike', 'Ranged Strike']) {
+      if (actions(sheet).filter(a => a.slots.name === name).length > 1) throw Error(`Duplicate ${name}`);
+    }
+    for (const [className, subclass, parent, variant] of [
+      ['Paladin', '', 'Melee Strike', 'Holy Smite'],
+      ['Archer', 'Walking Ballista', 'Ranged Strike', 'Power Shot'],
+      ['Archer', 'Walking Ballista', 'Bomb Throw', 'Bomb Slinging'],
+      ['Archer', 'Bowslinger', 'Ranged Strike', 'Multishot'],
+      ['Barbarian', 'Berserker', 'Melee Strike', 'Whirlwind'],
+      ['Barbarian', 'Berserker', 'Charge', 'Ram'],
+      ['Barbarian', 'Berserker', 'Grapple', 'Aggressive Grapple'],
+      ['Barbarian', 'Berserker', 'Weapon Throw', 'Enraged Toss'],
+    ]) {
+      const s = fill({ ...m.newCharacter(), className, subclass: subclass || m.DATA.subclasses.find(x => x['Parent Class'] === className).Subclass, species: 'Human', level: 3 });
+      const block = actions(m.buildCharacter(s)).find(a => a.slots.name === parent);
+      if (!block?.variants.some(v => v.includes(`<strong>${variant}:</strong>`)) || block.ui.variantsHidden) throw Error(`${variant} missing from ${parent}`);
+    }
+    // Exercise multiple weapon rows independently of the current starting-equipment grants.
+    const warrior = m.DATA.classes.find(c => c.Class === 'Warrior');
+    const originalEquipment = warrior['Starting Equipment'];
+    let multi;
+    try {
+      warrior['Starting Equipment'] = 'Weapons: Shortsword, Sabre, Shortbow, Longbow';
+      multi = m.buildCharacter(fill({ ...m.newCharacter(), className: 'Warrior', species: 'Human', level: 1 }));
+      const rows = actions(multi);
+      for (const name of ['Melee Strike', 'Ranged Strike']) {
+        const block = rows.find(a => a.slots.name === name);
+        if (block?.tableRows.length !== 2) throw Error(`${name} must contain two weapon rows`);
+      }
+    } finally { warrior['Starting Equipment'] = originalEquipment; }
     const bard = fill({ ...m.newCharacter(), name: 'Bard Example', className: 'Bard', species: 'High Elf', level: 3, subclass: 'Tale Weaver' });
     const built = m.buildCharacter(bard);
     const classContent = document.createElement('div'); classContent.innerHTML = built.sections['Class Features'].sectionBody;
@@ -71,6 +107,29 @@ try {
     }
     if (built.sections['Additional Features'].sectionBody.includes('Historian')) throw Error('Historian is redundant with the skills table');
     const io = await import('/src/io.js');
+    const barbarian = m.buildCharacter(fill({ ...m.newCharacter(), className: 'Barbarian', species: 'Human', level: 1 }));
+    for (const name of ['Charge', 'Grapple']) {
+      const action = actions(barbarian).find(a => a.slots.name === name);
+      if (!action.ui.tableHidden || !/^(Fast|Average) Action/.test(action.slots.rollDescription)) throw Error(`${name} needs text metadata and no table`);
+      if (/<br>|^(Fast|Average) Action/.test(action.slots.notes)) throw Error(`${name} contains HTML or duplicated speed`);
+    }
+    if (!actions(barbarian).find(a => a.slots.name === 'Charge').variants.some(v => v.includes('2 Extra Dice') && !v.includes('+1 damage'))) throw Error('Ram must grant Extra Dice');
+    if (actions(barbarian).some(a => a.variants.some(v => /Enraged Toss|Whirlwind/.test(v)))) throw Error('Locked variants should not be granted');
+    io.loadFromJSON(JSON.stringify(barbarian));
+    const barbarianSaved = JSON.parse(io.serializeSheet());
+    if (!actions(barbarianSaved).find(a => a.slots.name === 'Charge').ui.tableHidden) throw Error('Hidden table state lost');
+    for (const block of actions(barbarian).filter(a => a.variants.length)) {
+      const savedBlock = actions(barbarianSaved).find(a => a.slots.name === block.slots.name);
+      const normalize = html => { const el = document.createElement('div'); el.innerHTML = html; return el.innerHTML; };
+      if (JSON.stringify(block.variants.map(normalize)) !== JSON.stringify(savedBlock.variants.map(normalize)) || savedBlock.ui.variantsHidden) throw Error(`Variants lost on save: ${JSON.stringify({block, savedBlock})}`);
+    }
+    io.loadFromJSON(JSON.stringify(multi));
+    const multiSaved = JSON.parse(io.serializeSheet());
+    for (const name of ['Melee Strike', 'Ranged Strike']) {
+      const before = actions(multi).find(a => a.slots.name === name);
+      const after = actions(multiSaved).find(a => a.slots.name === name);
+      if (JSON.stringify(before.tableRows) !== JSON.stringify(after.tableRows)) throw Error('Weapon rows lost on save');
+    }
     io.loadFromJSON(JSON.stringify(built));
     const saved = JSON.parse(io.serializeSheet());
     const invalid = structuredClone(bard); invalid.spells['class-spells'] = ['Godly Force'];

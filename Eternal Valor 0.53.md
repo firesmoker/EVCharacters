@@ -570,7 +570,7 @@ You grapple an enemy that is adjacent to you. Roll Unarmed against Deflection or
 ### Melee Strike
 
 Fast Action
-You strike an enemy within your melee range with a melee weapon. Roll Melee against Deflection. On success, deal SD damage + any weapon damage bonuses. On failure, deal half as much damage, rounded down.
+You strike an enemy within your melee range with a melee weapon. Roll Melee against Deflection. On success, deal SD damage. On failure, deal half as much damage, rounded down.
 The damage type is appropriate to the weapon.
 On success, if you rolled a double six, activate the weapon's double six ability.
 
@@ -585,7 +585,7 @@ On success - push target 1 unit away from you and the target is interrupted (if 
 Fast Action
 Shoot a target using a ranged weapon.
 Roll Ranged against Deflection.
-On success, deal SD damage + any weapon damage bonuses. On failure, deal half as much damage, rounded down.
+On success, deal SD damage. On failure, deal half as much damage, rounded down.
 The damage type is appropriate to the weapon. On success, use the weapon-specific Double-6 ability.
 Notice that ranged weapons have the "Ranged" property, which introduces 1 Drag to Ranged Strike, making it an Average Action.
 You must have a feature that lets you ignore this Drag to be able to perform Ranged Strike as a Fast Action.
@@ -621,7 +621,7 @@ Perform an action with an item or environmental feature according to their descr
 Average Action
 Using a weapon with the “thrown weapon” property, throw the weapon at a target within range.
 Roll Weapon Throw against Deflection.
-On success, deal SD damage + any weapon damage bonuses. On failure, deal half as much damage, rounded down.
+On success, deal SD damage. On failure, deal half as much damage, rounded down.
 The damage type is appropriate to the weapon.
 Modifiers:
 You gain disadvantage on the roll if you are within melee reach of an enemy
@@ -1027,7 +1027,7 @@ CP is used as aberration for Concoctions Points.
 
 ###### Weapon Coatings
 
-- Acid Coating<br>Costs 1 CP<br>Applies to one Melee Strike or Ranged Strike.<br>+1 Acid damage on hit.
+- Acid Coating<br>Costs 1 CP<br>Applies to one Melee Strike or Ranged Strike.<br>Gain 2 Extra Dice on the strike's roll. Its damage type becomes Acid.
 
 - Nerve Coating<br>Costs 1 CP<br>Applies to one Melee Strike or Ranged Strike. Effect starts after the strike.<br>On hit, the target becomes Vulnerable (-1 to all defenses) until the end of the next round.
 
@@ -1468,7 +1468,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>Perform a Charge using Unarmed Strike. On a successful hit, you deal +1 damage. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked Prone if it's up to one size larger than you.</td>
+>     <td>Perform a Charge using Unarmed Strike with 2 Extra Dice. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked Prone if it's up to one size larger than you.</td>
 >   </tr>
 > </table>
 
@@ -1999,7 +1999,7 @@ Different prayers have different Faith costs. You unlock Prayer options as you l
 
 #### Unlocked at Level 1:
 
-- Domain Weapons [Costs 1 Faith]<br>Until the end of the next round, the hands and weapons of your party members glow with divine light. When your party members perform any type of strike, they deal Radiant damage or your chosen domain damage instead of their normal damage type, and deal +1 damage against your domain's opposition.
+- Domain Weapons [Costs 1 Faith]<br>Until the end of the next round, the hands and weapons of your party members glow with divine light. When your party members perform any type of strike, they deal Radiant damage or your chosen domain damage instead of their normal damage type, and gain 2 Extra Dice on strike rolls against your domain's opposition.
 
 - Martial Guidance [Costs 2 Faith]<br>Your party members gain advantage on all attacks until the end of the round.
 
@@ -2328,7 +2328,7 @@ You’ve mastered the art of Wildshape, allowing you greater degree of power and
 
 You may shapeshift into Large animals.
 
-Additionally, your Animal Strike deals +2 damage.
+Additionally, gain 4 Extra Dice on Animal Strike rolls.
 
 #### Level 3: Wildshape Spellcasting
 
@@ -2721,7 +2721,7 @@ On the first round of combat, your Melee Strikes and Ranged Strikes have advanta
 
 Choose one category of creatures as favored enemy: Abominations, Beasts, Dragons, Elementals, Fey, Fiends, Giants, Oozes, Plants, Undead.
 
-- You deal +1 damage with Melee Strikes and Ranged Strikes against enemies of the chosen type.
+- You gain 2 Extra Dice on Melee Strike and Ranged Strike rolls against enemies of the chosen type.
 
 - You gain advantage on Deduction, Stealth, Survival, Nature, and Notice Movement rolls against enemies of the chosen type.
 
@@ -3080,7 +3080,7 @@ You may use martial weapons.
 
 #### Level 1: Arcane Strike
 
-Whenever you perform a Melee Strike with a one-handed weapon, you may choose one type of element: lightning, fire, or ice. On a successful hit, add +1 damage of the chosen type to the Melee Strike.
+Whenever you perform a Melee Strike with a one-handed weapon, you may choose one type of element: lightning, fire, or ice. Gain 2 Extra Dice on the roll. The Melee Strike's damage type becomes the chosen type.
 
 #### Level 1: Arcane Diffusion
 
@@ -3337,7 +3337,7 @@ You gain the following action:
 > </table></td>
 >   </tr>
 >   <tr>
->     <td>Perform a Melee Strike. On a successful hit, deal +1 Necrotic or Acid damage, or +2 if the target is a fiend or abomination.</td>
+>     <td>Perform a Melee Strike. Gain 2 Extra Dice on the roll, or 4 Extra Dice against a fiend or abomination. The strike's damage type becomes Necrotic or Acid (your choice).</td>
 >   </tr>
 > </table>
 
@@ -3758,7 +3758,7 @@ Role: Combatant, Interruption
 
 #### Level 1: Martial Arts Disciple
 
-- Deal +1 damage with Unarmed Strikes and Melee Strikes using daggers.
+- Gain 2 Extra Dice on Unarmed Strike rolls and Melee Strike rolls using daggers.
 
 - You may roll with the Unarmed skill when you perform a Melee Strike with daggers and quarterstaffs.
 
@@ -3816,9 +3816,9 @@ When you get the Shadow Clone benefit, you immediately create a clone of yoursel
 >   </tr>
 >   <tr>
 >     <td>3</td>
->     <td>Strikes deal +2 Slashing damage</td>
->     <td>Strikes deal +2 Slashing damage</td>
->     <td>Strikes deal +2 Force damage. Strikes ignore all DR</td>
+>     <td>Strikes gain 4 Extra Dice and deal Slashing damage</td>
+>     <td>Strikes gain 4 Extra Dice and deal Slashing damage</td>
+>     <td>Strikes gain 4 Extra Dice and deal Force damage. Strikes ignore all DR</td>
 >     <td>Choose one unused benefit from any tier</td>
 >   </tr>
 > </table>
@@ -4124,11 +4124,11 @@ Switching weapons is free unless changing into or out of a Heavy or Clumsy weapo
 
 - Small: Switching into a ‘Small’ weapon doesn’t require any Instinct ability, even from a ‘Heavy’ or ‘Clumsy’ weapon. Easier to hide.
 
-- Versatile: Can be used both as a one-handed and two-handed weapon. If used as a two-handed weapon, the number after the Versatile damage represents the damage bonus.
+- Versatile: Can be used both as a one-handed and two-handed weapon. If used as a two-handed weapon, the number listed for Versatile represents the additional Extra Dice.
 
 #### Special Properties:
 
-- Rapier: +1 damage if the second hand is free
+- Rapier: Gain 2 Extra Dice on the strike roll if your other hand is free
 
 - Special: See the specific rules for the weapon.
 

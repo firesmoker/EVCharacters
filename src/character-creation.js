@@ -3,6 +3,8 @@ import { SKILLS_LIST } from './data.js';
 import { SPELLS_DATABASE } from './spells_data.js';
 import { tidyCharacterContent } from './sheet-content.js';
 import { cantripAction } from './cantrip-action.js';
+import ACTIONS from './creation-actions.json';
+import { cleanActionText, representedActions } from './action-text.js';
 
 export { DATA };
 export const standardSkills = SKILLS_LIST.flatMap(g => g.options);
@@ -175,6 +177,7 @@ function levelText(text, level) {
 }
 
 export function featureHTML(text) {
+  text = cleanActionText(text);
   const lines = text.split('\n').filter(x => x.trim());
   let html = '', bullets = [];
   const flush = () => { if (bullets.length) html += `<ul>${bullets.map(x => `<li>${x}</li>`).join('')}</ul>`; bullets = []; };
@@ -232,7 +235,7 @@ export function buildCharacter(s) {
   const errors = validateCharacter(s);
   if (errors.length) throw new Error(errors.join('\n'));
   const c = classFor(s), race = speciesFor(s), sub = subclassFor(s), stats = progression(s), skills = skillPlan(s).fixed;
-  const equip = equipmentPlan(s), weaponNames = [...equip.fixed, s.equipment.weapon].filter(Boolean);
+  const equip = equipmentPlan(s), weaponNames = [...new Set([...equip.fixed, s.equipment.weapon].filter(Boolean))];
   const armor = DATA.armor.find(a => a.Name === equip.armor), shield = DATA.armor.find(a => a.Name === equip.shield);
   const sections = Object.fromEntries(['Defenses', 'Speed', 'Combat Skills', 'Standard Skills', 'Equipment Proficiencies', 'Species Features', 'Class Features', 'Instinct Abilities', 'Feats', 'Additional Features', 'Languages', 'Equipment', 'Spellcasting', 'Spells Known', 'Strikes & Damaging Cantrips', 'Death'].map(n => [n, section()]));
   const hp = stats.hp + +(race['HP Bonus'] || 0) + (s.feats.includes('Tough') ? Math.max(1, Math.floor(s.level / 2)) : 0);
@@ -294,8 +297,35 @@ export function buildCharacter(s) {
     const w = DATA.weapons.find(x => x.Weapon === name); if (!w) return null;
     const ranged = /Ranged/.test(w.Category), skill = s.className === 'Cleric' && !ranged && !w['Other Properties'].includes('Two Handed') ? 'Magic' : ranged ? 'Ranged' : 'Melee';
     const activeDrags = names(w['Drag Properties']).filter(d => !(d === 'Heavy' && drags.includes('Heavy Weapons')) && !(d === 'Ranged' && drags.includes('Ranged Weapons')));
-    return { type: 'action', slots: { name: `${skill} Strike`, rollDescription: `Roll ${skill} against Deflection.`, notes: `On success, deal SD ${w['Damage Type'].replace(/\s*\/\s*/g, ' or ')} damage. On failure, deal half damage, rounded down.` }, tableRows: [{ weapon: name, speed: ['Fast', 'Average', 'Slow'][Math.min(2, activeDrags.length)], roll: `${(skills[skill] || 3) + Number(w['Extra Dice'] || 0)}d6`, minimum: w['Minimum Roll'], damage: w['Damage Type'], range: ranged ? `${w['Effective Range']} / ${w['Maximum Range']}` : w['Other Properties'].includes('Reach') ? '2' : '1', doubleSix: w['Double 6'] }], variants: [], ui: { variantsHidden: true, weaponColumnHidden: false } };
+    return { type: 'action', slots: { name: ranged ? 'Ranged Strike' : 'Melee Strike', rollDescription: `Roll ${skill} against Deflection.`, notes: `On success, deal SD ${w['Damage Type'].replace(/\s*\/\s*/g, ' or ')} damage. On failure, deal half damage, rounded down.` }, tableRows: [{ weapon: name, speed: ['Fast', 'Average', 'Slow'][Math.min(2, activeDrags.length)], roll: `${(skills[skill] || 3) + Number(w['Extra Dice'] || 0)}d6`, minimum: w['Minimum Roll'], damage: w['Damage Type'], range: ranged ? `${w['Effective Range']} / ${w['Maximum Range']}` : w['Other Properties'].includes('Reach') ? '2' : '1', doubleSix: w['Double 6'] }], variants: [], ui: { variantsHidden: true, weaponColumnHidden: false } };
   }).filter(Boolean);
+  const grouped = new Map();
+  for (const action of sections['Strikes & Damaging Cantrips'].dynamicRows) {
+    const existing = grouped.get(action.slots.name);
+    if (!existing) { grouped.set(action.slots.name, action); continue; }
+    existing.tableRows.push(...action.tableRows);
+    existing.slots.notes = 'On success, deal SD damage of the type shown for the weapon. On failure, deal half damage, rounded down.';
+    if (existing.slots.rollDescription !== action.slots.rollDescription) {
+      existing.slots.rollDescription = 'Roll Magic for one-handed melee weapons, or Melee for two-handed melee weapons, against Deflection.';
+    }
+  }
+  const availableRules = [classText, subclassText, speciesText, ...chosenFeats.map(f => f['Effect / Rules'])].join('\n');
+  for (const variant of ACTIONS.filter(action => action.parent)) {
+    if (![s.className, s.subclass, s.species, ...s.feats].includes(variant.owner) || !availableRules.includes(variant.name)) continue;
+    let parent = grouped.get(variant.parent);
+    if (!parent) {
+      const base = ACTIONS.find(action => action.name === variant.parent && !action.parent);
+      if (!base) continue;
+      const lines = base.description.split('\n');
+      const summary = lines.shift();
+      parent = { type: 'action', slots: { name: base.name, rollDescription: summary, notes: lines.join('\n') }, tableRows: [{ weapon: '', speed: base.speed, roll: '', minimum: '', damage: '', range: '', doubleSix: '' }], variants: [], ui: { variantsHidden: false, weaponColumnHidden: true, tableHidden: true } };
+      grouped.set(base.name, parent);
+    }
+    const details = [variant.speed ? `${variant.speed} Action` : '', variant.cost].filter(Boolean).join(' · ');
+    parent.variants.push(`<strong>${escapeHTML(variant.name)}:</strong> ${details ? `${escapeHTML(details)}.<br>` : ''}${escapeHTML(variant.description).replace(/\n/g, '<br>')}`);
+    parent.ui.variantsHidden = false;
+  }
+  sections['Strikes & Damaging Cantrips'].dynamicRows = [...grouped.values()];
   for (const name of spells.keys()) {
     const sp = SPELLS_DATABASE.find(x => x.name === name);
     if (sp?.rank !== 'Cantrip' || !/deal (?:SD|\d+) .*damage/i.test(sp.description)) continue;
@@ -303,6 +333,10 @@ export function buildCharacter(s) {
     if (!roll) continue;
     sections['Strikes & Damaging Cantrips'].dynamicRows.push(cantripAction(sp, skills.Magic || 3, s.subclass));
   }
+  const represented = representedActions(sections['Strikes & Damaging Cantrips'].dynamicRows);
+  sections['Class Features'].sectionBody = featureHTML(cleanActionText(classText, represented));
+  sections['Species Features'].sectionBody = featureHTML(cleanActionText(speciesText, represented));
+  if (subclassText) sections['Additional Features'].sectionBody = sections['Additional Features'].sectionBody.replace(featureHTML(subclassText), featureHTML(cleanActionText(subclassText, represented)));
   if (stats.devotion) sections['Additional Features'].sectionBody += p(`Devotion Points: ${stats.devotion}`);
   if (stats.placeholders.length) sections['Additional Features'].sectionBody += p(`Provisional progression: ${stats.placeholders.join(', ')}. These are placeholder values, pending finalized class progression.`);
   // Preserve large builds rather than dropping skills to meet the fixed row limit.

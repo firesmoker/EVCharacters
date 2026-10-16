@@ -173,7 +173,8 @@ const scrapeDynamicRows = (box, title, data) => {
       const variantsRegion = row.querySelector('.variants-region');
       const ui = {
         variantsHidden: variantsRegion ? variantsRegion.classList.contains('variants-hidden') : false,
-        weaponColumnHidden: row.classList.contains('weapon-column-hidden')
+        weaponColumnHidden: row.classList.contains('weapon-column-hidden'),
+        tableHidden: row.classList.contains('action-table-hidden')
       };
 
       section.dynamicRows.push({
@@ -450,6 +451,8 @@ export const loadFromJSON = (jsonString) => {
                 }
               }
 
+              newRow.classList.toggle('action-table-hidden', Boolean(rowData.ui?.tableHidden));
+              newRow.querySelector('.action-table-toggle-btn')?.setAttribute('aria-pressed', String(Boolean(rowData.ui?.tableHidden)));
               if (rowData.ui && typeof rowData.ui.variantsHidden === 'boolean') {
                 const variantsRegion = newRow.querySelector('.variants-region');
                 const variantsToggleBtn = newRow.querySelector('.variants-toggle-btn');

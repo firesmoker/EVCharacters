@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Prayer",
+    "raw": "PrayerSpecial Action1 / CombatCosts Faith\nSpeed: Fast ◆ Range: 20 Units\nChoose a Prayer option. You must spend its required associated Faith cost to perform it.",
+    "clean": "Prayer — Special Action\nCost: 1 / Combat\nRange: 20 Units\nSpeed: Fast\nCosts Faith\nChoose a Prayer option. You must spend its required associated Faith cost to perform it."
+  },
+  {
+    "name": "Holy Smite",
+    "raw": "Holy SmiteMelee Strike Variant1 / Combat\nPerform a Melee Strike. You get 2 Extra Dice on that roll, or 4 Extra Dice if the target is an Undead or a Demon. The damage type becomes radiant.You may perform Holy Smite more than once in the same combat by spending 2 devotion points for each additional time.",
+    "clean": "Holy Smite — Melee Strike Variant\nCost: 1 / Combat\nPerform a Melee Strike. You get 2 Extra Dice on that roll, or 4 Extra Dice if the target is an Undead or a Demon. The damage type becomes radiant. You may perform Holy Smite more than once in the same combat by spending 2 devotion points for each additional time."
+  },
+  {
+    "name": "Pinning Shot",
+    "raw": "Pinning ShotRanged Strike Variant1 / Combat\nPerform a Ranged strike. On a successful hit, reduce the target’s Movement score by 2 until the end of the round.",
+    "clean": "Pinning Shot — Ranged Strike Variant\nCost: 1 / Combat\nPerform a Ranged strike. On a successful hit, reduce the target’s Movement score by 2 until the end of the round."
+  },
+  {
+    "name": "Puncturing Shot",
+    "raw": "Puncturing ShotRanged Strike Variant1 / Combat\nPerform a Ranged Strike. On a successful hit, the target is Breached 1 (it gets -1 Deflection) until the end of the next round.",
+    "clean": "Puncturing Shot — Ranged Strike Variant\nCost: 1 / Combat\nPerform a Ranged Strike. On a successful hit, the target is Breached 1 (it gets -1 Deflection) until the end of the next round."
+  },
+  {
+    "name": "Sliding Shot",
+    "raw": "Sliding ShotSpecial1 / Combat\nFast Action ◆ Uses movement\nDouble your movement for the round and move at least 3 units. Then, if you did, perform a Ranged Strike against a target within 3 units of you. You have advantage for this strike. You then become Prone.",
+    "clean": "Sliding Shot — Special Action\nCost: 1 / Combat\nSpeed: Fast\nUses movement\nDouble your movement for the round and move at least 3 units. Then, if you did, perform a Ranged Strike against a target within 3 units of you. You have advantage for this strike. You then become Prone."
+  },
+  {
+    "name": "Ram",
+    "raw": "RamCharge VariantCosts 1 Rage\nPerform a Charge using Unarmed Strike with 2 Extra Dice. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked Prone if it's up to one size larger than you.",
+    "clean": "Ram — Charge Variant\nCost: 1 Rage\nPerform a Charge using Unarmed Strike with 2 Extra Dice. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked Prone if it's up to one size larger than you."
+  },
+  {
+    "name": "Aggressive Grapple",
+    "raw": "Aggressive GrappleGrapple VariantCosts 1 Rage\nPerform a Grapple (rolling Unarmed). On success, also deal SD Crushing damage. On failure, deal half as much damage, rounded down, without grappling the target.",
+    "clean": "Aggressive Grapple — Grapple Variant\nCost: 1 Rage\nPerform a Grapple (rolling Unarmed). On success, also deal SD Crushing damage. On failure, deal half as much damage, rounded down, without grappling the target."
+  },
+  {
+    "name": "Cleave",
+    "raw": "CleaveSpecialCosts 1 Rage\nFast Action ◆ Area: Burst 1\nRoll Melee with a penalty of 2 against Deflection for all creatures within range. On success, deal your standard Melee Strike damage; on failure, deal half as much damage, rounded down. On success, if you roll a double 6, also apply your Melee Strike Double 6 effects.",
+    "clean": "Cleave — Special Action\nCost: 1 Rage\nSpeed: Fast\nArea: Burst 1\nRoll Melee with a penalty of 2 against Deflection for all creatures within range. On success, deal your standard Melee Strike damage; on failure, deal half as much damage, rounded down. On success, if you roll a double 6, also apply your Melee Strike Double 6 effects."
+  },
+  {
+    "name": "Enraged Toss",
+    "raw": "Enraged TossWeapon Throw VariantCosts 2 Rage\nPerform a Weapon Throw. Throwing between the effective range and the maximum range of the weapon doesn't cause disadvantage.If you are grappling a creature that's up to one size smaller than you, you may throw it instead of your weapon. It counts as a weapon with a range of 2/4 that deals SD damage. On a successful hit, the creature you threw takes half the damage of the attack, rounded down, and is Prone.",
+    "clean": "Enraged Toss — Weapon Throw Variant\nCost: 2 Rage\nPerform a Weapon Throw. Throwing between the effective range and the maximum range of the weapon doesn't cause disadvantage. If you are grappling a creature that's up to one size smaller than you, you may throw it instead of your weapon. It counts as a weapon with a range of 2/4 that deals SD damage. On a successful hit, the creature you threw takes half the damage of the attack, rounded down, and is Prone."
+  },
+  {
+    "name": "Animal Strike",
+    "raw": "Animal StrikeSpecial\nFast Action\nStrike an enemy within melee range. Roll Magic against Deflection.On success, deal SD damage. On failure, deal half as much damage, rounded down.The damage type is appropriate to the animal form (crushing, piercing, or slashing). Deal -1 damage if you are Small.On success, if you roll a double 6, activate the effect associated with your chosen animal form.",
+    "clean": "Animal Strike — Special Action\nSpeed: Fast\nStrike an enemy within melee range. Roll Magic against Deflection. On success, deal SD damage. On failure, deal half as much damage, rounded down. The damage type is appropriate to the animal form (crushing, piercing, or slashing). Deal -1 damage if you are Small. On success, if you roll a double 6, activate the effect associated with your chosen animal form."
+  },
+  {
+    "name": "Renewal",
+    "raw": "RenewalSpecial\nFast Action ◆ Range: Touch\nSpend any amount of devotion points. Heal the target for the same amount.",
+    "clean": "Renewal — Special Action\nSpeed: Fast\nRange: Touch\nSpend any amount of devotion points. Heal the target for the same amount."
+  },
+  {
+    "name": "Sphere of Protection",
+    "raw": "Sphere of ProtectionSpecialCosts 2 Devotion Points\nFast Action ◆ Range: 6 units\nChoose a creature within range (including yourself). Attacks against them suffer disadvantage until the end of the next two rounds.",
+    "clean": "Sphere of Protection — Special Action\nCost: 2 Devotion Points\nSpeed: Fast\nRange: 6 units\nChoose a creature within range (including yourself). Attacks against them suffer disadvantage until the end of the next two rounds."
+  },
+  {
+    "name": "Fae Dust Cloud",
+    "raw": "Fae Dust CloudSpecial1 / Combat\nFast Action ◆ Range: Self\nYou sprinkle Fae dust around yourself in a radius of 2 units centered on yourself. Roll Deception against Will against each enemy in the area. Those you succeed against become Disoriented (1 penalty to all rolls) until the end of the next round.",
+    "clean": "Fae Dust Cloud — Special Action\nCost: 1 / Combat\nSpeed: Fast\nRange: Self\nYou sprinkle Fae dust around yourself in a radius of 2 units centered on yourself. Roll Deception against Will against each enemy in the area. Those you succeed against become Disoriented (1 penalty to all rolls) until the end of the next round."
+  },
+  {
+    "name": "Vile Slash",
+    "raw": "Vile SlashMelee Strike Variant1 / Combat\nPerform a Melee Strike. Gain 2 Extra Dice on the roll, or 4 Extra Dice against a fiend or abomination. The strike's damage type becomes Necrotic or Acid (your choice).",
+    "clean": "Vile Slash — Melee Strike Variant\nCost: 1 / Combat\nPerform a Melee Strike. Gain 2 Extra Dice on the roll, or 4 Extra Dice against a fiend or abomination. The strike's damage type becomes Necrotic or Acid (your choice)."
+  },
+  {
+    "name": "Forceful Maneuver",
+    "raw": "Forceful ManeuverSpecial\nFast Action\nChoose a target within one unit of yourself.  If it's an enemy, roll Unarmed against Deflection. On success, you push or pull that target up to 3 units. You may make the push or pull as forceful (if the target is pushed or pulled against a surface, they receive 1 damage. If they are pushed or pulled against another creature, they both receive 1 damage).The target must be up to one size larger than you.",
+    "clean": "Forceful Maneuver — Special Action\nSpeed: Fast\nChoose a target within one unit of yourself.  If it's an enemy, roll Unarmed against Deflection. On success, you push or pull that target up to 3 units. You may make the push or pull as forceful (if the target is pushed or pulled against a surface, they receive 1 damage. If they are pushed or pulled against another creature, they both receive 1 damage). The target must be up to one size larger than you."
+  }
+]

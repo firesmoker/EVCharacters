@@ -12,6 +12,16 @@ try {
   await page.evaluate(()=>document.activeElement.blur());
   const r=await row.boundingBox(), b=await button.boundingBox();
   const y=b.y+b.height/2;
+  if (selector.includes('strikes-cantrips')) {
+   // Leave midway down the block, then travel up through the empty gutter.
+   await page.mouse.move(r.x+r.width-5,r.y+r.height/2);
+   await page.mouse.move(r.x+r.width+5,r.y+r.height/2,{steps:10});
+   await page.waitForTimeout(350);
+   assert.equal(await button.evaluate(el=>getComputedStyle(el).opacity),'1','Action hover covers the full gutter height');
+   await page.mouse.move(r.x+r.width+5,y,{steps:20});
+   await page.waitForTimeout(350);
+   assert.equal(await button.evaluate(el=>getComputedStyle(el).opacity),'1','Action control stays visible along gutter');
+  }
   await page.mouse.move(r.x+r.width-5,y);
   await page.mouse.move(r.x+r.width+3,y,{steps:10});
   await page.waitForTimeout(350);

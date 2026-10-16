@@ -1,5 +1,6 @@
 import CREATION_DATA from './creation-data.json';
 import { SPELLS_DATABASE } from './spells_data.js';
+import { cleanActionText, representedActions } from './action-text.js';
 
 const fragment = html => {
   const el = document.createElement('div');
@@ -7,6 +8,7 @@ const fragment = html => {
   return el;
 };
 const plain = html => fragment(html).textContent;
+const updateRam = text => (text || '').replaceAll('Perform a Charge using Unarmed Strike. On a successful hit, you deal +1 damage.', 'Perform a Charge using Unarmed Strike with 2 Extra Dice.');
 const skillOnlyFeatures = new Set([
   'Historian', 'Difficult to Ignore', 'Infiltrator', 'Trickery of the Fae',
   'Mechanist', 'Mechanical Expert', 'Arcane Expertise',
@@ -94,6 +96,24 @@ function removeDuplicateInstincts(html, instincts) {
 // Shared by creation, template loading and existing saved characters.
 export function tidyCharacterContent(data) {
   const sections = data.sections;
+  const represented = representedActions(sections['Strikes & Damaging Cantrips']?.dynamicRows);
+  for (const section of Object.values(sections)) {
+    if (!section?.sectionBody) continue;
+    const root = fragment(section.sectionBody);
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (const node of nodes) {
+      const cleaned = cleanActionText(updateRam(node.textContent), represented);
+      if (cleaned === node.textContent) continue;
+      const replacement = document.createDocumentFragment();
+      cleaned.split('\n').forEach((line, i) => { if (i) replacement.append(document.createElement('br')); replacement.append(line); });
+      node.replaceWith(replacement);
+    }
+    for (const el of root.querySelectorAll('p')) {
+      if (el.textContent.trim() === 'You gain the following action:' && /^You gain the .+ (?:variant|action)\.$/.test(el.nextElementSibling?.textContent.trim() || '')) el.remove();
+    }
+    section.sectionBody = root.innerHTML;
+  }
   if (!sections) return data;
   for (const section of Object.values(sections)) {
     if (section.sectionBody) section.sectionBody = section.sectionBody.replace(
@@ -259,6 +279,19 @@ export function tidyCharacterContent(data) {
   }
   for (const action of sections['Strikes & Damaging Cantrips']?.dynamicRows || []) {
     if (!action.slots) continue;
+    action.slots.notes = updateRam(action.slots.notes);
+    action.variants = (action.variants || []).map(updateRam);
+    // These slots store plain text, unlike the rich-text variant fields.
+    if (/<br\s*\/?\s*>/i.test(action.slots.notes || '')) action.slots.notes = plain(action.slots.notes.replace(/<br\s*\/?\s*>/gi, '\n'));
+    if (['Charge', 'Grapple', 'Bomb Throw', 'Weapon Throw'].includes(action.slots.name)
+        && /^(Fast|Average|Slow) Action/.test(action.slots.notes || '')
+        && !(action.tableRows || []).some(row => row.weapon || row.roll || row.damage || row.range)) {
+      const lines = action.slots.notes.split('\n');
+      const summary = lines.shift();
+      action.slots.rollDescription ||= summary;
+      action.slots.notes = lines.join('\n');
+      action.ui = { ...action.ui, tableHidden: action.ui?.tableHidden ?? true };
+    }
     const notes = action.slots.notes || '';
     const types = [...new Set((action.tableRows || []).map(row => row.damage).filter(Boolean))];
     if (/On failure, deal half damage, rounded down\./.test(notes) && !/\bSD\b|on success/i.test(notes)
@@ -279,6 +312,7 @@ export function tidyCharacterContent(data) {
   for (const name of ['Class Features', 'Species Features', 'Additional Features']) {
     const section = sections[name];
     if (!section?.sectionBody) continue;
+    section.sectionBody = updateRam(section.sectionBody);
     const root = fragment(section.sectionBody);
     for (const el of root.querySelectorAll('p, li, h2, h3, h4')) {
       if (!/^Level \d+\s*(?::|[—–-])/.test(el.textContent.trim())) continue;

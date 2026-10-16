@@ -354,6 +354,7 @@ export const renderStrikesCantripsTableRow = () => `
 export const renderStrikesDamagingCantripsBlock = () => `
   <div class="strikes-cantrips-container">
     <button class="choose-cantrip-btn" title="Choose a cantrip" aria-label="Choose a cantrip">✦</button>
+    <button class="action-table-toggle-btn" title="Show or hide action table" aria-label="Show or hide action table" aria-pressed="false">▦</button>
     <div class="strikes-cantrips-name-line">
       <div class="strikes-cantrips-slot slot-name">
         <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="name" data-placeholder="name"></div>

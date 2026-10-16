@@ -454,6 +454,15 @@ const handleClick = (e) => {
   }
 
   // Toggle Weapon Column
+  if (e.target.classList.contains('action-table-toggle-btn')) {
+    const block = e.target.closest('.strikes-cantrips-container');
+    const hidden = block.classList.toggle('action-table-hidden');
+    e.target.setAttribute('aria-pressed', String(hidden));
+    autoSave();
+    return;
+  }
+
+  // Toggle Weapon Column
   if (e.target.classList.contains('weapon-column-toggle-btn')) {
     const strikesContainer = e.target.closest('.strikes-cantrips-container');
     if (strikesContainer) {

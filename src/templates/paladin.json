@@ -200,7 +200,7 @@
             }
           ],
           "variants": [
-            "<b>Holy Smite (1 / Combat)</b><div>On success, deal +1 Radiant damage, or +2 Radiant damage if against Undead or Demon.</div>"
+            "<b>Holy Smite (1 / Combat)</b><div>Gain 2 Extra Dice on the roll, or 4 Extra Dice against an Undead or Demon. The strike's damage type becomes Radiant.</div>"
           ],
           "ui": {
             "variantsHidden": false,

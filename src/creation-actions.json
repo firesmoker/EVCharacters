@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Bomb Throw",
+    "owner": "Core",
+    "speed": "Average",
+    "cost": "",
+    "description": "Average Action\nEffective Range: 3 units\nMaximum Range: 6 units\nThrow a bomb at target location. If you throw the bomb within the effective range, it lands in place. If you throw it between the effective and maximum range, roll Bomb Throw. The threshold is 2. On failure, the bomb lands in another location within range. The GM can choose the location or roll for a random result.\nFollow the bomb's description for its effects and area when it lands.\nIf an enemy is within 1 unit of you, the effective range is 1, and the maximum range is equal to your normal effective range."
+  },
+  {
+    "name": "Charge",
+    "owner": "Core",
+    "speed": "Average",
+    "cost": "",
+    "description": "Average Action ◆ Uses movement\nDouble your Movement score for this round and move to the chosen enemy. You must finish your movement in a place where that enemy is within your melee reach. Then, perform a Melee Strike or Unarmed Strike on that enemy.\nEven if moving to your enemy is no longer possible when your action resolves, you must move as close as possible."
+  },
+  {
+    "name": "Grapple",
+    "owner": "Core",
+    "speed": "Fast",
+    "cost": "",
+    "description": "Fast Action\nYou grapple an enemy that is adjacent to you. Roll Unarmed against Deflection or Fortitude, whichever is higher. The target’s size must be up to one size larger than you. On success, you grapple the target. See the \"Glossary\" chapter for grappling rules."
+  },
+  {
+    "name": "Weapon Throw",
+    "owner": "Core",
+    "speed": "Average",
+    "cost": "",
+    "description": "Average Action\nUsing a weapon with the “thrown weapon” property, throw the weapon at a target within range.\nRoll Weapon Throw against Deflection.\nOn success, deal SD damage. On failure, deal half as much damage, rounded down.\nThe damage type is appropriate to the weapon.\nModifiers:\nYou gain disadvantage on the roll if you are within melee reach of an enemy\nYou gain disadvantage if the range of the attack is higher than the weapon’s effective range (you cannot throw further than the maximum range)."
+  },
+  {
+    "name": "Holy Smite",
+    "owner": "Paladin",
+    "parent": "Melee Strike",
+    "speed": "",
+    "cost": "1 / Combat",
+    "description": "Perform a Melee Strike. You get 2 Extra Dice on that roll, or 4 Extra Dice if the target is an Undead or a Demon. The damage type becomes Radiant. You may perform Holy Smite more than once in the same combat by spending 2 devotion points for each additional time."
+  },
+  {
+    "name": "Pinning Shot",
+    "owner": "Archer",
+    "parent": "Ranged Strike",
+    "speed": "",
+    "cost": "1 / Combat",
+    "description": "Perform a Ranged strike. On a successful hit, reduce the target’s Movement score by 2 until the end of the round."
+  },
+  {
+    "name": "Puncturing Shot",
+    "owner": "Archer",
+    "parent": "Ranged Strike",
+    "speed": "",
+    "cost": "1 / Combat",
+    "description": "Perform a Ranged Strike. On a successful hit, the target is Breached 1 (it gets -1 Deflection) until the end of the next round."
+  },
+  {
+    "name": "Ram",
+    "owner": "Barbarian",
+    "parent": "Charge",
+    "speed": "",
+    "cost": "Costs 1 Rage",
+    "description": "Perform a Charge using Unarmed Strike with 2 Extra Dice. If you moved at least 2 units towards the enemy, it is force-pushed 1 unit away from you and knocked Prone if it's up to one size larger than you."
+  },
+  {
+    "name": "Aggressive Grapple",
+    "owner": "Barbarian",
+    "parent": "Grapple",
+    "speed": "",
+    "cost": "Costs 1 Rage",
+    "description": "Perform a Grapple (rolling Unarmed). On success, also deal SD Crushing damage. On failure, deal half as much damage, rounded down, without grappling the target."
+  },
+  {
+    "name": "Enraged Toss",
+    "owner": "Barbarian",
+    "parent": "Weapon Throw",
+    "speed": "",
+    "cost": "Costs 2 Rage",
+    "description": "Perform a Weapon Throw. Throwing between the effective range and the maximum range of the weapon doesn't cause disadvantage. If you are grappling a creature that's up to one size smaller than you, you may throw it instead of your weapon. It counts as a weapon with a range of 2/4 that deals SD damage. On a successful hit, the creature you threw takes half the damage of the attack, rounded down, and is Prone."
+  },
+  {
+    "name": "Vile Slash",
+    "owner": "Warrior",
+    "parent": "Melee Strike",
+    "speed": "",
+    "cost": "1 / Combat",
+    "description": "Perform a Melee Strike. Gain 2 Extra Dice on the roll, or 4 Extra Dice against a fiend or abomination. The strike's damage type becomes Necrotic or Acid (your choice)."
+  },
+  {
+    "name": "Whirlwind",
+    "owner": "Berserker",
+    "parent": "Melee Strike",
+    "speed": "Fast",
+    "cost": "5 Rage",
+    "description": "Spend 5 Rage to perform a Melee Strike against every enemy within your melee range. Roll Melee once and compare the result against each target's Deflection. Apply your normal Melee Strike damage and effects to each target: full damage on success, or half as much damage on failure, rounded down. On success, apply your usual Double 6 effects if you rolled a Double 6."
+  },
+  {
+    "name": "Power Shot",
+    "owner": "Walking Ballista",
+    "parent": "Ranged Strike",
+    "speed": "Slow",
+    "cost": "1 AP; must be deployed",
+    "description": "While deployed, spend 1 AP to perform a Ranged Strike. Double the Extra Dice granted by your weapon for this roll."
+  },
+  {
+    "name": "Bomb Slinging",
+    "owner": "Walking Ballista",
+    "parent": "Bomb Throw",
+    "speed": "Average",
+    "cost": "Must be deployed",
+    "description": "While deployed, perform a Bomb Throw with an effective range of 6 units and a maximum range of 12 units. For this action, treat your Bomb Throw skill as Expert (5d6), unless your skill level is already higher."
+  },
+  {
+    "name": "Caltrops",
+    "owner": "Walking Ballista",
+    "parent": "Ranged Strike",
+    "speed": "Average",
+    "cost": "1 AP; must be deployed",
+    "description": "While deployed, spend 1 AP to scatter caltrops throughout a 2-unit radius centered on yourself. The area becomes difficult terrain. Once per turn, when a creature first moves within or enters the area during the round, it must roll Acrobatics against threshold 2. On failure, it takes 1 Piercing damage."
+  },
+  {
+    "name": "Multishot",
+    "owner": "Bowslinger",
+    "parent": "Ranged Strike",
+    "speed": "Fast",
+    "cost": "1 AP",
+    "description": "Spend 1 AP to perform a Ranged Strike against two enemies using the same roll. You deal half your normal Ranged Strike damage to each target, rounded up."
+  }
+]

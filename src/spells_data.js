@@ -210,23 +210,6 @@ If the magic belongs to a tradition you know, you can also discern some or all o
     cost: "1"
   },
   {
-    name: "Dissonant Whispers",
-    rank: "1",
-    requirements: "Level 1",
-    actionSpeed: "Average Action",
-    spellType: "Bardic / Occult",
-    range: "8 Units",
-    area: "Single Target",
-    duration: "",
-    description: `You channel psychic disturbance into the mind of a creature you can see within range.
-The target becomes Disoriented (-1 penalty on all rolls) until the end of the next round.
-Roll Magic +2 against Will.
-On success, deal SD Psychic damage. On failure, deal half as much damage, rounded down.
-
-Double 6: The target is also Frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)`,
-    cost: "1"
-  },
-  {
     name: "Divine Interference",
     rank: "1",
     requirements: "Level 1",
@@ -264,7 +247,7 @@ This retaliation counts as AoE against Hordes and Swarms, causing them to lose 6
     range: "12 Units",
     area: "Single Target",
     duration: "",
-    description: `Shoot an elemental flare at a creature within range. Choose its damage type: Lightning, Fire or Ice.
+    description: `Shoot an elemental flare at a creature you can see within range. Choose its damage type: Lightning, Fire or Ice.
 Roll Magic +3 against Deflection.
 On success, deal SD damage of the chosen type, or half as much on failure, rounded down.
 
@@ -360,7 +343,7 @@ Empower Spell: For each additional Spell Point spent, add +2 to the roll.`,
     range: "Self",
     area: "Self",
     duration: "until end of combat",
-    description: `Create an illusion that blurs your form and surrounds you with phantom images. When an attack against Deflection targets only you, choose that attack when you cast this spell. The attacker has disadvantage on the attack, and you gain +1 Deflection for the spell's duration.
+    description: `Create an illusion that blurs your form and surrounds you with phantom images. You gain +1 Deflection for the spell's duration.
 At the end of each round, reduce the Deflection bonus granted by this spell by 1. The spell ends when this bonus reaches 0 or at the end of combat.
 
 Empower Spell: For each additional Spell Point spent, increase the initial Deflection bonus by 1.`,

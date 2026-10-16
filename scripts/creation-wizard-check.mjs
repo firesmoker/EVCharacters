@@ -10,7 +10,7 @@ try {
     const m = await import('/src/character-creation.js');
     function fill(s) {
       s.name = 'Wizard Test'; s.languages = 'Common';
-      s.feats = ['Tough', ...(s.species === 'Human' ? ['Focused'] : []), ...(s.level >= 2 ? ['Deep Sleep'] : [])];
+      s.feats = ['Tough', ...(s.species === 'Human' ? ['Focused'] : []), (s.level >= 2 ? 'Deep Sleep' : 'Pet')];
       s.choices.craft = ['Smithing'];
       for (const g of m.specialChoices(s)) s.choices[g.id] = g.options.slice(0,g.count);
       for (let pass = 0; pass < 3; pass++) for (const g of m.skillPlan(s).groups) {
@@ -33,6 +33,14 @@ try {
       return s;
     }
     const awaitData = await import('/src/data.js');
+    const firstLevel = fill({ ...m.newCharacter(), species: 'High Elf', level: 1 });
+    assertMinorFeat(firstLevel);
+    function assertMinorFeat(s) {
+      if (m.validateCharacter(s).some(e => /minor feat/i.test(e))) throw new Error('Level 1 should accept one eligible Minor Feat.');
+      const missing = { ...s, feats: s.feats.filter(f => f !== 'Pet') };
+      if (!m.validateCharacter(missing).includes('Choose 1 minor feat.')) throw new Error('Level 1 must require a Minor Feat.');
+      if (!m.buildCharacter(s).sections.Feats.sectionBody.includes('Pet')) throw new Error('Minor Feat missing from generated sheet.');
+    }
     const failures = [], cases = [];
     for (const c of m.DATA.classes) for (const species of m.DATA.species) for (const level of [1, 2, 3, 10]) {
       let s = { ...m.newCharacter(), className: c.Class, species: species.Species, level };
@@ -51,6 +59,12 @@ try {
     }
     const bard = fill({ ...m.newCharacter(), name: 'Bard Example', className: 'Bard', species: 'High Elf', level: 3, subclass: 'Tale Weaver' });
     const built = m.buildCharacter(bard);
+    const classContent = document.createElement('div'); classContent.innerHTML = built.sections['Class Features'].sectionBody;
+    if (classContent.textContent.includes('Unlocked at Level')) throw Error('Unlock labels should not appear on the sheet');
+    if (![...classContent.querySelectorAll('li strong')].some(el => el.textContent === 'Rise to the Challenge:')) throw Error('War Singing phrases must be bold bullets');
+    const instincts = document.createElement('div'); instincts.innerHTML = built.sections['Instinct Abilities'].sectionBody;
+    if (instincts.querySelectorAll('li > ul > li').length < 2) throw Error('Grand Finales must be nested under their reenactments');
+    if (built.sections['Additional Features'].sectionBody.includes('Historian')) throw Error('Historian is redundant with the skills table');
     const io = await import('/src/io.js');
     io.loadFromJSON(JSON.stringify(built));
     const saved = JSON.parse(io.serializeSheet());
@@ -67,6 +81,9 @@ try {
   assert.match(result.saved.sections['Class Features'].sectionBody, /War Singing/);
   assert.match(result.saved.sections['Instinct Abilities'].sectionBody, /Martyr/);
   await page.locator('#menu-create-character').evaluate(el => el.click());
+  assert.equal(await page.locator('.creation-wizard details:not([open])').count(), 0);
+  await page.locator('.creation-wizard details summary').first().click();
+  assert.equal(await page.locator('.creation-wizard details:not([open])').count(), 1);
   await page.getByLabel('Character name', { exact: true }).fill('UI Test');
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.getByLabel('Species', { exact: true }).selectOption('High Elf');
@@ -87,6 +104,9 @@ try {
     }
   }
   await page.getByRole('button', {name:'Spells',exact:false}).click();
+  const spellStats = await page.locator('.creation-wizard .spell-description-block').allTextContents();
+  assert(spellStats.some(text => text.includes('Duration:')));
+  for (const label of ['Speed:', 'Cost:', 'Range:', 'Area:', 'Requirements:']) assert(spellStats.some(text => text.includes(label)), `Missing ${label}`);
   for (const [key,values] of Object.entries(result.bard.spells)) {
     for (const name of values) await page.locator(`[data-spell-group="${key}"][value="${name}"]`).check();
   }

@@ -197,7 +197,7 @@ export function validateCharacter(s) {
     if (chosen.length !== g.count || new Set(chosen).size !== g.count || chosen.some(v => !g.options.includes(v))) errors.push(`Complete ${g.label} (${g.count} choices).`);
   }
   for (const category of ['Origin', 'Minor']) {
-    const required = category === 'Origin' ? (s.species === 'Human' ? 2 : 1) : (s.level >= 2 ? 1 : 0);
+    const required = category === 'Origin' ? (s.species === 'Human' ? 2 : 1) : 1;
     const chosen = DATA.feats.filter(f => f.Category === category && s.feats.includes(f.Feat));
     if (chosen.length !== required) errors.push(`Choose ${required} ${category.toLowerCase()} feat${required === 1 ? '' : 's'}.`);
     for (const feat of chosen) if (!eligibleFeat(feat, s)) errors.push(`Requirements not met: ${feat.Feat}.`);

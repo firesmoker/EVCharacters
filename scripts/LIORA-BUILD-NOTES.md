@@ -5,7 +5,7 @@ Level 3 High Elf Bard / Tale Weaver. Source: the live EV Database — 0.53 Desig
 ## Choices and calculations
 
 - Bard: Magic and Melee Expert; Performance Expert; Charm, Disguise, and Acrobatics Adept.
-- Origin: Focused feat; Insight Adept. Level-2 Minor Feat: Actor (requirements met).
+- Origin: Focused feat; Insight Adept. Level-1 Minor Feat: Actor (requirements met).
 - High Elf: Diplomacy Expert; Survival Adept from today's Knowledge Cramming; Elemental Flare and Mage Hand; Arcane Shield, Detect Magic, and Magic Missile once each per day.
 - Tale Weaver: History Expert; both Beginning Phase Reenactment abilities.
 - Level-3 progression: 4 SP, 1 Instinct, 6 Bardic spells, 3 Bardic cantrips. High Elf brings the totals to 9 spells and 5 cantrips. Only Bardic tradition is trained.

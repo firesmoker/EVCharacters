@@ -44,7 +44,7 @@ test('empowerment gets a shaded section with a bold label', () => {
 
 test('spell Double 6 effects are labeled once, at the end before empowerment', () => {
   const spells = SPELLS_DATABASE.filter(spell => /Double 6:/.test(spell.description));
-  assert.equal(spells.length, 16);
+  assert.equal(spells.length, 15);
   for (const spell of spells) {
     assert.equal((spell.description.match(/Double 6:/g) || []).length, 1, spell.name);
     assert(!/If you roll(?:ed)? (?:a )?double (?:six|6)/i.test(spell.description), spell.name);
@@ -83,7 +83,6 @@ test('spell formatting uses canonical empowerment labels and real bullet lists',
 test('damage spell riders are unconditional and precede the damage roll', () => {
   const riders = {
     'Acid Spray': 'The target becomes Weakened 1',
-    'Dissonant Whispers': 'The target becomes Disoriented',
     'Mind Blast': 'The target becomes Vulnerable 1',
     'Necrotic Bolt': 'The target becomes Decayed 1',
     'Radiant Beam': 'The target becomes Discouraged 1',

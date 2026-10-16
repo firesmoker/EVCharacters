@@ -78,19 +78,6 @@ Choose a target within range. Heal them for 1 HP. If the target is Dying, it bec
 
 You may spend additional Spell Points as you cast this spell. For each additional Spell Point you heal them for 1 more HP.
 You may also choose to cast the spell as a slow, interruptible action. If you do, heal up to two targets instead.
-Dissonant Whispers
-Occult / Bardic
-Level 1 ? Costs 1 
-Average Action
-Range: 8 Units
-
-Roll Magic against Will.
-You channel psychic disturbance into the mind of a creature you can see within range.
-
-On success, the target takes SD + 1 Psychic damage.
-It also becomes Disoriented (-1 penalty on all rolls) until the end of the next round and receives
-
-On success, if you roll a double six, the target is also Frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
 Divine Guidance
 Divine
 Cantrip

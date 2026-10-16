@@ -7,6 +7,44 @@ const fragment = html => {
   return el;
 };
 const plain = html => fragment(html).textContent;
+const skillOnlyFeatures = new Set([
+  'Historian', 'Difficult to Ignore', 'Infiltrator', 'Trickery of the Fae',
+  'Mechanist', 'Mechanical Expert', 'Arcane Expertise',
+  ...CREATION_DATA.species.flatMap(race => [...race['Traits / Rules'].matchAll(/(Legacy of [^—\n•]+)\s*—/g)].map(match => match[1].trim())),
+]);
+const featureName = text => text.trim().replace(/^Level \d+\s*(?::|[—–-])\s*/, '').split(/[:.—–]/)[0].trim();
+const warPhrases = new Set(['Rise to the Challenge', 'Onward We Go', 'Looming Darkness', 'Sweet, Sweet Revenge', 'For Our Friends']);
+function formatWarPhrases(html) {
+  const root = fragment(html);
+  for (const wrapper of root.querySelectorAll('[data-class-overflow]')) wrapper.innerHTML = formatWarPhrases(wrapper.innerHTML);
+  let list, item;
+  for (const el of [...root.children]) {
+    const text = el.textContent.trim();
+    if (/^Unlocked at Level \d+:?$/i.test(text)) { el.remove(); continue; }
+    if (warPhrases.has(text)) {
+      if (!list) { list = document.createElement('ul'); el.before(list); }
+      item = document.createElement('li');
+      const title = document.createElement('strong'); title.textContent = `${text}:`;
+      item.append(title); list.append(item); el.remove();
+    } else if (item && el.matches('p') && !/^Level \d+:/.test(text)
+        && (!el.firstElementChild?.matches('strong, b') || /^Requirements:/.test(text))) {
+      item.append(' ', ...el.childNodes); el.remove();
+    } else { list = null; item = null; }
+  }
+  return root.innerHTML;
+}
+function removeSkillOnlyFeatures(html) {
+  const root = fragment(html);
+  for (const wrapper of root.querySelectorAll('[data-class-overflow]')) wrapper.innerHTML = removeSkillOnlyFeatures(wrapper.innerHTML);
+  let removing = false;
+  for (const el of [...root.children]) {
+    const name = featureName(el.textContent);
+    if (skillOnlyFeatures.has(name)) removing = true;
+    else if (!/^(?:Passive feature$|You (?:become|are) (?:Expert|Adept)|If you (?:were|are) already (?:Adept|Expert)|Choose Charm or Deception\.)/i.test(el.textContent.trim())) removing = false;
+    if (removing) el.remove();
+  }
+  return root.innerHTML;
+}
 function featureCapacity() {
   const field = document.querySelector('[data-section="class-features"] .section-content');
   const probe = document.createElement('div');
@@ -40,9 +78,15 @@ function removeDuplicateInstincts(html, instincts) {
     const title = nameOf(group[0].textContent);
     const entries = group.flatMap(el => [...el.querySelectorAll('li')]);
     const generic = /^(?:instinct abilities|instinct ability)$/.test(title);
-    if (names.has(title) || generic && entries.length && entries.every(el => names.has(nameOf(el.textContent)))) {
-      group.forEach(el => el.remove());
+    const duplicated = entries.filter(el => names.has(nameOf(el.textContent)));
+    if (!names.has(title) && !duplicated.length && !generic) continue;
+    duplicated.forEach(el => el.remove());
+    for (const el of group.slice(1)) {
+      if (/^(?:Your experience in battle lets you react swiftly during combat\.\s*)?You gain the following Instinct abilit(?:y|ies):?$/i.test(el.textContent.trim()) || /^Instinct Abilities$/i.test(el.textContent.trim())) el.remove();
+      else if (el.matches('ul, ol') && !el.querySelector('li')) el.remove();
     }
+    if (names.has(title)) group[0].remove();
+    else if (!group.slice(1).some(el => el.parentNode && el.textContent.trim())) group[0].remove();
   }
   return root.innerHTML;
 }
@@ -107,6 +151,23 @@ export function tidyCharacterContent(data) {
       title.textContent = cleaned.slice(0, colon + 1);
       item.replaceChildren(title, cleaned.slice(colon + 1));
     }
+    // A Finale belongs to the preceding reenactment, not to the ability list.
+    for (const list of [...root.querySelectorAll('ul, ol')]) {
+      for (const item of [...list.children]) {
+        if (!/^Grand Finale:/i.test(item.textContent.trim())) continue;
+        const parentAbility = item.previousElementSibling;
+        if (!parentAbility || !/Reenact|Dragon Slayer|Martyr/i.test(parentAbility.textContent)) continue;
+        const nested = document.createElement('ul');
+        parentAbility.append(nested);
+        nested.append(item);
+      }
+    }
+    for (const item of root.querySelectorAll('li')) {
+      if (!/^Reenact/i.test(item.textContent.trim()) || item.querySelector('ul, ol')) continue;
+      const match = item.innerHTML.match(/\s+(?:Grand )?Finale:\s*([\s\S]*)$/);
+      if (!match) continue;
+      item.innerHTML = item.innerHTML.slice(0, match.index) + `<ul><li><strong>Grand Finale:</strong> ${match[1]}</li></ul>`;
+    }
     instincts.sectionBody = root.innerHTML;
   }
   if (sections.Equipment?.sectionBody) {
@@ -134,6 +195,8 @@ export function tidyCharacterContent(data) {
       section.sectionBody = root.innerHTML;
     }
     if (sections['Instinct Abilities']?.sectionBody) section.sectionBody = removeDuplicateInstincts(section.sectionBody, sections['Instinct Abilities'].sectionBody);
+    section.sectionBody = removeSkillOnlyFeatures(section.sectionBody);
+    section.sectionBody = formatWarPhrases(section.sectionBody);
   }
 
   const features = sections['Class Features'];

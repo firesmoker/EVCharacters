@@ -691,7 +691,7 @@ Drags Ignored: Heavy Weapons
 
 #### Feats
 
-When you reach level 2, choose one Minor Feat for which you meet the requirements. You gain this feat in addition to your Origin Feat and the features granted by your class and species.
+At level 1, choose one Minor Feat for which you meet the requirements. You gain this feat in addition to your Origin Feat and the features granted by your class and species.
 
 # Character Origin
 
@@ -876,6 +876,8 @@ Work in progress. For now, choose one origin feat, gain Adept (4d6) training in 
 - Level 2 — Occult Affinity II: You know Detect Magic, Eldritch Shield, and Hex. You may cast each of these spells once per day without spending Spell Points, even if you are not trained in a matching tradition. You cannot empower these free castings. If you are trained in a matching tradition, you may also cast these spells normally by spending Spell Points.
 
 ## Remnant
+
+Remnants are the most ancient and rare god-touched humanoids. Their skin tones span silver, gold, bronze, and obsidian. They have a distinctive elongated, swept-back head shape and no external ears. Preserving this head silhouette and absence of ears is essential to their visual identity. Each Remnant has a unique metal ornament that runs through the body to the eyes and continues upward from the eyes. The form of this upper continuation distinguishes the individual; one such form is a pair of horns. The ornament may be made from any kind of metal.
 
 ### Remnant Traits
 
@@ -3910,7 +3912,7 @@ Your maximum HP is increased by half your level, rounded down (minimum 1 HP). Re
 
 ## Minor Feats
 
-When you reach level 2, choose one Minor Feat from this section for which you meet the requirements.
+At level 1, choose one Minor Feat from this section for which you meet the requirements.
 
 ### Actor
 
@@ -4611,7 +4613,6 @@ Spell rank is a category of spell power. Your class progression determines the h
 - Aura of Truth
 - Cure
 - Detect Magic
-- Dissonant Whispers
 - Gullibility
 - Pacify
 - Rainbow Eruption
@@ -4727,7 +4728,6 @@ Spell rank is a category of spell power. Your class progression determines the h
 
 - Bestow Curse
 - Detect Magic
-- Dissonant Whispers
 - Eldritch Shield
 - Gullibility
 - Hex
@@ -5022,24 +5022,6 @@ You attune your senses to magic for the duration.
 You detect the presence and location of magic within 20 units of you and can identify its tradition.
 If the magic belongs to a tradition you know, you can also discern some or all of its specific properties, at the GM's discretion.
 
-### Dissonant Whispers
-Bardic, Occult
-
-Rank 1 ◆ Cost: 1
-
-Requirements: Level 1
-
-Average Action
-
-Range: 8 Units
-
-You channel psychic disturbance into the mind of a creature you can see within range.
-The target becomes Disoriented (-1 penalty on all rolls) until the end of the next round.
-Roll Magic +2 against Will.
-On success, deal SD Psychic damage. On failure, deal half as much damage, rounded down.
-
-**Double 6:** The target is also Frightened until the end of the next round. (They cannot choose you as a target for their attacks. They also cannot finish their movement on a unit that is adjacent to you.)
-
 ### Divine Interference
 
 Divine
@@ -5085,7 +5067,7 @@ Average Action
 
 Range: 12 Units
 
-Shoot an elemental flare at a creature within range. Choose its damage type: Lightning, Fire or Ice.
+Shoot an elemental flare at a creature you can see within range. Choose its damage type: Lightning, Fire or Ice.
 Roll Magic +3 against Deflection.
 On success, deal SD damage of the chosen type, or half as much on failure, rounded down.
 
@@ -5188,7 +5170,7 @@ Fast Action
 
 Range: Self ◆ Duration: until end of combat
 
-Create an illusion that blurs your form and surrounds you with phantom images. When an attack against Deflection targets only you, choose that attack when you cast this spell. The attacker has disadvantage on the attack, and you gain +1 Deflection for the spell's duration.
+Create an illusion that blurs your form and surrounds you with phantom images. You gain +1 Deflection for the spell's duration.
 At the end of each round, reduce the Deflection bonus granted by this spell by 1. The spell ends when this bonus reaches 0 or at the end of combat.
 
 Empower Spell: For each additional Spell Point spent, increase the initial Deflection bonus by 1.

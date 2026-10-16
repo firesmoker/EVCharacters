@@ -94,11 +94,13 @@ export const MONSTERS_DATABASE = [
       },
       {
         "name": "Hinder",
+        "speed": "Fast Action",
         "detail": "Costs 1 HP",
         "description": "Annoy an adjacent creature to create an opening. Choose an ally; it gains advantage on one attack against that creature this round."
       },
       {
         "name": "Heal",
+        "speed": "Fast Action",
         "description": "Heal an adjacent creature. Pay 1 HP for each HP restored."
       }
     ]

@@ -20,6 +20,6 @@ Level 3 High Elf Bard / Tale Weaver. Source: the live EV Database — 0.53 Desig
 - Common is a campaign-language assumption, in addition to the specified Elvish.
 - Lute, travel supplies, and personal possessions are illustrative inventory; their acquisition and prices have not been budgeted.
 - Summon Slots is set to 0 because this build has no summoning feature or spell selected.
-- War Singing and Tale Weaver wording follows the current Sheet, including its explicit Inspired damage bonus; no condition-rule reconciliation was made as part of this template task.
+- Inspired grants 1 Extra Die on rolls per condition level, including War Singing and Tale Weaver effects.
 
 Spreadsheet: https://docs.google.com/spreadsheets/d/12m_hZLr7zYM5MXVbuXIDzcnZw60-Uc3v5cMWBhP2sUI/edit

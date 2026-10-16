@@ -95,6 +95,12 @@ function removeDuplicateInstincts(html, instincts) {
 export function tidyCharacterContent(data) {
   const sections = data.sections;
   if (!sections) return data;
+  for (const section of Object.values(sections)) {
+    if (section.sectionBody) section.sectionBody = section.sectionBody.replace(
+      /Inspired(?: 1)? \((?:they deal )?\+1 damage(?: with attacks)?\)/g,
+      'Inspired 1 (1 Extra Die on rolls)',
+    );
+  }
   const languages = sections.Languages ||= { sectionBody: '' };
   if (!/\bCommon\b/i.test(plain(languages.sectionBody))) {
     languages.sectionBody = `<p>Common</p>${languages.sectionBody || ''}`;
@@ -151,6 +157,14 @@ export function tidyCharacterContent(data) {
       title.textContent = cleaned.slice(0, colon + 1);
       item.replaceChildren(title, cleaned.slice(colon + 1));
     }
+    for (const title of root.querySelectorAll('li > strong, li > b')) {
+      if (!/^Reenact:$/i.test(title.textContent.trim())) continue;
+      const continuation = title.nextSibling;
+      const name = continuation?.nodeType === Node.TEXT_NODE && continuation.textContent.match(/^\s*[^:]+:/);
+      if (!name) continue;
+      title.append(name[0]);
+      continuation.textContent = continuation.textContent.slice(name[0].length);
+    }
     // A Finale belongs to the preceding reenactment, not to the ability list.
     for (const list of [...root.querySelectorAll('ul, ol')]) {
       for (const item of [...list.children]) {
@@ -195,7 +209,7 @@ export function tidyCharacterContent(data) {
       section.sectionBody = root.innerHTML;
     }
     if (sections['Instinct Abilities']?.sectionBody) section.sectionBody = removeDuplicateInstincts(section.sectionBody, sections['Instinct Abilities'].sectionBody);
-    section.sectionBody = removeSkillOnlyFeatures(section.sectionBody);
+    if (name !== 'Species Features') section.sectionBody = removeSkillOnlyFeatures(section.sectionBody);
     section.sectionBody = formatWarPhrases(section.sectionBody);
   }
 

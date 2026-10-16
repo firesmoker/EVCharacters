@@ -109,7 +109,10 @@ test('traits and actions render in separate labeled sections', () => {
     const html = renderMonsterStatBlock(creature);
     assert.equal((html.match(/<h4>Traits<\/h4>/g) || []).length, 1);
     assert.equal((html.match(/<h4>Actions<\/h4>/g) || []).length, 1);
-    for (const action of creature.actions) assert(html.includes(`<strong>${action.name}</strong>`));
+    for (const action of creature.actions) {
+      assert(action.speed, `${creature.name}: ${action.name} must define its action speed`);
+      assert(html.includes(`<strong>${action.name}</strong>`));
+    }
     assert.equal((html.match(/class="monster-stat-speed"/g) || []).length, creature.actions.filter(action => action.speed).length);
     for (const action of creature.actions.filter(action => action.speed)) {
       assert(html.includes(`monster-stat-speed">${action.speed}</span>`));

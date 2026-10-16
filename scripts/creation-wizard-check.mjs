@@ -63,7 +63,12 @@ try {
     if (classContent.textContent.includes('Unlocked at Level')) throw Error('Unlock labels should not appear on the sheet');
     if (![...classContent.querySelectorAll('li strong')].some(el => el.textContent === 'Rise to the Challenge:')) throw Error('War Singing phrases must be bold bullets');
     const instincts = document.createElement('div'); instincts.innerHTML = built.sections['Instinct Abilities'].sectionBody;
+    if (!instincts.textContent.includes('Inspired 1 (1 Extra Die on rolls)')) throw Error('Reenactment must grant Extra Dice through Inspired');
+    if (!classContent.textContent.includes('Inspired 1 (1 Extra Die on rolls)')) throw Error('War Singing must grant Extra Dice through Inspired');
     if (instincts.querySelectorAll('li > ul > li').length < 2) throw Error('Grand Finales must be nested under their reenactments');
+    for (const name of ['The Dragon Slayer', 'The Martyr']) {
+      if (![...instincts.querySelectorAll('li > strong')].some(el => el.textContent === `Reenact: ${name}:`)) throw Error(`Full reenactment name must be bold: ${name}`);
+    }
     if (built.sections['Additional Features'].sectionBody.includes('Historian')) throw Error('Historian is redundant with the skills table');
     const io = await import('/src/io.js');
     io.loadFromJSON(JSON.stringify(built));

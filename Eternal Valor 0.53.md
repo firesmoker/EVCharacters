@@ -1710,7 +1710,7 @@ During the Beginning Phase of each round, select a musical phrase that has not b
 
 ###### Unlocked at Level 1:
 
-- Rise to the Challenge<br>All allies in the affected area are Inspired (they deal +1 damage) until the end of the round.
+- Rise to the Challenge<br>All allies in the affected area are Inspired 1 (1 Extra Die on rolls) until the end of the round.
 
 - Onward We Go<br>All allies in the affected area gain +1 Movement until the end of the round.
 
@@ -1770,7 +1770,7 @@ You gain the following Instinct abilities:
 
 <table>
   <tr>
-    <td>Instinct Abilities<br>- Reenact: The Dragon Slayer: During the Beginning Phase of the round, spend 1 Spell Point to designate one enemy as the Dragon and one ally as the Knight. Both must be within 12 units of you. The Knight has advantage on all attacks against the Dragon until the end of combat or until the Grand Finale.<br>  - Grand Finale: If the Knight lowers the hit points of the Dragon to 0, all allies within 3 units of the Knight are Inspired 1 (+1 damage) on the next round.<br>- Reenact: The Martyr: During the Beginning Phase of the round, spend 1 Spell Point to designate one willing ally within 12 units of you as the Martyr. Until the end of combat or the Grand Finale, any damage dealt to its allies within 6 units of it is dealt to the Martyr instead.<br>  - Grand Finale: When the Martyr hit points reach 0, it has 1 hit point instead, and it stops absorbing damage for its allies. All its allies within 6 units gain 1 temporary hit point.</td>
+    <td>Instinct Abilities<br>- Reenact: The Dragon Slayer: During the Beginning Phase of the round, spend 1 Spell Point to designate one enemy as the Dragon and one ally as the Knight. Both must be within 12 units of you. The Knight has advantage on all attacks against the Dragon until the end of combat or until the Grand Finale.<br>  - Grand Finale: If the Knight lowers the hit points of the Dragon to 0, all allies within 3 units of the Knight are Inspired 1 (1 Extra Die on rolls) on the next round.<br>- Reenact: The Martyr: During the Beginning Phase of the round, spend 1 Spell Point to designate one willing ally within 12 units of you as the Martyr. Until the end of combat or the Grand Finale, any damage dealt to its allies within 6 units of it is dealt to the Martyr instead.<br>  - Grand Finale: When the Martyr hit points reach 0, it has 1 hit point instead, and it stops absorbing damage for its allies. All its allies within 6 units gain 1 temporary hit point.</td>
   </tr>
 </table>
 
@@ -2484,7 +2484,7 @@ You gain the following action:
 
 #### Level 1: Inspiring Strike
 
-Whenever you successfully perform a Melee Strike, choose an ally within 10 units of you. They become Inspired (they deal +1 damage with attacks) until the end of the round
+Whenever you successfully perform a Melee Strike, choose an ally within 10 units of you. They become Inspired 1 (1 Extra Die on rolls) until the end of the round
 
 #### Level 2: Rally
 

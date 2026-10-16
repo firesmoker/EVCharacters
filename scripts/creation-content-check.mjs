@@ -32,6 +32,12 @@ try {
     const data={sections:{'Instinct Abilities':{sectionBody:'<ul><li><strong>You gain the following Instinct ability:</strong>: Become Inspired (1 / Day): When you roll, roll with advantage.</li><li><strong>Arcane Shield (1 / Day):</strong> Full repeated spell text.</li></ul>'}}};
     data.sections['Class Features']={sectionBody:`<p><strong>Shephard</strong></p><p>${m.DATA.subclasses.find(x=>x.Subclass==='Shephard').Description}</p><p><strong><strong>Level 3:</strong> Multiple Summons</strong></p><p>You gain an additional summon slot.</p>`};
     tidyCharacterContent(data);
+    const oldInspired = {sections:{'Class Features':{sectionBody:'<p>Inspired (they deal +1 damage)</p><p>Inspired (they deal +1 damage with attacks)</p>'},'Instinct Abilities':{sectionBody:'<ul><li><strong>Reenact: The Dragon Slayer:</strong> Inspired 1 (+1 damage).</li></ul>'}}};
+    tidyCharacterContent(oldInspired);
+    for (const section of Object.values(oldInspired.sections)) {
+      if (/Inspired[^)]*damage/.test(section.sectionBody || '')) throw Error('Saved Inspired descriptions must be repaired');
+    }
+    if (!oldInspired.sections['Instinct Abilities'].sectionBody.includes('Inspired 1 (1 Extra Die on rolls)')) throw Error('Saved reenactment must grant Extra Dice');
     const mixed = {sections:{
       'Class Features': {sectionBody:'<p><strong>Level 3: Historian</strong></p><p>You become Expert (5d6) in History.</p><p>If you were already Adept (4d6) in History, gain another skill.</p><p><strong>Level 3: Fidgety</strong></p><p>You gain the following Instinct abilities:</p><ul><li><b>Unleash:</b> Add 1 Extra Dice.</li><li><b>Evade:</b> Gain +1 Deflection against an attack.</li></ul><p>You have 1 more Instinct.</p><p><strong>Moving Target</strong></p><p>Gain +1 Deflection after moving and Expert Acrobatics.</p>'},
       'Instinct Abilities': {sectionBody:'<ul><li><b>Unleash:</b> Add 1 Extra Dice.</li><li><b>Evade:</b> Gain +1 Deflection against an attack.</li></ul>'},
@@ -51,7 +57,7 @@ try {
   assert(!result.classFeatures.includes('Instinct Abilities'), result.classFeatures);
   assert(result.classFeatures.includes('Fae Familiar'));
   assert(!result.speciesFeatures.includes('Human Adaptiveness'));
-  assert(!result.speciesFeatures.includes('Legacy of Discovery'));
+  assert(result.speciesFeatures.includes('Legacy of Discovery'));
   assert(!/Historian|Unleash|Evade|gain the following Instinct/.test(result.mixedFeatures));
   assert(result.mixedFeatures.includes('You have 1 more Instinct'));
   assert(result.mixedFeatures.includes('Moving Target'));

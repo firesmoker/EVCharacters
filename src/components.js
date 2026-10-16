@@ -198,6 +198,7 @@ export const renderSection = (title, content, options = {}) => {
 
   return `
     <div class="section-box" data-section="${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}" style="${style}">
+      ${title === 'Spells Known' ? '<button class="sort-spells-btn" title="Sort spells by rank, then name" aria-label="Sort spells by rank, then name">↕</button>' : ''}
       <div class="section-header"${title === 'Feats' ? ' title="At level 1, choose one Minor Feat for which you meet the requirements, in addition to your Origin Feat."' : ''}>${title}</div>
       <div class="${contentClasses}" 
            ${isStructured ? '' : 'contenteditable="true"'} 

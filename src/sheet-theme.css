@@ -388,13 +388,17 @@
 .strikes-cantrips-slots-table th, .strikes-cantrips-slots-table td { border: 1px solid var(--rule); }
 .strikes-cantrips-slots-table td { vertical-align: top; background: white; }
 .strikes-cantrips-slots-table td .editable-field { border: 0; font-size: 13px; min-height: 26px; }
-.strikes-cantrips-table-line { padding-top: 0; --col-speed: 54px; --col-roll: 9%; --col-minimum: 36px; --col-damage: 17%; --col-range: 12%; --col-double-six: 17%; }
+.strikes-cantrips-table-line { padding-top: 0; --col-speed: 64px; --col-roll: 9%; --col-minimum: 36px; --col-damage: 17%; --col-range: 12%; --col-double-six: 17%; }
 .strikes-cantrips-container:last-child { margin-bottom: 0; }
 [data-section='equipment-proficiencies'] .section-subsection-label { font-size: 13px; }
 [data-section='death'] .section-container { grid-template-columns: minmax(0, 1fr) 86px; }
 
 /* Contextual controls float beside their content without reserving page space. */
 .a4-page button { transition: opacity .12s; }
+.sort-spells-btn { position: absolute; top: 0; right: -27px; width: 23px; height: 23px; padding: 0; border: 0; border-radius: 3px; background: var(--burgundy); color: white; font-size: 18px; cursor: pointer; opacity: 0; }
+[data-section='spells-known']:hover > .sort-spells-btn,
+[data-section='spells-known']:focus-within > .sort-spells-btn { opacity: 1; }
+@media print { .sort-spells-btn { display: none !important; } }
 .skill-row > .add-row-btn, .skill-row > .remove-row-btn,
 .strikes-cantrips-container > .add-row-btn, .strikes-cantrips-container > .remove-row-btn { width: 23px; height: 23px; box-shadow: 0 1px 4px #0004; }
 .strikes-cantrips-container > .add-row-btn, .strikes-cantrips-container > .remove-row-btn { top: 12px; }
@@ -470,8 +474,6 @@
 [data-section-size='fixed'] .sheet-middle .section-box { box-sizing: border-box; min-height: 0 !important; flex: none; }
 [data-section-size='fixed'] .add-row-btn,
 [data-section-size='fixed'] .remove-row-btn,
-[data-section-size='fixed'] .add-strikes-table-row-btn,
-[data-section-size='fixed'] .remove-strikes-table-row-btn,
 [data-section-size='fixed'] .add-variant-btn,
 [data-section-size='fixed'] .remove-variant-btn { display: none !important; }
 .dropdown-content [aria-checked='true']::after { content: ' ✓'; }

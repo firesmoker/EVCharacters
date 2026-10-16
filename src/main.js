@@ -315,6 +315,21 @@ const handleInput = (e) => {
  * Global Click Handler
  */
 const handleClick = (e) => {
+  const sortSpells = e.target.closest('.sort-spells-btn');
+  if (sortSpells) {
+    const list = sortSpells.closest('.section-box').querySelector('.dynamic-rows');
+    const details = row => {
+      const inputs = row.querySelectorAll('input');
+      const rank = inputs[0].value.trim();
+      return { name: inputs[1].value.trim(), rank: /^(cantrip|cntrp|0)$/i.test(rank) ? 0 : /^\d+$/.test(rank) ? Number(rank) : Infinity };
+    };
+    list.append(...[...list.children].sort((a, b) => {
+      const left = details(a), right = details(b);
+      return Number(!left.name) - Number(!right.name) || left.rank - right.rank || left.name.localeCompare(right.name, undefined, { sensitivity: 'base', numeric: true });
+    }));
+    autoSave();
+    return;
+  }
   if (e.target.dataset.sectionSize) {
     document.dispatchEvent(new CustomEvent('sheet-edit-start'));
     setSectionSize(e.target.dataset.sectionSize);
@@ -322,7 +337,7 @@ const handleClick = (e) => {
     autoSave();
     return;
   }
-  if (isFixedSize() && e.target.matches('.add-row-btn, .remove-row-btn, .add-strikes-table-row-btn, .remove-strikes-table-row-btn, .add-variant-btn, .remove-variant-btn')) return;
+  if (isFixedSize() && e.target.matches('.add-row-btn, .remove-row-btn, .add-variant-btn, .remove-variant-btn')) return;
   // Suggestion Item Click
   const suggestionItem = e.target.closest('.suggestion-item');
   if (suggestionItem) {

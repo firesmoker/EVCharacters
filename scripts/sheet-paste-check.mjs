@@ -27,5 +27,11 @@ try {
   assert.equal(await field.innerText(),result.text);
   const speed = page.locator('.strikes-cantrips-slots-table td:nth-child(2) .editable-field').first();
   assert.equal(await speed.evaluate(el=>getComputedStyle(el).fontWeight),'400');
+  await speed.fill('Average');
+  assert(await speed.evaluate(el => {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    return range.getClientRects().length === 1 && el.scrollWidth <= el.clientWidth;
+  }), 'Average must fit on one line in the Speed column');
   console.log('Paste adopts destination typography, preserves bold/lists and undo/redo; action speed uses regular weight.');
 } finally { await browser.close(); }

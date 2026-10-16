@@ -1,3 +1,4 @@
+import CREATION_DATA from './creation-data.json';
 import { SPELLS_DATABASE } from './spells_data.js';
 
 const fragment = html => {
@@ -19,6 +20,31 @@ function featureCapacity() {
     for (const el of probe.querySelectorAll('p, div')) el.style.margin = '0 0 6px';
     return probe.offsetHeight;
   } };
+}
+
+// Remove only abilities already represented in the dedicated pane.
+function removeDuplicateInstincts(html, instincts) {
+  const root = fragment(html);
+  const nameOf = text => text.trim().replace(/^Level \d+\s*(?::|[—–-])\s*/, '')
+    .replace(/,?\s*Instinct Ability:/i, ':').split(':')[0].trim().toLowerCase();
+  const names = new Set([...fragment(instincts).querySelectorAll('li')].map(el => nameOf(el.textContent)));
+  for (const wrapper of root.querySelectorAll('[data-class-overflow]')) wrapper.innerHTML = removeDuplicateInstincts(wrapper.innerHTML, instincts);
+  const groups = [];
+  for (const el of [...root.children]) {
+    const text = el.textContent.trim();
+    const heading = /^Level \d+\s*(?::|[—–-])/.test(text) || el.matches('p') && el.firstElementChild?.matches('strong, b');
+    if (!groups.length || heading) groups.push([]);
+    groups.at(-1).push(el);
+  }
+  for (const group of groups) {
+    const title = nameOf(group[0].textContent);
+    const entries = group.flatMap(el => [...el.querySelectorAll('li')]);
+    const generic = /^(?:instinct abilities|instinct ability)$/.test(title);
+    if (names.has(title) || generic && entries.length && entries.every(el => names.has(nameOf(el.textContent)))) {
+      group.forEach(el => el.remove());
+    }
+  }
+  return root.innerHTML;
 }
 
 // Shared by creation, template loading and existing saved characters.
@@ -93,6 +119,23 @@ export function tidyCharacterContent(data) {
     sections.Equipment.sectionBody = root.innerHTML;
   }
 
+  const normalize = text => text.trim().replace(/^[“"']|[”"']$/g, '').trim();
+  const titles = new Set([...CREATION_DATA.classes.map(c => c.Class), ...CREATION_DATA.subclasses.map(c => c.Subclass)]);
+  const flavor = new Set(CREATION_DATA.subclasses.map(c => normalize(c.Description || '')).filter(Boolean));
+  for (const name of ['Class Features', 'Species Features', 'Additional Features']) {
+    const section = sections[name];
+    if (!section?.sectionBody) continue;
+    if (name !== 'Species Features') {
+      const root = fragment(section.sectionBody);
+      for (const el of root.querySelectorAll('p, h2, h3, h4')) {
+        const text = normalize(el.textContent);
+        if (titles.has(text) || flavor.has(text) || text === 'Flavor Text') el.remove();
+      }
+      section.sectionBody = root.innerHTML;
+    }
+    if (sections['Instinct Abilities']?.sectionBody) section.sectionBody = removeDuplicateInstincts(section.sectionBody, sections['Instinct Abilities'].sectionBody);
+  }
+
   const features = sections['Class Features'];
   if (features?.sectionBody) {
     const additional = sections['Additional Features'];
@@ -155,6 +198,22 @@ export function tidyCharacterContent(data) {
       if (!plain(action.slots.notes || '').includes(effect)) action.slots.notes = `${action.slots.notes || ''}\n${label} ${effect}`.trim();
       row.doubleSix = 'See notes';
     }
+  }
+  for (const name of ['Class Features', 'Species Features', 'Additional Features']) {
+    const section = sections[name];
+    if (!section?.sectionBody) continue;
+    const root = fragment(section.sectionBody);
+    for (const el of root.querySelectorAll('p, li, h2, h3, h4')) {
+      if (!/^Level \d+\s*(?::|[—–-])/.test(el.textContent.trim())) continue;
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      let text;
+      while ((text = walker.nextNode())) {
+        if (!text.textContent.trim()) continue;
+        text.textContent = text.textContent.replace(/^\s*Level \d+\s*(?::|[—–-])\s*/, '');
+        break;
+      }
+    }
+    section.sectionBody = root.innerHTML;
   }
   return data;
 }

@@ -259,7 +259,7 @@ export function buildCharacter(s) {
   const subclassText = sub ? levelText(sub['Full Features / Rules'], s.level) : '';
   sections['Species Features'].sectionBody = featureHTML(speciesText);
   sections['Class Features'].sectionBody = featureHTML(classText);
-  sections['Additional Features'].sectionBody = (sub ? `<p><strong>${escapeHTML(s.subclass)}</strong></p>${featureHTML(subclassText)}` : '') + extras.map(([n, dice]) => p(`${n}: ${training(dice)}`)).join('') + Object.entries(s.choices).filter(([key]) => ['craft', 'crafter', 'assurance', 'tools'].includes(key)).map(([key, value]) => p(`${key}: ${value.join(', ')}`)).join('') + (s.notes ? p(s.notes) : '');
+  sections['Additional Features'].sectionBody = (sub ? featureHTML(subclassText) : '') + extras.map(([n, dice]) => p(`${n}: ${training(dice)}`)).join('') + Object.entries(s.choices).filter(([key]) => ['craft', 'crafter', 'assurance', 'tools'].includes(key)).map(([key, value]) => p(`${key}: ${value.join(', ')}`)).join('') + (s.notes ? p(s.notes) : '');
   for (const g of specialChoices(s)) sections['Additional Features'].sectionBody += p(`${g.label}: ${s.choices[g.id].join('; ')}`);
   const chosenFeats = DATA.feats.filter(f => s.feats.includes(f.Feat));
   sections.Feats.sectionBody = chosenFeats.map(f => `<p><strong>${escapeHTML(f.Feat)}:</strong> ${escapeHTML(f['Effect / Rules']).replace(/\n/g, '<br>')}</p>`).join('');

@@ -15,7 +15,7 @@ try {
     s.choices.origin=['Magic'];
     const automatic=m.skillChoiceWarning(s,'origin',0);
     s.feats=m.DATA.feats.filter(f=>/Cast Marvelously|Become Inspired/.test(f['Effect / Rules'])).map(f=>f.Feat);
-    s.name='Test'; s.languages='Elvish'; s.choices={};
+    s.level=2; s.name='Test'; s.languages='Elvish'; s.choices={};
     const used=new Set();
     for(const g of m.skillPlan(s).groups) {
       s.choices[g.id]=g.options.filter(n=>!used.has(n)).slice(0,g.count);
@@ -24,14 +24,28 @@ try {
     for(let i=0;i<m.spellPlan(s).groups.length;i++) {
       const g=m.spellPlan(s).groups[i]; s.spells[g.id]=g.options.slice(0,g.count).map(sp=>sp.name);
     }
+    s.feats.push('Deep Sleep');
     s.equipment.weapon=m.equipmentPlan(s).choices[0]||'';
     const built=m.buildCharacter(s);
     const html=built.sections['Instinct Abilities'].sectionBody;
     const strike=built.sections['Strikes & Damaging Cantrips'].dynamicRows[0].slots.notes;
     const data={sections:{'Instinct Abilities':{sectionBody:'<ul><li><strong>You gain the following Instinct ability:</strong>: Become Inspired (1 / Day): When you roll, roll with advantage.</li><li><strong>Arcane Shield (1 / Day):</strong> Full repeated spell text.</li></ul>'}}};
+    data.sections['Class Features']={sectionBody:`<p><strong>Shephard</strong></p><p>${m.DATA.subclasses.find(x=>x.Subclass==='Shephard').Description}</p><p><strong><strong>Level 3:</strong> Multiple Summons</strong></p><p>You gain an additional summon slot.</p>`};
     tidyCharacterContent(data);
-    return {duplicate,clear,automatic,html,strike,repaired:data.sections['Instinct Abilities'].sectionBody};
+    return {cleanedClass:data.sections['Class Features'].sectionBody,duplicate,clear,automatic,html,strike,classFeatures:built.sections['Class Features'].sectionBody,speciesFeatures:built.sections['Species Features'].sectionBody,repaired:data.sections['Instinct Abilities'].sectionBody};
   });
+  assert(!result.cleanedClass.includes('Shephard'));
+  assert(!result.cleanedClass.includes('Your connection to animals'));
+  assert(!result.cleanedClass.includes('Level 3:'));
+  assert(result.cleanedClass.includes('Multiple Summons'));
+  assert(!result.classFeatures.includes('Level 1:'));
+  assert(!result.classFeatures.includes('Instinct Abilities'));
+  assert(result.classFeatures.includes('Fae Familiar'));
+  assert(!result.speciesFeatures.includes('Human Adaptiveness'));
+  assert(result.speciesFeatures.includes('Legacy of Discovery'));
+  assert(!/Level \d/.test(result.speciesFeatures));
+  assert(result.html.includes('Human Adaptiveness'));
+  assert(result.html.includes('Evade'));
   assert.match(result.strike,/On success, deal SD .+ damage\. On failure, deal half damage, rounded down\./);
   assert.match(result.duplicate,/already granted elsewhere at 5d6/);
   assert.equal(result.clear,'');

@@ -456,6 +456,17 @@
 .strikes-cantrips-notes-line .editable-field { padding: 3px 4px; }
 /* Hidden hover controls must not intercept clicks from neighboring columns. */
 .a4-page .remove-row-btn { pointer-events: none; }
+/* Bridge the empty gap so moving to a floating delete control keeps its row hovered. */
+.remove-row-btn::before,
+.remove-variant-btn::before,
+.strikes-cantrips-table-row-controls::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 12px;
+}
 .skill-row:hover > .remove-row-btn, .skill-row:focus-within > .remove-row-btn,
 .strikes-cantrips-container:hover > .remove-row-btn,
 .strikes-cantrips-container:focus-within > .remove-row-btn { pointer-events: auto; }

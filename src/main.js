@@ -689,6 +689,11 @@ document.querySelector('#app').addEventListener('focusin', (e) => {
 });
 
 document.querySelector('#app').addEventListener('keydown', handleGlobalKeydown);
+document.addEventListener('keydown', (event) => {
+  if (!(event.ctrlKey || event.metaKey) || event.altKey || event.shiftKey || event.key.toLowerCase() !== 's') return;
+  event.preventDefault();
+  if (!event.repeat) saveToJSON();
+});
 
 // Listen for file input change via delegation
 document.querySelector('#app').addEventListener('change', (e) => {

@@ -108,7 +108,7 @@ try {
       if (await field.count()) await field.selectOption(values[i]);
     }
   }
-  await page.getByRole('button', {name:'Spells',exact:false}).click();
+  await page.locator('dialog[open]').getByRole('button', {name:'Spells',exact:false}).click();
   const spellStats = await page.locator('.creation-wizard .spell-description-block').allTextContents();
   assert(spellStats.some(text => text.includes('Duration:')));
   for (const label of ['Speed:', 'Cost:', 'Range:', 'Area:', 'Requirements:']) assert(spellStats.some(text => text.includes(label)), `Missing ${label}`);

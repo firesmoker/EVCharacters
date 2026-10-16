@@ -55,7 +55,7 @@ try {
   assert(result.mode && result.restored);
   assert(result.autoRestored && result.legacyDefaultsFixed);
   assert.equal(result.saved.preferences.sectionSize, 'fixed');
-  assert.equal(result.actions, 5);
+  assert.equal(result.actions, 4);
   assert.equal(result.necromancy, true);
   assert.equal(result.notes, 'Once per day');
   assert.deepEqual(result.combat, ['Magic', 'Melee', 'Ranged', 'Unarmed']);

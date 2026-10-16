@@ -2,6 +2,7 @@ import DATA from './creation-data.json';
 import { SKILLS_LIST } from './data.js';
 import { SPELLS_DATABASE } from './spells_data.js';
 import { tidyCharacterContent } from './sheet-content.js';
+import { cantripAction } from './cantrip-action.js';
 
 export { DATA };
 export const standardSkills = SKILLS_LIST.flatMap(g => g.options);
@@ -300,13 +301,11 @@ export function buildCharacter(s) {
     if (sp?.rank !== 'Cantrip' || !/deal (?:SD|\d+) .*damage/i.test(sp.description)) continue;
     const roll = sp.description.match(/Roll Magic(?:\s*([+-]\d+))?[^.]*\./i);
     if (!roll) continue;
-    const parts = sp.description.split(/Double 6:\s*/);
-    const damage = sp.name === 'Elemental Flare' ? 'Fire / Ice / Lightning' : sp.description.match(/deal (?:SD|\d+) (\w+) damage/i)?.[1] || 'See spell';
-    sections['Strikes & Damaging Cantrips'].dynamicRows.push({ type: 'action', slots: { name, rollDescription: roll[0], notes: parts[0].replace(roll[0], '').trim() }, tableRows: [{ weapon: '', speed: s.subclass === 'War Mage' && sp.actionSpeed.includes('Average') ? 'Fast' : sp.actionSpeed.replace(' Action', ''), roll: `${(skills.Magic || 3) + Number(roll[1] || 0)}d6`, minimum: '', damage, range: sp.range, doubleSix: parts[1]?.trim() || '' }], variants: [], ui: { variantsHidden: true, weaponColumnHidden: true } });
+    sections['Strikes & Damaging Cantrips'].dynamicRows.push(cantripAction(sp, skills.Magic || 3, s.subclass));
   }
   if (stats.devotion) sections['Additional Features'].sectionBody += p(`Devotion Points: ${stats.devotion}`);
   if (stats.placeholders.length) sections['Additional Features'].sectionBody += p(`Provisional progression: ${stats.placeholders.join(', ')}. These are placeholder values, pending finalized class progression.`);
   // Preserve large builds rather than dropping skills to meet the fixed row limit.
-  const mode = sections['Standard Skills'].dynamicRows.length > 11 || sections['Strikes & Damaging Cantrips'].dynamicRows.length > 5 ? 'auto' : 'fixed';
+  const mode = sections['Standard Skills'].dynamicRows.length > 11 || sections['Strikes & Damaging Cantrips'].dynamicRows.length > 4 ? 'auto' : 'fixed';
   return tidyCharacterContent({ version: 1, headers: { 'character-name': s.name.trim(), 'player-name': s.player.trim(), class: s.className, subclass: s.subclass, species: s.species, level: String(s.level), experience: '0' }, sections, preferences: { sectionSize: mode }, creation: { ...s, source: DATA.source } });
 }

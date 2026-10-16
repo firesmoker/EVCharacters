@@ -395,6 +395,13 @@
 
 /* Contextual controls float beside their content without reserving page space. */
 .a4-page button { transition: opacity .12s; }
+.choose-cantrip-btn { position: absolute; top: 12px; left: -27px; width: 23px; height: 23px; padding: 0; border: 0; border-radius: 3px; color: white; background: var(--burgundy); cursor: pointer; opacity: 0; }
+.strikes-cantrips-container:hover > .choose-cantrip-btn,
+.strikes-cantrips-container:focus-within > .choose-cantrip-btn { opacity: 1; }
+.cantrip-picker { border: 1px solid var(--rule); border-radius: 8px; padding: 24px; color: var(--ink); }
+.cantrip-picker select { font: inherit; padding: 6px; min-width: 220px; }
+.cantrip-picker button { padding: 6px 12px; cursor: pointer; }
+@media print { .choose-cantrip-btn, .cantrip-picker { display: none !important; } }
 .sort-spells-btn { position: absolute; top: 0; right: -27px; width: 23px; height: 23px; padding: 0; border: 0; border-radius: 3px; background: var(--burgundy); color: white; font-size: 18px; cursor: pointer; opacity: 0; }
 [data-section='spells-known']:hover > .sort-spells-btn,
 [data-section='spells-known']:focus-within > .sort-spells-btn { opacity: 1; }

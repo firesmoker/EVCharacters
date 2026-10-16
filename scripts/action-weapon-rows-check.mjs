@@ -17,7 +17,7 @@ try {
     await block.locator('.remove-strikes-table-row-btn').click();
     assert.equal(await rows.count(), count);
     if (mode === 'fixed') {
-      assert.equal(await page.locator('.actions-page .strikes-cantrips-container').count(), 5);
+      assert.equal(await page.locator('.actions-page .strikes-cantrips-container').count(), 4);
       assert(!(await block.locator(':scope > .add-row-btn').isVisible()));
     }
   }

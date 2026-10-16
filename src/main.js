@@ -1,5 +1,6 @@
 import { initSheetHistory } from './sheet-history.js';
 import { initSheetPaste } from './sheet-paste.js';
+import { initCantripPicker } from './cantrip-picker.js';
 import { applyAccent } from './accent.js';
 import { initColorPicker } from './color-picker.js';
 import { setSectionSize, isFixedSize } from './section-format.js';
@@ -725,6 +726,7 @@ document.querySelectorAll('.editable-field').forEach(el => {
 initSheetTools();
 initSheetHistory(autoSave);
 initSheetPaste();
+initCantripPicker(autoSave);
 initPortrait(autoSave);
 initColorPicker(autoSave);
 let creationWizard;

@@ -11,11 +11,11 @@ export function setSectionSize(mode) {
       render: title === 'Combat Skills' ? () => renderSkillRow('combat') : title === 'Standard Skills' ? () => renderSkillRow('skills') : renderDragsIgnoredRow };
   });
   const actions = document.querySelector('.actions-page .dynamic-rows');
-  if (actions) lists.push({ list: actions, count: 5, render: renderStrikesDamagingCantripsBlock });
+  if (actions) lists.push({ list: actions, count: 4, render: renderStrikesDamagingCantripsBlock });
   if (mode === 'fixed') {
     const hasContent = row => [...row.querySelectorAll('input, [contenteditable]')].some(field => (field.value || field.textContent).trim());
     if (lists.some(({ list, count }) => [...list.children].slice(count).some(hasContent))) {
-      alert('Fixed size needs at most 4 combat skills, 11 standard skills, 3 Drags Ignored entries, and 5 actions. Move or clear the extra entries first; nothing has been deleted.');
+      alert('Fixed size needs at most 4 combat skills, 11 standard skills, 3 Drags Ignored entries, and 4 actions. Move or clear the extra entries first; nothing has been deleted.');
       mode = 'auto';
     } else {
       for (const { list, count, render } of lists) {

@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Local visual references, excluded from the app and deployments
+/references-local/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

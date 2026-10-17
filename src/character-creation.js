@@ -5,6 +5,7 @@ import { tidyCharacterContent } from './sheet-content.js';
 import { cantripAction } from './cantrip-action.js';
 import ACTIONS from './creation-actions.json';
 import { cleanActionText, representedActions } from './action-text.js';
+import { damageDefenses } from './damage-defenses.js';
 
 export { DATA };
 export const standardSkills = SKILLS_LIST.flatMap(g => g.options);
@@ -241,6 +242,7 @@ export function buildCharacter(s) {
   const hp = stats.hp + +(race['HP Bonus'] || 0) + (s.feats.includes('Tough') ? Math.max(1, Math.floor(s.level / 2)) : 0);
   sections.Defenses.fields = { Deflection: String(+c['Base Deflection'] + +(race['Deflection Bonus'] || 0) + +(armor?.Deflection || 0) + +(shield?.Deflection || 0)), Fortitude: String(+c.Fortitude + +(race['Fortitude Bonus'] || 0)), Will: String(+c.Will + +(race['Will Bonus'] || 0)) };
   sections.Defenses.splitFields['Health\nPoints'] = { cur: String(hp), max: String(hp), temp: '0' };
+  sections['Damage Defenses'] = { ...section(), fields: damageDefenses(race['Resistances / Weaknesses'], [armor?.Modifiers, shield?.Modifiers].filter(Boolean).join(';')) };
   sections.Speed.fields = { Movement: String(+race.Movement), Instinct: String(stats.instinct) };
   const row = (name, value) => ({ type: 'skill', values: [name, value] });
   const training = dice => ({ 3: 'Untrained (3d6)', 4: 'Adept (4d6)', 5: 'Expert (5d6)' }[dice]);

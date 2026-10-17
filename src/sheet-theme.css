@@ -206,8 +206,15 @@
 .suggestion-item:hover, .suggestion-item.selected { background: var(--accent-soft); }
 
 /* Retain the Defenses and Speed section identities for saved character files. */
-.combat-band { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2mm; flex-shrink: 0; }
+.combat-band { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: 2mm; row-gap: 3px; flex-shrink: 0; }
 .combat-band [data-section='defenses'] { border: 0; box-shadow: none; }
+.combat-band [data-section='damage-defenses'] { grid-column: 1 / -1; margin: 0; min-height: 0; }
+.combat-band [data-section='damage-defenses'] > .section-header { display: none; }
+.combat-band [data-section='damage-defenses'] > .section-content { padding: 4px 6px; margin: 0; min-height: 0; }
+.damage-defense-line { display: flex; gap: 18px; font-size: 13px; line-height: 1.35; }
+.damage-defense-line > .section-row { display: flex; flex: 1; align-items: baseline; min-width: 0; gap: 5px; margin: 0; }
+.damage-defense-line .section-label { font-size: 13px; margin: 0; white-space: nowrap; }
+.a4-page .damage-defense-line .editable-field { flex: 1; min-width: 25px; min-height: 18px; padding: 1px 4px; font-size: 13px; }
 .combat-band [data-section='defenses'] > .section-header,
 .combat-band [data-section='speed'] > .section-header {
   position: absolute;
@@ -247,7 +254,8 @@
   align-items: center;
   justify-content: flex-start;
   position: relative;
-  height: 23mm;
+  height: 21.6mm;
+  margin: 0;
   padding: 0;
 }
 .defense-crests .section-row > svg {

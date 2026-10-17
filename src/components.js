@@ -529,6 +529,10 @@ export const renderApp = () => {
               ${renderSection('Speed', renderSpeedSection(), { isStructured: true, isDynamic: true })}
               ${renderSpellPointSummary()}
             </div>
+            ${renderSection('Damage Defenses', `<div class="damage-defense-line">
+              <div class="section-row"><span class="section-label">Resistances:</span><span class="editable-field" contenteditable="true" aria-label="Resistances" data-placeholder="—"></span></div>
+              <div class="section-row"><span class="section-label">Vulnerabilities:</span><span class="editable-field" contenteditable="true" aria-label="Vulnerabilities" data-placeholder="—"></span></div>
+            </div>`, { isStructured: true })}
           </div>
           
           <main class="sheet-middle">

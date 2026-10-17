@@ -7,6 +7,18 @@ try {
   const result = await page.evaluate(async () => {
     const m = await import('/src/character-creation.js');
     const { tidyCharacterContent } = await import('/src/sheet-content.js');
+    const example = { sections: {
+      'Class Features': { sectionBody: '<p><strong>Example Feature</strong></p><p>First description.</p><ul><li>Keep this list.</li></ul><p>Keep this later paragraph.</p>' },
+      'Species Features': { sectionBody: '<p><b>Example Trait</b><br>Trait description.</p>' },
+      'Additional Features': { sectionBody: '<p>Hardwall</p><p>Passive feature</p><p>You gain proficiency with Heavy Armor.</p>' },
+    } };
+    tidyCharacterContent(example);
+    for (const [name, label, description] of [['Class Features', 'Example Feature', 'First description.'], ['Species Features', 'Example Trait', 'Trait description.'], ['Additional Features', 'Hardwall', 'You gain proficiency with Heavy Armor.']]) {
+      const root = document.createElement('div'); root.innerHTML = example.sections[name].sectionBody;
+      const first = root.firstElementChild;
+      if (!first.textContent.includes(`${label}: ${description}`) || first.querySelector('br')) throw Error(`${name}: label and description must share a paragraph`);
+    }
+    if (!example.sections['Class Features'].sectionBody.includes('<ul><li>Keep this list.</li></ul><p>Keep this later paragraph.</p>')) throw Error('Feature body structure changed');
     const s = m.newCharacter(); s.species='Human'; s.className='Wizard';
     s.choices.origin=['Arcana']; s.choices['legacy-expert']=['Arcana'];
     const duplicate=m.skillChoiceWarning(s,'origin',0);

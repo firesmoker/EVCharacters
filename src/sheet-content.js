@@ -8,6 +8,37 @@ const fragment = html => {
   return el;
 };
 const plain = html => fragment(html).textContent;
+const plainFeatureTitles = new Set(CREATION_DATA.subclasses.flatMap(sub =>
+  [...(sub['Full Features / Rules'] || '').matchAll(/(?:^|\n\n)([^\n]+)\n(?:Passive feature|Instinct Ability|(?:Melee|Ranged) Strike Variant|Bomb Throw Variant)/g)].map(m => m[1])));
+
+function inlineFeatureLabels(root) {
+  for (const el of [...root.querySelectorAll('p, div, h2, h3, h4, li')].reverse()) {
+    if (el.querySelector('p, div, h2, h3, h4')) continue;
+    const title = el.textContent.trim();
+    if (plainFeatureTitles.has(title) && !el.querySelector('strong, b')) {
+      const bold = document.createElement('strong'); bold.textContent = title; el.replaceChildren(bold);
+    }
+    const label = el.firstElementChild;
+    if (!label?.matches('strong, b') || el.firstChild?.textContent.trim() && el.firstChild !== label) continue;
+    const standalone = el.textContent.trim() === label.textContent.trim();
+    if (standalone) {
+      let next = el.nextElementSibling;
+      if (next?.textContent.trim() === 'Passive feature') { next.remove(); next = el.nextElementSibling; }
+      const nextIsTitle = next?.firstElementChild?.matches('strong, b') && next.textContent.trim() === next.firstElementChild.textContent.trim();
+      if (!next?.matches('p, div') || next.querySelector('p, div, ul, ol') || nextIsTitle || plainFeatureTitles.has(next.textContent.trim())) continue;
+      if (!next.textContent.trim()) continue;
+      if (!/[:—–-]$/.test(label.textContent.trim())) label.append(':');
+      el.append(' ', ...next.childNodes); next.remove();
+    } else {
+      let next = label.nextSibling;
+      while (next?.nodeType === Node.TEXT_NODE && !next.textContent.trim()) next = next.nextSibling;
+      if (next?.nodeName === 'BR') {
+        if (!/[:—–-]$/.test(label.textContent.trim())) label.append(':');
+        while (next?.nodeName === 'BR') { const following = next.nextSibling; next.replaceWith(' '); next = following; }
+      }
+    }
+  }
+}
 const updateRam = text => (text || '').replaceAll('Perform a Charge using Unarmed Strike. On a successful hit, you deal +1 damage.', 'Perform a Charge using Unarmed Strike with 2 Extra Dice.');
 const skillOnlyFeatures = new Set([
   'Historian', 'Difficult to Ignore', 'Infiltrator', 'Trickery of the Fae',
@@ -324,6 +355,7 @@ export function tidyCharacterContent(data) {
         break;
       }
     }
+    inlineFeatureLabels(root);
     section.sectionBody = root.innerHTML;
   }
   return data;

@@ -133,7 +133,9 @@ try {
     io.loadFromJSON(JSON.stringify(built));
     const saved = JSON.parse(io.serializeSheet());
     const invalid = structuredClone(bard); invalid.spells['class-spells'] = ['Godly Force'];
-    return { bard, failures, total: cases.length, built, saved, rejectsExclusive: m.validateCharacter(invalid).length > 0 };
+    const ossian = cases.find(c => c.headers.species === 'Ossian' && c.headers.class === 'Archer' && c.headers.level === '3');
+    ossian.headers['character-name'] = 'Varek';
+    return { bard, ossian, failures, total: cases.length, built, saved, rejectsExclusive: m.validateCharacter(invalid).length > 0 };
   });
   assert.deepEqual(result.failures, []);
   assert(result.total >= 400);
@@ -184,6 +186,25 @@ try {
   assert.equal(await page.locator('.creation-wizard').isVisible(), false);
   assert.equal(await page.locator('[data-sync-id="character-name"]').first().innerText(), 'UI Test');
   assert(await page.evaluate(() => !!localStorage.getItem('ev-before-character-creation')));
+
+  assert.deepEqual(result.ossian.sections['Damage Defenses'].fields, { Resistances: 'Slashing, Piercing', Vulnerabilities: 'Crushing' });
+  await page.evaluate(async sheet => { const io = await import('/src/io.js'); io.loadFromJSON(JSON.stringify(sheet)); }, result.ossian);
+  assert.equal(await page.getByLabel('Resistances', {exact:true}).innerText(), 'Slashing, Piercing');
+  assert.equal(await page.getByLabel('Vulnerabilities', {exact:true}).innerText(), 'Crushing');
+  await page.getByLabel('Resistances', {exact:true}).fill('Slashing, Piercing, Fire');
+  const savedDefenses = await page.evaluate(async () => {
+    const io = await import('/src/io.js'); const saved = io.serializeSheet(); io.loadFromJSON(saved);
+    return JSON.parse(saved).sections['Damage Defenses'].fields;
+  });
+  assert.equal(savedDefenses.Resistances, 'Slashing, Piercing, Fire');
+  await page.getByLabel('Resistances', {exact:true}).fill('Slashing, Piercing');
+  await page.locator('.character-page').scrollIntoViewIfNeeded();
+  await page.screenshot({path: 'C:/Users/eylon/.codex/visualizations/2026/09/15/01a0a530-6d6f-7f31-829c-b3c870dfb2f5/ossian-damage-defenses.png'});
+  await page.emulateMedia({media:'print'});
+  assert(await page.getByLabel('Resistances', {exact:true}).isVisible());
+  const { damageDefenses } = await import('../src/damage-defenses.js');
+  assert.deepEqual(damageDefenses('Slashing resistance; Crushing vulnerability', 'Resistance to Crushing'), {Resistances:'Slashing', Vulnerabilities:''});
+  assert.deepEqual(damageDefenses('', 'Resistance to all Physical Damage'), {Resistances:'Slashing, Piercing, Crushing', Vulnerabilities:''});
 
   assert.deepEqual(errors, []);
   console.log(`${result.total} class/species/level combinations, grants, spell limits, sheet population and wizard validation passed.`);

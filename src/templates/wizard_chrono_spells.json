@@ -514,7 +514,7 @@
     }
   },
   "preferences": {
-    "sectionSize": "fixed",
+    "sectionSize": "auto",
     "font": "",
     "color": ""
   }

@@ -33,6 +33,7 @@ try {
       return s;
     }
     const awaitData = await import('/src/data.js');
+    if (awaitData.COMBAT_SKILLS_LIST.some(g => g.options.includes('Grapple'))) throw Error('Grapple is an action, not a skill');
     const firstLevel = fill({ ...m.newCharacter(), species: 'High Elf', level: 1 });
     assertMinorFeat(firstLevel);
     function assertMinorFeat(s) {
@@ -58,6 +59,36 @@ try {
       else cases.push(m.buildCharacter(s));
     }
     const actions = sheet => sheet.sections['Strikes & Damaging Cantrips'].dynamicRows;
+    const assured = fill({ ...m.newCharacter(), className: 'Barbarian', species: 'Human', level: 2 });
+    assured.feats = ['Assurance', 'Tough', 'Focused'];
+    assured.choices.assurance = ['Athletics'];
+    const assuredSheet = m.buildCharacter(assured);
+    if (!assuredSheet.sections.Feats.sectionBody.includes('For Athletics, you may forgo rolling')) throw Error('Assurance choice missing');
+    if (/assurance|Weapon Throw/i.test(assuredSheet.sections['Additional Features'].sectionBody)) throw Error('Choice or skill duplicated in Additional Features');
+    if (!assuredSheet.sections['Combat Skills'].dynamicRows.some(r => r.values[0] === 'Weapon Throw' && r.values[1] === 'Expert (5d6)')) throw Error('Weapon Throw training lost');
+    if (!assuredSheet.sections['Equipment Proficiencies'].checkboxes['Martial Weapons'] || assuredSheet.sections['Class Features'].sectionBody.includes('Martial Weapons Proficiency')) throw Error('Martial proficiency routing incorrect');
+    const rebuilt = structuredClone(assuredSheet.creation);
+    rebuilt.choices.assurance = ['Melee'];
+    if (!m.buildCharacter(rebuilt).sections.Feats.sectionBody.includes('For Melee,')) throw Error('Rebuild did not resolve changed choice');
+    if (m.sheetFeatureHTML('{{choices.tools}}', { tools: ['<img src=x>', 'Smithing'] }) !== '&lt;img src=x&gt; and Smithing') throw Error('Feature choices must be escaped');
+    let missingChoice = false;
+    try { m.sheetFeatureHTML('{{choices.missing}}', {}); } catch { missingChoice = true; }
+    if (!missingChoice) throw Error('Missing feature choice silently accepted');
+    for (const sheet of cases) {
+      if (sheet.sections['Equipment Proficiencies'].dynamicRows.some(r => /^none$/i.test(r.values[0]))) throw Error('None is not a Drag entry');
+      const spells = sheet.sections['Spells Known'].dynamicRows.map(r => r.values);
+      for (let i = 1; i < spells.length; i++) {
+        const [a, b] = [spells[i - 1], spells[i]];
+        const rankA = a[0] === 'Cantrip' ? 0 : +a[0], rankB = b[0] === 'Cantrip' ? 0 : +b[0];
+        if (rankA > rankB || (rankA === rankB && a[1].localeCompare(b[1], undefined, { sensitivity: 'base', numeric: true }) > 0)) throw Error('Created spells are not sorted');
+      }
+      const combat = sheet.sections['Combat Skills'].dynamicRows.map(r => r.values[0]);
+      for (const name of awaitData.DEFAULT_COMBAT_SKILLS) if (!combat.includes(name)) throw Error(`Missing default combat skill: ${name}`);
+      const grapple = actions(sheet).find(a => a.slots.name === 'Grapple');
+      if (grapple && !grapple.slots.notes.includes('Roll Unarmed against')) throw Error('Grapple must use Unarmed');
+      if (JSON.stringify(sheet.sections).includes('{{choices.')) throw Error('Unresolved feature placeholder');
+      if (/Weapon Throw|Bomb Throw|Alchemy:/.test(sheet.sections['Additional Features'].sectionBody)) throw Error('Skill training dumped into features');
+    }
     const sample = subclass => cases.find(sheet => sheet.headers.subclass === subclass && sheet.headers.level === '3');
     const featureText = sheet => ['Class Features','Species Features','Additional Features'].map(n=>sheet.sections[n].sectionBody).join('');
     assertFeature(sample('Worldshaper'), 'Earth Bending', 'immediately cast it a second time');

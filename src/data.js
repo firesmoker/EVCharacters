@@ -11,10 +11,12 @@ export const SKILLS_LIST = [
 ];
 
 export const COMBAT_SKILLS_LIST = [
-  { groupLabel: "Weapons", options: ["Melee", "Ranged", "Weapon Throw"] },
+  { groupLabel: "Weapons", options: ["Melee", "Ranged", "Weapon Throw", "Bomb Throw"] },
   { groupLabel: "Magic", options: ["Magic"] },
-  { groupLabel: "Unarmed", options: ["Unarmed", "Grapple"] }
+  { groupLabel: "Unarmed", options: ["Unarmed"] }
 ];
+
+export const DEFAULT_COMBAT_SKILLS = ['Magic', 'Melee', 'Ranged', 'Unarmed', 'Weapon Throw'];
 
 export const BONUS_LIST = [
   { groupLabel: "Training", options: ["Untrained (3d6)", "Adept (4d6)", "Expert (5d6)", "Master (6d6)", "Grandmaster (7d6)", "Legend (8d6)"] }

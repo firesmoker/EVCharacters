@@ -1,3 +1,4 @@
+import { DEFAULT_COMBAT_SKILLS } from './data.js';
 import { logicalSections, restoreSections, clearSectionSnapshot } from './sheet-tools.js';
 import { readPortrait, writePortrait } from './portrait.js';
 import { applyAccent, DEFAULT_ACCENT } from './accent.js';
@@ -64,7 +65,7 @@ export const prepareSheetForData = (restoreDefaults = false) => {
       if (row.querySelector('.section-label')?.textContent.trim() === 'Instinct:') row.querySelector('[contenteditable]').textContent = '1';
     });
     document.querySelectorAll('[data-section="combat-skills"] input[placeholder="Skill"]').forEach((input, i) => {
-      input.value = ['Magic', 'Melee', 'Ranged', 'Unarmed'][i];
+      input.value = DEFAULT_COMBAT_SKILLS[i];
     });
   }
 };

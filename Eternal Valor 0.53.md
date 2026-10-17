@@ -235,8 +235,7 @@ For example, the Rogue class starts as Adept (4d6) in Mechanical (Disarm Traps).
 | Weapons | Ranged | Attacking with ranged weapons |
 | Weapons | Weapon Throw | Throwing a weapon at an enemy |
 | Magic | Magic | Casting spells and channeling magical effects, regardless of spell tradition. |
-| Unarmed | Unarmed | Attacking without weapons |
-| Unarmed | Grapple | Engaging in a physical struggle to restrain a target |
+| Unarmed | Unarmed | Attacking without weapons and grappling to restrain a target |
 
 ### Crafting skills table
 

@@ -1,3 +1,4 @@
+import { compareSpellRows } from './spell-sort.js';
 import { initSheetHistory } from './sheet-history.js';
 import { initSheetPaste } from './sheet-paste.js';
 import { initCantripPicker } from './cantrip-picker.js';
@@ -319,15 +320,8 @@ const handleClick = (e) => {
   const sortSpells = e.target.closest('.sort-spells-btn');
   if (sortSpells) {
     const list = sortSpells.closest('.section-box').querySelector('.dynamic-rows');
-    const details = row => {
-      const inputs = row.querySelectorAll('input');
-      const rank = inputs[0].value.trim();
-      return { name: inputs[1].value.trim(), rank: /^(cantrip|cntrp|0)$/i.test(rank) ? 0 : /^\d+$/.test(rank) ? Number(rank) : Infinity };
-    };
-    list.append(...[...list.children].sort((a, b) => {
-      const left = details(a), right = details(b);
-      return Number(!left.name) - Number(!right.name) || left.rank - right.rank || left.name.localeCompare(right.name, undefined, { sensitivity: 'base', numeric: true });
-    }));
+    const values = row => [...row.querySelectorAll('input')].map(input => input.value);
+    list.append(...[...list.children].sort((a, b) => compareSpellRows(values(a), values(b))));
     autoSave();
     return;
   }

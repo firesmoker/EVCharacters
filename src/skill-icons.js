@@ -1,6 +1,6 @@
 const icons = {
   Magic: 'magic', Melee: 'swords', Ranged: 'bow', 'Weapon Throw': 'dagger',
-  Unarmed: 'fist', Grapple: 'grapple', Arcana: 'arcana', Nature: 'leaf',
+  Unarmed: 'fist', Arcana: 'arcana', Nature: 'leaf',
   Athletics: 'runner', Acrobatics: 'acrobat', Sneak: 'sneak', Disguise: 'mask',
   Mechanics: 'tools', Medicine: 'medicine', Cooking: 'flame',
   Performance: 'music', 'Sleight of Hand': 'hand', 'Animal Handling': 'paw', Survival: 'compass',

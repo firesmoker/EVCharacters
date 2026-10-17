@@ -45,7 +45,11 @@
       {
         "level": 1,
         "name": "Martial Weapons Proficiency",
-        "html": "<p><strong>Martial Weapons Proficiency:</strong> You may use martial weapons.</p>"
+        "html": "",
+        "proficiencies": [
+          "Martial Weapons"
+        ],
+        "omitReason": "Marked in Equipment Proficiencies."
       },
       {
         "level": 1,
@@ -74,7 +78,11 @@
       {
         "level": 1,
         "name": "Martial Weapons Proficiency",
-        "html": "<p><strong>Martial Weapons Proficiency:</strong> You may use martial weapons.</p>"
+        "html": "",
+        "proficiencies": [
+          "Martial Weapons"
+        ],
+        "omitReason": "Marked in Equipment Proficiencies."
       },
       {
         "level": 1,
@@ -196,7 +204,7 @@
       {
         "level": 1,
         "name": "Domain",
-        "html": "<p><strong>Domain:</strong> Your chosen domain determines your domain damage type and opposition.</p>"
+        "html": "<p><strong>Domain:</strong> {{choices.domain}} (damage type / opposition).</p>"
       },
       {
         "level": 1,
@@ -289,7 +297,11 @@
       {
         "level": 1,
         "name": "Martial Weapons Proficiency",
-        "html": "<p><strong>Martial Weapons Proficiency:</strong> You may use martial weapons.</p>"
+        "html": "",
+        "proficiencies": [
+          "Martial Weapons"
+        ],
+        "omitReason": "Marked in Equipment Proficiencies."
       },
       {
         "level": 1,
@@ -359,12 +371,12 @@
       {
         "level": 1,
         "name": "Favored Enemy",
-        "html": "<p><strong>Favored Enemy:</strong> Gain 2 Extra Dice on Melee Strikes and Ranged Strikes against your chosen creature type, and advantage on Deduction, Stealth, Survival, Nature, and Notice Movement rolls against it. You may replace your favored enemy after a week of downtime studying the new type.</p>"
+        "html": "<p><strong>Favored Enemy:</strong> Gain 2 Extra Dice on Melee Strikes and Ranged Strikes against {{choices.favored}}, and advantage on Deduction, Stealth, Survival, Nature, and Notice Movement rolls against it. You may replace your favored enemy after a week of downtime studying the new type.</p>"
       },
       {
         "level": 1,
         "name": "Know Your Enemy (1 / Combat)",
-        "html": "<p><strong>Know Your Enemy (1 / Combat):</strong> During the Planning Phase, reveal the action of one enemy of the favored enemy type.</p>"
+        "html": "<p><strong>Know Your Enemy (1 / Combat):</strong> During the Planning Phase, reveal the action of one enemy of the {{choices.favored}} type.</p>"
       },
       {
         "level": 1,
@@ -472,7 +484,11 @@
       {
         "level": 1,
         "name": "Martial Weapons Proficiency",
-        "html": "<p><strong>Martial Weapons Proficiency:</strong> You may use martial weapons.</p>"
+        "html": "",
+        "proficiencies": [
+          "Martial Weapons"
+        ],
+        "omitReason": "Marked in Equipment Proficiencies."
       },
       {
         "level": 1,
@@ -1388,7 +1404,7 @@
       {
         "level": 1,
         "name": "Legacy of Discovery",
-        "html": "<p><strong>Legacy of Discovery:</strong> You are Expert (5d6) in one Standard Skill and Adept (4d6) in another Standard Skill.</p>"
+        "html": "<p><strong>Legacy of Discovery:</strong> You are Expert (5d6) in {{choices.legacy-expert}} and Adept (4d6) in {{choices.legacy-adept}}.</p>"
       },
       {
         "level": 1,
@@ -1412,7 +1428,7 @@
       {
         "level": 1,
         "name": "Legacy of War",
-        "html": "<p><strong>Legacy of War:</strong> You are Expert (5d6) in one of the following: Athletics, Leadership, Intimidation, Warfare, Notice Movement, Detect Traps, Medicine, Unarmed, Melee, or Ranged.</p>"
+        "html": "<p><strong>Legacy of War:</strong> You are Expert (5d6) in {{choices.legacy-expert}}.</p>"
       },
       {
         "level": 1,
@@ -1441,12 +1457,12 @@
       {
         "level": 1,
         "name": "Legacy of the Highborn",
-        "html": "<p><strong>Legacy of the Highborn:</strong> You are Expert (5d6) in one of the following: Diplomacy, Leadership, Reasoning, Arcana, History, Politics, Insight, Deduction, Mechanics, or Medicine.</p>"
+        "html": "<p><strong>Legacy of the Highborn:</strong> You are Expert (5d6) in {{choices.legacy-expert}}.</p>"
       },
       {
         "level": 1,
         "name": "Knowledge Cramming",
-        "html": "<p><strong>Knowledge Cramming:</strong> At the end of a long rest, choose one Standard Skill in which you are untrained. You become Adept (4d6) in it until your next long rest.</p>"
+        "html": "<p><strong>Knowledge Cramming:</strong> Currently Adept (4d6) in {{choices.cramming}}. At the end of a long rest, choose one Standard Skill in which you are untrained. You become Adept (4d6) in it until your next long rest.</p>"
       },
       {
         "level": 1,
@@ -1463,7 +1479,7 @@
       {
         "level": 1,
         "name": "Legacy of the Wild",
-        "html": "<p><strong>Legacy of the Wild:</strong> You are Expert (5d6) in one of the following: Intimidation, Nature, Detect Traps, Find Hidden Paths, Notice Movement, Acrobatics, Animal Handling, Sneak, Survival, or Ranged.</p>"
+        "html": "<p><strong>Legacy of the Wild:</strong> You are Expert (5d6) in {{choices.legacy-expert}}.</p>"
       },
       {
         "level": 1,
@@ -1492,7 +1508,7 @@
       {
         "level": 1,
         "name": "Legacy of Hell",
-        "html": "<p><strong>Legacy of Hell:</strong> You are Expert (5d6) in one of the following: Charm, Deception, Manipulation, Arcana, Acrobatics, Athletics, Disguise, Performance, Sleight of Hand, or Sneak.</p>"
+        "html": "<p><strong>Legacy of Hell:</strong> You are Expert (5d6) in {{choices.legacy-expert}}.</p>"
       },
       {
         "level": 1,
@@ -1521,7 +1537,7 @@
       {
         "level": 1,
         "name": "Legacy of the Deep Mountains",
-        "html": "<p><strong>Legacy of the Deep Mountains:</strong> You are Expert (5d6) in one of the following: Bartering, Diplomacy, History, Politics, Religion, Warfare, Find Hidden Paths, Find Hidden Objects, Athletics, or Mechanics.</p>"
+        "html": "<p><strong>Legacy of the Deep Mountains:</strong> You are Expert (5d6) in {{choices.legacy-expert}}.</p>"
       },
       {
         "level": 1,
@@ -1531,7 +1547,7 @@
       {
         "level": 1,
         "name": "Dwarvish Craftiness",
-        "html": "<p><strong>Dwarvish Craftiness:</strong> Gain proficiency with one Crafting Skill or tool.</p>"
+        "html": "<p><strong>Dwarvish Craftiness:</strong> You are proficient with {{choices.craft}}.</p>"
       },
       {
         "level": 2,
@@ -1550,7 +1566,7 @@
       {
         "level": 1,
         "name": "Legacy of the Damned",
-        "html": "<p><strong>Legacy of the Damned:</strong> You are Expert (5d6) in one of the following: Deception, Intimidation, Manipulation, Occult, Find Hidden Objects, Find Hidden Paths, Disguise, Sleight of Hand, or Sneak.</p>"
+        "html": "<p><strong>Legacy of the Damned:</strong> You are Expert (5d6) in {{choices.legacy-expert}}.</p>"
       },
       {
         "level": 1,
@@ -1577,7 +1593,7 @@
       {
         "level": 1,
         "name": "Legacy of the Gods",
-        "html": "<p><strong>Legacy of the Gods:</strong> You are Expert (5d6) in one of the following: Charm, Diplomacy, Leadership, History, Religion, Find Hidden Paths, Insight, Athletics, Medicine, or Performance.</p>"
+        "html": "<p><strong>Legacy of the Gods:</strong> You are Expert (5d6) in {{choices.legacy-expert}}.</p>"
       },
       {
         "level": 1,
@@ -1639,14 +1655,14 @@
       {
         "level": 1,
         "name": "Crafter",
-        "html": "<p><strong>Crafter:</strong> You are Adept (4d6) in your chosen crafting skill.</p>"
+        "html": "<p><strong>Crafter:</strong> You are Adept (4d6) in {{choices.crafter}}.</p>"
       }
     ],
     "Skilled": [
       {
         "level": 1,
         "name": "Skilled",
-        "html": "<p><strong>Skilled:</strong> You are Adept (4d6) in your two chosen Standard Skills from different categories.</p>"
+        "html": "<p><strong>Skilled:</strong> You are Adept (4d6) in {{choices.skilled}}.</p>"
       }
     ],
     "Tough": [
@@ -1681,7 +1697,7 @@
       {
         "level": 1,
         "name": "Assurance",
-        "html": "<p><strong>Assurance:</strong> For your chosen trained skill, you may forgo rolling and use 2 Success Dice instead.</p>"
+        "html": "<p><strong>Assurance:</strong> For {{choices.assurance}}, you may forgo rolling and use 2 Success Dice instead.</p>"
       }
     ],
     "Cling to Life": [
@@ -1786,7 +1802,7 @@
       {
         "level": 1,
         "name": "Skill Training",
-        "html": "<p><strong>Skill Training:</strong> You are Adept (4d6) in your chosen Standard Skill.</p>"
+        "html": "<p><strong>Skill Training:</strong> You are Adept (4d6) in {{choices.skill-training}}.</p>"
       }
     ],
     "Sprinter": [
@@ -1800,7 +1816,7 @@
       {
         "level": 1,
         "name": "Tool Handler",
-        "html": "<p><strong>Tool Handler:</strong> You are proficient with your two chosen tools.</p>"
+        "html": "<p><strong>Tool Handler:</strong> You are proficient with {{choices.tools}}.</p>"
       }
     ],
     "Train Wild Animal": [

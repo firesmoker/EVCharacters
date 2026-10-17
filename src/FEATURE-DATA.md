@@ -15,6 +15,8 @@ Each class, subclass, and species has an array of records:
 
 - `level` controls availability, without printing an unlock label.
 - `html` is the finished editable sheet content. Keep the bold label and its description in the same paragraph. Use real lists for options.
+- Use `{{choices.choice-id}}` for creator selections, such as `{{choices.assurance}}`. Creation and rebuilding substitute the saved choice, join multiple values with “and,” and HTML-escape them. Missing values fail generation rather than producing an incomplete feature. Keep the choice in its feature instead of duplicating it in Additional Features.
+- `proficiencies` lists Equipment Proficiencies checkbox labels granted by the feature (for example `"Martial Weapons"`). A pure checkbox grant has empty `html` and an `omitReason`.
 - Omit entries fully represented elsewhere, such as class skill grants or Instinct abilities. Keep species skill features and independent passive benefits.
 - `actions` refers to names in `creation-actions.json`. Variants are placed inside their parent action; standalone actions get their own block. An entry may have empty `html` if its only purpose is an action grant.
 - Class and subclass entries go to Class Features; species entries go to Species Features. An explicit `section: "Additional Features"` routes unusually long content there. There is no text-length heuristic.

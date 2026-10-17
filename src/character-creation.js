@@ -1,5 +1,6 @@
+import { compareSpellRows } from './spell-sort.js';
 import DATA from './creation-data.json';
-import { SKILLS_LIST } from './data.js';
+import { SKILLS_LIST, COMBAT_SKILLS_LIST, DEFAULT_COMBAT_SKILLS } from './data.js';
 import { SPELLS_DATABASE } from './spells_data.js';
 import { tidyCharacterContent } from './sheet-content.js';
 import { cantripAction } from './cantrip-action.js';
@@ -20,6 +21,13 @@ const names = (s) => s.replace(/\band\b|\bor\b/g, ',').split(',').map(x => x.tri
 const canonicalSkill = s => ({ 'Weapon Throws': 'Weapon Throw', Stealth: 'Sneak', 'Mechanical(Disarm Traps)': 'Mechanics (Disarm Traps)' }[s] || s);
 export const escapeHTML = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const p = s => `<p>${escapeHTML(s)}</p>`;
+export function sheetFeatureHTML(html, choices) {
+  return html.replace(/\{\{choices\.([\w-]+)\}\}/g, (_, key) => {
+    const values = choices[key];
+    if (!Array.isArray(values) || !values.length || values.some(v => !v.trim())) throw new Error(`Missing feature choice: ${key}`);
+    return escapeHTML(new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(values));
+  });
+}
 const section = (body = '') => ({ fields: {}, checkboxes: {}, splitFields: {}, dynamicRows: [], sectionBody: body });
 export const newCharacter = () => ({ name: '', player: '', className: 'Bard', species: 'Human', subclass: '', level: 1, feats: [], choices: {}, spells: {}, equipment: {}, languages: '', notes: '' });
 export const classFor = s => DATA.classes.find(c => c.Class === s.className);
@@ -233,9 +241,11 @@ export function buildCharacter(s) {
   sections.Speed.fields = { Movement: String(+race.Movement), Instinct: String(stats.instinct) };
   const row = (name, value) => ({ type: 'skill', values: [name, value] });
   const training = dice => ({ 3: 'Untrained (3d6)', 4: 'Adept (4d6)', 5: 'Expert (5d6)' }[dice]);
-  sections['Combat Skills'].dynamicRows = ['Magic', 'Melee', 'Ranged', 'Unarmed'].map(n => row(n, training(skills[n] || 3)));
-  sections['Standard Skills'].dynamicRows = Object.entries(skills).filter(([n]) => standardSkills.includes(n)).map(([n, dice]) => row(n, training(dice)));
-  const extras = Object.entries(skills).filter(([n]) => !standardSkills.includes(n) && !['Magic', 'Melee', 'Ranged', 'Unarmed'].includes(n));
+  const combatSkills = COMBAT_SKILLS_LIST.flatMap(g => g.options);
+  const trainedCombat = Object.keys(skills).filter(n => combatSkills.includes(n));
+  const displayedCombat = [...new Set([...DEFAULT_COMBAT_SKILLS, ...trainedCombat])];
+  sections['Combat Skills'].dynamicRows = displayedCombat.map(n => row(n, training(skills[n] || 3)));
+  sections['Standard Skills'].dynamicRows = Object.entries(skills).filter(([n]) => !combatSkills.includes(n)).map(([n, dice]) => row(n, training(dice)));
   const prof = sections['Equipment Proficiencies'];
   let proficiency = c['Armor Proficiency'] + ' ' + c['Shield Proficiency'];
   if (['Skald', 'Warden'].includes(s.subclass)) proficiency += ' Medium';
@@ -243,7 +253,7 @@ export function buildCharacter(s) {
   if (s.subclass === 'Walking Ballista') proficiency += ' Heavy Armor';
   if (s.feats.includes('Light Armor Proficiency')) proficiency += ' Light';
   prof.checkboxes = { Light: /Light/.test(proficiency), Medium: /Medium/.test(proficiency), Heavy: /Heavy Armor/.test(proficiency), 'Heavy Shields': /Heavy Shield/.test(proficiency), 'Tower Shields': false, 'Martial Weapons': /Martial Weapons/.test(proficiency) };
-  const drags = names(c['Drags Ignored']);
+  const drags = names(c['Drags Ignored']).filter(name => !/^none$/i.test(name));
   if (s.feats.includes('Heavy Swinger')) drags.push('Heavy Weapons');
   if (s.feats.includes('Shooter')) drags.push('Ranged Weapons');
   prof.dynamicRows = [...new Set(drags)].map(n => ({ type: 'skill', values: [n] }));
@@ -253,15 +263,16 @@ export function buildCharacter(s) {
     ...(SHEET_FEATURES.species[s.species] || []),
     ...s.feats.flatMap(name => SHEET_FEATURES.feats[name] || []),
   ].filter(f => f.level !== null && f.level <= s.level);
+  for (const name of selectedFeatures.flatMap(f => f.proficiencies || [])) prof.checkboxes[name] = true;
+  const renderFeature = html => sheetFeatureHTML(html, s.choices);
   for (const [group, name, destination] of [['classes', s.className, 'Class Features'], ['subclasses', sub?.Subclass, 'Class Features'], ['species', s.species, 'Species Features']]) {
     for (const feature of SHEET_FEATURES[group][name] || []) {
-      if (feature.level !== null && feature.level <= s.level) sections[feature.section || destination].sectionBody += feature.html;
+      if (feature.level !== null && feature.level <= s.level) sections[feature.section || destination].sectionBody += renderFeature(feature.html);
     }
   }
   if (s.className === 'Alchemist') sections['Additional Features'].sectionBody += (s.choices.concoctions || []).map(name => SHEET_FEATURES.concoctions[name] || '').join('');
-  sections['Additional Features'].sectionBody += extras.map(([n, dice]) => p(`${n}: ${training(dice)}`)).join('') + Object.entries(s.choices).filter(([key]) => ['craft', 'crafter', 'assurance', 'tools'].includes(key)).map(([key, value]) => p(`${key}: ${value.join(', ')}`)).join('') + (s.notes ? p(s.notes) : '');
-  for (const g of specialChoices(s)) sections['Additional Features'].sectionBody += p(`${g.label}: ${s.choices[g.id].join('; ')}`);
-  sections.Feats.sectionBody = s.feats.flatMap(name => SHEET_FEATURES.feats[name] || []).map(f => f.html).join('');
+  sections['Additional Features'].sectionBody += s.notes ? p(s.notes) : '';
+  sections.Feats.sectionBody = s.feats.flatMap(name => SHEET_FEATURES.feats[name] || []).map(f => renderFeature(f.html)).join('');
   sections.Languages.sectionBody = p([race.Languages.includes('choice') ? '' : race.Languages, s.languages, ...(s.choices['feat-languages'] || [])].filter(Boolean).join('; '));
   const utility = equip.rules.match(/Utility: (.*)/)?.[1];
   sections.Equipment.sectionBody = p([equip.armor, equip.shield, ...weaponNames, utility].filter(Boolean).join('; ')) + (armor ? p(armor.Modifiers) : '');
@@ -272,14 +283,15 @@ export function buildCharacter(s) {
   sections.Spellcasting.fields['Cantrips Known'] = String([...spells.keys()].filter(n => SPELLS_DATABASE.find(x => x.name === n)?.rank === 'Cantrip').length);
   sections.Spellcasting.fields['Spells Known'] = String(spells.size - Number(sections.Spellcasting.fields['Cantrips Known']));
   sections['Spells Known'].dynamicRows = [...spells].map(([name, note]) => { const sp = SPELLS_DATABASE.find(x => x.name === name); return { type: 'skill', values: [sp?.rank || '', name, sp?.cost || '', note] }; });
+  sections['Spells Known'].dynamicRows.sort((a, b) => compareSpellRows(a.values, b.values));
   for (const g of spellPlan(s).groups) if (g.unfilled) sections['Additional Features'].sectionBody += p(`${g.label}: ${g.unfilled} unfilled choices; the current spell catalogue has too few eligible spells. These slots remain available.`);
   const instinct = [];
   for (const name of spells.keys()) { const sp = SPELLS_DATABASE.find(x => x.name === name); if (/Instinct/i.test(sp?.actionSpeed || '')) instinct.push(`${name}: See spell description.`); }
-  const authoredInstincts = new Map(selectedFeatures.flatMap(f => f.instincts || []).map(ability => [ability.name, ability.html]));
+  const authoredInstincts = new Map(selectedFeatures.flatMap(f => f.instincts || []).map(ability => [ability.name, renderFeature(ability.html)]));
   for (const option of selectedFeatures.flatMap(f => f.instinctOptions || [])) {
     const ability = authoredInstincts.get(option.ability);
     if (!ability) throw new Error(`Missing parent Instinct: ${option.ability}`);
-    authoredInstincts.set(option.ability, ability.slice(0, -5) + option.html + '</li>');
+    authoredInstincts.set(option.ability, ability.slice(0, -5) + renderFeature(option.html) + '</li>');
   }
   sections['Instinct Abilities'].sectionBody = `<ul>${[...authoredInstincts.values()].join('')}${[...new Set(instinct)].map(t => { const i = t.indexOf(':'); return `<li>${i < 0 ? escapeHTML(t) : `<strong>${escapeHTML(t.slice(0, i))}:</strong>${escapeHTML(t.slice(i + 1))}`}</li>`; }).join('')}</ul>`;
   sections['Strikes & Damaging Cantrips'].dynamicRows = weaponNames.map(name => {
@@ -334,6 +346,6 @@ export function buildCharacter(s) {
   if (stats.devotion) sections['Additional Features'].sectionBody += p(`Devotion Points: ${stats.devotion}`);
   if (stats.placeholders.length) sections['Additional Features'].sectionBody += p(`Provisional progression: ${stats.placeholders.join(', ')}. These are placeholder values, pending finalized class progression.`);
   // Preserve large builds rather than dropping skills to meet the fixed row limit.
-  const mode = sections['Standard Skills'].dynamicRows.length > 11 || sections['Strikes & Damaging Cantrips'].dynamicRows.length > 4 ? 'auto' : 'fixed';
+  const mode = sections['Combat Skills'].dynamicRows.length > DEFAULT_COMBAT_SKILLS.length || sections['Standard Skills'].dynamicRows.length > 11 ? 'auto' : 'fixed';
   return tidyCharacterContent({ version: 1, headers: { 'character-name': s.name.trim(), 'player-name': s.player.trim(), class: s.className, subclass: s.subclass, species: s.species, level: String(s.level), experience: '0' }, sections, preferences: { sectionSize: mode }, creation: { ...s, source: DATA.source } });
 }

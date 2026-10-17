@@ -125,16 +125,19 @@ export const renderSpellsKnownSection = () => `
 
 
 // Content for the structured Spellcasting section
+const renderTradition = name => `<label class="checkbox-item tradition-choice"><input type="checkbox"><svg class="tradition-icon" viewBox="0 0 32 32" aria-hidden="true"><use href="/icons/traditions.svg#${name.toLowerCase()}"></use></svg><span>${name}</span></label>`;
 export const renderSpellcastingSection = () => `
-  <div class="section-container" style="flex-direction: row; gap: 10px;">
-    <div style="flex: 1; display: flex; flex-direction: column; gap: 2px;">
+  <div class="section-container spellcasting-layout">
+    <div class="spellcasting-resources">
       <div class="section-row">
         <div class="stat-icon"></div>
         <span class="section-label">Spell Points:</span>
         <div class="stat-split">
+          <div class="spell-point-pool">
           <span class="editable-field section-row-editable" contenteditable="true" data-split-part="cur" data-placeholder="Cur" style="min-width: 25px; text-align: right;"></span>
           <span class="stat-slash">/</span>
           <span class="editable-field section-row-editable" contenteditable="true" data-split-part="max" data-placeholder="Max" style="min-width: 25px;"></span>
+          </div>
           <span class="temp-sp-caption">Temporary Spell Points:</span>
           <span class="editable-field section-row-editable" contenteditable="true" data-split-part="temp" data-placeholder="Temp" aria-label="Temporary Spell Points" style="min-width: 25px;"></span>
         </div>
@@ -147,16 +150,11 @@ export const renderSpellcastingSection = () => `
       <div class="traditions-grid">
       <div class="basic-traditions">
       <div class="traditions-heading">Traditions</div>
-      <label class="checkbox-item"><input type="checkbox"> Arcane</label>
-      <label class="checkbox-item"><input type="checkbox"> Bardic</label>
-      <label class="checkbox-item"><input type="checkbox"> Divine</label>
-      <label class="checkbox-item"><input type="checkbox"> Nature</label>
-      <label class="checkbox-item"><input type="checkbox"> Occult</label>
+      ${['Arcane', 'Bardic', 'Divine', 'Nature', 'Occult'].map(renderTradition).join('')}
       </div>
       <div class="exclusive-traditions">
       <div class="traditions-heading">Exclusive</div>
-      <label class="checkbox-item"><input type="checkbox"> Chrono</label>
-      <label class="checkbox-item"><input type="checkbox"> Necromancy</label>
+      ${['Chrono', 'Necromancy'].map(renderTradition).join('')}
       </div>
       </div>
     </div>

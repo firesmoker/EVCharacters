@@ -502,7 +502,7 @@ export const renderToolbar = () => `
     <input type="file" id="file-input" style="display: none;" accept=".json">
     <div class="menu-item">Edit<div class="dropdown-content"><div data-history-action="undo">Undo</div><div data-history-action="redo">Redo</div></div></div>
     <div class="menu-item">View<div class="dropdown-content"><div>Zoom In</div><div>Zoom Out</div></div></div>
-    <div class="menu-item">Format<div class="dropdown-content"><div role="menuitemradio" data-section-size="auto">Auto size sections</div><div role="menuitemradio" data-section-size="fixed">Fixed size sections</div></div></div>
+    <div class="menu-item">Format<div class="dropdown-content"><div role="menuitemradio" data-section-size="auto">Smart size sections</div><div role="menuitemradio" data-section-size="fixed">Fixed size sections</div></div></div>
     <div class="menu-item">Font<div class="dropdown-content"><div id="font-pt-sans">PT Sans (Default)</div><div id="font-kalam">Kalam (Handwritten)</div><div id="font-inter">Inter (Modern)</div><div id="font-crimson">Crimson Pro (Serif)</div><div id="font-gentium">Gentium Plus (Classic)</div></div></div>
     <div class="menu-item">Color<div class="dropdown-content color-menu"><div id="color-custom">Custom…</div>${ACCENT_THEMES.map(([id, name, color]) => `<div id="color-${id}" data-accent="${color}"><span class="color-swatch" style="background:${color}"></span>${name}</div>`).join('')}</div></div>
   </div>

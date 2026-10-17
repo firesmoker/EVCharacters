@@ -44,7 +44,15 @@ try {
     const notes = document.querySelector('.spell-notes input').value;
     format.setSectionSize('auto');
     tools.paginateSheets();
-    const restored = boxes.every(el => !el.style.height);
+    const autoHeights = boxes.map(el => el.getBoundingClientRect().height);
+    boxes.forEach(el => el.style.removeProperty('height'));
+    const naturalHeights = boxes.map(el => el.getBoundingClientRect().height);
+    tools.paginateSheets();
+    const restored = boxes.every((el, index) => {
+      const height = el.getBoundingClientRect().height;
+      return height >= naturalHeights[index] - 1 && height <= Math.max(naturalHeights[index], heights[index]) + 1;
+    });
+    const grew = autoHeights.some((height, index) => height > naturalHeights[index] + 1);
     const autoSaved = io.serializeSheet();
     io.loadFromJSON(autoSaved);
     const autoRestored = !format.isFixedSize();
@@ -55,11 +63,12 @@ try {
     io.prepareSheetForData(true);
     const combat = [...document.querySelectorAll('[data-section="combat-skills"] input[placeholder="Skill"]')].map(el => el.value);
     const standard = [...document.querySelectorAll('[data-section="standard-skills"] input')].every(el => !el.value);
-    return { skillLayout, counts, heights, overflow, mode, actions, spells, additional, feats, compact, necromancy, notes, combat, standard, restored, autoRestored, legacyDefaultsFixed, saved: JSON.parse(saved) };
+    return { grew, skillLayout, counts, heights, overflow, mode, actions, spells, additional, feats, compact, necromancy, notes, combat, standard, restored, autoRestored, legacyDefaultsFixed, saved: JSON.parse(saved) };
   }, data);
   assert.deepEqual(result.counts, [5, 11, 3]);
   assert(result.skillLayout.every(section => section.rowsFit && section.fonts.every(size => size >= 13)), JSON.stringify(result.skillLayout));
   assert(result.mode && result.restored);
+  assert(result.grew, 'Auto sections should use spare page space');
   assert(result.autoRestored && result.legacyDefaultsFixed);
   assert.equal(result.saved.preferences.sectionSize, 'fixed');
   assert.equal(result.actions, 4);

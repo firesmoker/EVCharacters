@@ -17,15 +17,17 @@ try{
   const first={counts:counts(),names:names(),fixed:format.isFixedSize(),pages:[...document.querySelectorAll('.a4-page:not(.spell-page)')].map(p=>p.className),instincts:document.querySelectorAll('[data-section="instinct-abilities"]').length};
   io.loadFromJSON(io.serializeSheet());tools.paginateSheets();const reloaded={counts:counts(),names:names()};
   format.setSectionSize('auto');tools.paginateSheets();const auto={counts:counts(),names:names()};
+  io.loadFromJSON(io.serializeSheet());tools.paginateSheets();const autoReloaded={counts:counts(),names:names()};
   format.setSectionSize('fixed');tools.paginateSheets();const fixedAgain=counts();
   io.prepareSheetForData(true);tools.paginateSheets();const reset=counts();
-  return {first,reloaded,auto,fixedAgain,reset};
+  return {first,reloaded,auto,autoReloaded,fixedAgain,reset};
  },data);
  assert(result.first.fixed);assert.deepEqual(result.first.counts,[4,4,1]);
  assert.equal(result.first.instincts,1);
  assert(result.first.pages.slice(1,4).every(x=>x.includes('actions-page')));
  const names=Array.from({length:9},(_,i)=>`Action ${i+1}`);
- for(const state of [result.first,result.reloaded,result.auto])assert.deepEqual(state.names,names);
- assert.deepEqual(result.reloaded.counts,[4,4,1]);assert.deepEqual(result.auto.counts,[9]);assert.deepEqual(result.fixedAgain,[4,4,1]);assert.deepEqual(result.reset,[4]);
+ for(const state of [result.first,result.reloaded,result.auto,result.autoReloaded])assert.deepEqual(state.names,names);
+ assert.deepEqual(result.autoReloaded.counts,[4,4,1]);
+ assert.deepEqual(result.reloaded.counts,[4,4,1]);assert.deepEqual(result.auto.counts,[4,4,1]);assert.deepEqual(result.fixedAgain,[4,4,1]);assert.deepEqual(result.reset,[4]);
  console.log('Action continuation pages, order, save/reload, mode switching and reset passed.');
 }finally{await browser.close();}

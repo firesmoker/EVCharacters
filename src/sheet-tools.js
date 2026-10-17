@@ -20,7 +20,6 @@ export function restoreSections() {
 }
 
 function paginateActions() {
-  if (!isFixedSize()) { restoreSections(); return; }
   const first = document.querySelector('.actions-page:not([data-action-continuation])');
   if (!first) return;
   const pages = [first, ...document.querySelectorAll('[data-action-continuation]')];
@@ -55,23 +54,26 @@ export function paginateSheets() {
         for (const box of column.children) box.style.removeProperty('height');
         column.removeAttribute('data-auto-fit');
         column.style.removeProperty('--fit-scale');
-        if (isFixedSize()) {
-          const boxes = [...column.children];
-          const titles = boxes.map(box => box.querySelector('.section-header')?.textContent.trim());
-          const reservedHeights = titles.map((title, index) => {
-            if (!['Combat Skills', 'Standard Skills'].includes(title)) return compactSections[title] || 0;
-            const box = boxes[index];
+        const boxes = [...column.children];
+        const titles = boxes.map(box => box.querySelector('.section-header')?.textContent.trim());
+        const reservedHeights = titles.map((title, index) => {
+          if (!['Combat Skills', 'Standard Skills'].includes(title)) return compactSections[title] || 0;
+          const box = boxes[index];
+          if (isFixedSize()) {
             box.setAttribute('data-auto-fit', '');
             box.style.setProperty('--fit-scale', 1);
-            box.style.height = 'auto';
-            return Math.ceil(box.getBoundingClientRect().height);
-          });
-          const weights = titles.map((title, index) => reservedHeights[index] ? 0 : fixedSections[title] || 1);
-          const total = weights.reduce((a, b) => a + b, 0);
-          const available = bottom - column.getBoundingClientRect().top - parseFloat(getComputedStyle(column).gap || 0) * (boxes.length - 1);
-          const reserved = reservedHeights.reduce((sum, height) => sum + height, 0);
+          }
+          box.style.height = 'auto';
+          return Math.ceil(box.getBoundingClientRect().height);
+        });
+        const weights = titles.map((title, index) => reservedHeights[index] ? 0 : fixedSections[title] || 1);
+        const total = weights.reduce((a, b) => a + b, 0);
+        const available = bottom - column.getBoundingClientRect().top - parseFloat(getComputedStyle(column).gap || 0) * (boxes.length - 1);
+        const reserved = reservedHeights.reduce((sum, height) => sum + height, 0);
+        const targets = titles.map((_, index) => reservedHeights[index] || (available - reserved) * weights[index] / total);
+        if (isFixedSize()) {
           boxes.forEach((box, index) => {
-            box.style.height = `${reservedHeights[index] || (available - reserved) * weights[index] / total}px`;
+            box.style.height = `${targets[index]}px`;
             box.setAttribute('data-auto-fit', '');
             const fits = () => box.scrollHeight <= box.clientHeight + 1 && [...box.querySelectorAll('.section-content')].every(content => content.scrollHeight <= content.clientHeight + 1);
             box.style.setProperty('--fit-scale', 1);
@@ -107,6 +109,14 @@ export function paginateSheets() {
           }
           apply(low);
         }
+        // Give content its needed height before growing into the spare space.
+        const heights = boxes.map(box => box.getBoundingClientRect().height);
+        const spare = Math.max(0, available - heights.reduce((sum, height) => sum + height, 0));
+        const deficits = heights.map((height, index) => Math.max(0, targets[index] - height));
+        const wanted = deficits.reduce((sum, height) => sum + height, 0);
+        if (spare > 0 && wanted > 0) boxes.forEach((box, index) => {
+          box.style.height = (heights[index] + deficits[index] * Math.min(1, spare / wanted)) + 'px';
+        });
       }
     }
     document.querySelectorAll('.dynamic-rows').forEach(container => {

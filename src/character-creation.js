@@ -345,7 +345,5 @@ export function buildCharacter(s) {
   }
   if (stats.devotion) sections['Additional Features'].sectionBody += p(`Devotion Points: ${stats.devotion}`);
   if (stats.placeholders.length) sections['Additional Features'].sectionBody += p(`Provisional progression: ${stats.placeholders.join(', ')}. These are placeholder values, pending finalized class progression.`);
-  // Preserve large builds rather than dropping skills to meet the fixed row limit.
-  const mode = sections['Combat Skills'].dynamicRows.length > DEFAULT_COMBAT_SKILLS.length || sections['Standard Skills'].dynamicRows.length > 11 ? 'auto' : 'fixed';
-  return tidyCharacterContent({ version: 1, headers: { 'character-name': s.name.trim(), 'player-name': s.player.trim(), class: s.className, subclass: s.subclass, species: s.species, level: String(s.level), experience: '0' }, sections, preferences: { sectionSize: mode }, creation: { ...s, source: DATA.source } });
+  return tidyCharacterContent({ version: 1, headers: { 'character-name': s.name.trim(), 'player-name': s.player.trim(), class: s.className, subclass: s.subclass, species: s.species, level: String(s.level), experience: '0' }, sections, preferences: { sectionSize: 'auto' }, creation: { ...s, source: DATA.source } });
 }

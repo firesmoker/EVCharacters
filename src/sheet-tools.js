@@ -1,5 +1,5 @@
 import { isFixedSize, fixedSections, compactSections } from './section-format.js';
-import { renderSpellRow } from './components.js';
+import { renderSpellRow, renderSkillRow } from './components.js';
 let roots = [];
 let busy = false;
 let queued = false;
@@ -56,8 +56,14 @@ export function paginateSheets() {
         column.style.removeProperty('--fit-scale');
         const boxes = [...column.children];
         const titles = boxes.map(box => box.querySelector('.section-header')?.textContent.trim());
+        const growingLists = boxes.filter((_, index) => ['Standard Skills', 'Spells Known'].includes(titles[index]));
+        if (!isFixedSize()) for (const box of growingLists) {
+          const list = box.querySelector('.dynamic-rows');
+          while (list.children.length > 1 && !list.lastElementChild.contains(document.activeElement)
+            && ![...list.lastElementChild.querySelectorAll('input')].some(input => input.value.trim())) list.lastElementChild.remove();
+        }
         const reservedHeights = titles.map((title, index) => {
-          if (!['Combat Skills', 'Standard Skills'].includes(title)) return compactSections[title] || 0;
+          if (!(title === 'Equipment Proficiencies' || title === 'Combat Skills' || (isFixedSize() && title === 'Standard Skills'))) return compactSections[title] || 0;
           const box = boxes[index];
           if (isFixedSize()) {
             box.setAttribute('data-auto-fit', '');
@@ -117,6 +123,17 @@ export function paginateSheets() {
         if (spare > 0 && wanted > 0) boxes.forEach((box, index) => {
           box.style.height = (heights[index] + deficits[index] * Math.min(1, spare / wanted)) + 'px';
         });
+        for (const box of growingLists) {
+          const list = box.querySelector('.dynamic-rows');
+          const render = box.dataset.section === 'standard-skills' ? renderSkillRow : renderSpellRow;
+          const content = box.querySelector('.section-content');
+          const limit = box.getBoundingClientRect().bottom - parseFloat(getComputedStyle(content).paddingBottom) - 2;
+          // Add only full rows; empty space must never force smaller text.
+          while (list.children.length < 100) {
+            list.insertAdjacentHTML('beforeend', render());
+            if (list.lastElementChild.getBoundingClientRect().bottom > limit) { list.lastElementChild.remove(); break; }
+          }
+        }
       }
     }
     document.querySelectorAll('.dynamic-rows').forEach(container => {

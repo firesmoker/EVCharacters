@@ -67,6 +67,7 @@ export const prepareSheetForData = (restoreDefaults = false) => {
     document.querySelectorAll('[data-section="combat-skills"] input[placeholder="Skill"]').forEach((input, i) => {
       input.value = DEFAULT_COMBAT_SKILLS[i];
     });
+    setSectionSize('auto');
   }
 };
 
@@ -515,7 +516,7 @@ export const loadFromJSON = (jsonString) => {
   });
 
   // Notify the app that data has been loaded
-  setSectionSize(data.preferences?.sectionSize || 'fixed');
+  setSectionSize(data.preferences?.sectionSize || 'auto');
   document.dispatchEvent(new CustomEvent('sheet-loaded'));
 };
 

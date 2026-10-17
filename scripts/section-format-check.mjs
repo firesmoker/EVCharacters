@@ -20,6 +20,12 @@ try {
     io.loadFromJSON(saved);
     tools.paginateSheets();
     const counts = [...document.querySelectorAll('.character-page .dynamic-rows')].map(el => el.children.length);
+    const skillLayout = ['combat-skills', 'standard-skills'].map(name => {
+      const box = document.querySelector(`[data-section="${name}"]`);
+      const inputs = [...box.querySelectorAll('input')];
+      return { fonts: inputs.map(input => parseFloat(getComputedStyle(input).fontSize)),
+        rowsFit: [...box.querySelectorAll('.skill-row')].every(row => row.getBoundingClientRect().bottom <= box.getBoundingClientRect().bottom) };
+    });
     const boxes = [...document.querySelectorAll('.character-page .sheet-column:last-child .section-box')];
     const heights = boxes.map(el => el.getBoundingClientRect().height);
     const overflow = boxes.flatMap(el => [el, ...el.querySelectorAll('.section-content')].map(part => part.scrollHeight - part.clientHeight));
@@ -49,9 +55,10 @@ try {
     io.prepareSheetForData(true);
     const combat = [...document.querySelectorAll('[data-section="combat-skills"] input[placeholder="Skill"]')].map(el => el.value);
     const standard = [...document.querySelectorAll('[data-section="standard-skills"] input')].every(el => !el.value);
-    return { counts, heights, overflow, mode, actions, spells, additional, feats, compact, necromancy, notes, combat, standard, restored, autoRestored, legacyDefaultsFixed, saved: JSON.parse(saved) };
+    return { skillLayout, counts, heights, overflow, mode, actions, spells, additional, feats, compact, necromancy, notes, combat, standard, restored, autoRestored, legacyDefaultsFixed, saved: JSON.parse(saved) };
   }, data);
   assert.deepEqual(result.counts, [5, 11, 3]);
+  assert(result.skillLayout.every(section => section.rowsFit && section.fonts.every(size => size >= 13)), JSON.stringify(result.skillLayout));
   assert(result.mode && result.restored);
   assert(result.autoRestored && result.legacyDefaultsFixed);
   assert.equal(result.saved.preferences.sectionSize, 'fixed');

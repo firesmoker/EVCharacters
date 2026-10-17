@@ -58,12 +58,20 @@ export function paginateSheets() {
         if (isFixedSize()) {
           const boxes = [...column.children];
           const titles = boxes.map(box => box.querySelector('.section-header')?.textContent.trim());
-          const weights = titles.map(title => compactSections[title] ? 0 : fixedSections[title] || 1);
+          const reservedHeights = titles.map((title, index) => {
+            if (!['Combat Skills', 'Standard Skills'].includes(title)) return compactSections[title] || 0;
+            const box = boxes[index];
+            box.setAttribute('data-auto-fit', '');
+            box.style.setProperty('--fit-scale', 1);
+            box.style.height = 'auto';
+            return Math.ceil(box.getBoundingClientRect().height);
+          });
+          const weights = titles.map((title, index) => reservedHeights[index] ? 0 : fixedSections[title] || 1);
           const total = weights.reduce((a, b) => a + b, 0);
           const available = bottom - column.getBoundingClientRect().top - parseFloat(getComputedStyle(column).gap || 0) * (boxes.length - 1);
-          const reserved = titles.reduce((sum, title) => sum + (compactSections[title] || 0), 0);
+          const reserved = reservedHeights.reduce((sum, height) => sum + height, 0);
           boxes.forEach((box, index) => {
-            box.style.height = `${compactSections[titles[index]] || (available - reserved) * weights[index] / total}px`;
+            box.style.height = `${reservedHeights[index] || (available - reserved) * weights[index] / total}px`;
             box.setAttribute('data-auto-fit', '');
             const fits = () => box.scrollHeight <= box.clientHeight + 1 && [...box.querySelectorAll('.section-content')].every(content => content.scrollHeight <= content.clientHeight + 1);
             box.style.setProperty('--fit-scale', 1);

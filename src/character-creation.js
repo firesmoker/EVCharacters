@@ -165,18 +165,6 @@ export function equipmentPlan(s) {
   return { choices, fixed, armor, shield, rules };
 }
 
-function levelText(text, level) {
-  let active = true;
-  return text.split('\n').filter(line => {
-    const match = line.match(/^Level (\d+|\?):/);
-    if (match) active = match[1] !== '?' && +match[1] <= level;
-    if (/^(Resource Progression Table|Chrono Spells|CommandDivine)/.test(line)) active = false;
-    const unlocked = line.match(/^Unlocked at Level (\d+)/);
-    if (unlocked) active = +unlocked[1] <= level;
-    return active && line !== '.' && line !== 'Flavor Text';
-  }).join('\n');
-}
-
 export function featureHTML(text) {
   const lines = text.split('\n').filter(x => x.trim());
   let html = '', bullets = [];
@@ -259,24 +247,21 @@ export function buildCharacter(s) {
   if (s.feats.includes('Heavy Swinger')) drags.push('Heavy Weapons');
   if (s.feats.includes('Shooter')) drags.push('Ranged Weapons');
   prof.dynamicRows = [...new Set(drags)].map(n => ({ type: 'skill', values: [n] }));
-  const speciesText = race['Traits / Rules'].split(' • ').filter(t => !/^Level (\d+)/.test(t) || +t.match(/^Level (\d+)/)[1] <= s.level).join('\n');
-  const classText = levelText(c['Class Features / Rules'], s.level).split('\n').filter(line => !/^(Spell Points:|Spells Learned:|Cantrips Learned:|Summon Slots:|You will get more Spell Points)/.test(line)).join('\n');
-  const subclassText = sub ? levelText(sub['Full Features / Rules'], s.level) : '';
   const selectedFeatures = [
     ...(SHEET_FEATURES.classes[s.className] || []),
     ...(SHEET_FEATURES.subclasses[sub?.Subclass] || []),
     ...(SHEET_FEATURES.species[s.species] || []),
-  ].filter(f => f.level <= s.level);
+    ...s.feats.flatMap(name => SHEET_FEATURES.feats[name] || []),
+  ].filter(f => f.level !== null && f.level <= s.level);
   for (const [group, name, destination] of [['classes', s.className, 'Class Features'], ['subclasses', sub?.Subclass, 'Class Features'], ['species', s.species, 'Species Features']]) {
     for (const feature of SHEET_FEATURES[group][name] || []) {
-      if (feature.level <= s.level) sections[feature.section || destination].sectionBody += feature.html;
+      if (feature.level !== null && feature.level <= s.level) sections[feature.section || destination].sectionBody += feature.html;
     }
   }
   if (s.className === 'Alchemist') sections['Additional Features'].sectionBody += (s.choices.concoctions || []).map(name => SHEET_FEATURES.concoctions[name] || '').join('');
   sections['Additional Features'].sectionBody += extras.map(([n, dice]) => p(`${n}: ${training(dice)}`)).join('') + Object.entries(s.choices).filter(([key]) => ['craft', 'crafter', 'assurance', 'tools'].includes(key)).map(([key, value]) => p(`${key}: ${value.join(', ')}`)).join('') + (s.notes ? p(s.notes) : '');
   for (const g of specialChoices(s)) sections['Additional Features'].sectionBody += p(`${g.label}: ${s.choices[g.id].join('; ')}`);
-  const chosenFeats = DATA.feats.filter(f => s.feats.includes(f.Feat));
-  sections.Feats.sectionBody = chosenFeats.map(f => `<p><strong>${escapeHTML(f.Feat)}:</strong> ${escapeHTML(f['Effect / Rules']).replace(/\n/g, '<br>')}</p>`).join('');
+  sections.Feats.sectionBody = s.feats.flatMap(name => SHEET_FEATURES.feats[name] || []).map(f => f.html).join('');
   sections.Languages.sectionBody = p([race.Languages.includes('choice') ? '' : race.Languages, s.languages, ...(s.choices['feat-languages'] || [])].filter(Boolean).join('; '));
   const utility = equip.rules.match(/Utility: (.*)/)?.[1];
   sections.Equipment.sectionBody = p([equip.armor, equip.shield, ...weaponNames, utility].filter(Boolean).join('; ')) + (armor ? p(armor.Modifiers) : '');
@@ -289,20 +274,14 @@ export function buildCharacter(s) {
   sections['Spells Known'].dynamicRows = [...spells].map(([name, note]) => { const sp = SPELLS_DATABASE.find(x => x.name === name); return { type: 'skill', values: [sp?.rank || '', name, sp?.cost || '', note] }; });
   for (const g of spellPlan(s).groups) if (g.unfilled) sections['Additional Features'].sectionBody += p(`${g.label}: ${g.unfilled} unfilled choices; the current spell catalogue has too few eligible spells. These slots remain available.`);
   const instinct = [];
-  for (const text of [classText, subclassText, ...chosenFeats.map(f => f['Effect / Rules'])]) {
-    let inInstinct = false;
-    for (const line of text.split('\n')) {
-      if (/^Level \d+:/.test(line)) inInstinct = false;
-      if (/Instinct abilit/i.test(line)) inInstinct = true;
-      if (inInstinct && /^• /.test(line)) instinct.push(line.slice(2));
-    }
-    for (const block of text.split(/\n(?=Level \d+:)|\n\n/)) {
-      if (!block.includes('• ') && /Instinct [Aa]bilit|spend (?:1|one) Instinct/.test(block)) instinct.push(block.replace(/^You gain the following Instinct abilit(?:y|ies):\s*/i, '').replace(/^Level \d+: /, '').replace(/\n/, ': ').replace(/\n/g, ' '));
-    }
-  }
-  for (const trait of speciesText.split('\n')) if (/Instinct Ability:/.test(trait)) instinct.push(trait.replace(/^Level \d+ — /, '').replace(', Instinct Ability:', ':'));
   for (const name of spells.keys()) { const sp = SPELLS_DATABASE.find(x => x.name === name); if (/Instinct/i.test(sp?.actionSpeed || '')) instinct.push(`${name}: See spell description.`); }
-  sections['Instinct Abilities'].sectionBody = `<ul>${[...new Set(instinct)].map(t => { const i = t.indexOf(':'); return `<li>${i < 0 ? escapeHTML(t) : `<strong>${escapeHTML(t.slice(0, i))}:</strong>${escapeHTML(t.slice(i + 1))}`}</li>`; }).join('')}</ul>`;
+  const authoredInstincts = new Map(selectedFeatures.flatMap(f => f.instincts || []).map(ability => [ability.name, ability.html]));
+  for (const option of selectedFeatures.flatMap(f => f.instinctOptions || [])) {
+    const ability = authoredInstincts.get(option.ability);
+    if (!ability) throw new Error(`Missing parent Instinct: ${option.ability}`);
+    authoredInstincts.set(option.ability, ability.slice(0, -5) + option.html + '</li>');
+  }
+  sections['Instinct Abilities'].sectionBody = `<ul>${[...authoredInstincts.values()].join('')}${[...new Set(instinct)].map(t => { const i = t.indexOf(':'); return `<li>${i < 0 ? escapeHTML(t) : `<strong>${escapeHTML(t.slice(0, i))}:</strong>${escapeHTML(t.slice(i + 1))}`}</li>`; }).join('')}</ul>`;
   sections['Strikes & Damaging Cantrips'].dynamicRows = weaponNames.map(name => {
     const w = DATA.weapons.find(x => x.Weapon === name); if (!w) return null;
     const ranged = /Ranged/.test(w.Category), skill = s.className === 'Cleric' && !ranged && !w['Other Properties'].includes('Two Handed') ? 'Magic' : ranged ? 'Ranged' : 'Melee';
@@ -338,6 +317,11 @@ export function buildCharacter(s) {
     const details = [variant.speed ? `${variant.speed} Action` : '', variant.cost].filter(Boolean).join(' · ');
     parent.variants.push(`<strong>${escapeHTML(variant.name)}:</strong> ${details ? `${escapeHTML(details)}.<br>` : ''}${escapeHTML(variant.description).replace(/\n/g, '<br>')}`);
     parent.ui.variantsHidden = false;
+  }
+  for (const option of selectedFeatures.flatMap(f => f.actionOptions || [])) {
+    const action = grouped.get(option.action);
+    if (!action) throw new Error(`Missing parent action: ${option.action}`);
+    action.slots.notes += `\n${option.html}`;
   }
   sections['Strikes & Damaging Cantrips'].dynamicRows = [...grouped.values()];
   for (const name of spells.keys()) {

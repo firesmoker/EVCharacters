@@ -38,7 +38,7 @@ export function tidyCharacterContent(data) {
       const label = text.split(':')[0];
       const spellName = label.replace(/\s*\([^)]*\)\s*$/, '').trim();
       const spell = SPELLS_DATABASE.find(sp => sp.name.toLowerCase() === spellName.toLowerCase() && /Instinct/i.test(sp.actionSpeed));
-      if (spell) {
+      if (spell && !/\bAP\b/.test(label)) {
         const title = document.createElement('strong');
         title.textContent = `${label}:`;
         item.replaceChildren(title, ' See spell description.');

@@ -149,7 +149,7 @@
     "owner": "",
     "speed": "Fast",
     "summary": "Speed: Fast",
-    "description": "Strike an enemy within melee range. Roll Magic against Deflection. On success, deal SD damage. On failure, deal half as much damage, rounded down. The damage type is appropriate to the animal form (crushing, piercing, or slashing). Deal -1 damage if you are Small. On success, if you roll a double 6, activate the effect associated with your chosen animal form."
+    "description": "Strike an enemy within melee range. Roll Magic against Deflection. On success, deal SD damage. On failure, deal half as much damage, rounded down. The damage type is appropriate to the animal form (crushing, piercing, or slashing). Apply a penalty of 2 to the roll if you are Small. On success, if you roll a double 6, activate the effect associated with your chosen animal form."
   },
   {
     "name": "Renewal",
@@ -206,5 +206,17 @@
     "speed": "Average",
     "summary": "Trick Shot ◆ Average Action ◆ 2 AP",
     "description": "Spend 2 AP to fire an arrow that releases a thunderous blast in a cube measuring 3 units on each side. Roll Ranged once and compare the result against each enemy's Deflection in the area. On success, an enemy of your size or smaller becomes Prone."
+  },
+  {
+    "name": "Unstable Bomb",
+    "owner": "Alchemist",
+    "parent": "Bomb Throw",
+    "description": "Create the bomb as part of Bomb Throw. When committing, choose Acid or Fire. The effect fills a 3-unit cube. Roll Bomb Throw against each creature’s Deflection; on success, it takes 1 damage of the chosen type."
+  },
+  {
+    "name": "Smoke Bomb",
+    "owner": "Alchemist",
+    "parent": "Bomb Throw",
+    "description": "Create the bomb as part of Bomb Throw. The effect fills a 3-unit cube with purple smoke. Creatures inside cannot see outside and have Half Cover against ranged attacks."
   }
 ]

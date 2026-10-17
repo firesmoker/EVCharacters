@@ -2262,7 +2262,7 @@ You gain the following Instinct ability:
 >     <td>Fast Action</td>
 >   </tr>
 >   <tr>
->     <td>Strike an enemy within melee range. Roll Magic against Deflection.<br>On success, deal SD damage. On failure, deal half as much damage, rounded down.<br>The damage type is appropriate to the animal form (crushing, piercing, or slashing). Deal -1 damage if you are Small.<br>On success, if you roll a double 6, activate the effect associated with your chosen animal form.</td>
+>     <td>Strike an enemy within melee range. Roll Magic against Deflection.<br>On success, deal SD damage. On failure, deal half as much damage, rounded down.<br>The damage type is appropriate to the animal form (crushing, piercing, or slashing). Apply a penalty of 2 to the roll if you are Small.<br>On success, if you roll a double 6, activate the effect associated with your chosen animal form.</td>
 >   </tr>
 > </table>
 
@@ -3236,7 +3236,7 @@ Once per round, when you succeed on a Melee Strike, you may choose to apply one 
 
 - Reposition: Move 1 unit.
 
-- Trip (-1 damage): target becomes Prone if it's up to one size larger than you.
+- Trip (penalty of 2 on the roll): target becomes Prone if it's up to one size larger than you.
 
 #### Level 3: Subclass
 
@@ -3303,7 +3303,7 @@ Cantrips Learned: 2 Occult Cantrips.
 
 You gain the following options to Tactical Strike
 
-- Condemn (-1 damage): The target becomes Vulnerable (-1 to all defenses) until the end of the next round.
+- Condemn (penalty of 2 on the roll): The target becomes Vulnerable (-1 to all defenses) until the end of the next round.
 
 - Sicken: The target becomes Disoriented (1 penalty on all rolls) until the end of the next round.
 

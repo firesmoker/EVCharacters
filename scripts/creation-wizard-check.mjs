@@ -58,6 +58,27 @@ try {
       else cases.push(m.buildCharacter(s));
     }
     const actions = sheet => sheet.sections['Strikes & Damaging Cantrips'].dynamicRows;
+    const sample = subclass => cases.find(sheet => sheet.headers.subclass === subclass && sheet.headers.level === '3');
+    const featureText = sheet => ['Class Features','Species Features','Additional Features'].map(n=>sheet.sections[n].sectionBody).join('');
+    assertFeature(sample('Worldshaper'), 'Earth Bending', 'immediately cast it a second time');
+    assertFeature(sample('Fae Trickster'), 'Fidgety', '1 additional Instinct');
+    function assertFeature(sheet, label, text) {
+      if (!featureText(sheet).includes(`<strong>${label}:</strong> ${text}`) && !featureText(sheet).includes(text)) throw Error(`Missing passive benefit: ${label}`);
+    }
+    const exarch=sample('Exarch');
+    if(featureText(exarch).includes('party members gain +2 Movement')) throw Error('Prayer option duplicated in features');
+    if(!actions(exarch).find(a=>a.slots.name==='Prayer')?.slots.notes.includes('Alacrity (1 Faith)')) throw Error('Alacrity not in Prayer');
+    const justiciar=sample('Justiciar');
+    if(featureText(justiciar).includes('Decree of the Fair Fight')) throw Error('Rally options duplicated in features');
+    const rally=document.createElement('div');rally.innerHTML=justiciar.sections['Instinct Abilities'].sectionBody;
+    if(![...rally.querySelectorAll('li > strong')].some(el=>el.textContent==='Decree of the Fair Fight (2 Devotion Points):' && el.closest('ul').parentElement.tagName==='LI')) throw Error('Decrees must be nested under Rally');
+    const arcane=sample('Arcane Archer');
+    if(!arcane.sections['Instinct Abilities'].sectionBody.includes('<strong>Arcane Shield (2 AP):</strong> At any point')) throw Error('AP ability replaced with spell reference');
+    for(const sheet of cases.filter(s=>s.headers.class==='Warrior' && s.headers.level==='1')){
+      for(const name of ['Opportunity Attacks','Counter','Protect &amp; Serve']) if(!sheet.sections['Instinct Abilities'].sectionBody.includes(name)) throw Error(`Missing Warrior instinct ${name}`);
+    }
+    const witch=sample('Witchblade');
+    if(featureText(witch).includes('Mutant Body') || actions(witch).some(a=>a.variants.some(v=>v.includes('Vile Slash')))) throw Error('Unscheduled WIP features must not be granted');
     for (const sheet of cases) {
       const features = ['Class Features', 'Species Features', 'Additional Features'].map(name => sheet.sections[name]?.sectionBody || '').join('');
       if (/\bfa[A-Z]|VariantCosts|SpecialFast|Variant1 \/ Combat/.test(features)) throw Error('Extracted action artifacts remain');

@@ -190,7 +190,10 @@ export function featureHTML(text) {
 export function validateCharacter(s) {
   const errors = [];
   if (!s.name.trim()) errors.push('Enter a character name.');
+  if (!classFor(s)) errors.push('Choose a class.');
+  if (!speciesFor(s)) errors.push('Choose a species.');
   if (!Number.isInteger(+s.level) || s.level < 1 || s.level > 10) errors.push('Choose a level from 1 to 10.');
+  if (!classFor(s) || !speciesFor(s) || !Number.isInteger(+s.level) || s.level < 1 || s.level > 10) return errors;
   if (subclassesFor(s).length && !subclassFor(s)) errors.push('Choose a subclass.');
   for (const g of specialChoices(s)) {
     const chosen = s.choices[g.id] || [];

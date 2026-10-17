@@ -18,10 +18,11 @@ export function initCreationWizard(save) {
   const spellDetail = sp => `<details open><summary>Spell details</summary>${renderSpellDescriptionBlock(sp)}</details>`;
   const notice = text => `<p class="creation-notice">${esc(text)}</p>`;
   function identity() {
-    return `<h3>Who will you become?</h3><div class="creation-form-grid">${input('Character name', 'name', state.name, 'autocomplete="off"')}${input('Player name (optional)', 'player', state.player)}${select('Class', 'className', DATA.classes.map(x => x.Class).sort(), state.className)}${select('Level', 'level', Array.from({ length: 10 }, (_, i) => String(i + 1)), String(state.level))}</div><p>${esc(classFor(state)['Primary Roles'])}</p>${detail('Class features and progression rules', classFor(state)['Class Features / Rules'])}${notice('Missing progression values use provisional placeholders. These are identified in Review and on the finished sheet.')}`;
+    return `<h3>Who will you become?</h3><div class="creation-form-grid">${input('Character name', 'name', state.name, 'autocomplete="off"')}${input('Player name (optional)', 'player', state.player)}${select('Class', 'className', DATA.classes.map(x => x.Class).sort(), state.className)}${select('Level', 'level', Array.from({ length: 10 }, (_, i) => String(i + 1)), String(state.level))}</div><p>${esc(classFor(state)?.['Primary Roles'] || '')}</p>${detail('Class features and progression rules', classFor(state)?.['Class Features / Rules'] || '')}${notice('Missing progression values use provisional placeholders. These are identified in Review and on the finished sheet.')}`;
   }
   function species() {
     const race = speciesFor(state);
+    if (!race) return `<h3>Your heritage</h3>${select('Species', 'species', DATA.species.map(x => x.Species).sort(), state.species)}`;
     return `<h3>Your heritage</h3>${select('Species', 'species', DATA.species.map(x => x.Species).sort(), state.species)}<p>Movement ${esc(race.Movement)} · ${esc(race.Languages)}</p>${detail('Species traits', race['Traits / Rules'].replaceAll(' • ', '\n'))}${input(state.species === 'Human' ? 'Additional language of your choice' : 'Other languages (optional)', 'languages', state.languages)}${state.species === 'Dwarf' ? input('Dwarvish Craftiness — crafting skill or tool', 'choice:craft', state.choices.craft?.[0] || '') : ''}`;
   }
   function subclass() {
@@ -47,13 +48,15 @@ export function initCreationWizard(save) {
     return `<h3>Starting equipment</h3>${detail('Class starting equipment', eq.rules)}${eq.choices.length ? select('Starting weapon', 'equipment:weapon', eq.choices, state.equipment.weapon) : ''}<p>${esc([eq.armor, eq.shield, ...eq.fixed].filter(Boolean).join(' · '))}</p><p>Armor and shield bonuses are included in your defenses. Weapon attacks use your training plus weapon Extra Dice.</p><label class="creation-field">Background and additional notes (optional)<textarea data-key="notes" rows="4">${esc(state.notes)}</textarea></label>`;
   }
   function review() {
+    if (!classFor(state) || !speciesFor(state) || !state.level) return `<h3>Complete your character choices</h3>${notice('Choose your class and level under Identity & class, and your species under Species.')}<div class="creation-errors" role="alert"><ul>${validateCharacter(state).map(e => `<li>${esc(e)}</li>`).join('')}</ul></div>`;
     const errors = validateCharacter(state), stats = progression(state), spells = spellPlan(state).known;
     return `<h3>${esc(state.name || 'Your character')}</h3><p class="creation-lead">Level ${state.level} ${esc(state.species)} ${esc(state.className)}${state.subclass ? ` · ${esc(state.subclass)}` : ''}</p><dl class="creation-stats"><div><dt>HP before feats</dt><dd>${stats.hp}</dd></div><div><dt>Instinct</dt><dd>${stats.instinct}</dd></div><div><dt>Spell Points</dt><dd>${stats.points}</dd></div><div><dt>Known magic</dt><dd>${spells.size}</dd></div></dl>${stats.placeholders.length ? notice(`Placeholder values: ${stats.placeholders.join(', ')}. Missing level progression uses +1 HP per two levels, starting Instinct 1 and +1 at level 7, +1 spell/spell point per level and +1 cantrip per two levels. Published table values override these placeholders.`) : ''}${state.level > 2 ? notice('Only defined feature unlocks are included. Higher-level skill and feat progression remains WIP; the current rule grants one Minor Feat at level 1.') : ''}${Object.keys(skillPlan(state).fixed).filter(n => !['Magic', 'Melee', 'Ranged', 'Unarmed', 'Weapon Throw', 'Bomb Throw'].includes(n)).length > 11 ? notice('This build may exceed the fixed skill rows. All training is preserved; larger builds use Smart sizing.') : ''}${detail('Selected feats', state.feats.join('\n'))}${detail('Training', Object.entries(skillPlan(state).fixed).map(([n, d]) => `${n}: ${d}d6`).join('\n'))}${detail('Spells and cantrips', [...spells].map(([n, why]) => `${n}: ${why}`).join('\n'))}${errors.length ? `<div class="creation-errors" role="alert"><strong>Complete these choices before creating:</strong><ul>${errors.map(e => `<li>${esc(e)}</li>`).join('')}</ul></div>` : '<p>Ready to create. Your existing sheet will be replaced only after confirmation.</p>'}`;
   }
   function render() {
     const scroll = dialog.querySelector('.creation-content')?.scrollTop || 0;
     const activeKey = document.activeElement?.dataset.key;
-    const content = [identity, species, subclass, training, spells, equipment, review][step]();
+    const missingIdentity = !classFor(state) || !speciesFor(state) || !state.level;
+    const content = missingIdentity && step >= 2 && step < 6 ? notice('Complete Identity & class and Species before choosing these options.') : [identity, species, subclass, training, spells, equipment, review][step]();
     dialog.innerHTML = `<header><div><span class="creation-eyebrow">Eternal Valor</span><h2 id="creation-title">${rebuilding ? 'Rebuild character' : 'Create a character'}</h2></div><button type="button" data-close aria-label="Close character creation">×</button></header><div class="creation-layout"><nav aria-label="Character creation steps">${steps.map((name, i) => `<button type="button" data-step="${i}" ${i === step ? 'aria-current="step"' : ''}><span>${i + 1}</span>${name}</button>`).join('')}</nav><div class="creation-content">${content}</div></div><footer><span>Step ${step + 1} of ${steps.length}</span><div><button type="button" data-back ${step === 0 ? 'disabled' : ''}>Back</button>${step < steps.length - 1 ? '<button type="button" class="creation-primary" data-next>Continue</button>' : `<button type="button" class="creation-primary" data-create ${validateCharacter(state).length ? 'disabled' : ''}>${rebuilding ? 'Rebuild character' : 'Create character'}</button>`}</div></footer>`;
     dialog.querySelector('.creation-content').scrollTop = scroll;
     if (activeKey) [...dialog.querySelectorAll('[data-key]')].find(el => el.dataset.key === activeKey)?.focus({ preventScroll: true });
@@ -76,10 +79,9 @@ export function initCreationWizard(save) {
     } else if (key.startsWith('choice:')) state.choices[key.slice(7)] = [el.value];
     else if (key.startsWith('equipment:')) state.equipment[key.slice(10)] = el.value;
     else {
-      state[key] = key === 'level' ? Number(el.value || 1) : el.value;
+      state[key] = key === 'level' ? (el.value ? Number(el.value) : '') : el.value;
       if (['className', 'species', 'level', 'subclass'].includes(key)) {
-        if (!state.className) state.className = 'Bard';
-        if (!state.species) state.species = 'Human';
+        if (!classFor(state) || !speciesFor(state) || !state.level) { render(); return; }
         if (!subclassesFor(state).some(x => x.Subclass === state.subclass)) state.subclass = '';
         for (const g of [...skillPlan(state).groups, ...specialChoices(state)]) state.choices[g.id] = (state.choices[g.id] || []).filter(v => g.options.includes(v)).slice(0, g.count);
         for (let i = 0; i < spellPlan(state).groups.length; i++) {
@@ -134,8 +136,7 @@ export function initCreationWizard(save) {
     if (!sheet && rebuilding) { state = newCharacter(); step = 0; }
     rebuilding = Boolean(sheet);
     if (sheet) {
-      state = { ...newCharacter(), ...structuredClone(sheet.creation) };
-      if (!classFor(state) || !speciesFor(state)) { alert('The saved class or species is no longer in the current rules. The sheet has not been changed.'); return; }
+      state = { ...newCharacter(), className: sheet.headers.class || '', species: sheet.headers.species || '', level: Number(sheet.headers.level) || '', subclass: sheet.headers.subclass || '', ...structuredClone(sheet.creation || {}) };
       state.name = sheet.headers['character-name'] || state.name;
       state.player = sheet.headers['player-name'] || state.player;
       step = steps.length - 1;

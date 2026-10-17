@@ -744,7 +744,6 @@ document.getElementById('menu-create-character').addEventListener('click', async
 });
 document.getElementById('menu-rebuild-character').addEventListener('click', async () => {
   const sheet = JSON.parse(serializeSheet());
-  if (!sheet.creation) { alert('This sheet has no saved creator choices. Create a character with the wizard to save its choices for future rebuilds.'); return; }
   creationWizard ||= import('./creation-wizard.js').then(module => module.initCreationWizard(autoSave));
   (await creationWizard)(sheet);
 });

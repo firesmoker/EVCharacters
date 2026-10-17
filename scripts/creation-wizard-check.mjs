@@ -140,6 +140,7 @@ try {
   assert.deepEqual(result.failures, []);
   assert(result.total >= 400);
   assert(result.rejectsExclusive);
+  assert.deepEqual(result.saved.creation, result.built.creation);
   assert.equal(result.saved.headers.class, 'Bard');
   assert.equal(result.saved.sections.Spellcasting.splitFields['Spell Points'].max, '4');
   assert.equal(result.saved.sections.Spellcasting.fields['Spells Known'], '9');
@@ -186,6 +187,45 @@ try {
   assert.equal(await page.locator('.creation-wizard').isVisible(), false);
   assert.equal(await page.locator('[data-sync-id="character-name"]').first().innerText(), 'UI Test');
   assert(await page.evaluate(() => !!localStorage.getItem('ev-before-character-creation')));
+
+  // Rebuilding uses saved choices, preserves presentation, and can be recovered.
+  const beforeRebuild = await page.evaluate(async () => {
+    const io = await import('/src/io.js');
+    const sheet = JSON.parse(io.serializeSheet());
+    sheet.headers.experience = '123';
+    sheet.sections['Class Features'].sectionBody = '<p>My manual feature edit.</p>';
+    io.loadFromJSON(JSON.stringify(sheet));
+    return JSON.parse(io.serializeSheet());
+  });
+  await page.locator('#menu-rebuild-character').evaluate(el => el.click());
+  assert(await page.getByRole('button', {name:'Rebuild character',exact:true}).isEnabled());
+  await page.getByRole('button', {name:'Close character creation'}).click();
+  assert.deepEqual(await page.evaluate(async () => JSON.parse((await import('/src/io.js')).serializeSheet())), beforeRebuild);
+  await page.locator('#menu-rebuild-character').evaluate(el => el.click());
+  await page.getByRole('button', {name:'Rebuild character',exact:true}).click();
+  const rebuilt = await page.evaluate(async () => JSON.parse((await import('/src/io.js')).serializeSheet()));
+  assert.deepEqual(rebuilt.creation, beforeRebuild.creation);
+  assert.deepEqual(rebuilt.preferences, beforeRebuild.preferences);
+  assert.deepEqual(rebuilt.portrait, beforeRebuild.portrait);
+  assert.equal(rebuilt.headers.experience, '123');
+  assert(rebuilt.sections['Class Features'].sectionBody.includes('War Singing'));
+  assert(!rebuilt.sections['Class Features'].sectionBody.includes('My manual feature edit'));
+  await page.locator('#menu-recover-character').evaluate(el => el.click());
+  assert.deepEqual(await page.evaluate(async () => JSON.parse((await import('/src/io.js')).serializeSheet())), beforeRebuild);
+
+  const invalidRebuild = await page.evaluate(async () => {
+    const io = await import('/src/io.js'); const sheet = JSON.parse(io.serializeSheet());
+    const {spellPlan, validateCharacter} = await import('/src/character-creation.js');
+    const group = spellPlan(sheet.creation).groups.find(group => group.count > 0).id;
+    sheet.creation.spells[group] = ['No longer available'];
+    io.loadFromJSON(JSON.stringify(sheet));
+    return {errors:validateCharacter(JSON.parse(io.serializeSheet()).creation), choices:JSON.parse(io.serializeSheet()).creation};
+  });
+  assert(invalidRebuild.errors.length, JSON.stringify(invalidRebuild));
+  await page.locator('#menu-rebuild-character').evaluate(el => el.click());
+  await page.locator('.creation-wizard[open]').waitFor();
+  assert(await page.getByRole('button', {name:'Rebuild character',exact:true}).isDisabled(), await page.locator('.creation-content').innerText());
+  await page.getByRole('button', {name:'Close character creation'}).click();
 
   assert.deepEqual(result.ossian.sections['Damage Defenses'].fields, { Resistances: 'Slashing, Piercing', Vulnerabilities: 'Crushing' });
   await page.evaluate(async sheet => { const io = await import('/src/io.js'); io.loadFromJSON(JSON.stringify(sheet)); }, result.ossian);

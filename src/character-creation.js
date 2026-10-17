@@ -4,7 +4,7 @@ import { SPELLS_DATABASE } from './spells_data.js';
 import { tidyCharacterContent } from './sheet-content.js';
 import { cantripAction } from './cantrip-action.js';
 import ACTIONS from './creation-actions.json';
-import { cleanActionText, representedActions } from './action-text.js';
+import SHEET_FEATURES from './sheet-features.json';
 import { damageDefenses } from './damage-defenses.js';
 
 export { DATA };
@@ -178,7 +178,6 @@ function levelText(text, level) {
 }
 
 export function featureHTML(text) {
-  text = cleanActionText(text);
   const lines = text.split('\n').filter(x => x.trim());
   let html = '', bullets = [];
   const flush = () => { if (bullets.length) html += `<ul>${bullets.map(x => `<li>${x}</li>`).join('')}</ul>`; bullets = []; };
@@ -263,9 +262,18 @@ export function buildCharacter(s) {
   const speciesText = race['Traits / Rules'].split(' • ').filter(t => !/^Level (\d+)/.test(t) || +t.match(/^Level (\d+)/)[1] <= s.level).join('\n');
   const classText = levelText(c['Class Features / Rules'], s.level).split('\n').filter(line => !/^(Spell Points:|Spells Learned:|Cantrips Learned:|Summon Slots:|You will get more Spell Points)/.test(line)).join('\n');
   const subclassText = sub ? levelText(sub['Full Features / Rules'], s.level) : '';
-  sections['Species Features'].sectionBody = featureHTML(speciesText);
-  sections['Class Features'].sectionBody = featureHTML(classText);
-  sections['Additional Features'].sectionBody = (sub ? featureHTML(subclassText) : '') + extras.map(([n, dice]) => p(`${n}: ${training(dice)}`)).join('') + Object.entries(s.choices).filter(([key]) => ['craft', 'crafter', 'assurance', 'tools'].includes(key)).map(([key, value]) => p(`${key}: ${value.join(', ')}`)).join('') + (s.notes ? p(s.notes) : '');
+  const selectedFeatures = [
+    ...(SHEET_FEATURES.classes[s.className] || []),
+    ...(SHEET_FEATURES.subclasses[sub?.Subclass] || []),
+    ...(SHEET_FEATURES.species[s.species] || []),
+  ].filter(f => f.level <= s.level);
+  for (const [group, name, destination] of [['classes', s.className, 'Class Features'], ['subclasses', sub?.Subclass, 'Class Features'], ['species', s.species, 'Species Features']]) {
+    for (const feature of SHEET_FEATURES[group][name] || []) {
+      if (feature.level <= s.level) sections[feature.section || destination].sectionBody += feature.html;
+    }
+  }
+  if (s.className === 'Alchemist') sections['Additional Features'].sectionBody += (s.choices.concoctions || []).map(name => SHEET_FEATURES.concoctions[name] || '').join('');
+  sections['Additional Features'].sectionBody += extras.map(([n, dice]) => p(`${n}: ${training(dice)}`)).join('') + Object.entries(s.choices).filter(([key]) => ['craft', 'crafter', 'assurance', 'tools'].includes(key)).map(([key, value]) => p(`${key}: ${value.join(', ')}`)).join('') + (s.notes ? p(s.notes) : '');
   for (const g of specialChoices(s)) sections['Additional Features'].sectionBody += p(`${g.label}: ${s.choices[g.id].join('; ')}`);
   const chosenFeats = DATA.feats.filter(f => s.feats.includes(f.Feat));
   sections.Feats.sectionBody = chosenFeats.map(f => `<p><strong>${escapeHTML(f.Feat)}:</strong> ${escapeHTML(f['Effect / Rules']).replace(/\n/g, '<br>')}</p>`).join('');
@@ -311,9 +319,13 @@ export function buildCharacter(s) {
       existing.slots.rollDescription = 'Roll Magic for one-handed melee weapons, or Melee for two-handed melee weapons, against Deflection.';
     }
   }
-  const availableRules = [classText, subclassText, speciesText, ...chosenFeats.map(f => f['Effect / Rules'])].join('\n');
-  for (const variant of ACTIONS.filter(action => action.parent)) {
-    if (![s.className, s.subclass, s.species, ...s.feats].includes(variant.owner) || !availableRules.includes(variant.name)) continue;
+  for (const name of new Set(selectedFeatures.flatMap(f => f.actions || []))) {
+    const variant = ACTIONS.find(action => action.name === name);
+    if (!variant) throw new Error(`Missing action data: ${name}`);
+    if (!variant.parent) {
+      if (!grouped.has(name)) grouped.set(name, { type: 'action', slots: { name, rollDescription: variant.summary || `${variant.speed} Action`, notes: variant.description }, tableRows: [{speed: variant.speed}], variants: [], ui: {variantsHidden: true, tableHidden: true, weaponColumnHidden: true} });
+      continue;
+    }
     let parent = grouped.get(variant.parent);
     if (!parent) {
       const base = ACTIONS.find(action => action.name === variant.parent && !action.parent);
@@ -335,10 +347,6 @@ export function buildCharacter(s) {
     if (!roll) continue;
     sections['Strikes & Damaging Cantrips'].dynamicRows.push(cantripAction(sp, skills.Magic || 3, s.subclass));
   }
-  const represented = representedActions(sections['Strikes & Damaging Cantrips'].dynamicRows);
-  sections['Class Features'].sectionBody = featureHTML(cleanActionText(classText, represented));
-  sections['Species Features'].sectionBody = featureHTML(cleanActionText(speciesText, represented));
-  if (subclassText) sections['Additional Features'].sectionBody = sections['Additional Features'].sectionBody.replace(featureHTML(subclassText), featureHTML(cleanActionText(subclassText, represented)));
   if (stats.devotion) sections['Additional Features'].sectionBody += p(`Devotion Points: ${stats.devotion}`);
   if (stats.placeholders.length) sections['Additional Features'].sectionBody += p(`Provisional progression: ${stats.placeholders.join(', ')}. These are placeholder values, pending finalized class progression.`);
   // Preserve large builds rather than dropping skills to meet the fixed row limit.

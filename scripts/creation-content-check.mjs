@@ -12,13 +12,11 @@ try {
       'Species Features': { sectionBody: '<p><b>Example Trait</b><br>Trait description.</p>' },
       'Additional Features': { sectionBody: '<p>Hardwall</p><p>Passive feature</p><p>You gain proficiency with Heavy Armor.</p>' },
     } };
+    const untouched = JSON.stringify(example.sections);
     tidyCharacterContent(example);
-    for (const [name, label, description] of [['Class Features', 'Example Feature', 'First description.'], ['Species Features', 'Example Trait', 'Trait description.'], ['Additional Features', 'Hardwall', 'You gain proficiency with Heavy Armor.']]) {
-      const root = document.createElement('div'); root.innerHTML = example.sections[name].sectionBody;
-      const first = root.firstElementChild;
-      if (!first.textContent.includes(`${label}: ${description}`) || first.querySelector('br')) throw Error(`${name}: label and description must share a paragraph`);
+    for (const name of ['Class Features','Species Features','Additional Features']) {
+      if (example.sections[name].sectionBody !== JSON.parse(untouched)[name].sectionBody) throw Error('Feature text must not be rewritten at load time');
     }
-    if (!example.sections['Class Features'].sectionBody.includes('<ul><li>Keep this list.</li></ul><p>Keep this later paragraph.</p>')) throw Error('Feature body structure changed');
     const s = m.newCharacter(); s.species='Human'; s.className='Wizard';
     s.choices.origin=['Arcana']; s.choices['legacy-expert']=['Arcana'];
     const duplicate=m.skillChoiceWarning(s,'origin',0);
@@ -44,12 +42,6 @@ try {
     const data={sections:{'Instinct Abilities':{sectionBody:'<ul><li><strong>You gain the following Instinct ability:</strong>: Become Inspired (1 / Day): When you roll, roll with advantage.</li><li><strong>Arcane Shield (1 / Day):</strong> Full repeated spell text.</li></ul>'}}};
     data.sections['Class Features']={sectionBody:`<p><strong>Shephard</strong></p><p>${m.DATA.subclasses.find(x=>x.Subclass==='Shephard').Description}</p><p><strong><strong>Level 3:</strong> Multiple Summons</strong></p><p>You gain an additional summon slot.</p>`};
     tidyCharacterContent(data);
-    const oldInspired = {sections:{'Class Features':{sectionBody:'<p>Inspired (they deal +1 damage)</p><p>Inspired (they deal +1 damage with attacks)</p>'},'Instinct Abilities':{sectionBody:'<ul><li><strong>Reenact: The Dragon Slayer:</strong> Inspired 1 (+1 damage).</li></ul>'}}};
-    tidyCharacterContent(oldInspired);
-    for (const section of Object.values(oldInspired.sections)) {
-      if (/Inspired[^)]*damage/.test(section.sectionBody || '')) throw Error('Saved Inspired descriptions must be repaired');
-    }
-    if (!oldInspired.sections['Instinct Abilities'].sectionBody.includes('Inspired 1 (1 Extra Die on rolls)')) throw Error('Saved reenactment must grant Extra Dice');
     const mixed = {sections:{
       'Class Features': {sectionBody:'<p><strong>Level 3: Historian</strong></p><p>You become Expert (5d6) in History.</p><p>If you were already Adept (4d6) in History, gain another skill.</p><p><strong>Level 3: Fidgety</strong></p><p>You gain the following Instinct abilities:</p><ul><li><b>Unleash:</b> Add 1 Extra Dice.</li><li><b>Evade:</b> Gain +1 Deflection against an attack.</li></ul><p>You have 1 more Instinct.</p><p><strong>Moving Target</strong></p><p>Gain +1 Deflection after moving and Expert Acrobatics.</p>'},
       'Instinct Abilities': {sectionBody:'<ul><li><b>Unleash:</b> Add 1 Extra Dice.</li><li><b>Evade:</b> Gain +1 Deflection against an attack.</li></ul>'},
@@ -61,16 +53,12 @@ try {
     if (mixed.sections['Class Features'].sectionBody !== mixedFeatures) throw Error('Feature cleanup must be idempotent');
     return {mixedFeatures, history:mixed.sections['Standard Skills'].dynamicRows[0].values,cleanedClass:data.sections['Class Features'].sectionBody,duplicate,clear,automatic,html,strike,classFeatures:built.sections['Class Features'].sectionBody,speciesFeatures:built.sections['Species Features'].sectionBody,repaired:data.sections['Instinct Abilities'].sectionBody};
   });
-  assert(!result.cleanedClass.includes('Shephard'));
-  assert(!result.cleanedClass.includes('Your connection to animals'));
-  assert(!result.cleanedClass.includes('Level 3:'));
   assert(result.cleanedClass.includes('Multiple Summons'));
   assert(!result.classFeatures.includes('Level 1:'));
   assert(!result.classFeatures.includes('Instinct Abilities'), result.classFeatures);
   assert(result.classFeatures.includes('Fae Familiar'));
   assert(!result.speciesFeatures.includes('Human Adaptiveness'));
   assert(result.speciesFeatures.includes('Legacy of Discovery'));
-  assert(!/Historian|Unleash|Evade|gain the following Instinct/.test(result.mixedFeatures));
   assert(result.mixedFeatures.includes('You have 1 more Instinct'));
   assert(result.mixedFeatures.includes('Moving Target'));
   assert.deepEqual(result.history, ['History', 'Expert (5d6)']);

@@ -748,4 +748,16 @@ document.getElementById('menu-create-character').addEventListener('click', async
   creationWizard ||= import('./creation-wizard.js').then(module => module.initCreationWizard(autoSave));
   (await creationWizard)();
 });
+document.getElementById('menu-rebuild-character').addEventListener('click', async () => {
+  const sheet = JSON.parse(serializeSheet());
+  if (!sheet.creation) { alert('This sheet has no saved creator choices. Create a character with the wizard to save its choices for future rebuilds.'); return; }
+  creationWizard ||= import('./creation-wizard.js').then(module => module.initCreationWizard(autoSave));
+  (await creationWizard)(sheet);
+});
+document.getElementById('menu-recover-character').addEventListener('click', () => {
+  const backup = localStorage.getItem('ev-before-character-creation');
+  if (!backup) { alert('No recovery copy is available in this browser.'); return; }
+  if (!confirm('Restore the sheet saved before your last creation or rebuild? This replaces the current sheet.')) return;
+  loadFromJSON(backup); autoSave();
+});
 

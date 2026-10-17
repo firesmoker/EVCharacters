@@ -1,6 +1,4 @@
-import CREATION_DATA from './creation-data.json';
 import { SPELLS_DATABASE } from './spells_data.js';
-import { cleanActionText, representedActions } from './action-text.js';
 
 const fragment = html => {
   const el = document.createElement('div');
@@ -8,150 +6,11 @@ const fragment = html => {
   return el;
 };
 const plain = html => fragment(html).textContent;
-const plainFeatureTitles = new Set(CREATION_DATA.subclasses.flatMap(sub =>
-  [...(sub['Full Features / Rules'] || '').matchAll(/(?:^|\n\n)([^\n]+)\n(?:Passive feature|Instinct Ability|(?:Melee|Ranged) Strike Variant|Bomb Throw Variant)/g)].map(m => m[1])));
-
-function inlineFeatureLabels(root) {
-  for (const el of [...root.querySelectorAll('p, div, h2, h3, h4, li')].reverse()) {
-    if (el.querySelector('p, div, h2, h3, h4')) continue;
-    const title = el.textContent.trim();
-    if (plainFeatureTitles.has(title) && !el.querySelector('strong, b')) {
-      const bold = document.createElement('strong'); bold.textContent = title; el.replaceChildren(bold);
-    }
-    const label = el.firstElementChild;
-    if (!label?.matches('strong, b') || el.firstChild?.textContent.trim() && el.firstChild !== label) continue;
-    const standalone = el.textContent.trim() === label.textContent.trim();
-    if (standalone) {
-      let next = el.nextElementSibling;
-      if (next?.textContent.trim() === 'Passive feature') { next.remove(); next = el.nextElementSibling; }
-      const nextIsTitle = next?.firstElementChild?.matches('strong, b') && next.textContent.trim() === next.firstElementChild.textContent.trim();
-      if (!next?.matches('p, div') || next.querySelector('p, div, ul, ol') || nextIsTitle || plainFeatureTitles.has(next.textContent.trim())) continue;
-      if (!next.textContent.trim()) continue;
-      if (!/[:—–-]$/.test(label.textContent.trim())) label.append(':');
-      el.append(' ', ...next.childNodes); next.remove();
-    } else {
-      let next = label.nextSibling;
-      while (next?.nodeType === Node.TEXT_NODE && !next.textContent.trim()) next = next.nextSibling;
-      if (next?.nodeName === 'BR') {
-        if (!/[:—–-]$/.test(label.textContent.trim())) label.append(':');
-        while (next?.nodeName === 'BR') { const following = next.nextSibling; next.replaceWith(' '); next = following; }
-      }
-    }
-  }
-}
 const updateRam = text => (text || '').replaceAll('Perform a Charge using Unarmed Strike. On a successful hit, you deal +1 damage.', 'Perform a Charge using Unarmed Strike with 2 Extra Dice.');
-const skillOnlyFeatures = new Set([
-  'Historian', 'Difficult to Ignore', 'Infiltrator', 'Trickery of the Fae',
-  'Mechanist', 'Mechanical Expert', 'Arcane Expertise',
-  ...CREATION_DATA.species.flatMap(race => [...race['Traits / Rules'].matchAll(/(Legacy of [^—\n•]+)\s*—/g)].map(match => match[1].trim())),
-]);
-const featureName = text => text.trim().replace(/^Level \d+\s*(?::|[—–-])\s*/, '').split(/[:.—–]/)[0].trim();
-const warPhrases = new Set(['Rise to the Challenge', 'Onward We Go', 'Looming Darkness', 'Sweet, Sweet Revenge', 'For Our Friends']);
-function formatWarPhrases(html) {
-  const root = fragment(html);
-  for (const wrapper of root.querySelectorAll('[data-class-overflow]')) wrapper.innerHTML = formatWarPhrases(wrapper.innerHTML);
-  let list, item;
-  for (const el of [...root.children]) {
-    const text = el.textContent.trim();
-    if (/^Unlocked at Level \d+:?$/i.test(text)) { el.remove(); continue; }
-    if (warPhrases.has(text)) {
-      if (!list) { list = document.createElement('ul'); el.before(list); }
-      item = document.createElement('li');
-      const title = document.createElement('strong'); title.textContent = `${text}:`;
-      item.append(title); list.append(item); el.remove();
-    } else if (item && el.matches('p') && !/^Level \d+:/.test(text)
-        && (!el.firstElementChild?.matches('strong, b') || /^Requirements:/.test(text))) {
-      item.append(' ', ...el.childNodes); el.remove();
-    } else { list = null; item = null; }
-  }
-  return root.innerHTML;
-}
-function removeSkillOnlyFeatures(html) {
-  const root = fragment(html);
-  for (const wrapper of root.querySelectorAll('[data-class-overflow]')) wrapper.innerHTML = removeSkillOnlyFeatures(wrapper.innerHTML);
-  let removing = false;
-  for (const el of [...root.children]) {
-    const name = featureName(el.textContent);
-    if (skillOnlyFeatures.has(name)) removing = true;
-    else if (!/^(?:Passive feature$|You (?:become|are) (?:Expert|Adept)|If you (?:were|are) already (?:Adept|Expert)|Choose Charm or Deception\.)/i.test(el.textContent.trim())) removing = false;
-    if (removing) el.remove();
-  }
-  return root.innerHTML;
-}
-function featureCapacity() {
-  const field = document.querySelector('[data-section="class-features"] .section-content');
-  const probe = document.createElement('div');
-  const width = field?.clientWidth || 380;
-  const capacity = field?.clientHeight > 200 ? field.clientHeight : 500;
-  probe.style.cssText = `position:fixed;visibility:hidden;pointer-events:none;width:${width}px;font-size:13px;line-height:1.4;padding:5px;box-sizing:border-box`;
-  document.body.append(probe);
-  return { probe, capacity, height(html) {
-    probe.innerHTML = html;
-    for (const el of probe.querySelectorAll('*')) el.style.removeProperty('font-size');
-    for (const el of probe.querySelectorAll('p, div')) el.style.margin = '0 0 6px';
-    return probe.offsetHeight;
-  } };
-}
 
-// Remove only abilities already represented in the dedicated pane.
-function removeDuplicateInstincts(html, instincts) {
-  const root = fragment(html);
-  const nameOf = text => text.trim().replace(/^Level \d+\s*(?::|[—–-])\s*/, '')
-    .replace(/,?\s*Instinct Ability:/i, ':').split(':')[0].trim().toLowerCase();
-  const names = new Set([...fragment(instincts).querySelectorAll('li')].map(el => nameOf(el.textContent)));
-  for (const wrapper of root.querySelectorAll('[data-class-overflow]')) wrapper.innerHTML = removeDuplicateInstincts(wrapper.innerHTML, instincts);
-  const groups = [];
-  for (const el of [...root.children]) {
-    const text = el.textContent.trim();
-    const heading = /^Level \d+\s*(?::|[—–-])/.test(text) || el.matches('p') && el.firstElementChild?.matches('strong, b');
-    if (!groups.length || heading) groups.push([]);
-    groups.at(-1).push(el);
-  }
-  for (const group of groups) {
-    const title = nameOf(group[0].textContent);
-    const entries = group.flatMap(el => [...el.querySelectorAll('li')]);
-    const generic = /^(?:instinct abilities|instinct ability)$/.test(title);
-    const duplicated = entries.filter(el => names.has(nameOf(el.textContent)));
-    if (!names.has(title) && !duplicated.length && !generic) continue;
-    duplicated.forEach(el => el.remove());
-    for (const el of group.slice(1)) {
-      if (/^(?:Your experience in battle lets you react swiftly during combat\.\s*)?You gain the following Instinct abilit(?:y|ies):?$/i.test(el.textContent.trim()) || /^Instinct Abilities$/i.test(el.textContent.trim())) el.remove();
-      else if (el.matches('ul, ol') && !el.querySelector('li')) el.remove();
-    }
-    if (names.has(title)) group[0].remove();
-    else if (!group.slice(1).some(el => el.parentNode && el.textContent.trim())) group[0].remove();
-  }
-  return root.innerHTML;
-}
-
-// Shared by creation, template loading and existing saved characters.
 export function tidyCharacterContent(data) {
   const sections = data.sections;
-  const represented = representedActions(sections['Strikes & Damaging Cantrips']?.dynamicRows);
-  for (const section of Object.values(sections)) {
-    if (!section?.sectionBody) continue;
-    const root = fragment(section.sectionBody);
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
-    for (const node of nodes) {
-      const cleaned = cleanActionText(updateRam(node.textContent), represented);
-      if (cleaned === node.textContent) continue;
-      const replacement = document.createDocumentFragment();
-      cleaned.split('\n').forEach((line, i) => { if (i) replacement.append(document.createElement('br')); replacement.append(line); });
-      node.replaceWith(replacement);
-    }
-    for (const el of root.querySelectorAll('p')) {
-      if (el.textContent.trim() === 'You gain the following action:' && /^You gain the .+ (?:variant|action)\.$/.test(el.nextElementSibling?.textContent.trim() || '')) el.remove();
-    }
-    section.sectionBody = root.innerHTML;
-  }
   if (!sections) return data;
-  for (const section of Object.values(sections)) {
-    if (section.sectionBody) section.sectionBody = section.sectionBody.replace(
-      /Inspired(?: 1)? \((?:they deal )?\+1 damage(?: with attacks)?\)/g,
-      'Inspired 1 (1 Extra Die on rolls)',
-    );
-  }
   const languages = sections.Languages ||= { sectionBody: '' };
   if (!/\bCommon\b/i.test(plain(languages.sectionBody))) {
     languages.sectionBody = `<p>Common</p>${languages.sectionBody || ''}`;
@@ -164,22 +23,7 @@ export function tidyCharacterContent(data) {
   }
   if (sections.Speed?.fields && Number(sections.Speed.fields.Instinct) < 1) sections.Speed.fields.Instinct = '1';
 
-  const species = sections['Species Features'];
-  if (species?.sectionBody) {
-    const root = fragment(species.sectionBody);
-    for (const el of root.children) {
-      if (el.querySelector('strong, b') || !el.textContent.trim()) continue;
-      const text = el.textContent;
-      const match = text.match(/^(?:Level \d+\s*[—–-]\s*)?[^\n]*?(?:\s[—–]\s|:)/);
-      if (!match || match[0].length > 120) continue;
-      const label = document.createElement('strong');
-      label.textContent = match[0].trimEnd();
-      el.replaceChildren(label, text.slice(match[0].trimEnd().length));
-    }
-    species.sectionBody = root.innerHTML;
-  }
-
-  for (const name of ['Feats', 'Instinct Abilities', 'Additional Features']) {
+  for (const name of ['Feats', 'Instinct Abilities']) {
     const target = sections[name];
     if (!target?.sectionBody) continue;
     const root = fragment(target.sectionBody);
@@ -245,69 +89,6 @@ export function tidyCharacterContent(data) {
     sections.Equipment.sectionBody = root.innerHTML;
   }
 
-  const normalize = text => text.trim().replace(/^[“"']|[”"']$/g, '').trim();
-  const titles = new Set([...CREATION_DATA.classes.map(c => c.Class), ...CREATION_DATA.subclasses.map(c => c.Subclass)]);
-  const flavor = new Set(CREATION_DATA.subclasses.map(c => normalize(c.Description || '')).filter(Boolean));
-  for (const name of ['Class Features', 'Species Features', 'Additional Features']) {
-    const section = sections[name];
-    if (!section?.sectionBody) continue;
-    if (name !== 'Species Features') {
-      const root = fragment(section.sectionBody);
-      for (const el of root.querySelectorAll('p, h2, h3, h4')) {
-        const text = normalize(el.textContent);
-        if (titles.has(text) || flavor.has(text) || text === 'Flavor Text') el.remove();
-      }
-      section.sectionBody = root.innerHTML;
-    }
-    if (sections['Instinct Abilities']?.sectionBody) section.sectionBody = removeDuplicateInstincts(section.sectionBody, sections['Instinct Abilities'].sectionBody);
-    if (name !== 'Species Features') section.sectionBody = removeSkillOnlyFeatures(section.sectionBody);
-    section.sectionBody = formatWarPhrases(section.sectionBody);
-  }
-
-  const features = sections['Class Features'];
-  if (features?.sectionBody) {
-    const additional = sections['Additional Features'];
-    const extra = fragment(additional?.sectionBody);
-    // Recover the familiar moved by the earlier, overly small overflow limit.
-    if (/Student of Magic/.test(features.sectionBody) && !/Fae Familiar/.test(features.sectionBody)
-        && /^Level 2:\s*Fae Familiar/.test(extra.textContent.trim())) {
-      features.sectionBody += extra.innerHTML;
-      extra.replaceChildren();
-    }
-    for (const el of [...extra.querySelectorAll('[data-class-overflow]')]) {
-      features.sectionBody += el.innerHTML;
-      el.remove();
-    }
-    if (additional) additional.sectionBody = extra.innerHTML;
-    const root = fragment(features.sectionBody);
-    let skip = false;
-    for (const el of [...root.children]) {
-      const text = el.textContent.trim();
-      if (/^Level \d+:/.test(text)) skip = /^(?:Level \d+:\s*)Spellcasting$/i.test(text);
-      if (skip || /^Spellcasting[.:]/i.test(text)) el.remove();
-      else if (!text) el.remove();
-    }
-    const groups = [];
-    for (const el of root.children) {
-      if (!groups.length || /^Level \d+:/.test(el.textContent.trim()) || /^(STRONG|B)$/.test(el.firstElementChild?.tagName || '')) groups.push([]);
-      groups.at(-1).push(el.outerHTML);
-    }
-    let kept = '', moved = '';
-    const measure = featureCapacity();
-    // Moderate overflow stays here and uses the existing automatic font fitting.
-    const substantialOverflow = measure.height(root.innerHTML) > measure.capacity * 1.75;
-    for (const group of groups) {
-      const html = group.join('');
-      if (substantialOverflow && kept && (moved || measure.height(kept + html) > measure.capacity)) moved += html;
-      else kept += html;
-    }
-    measure.probe.remove();
-    features.sectionBody = kept;
-    if (moved) {
-      const additional = sections['Additional Features'] ||= { sectionBody: '' };
-      additional.sectionBody = `<div data-class-overflow>${moved}</div>` + (additional.sectionBody || '');
-    }
-  }
   for (const action of sections['Strikes & Damaging Cantrips']?.dynamicRows || []) {
     if (!action.slots) continue;
     action.slots.notes = updateRam(action.slots.notes);
@@ -339,24 +120,6 @@ export function tidyCharacterContent(data) {
       if (!plain(action.slots.notes || '').includes(effect)) action.slots.notes = `${action.slots.notes || ''}\n${label} ${effect}`.trim();
       row.doubleSix = 'See notes';
     }
-  }
-  for (const name of ['Class Features', 'Species Features', 'Additional Features']) {
-    const section = sections[name];
-    if (!section?.sectionBody) continue;
-    section.sectionBody = updateRam(section.sectionBody);
-    const root = fragment(section.sectionBody);
-    for (const el of root.querySelectorAll('p, li, h2, h3, h4')) {
-      if (!/^Level \d+\s*(?::|[—–-])/.test(el.textContent.trim())) continue;
-      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
-      let text;
-      while ((text = walker.nextNode())) {
-        if (!text.textContent.trim()) continue;
-        text.textContent = text.textContent.replace(/^\s*Level \d+\s*(?::|[—–-])\s*/, '');
-        break;
-      }
-    }
-    inlineFeatureLabels(root);
-    section.sectionBody = root.innerHTML;
   }
   return data;
 }

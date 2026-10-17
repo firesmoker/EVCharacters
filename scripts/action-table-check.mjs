@@ -5,21 +5,6 @@ try {
   const page = await browser.newPage();
   await page.goto('http://127.0.0.1:5174/');
   await page.evaluate(async () => {
-    const { tidyCharacterContent } = await import('/src/sheet-content.js');
-    const { default: records } = await import('/src/action-extraction.json');
-    const ram = records.find(a => a.name === 'Ram');
-    const data = { sections: {
-      'Class Features': { sectionBody: `<p><b>You gain the following action:</b></p><p>fa${ram.raw.replaceAll('\n', '')}</p><p>Keep this independent benefit.</p>` },
-      'Strikes & Damaging Cantrips': { dynamicRows: [{ slots: { name: 'Charge' }, variants: ['<strong>Ram:</strong> Full rules here.'] }] },
-    } };
-    const result = tidyCharacterContent(data).sections['Class Features'].sectionBody;
-    if (result.includes('Perform a Charge') || result.includes('faRam') || result.includes('following action')) throw Error('Saved feature still duplicates Ram');
-    if (!result.includes('You gain the Ram variant.') || !result.includes('Keep this independent benefit.')) throw Error('Cleanup removed a separate benefit');
-    const standalone = { sections: { 'Class Features': { sectionBody: `<p>fa${ram.raw.replaceAll('\n', '')}</p>` } } };
-    const full = tidyCharacterContent(standalone).sections['Class Features'].sectionBody;
-    if (!full.includes('Perform a Charge') || full.includes('faRam')) throw Error('Unrepresented action must retain readable rules');
-  });
-  await page.evaluate(async () => {
     const io = await import('/src/io.js');
     const sheet = JSON.parse(io.serializeSheet());
     sheet.sections['Strikes & Damaging Cantrips'].dynamicRows = [{

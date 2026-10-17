@@ -10,6 +10,8 @@ import {
 } from './components.js';
 
 const STRIKES_CANTRIPS_TABLE_SLOT_ORDER = ['weapon', 'speed', 'roll', 'minimum', 'damage', 'range', 'doubleSix'];
+// Keep nonvisual choices with the live sheet, including across module hot reloads.
+const sheetMetadata = () => document.getElementById('app');
 
 const createStrikesCantripsTableRowElement = () => {
   const table = document.createElement('table');
@@ -21,6 +23,7 @@ const createStrikesCantripsTableRowElement = () => {
  * Helper to clear the sheet and optionally restore default rows
  */
 export const prepareSheetForData = (restoreDefaults = false) => {
+  sheetMetadata().creationChoices = null;
   restoreSections();
   writePortrait();
   // Clear headers and fields
@@ -194,6 +197,7 @@ const scrapeDynamicRows = (box, title, data) => {
 export const serializeSheet = () => {
   const data = {
     version: 1,
+    creation: sheetMetadata().creationChoices ? structuredClone(sheetMetadata().creationChoices) : undefined,
     portrait: readPortrait(),
     headers: {},
     sections: {},
@@ -297,16 +301,10 @@ export const loadFromJSON = (jsonString) => {
     instincts.sectionBody = list.children.length ? list.outerHTML : '';
     instincts.dynamicRows = [];
   }
-  const features = data.sections?.['Class Features'];
-  if (features?.sectionBody) {
-    features.sectionBody = features.sectionBody
-      .replace('During Planning, choose a phrase not yet used this combat.', 'During the Beginning Phase, choose a phrase not yet used this combat.')
-      .replace('During the Planning Phase of each round, select a musical phrase', 'During the Beginning Phase of each round, select a musical phrase');
-  }
-
   tidyCharacterContent(data);
   // Clear existing sheet
   prepareSheetForData(false);
+  sheetMetadata().creationChoices = data.creation ? structuredClone(data.creation) : null;
   writePortrait(data.portrait);
 
   // 0. Preferences

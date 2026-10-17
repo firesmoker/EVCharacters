@@ -10,6 +10,7 @@ export function initCreationWizard(save) {
   dialog.setAttribute('aria-labelledby', 'creation-title');
   document.body.append(dialog);
   let state = newCharacter(), step = 0;
+  let rebuilding = false;
   const steps = ['Identity & class', 'Species', 'Subclass', 'Training & feats', 'Spells', 'Equipment', 'Review'];
   const select = (label, key, values, value, extra = '') => `<label class="creation-field">${esc(label)}<select aria-label="${esc(label)}" data-key="${esc(key)}" ${extra}><option value="">Choose…</option>${values.map(v => `<option ${v === value ? 'selected' : ''} value="${esc(v)}">${esc(v)}</option>`).join('')}</select></label>`;
   const input = (label, key, value, extra = '') => `<label class="creation-field">${esc(label)}<input data-key="${esc(key)}" value="${esc(value)}" ${extra}></label>`;
@@ -53,7 +54,7 @@ export function initCreationWizard(save) {
     const scroll = dialog.querySelector('.creation-content')?.scrollTop || 0;
     const activeKey = document.activeElement?.dataset.key;
     const content = [identity, species, subclass, training, spells, equipment, review][step]();
-    dialog.innerHTML = `<header><div><span class="creation-eyebrow">Eternal Valor</span><h2 id="creation-title">Create a character</h2></div><button type="button" data-close aria-label="Close character creation">×</button></header><div class="creation-layout"><nav aria-label="Character creation steps">${steps.map((name, i) => `<button type="button" data-step="${i}" ${i === step ? 'aria-current="step"' : ''}><span>${i + 1}</span>${name}</button>`).join('')}</nav><div class="creation-content">${content}</div></div><footer><span>Step ${step + 1} of ${steps.length}</span><div><button type="button" data-back ${step === 0 ? 'disabled' : ''}>Back</button>${step < steps.length - 1 ? '<button type="button" class="creation-primary" data-next>Continue</button>' : `<button type="button" class="creation-primary" data-create ${validateCharacter(state).length ? 'disabled' : ''}>Create character</button>`}</div></footer>`;
+    dialog.innerHTML = `<header><div><span class="creation-eyebrow">Eternal Valor</span><h2 id="creation-title">${rebuilding ? 'Rebuild character' : 'Create a character'}</h2></div><button type="button" data-close aria-label="Close character creation">×</button></header><div class="creation-layout"><nav aria-label="Character creation steps">${steps.map((name, i) => `<button type="button" data-step="${i}" ${i === step ? 'aria-current="step"' : ''}><span>${i + 1}</span>${name}</button>`).join('')}</nav><div class="creation-content">${content}</div></div><footer><span>Step ${step + 1} of ${steps.length}</span><div><button type="button" data-back ${step === 0 ? 'disabled' : ''}>Back</button>${step < steps.length - 1 ? '<button type="button" class="creation-primary" data-next>Continue</button>' : `<button type="button" class="creation-primary" data-create ${validateCharacter(state).length ? 'disabled' : ''}>${rebuilding ? 'Rebuild character' : 'Create character'}</button>`}</div></footer>`;
     dialog.querySelector('.creation-content').scrollTop = scroll;
     if (activeKey) [...dialog.querySelectorAll('[data-key]')].find(el => el.dataset.key === activeKey)?.focus({ preventScroll: true });
   }
@@ -107,13 +108,19 @@ export function initCreationWizard(save) {
     if (button.hasAttribute('data-close')) { dialog.close(); return; }
     if (button.hasAttribute('data-create')) {
       if (validateCharacter(state).length) { render(); return; }
-      if (!confirm('Create this character and replace the current sheet? The current sheet will be saved as a local recovery copy.')) return;
+      if (!confirm(rebuilding ? 'Rebuild using the current rules and your selected choices? Manual changes to features, equipment, and other sheet fields will be replaced. Portrait, appearance, and experience will be preserved. A recovery copy will be saved.' : 'Create this character and replace the current sheet? The current sheet will be saved as a local recovery copy.')) return;
       const data = buildCharacter(state);
       // Save before replacement; if storage fails, leave the existing sheet intact.
       try {
         const backup = serializeSheet();
         localStorage.setItem('ev-before-character-creation', backup);
         data.preferences = { ...JSON.parse(backup).preferences, ...data.preferences };
+        if (rebuilding) {
+          const previous = JSON.parse(backup);
+          data.portrait = previous.portrait;
+          data.preferences = previous.preferences;
+          data.headers.experience = previous.headers.experience;
+        }
       }
       catch { alert('Could not save a recovery copy. Save your current sheet to a file before trying again.'); return; }
       loadFromJSON(JSON.stringify(data)); save(); dialog.close(); state = newCharacter(); step = 0; return;
@@ -123,5 +130,16 @@ export function initCreationWizard(save) {
     if (button.hasAttribute('data-back')) step--;
     render(); dialog.querySelector('.creation-content').scrollTop = 0;
   });
-  return () => { render(); if (!dialog.open) dialog.showModal(); };
+  return (sheet) => {
+    if (!sheet && rebuilding) { state = newCharacter(); step = 0; }
+    rebuilding = Boolean(sheet);
+    if (sheet) {
+      state = { ...newCharacter(), ...structuredClone(sheet.creation) };
+      if (!classFor(state) || !speciesFor(state)) { alert('The saved class or species is no longer in the current rules. The sheet has not been changed.'); return; }
+      state.name = sheet.headers['character-name'] || state.name;
+      state.player = sheet.headers['player-name'] || state.player;
+      step = steps.length - 1;
+    }
+    render(); if (!dialog.open) dialog.showModal();
+  };
 }

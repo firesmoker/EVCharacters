@@ -1599,9 +1599,9 @@ At any point during the round, you may spend 1 Instinct and lose 2 HP to immedia
 
 #### Level 3: Ultimate: Whirlwind
 
-**Fast Action ◆ Costs 5 Rage ◆ Range: Melee**
+**Special Action ◆ Fast ◆ Costs 5 Rage ◆ Range: Melee**
 
-Spend 5 Rage to perform a Melee Strike against every enemy within your melee range. Roll Melee once and compare the result against each target's Deflection. Apply your normal Melee Strike damage and effects to each target: full damage on success, or half as much damage on failure, rounded down. On success, apply your usual Double 6 effects if you rolled a Double 6.
+Spend 5 Rage to perform a Melee Strike against every enemy within your melee range. Roll Melee once and compare the result against each target's Deflection. Apply your normal Melee Strike damage and effects to each target: full damage on success, or half as much damage on failure, rounded down. If you roll a Double 6, apply your usual Melee Strike Double 6 effects to each target, regardless of whether the roll succeeds against it.
 
 
 ## Bard

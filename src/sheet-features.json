@@ -1184,7 +1184,7 @@
       {
         "level": 3,
         "name": "Ultimate: Whirlwind",
-        "html": "<p><strong>Ultimate: Whirlwind:</strong> You gain the Whirlwind Melee Strike variant.</p>",
+        "html": "<p><strong>Ultimate: Whirlwind:</strong> You gain the Whirlwind special action.</p>",
         "actions": [
           "Whirlwind"
         ]

@@ -90,6 +90,10 @@ try {
       if (/Weapon Throw|Bomb Throw|Alchemy:/.test(sheet.sections['Additional Features'].sectionBody)) throw Error('Skill training dumped into features');
     }
     const sample = subclass => cases.find(sheet => sheet.headers.subclass === subclass && sheet.headers.level === '3');
+    const berserkerActions = actions(sample('Berserker'));
+    const whirlwind = berserkerActions.find(a => a.slots.name === 'Whirlwind');
+    if (!whirlwind || !whirlwind.slots.rollDescription.includes('5 Rage') || !whirlwind.slots.notes.includes('regardless of whether the roll succeeds')) throw Error('Whirlwind must be a standalone action with unconditional Double 6');
+    if (berserkerActions.some(a => a.variants.some(v => v.includes('Whirlwind')))) throw Error('Whirlwind is not a variant');
     const featureText = sheet => ['Class Features','Species Features','Additional Features'].map(n=>sheet.sections[n].sectionBody).join('');
     assertFeature(sample('Worldshaper'), 'Earth Bending', 'immediately cast it a second time');
     assertFeature(sample('Fae Trickster'), 'Fidgety', '1 additional Instinct');
@@ -123,7 +127,6 @@ try {
       ['Archer', 'Walking Ballista', 'Ranged Strike', 'Power Shot'],
       ['Archer', 'Walking Ballista', 'Bomb Throw', 'Bomb Slinging'],
       ['Archer', 'Bowslinger', 'Ranged Strike', 'Multishot'],
-      ['Barbarian', 'Berserker', 'Melee Strike', 'Whirlwind'],
       ['Barbarian', 'Berserker', 'Charge', 'Ram'],
       ['Barbarian', 'Berserker', 'Grapple', 'Aggressive Grapple'],
       ['Barbarian', 'Berserker', 'Weapon Throw', 'Enraged Toss'],
@@ -167,6 +170,7 @@ try {
     }
     if (!actions(barbarian).find(a => a.slots.name === 'Charge').variants.some(v => v.includes('2 Extra Dice') && !v.includes('+1 damage'))) throw Error('Ram must grant Extra Dice');
     if (actions(barbarian).some(a => a.variants.some(v => /Enraged Toss|Whirlwind/.test(v)))) throw Error('Locked variants should not be granted');
+    if (actions(barbarian).some(a => a.slots.name === 'Whirlwind')) throw Error('Whirlwind granted before Berserker');
     io.loadFromJSON(JSON.stringify(barbarian));
     const barbarianSaved = JSON.parse(io.serializeSheet());
     if (!actions(barbarianSaved).find(a => a.slots.name === 'Charge').ui.tableHidden) throw Error('Hidden table state lost');

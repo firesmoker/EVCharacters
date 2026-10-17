@@ -75,7 +75,7 @@ try {
     try { m.sheetFeatureHTML('{{choices.missing}}', {}); } catch { missingChoice = true; }
     if (!missingChoice) throw Error('Missing feature choice silently accepted');
     for (const sheet of cases) {
-      if (sheet.sections['Equipment Proficiencies'].dynamicRows.some(r => /^none$/i.test(r.values[0]))) throw Error('None is not a Drag entry');
+      if (/^none$/i.test(sheet.sections['Equipment Proficiencies'].fields['Drags Ignored'])) throw Error('None is not a Drag entry');
       const spells = sheet.sections['Spells Known'].dynamicRows.map(r => r.values);
       for (let i = 1; i < spells.length; i++) {
         const [a, b] = [spells[i - 1], spells[i]];

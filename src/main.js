@@ -13,7 +13,7 @@ import { initSheetTools } from './sheet-tools.js';
 import { SKILLS_LIST, COMBAT_SKILLS_LIST, BONUS_LIST, DRAGS_IGNORED_LIST, SPELLS_LIST } from './data.js';
 import { SPELLS_DATABASE } from './spells_data.js';
 import { 
-  renderApp, renderSkillRow, renderDragsIgnoredRow, 
+  renderApp, renderSkillRow,
   renderSpellRow, renderRowForSection, renderVariantActionRow,
   renderSpellDescriptionBlock, renderHeader, renderStrikesCantripsTableRow
 } from './components.js';

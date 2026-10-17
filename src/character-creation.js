@@ -256,7 +256,7 @@ export function buildCharacter(s) {
   const drags = names(c['Drags Ignored']).filter(name => !/^none$/i.test(name));
   if (s.feats.includes('Heavy Swinger')) drags.push('Heavy Weapons');
   if (s.feats.includes('Shooter')) drags.push('Ranged Weapons');
-  prof.dynamicRows = [...new Set(drags)].map(n => ({ type: 'skill', values: [n] }));
+  prof.fields['Drags Ignored'] = [...new Set(drags)].join(', ');
   const selectedFeatures = [
     ...(SHEET_FEATURES.classes[s.className] || []),
     ...(SHEET_FEATURES.subclasses[sub?.Subclass] || []),

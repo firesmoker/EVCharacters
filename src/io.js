@@ -143,10 +143,7 @@ const scrapeSplitFields = (box, title, data) => {
 
 const scrapeDynamicRows = (box, title, data) => {
   const section = getSectionData(data, title);
-  // Keep Drag entries in their existing saved location after moving their UI.
-  const rowRoot = title === 'Speed' ? document.querySelector('.drags-ignored') : box;
-  rowRoot.querySelectorAll('.skill-row, .strikes-cantrips-container').forEach(row => {
-    if (title !== 'Speed' && row.closest('.drags-ignored')) return;
+  box.querySelectorAll('.skill-row, .strikes-cantrips-container').forEach(row => {
     if (row.classList.contains('skill-row')) {
       const inputs = Array.from(row.querySelectorAll('input, textarea'));
       if (inputs.length === 0) return;
@@ -334,6 +331,13 @@ export const loadFromJSON = (jsonString) => {
 
   if (!data.sections) return;
 
+  const equipment = data.sections['Equipment Proficiencies'];
+  if (equipment && !Object.hasOwn(equipment.fields || {}, 'Drags Ignored')) {
+    equipment.fields ||= {};
+    const rows = [...(equipment.dynamicRows || []), ...(data.sections.Speed?.dynamicRows || [])];
+    equipment.fields['Drags Ignored'] = [...new Set(rows.map(row => row.values?.[0]?.trim()).filter(value => value && !/^none$/i.test(value)))].join(', ');
+  }
+
   Object.entries(data.sections).forEach(([title, section]) => {
     const boxes = boxesByTitle[title] || [];
     boxes.forEach(box => {
@@ -387,9 +391,7 @@ export const loadFromJSON = (jsonString) => {
 
       // Dynamic Rows
       if (section.dynamicRows) {
-        const container = title === 'Speed'
-          ? document.querySelector('.drags-ignored .dynamic-rows')
-          : box.querySelector('.dynamic-rows');
+        const container = box.querySelector('.dynamic-rows');
         if (container) {
           section.dynamicRows.forEach(rowData => {
             const html = renderRowForSection(title);

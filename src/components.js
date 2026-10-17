@@ -57,17 +57,6 @@ export const renderSkillRow = (type = 'skills') => {
 }
 
 /**
- * Renders a row for the Drags Ignored subsection.
- */
-export const renderDragsIgnoredRow = () => `
-  <div class="skill-row">
-    ${renderAutocomplete("Drag Source", "drags", "skill-name")}
-    <button class="remove-row-btn" title="Remove Row">-</button>
-    <button class="add-row-btn" title="Add Row">+</button>
-  </div>
-`
-
-/**
  * Renders a row for the Spells Known section.
  */
 export const renderSpellRow = () => `
@@ -254,9 +243,9 @@ export const renderEquipmentProficienciesSection = () => `
       </div>
     </div>
     <div class="drags-ignored">
-    <div class="section-subsection-label" title="Each point of Drag slows an action by one speed level, to a minimum of Slow. Each additional point adds a penalty of 1 to the Slow action's roll.">Drags Ignored:</div>
-    <div class="dynamic-rows">
-      ${renderDragsIgnoredRow()}
+    <div class="section-row">
+      <span class="section-label">Drags Ignored:</span>
+      <span class="editable-field" contenteditable="true" aria-label="Drags Ignored" data-placeholder="—"></span>
     </div>
     </div>
   </div>
@@ -614,8 +603,6 @@ export const renderRowForSection = (title) => {
   const templates = {
     'Standard Skills': () => renderSkillRow('skills'),
     'Combat Skills': () => renderSkillRow('combat'),
-    'Speed': () => renderDragsIgnoredRow(),
-    'Equipment Proficiencies': () => renderDragsIgnoredRow(),
     'Strikes & Damaging Cantrips': () => renderStrikesDamagingCantripsBlock(),
     'Spells Known': () => renderSpellRow()
   };

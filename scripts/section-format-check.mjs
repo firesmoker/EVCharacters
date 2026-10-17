@@ -65,7 +65,7 @@ try {
     const standard = [...document.querySelectorAll('[data-section="standard-skills"] input')].every(el => !el.value);
     return { grew, skillLayout, counts, heights, overflow, mode, actions, spells, additional, feats, compact, necromancy, notes, combat, standard, restored, autoRestored, legacyDefaultsSmart, saved: JSON.parse(saved) };
   }, data);
-  assert.deepEqual(result.counts, [5, 11, 3]);
+  assert.deepEqual(result.counts, [5, 11]);
   assert(result.skillLayout.every(section => section.rowsFit && section.fonts.every(size => size >= 13)), JSON.stringify(result.skillLayout));
   assert(result.mode && result.restored);
   assert(result.grew, 'Auto sections should use spare page space');

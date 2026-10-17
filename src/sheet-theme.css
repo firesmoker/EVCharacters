@@ -64,7 +64,7 @@
 }
 .sheet-identity { flex: 1; min-width: 0; }
 .character-page { gap: 1mm; }
-.character-page > .sheet-header { margin-bottom: 2mm; }
+.character-page > .sheet-header { margin-bottom: 0; padding-bottom: 0; }
 .sheet-header { position: relative; }
 .portrait-toggle { position: absolute; left: -9mm; top: 0; transform: translateX(-100%); white-space: nowrap; font: 12px var(--readable-font); color: #e9dfca; background: #2b2826; padding: 2px 5px; border-radius: 3px; cursor: pointer; }
 .portrait-toggle input { vertical-align: middle; }

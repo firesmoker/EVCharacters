@@ -122,5 +122,89 @@
     "speed": "Fast",
     "cost": "1 AP",
     "description": "Spend 1 AP to perform a Ranged Strike against two enemies using the same roll. You deal half your normal Ranged Strike damage to each target, rounded up."
+  },
+  {
+    "name": "Prayer",
+    "owner": "",
+    "speed": "Fast",
+    "summary": "Cost: 1 / Combat · Range: 20 Units · Speed: Fast · Costs Faith",
+    "description": "Choose a Prayer option. You must spend its required associated Faith cost to perform it.\nDomain Weapons (1 Faith): Until the end of the next round, party members may replace Strike damage with Radiant or your domain damage and gain 2 Extra Dice against your domain’s opposition.\nMartial Guidance (2 Faith): Party members gain advantage on all attacks until the end of the round.\nGuarding Light (2 Faith): Attacks against party members have disadvantage until the end of the round."
+  },
+  {
+    "name": "Sliding Shot",
+    "owner": "",
+    "speed": "Fast",
+    "summary": "Cost: 1 / Combat · Speed: Fast · Uses movement",
+    "description": "Double your movement for the round and move at least 3 units. Then, if you did, perform a Ranged Strike against a target within 3 units of you. You have advantage for this strike. You then become Prone."
+  },
+  {
+    "name": "Cleave",
+    "owner": "",
+    "speed": "Fast",
+    "summary": "Cost: 1 Rage · Speed: Fast · Area: Burst 1",
+    "description": "Roll Melee with a penalty of 2 against Deflection for all creatures within range. On success, deal your standard Melee Strike damage; on failure, deal half as much damage, rounded down. On success, if you roll a double 6, also apply your Melee Strike Double 6 effects."
+  },
+  {
+    "name": "Animal Strike",
+    "owner": "",
+    "speed": "Fast",
+    "summary": "Speed: Fast",
+    "description": "Strike an enemy within melee range. Roll Magic against Deflection. On success, deal SD damage. On failure, deal half as much damage, rounded down. The damage type is appropriate to the animal form (crushing, piercing, or slashing). Deal -1 damage if you are Small. On success, if you roll a double 6, activate the effect associated with your chosen animal form."
+  },
+  {
+    "name": "Renewal",
+    "owner": "",
+    "speed": "Fast",
+    "summary": "Speed: Fast · Range: Touch",
+    "description": "Spend any amount of devotion points. Heal the target for the same amount."
+  },
+  {
+    "name": "Sphere of Protection",
+    "owner": "",
+    "speed": "Fast",
+    "summary": "Cost: 2 Devotion Points · Speed: Fast · Range: 6 units",
+    "description": "Choose a creature within range (including yourself). Attacks against them suffer disadvantage until the end of the next two rounds."
+  },
+  {
+    "name": "Fae Dust Cloud",
+    "owner": "",
+    "speed": "Fast",
+    "summary": "Cost: 1 / Combat · Speed: Fast · Range: Self",
+    "description": "You sprinkle Fae dust around yourself in a radius of 2 units centered on yourself. Roll Deception against Will against each enemy in the area. Those you succeed against become Disoriented (1 penalty to all rolls) until the end of the next round."
+  },
+  {
+    "name": "Forceful Maneuver",
+    "owner": "",
+    "speed": "Fast",
+    "summary": "Speed: Fast",
+    "description": "Choose a target within one unit of yourself.  If it's an enemy, roll Unarmed against Deflection. On success, you push or pull that target up to 3 units. You may make the push or pull as forceful (if the target is pushed or pulled against a surface, they receive 1 damage. If they are pushed or pulled against another creature, they both receive 1 damage). The target must be up to one size larger than you."
+  },
+  {
+    "name": "Fiery Eruption",
+    "owner": "Pyre",
+    "speed": "Slow",
+    "summary": "Slow Action; costs 8 Rage",
+    "description": "Spend 8 Rage to unleash flames on every other creature within 2 units of you. You are not affected. Roll Athletics once and compare the result against each target's Deflection. On success, the target takes 2 Fire damage and is force-pushed 1 unit away from you. On failure, it takes half as much damage, rounded down, and is not pushed."
+  },
+  {
+    "name": "Force Arrow",
+    "owner": "Arcane Archer",
+    "speed": "Average",
+    "summary": "Special / Trick Shot ◆ Average Action ◆ 1 AP (provisional)",
+    "description": "Spend 1 AP to fire a magical arrow that hits automatically. Roll Ranged without the Extra Dice granted by your weapon, and deal SD Force damage."
+  },
+  {
+    "name": "Exploding Arrow",
+    "owner": "Arcane Archer",
+    "speed": "Average",
+    "summary": "Special / Trick Shot ◆ Average Action ◆ 2 AP",
+    "description": "Spend 2 AP to fire an arrow that explodes in a cube measuring 2 units on each side. Roll Ranged once and compare the result against each enemy's Deflection in the area. On success, it takes 2 Fire damage. On failure, it takes half as much damage, rounded down."
+  },
+  {
+    "name": "Thunder Arrow",
+    "owner": "Arcane Archer",
+    "speed": "Average",
+    "summary": "Trick Shot ◆ Average Action ◆ 2 AP",
+    "description": "Spend 2 AP to fire an arrow that releases a thunderous blast in a cube measuring 3 units on each side. Roll Ranged once and compare the result against each enemy's Deflection in the area. On success, an enemy of your size or smaller becomes Prone."
   }
 ]

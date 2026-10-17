@@ -67,6 +67,10 @@ body {
   font-size: 14px;
 }
 
+.menu-item[hidden] {
+  display: none;
+}
+
 .menu-item:hover {
   background-color: #f5f5f5;
 }

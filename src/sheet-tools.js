@@ -8,10 +8,37 @@ let queued = false;
 export function logicalSections() { return [...document.querySelectorAll('.section-box')]; }
 export function clearSectionSnapshot() {}
 export function restoreSections() {
+  const actions = document.querySelector('.actions-page:not([data-action-continuation]) .dynamic-rows');
+  document.querySelectorAll('[data-action-continuation]').forEach(page => {
+    if (actions) actions.append(...page.querySelector('.dynamic-rows').children);
+    page.remove();
+  });
   document.querySelectorAll('[data-auto-fit]').forEach(column => {
     column.removeAttribute('data-auto-fit');
     column.style.removeProperty('--fit-scale');
   });
+}
+
+function paginateActions() {
+  if (!isFixedSize()) { restoreSections(); return; }
+  const first = document.querySelector('.actions-page:not([data-action-continuation])');
+  if (!first) return;
+  const pages = [first, ...document.querySelectorAll('[data-action-continuation]')];
+  const rows = pages.flatMap(page => [...page.querySelector('.dynamic-rows').children]);
+  const count = Math.max(1, Math.ceil(rows.length / 4));
+  while (pages.length < count) {
+    const page = first.cloneNode(true);
+    page.setAttribute('data-action-continuation', '');
+    page.querySelector('.sheet-column').replaceChildren();
+    page.querySelector('.dynamic-rows').replaceChildren();
+    pages.at(-1).after(page);
+    pages.push(page);
+  }
+  rows.forEach((row, index) => {
+    const list = pages[Math.floor(index / 4)].querySelector('.dynamic-rows');
+    if (row.parentElement !== list) list.append(row);
+  });
+  pages.slice(count).forEach(page => page.remove());
 }
 
 export function paginateSheets() {
@@ -20,7 +47,8 @@ export function paginateSheets() {
   // Floating controls must not count toward printable content height.
   document.documentElement.setAttribute('data-measuring-sheet', '');
   try {
-    for (const page of roots) {
+    paginateActions();
+    for (const page of document.querySelectorAll('.a4-page:not(.spell-page)')) {
       const bottom = page.getBoundingClientRect().bottom - 36;
       for (const column of page.querySelector('.sheet-middle').children) {
         column.querySelectorAll('[data-auto-fit]').forEach(el => { el.removeAttribute('data-auto-fit'); el.style.removeProperty('--fit-scale'); });

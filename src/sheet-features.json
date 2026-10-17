@@ -1830,84 +1830,78 @@
       {
         "level": 1,
         "name": "Ferocious",
-        "html": "",
+        "html": "<p><strong>Ferocious:</strong> Grants the Strike True Instinct ability. (See its description under Instinct Abilities.)</p>",
         "instincts": [
           {
             "name": "Strike True (1 / Day)",
             "html": "<li><strong>Strike True (1 / Day):</strong> When performing Melee Strike, Unarmed Strike, Ranged Strike, or Weapon Throw, roll with advantage.</li>"
           }
-        ],
-        "omitReason": "Shown in Instinct Abilities."
+        ]
       }
     ],
     "Focused": [
       {
         "level": 1,
         "name": "Focused",
-        "html": "",
+        "html": "<p><strong>Focused:</strong> Grants the Cast Marvelously Instinct ability. (See its description under Instinct Abilities.)</p>",
         "instincts": [
           {
             "name": "Cast Marvelously (1 / Day)",
             "html": "<li><strong>Cast Marvelously (1 / Day):</strong> When performing Cast a Cantrip, Cast a Spell, or Bomb Throw, roll with advantage.</li>"
           }
-        ],
-        "omitReason": "Shown in Instinct Abilities."
+        ]
       }
     ],
     "Inspired": [
       {
         "level": 1,
         "name": "Inspired",
-        "html": "",
+        "html": "<p><strong>Inspired:</strong> Grants the Become Inspired Instinct ability. (See its description under Instinct Abilities.)</p>",
         "instincts": [
           {
             "name": "Become Inspired (1 / Day)",
             "html": "<li><strong>Become Inspired (1 / Day):</strong> When rolling a Standard Skill, roll with advantage. Usable outside combat.</li>"
           }
-        ],
-        "omitReason": "Shown in Instinct Abilities."
+        ]
       }
     ],
     "Courageous Leader": [
       {
         "level": 1,
         "name": "Courageous Leader",
-        "html": "",
+        "html": "<p><strong>Courageous Leader:</strong> Grants the Instill Courage Instinct ability. (See its description under Instinct Abilities.)</p>",
         "instincts": [
           {
             "name": "Instill Courage",
             "html": "<li><strong>Instill Courage:</strong> During the Action Phase, choose an ally within range and roll Leadership. Shorten its Frightened and Discouraged durations by 1 round per SD.</li>"
           }
-        ],
-        "omitReason": "Shown in Instinct Abilities."
+        ]
       }
     ],
     "Demoralize": [
       {
         "level": 1,
         "name": "Demoralize",
-        "html": "",
+        "html": "<p><strong>Demoralize:</strong> Grants the Demoralize Instinct ability. (See its description under Instinct Abilities.)</p>",
         "instincts": [
           {
             "name": "Demoralize",
             "html": "<li><strong>Demoralize:</strong> During the Beginning Phase, choose an enemy within 6 units and roll Intimidation against Will. On success, it becomes Discouraged SD until the end of the round. Once per enemy per combat.</li>"
           }
-        ],
-        "omitReason": "Shown in Instinct Abilities."
+        ]
       }
     ],
     "Push Through Pain": [
       {
         "level": 1,
         "name": "Push Through Pain",
-        "html": "",
+        "html": "<p><strong>Push Through Pain:</strong> Grants the Push Through Instinct ability. (See its description under Instinct Abilities.)</p>",
         "instincts": [
           {
             "name": "Push Through (1 / Day)",
             "html": "<li><strong>Push Through (1 / Day):</strong> During the Action Phase, roll 4d6 and heal SD HP.</li>"
           }
-        ],
-        "omitReason": "Shown in Instinct Abilities."
+        ]
       }
     ]
   }

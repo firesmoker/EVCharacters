@@ -4,6 +4,9 @@ const read = path => JSON.parse(fs.readFileSync(path, 'utf8').replace(/^\uFEFF/,
 const features = read('src/sheet-features.json');
 const rules = read('src/creation-data.json');
 const actions = read('src/creation-actions.json');
+for (const feat of rules.feats) {
+  assert(features.feats[feat.Feat]?.some(record => record.html.includes(`<strong>${feat.Feat}:</strong>`)), `Feat must remain visible: ${feat.Feat}`);
+}
 for (const [group, source, key] of [['classes',rules.classes,'Class'], ['subclasses',rules.subclasses,'Subclass'], ['species',rules.species,'Species'], ['feats',rules.feats,'Feat']]) {
   for (const entity of source) assert(Array.isArray(features[group][entity[key]]), `Missing feature data: ${entity[key]}`);
   for (const [owner, records] of Object.entries(features[group])) for (const feature of records) {

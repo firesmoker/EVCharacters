@@ -24,6 +24,7 @@ Each class, subclass, and species has an array of records:
 - `instincts` contains named, finished list-item HTML for the Instinct Abilities section. Nested options belong inside that item. Spell-based Instinct references are still added from the selected spells.
 - `instinctOptions` adds authored nested options to a named ability (for example Holy Decrees under Rally); `actionOptions` adds rules to a named action (Alacrity under Prayer).
 - `feats` contains the authored Feats text and feat-granted Instincts. Creator requirements are not printed on the sheet.
+- Every selected feat must remain visible in Feats. When its ability is detailed elsewhere, use a minimal grant/reference instead of omitting the feat or duplicating the full ability.
 - Empty `html` has an `omitReason` recording where the benefit is represented. Mixed features retain their passive benefit and separately supply their Instincts.
 - `level: null` means the source has not assigned an unlock level. Preserve the data without granting the feature at an invented level.
 

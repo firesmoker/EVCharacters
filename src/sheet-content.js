@@ -1,4 +1,5 @@
 import { SPELLS_DATABASE } from './spells_data.js';
+import { richTextHTML } from './sheet-paste.js';
 
 const fragment = html => {
   const el = document.createElement('div');
@@ -118,6 +119,8 @@ export function tidyCharacterContent(data) {
       if (!plain(action.slots.notes || '').includes(effect)) action.slots.notes = `${action.slots.notes || ''}\n${label} ${effect}`.trim();
       row.doubleSix = 'See notes';
     }
+    for (const name of ['rollDescription', 'notes']) if (action.slots[name]) action.slots[name] = richTextHTML(action.slots[name]);
+    action.variants = (action.variants || []).map(richTextHTML);
   }
   return data;
 }

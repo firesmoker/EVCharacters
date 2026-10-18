@@ -396,7 +396,7 @@
           "slots": {
             "name": "Elemental Flare",
             "rollDescription": "Roll Magic +3 against Deflection.",
-            "notes": "Shoot an elemental flare at a creature you can see within range. Choose its damage type: Lightning, Fire or Ice.\n\nOn success, deal SD damage of the chosen type, or half as much on failure, rounded down.\nDouble 6: Depending on the damage type, the target also:\n  • Fire: the target becomes Burning 1 until the end of the round (receive 1 Fire damage at the end of the round)\n  • Lightning: the target becomes Disoriented 1 (-1 to all rolls) until the end of the next round\n  • Ice: the target becomes Chilled 2 (-2 Movement) until the end of the next round"
+            "notes": "<p>Shoot an elemental flare at a creature you can see within range. Choose its damage type: Lightning, Fire or Ice.</p><p>On success, deal SD damage of the chosen type, or half as much on failure, rounded down.</p><p>Double 6: Depending on the damage type, the target also:</p><ul><li>Fire: the target becomes Burning 1 until the end of the round (receive 1 Fire damage at the end of the round)</li><li>Lightning: the target becomes Disoriented 1 (-1 to all rolls) until the end of the next round</li><li>Ice: the target becomes Chilled 2 (-2 Movement) until the end of the next round</li></ul>"
           },
           "tableRows": [
             {

@@ -21,12 +21,34 @@ export function pasteMarkup(html) {
 
 export function richTextHTML(value) {
   const text = String(value ?? '');
-  if (/<\/?(?:p|div|br|ul|ol|li|b|strong|i|em|u|s|strike|sub|sup)\b/i.test(text)) return pasteMarkup(text);
   const root = document.createElement('div');
-  for (const line of text.split(/\n+/).filter(line => line.trim())) {
-    const paragraph = document.createElement('p');
-    paragraph.textContent = line;
-    root.append(paragraph);
+  if (/<\/?(?:p|div|br|ul|ol|li|b|strong|i|em|u|s|strike|sub|sup)\b/i.test(text)) root.innerHTML = pasteMarkup(text);
+  else {
+    for (const line of text.split(/\n+/).filter(line => line.trim())) {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = line;
+      root.append(paragraph);
+    }
+  }
+  for (const parent of [root, ...root.querySelectorAll('div')]) {
+    let list;
+    for (const child of [...parent.children]) {
+      const marker = /^(?:P|DIV)$/.test(child.tagName) && !child.querySelector('p, div, ul, ol')
+        && child.textContent.match(/^[ \t]*(?:[•●▪◦]|[-*])[ \t]+/);
+      if (!marker) { list = null; continue; }
+      if (!list) { list = document.createElement('ul'); child.before(list); }
+      const prefix = document.createRange();
+      prefix.setStart(child, 0);
+      const walker = document.createTreeWalker(child, NodeFilter.SHOW_TEXT);
+      let remaining = marker[0].length, node;
+      while ((node = walker.nextNode())) {
+        if (node.length >= remaining) { prefix.setEnd(node, remaining); break; }
+        remaining -= node.length;
+      }
+      prefix.deleteContents();
+      const item = document.createElement('li');
+      item.append(...child.childNodes); list.append(item); child.remove();
+    }
   }
   return root.innerHTML;
 }

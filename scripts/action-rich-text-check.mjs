@@ -7,6 +7,23 @@ try {
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(process.env.EV_TEST_URL || 'http://127.0.0.1:5174/');
   await page.evaluate(async () => {
+    const { richTextHTML } = await import('/src/sheet-paste.js');
+    const root = document.createElement('div');
+    root.innerHTML = richTextHTML('<p>Choices:</p><p>• <strong>Fire:</strong> burn</p><p>• Ice: chill</p><p>-1 to the roll.</p>');
+    if (root.querySelectorAll('ul > li').length !== 2 || !root.querySelector('li strong')) throw Error('Convert fake bullets and preserve emphasis');
+    if (!root.lastElementChild.textContent.startsWith('-1')) throw Error('Do not convert numeric penalties');
+    if (richTextHTML(root.innerHTML) !== root.innerHTML) throw Error('Real lists must remain unchanged');
+    const { cantripAction } = await import('/src/cantrip-action.js');
+    const { SPELLS_DATABASE } = await import('/src/spells_data.js');
+    const { tidyCharacterContent } = await import('/src/sheet-content.js');
+    for (const [name, count] of [['Elemental Flare',3], ['Magic Tricks',6], ['Minor Illusion',2], ['Mold Earth',2], ['Thaumaturgy',6]]) {
+      const action = cantripAction(SPELLS_DATABASE.find(spell => spell.name === name));
+      tidyCharacterContent({ sections:{ 'Strikes & Damaging Cantrips':{dynamicRows:[action]} } });
+      root.innerHTML = action.slots.notes;
+      if (root.querySelectorAll('ul > li').length !== count || root.textContent.includes('•')) throw Error(`${name}: use real bullets`);
+    }
+  });
+  await page.evaluate(async () => {
     const { prepareSheetForData } = await import('/src/io.js');
     const { renderVariantActionRow } = await import('/src/components.js');
     prepareSheetForData(true);

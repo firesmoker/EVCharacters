@@ -18,6 +18,8 @@ try {
  assert.equal(await block.locator('[data-slot="speed"]').innerText(),'Fast');
  assert.equal(await block.locator('[data-slot="doubleSix"]').innerText(),'See notes');
  assert.match(await block.locator('[data-slot="notes"]').innerText(),/Double 6:/);
+ assert.equal(await block.locator('[data-slot="notes"] ul > li').count(),3);
+ assert(!await block.locator('[data-slot="notes"]').innerText().then(text=>text.includes('•')));
  await page.keyboard.press('Control+z');
  assert.equal(await block.locator('[data-slot="name"]').innerText(),'');
  await page.keyboard.press('Control+y');

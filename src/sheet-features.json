@@ -219,10 +219,7 @@
       {
         "level": 1,
         "name": "Prayer",
-        "html": "<p><strong>Prayer:</strong> Start each combat with 1 Faith and gain 1 Faith whenever you perform an action. Spend Faith on Prayer options; see the Prayer action.</p>",
-        "actions": [
-          "Prayer"
-        ]
+        "html": "<p><strong>Prayer:</strong> Start each combat with 1 Faith and gain 1 Faith whenever you perform an action. Once per combat, use a Fast action to choose a Prayer option, spending its Faith cost. Range: 20 units.</p><ul><li><strong>Domain Weapons (1 Faith):</strong> Until the end of the next round, party members may replace Strike damage with Radiant or your domain damage and gain 2 Extra Dice against your domain’s opposition.</li><li><strong>Martial Guidance (2 Faith):</strong> Party members gain advantage on all attacks until the end of the round.</li><li><strong>Guarding Light (2 Faith):</strong> Attacks against party members have disadvantage until the end of the round.</li></ul>"
       },
       {
         "level": 2,
@@ -732,13 +729,7 @@
       {
         "level": 3,
         "name": "Divine Conduit",
-        "html": "<p><strong>Divine Conduit:</strong> You may use Prayer one additional time per combat and gain its Alacrity option.</p>",
-        "actionOptions": [
-          {
-            "action": "Prayer",
-            "html": "Alacrity (1 Faith): Your party members gain +2 Movement until the end of the round."
-          }
-        ]
+        "html": "<p><strong>Divine Conduit:</strong> You may use Prayer one additional time per combat. You gain the Alacrity option (1 Faith): your party members gain +2 Movement until the end of the round.</p>"
       },
       {
         "level": 3,

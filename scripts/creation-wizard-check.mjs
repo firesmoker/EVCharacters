@@ -27,7 +27,7 @@ try {
         s.choices[g.id] = selected;
       }
       for (let i = 0; i < m.spellPlan(s).groups.length; i++) {
-        const g = m.spellPlan(s).groups[i]; s.spells[g.id] = g.options.slice(0, g.count).map(sp => sp.name);
+        const g = m.spellPlan(s).groups[i]; s.spells[g.id] = [...g.options].sort((a,b) => (g.availableFrom[a.name] || 0) - (g.availableFrom[b.name] || 0)).slice(0, g.count).map(sp => sp.name);
       }
       s.equipment.weapon = m.equipmentPlan(s).choices[0] || '';
       return s;
@@ -101,8 +101,8 @@ try {
       if (!featureText(sheet).includes(`<strong>${label}:</strong> ${text}`) && !featureText(sheet).includes(text)) throw Error(`Missing passive benefit: ${label}`);
     }
     const exarch=sample('Exarch');
-    if(featureText(exarch).includes('party members gain +2 Movement')) throw Error('Prayer option duplicated in features');
-    if(!actions(exarch).find(a=>a.slots.name==='Prayer')?.slots.notes.includes('Alacrity (1 Faith)')) throw Error('Alacrity not in Prayer');
+    if(!featureText(exarch).includes('party members gain +2 Movement')) throw Error('Missing Alacrity in features');
+    if(actions(exarch).some(a=>a.slots.name==='Prayer')) throw Error('Prayer is not a Strike or damaging cantrip');
     const justiciar=sample('Justiciar');
     if(featureText(justiciar).includes('Decree of the Fair Fight')) throw Error('Rally options duplicated in features');
     const rally=document.createElement('div');rally.innerHTML=justiciar.sections['Instinct Abilities'].sectionBody;
@@ -165,8 +165,10 @@ try {
     const barbarian = m.buildCharacter(fill({ ...m.newCharacter(), className: 'Barbarian', species: 'Human', level: 1 }));
     for (const name of ['Charge', 'Grapple']) {
       const action = actions(barbarian).find(a => a.slots.name === name);
-      if (!action.ui.tableHidden || !/^(Fast|Average) Action/.test(action.slots.rollDescription)) throw Error(`${name} needs text metadata and no table`);
-      if (/<br>|^(Fast|Average) Action/.test(action.slots.notes)) throw Error(`${name} contains HTML or duplicated speed`);
+      const summary = document.createElement('div'), notes = document.createElement('div');
+      summary.innerHTML = action.slots.rollDescription; notes.innerHTML = action.slots.notes;
+      if (!action.ui.tableHidden || !/^(Fast|Average) Action/.test(summary.textContent)) throw Error(`${name} needs text metadata and no table`);
+      if (notes.textContent.includes('<br>') || /^(Fast|Average) Action/.test(notes.textContent)) throw Error(`${name} contains literal HTML or duplicated speed`);
     }
     if (!actions(barbarian).find(a => a.slots.name === 'Charge').variants.some(v => v.includes('2 Extra Dice') && !v.includes('+1 damage'))) throw Error('Ram must grant Extra Dice');
     if (actions(barbarian).some(a => a.variants.some(v => /Enraged Toss|Whirlwind/.test(v)))) throw Error('Locked variants should not be granted');

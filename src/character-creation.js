@@ -52,7 +52,8 @@ export function specialChoices(s) {
 // Missing progression is deliberately provisional, never presented as a published rule.
 export function progression(s) {
   const c = classFor(s), row = DATA.progression.find(p => p.Class === s.className && +p.Level === +s.level);
-  const magic = startingMagic[s.className] || (s.subclass === 'Witchblade' ? [2, 2, 2] : [0, 0, 0]);
+  const magic = startingMagic[s.className] || (s.subclass === 'Witchblade' && s.level >= 3 ? [2, 2, 2] : [0, 0, 0]);
+  const subclassCaster = !startingMagic[s.className] && magic[0] > 0;
   const placeholders = [];
   function value(key, fallback, missing = true) {
     if (row?.[key] !== undefined && row[key] !== '') return Number(String(row[key]).replace('Rank ', ''));
@@ -61,14 +62,14 @@ export function progression(s) {
   }
   const hp = value('HP', +c.HP + Math.floor(s.level / 2), s.level > 1);
   const instinct = Math.max(1, value('Instinct', 1 + (s.level >= 7 ? 1 : 0), s.level > 1));
-  const growth = s.level - (s.subclass === 'Witchblade' ? 3 : 1);
+  const growth = s.level - (subclassCaster ? 3 : 1);
   return {
     hp: s.level === 1 ? +c.HP : hp,
     instinct: instinct + (['Sentinel', 'Fae Trickster'].includes(s.subclass) ? 1 : 0),
     points: magic[0] ? value('Spell Points', magic[0] + growth, growth > 0) : 0,
     spells: magic[1] ? value('Spells Known', magic[1] + growth, growth > 0) : 0,
     cantrips: magic[2] ? value('Cantrips Known', magic[2] + Math.floor(Math.max(0, growth) / 2), growth > 0) : 0,
-    rank: value('Max Spell Rank', Math.ceil(s.level / 2), false),
+    rank: subclassCaster ? Math.floor(s.level / 3) : value('Max Spell Rank', Math.ceil(s.level / 2), false),
     devotion: s.className === 'Paladin' ? value('Devotion Points', s.level + 2) : 0,
     summons: value('Summon Slots', 0) + (s.subclass === 'Shephard' ? 1 : 0),
     concoctionPoints: s.className === 'Alchemist' ? value('Concoction Points', 4) : 0,
@@ -138,7 +139,8 @@ export function skillChoiceWarning(s, groupId, index) {
 export function eligibleFeat(feat, s) {
   const skills = skillPlan(s).fixed;
   const trained = skill => (skills[skill] || 3) >= 4;
-  if (/Level 2/i.test(feat.Requirements) && s.level < 2) return false;
+  const requiredLevel = Number(feat.Requirements.match(/Level\s+(\d+)/i)?.[1] || 1);
+  if (s.level < requiredLevel) return false;
   if (feat.Feat === 'Actor') return (trained('Deception') || trained('Performance')) && trained('Disguise');
   const req = feat.Requirements.match(/Trained in (.+)$/i)?.[1];
   return !req || req.split(/ or |, /).some(trained);
@@ -155,7 +157,25 @@ export function spellPlan(s) {
     const options = SPELLS_DATABASE.filter(spell => !spell.exclusive && (cantrip ? spell.rank === 'Cantrip' : spell.rank !== 'Cantrip' && +spell.rank <= stats.rank)
       && Number(spell.requirements?.match(/Level (\d+)/i)?.[1] || 1) <= s.level
       && spell.spellType.split('/').some(t => types.includes(t.trim())) && !known.has(spell.name));
-    groups.push({ id, label, count: Math.min(options.length, Math.max(0, remaining)), unfilled: Math.max(0, remaining - options.length), options });
+    const learningLimits = [], availableFrom = {};
+    if (id === 'class-spells') {
+      for (const spell of options) availableFrom[spell.name] = Array.from({ length: s.level }, (_, i) => i + 1).find(level => {
+        const then = progression({ ...s, level });
+        return then.spells > 0 && then.rank >= +spell.rank && level >= Number(spell.requirements?.match(/Level (\d+)/i)?.[1] || 1);
+      });
+      for (let level = 2; level <= s.level; level++) {
+        const previous = progression({ ...s, level: level - 1 }).spells;
+        if (previous > 0) learningLimits.push({ level, count: Math.min(stats.spells, Math.max(0, stats.spells - previous) + s.level - level + 1) });
+      }
+    }
+    const choices = { id, label, count: Math.min(options.length, Math.max(0, remaining)), unfilled: Math.max(0, remaining - options.length), options, learningLimits, availableFrom };
+    const capacity = [];
+    for (const spell of [...options].sort((a, b) => (availableFrom[a.name] || 0) - (availableFrom[b.name] || 0))) {
+      if (spellChoiceAllowed(choices, capacity, spell.name)) capacity.push(spell.name);
+    }
+    choices.count = capacity.length;
+    choices.unfilled = Math.max(0, remaining - choices.count);
+    groups.push(choices);
     for (const name of s.spells[id] || []) if (options.some(x => x.name === name)) addKnown(name, label);
   }
   if (affinity[s.species]) group('species-cantrips', `${s.species} cantrips`, 2, [affinity[s.species]], true);
@@ -167,6 +187,11 @@ export function spellPlan(s) {
   if (s.subclass === 'Chronomancer') group('chrono', 'Secrets of Chronomancy', 2, ['Chrono'], false);
   if (s.feats.includes('Arcane Detection')) addKnown('Detect Magic', 'Arcane Detection feat; see feat rules');
   return { groups, known };
+}
+
+export function spellChoiceAllowed(group, selected, name) {
+  const choices = [...new Set([...selected, name])];
+  return choices.length <= group.count && group.learningLimits.every(limit => choices.filter(n => group.availableFrom[n] >= limit.level).length <= limit.count);
 }
 
 export function equipmentPlan(s) {
@@ -227,6 +252,7 @@ export function validateCharacter(s) {
   for (const g of spellPlan(s).groups) {
     const selected = s.spells[g.id] || [];
     if (selected.length !== g.count || new Set(selected).size !== g.count || selected.some(n => !g.options.some(sp => sp.name === n))) errors.push(`Choose ${g.count} for ${g.label}.`);
+    for (const limit of g.learningLimits) if (selected.filter(n => g.availableFrom[n] >= limit.level).length > limit.count) errors.push(`${g.label}: choose at most ${limit.count} spells that first become available at level ${limit.level} or later.`);
   }
   const equipment = equipmentPlan(s);
   if (equipment.choices.length && !equipment.choices.includes(s.equipment.weapon)) errors.push('Choose your starting weapon.');

@@ -2075,12 +2075,6 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
   </tr>
 </table>
 
-- Unleash: When you roll, add 1 Extra Dice.
-
-- Evade: When you are attacked, gain +1 Deflection against the attack.
-
-- Still Mind: When you are attacked, gain +1 Will against the attack.
-
 #### Level 3: Subclasses
 
 Choose one cleric subclass.
@@ -2100,12 +2094,6 @@ You also get the following option for Prayer:
 - Alacrity [Costs 1 Faith]: Your party members get +2 Movement until the end of the round.
 
 #### Level 3: Radiating Devotion
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Unleash: When you roll, add 1 Extra Dice.<br>- Evade: When you are attacked, gain +1 Deflection against the attack.<br>- Still Mind: When you are attacked, gain +1 Will against the attack.</td>
-  </tr>
-</table>
 
 You can instill divine motivation in allies in your vicinity. Whenever one or more allies within 8 units of you roll using Intimidation, Athletics, Acrobatics, or Performance, you may immediately spend 1 Spell Point to provide them with advantage on their roll.
 
@@ -2129,12 +2117,6 @@ You learn the Thaumaturgy cantrip. If you already know it, you learn another Div
 Casting Thaumaturgy requires no time or effort, and you may do so any time you could normally speak. When you cast it, you can choose as many of its effects as you wish as part of a single casting.
 
 #### Level 3: Forbidden Target
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Unleash: When you roll, add 1 Extra Dice.<br>- Evade: When you are attacked, gain +1 Deflection against the attack.<br>- Still Mind: When you are attacked, gain +1 Will against the attack.</td>
-  </tr>
-</table>
 
 When an enemy attacks you, you may spend 1 Instinct and 1 Spell Point. Roll Magic against Will.
 
@@ -2170,12 +2152,6 @@ You gain proficiency with medium armor.
 Additionally, your spellcasting is interrupted only after you receive 3 damage instead of 2.
 
 #### Level 3: Combat Vitality
-
-<table>
-  <tr>
-    <td>Instinct Abilities<br>- Unleash: When you roll, add 1 Extra Dice.<br>- Evade: When you are attacked, gain +1 Deflection against the attack.<br>- Still Mind: When you are attacked, gain +1 Will against the attack.</td>
-  </tr>
-</table>
 
 Whenever you perform an action during combat that doesn't require you to spend Spell Points, you may spend 1 Instinct and at least 1 Spell Point to heal an ally other than yourself within 8 units of you. You heal them for 2 health points for each Spell Point spent.
 
@@ -3442,6 +3418,8 @@ Spell Points: 2 / Day (must rest to regain)
 Spells Learned: 2 Occult Spells
 
 Cantrips Learned: 2 Occult Cantrips.
+
+Witchblade unlocks Rank 1 spells at level 3, Rank 2 at level 6, and Rank 3 at level 9.
 
 #### Level 3: Eldritch Tactics
 
@@ -4735,7 +4713,9 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 
 ## Spell Rank and Requirements
 
-Spell rank is a category of spell power. All spellcasters unlock Rank 1 at level 1, Rank 2 at level 3, Rank 3 at level 5, Rank 4 at level 7, and Rank 5 at level 9. You must also meet each spell’s Requirements; any minimum character level is listed there.
+Spell rank is a category of spell power. Classes that grant spellcasting at level 1 unlock Rank 1 at level 1, Rank 2 at level 3, Rank 3 at level 5, Rank 4 at level 7, and Rank 5 at level 9. The default for subclasses that first grant spellcasting at level 3 is Rank 1 at level 3, Rank 2 at level 6, and Rank 3 at level 9. You must also meet each spell’s Requirements; any minimum character level is listed there.
+
+Whenever you gain a level, you may replace one known spell with another spell you are eligible to learn. The replacement may be of a higher rank, provided you have unlocked that rank and meet the spell’s Requirements.
 
 ## Spells Lists by Type
 

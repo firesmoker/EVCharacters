@@ -3,7 +3,7 @@ const { chromium } = await import(process.env.EV_PLAYWRIGHT_MODULE || 'playwrigh
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 try {
   const page = await browser.newPage();
-  await page.goto('http://127.0.0.1:5174/');
+  await page.goto(process.env.EV_TEST_URL || 'http://127.0.0.1:5174/');
   await page.evaluate(async () => {
     const io = await import('/src/io.js');
     const sheet = JSON.parse(io.serializeSheet());
@@ -14,7 +14,7 @@ try {
     io.loadFromJSON(JSON.stringify(sheet));
   });
   const action = page.locator('.strikes-cantrips-container').filter({ has: page.locator('[data-slot="name"]', { hasText: 'Charge' }) }).first();
-  assert.equal(await action.locator('[data-slot="notes"]').innerText(), 'Double your Movement score.\nMove as close as possible.');
+  assert.deepEqual(await action.locator('[data-slot="notes"] p').allTextContents(), ['Double your Movement score.', 'Move as close as possible.']);
   assert.equal(await action.locator('[data-slot="rollDescription"]').innerText(), 'Average Action ◆ Uses movement');
   assert.equal(await action.locator('.strikes-cantrips-table-line').isVisible(), false);
   await action.hover();

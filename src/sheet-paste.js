@@ -19,6 +19,18 @@ export function pasteMarkup(html) {
   return doc.body.innerHTML;
 }
 
+export function richTextHTML(value) {
+  const text = String(value ?? '');
+  if (/<\/?(?:p|div|br|ul|ol|li|b|strong|i|em|u|s|strike|sub|sup)\b/i.test(text)) return pasteMarkup(text);
+  const root = document.createElement('div');
+  for (const line of text.split(/\n+/).filter(line => line.trim())) {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = line;
+    root.append(paragraph);
+  }
+  return root.innerHTML;
+}
+
 export function initSheetPaste() {
   document.querySelector('#app').addEventListener('paste', event => {
     const field = event.target.closest('[contenteditable="true"]');

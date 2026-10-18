@@ -20,6 +20,12 @@ export function initSheetHistory(onRestore) {
         const range = selection.getRangeAt(0), before = range.cloneRange();
         before.selectNodeContents(field); before.setEnd(range.startContainer, range.startOffset);
         result.start = before.toString().length; result.end = result.start + range.toString().length;
+        const element = range.startContainer.nodeType === Node.TEXT_NODE ? range.startContainer.parentElement : range.startContainer;
+        const emptyItem = element.closest('li');
+        if (emptyItem && !emptyItem.textContent) {
+          const parts = isBody ? [...document.querySelectorAll(`[data-section="${section}"] .section-content`)] : [field];
+          result.emptyListItem = parts.flatMap(part => [...part.querySelectorAll('li')]).indexOf(emptyItem);
+        }
         if (isBody) {
           for (const part of document.querySelectorAll(`[data-section="${section}"] .section-content`)) {
             if (part === field) break;
@@ -39,6 +45,14 @@ export function initSheetHistory(onRestore) {
     targets = targets.filter(Boolean);
     if (!targets.length) return;
     const field = targets[0];
+    if (Number.isInteger(mark.emptyListItem)) {
+      const item = targets.flatMap(target => [...target.querySelectorAll('li')])[mark.emptyListItem];
+      if (item && !item.textContent) {
+        item.closest('[contenteditable="true"]').focus({ preventScroll: true });
+        getSelection().collapse(item, 0);
+        return;
+      }
+    }
     if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
       field.focus({ preventScroll: true });
       if (mark.start !== null) field.setSelectionRange(mark.start, mark.end);

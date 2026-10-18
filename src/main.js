@@ -594,7 +594,7 @@ const handleClick = (e) => {
  * Global Keydown Handler
  */
 const handleGlobalKeydown = (e) => {
-  const richField = e.target.closest('.section-content[contenteditable="true"], .variant-action-text[contenteditable="true"]');
+  const richField = e.target.closest('.rich-text[contenteditable="true"]');
   if (richField && e.key === ' ' && !e.isComposing && !e.ctrlKey && !e.metaKey && !e.altKey) {
     const selection = getSelection();
     if (selection?.isCollapsed && selection.rangeCount && richField.contains(selection.anchorNode)) {
@@ -605,11 +605,33 @@ const handleGlobalKeydown = (e) => {
         const prefix = caret.cloneRange();
         prefix.selectNodeContents(block);
         prefix.setEnd(caret.startContainer, caret.startOffset);
-        if (prefix.toString() === '*') {
+        const lastBreak = [...block.querySelectorAll('br')].filter(br => prefix.intersectsNode(br)).at(-1);
+        if (lastBreak) prefix.setStartAfter(lastBreak);
+        let startsAfterBreak = Boolean(lastBreak);
+        const text = prefix.toString(), newline = text.lastIndexOf('\n');
+        if (newline >= 0 && caret.startContainer.nodeType === Node.TEXT_NODE && caret.startOffset >= text.length - newline - 1) {
+          prefix.setStart(caret.startContainer, caret.startOffset - (text.length - newline - 1));
+          startsAfterBreak = true;
+        }
+        if (/^\s*\*$/.test(prefix.toString())) {
           e.preventDefault();
           richField.dispatchEvent(new CustomEvent('sheet-edit-start', { bubbles: true }));
-          document.execCommand('insertUnorderedList', false, null);
+          selection.removeAllRanges();
+          selection.addRange(prefix);
           document.execCommand('delete', false, null);
+          if (!richField.hasChildNodes()) {
+            richField.innerHTML = '<ul><li></li></ul>';
+            selection.collapse(richField.querySelector('li'), 0);
+          } else {
+            if (startsAfterBreak) {
+              document.execCommand('delete', false, null);
+              document.execCommand('insertParagraph', false, null);
+            }
+            const current = selection.anchorNode?.nodeType === Node.TEXT_NODE ? selection.anchorNode.parentElement : selection.anchorNode;
+            const paragraph = current?.closest('p');
+            if (paragraph && richField.contains(paragraph)) document.execCommand('formatBlock', false, 'div');
+            document.execCommand('insertUnorderedList', false, null);
+          }
           richField.dispatchEvent(new CustomEvent('sheet-edit-end', { bubbles: true }));
           autoSave();
           return;

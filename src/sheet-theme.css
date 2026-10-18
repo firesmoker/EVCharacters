@@ -543,11 +543,12 @@
 [data-section='spells-known'] .skill-header-row > div:nth-child(4) { flex: 1 1 0 !important; min-width: 0; }
 
 .page-corner { filter: var(--ornament-filter, none); }
-[data-auto-fit] .section-content.editable-field p,
-[data-auto-fit] .section-content.editable-field div { margin: 0 0 calc(6px * var(--fit-scale)); }
-.section-content.editable-field > :last-child { margin-bottom: 0; }
-.section-content.editable-field ul, .variant-action-text ul { list-style: disc outside; padding-left: 1.5em; margin: .35em 0 .5em; }
-.section-content.editable-field li, .variant-action-text li { padding-left: .15em; margin-block: .3em; }
+.a4-page .rich-text { font-size: 13px; line-height: 1.4; white-space: pre-wrap; }
+[data-auto-fit] .rich-text p,
+[data-auto-fit] .rich-text div { margin: 0 0 calc(6px * var(--fit-scale)); }
+.rich-text > :last-child { margin-bottom: 0; }
+.rich-text ul { list-style: disc outside; padding-left: 1.5em; margin: .35em 0 .5em; }
+.rich-text li { padding-left: .15em; margin-block: .3em; }
 .color-menu { min-width: 205px; max-height: min(640px, calc(100vh - 55px)); overflow-y: auto; }
 .color-menu > div { display: flex; align-items: center; gap: 9px; white-space: nowrap; }
 .color-swatch { width: 15px; height: 15px; border: 1px solid #0002; border-radius: 50%; flex: none; }

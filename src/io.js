@@ -4,6 +4,7 @@ import { readPortrait, writePortrait } from './portrait.js';
 import { applyAccent, DEFAULT_ACCENT } from './accent.js';
 import { setSectionSize, isFixedSize } from './section-format.js';
 import { tidyCharacterContent } from './sheet-content.js';
+import { richTextHTML } from './sheet-paste.js';
 import {
   renderRowForSection,
   renderVariantActionRow,
@@ -158,7 +159,7 @@ const scrapeDynamicRows = (box, title, data) => {
         if (!slotName) return;
         const isTableField = Boolean(field.closest('.strikes-cantrips-slots-table'));
         if (!isTableField) {
-          slots[slotName] = field.innerText;
+          slots[slotName] = field.classList.contains('rich-text') ? field.innerHTML : field.innerText;
         }
       });
 
@@ -414,7 +415,8 @@ export const loadFromJSON = (jsonString) => {
                 if (!slotName) return;
                 const isTableField = Boolean(field.closest('.strikes-cantrips-slots-table'));
                 if (!isTableField && slots.hasOwnProperty(slotName)) {
-                  field.innerText = slots[slotName];
+                  if (field.classList.contains('rich-text')) field.innerHTML = richTextHTML(slots[slotName]);
+                  else field.innerText = slots[slotName];
                 }
               });
 
@@ -511,7 +513,7 @@ export const loadFromJSON = (jsonString) => {
 
   // Final cleanup
   document.querySelectorAll('.editable-field').forEach(el => {
-    if (el.innerText.trim() === '') {
+    if (el.innerText.trim() === '' && !(el.classList.contains('rich-text') && el.querySelector('li'))) {
       el.innerText = '';
       el.replaceChildren();
     }

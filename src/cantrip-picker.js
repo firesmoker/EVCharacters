@@ -2,6 +2,7 @@ import { SPELLS_DATABASE } from './spells_data.js';
 import { cantripAction } from './cantrip-action.js';
 import { tidyCharacterContent } from './sheet-content.js';
 import { renderStrikesDamagingCantripsBlock } from './components.js';
+import { richTextHTML } from './sheet-paste.js';
 
 export function initCantripPicker(save) {
   const dialog = document.createElement('dialog');
@@ -38,7 +39,9 @@ export function initCantripPicker(save) {
     target.classList.add('weapon-column-hidden');
     target.querySelector('.weapon-column-toggle-btn').textContent = 'Show Weapon';
     for (const [slot, value] of Object.entries({ ...action.slots, ...action.tableRows[0] })) {
-      target.querySelector(`[data-slot="${slot}"]`).innerText = value;
+      const field = target.querySelector(`[data-slot="${slot}"]`);
+      if (field.classList.contains('rich-text')) field.innerHTML = richTextHTML(value);
+      else field.innerText = value;
     }
     target.dispatchEvent(new CustomEvent('sheet-edit-end', { bubbles: true }));
     target.dispatchEvent(new Event('input', { bubbles: true }));

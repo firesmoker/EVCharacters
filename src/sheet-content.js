@@ -93,12 +93,10 @@ export function tidyCharacterContent(data) {
     if (!action.slots) continue;
     action.slots.notes = updateRam(action.slots.notes);
     action.variants = (action.variants || []).map(updateRam);
-    // These slots store plain text, unlike the rich-text variant fields.
-    if (/<br\s*\/?\s*>/i.test(action.slots.notes || '')) action.slots.notes = plain(action.slots.notes.replace(/<br\s*\/?\s*>/gi, '\n'));
     if (['Charge', 'Grapple', 'Bomb Throw', 'Weapon Throw'].includes(action.slots.name)
         && /^(Fast|Average|Slow) Action/.test(action.slots.notes || '')
         && !(action.tableRows || []).some(row => row.weapon || row.roll || row.damage || row.range)) {
-      const lines = action.slots.notes.split('\n');
+      const lines = action.slots.notes.replace(/<br\s*\/?\s*>/gi, '\n').split('\n');
       const summary = lines.shift();
       action.slots.rollDescription ||= summary;
       action.slots.notes = lines.join('\n');

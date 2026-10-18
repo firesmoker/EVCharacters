@@ -179,7 +179,7 @@ export const renderSection = (title, content, options = {}) => {
   const { isStructured = false, isDynamic = false, style = '' } = options;
   const contentClasses = [
     'section-content',
-    isStructured ? 'section-content-structured' : 'editable-field',
+    isStructured ? 'section-content-structured' : 'editable-field rich-text',
     isDynamic ? 'allow-section-overflow' : ''
   ].filter(Boolean).join(' ');
 
@@ -315,7 +315,7 @@ export const renderSpellPointSummary = () => `
  */
 export const renderVariantActionRow = () => `
   <div class="variant-action-row" style="display: flex; align-items: center; margin-top: 4px; gap: 4px;">
-    <div class="editable-field variant-action-text" contenteditable="true" data-placeholder="Variant..." style="flex-grow: 1;"></div>
+    <div class="editable-field variant-action-text rich-text" contenteditable="true" data-placeholder="Variant..." style="flex-grow: 1;"></div>
     <button class="remove-variant-btn" title="Remove Variant" style="font-size: 10px; cursor: pointer;">-</button>
   </div>
 `
@@ -349,7 +349,7 @@ export const renderStrikesDamagingCantripsBlock = () => `
     </div>
     <div class="strikes-cantrips-roll-description-line">
       <div class="strikes-cantrips-slot slot-roll-description">
-        <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="rollDescription" data-placeholder="roll description"></div>
+        <div class="editable-field strikes-cantrips-slot-value rich-text" contenteditable="true" data-slot="rollDescription" data-placeholder="roll description"></div>
       </div>
     </div>
     <div class="strikes-cantrips-table-line">
@@ -386,7 +386,7 @@ export const renderStrikesDamagingCantripsBlock = () => `
     </div>
     <div class="strikes-cantrips-notes-line">
       <div class="strikes-cantrips-slot slot-notes">
-        <div class="editable-field strikes-cantrips-slot-value" contenteditable="true" data-slot="notes" data-placeholder="notes"></div>
+        <div class="editable-field strikes-cantrips-slot-value rich-text" contenteditable="true" data-slot="notes" data-placeholder="notes"></div>
       </div>
     </div>
     <div class="variants-region variants-hidden">

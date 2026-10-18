@@ -5,12 +5,12 @@ try {
   const page = await browser.newPage({ viewport: { width: 1400, height: 1000 } });
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
-  await page.goto('http://127.0.0.1:5174/');
+  await page.goto(process.env.EV_TEST_URL || 'http://127.0.0.1:5174/');
   const result = await page.evaluate(async () => {
     const m = await import('/src/character-creation.js');
     function fill(s) {
       s.name = 'Wizard Test'; s.languages = 'Common';
-      s.feats = ['Tough', ...(s.species === 'Human' ? ['Focused'] : []), (s.level >= 2 ? 'Deep Sleep' : 'Pet')];
+      s.feats = ['Tough', ...(s.species === 'Human' ? ['Focused'] : []), 'Pet', ...(s.level >= 2 ? ['Deep Sleep'] : [])];
       s.choices.craft = ['Smithing'];
       for (const g of m.specialChoices(s)) s.choices[g.id] = g.options.slice(0,g.count);
       for (let pass = 0; pass < 3; pass++) for (const g of m.skillPlan(s).groups) {
@@ -60,7 +60,7 @@ try {
     }
     const actions = sheet => sheet.sections['Strikes & Damaging Cantrips'].dynamicRows;
     const assured = fill({ ...m.newCharacter(), className: 'Barbarian', species: 'Human', level: 2 });
-    assured.feats = ['Assurance', 'Tough', 'Focused'];
+    assured.feats = ['Assurance', 'Tough', 'Focused', 'Deep Sleep'];
     assured.choices.assurance = ['Athletics'];
     const assuredSheet = m.buildCharacter(assured);
     if (!assuredSheet.sections.Feats.sectionBody.includes('For Athletics, you may forgo rolling')) throw Error('Assurance choice missing');
@@ -86,8 +86,8 @@ try {
       for (const name of awaitData.DEFAULT_COMBAT_SKILLS) if (!combat.includes(name)) throw Error(`Missing default combat skill: ${name}`);
       const grapple = actions(sheet).find(a => a.slots.name === 'Grapple');
       if (grapple && !grapple.slots.notes.includes('Roll Unarmed against')) throw Error('Grapple must use Unarmed');
-      if (JSON.stringify(sheet.sections).includes('{{choices.')) throw Error('Unresolved feature placeholder');
-      if (/Weapon Throw|Bomb Throw|Alchemy:/.test(sheet.sections['Additional Features'].sectionBody)) throw Error('Skill training dumped into features');
+      if (/\{\{(?:choices|progression)\./.test(JSON.stringify(sheet.sections))) throw Error('Unresolved feature placeholder');
+      if (/(?:Weapon Throw|Bomb Throw|Alchemy):\s*(?:Expert|Adept|Untrained)/.test(sheet.sections['Additional Features'].sectionBody)) throw Error('Skill training dumped into features');
     }
     const sample = subclass => cases.find(sheet => sheet.headers.subclass === subclass && sheet.headers.level === '3');
     const berserkerActions = actions(sample('Berserker'));

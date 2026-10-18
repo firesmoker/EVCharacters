@@ -690,7 +690,7 @@ Drags Ignored: Heavy Weapons
 
 #### Feats
 
-At level 1, choose one Minor Feat for which you meet the requirements. You gain this feat in addition to your Origin Feat and the features granted by your class and species.
+At level 1, choose one Minor Feat for which you meet the requirements. At level 2, choose one additional Minor Feat. These feats are in addition to your Origin Feat and the features granted by your class and species.
 
 # Character Origin
 
@@ -1040,6 +1040,26 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
 
 - Still Mind: When you are attacked, gain +1 Will against the attack.
 
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Concoction Points | Concoctions Known | Minor Feats |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 4 | 4 | 1 |
+| 2 | 5 | 1 | 5 | 5 | 2 |
+| 3 | 6 | 1 | 7 | 6 | 2 |
+| 4 | 6 | 1 | 8 | 7 | 2 |
+| 5 | 7 | 1 | 10 | 8 | 2 |
+| 6 | 7 | 1 | 11 | 9 | 2 |
+| 7 | 8 | 2 | 13 | 10 | 2 |
+| 8 | 8 | 2 | 14 | 11 | 2 |
+| 9 | 9 | 2 | 16 | 12 | 2 |
+| 10 | 10 | 2 | 18 | 14 | 2 |
+
+Higher-level Instinct values remain provisional.
+
+
 ## Archer
 
 Roles: Damage, Interruption
@@ -1118,7 +1138,7 @@ You may use martial weapons.
 
 #### Level 1: Trick Shots
 
-You start each combat with 3 Archery Points (AP). You may spend them to use various powerful actions. You get more Trick Points as you level up, as seen in the progression table.
+You start each combat with 3 Archery Points (AP). Spend AP on abilities that list an AP cost. Your pool increases as shown in the progression table and resets at the start of each combat.
 
 You gain the following Ranged Strike variants and actions:
 
@@ -1352,6 +1372,25 @@ Spend 1 Instinct to freeze a path beneath you and slide along it as you move. Ga
 
 At any point during the round, spend 1 Instinct and 2 AP to gain +2 Deflection and immunity to the Magic Missile spell until the end of the round.
 
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Archery Points | Minor Feats |
+| --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 3 | 1 |
+| 2 | 5 | 1 | 3 | 2 |
+| 3 | 6 | 1 | 3 | 2 |
+| 4 | 6 | 1 | 4 | 2 |
+| 5 | 7 | 1 | 4 | 2 |
+| 6 | 7 | 1 | 4 | 2 |
+| 7 | 8 | 2 | 5 | 2 |
+| 8 | 8 | 2 | 5 | 2 |
+| 9 | 9 | 2 | 5 | 2 |
+| 10 | 10 | 2 | 6 | 2 |
+
+Higher-level Instinct values remain provisional.
+
 
 ## Barbarian
 
@@ -1435,7 +1474,7 @@ You may use martial weapons.
 
 #### Level 1: Push Through Pain
 
-You start each combat with 3 temporary hit points. At the end of the combat, you lose all temporary hit points.
+You start each combat with temporary hit points as shown in the progression table, beginning with 3 at level 1. At the end of combat, you lose all remaining temporary hit points.
 
 #### Level 1: Rage
 
@@ -1603,6 +1642,23 @@ At any point during the round, you may spend 1 Instinct and lose 2 HP to immedia
 
 Spend 5 Rage to perform a Melee Strike against every enemy within your melee range. Roll Melee once and compare the result against each target's Deflection. Apply your normal Melee Strike damage and effects to each target: full damage on success, or half as much damage on failure, rounded down. If you roll a Double 6, apply your usual Melee Strike Double 6 effects to each target, regardless of whether the roll succeeds against it.
 
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Starting Temporary HP | Minor Feats |
+| --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 3 | 1 |
+| 2 | 6 | 1 | 3 | 2 |
+| 3 | 6 | 1 | 3 | 2 |
+| 4 | 7 | 1 | 4 | 2 |
+| 5 | 8 | 1 | 4 | 2 |
+| 6 | 8 | 2 | 5 | 2 |
+| 7 | 9 | 2 | 5 | 2 |
+| 8 | 10 | 2 | 6 | 2 |
+| 9 | 11 | 2 | 7 | 2 |
+| 10 | 12 | 3 | 8 | 2 |
+
 
 ## Bard
 
@@ -1687,6 +1743,8 @@ The Bard uses his voice and magical instrument to perform his magic using the Ma
 - Can cast Bardic Cantrips.
 
 - Can cast Bardic Spells using Spell Points.
+
+Summon Slots: At level 3, you gain 1 summon slot.
 
 Spell Points: 2
 Spells Learned: 3 Bardic Spells
@@ -1807,18 +1865,21 @@ If you were already Expert (5d6) in the chosen skill, you become Adept (4d6) in 
 
 ### Resource / Spell Progression Table
 
-| Level | Instinct | Spell Points | Spells Known | Cantrips Known |
-| --- | --- | --- | --- | --- |
-| 1 | 1 | 2 | 3 | 2 |
-| 2 | 1 | 3 | 4 | 2 |
-| 3 | 1 | 4 | 6 | 3 |
-| 4 | 1 | 5 | 7 | 3 |
-| 5 | 1 | 6 | 9 | 4 |
-| 6 | 1 | 7 | 10 | 4 |
-| 7 | 2 | 8 | 12 | 5 |
-| 8 | 2 | 9 | 13 | 5 |
-| 9 | 2 | 10 | 15 | 6 |
-| 10 | 2 | 12 | 18 | 7 |
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank | Summon Slots | Minor Feats |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 2 | 3 | 2 | Rank 1 | 0 | 1 |
+| 2 | 5 | 1 | 3 | 4 | 2 | Rank 1 | 0 | 2 |
+| 3 | 6 | 1 | 4 | 6 | 3 | Rank 2 | 1 | 2 |
+| 4 | 6 | 1 | 5 | 7 | 3 | Rank 2 | 1 | 2 |
+| 5 | 7 | 1 | 6 | 9 | 4 | Rank 3 | 1 | 2 |
+| 6 | 7 | 1 | 7 | 10 | 4 | Rank 3 | 1 | 2 |
+| 7 | 8 | 2 | 8 | 12 | 5 | Rank 4 | 1 | 2 |
+| 8 | 8 | 2 | 9 | 13 | 5 | Rank 4 | 1 | 2 |
+| 9 | 9 | 2 | 10 | 15 | 6 | Rank 5 | 1 | 2 |
+| 10 | 10 | 2 | 12 | 18 | 7 | Rank 5 | 1 | 2 |
+
 
 ## Cleric
 
@@ -2126,18 +2187,21 @@ When you cast Cure normally as a Fast Action, you may heal two targets, as if yo
 
 ### Resource / Spell Progression Table
 
-| Level | Instinct | Spell Points | Spells Known | Cantrips Known |
-| --- | --- | --- | --- | --- |
-| 1 | 1 | 3 | 3 | 3 |
-| 2 | 1 | 4 | 4 | 3 |
-| 3 | 1 | 5 | 6 | 4 |
-| 4 | 1 | 6 | 7 | 4 |
-| 5 | 1 | 7 | 9 | 5 |
-| 6 | 1 | 8 | 10 | 5 |
-| 7 | 2 | 9 | 12 | 6 |
-| 8 | 2 | 10 | 13 | 7 |
-| 9 | 2 | 11 | 15 | 8 |
-| 10 | 2 | 12 | 18 | 9 |
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank | Minor Feats |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 3 | 3 | 3 | Rank 1 | 1 |
+| 2 | 5 | 1 | 4 | 4 | 3 | Rank 1 | 2 |
+| 3 | 6 | 1 | 5 | 6 | 4 | Rank 2 | 2 |
+| 4 | 6 | 1 | 6 | 7 | 4 | Rank 2 | 2 |
+| 5 | 7 | 1 | 7 | 9 | 5 | Rank 3 | 2 |
+| 6 | 7 | 1 | 8 | 10 | 5 | Rank 3 | 2 |
+| 7 | 8 | 2 | 9 | 12 | 6 | Rank 4 | 2 |
+| 8 | 8 | 2 | 10 | 13 | 7 | Rank 4 | 2 |
+| 9 | 9 | 2 | 11 | 15 | 8 | Rank 5 | 2 |
+| 10 | 10 | 2 | 12 | 18 | 9 | Rank 5 | 2 |
+
 
 ## Druid
 
@@ -2223,7 +2287,7 @@ The Druid connects with nature to perform magic using the Magic skill.
 - Can cast Nature Spells using Spell Points.
 
 Spell Points: 3 / Day (must rest to regain)
-Spells Learned: 4 Nature Spells
+Spells Learned: 3 Nature Spells
 Cantrips Learned: Speak with Animals and two other Nature cantrips of your choice (Vine Whip is recommended). If another source provides you with Speak with Animals, choose another Nature cantrip.
 
 Summon Slots: You have 1 summon slot that can be used for spells that require it.
@@ -2337,6 +2401,26 @@ You may cast spells while shapeshifted into Small or larger animals.
 
 While shapeshifted, you may speak telepathically with any number of creatures within 30 units of you.
 
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank | Summon Slots | Minor Feats |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 3 | 3 | 3 | Rank 1 | 1 | 1 |
+| 2 | 5 | 1 | 4 | 4 | 3 | Rank 1 | 1 | 2 |
+| 3 | 6 | 1 | 5 | 6 | 4 | Rank 2 | 1 | 2 |
+| 4 | 6 | 1 | 6 | 7 | 4 | Rank 2 | 1 | 2 |
+| 5 | 7 | 1 | 7 | 9 | 5 | Rank 3 | 1 | 2 |
+| 6 | 7 | 1 | 8 | 10 | 5 | Rank 3 | 1 | 2 |
+| 7 | 8 | 2 | 9 | 12 | 6 | Rank 4 | 1 | 2 |
+| 8 | 8 | 2 | 10 | 13 | 7 | Rank 4 | 1 | 2 |
+| 9 | 9 | 2 | 11 | 15 | 8 | Rank 5 | 1 | 2 |
+| 10 | 10 | 2 | 12 | 18 | 9 | Rank 5 | 1 | 2 |
+
+Higher-level Instinct values remain provisional.
+
+
 ## Paladin
 
 Roles: Combatant
@@ -2382,7 +2466,7 @@ Secondary Roles: Healing and Support
 >   </tr>
 >   <tr>
 >     <td>Instinct</td>
->     <td>0</td>
+>     <td>1</td>
 >   </tr>
 >   <tr>
 >     <td colspan="2">Combat Skills</td>
@@ -2607,18 +2691,21 @@ You gain the following options to the Rally feature. Decrees require spending de
 
 ### Resource / Spell Progression Table
 
-| Level | HP | Instinct | Devotion Points |
-| --- | --- | --- | --- |
-| 1 | 5 | 1 | 3 |
-| 2 | 6 | 1 | 4 |
-| 3 | 6 | 1 | 5 |
-| 4 | 7 | 1 | 6 |
-| 5 | 8 | 1 | 7 |
-| 6 | 8 | 1 | 8 |
-| 7 | 9 | 2 | 9 |
-| 8 | 10 | 2 | 10 |
-| 9 | 11 | 2 | 11 |
-| 10 | 12 | 2 | 12 |
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Devotion Points | Minor Feats |
+| --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 3 | 1 |
+| 2 | 6 | 1 | 4 | 2 |
+| 3 | 6 | 1 | 5 | 2 |
+| 4 | 7 | 1 | 6 | 2 |
+| 5 | 8 | 1 | 7 | 2 |
+| 6 | 8 | 1 | 8 | 2 |
+| 7 | 9 | 2 | 9 | 2 |
+| 8 | 10 | 2 | 10 | 2 |
+| 9 | 11 | 2 | 11 | 2 |
+| 10 | 12 | 2 | 12 | 2 |
+
 
 ## Ranger
 
@@ -2729,6 +2816,26 @@ You may choose a new favored enemy type to replace the current one. To do so, yo
 #### Level 1: Know Your Enemy (1 / Combat)
 
 During the Planning Phase, reveal the action of one enemy of the favored enemy type.
+
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Minor Feats |
+| --- | --- | --- | --- |
+| 1 | 5 | 1 | 1 |
+| 2 | 5 | 1 | 2 |
+| 3 | 6 | 1 | 2 |
+| 4 | 6 | 1 | 2 |
+| 5 | 7 | 1 | 2 |
+| 6 | 7 | 1 | 2 |
+| 7 | 8 | 2 | 2 |
+| 8 | 8 | 2 | 2 |
+| 9 | 9 | 2 | 2 |
+| 10 | 10 | 2 | 2 |
+
+Higher-level Instinct values remain provisional.
+
 
 ## Rogue
 
@@ -2986,6 +3093,24 @@ These crude boots are worn on top of the user's own boots. As part of the wearer
 
 Putting the boots on is a Slow Action.
 
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Minor Feats |
+| --- | --- | --- | --- |
+| 1 | 5 | 1 | 1 |
+| 2 | 5 | 1 | 2 |
+| 3 | 6 | 1 | 2 |
+| 4 | 6 | 2 | 2 |
+| 5 | 7 | 2 | 2 |
+| 6 | 7 | 2 | 2 |
+| 7 | 8 | 3 | 2 |
+| 8 | 8 | 3 | 2 |
+| 9 | 9 | 3 | 2 |
+| 10 | 10 | 4 | 2 |
+
+
 ## Spellsword
 
 Main Role: Damage
@@ -3100,6 +3225,26 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
 - Evade: When you are attacked, gain +1 Deflection against the attack.
 
 - Still Mind: When you are attacked, gain +1 Will against the attack.
+
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank | Minor Feats |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 2 | 2 | 2 | Rank 1 | 1 |
+| 2 | 6 | 1 | 3 | 3 | 2 | Rank 1 | 2 |
+| 3 | 6 | 1 | 4 | 5 | 3 | Rank 2 | 2 |
+| 4 | 7 | 1 | 5 | 6 | 3 | Rank 2 | 2 |
+| 5 | 8 | 1 | 6 | 8 | 4 | Rank 3 | 2 |
+| 6 | 8 | 1 | 7 | 9 | 4 | Rank 3 | 2 |
+| 7 | 9 | 2 | 8 | 11 | 5 | Rank 4 | 2 |
+| 8 | 10 | 2 | 9 | 12 | 5 | Rank 4 | 2 |
+| 9 | 11 | 2 | 10 | 14 | 6 | Rank 5 | 2 |
+| 10 | 12 | 2 | 12 | 17 | 7 | Rank 5 | 2 |
+
+Higher-level Instinct values remain provisional.
+
 
 ## Warrior
 
@@ -3340,6 +3485,24 @@ You gain the following action:
 >   </tr>
 > </table>
 
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Minor Feats |
+| --- | --- | --- | --- |
+| 1 | 5 | 1 | 1 |
+| 2 | 6 | 1 | 2 |
+| 3 | 6 | 1 | 2 |
+| 4 | 7 | 1 | 2 |
+| 5 | 8 | 2 | 2 |
+| 6 | 8 | 2 | 2 |
+| 7 | 9 | 2 | 2 |
+| 8 | 10 | 3 | 2 |
+| 9 | 11 | 3 | 2 |
+| 10 | 12 | 4 | 2 |
+
+
 ## Occultist
 
 Role: Control, Summoning
@@ -3446,21 +3609,6 @@ Your experience in battle lets you react swiftly during combat. You gain the fol
 
 - Still Mind: When you are attacked, gain +1 Will against the attack.
 
-### Resource / Spell Progression Table
-
-| Level | Spell Points | Spells Known | Cantrips Known |
-| --- | --- | --- | --- |
-| 1 | 4 | 4 | 3 |
-| 2 | 5 | 5 | 3 |
-| 3 | 7 | 7 | 4 |
-| 4 | 8 | 8 | 4 |
-| 5 | 10 | 10 | 5 |
-| 6 | 11 | 11 | 5 |
-| 7 | 13 | 13 | 6 |
-| 8 | 14 | 14 | 7 |
-| 9 | 16 | 16 | 8 |
-| 10 | 18 | 20 | 9 |
-
 #### Level 3: Subclasses
 
 Choose the Defiler subclass.
@@ -3485,6 +3633,23 @@ When you apply Vulnerable, Poisoned, Decayed, or Weakened to an enemy, you may s
 #### Level 3: Vile Spell Point
 
 At the beginning of each combat, you gain 1 Vile Spell Point. You may spend it only to cast or empower a spell that applies negative conditions. When you spend this point on a spell, increase the level of every negative condition applied by that spell by 1. This increase applies to conditions that have levels. At the end of combat, you lose the Vile Spell Point if you have not spent it.
+
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank | Summon Slots | Minor Feats |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 4 | 4 | 3 | Rank 1 | 1 | 1 |
+| 2 | 5 | 1 | 5 | 5 | 3 | Rank 1 | 1 | 2 |
+| 3 | 6 | 1 | 6 | 7 | 4 | Rank 2 | 1 | 2 |
+| 4 | 6 | 1 | 7 | 9 | 4 | Rank 2 | 1 | 2 |
+| 5 | 7 | 1 | 9 | 11 | 5 | Rank 3 | 1 | 2 |
+| 6 | 7 | 1 | 10 | 13 | 5 | Rank 3 | 1 | 2 |
+| 7 | 8 | 2 | 12 | 15 | 6 | Rank 4 | 1 | 2 |
+| 8 | 8 | 2 | 13 | 17 | 7 | Rank 4 | 1 | 2 |
+| 9 | 9 | 2 | 15 | 20 | 8 | Rank 5 | 1 | 2 |
+| 10 | 10 | 2 | 17 | 24 | 9 | Rank 5 | 1 | 2 |
 
 
 ## Wizard
@@ -3678,18 +3843,21 @@ If done during combat, this also requires spending 1 Instinct.
 
 ### Resource / Spell Progression Table
 
-| Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | 5 | 1 | 4 | 4 | 3 | Rank 1 |
-| 2 | 5 | 1 | 5 | 5 | 3 | Rank 1 |
-| 3 | 6 | 1 | 6 | 7 | 4 | Rank 2 |
-| 4 | 6 | 1 | 7 | 9 | 4 | Rank 2 |
-| 5 | 7 | 1 | 9 | 11 | 5 | Rank 3 |
-| 6 | 7 | 1 | 10 | 13 | 5 | Rank 3 |
-| 7 | 8 | 2 | 12 | 15 | 6 | Rank 4 |
-| 8 | 8 | 2 | 13 | 17 | 7 | Rank 4 |
-| 9 | 9 | 2 | 15 | 20 | 8 | Rank 5 |
-| 10 | 10 | 2 | 17 | 24 | 9 | Rank 5 |
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank | Minor Feats |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 5 | 1 | 4 | 4 | 3 | Rank 1 | 1 |
+| 2 | 5 | 1 | 5 | 5 | 3 | Rank 1 | 2 |
+| 3 | 6 | 1 | 6 | 7 | 4 | Rank 2 | 2 |
+| 4 | 6 | 1 | 7 | 9 | 4 | Rank 2 | 2 |
+| 5 | 7 | 1 | 9 | 11 | 5 | Rank 3 | 2 |
+| 6 | 7 | 1 | 10 | 13 | 5 | Rank 3 | 2 |
+| 7 | 8 | 2 | 12 | 15 | 6 | Rank 4 | 2 |
+| 8 | 8 | 2 | 13 | 17 | 7 | Rank 4 | 2 |
+| 9 | 9 | 2 | 15 | 20 | 8 | Rank 5 | 2 |
+| 10 | 10 | 2 | 17 | 24 | 9 | Rank 5 | 2 |
+
 
 ## Zephyr
 
@@ -3866,6 +4034,25 @@ You gain the following action:
 >   </tr>
 > </table>
 
+### Resource / Spell Progression Table
+
+Minor Feats shows the total gained from leveling, excluding any other grants. Subclass, species, and feat bonuses are additional.
+
+| Level | HP | Instinct | Minor Feats |
+| --- | --- | --- | --- |
+| 1 | 5 | 1 | 1 |
+| 2 | 6 | 1 | 2 |
+| 3 | 6 | 1 | 2 |
+| 4 | 7 | 1 | 2 |
+| 5 | 8 | 1 | 2 |
+| 6 | 8 | 1 | 2 |
+| 7 | 9 | 2 | 2 |
+| 8 | 10 | 2 | 2 |
+| 9 | 11 | 2 | 2 |
+| 10 | 12 | 2 | 2 |
+
+Higher-level Instinct values remain provisional.
+
 # Chapter 8: Feats
 
 ## Origin Feats
@@ -3911,7 +4098,7 @@ Your maximum HP is increased by half your level, rounded down (minimum 1 HP). Re
 
 ## Minor Feats
 
-At level 1, choose one Minor Feat from this section for which you meet the requirements.
+At level 1 and again at level 2, choose one Minor Feat from this section for which you meet the requirements.
 
 ### Actor
 
@@ -4548,7 +4735,7 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 
 ## Spell Rank and Requirements
 
-Spell rank is a category of spell power. Your class progression determines the highest rank of spells you can learn and cast. You must also meet each spell’s Requirements; any minimum character level is listed there.
+Spell rank is a category of spell power. All spellcasters unlock Rank 1 at level 1, Rank 2 at level 3, Rank 3 at level 5, Rank 4 at level 7, and Rank 5 at level 9. You must also meet each spell’s Requirements; any minimum character level is listed there.
 
 ## Spells Lists by Type
 

@@ -18,7 +18,7 @@
       {
         "level": 1,
         "name": "Curious Concoctions",
-        "html": "<p><strong>Curious Concoctions:</strong> Start each day with 4 Concoction Points (CP). Create your known concoctions outside combat by spending their CP costs; each takes a few minutes to prepare and lasts only for the current day. Multiple uses of the same concoction do not stack.</p>"
+        "html": "<p><strong>Curious Concoctions:</strong> Start each day with {{progression.concoctionPoints}} Concoction Points (CP). You know {{progression.concoctions}} concoctions. Create your known concoctions outside combat by spending their CP costs; each takes a few minutes to prepare and lasts only for the current day. Multiple uses of the same concoction do not stack.</p>"
       },
       {
         "level": 2,
@@ -58,6 +58,11 @@
       },
       {
         "level": 1,
+        "name": "Archery Points",
+        "html": "<p><strong>Archery Points:</strong> Start each combat with {{progression.archeryPoints}} AP. Spend AP on abilities that list an AP cost; your pool resets at the start of each combat.</p>"
+      },
+      {
+        "level": 1,
         "name": "Special Shots",
         "html": "<p><strong>Special Shots:</strong> You gain the Pinning Shot and Puncturing Shot Ranged Strike variants.</p>",
         "actions": [
@@ -87,7 +92,7 @@
       {
         "level": 1,
         "name": "Push Through Pain",
-        "html": "<p><strong>Push Through Pain:</strong> Start each combat with 3 temporary HP. Lose all remaining temporary HP when combat ends.</p>"
+        "html": "<p><strong>Push Through Pain:</strong> Start each combat with {{progression.startingTempHp}} temporary HP. Lose all remaining temporary HP when combat ends.</p>"
       },
       {
         "level": 1,

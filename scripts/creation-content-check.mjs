@@ -34,7 +34,7 @@ try {
     for(let i=0;i<m.spellPlan(s).groups.length;i++) {
       const g=m.spellPlan(s).groups[i]; s.spells[g.id]=g.options.slice(0,g.count).map(sp=>sp.name);
     }
-    s.feats.push('Deep Sleep');
+    s.feats.push('Deep Sleep', 'Pet');
     s.equipment.weapon=m.equipmentPlan(s).choices[0]||'';
     const built=m.buildCharacter(s);
     const html=built.sections['Instinct Abilities'].sectionBody;

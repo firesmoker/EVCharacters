@@ -15,17 +15,20 @@ const traditions = { Bard: 'Bardic', Cleric: 'Divine', Druid: 'Nature', Wizard: 
 const affinity = { 'High Elf': 'Arcane', Ossian: 'Occult', Remnant: 'Divine' };
 const freeSpells = { 'High Elf': ['Arcane Shield', 'Detect Magic', 'Magic Missile'], Ossian: ['Detect Magic', 'Eldritch Shield', 'Hex'], Remnant: ['Detect Magic', 'Healing Touch', 'Shield of Faith'] };
 const classCantrip = { Wizard: 'Elemental Flare', Cleric: 'Radiant Beam', Druid: 'Speak with Animals', Occultist: 'Necrotic Bolt' };
-const startingMagic = { Bard: [2, 3, 2], Cleric: [3, 3, 3], Druid: [3, 4, 3], Wizard: [4, 4, 3], Occultist: [4, 4, 3], Spellsword: [2, 2, 2] };
+const startingMagic = { Bard: [2, 3, 2], Cleric: [3, 3, 3], Druid: [3, 3, 3], Wizard: [4, 4, 3], Occultist: [4, 4, 3], Spellsword: [2, 2, 2] };
 const subclassTraining = { 'Tale Weaver': ['History', 'Knowledge'], Assassin: ['Disguise', 'Other'], 'Fae Trickster': ['Deception', 'Speech'], Toymaker: ['Mechanics', 'Knowledge'], 'Walking Ballista': ['Mechanics'], Bowslinger: ['Acrobatics'], 'Arcane Archer': ['Arcana'], Witchblade: ['Magic'] };
 const names = (s) => s.replace(/\band\b|\bor\b/g, ',').split(',').map(x => x.trim().replace(/[.]$/, '')).filter(Boolean);
 const canonicalSkill = s => ({ 'Weapon Throws': 'Weapon Throw', Stealth: 'Sneak', 'Mechanical(Disarm Traps)': 'Mechanics (Disarm Traps)' }[s] || s);
 export const escapeHTML = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const p = s => `<p>${escapeHTML(s)}</p>`;
-export function sheetFeatureHTML(html, choices) {
+export function sheetFeatureHTML(html, choices, stats = {}) {
   return html.replace(/\{\{choices\.([\w-]+)\}\}/g, (_, key) => {
     const values = choices[key];
     if (!Array.isArray(values) || !values.length || values.some(v => !v.trim())) throw new Error(`Missing feature choice: ${key}`);
     return escapeHTML(new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(values));
+  }).replace(/\{\{progression\.([\w]+)\}\}/g, (_, key) => {
+    if (!Number.isFinite(stats[key])) throw new Error(`Missing progression value: ${key}`);
+    return String(stats[key]);
   });
 }
 const section = (body = '') => ({ fields: {}, checkboxes: {}, splitFields: {}, dynamicRows: [], sectionBody: body });
@@ -39,7 +42,10 @@ export function specialChoices(s) {
   const result = [];
   if (s.className === 'Cleric') result.push({ id: 'domain', label: 'Divine Domain', count: 1, options: ['Light — Fire / Undead', 'Abyss — Psychic / Fae', 'Inferno — Fire / Celestials', 'Maelstrom — Ice / Devils', 'Resonance — Thunder / Constructs', 'Tempest — Lightning / Demons'] });
   if (s.className === 'Ranger') result.push({ id: 'favored', label: 'Favored enemy', count: 1, options: ['Abominations', 'Beasts', 'Dragons', 'Elementals', 'Fey', 'Fiends', 'Giants', 'Oozes', 'Plants', 'Undead'] });
-  if (s.className === 'Alchemist') result.push({ id: 'concoctions', label: 'Known concoctions (higher-level count is provisional)', count: 4, options: ['Toughskin Potion', 'Fire Resistance Potion', 'Acid Resistance Potion', 'Poison Resistance Potion', 'Basic Healing Potion', 'Poison Bomb', 'Nerve Gas Bomb', 'Burning Bomb', 'Acid Coating', 'Nerve Coating'] });
+  if (s.className === 'Alchemist') {
+    const options = Object.keys(SHEET_FEATURES.concoctions), count = progression(s).concoctions;
+    result.push({ id: 'concoctions', label: 'Known concoctions', count: Math.min(count, options.length), unfilled: Math.max(0, count - options.length), options });
+  }
   return result;
 }
 
@@ -62,11 +68,16 @@ export function progression(s) {
     points: magic[0] ? value('Spell Points', magic[0] + growth, growth > 0) : 0,
     spells: magic[1] ? value('Spells Known', magic[1] + growth, growth > 0) : 0,
     cantrips: magic[2] ? value('Cantrips Known', magic[2] + Math.floor(Math.max(0, growth) / 2), growth > 0) : 0,
-    rank: value('Max Spell Rank', Math.min(3, Math.ceil(s.level / 2)), !!magic[0] && s.level > 5),
+    rank: value('Max Spell Rank', Math.ceil(s.level / 2), false),
     devotion: s.className === 'Paladin' ? value('Devotion Points', s.level + 2) : 0,
-    summons: (['Druid', 'Occultist'].includes(s.className) ? 1 : 0) + (s.subclass === 'Shephard' ? 1 : 0),
+    summons: value('Summon Slots', 0) + (s.subclass === 'Shephard' ? 1 : 0),
+    concoctionPoints: s.className === 'Alchemist' ? value('Concoction Points', 4) : 0,
+    concoctions: s.className === 'Alchemist' ? value('Concoctions Known', 4) : 0,
+    archeryPoints: s.className === 'Archer' ? value('Archery Points', 3) : 0,
+    startingTempHp: s.className === 'Barbarian' ? value('Starting Temporary HP', 3) : 0,
+    minorFeats: value('Minor Feats', s.level >= 2 ? 2 : 1),
     traditions: [...new Set([traditions[s.className], s.subclass === 'Witchblade' && 'Occult', s.subclass === 'Chronomancer' && 'Chrono'].filter(Boolean))],
-    placeholders,
+    placeholders: [...placeholders, ...(row?.Notes?.includes('Instinct') ? ['Instinct'] : [])],
   };
 }
 
@@ -200,7 +211,7 @@ export function validateCharacter(s) {
     if (chosen.length !== g.count || new Set(chosen).size !== g.count || chosen.some(v => !g.options.includes(v))) errors.push(`Complete ${g.label} (${g.count} choices).`);
   }
   for (const category of ['Origin', 'Minor']) {
-    const required = category === 'Origin' ? (s.species === 'Human' ? 2 : 1) : 1;
+    const required = category === 'Origin' ? (s.species === 'Human' ? 2 : 1) : progression(s).minorFeats;
     const chosen = DATA.feats.filter(f => f.Category === category && s.feats.includes(f.Feat));
     if (chosen.length !== required) errors.push(`Choose ${required} ${category.toLowerCase()} feat${required === 1 ? '' : 's'}.`);
     for (const feat of chosen) if (!eligibleFeat(feat, s)) errors.push(`Requirements not met: ${feat.Feat}.`);
@@ -239,7 +250,7 @@ export function buildCharacter(s) {
   const sections = Object.fromEntries(['Defenses', 'Speed', 'Combat Skills', 'Standard Skills', 'Equipment Proficiencies', 'Species Features', 'Class Features', 'Instinct Abilities', 'Feats', 'Additional Features', 'Languages', 'Equipment', 'Spellcasting', 'Spells Known', 'Strikes & Damaging Cantrips', 'Death'].map(n => [n, section()]));
   const hp = stats.hp + +(race['HP Bonus'] || 0) + (s.feats.includes('Tough') ? Math.max(1, Math.floor(s.level / 2)) : 0);
   sections.Defenses.fields = { Deflection: String(+c['Base Deflection'] + +(race['Deflection Bonus'] || 0) + +(armor?.Deflection || 0) + +(shield?.Deflection || 0)), Fortitude: String(+c.Fortitude + +(race['Fortitude Bonus'] || 0)), Will: String(+c.Will + +(race['Will Bonus'] || 0)) };
-  sections.Defenses.splitFields['Health\nPoints'] = { cur: String(hp), max: String(hp), temp: '0' };
+  sections.Defenses.splitFields['Health\nPoints'] = { cur: String(hp), max: String(hp), temp: String(stats.startingTempHp) };
   sections['Damage Defenses'] = { ...section(), fields: damageDefenses(race['Resistances / Weaknesses'], [armor?.Modifiers, shield?.Modifiers].filter(Boolean).join(';')) };
   sections.Speed.fields = { Movement: String(+race.Movement), Instinct: String(stats.instinct) };
   const row = (name, value) => ({ type: 'skill', values: [name, value] });
@@ -267,13 +278,14 @@ export function buildCharacter(s) {
     ...s.feats.flatMap(name => SHEET_FEATURES.feats[name] || []),
   ].filter(f => f.level !== null && f.level <= s.level);
   for (const name of selectedFeatures.flatMap(f => f.proficiencies || [])) prof.checkboxes[name] = true;
-  const renderFeature = html => sheetFeatureHTML(html, s.choices);
+  const renderFeature = html => sheetFeatureHTML(html, s.choices, stats);
   for (const [group, name, destination] of [['classes', s.className, 'Class Features'], ['subclasses', sub?.Subclass, 'Class Features'], ['species', s.species, 'Species Features']]) {
     for (const feature of SHEET_FEATURES[group][name] || []) {
       if (feature.level !== null && feature.level <= s.level) sections[feature.section || destination].sectionBody += renderFeature(feature.html);
     }
   }
   if (s.className === 'Alchemist') sections['Additional Features'].sectionBody += (s.choices.concoctions || []).map(name => SHEET_FEATURES.concoctions[name] || '').join('');
+  for (const group of specialChoices(s)) if (group.unfilled) sections['Additional Features'].sectionBody += p(`${group.label}: ${group.unfilled} unfilled choices; more options must be defined before these slots can be filled.`);
   sections['Additional Features'].sectionBody += s.notes ? p(s.notes) : '';
   sections.Feats.sectionBody = s.feats.flatMap(name => SHEET_FEATURES.feats[name] || []).map(f => renderFeature(f.html)).join('');
   sections.Languages.sectionBody = p([race.Languages.includes('choice') ? '' : race.Languages, s.languages, ...(s.choices['feat-languages'] || [])].filter(Boolean).join('; '));

@@ -420,14 +420,7 @@
       {
         "level": 1,
         "name": "Seize the Moment",
-        "html": "",
-        "instincts": [
-          {
-            "name": "Seize the Moment",
-            "html": "<li><strong>Seize the Moment:</strong> When making a Melee Strike against an enemy within an ally’s melee reach, gain advantage on the attack.</li>"
-          }
-        ],
-        "omitReason": "Shown in Instinct Abilities."
+        "html": "<p><strong>Seize the Moment:</strong> When you perform a Melee Strike against an enemy within an ally's melee reach, you have advantage on the roll.</p>"
       },
       {
         "level": 2,

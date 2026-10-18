@@ -2929,7 +2929,7 @@ Roles: Damage and Utility
 
 #### Level 1: Seize the Moment
 
-When you perform a Melee Strike against an enemy that is within melee reach of an ally, you may spend 1 Instinct to get advantage on this attack.
+When you perform a Melee Strike against an enemy within an ally's melee reach, you have advantage on the roll.
 
 #### Level 1: Sneak Attack
 

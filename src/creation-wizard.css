@@ -6,6 +6,8 @@
 .creation-wizard h2 { margin: 0; font: 600 28px 'Crimson Pro', serif; }
 .creation-eyebrow { color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
 .creation-wizard h3 { margin: 0 0 16px; font: 600 26px 'Crimson Pro', serif; }
+.creation-wizard h4 { margin: 24px 0 12px; font: 600 22px 'Crimson Pro', serif; color: var(--accent); }
+.creation-wizard h5 { margin: 12px 0 6px; font: bold 15px 'PT Sans', sans-serif; }
 .creation-wizard button { font: inherit; cursor: pointer; border: 1px solid #d6d0c8; border-radius: 5px; padding: 7px 14px; color: inherit; background: white; }
 .creation-wizard button:disabled { opacity: .45; cursor: default; }
 .creation-wizard .creation-primary { background: #293e50; color: white; border-color: #293e50; }
@@ -24,6 +26,9 @@
 .creation-wizard fieldset { border: 1px solid #ddd5c9; border-radius: 5px; padding: 16px; margin: 20px 0; min-width: 0; }
 .creation-wizard legend { font-weight: bold; padding: 0 5px; }
 .creation-option { border: 1px solid #ded8cf; background: white; padding: 10px 12px; border-radius: 5px; }
+.creation-option-unavailable { background: #eeeae5; color: #737373; }
+.creation-option-unavailable label { opacity: .6; }
+.creation-option-unavailable input:disabled { cursor: not-allowed; }
 .creation-option[hidden] { display: none; }
 .creation-option small { display: block; color: #596774; margin-top: 4px; }
 .creation-wizard summary { cursor: pointer; font-weight: bold; }

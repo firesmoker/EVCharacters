@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 const { chromium } = await import(process.env.EV_PLAYWRIGHT_MODULE || 'playwright');
 const browser = await chromium.launch({ channel: 'msedge', headless: true });
 try {
@@ -28,6 +29,27 @@ try {
   assert(await dialog.locator('[data-create]').isDisabled());
   await dialog.locator('[data-step="3"]').click();
   assert.equal(await dialog.locator('[data-key="skill:origin:0"]').inputValue(), 'Insight');
+  await dialog.locator('[data-close]').click();
+  const liora = JSON.parse(readFileSync(new URL('../src/templates/bard_liora_vey_full_build.json', import.meta.url), 'utf8'));
+  assert.equal(liora.creation.name, 'Liora Vey');
+  await page.evaluate(async data => {
+    const { loadFromJSON, serializeSheet } = await import('/src/io.js');
+    const { validateCharacter } = await import('/src/character-creation.js');
+    if (validateCharacter(data.creation).length) throw Error('Liora has incomplete choices');
+    loadFromJSON(JSON.stringify(data));
+    if (JSON.stringify(JSON.parse(serializeSheet()).creation) !== JSON.stringify(data.creation)) throw Error('Template choices lost on save');
+  }, liora);
+  await page.locator('#menu-rebuild-character').evaluate(el => el.click());
+  assert.match(await dialog.locator('[aria-current="step"]').innerText(), /7\s*Review/);
+  assert.equal(await dialog.locator('[data-create]').isDisabled(), false);
+  page.once('dialog', confirm => confirm.accept());
+  await dialog.locator('[data-create]').click();
+  const rebuilt = await page.evaluate(async () => JSON.parse((await import('/src/io.js')).serializeSheet()));
+  assert.deepEqual(rebuilt.creation, liora.creation);
+  assert.deepEqual(rebuilt.portrait, liora.portrait);
+  assert.equal(rebuilt.sections.Defenses.splitFields['Health\nPoints'].max, '6');
+  assert.equal(rebuilt.sections.Spellcasting.fields['Summon Slots'], '1');
+  assert.match(rebuilt.sections.Feats.sectionBody, /Performance/);
   assert.deepEqual(errors, []);
-  console.log('Incomplete rebuilds open Review, preserve choices, and require completion.');
+  console.log('Incomplete rebuilds require completion; Liora rebuilds from saved choices with her portrait and current progression.');
 } finally { await browser.close(); }

@@ -3,65 +3,43 @@
   "headers": {
     "character-name": "Liora Vey",
     "player-name": "Example Build",
-    "level": "3",
-    "experience": "0",
     "class": "Bard",
     "subclass": "Tale Weaver",
-    "species": "High Elf"
+    "species": "High Elf",
+    "level": "3",
+    "experience": "0"
   },
   "sections": {
     "Defenses": {
-      "checkboxes": {},
       "fields": {
         "Deflection": "2",
         "Fortitude": "1",
         "Will": "2"
       },
-      "sectionBody": "",
+      "checkboxes": {},
       "splitFields": {
         "Health\nPoints": {
-          "cur": "5",
-          "max": "5",
+          "cur": "6",
+          "max": "6",
           "temp": "0"
         }
       },
-      "dynamicRows": []
-    },
-    "Equipment Proficiencies": {
-      "checkboxes": {
-        "Light": true,
-        "Medium": false,
-        "Heavy": false,
-        "Heavy Shields": false,
-        "Tower Shields": false,
-        "Martial Weapons": false
-      },
-      "fields": {},
-      "sectionBody": "",
-      "splitFields": {},
-      "dynamicRows": []
+      "dynamicRows": [],
+      "sectionBody": ""
     },
     "Speed": {
-      "checkboxes": {},
       "fields": {
         "Movement": "3",
         "Instinct": "1"
       },
-      "sectionBody": "",
+      "checkboxes": {},
       "splitFields": {},
-      "dynamicRows": [
-        {
-          "type": "skill",
-          "values": [
-            "None"
-          ]
-        }
-      ]
+      "dynamicRows": [],
+      "sectionBody": ""
     },
     "Combat Skills": {
-      "checkboxes": {},
       "fields": {},
-      "sectionBody": "",
+      "checkboxes": {},
       "splitFields": {},
       "dynamicRows": [
         {
@@ -91,33 +69,26 @@
             "Unarmed",
             "Untrained (3d6)"
           ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Weapon Throw",
+            "Untrained (3d6)"
+          ]
         }
-      ]
+      ],
+      "sectionBody": ""
     },
     "Standard Skills": {
-      "checkboxes": {},
       "fields": {},
-      "sectionBody": "",
+      "checkboxes": {},
       "splitFields": {},
       "dynamicRows": [
         {
           "type": "skill",
           "values": [
             "Performance",
-            "Expert (5d6)"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "Diplomacy",
-            "Expert (5d6)"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "History",
             "Expert (5d6)"
           ]
         },
@@ -152,42 +123,250 @@
         {
           "type": "skill",
           "values": [
+            "Diplomacy",
+            "Expert (5d6)"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
             "Survival",
             "Adept (4d6)"
           ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "History",
+            "Expert (5d6)"
+          ]
         }
-      ]
+      ],
+      "sectionBody": ""
     },
-    "Strikes & Damaging Cantrips": {
-      "checkboxes": {},
+    "Equipment Proficiencies": {
+      "fields": {
+        "Drags Ignored": ""
+      },
+      "checkboxes": {
+        "Light": true,
+        "Medium": false,
+        "Heavy": false,
+        "Heavy Shields": false,
+        "Tower Shields": false,
+        "Martial Weapons": false
+      },
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": ""
+    },
+    "Species Features": {
       "fields": {},
-      "sectionBody": "",
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": "<p><strong>Legacy of the Highborn:</strong> You are Expert (5d6) in Diplomacy.</p><p><strong>Knowledge Cramming:</strong> Currently Adept (4d6) in Survival. At the end of a long rest, choose one Standard Skill in which you are untrained. You become Adept (4d6) in it until your next long rest.</p><p><strong>Arcane Affinity I:</strong> You are Expert (5d6) in Magic. Your two species cantrips can be cast without training in their tradition.</p><p><strong>Arcane Affinity II:</strong> Cast each of Arcane Shield, Detect Magic, and Magic Missile once per day without Spell Points or empowerment, even without matching tradition training. With matching training, you may also cast them normally using Spell Points.</p>"
+    },
+    "Class Features": {
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": "<p><strong>Bardic Music:</strong> You can play any musical instrument and add magical sounds to musical performances. You have advantage on Performance rolls for music.</p><p><strong>War Singing:</strong> During the Beginning Phase, choose one phrase not yet used this combat. This requires no action. It affects creatures within 6 units at that moment for the round, even if they later move.</p><ul><li><strong>Rise to the Challenge:</strong> All affected allies become Inspired 1 (1 Extra Die on rolls) until the end of the round.</li><li><strong>Onward We Go:</strong> All affected allies gain +1 Movement until the end of the round.</li><li><strong>Looming Darkness:</strong> Roll Magic against each affected enemy’s Will. On success, it becomes Discouraged until the end of the round.</li></ul><ul><li><strong>Sweet, Sweet Revenge:</strong> Choose an enemy that damaged you this combat. It becomes Vulnerable and Discouraged until the end of the round.</li><li><strong>For Our Friends:</strong> If a party member became Dying this combat, affected allies gain advantage on all rolls until the end of the round. Dying party members gain advantage on their stabilization roll.</li></ul><p><strong>Enchanted Melodies:</strong> Outside combat, perform Melody of Rest once per day to heal party members within 20 units for 1 HP.</p>"
+    },
+    "Instinct Abilities": {
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": "<ul><li><strong>Unleash:</strong> When you roll, add 1 Extra Die.</li><li><strong>Evade:</strong> When attacked, gain +1 Deflection against that attack.</li><li><strong>Still Mind:</strong> When attacked, gain +1 Will against that attack.</li><li><strong>Reenact: The Dragon Slayer:</strong> During the Beginning Phase, spend 1 Spell Point to designate an enemy as the Dragon and an ally as the Knight, both within 12 units. The Knight has advantage on attacks against the Dragon until combat ends or the Grand Finale.<ul><li><strong>Grand Finale:</strong> If the Knight reduces the Dragon to 0 HP, allies within 3 units of the Knight become Inspired 1 (1 Extra Die on rolls) for the next round.</li></ul></li><li><strong>Reenact: The Martyr:</strong> During the Beginning Phase, spend 1 Spell Point to designate a willing ally within 12 units as the Martyr. Until combat ends or the Grand Finale, damage dealt to its allies within 6 units is dealt to the Martyr instead.<ul><li><strong>Grand Finale:</strong> When the Martyr reaches 0 HP, it has 1 HP instead and stops absorbing damage. Its allies within 6 units gain 1 temporary HP.</li></ul></li><li><strong>Cast Marvelously (1 / Day):</strong> When performing Cast a Cantrip, Cast a Spell, or Bomb Throw, roll with advantage.</li><li><strong>Arcane Shield:</strong> See spell description.</li><li><strong>Minor Ward:</strong> See spell description.</li></ul>"
+    },
+    "Feats": {
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": "<p><strong>Focused:</strong> Grants the Cast Marvelously Instinct ability. (See its description under Instinct Abilities.)</p><p><strong>Actor:</strong> While disguised as a real or fictional person, you have advantage on Deception or Performance rolls to convince others you are that person.</p><p><strong>Assurance:</strong> For Performance, you may forgo rolling and use 2 Success Dice instead.</p>"
+    },
+    "Additional Features": {
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": ""
+    },
+    "Languages": {
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": "<p>Common; Elvish</p>"
+    },
+    "Equipment": {
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": "<p>Jerkin; Shortsword</p><p>Resistance to Crushing</p>"
+    },
+    "Spellcasting": {
+      "fields": {
+        "Summon Slots": "1",
+        "Cantrips Known": "5",
+        "Spells Known": "9"
+      },
+      "checkboxes": {
+        "Bardic": true
+      },
+      "splitFields": {
+        "Spell Points": {
+          "cur": "4",
+          "max": "4",
+          "temp": "0"
+        }
+      },
+      "dynamicRows": [],
+      "sectionBody": ""
+    },
+    "Spells Known": {
+      "fields": {},
+      "checkboxes": {},
       "splitFields": {},
       "dynamicRows": [
         {
-          "type": "action",
-          "slots": {
-            "name": "Elemental Flare",
-            "rollDescription": "Roll Magic +3 against Deflection.",
-            "notes": "Choose Fire, Ice, or Lightning. On success, deal SD damage of the chosen type. On failure, deal half damage, rounded down. Double 6: Fire causes Burning 1 through this round; Ice causes Chilled 2 through next round; Lightning causes Disoriented 1 through next round."
-          },
-          "tableRows": [
-            {
-              "weapon": "",
-              "speed": "Average",
-              "roll": "8d6",
-              "minimum": "—",
-              "damage": "Elemental",
-              "range": "12 units",
-              "doubleSix": "By element"
-            }
-          ],
-          "variants": [],
-          "ui": {
-            "variantsHidden": true,
-            "weaponColumnHidden": true
-          }
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Elemental Flare",
+            "",
+            "High Elf cantrips"
+          ]
         },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Mage Hand",
+            "",
+            "High Elf cantrips"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Minor Illusion",
+            "",
+            "Bard cantrips"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Minor Ward",
+            "",
+            "Bard cantrips"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Thunder Wave",
+            "",
+            "Bard cantrips"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Arcane Shield",
+            "1+",
+            "1/day free; no empowerment"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Aura of Truth",
+            "1",
+            "Bard spells"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Cure",
+            "1+",
+            "Bard spells"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Detect Magic",
+            "1",
+            "1/day free; no empowerment"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Magic Missile",
+            "1+",
+            "1/day free; no empowerment"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Pacify",
+            "1",
+            "Bard spells"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "1",
+            "Restoration",
+            "1",
+            "Bard spells"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "2",
+            "Silence",
+            "2+",
+            "Bard spells"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "2",
+            "Sleep",
+            "3",
+            "Bard spells"
+          ]
+        }
+      ],
+      "sectionBody": ""
+    },
+    "Strikes & Damaging Cantrips": {
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [
         {
           "type": "action",
           "slots": {
@@ -202,7 +381,7 @@
               "roll": "6d6",
               "minimum": "1",
               "damage": "Slashing / Piercing",
-              "range": "1 unit",
+              "range": "1",
               "doubleSix": "Disable"
             }
           ],
@@ -215,19 +394,19 @@
         {
           "type": "action",
           "slots": {
-            "name": "Thunder Wave",
-            "rollDescription": "Roll Magic once against each adjacent creature’s Deflection.",
-            "notes": "On success, push 1 unit away. Push only creatures up to one size larger than you. No damage on failure. This is an area attack. On a forceful push, a collision with a surface deals 1 damage; a collision with a creature deals 1 damage to each."
+            "name": "Elemental Flare",
+            "rollDescription": "Roll Magic +3 against Deflection.",
+            "notes": "Shoot an elemental flare at a creature you can see within range. Choose its damage type: Lightning, Fire or Ice.\n\nOn success, deal SD damage of the chosen type, or half as much on failure, rounded down.\nDouble 6: Depending on the damage type, the target also:\n  • Fire: the target becomes Burning 1 until the end of the round (receive 1 Fire damage at the end of the round)\n  • Lightning: the target becomes Disoriented 1 (-1 to all rolls) until the end of the next round\n  • Ice: the target becomes Chilled 2 (-2 Movement) until the end of the next round"
           },
           "tableRows": [
             {
               "weapon": "",
               "speed": "Average",
-              "roll": "5d6",
-              "minimum": "—",
-              "damage": "1 Thunder",
-              "range": "Adjacent",
-              "doubleSix": "Forceful push"
+              "roll": "8d6",
+              "minimum": "",
+              "damage": "Fire / Ice / Lightning",
+              "range": "12 Units",
+              "doubleSix": "See notes"
             }
           ],
           "variants": [],
@@ -236,220 +415,94 @@
             "weaponColumnHidden": true
           }
         }
-      ]
-    },
-    "Instinct Abilities": {
-      "checkboxes": {},
-      "fields": {},
-      "sectionBody": "<ul><li><strong>Reenact: The Dragon Slayer:</strong> 1 SP. Beginning Phase: designate one enemy as the Dragon and one ally as the Knight, both within 12 units. The Knight has advantage on all attacks against the Dragon until combat ends or the Grand Finale. Finale: if the Knight reduces the Dragon to 0 HP, allies within 3 units of the Knight are Inspired 1 (1 Extra Die on rolls) next round.</li><li><strong>Reenact: The Martyr:</strong> 1 SP. Beginning Phase: choose a willing ally within 12 units. Until combat ends or the Grand Finale, damage dealt to its allies within 6 units is dealt to the Martyr instead. Finale: when the Martyr reaches 0 HP, it has 1 HP instead and stops absorbing damage; its allies within 6 units gain 1 temporary HP.</li><li><strong>Minor Ward:</strong> Gain +1 Deflection until the end of the current round. With the Jerkin equipped, this raises Deflection from 2 to 3.</li><li><strong>Arcane Shield:</strong> 1/day. Gain +2 Deflection and immunity to Magic Missile until the end of this round. This High Elf casting costs no Spell Points and cannot be empowered. It raises current Deflection from 2 to 4.</li><li><strong>Cast Marvelously:</strong> 1/day. When you Cast a Cantrip, Cast a Spell, or Throw Bomb, roll with advantage.</li><li><strong>Unleash:</strong> When you roll, add 1 Extra Die.</li><li><strong>Evade:</strong> When you are attacked, gain +1 Deflection against that attack.</li><li><strong>Still Mind:</strong> When you are attacked, gain +1 Will against that attack.</li><li><strong>Direct the Hand:</strong> While Mage Hand is active, direct it to move and perform a simple task. It has Flying Movement 5 and must stay within 20 units of you. It cannot attack, activate magical items, or carry more than 5 kilograms.</li></ul>",
-      "splitFields": {},
-      "dynamicRows": []
-    },
-    "Languages": {
-      "checkboxes": {},
-      "fields": {},
-      "sectionBody": "<p>Elvish; Common.</p>",
-      "splitFields": {},
-      "dynamicRows": []
+      ],
+      "sectionBody": ""
     },
     "Death": {
-      "checkboxes": {
-        "index-0": false,
-        "index-1": false,
-        "index-2": false,
-        "index-3": false
-      },
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": ""
+    },
+    "Damage Defenses": {
       "fields": {
-        "Exhaustion": "0"
+        "Resistances": "Crushing",
+        "Vulnerabilities": ""
       },
-      "sectionBody": "",
-      "splitFields": {},
-      "dynamicRows": []
-    },
-    "Equipment": {
       "checkboxes": {},
-      "fields": {},
-      "sectionBody": "<p><b>Jerkin — equipped.</b> Light Armor: +1 Deflection and resistance to Crushing damage. Deflection 2 already includes the armor bonus.</p><p><b>Shortsword.</b> Simple melee weapon; Slashing or Piercing; 1 Extra Die; Minimum Roll 1; Double 6: Disable.</p><p><b>Lute.</b> Liora’s magical instrument, carved with scenes from the legends she performs.</p>",
       "splitFields": {},
-      "dynamicRows": []
-    },
-    "Items": {
-      "checkboxes": {},
-      "fields": {},
-      "sectionBody": "<p><b>Travel kit:</b> backpack, bedroll, waterskin, trail rations, lantern and oil, ink, quill, and a stitched notebook of unfinished tales.</p><p><b>Personal keepsake:</b> a ribbon from her first public performance.</p><p><b>Character:</b> Liora collects stories of ordinary people who acted bravely. She wants to turn an overlooked village’s history into a celebrated epic. Warm and theatrical in public, she becomes quietly methodical when a friend is in danger.</p><p><b>Daily uses available:</b> Arcane Shield 1; Detect Magic 1; Magic Missile 1; Cast Marvelously 1; Melody of Rest 1.</p>",
-      "splitFields": {},
-      "dynamicRows": []
-    },
-    "Species Features": {
-      "checkboxes": {},
-      "fields": {},
-      "sectionBody": "<p><b>Legacy of the Highborn.</b> Expert (5d6) in Diplomacy.</p><p><b>Knowledge Cramming.</b> After a long rest, choose an untrained Standard Skill and become Adept (4d6) until the next long rest. Today: Survival.</p><p><b>Arcane Affinity I.</b> Expert (5d6) in Magic, already provided by Bard. Learn Elemental Flare and Mage Hand; cast them without a matching tradition.</p><p><b>Arcane Affinity II.</b> Know Arcane Shield, Detect Magic, and Magic Missile. Cast EACH once per day without Spell Points, without empowerment. Matching-tradition spells can also be cast with Spell Points: Liora can cast Detect Magic with Bardic magic, but her Arcane Shield and Magic Missile are limited to their free High Elf castings.</p><p><b>Languages and movement.</b> Elvish; Movement 3.</p>",
-      "splitFields": {},
-      "dynamicRows": []
-    },
-    "Class Features": {
-      "checkboxes": {},
-      "fields": {},
-      "sectionBody": "<p><b>Bardic Spellcasting.</b> Magic Expert (5d6); Bardic tradition. At level 3: 4 Spell Points, 6 class spells, 3 class cantrips, and 1 Instinct per round.</p><p><b>Bardic Music.</b> Play any musical instrument, with magical sounds accompanying the performance. Advantage on musical Performance rolls.</p><p><b>War Singing — no action.</b> During the Beginning Phase, choose a phrase not yet used this combat. It affects creatures within 6 units during the Beginning Phase; later movement does not change the affected creatures for that round.</p><ul><li><b>Rise to the Challenge:</b> allies are Inspired 1 (1 Extra Die on rolls) until round end.</li><li><b>Onward We Go:</b> allies gain +1 Movement until round end.</li><li><b>Looming Darkness:</b> roll Magic against enemies’ Will; successes are Discouraged (-1 damage) until round end.</li><li><b>Sweet, Sweet Revenge:</b> choose an enemy that damaged you this combat; it is Vulnerable (-1 to all defenses) and Discouraged (-1 damage) until round end.</li><li><b>For Our Friends:</b> requires a party member to have become Dying this combat. Allies gain advantage on all rolls until round end; Dying allies gain advantage on stabilization rolls.</li></ul><p><b>Melody of Rest — once per day, outside combat.</b> Heal party members within 20 units for 1 HP.</p><p><b>Historian.</b> Expert (5d6) in History. No replacement skill is needed because Liora did not select History from her earlier training choices.</p>",
-      "splitFields": {},
-      "dynamicRows": []
-    },
-    "Feats": {
-      "checkboxes": {},
-      "fields": {},
-      "sectionBody": "<p><b>Focused — Origin Feat.</b> Grants Cast Marvelously, a once-per-day Instinct ability that gives advantage when casting a spell or cantrip, or throwing a bomb.</p><p><b>Actor — level-1 Minor Feat.</b> While disguised as a real or fictional person, gain advantage on Deception or Performance rolls to convince others that you are that person. Requirements met through Expert Performance and Adept Disguise.</p><p><b>Origin skill.</b> Adept (4d6) in Insight. Bard skill choices: Charm, Disguise, and Acrobatics.</p>",
-      "splitFields": {},
-      "dynamicRows": []
-    },
-    "Spellcasting": {
-      "checkboxes": {
-        "Arcane": false,
-        "Bardic": true,
-        "Divine": false,
-        "Nature": false,
-        "Occult": false,
-        "Chrono": false
-      },
-      "fields": {
-        "Spells Known": "9 (6 Bard + 3 High Elf)",
-        "Cantrips Known": "5 (3 Bard + 2 High Elf)",
-        "Summon Slots": "0"
-      },
-      "sectionBody": "",
-      "splitFields": {
-        "Spell Points": {
-          "cur": "4",
-          "max": "4",
-          "temp": "0"
-        }
-      },
-      "dynamicRows": []
-    },
-    "Spells Known": {
-      "checkboxes": {},
-      "fields": {},
-      "sectionBody": "",
-      "splitFields": {},
-      "dynamicRows": [
-        {
-          "type": "skill",
-          "values": [
-            "Cntrp",
-            "Minor Ward",
-            "—"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "Cntrp",
-            "Minor Illusion",
-            "—"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "Cntrp",
-            "Thunder Wave",
-            "—"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "Cntrp",
-            "Elemental Flare",
-            "—"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "Cntrp",
-            "Mage Hand",
-            "—"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "1",
-            "Cure",
-            "1+"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "1",
-            "Pacify",
-            "1"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "1",
-            "Restoration",
-            "1"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "1",
-            "Aura of Truth",
-            "1"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "2",
-            "Silence",
-            "2+"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "2",
-            "Sleep",
-            "3"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "1",
-            "Arcane Shield",
-            "1+"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "1",
-            "Detect Magic",
-            "1"
-          ]
-        },
-        {
-          "type": "skill",
-          "values": [
-            "1",
-            "Magic Missile",
-            "1+"
-          ]
-        }
-      ]
+      "dynamicRows": [],
+      "sectionBody": ""
     }
   },
   "preferences": {
     "sectionSize": "auto",
     "font": "'PT Sans', sans-serif",
     "color": "#293e50"
+  },
+  "creation": {
+    "name": "Liora Vey",
+    "player": "Example Build",
+    "className": "Bard",
+    "species": "High Elf",
+    "subclass": "Tale Weaver",
+    "level": 3,
+    "feats": [
+      "Focused",
+      "Actor",
+      "Assurance"
+    ],
+    "choices": {
+      "class-1": [
+        "Melee"
+      ],
+      "class-3": [
+        "Charm",
+        "Disguise",
+        "Acrobatics"
+      ],
+      "origin": [
+        "Insight"
+      ],
+      "legacy-expert": [
+        "Diplomacy"
+      ],
+      "cramming": [
+        "Survival"
+      ],
+      "assurance": [
+        "Performance"
+      ]
+    },
+    "spells": {
+      "species-cantrips": [
+        "Elemental Flare",
+        "Mage Hand"
+      ],
+      "class-cantrips": [
+        "Minor Ward",
+        "Minor Illusion",
+        "Thunder Wave"
+      ],
+      "class-spells": [
+        "Cure",
+        "Pacify",
+        "Restoration",
+        "Aura of Truth",
+        "Silence",
+        "Sleep"
+      ]
+    },
+    "equipment": {
+      "weapon": "Shortsword"
+    },
+    "languages": "",
+    "notes": "",
+    "source": {
+      "url": "https://docs.google.com/spreadsheets/d/12m_hZLr7zYM5MXVbuXIDzcnZw60-Uc3v5cMWBhP2sUI/edit",
+      "checked": "2026-10-17"
+    }
   },
   "portrait": {
     "enabled": true,

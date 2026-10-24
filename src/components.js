@@ -456,7 +456,6 @@ export const renderSpellDescriptionBlock = (spell) => `
       <span><strong>Range:</strong> ${spell.range}</span>
       <span><strong>Area:</strong> ${spell.area}</span>
       ${spell.duration.trim() && !/^instantaneous$/i.test(spell.duration.trim()) ? `<span><strong>Duration:</strong> ${spell.duration}</span>` : ''}
-      ${spell.requirements ? `<span><strong>Requirements:</strong> ${spell.requirements}</span>` : ''}
       ${spell.rank !== 'Cantrip' ? `<span><strong>Cost:</strong> ${spell.cost}</span>` : ''}
     </div>
     <div class="spell-description-text">${renderSpellText(spell.description)}</div>

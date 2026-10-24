@@ -7,6 +7,8 @@ try {
   await page.goto(process.env.EV_TEST_URL || 'http://127.0.0.1:5174/');
   const result = await page.evaluate(async () => {
     const m = await import('/src/character-creation.js');
+    const { SPELLS_DATABASE } = await import('/src/spells_data.js');
+    if (SPELLS_DATABASE.some(sp => 'requirements' in sp)) throw Error('Spells should use rank access without separate level requirements');
     const stats = (className, level, subclass = '') => m.progression({ ...m.newCharacter(), className, level, subclass });
     const series = (className, key) => Array.from({ length: 10 }, (_, i) => stats(className, i + 1)[key]);
     const equal = (a, b, label) => { if (JSON.stringify(a) !== JSON.stringify(b)) throw Error(label); };
@@ -27,7 +29,8 @@ try {
     equal(series('Cleric','points'), [3,4,5,6,7,8,9,10,11,12], 'Keep Cleric SP');
     equal(series('Spellsword','points'), series('Bard','points'), 'Spellsword SP');
     equal(series('Spellsword','spells'), series('Bard','spells').map(n => n - 1), 'Spellsword spells');
-    equal(series('Spellsword','cantrips'), series('Bard','cantrips'), 'Spellsword cantrips');
+    equal(series('Bard','cantrips'), [3,3,4,4,5,5,6,6,7,8], 'Bard cantrips');
+    equal(series('Spellsword','cantrips'), [2,2,3,3,4,4,5,5,6,7], 'Spellsword cantrips');
     for (const name of ['Bard','Cleric','Druid','Occultist','Wizard','Spellsword']) equal(series(name,'rank'), [1,1,2,2,3,3,4,4,5,5], `${name} ranks`);
     for (let level = 1; level <= 10; level++) {
       const s = { ...m.newCharacter(), className:'Wizard', species:'Human', level };
@@ -36,7 +39,7 @@ try {
       const cantrips = plan.groups.find(g => g.id === 'class-cantrips');
       equal(spells.count + spells.unfilled, stats.spells, `Level ${level} spell count`);
       equal(cantrips.count + cantrips.unfilled + 1, stats.cantrips, `Level ${level} cantrip count including Elemental Flare`);
-      if (spells.options.some(sp => +sp.rank > stats.rank || Number(sp.requirements?.match(/Level (\d+)/i)?.[1] || 1) > level)) throw Error(`Ineligible spell at level ${level}`);
+      if (spells.options.some(sp => +sp.rank > stats.rank)) throw Error(`Ineligible spell at level ${level}`);
       if (level >= 3 && !spells.options.some(sp => +sp.rank === 2)) throw Error(`Missing higher-rank spells at level ${level}`);
       for (const requiredLevel of [2,3,5,7,9,10]) {
         equal(m.eligibleFeat({ Feat:'Level test', Requirements:`Level ${requiredLevel}` }, s), level >= requiredLevel, `Level ${level} feat requirement ${requiredLevel}`);

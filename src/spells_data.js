@@ -18,7 +18,6 @@ Double 6: The target becomes Weakened 2 instead.`,
   {
     name: "Animal Messenger",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Casting time: 1 minute",
     spellType: "Bardic / Nature",
     range: "15 units",
@@ -38,7 +37,6 @@ Empower Spell: For each 2 additional Spell Points spent, increase the duration b
   {
     name: "Arcane Shield",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Instinct",
     spellType: "Arcane",
     range: "Self",
@@ -54,7 +52,6 @@ Empower Spell: For each 2 additional Spell Points spent, increase the Deflection
   {
     name: "Aura of Truth",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Bardic / Divine",
     range: "Self",
@@ -71,7 +68,6 @@ You know whether you succeeded against each creature. The roll occurs only once 
   {
     name: "Bestow Curse",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Occult",
     range: "10 Units",
@@ -91,7 +87,6 @@ Double 6: Choose an additional mode.`,
   {
     name: "Blessed Weapon",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Divine",
     range: "15 units",
@@ -104,9 +99,19 @@ Empower Spell: For each 2 additional Spell Points spent, choose one additional c
     cost: "2+"
   },
   {
+    name: "Blink",
+    rank: "2",
+    actionSpeed: "Instinct",
+    spellType: "Arcane / Bardic",
+    range: "Sight",
+    area: "Single Target",
+    duration: "Instantaneous",
+    description: `Fold space around a willing ally you can see. Teleport the target to an unoccupied space you can see within 3 units of its current position.`,
+    cost: "1"
+  },
+  {
     name: "Burning Ground",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10 units",
@@ -119,7 +124,6 @@ When the area first enters a creature's space, whenever a creature enters the ar
   {
     name: "Burning Hands",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "3 units burst",
@@ -135,7 +139,6 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll.`,
   {
     name: "Burrowed Knowledge",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Bardic / Divine / Occult",
     range: "8 units",
@@ -149,7 +152,6 @@ Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.`
   {
     name: "Comprehend Languages",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane / Bardic / Divine / Occult",
     range: "6 units",
@@ -163,7 +165,6 @@ This spell doesn’t provide the ability to speak or write in unknown languages.
   {
     name: "Command",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Divine",
     range: "10 Units",
@@ -179,7 +180,6 @@ Empower Spell: For each 2 additional Spell Points spent, choose one additional t
   {
     name: "Cure",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Bardic / Divine / Nature",
     range: "10 Units",
@@ -198,7 +198,6 @@ Empower Spell: For each additional Spell Point spent, increase the healing by 1 
   {
     name: "Detect Magic",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Arcane / Bardic / Divine / Nature / Occult",
     range: "Self",
@@ -212,7 +211,6 @@ If the magic belongs to a tradition you know, you can also discern some or all o
   {
     name: "Divine Interference",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Instinct",
     spellType: "Divine",
     range: "15 units",
@@ -226,7 +224,6 @@ Choose a creature within range. Until the end of the round, they get +1 to all d
   {
     name: "Eldritch Shield",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Instinct",
     spellType: "Occult",
     range: "Self",
@@ -260,7 +257,6 @@ Double 6: Depending on the damage type, the target also:
   {
     name: "Elemental Pulse",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10 Units",
@@ -276,7 +272,6 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll.`,
   {
     name: "Resistance",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Arcane / Divine / Nature",
     range: "Touch",
@@ -290,7 +285,6 @@ The target gains resistance to the chosen damage type for the duration.`,
   {
     name: "Elemental Weapon",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Arcane",
     range: "15 units",
@@ -305,7 +299,6 @@ Empower Spell: For each 2 additional Spell Points spent, choose one additional c
   {
     name: "Entangle",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Nature",
     range: "15 units",
@@ -319,7 +312,6 @@ During the Beginning Phase of each round, each affected enemy rolls Acrobatics o
   {
     name: "Glacial Spike",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10 units",
@@ -337,7 +329,6 @@ Empower Spell: For each additional Spell Point spent, add +2 to the roll.`,
   {
     name: "Glitch",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Arcane / Bardic",
     range: "Self",
@@ -370,7 +361,6 @@ Double 6: The target is knocked Prone.`,
   {
     name: "Goodberry",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Special Action (1 minute)",
     spellType: "Nature",
     range: "",
@@ -385,7 +375,6 @@ The fruits last only for a day, after which they spoil.`,
   {
     name: "Guardian Tree",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Nature",
     range: "10 Units",
@@ -402,7 +391,6 @@ Empower Spell: For each additional Spell Point spent, increase the tree's HP by 
   {
     name: "Gullibility",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Bardic / Occult",
     range: "5 Units",
@@ -417,7 +405,6 @@ They feel unexplained discomfort if the spell was cast using Occult magic, regar
   {
     name: "Healing Touch",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Divine / Nature",
     range: "Touch",
@@ -435,7 +422,6 @@ Empower Spell: For each additional Spell Point spent, increase the healing by 2 
   {
     name: "Heavenly Strike",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Divine",
     range: "6 units",
@@ -450,7 +436,6 @@ They get 8 Extra Dice on the next Strike they perform until the end of the next 
   {
     name: "Hellfire",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10 units",
@@ -466,7 +451,6 @@ Empower Spell: For each additional Spell Point spent, increase Burning by 1.`,
   {
     name: "Hex",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Average Action",
     spellType: "Occult",
     range: "10 Units",
@@ -478,7 +462,6 @@ Empower Spell: For each additional Spell Point spent, increase Burning by 1.`,
   {
     name: "Ice Knife",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10 Units",
@@ -496,7 +479,6 @@ Empower Spell: For each additional Spell Point spent, add +2 to the roll against
   {
     name: "Ice Prison",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10 units",
@@ -513,7 +495,6 @@ Empower Spell: For each additional Spell Point spent, increase the prison's HP b
   {
     name: "Ice Scythe",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "2",
@@ -533,7 +514,6 @@ Empower Spell: For each additional Spell Point spent, increase the scythe's Extr
   {
     name: "Icy Ground",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10 units",
@@ -546,7 +526,6 @@ On failure, they are knocked Prone and lose the rest of their movement. The area
   {
     name: "Invisibility",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Arcane / Bardic / Occult",
     range: "6 units",
@@ -560,7 +539,6 @@ It has advantage on the first attack it makes while invisible.`,
   {
     name: "Leech",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Occult",
     range: "10 Units",
@@ -593,7 +571,6 @@ Double 6: You become Inspired 1 (1 Extra Die on rolls) until the end of the next
   {
     name: "Life Giving",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Bardic / Divine / Nature",
     range: "8",
@@ -626,7 +603,6 @@ If cast on an enemy, it ends after an hour.`,
   {
     name: "Lightning Bolt",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Average Action",
     spellType: "Arcane",
     range: "12 units",
@@ -643,7 +619,6 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for 
   {
     name: "Lightning Coil",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10",
@@ -674,7 +649,6 @@ The hand cannot attack, activate magical items, or carry more than 5 kilograms.`
   {
     name: "Magic Missile",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Average Action",
     spellType: "Arcane",
     range: "15 units",
@@ -793,7 +767,6 @@ If you choose both, the hole and the cube must be adjacent to each other.`,
     name: "Nature Spirit",
     summons: ["Spirit"],
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Average Action",
     spellType: "Bardic / Nature",
     range: "6 units",
@@ -808,7 +781,6 @@ Empower Spell: For each additional Spell Point spent, increase the spirit's HP b
   {
     name: "Nature Wall",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Average Action",
     spellType: "Nature",
     range: "6 units",
@@ -840,7 +812,6 @@ Double 6: The target becomes Decayed 2 instead.`,
   {
     name: "Pacify",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Bardic / Divine",
     range: "6 units",
@@ -856,7 +827,6 @@ On success, the target is Pacified until the end of the next two rounds. (A Paci
   {
     name: "Poison Cloud",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Nature / Occult",
     range: "10 units",
@@ -874,7 +844,6 @@ Empower Spell: For each additional Spell Point spent, increase the cloud's radiu
   {
     name: "Protection from Evil and Good",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Divine",
     range: "6 units",
@@ -888,7 +857,6 @@ Choose a creature within range. For the duration, Undead, Abominations, Fiends, 
   {
     name: "Protective Circle",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Divine",
     range: "10 units",
@@ -917,7 +885,6 @@ Double 6: The target gets disadvantage on the next attack it makes against you o
   {
     name: "Rainbow Eruption",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Bardic / Nature",
     range: "10 units",
@@ -931,7 +898,6 @@ Attacks against them get advantage, they give off 2 units of bright light, and t
   {
     name: "Restoration",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Bardic / Divine / Nature",
     range: "Touch",
@@ -945,7 +911,6 @@ Touch an ally and remove all negative conditions affecting them, except Exhausti
   {
     name: "Sanctuary",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Divine",
     range: "15 units",
@@ -961,7 +926,6 @@ If the target is already targeted by attacks when the spell is cast, those attac
   {
     name: "Scorching Rays",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane",
     range: "10 Units",
@@ -978,7 +942,6 @@ Empower Spell: For each additional Spell Point spent, add 2 Fire damage to the d
   {
     name: "Shield of Faith",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Divine",
     range: "15 units",
@@ -992,7 +955,6 @@ Choose a target within range. They get +2 Deflection for the duration.`,
   {
     name: "Silence",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Bardic / Divine / Occult",
     range: "10 units",
@@ -1010,7 +972,6 @@ Empower Spell: For each 2 additional Spell Points spent, increase the duration b
   {
     name: "Sleep",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Arcane / Bardic / Nature / Occult",
     range: "8 units",
@@ -1024,7 +985,6 @@ They wake up if they take damage or if a creature uses a Fast Action to wake the
   {
     name: "Speak with Animals",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Nature",
     range: "30 Units",
@@ -1038,7 +998,6 @@ Choose an animal within range. They understand your speech, and you understand t
   {
     name: "Spike Growth",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Nature",
     range: "10 units",
@@ -1054,7 +1013,6 @@ If a creature is pushed into or through the area, each unit it is pushed within 
     name: "Summon Beast",
     summons: ["Beast"],
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Nature",
     range: "10 Units",
@@ -1070,7 +1028,6 @@ You must use the Command Instinct ability during the Action Phase to enable the 
     name: "Summon Shade",
     summons: ["Shade"],
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Occult",
     range: "10 Units",
@@ -1163,7 +1120,6 @@ Double 6: The target also becomes Vulnerable 1 (-1 to all defenses) until the en
   {
     name: "Vine Knot",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Average Action",
     spellType: "Nature",
     range: "10 units",
@@ -1195,7 +1151,6 @@ Double 6: Push or pull for 2 units instead of 1, and the push is forceful (if th
   {
     name: "Windsurf",
     rank: "1",
-    requirements: "Level 1",
     actionSpeed: "Fast Action",
     spellType: "Nature",
     range: "10",
@@ -1208,7 +1163,6 @@ For the duration, it gets +2 Movement, and it can make its movement through the 
   {
     name: "Haste",
     rank: "3",
-    requirements: "Level 5",
     actionSpeed: "Slow Action (Interruptible)",
     spellType: "Chrono",
     range: "10 Units",
@@ -1227,7 +1181,6 @@ These actions cannot be used to cast spells that cost Spell Points. If Slow and 
   {
     name: "Slow-Motion",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Chrono",
     range: "10 Units",
@@ -1241,7 +1194,6 @@ They get +1 Deflection and advantage on all rolls.`,
   {
     name: "Temporal Clarity",
     rank: "3",
-    requirements: "Level 5",
     actionSpeed: "Fast Action",
     spellType: "Chrono",
     range: "10 Units",
@@ -1255,7 +1207,6 @@ They get +2 Deflection, +1 Instinct and advantage on all rolls.`,
   {
     name: "Slow",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Chrono",
     range: "10 Units",
@@ -1274,7 +1225,6 @@ If Slow and Haste affect the same creature, both spells immediately dispel each 
   {
     name: "Time Detention",
     rank: "2",
-    requirements: "Level 3",
     actionSpeed: "Fast Action",
     spellType: "Chrono",
     range: "10 Units",
@@ -1293,7 +1243,6 @@ If you cast this spell or the Stasis spell while this spell is active on another
   {
     name: "Stasis",
     rank: "3",
-    requirements: "Level 5",
     actionSpeed: "Fast Action",
     spellType: "Chrono",
     range: "10 Units",
@@ -1313,7 +1262,6 @@ If you cast this spell or the Time Detention spell while this spell is active on
   {
     name: "Accelerate Magic",
     rank: "3",
-    requirements: "Level 5",
     actionSpeed: "Fast Action",
     spellType: "Chrono",
     range: "10 Units",

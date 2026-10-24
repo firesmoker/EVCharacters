@@ -33,6 +33,10 @@ try {
       return s;
     }
     const awaitData = await import('/src/data.js');
+    const paladinEquipment = m.equipmentPlan({ ...m.newCharacter(), className:'Paladin' });
+    for (const name of ['Bastard Sword','Sabre','Light Mace','Dagger','Flintlock']) if (!paladinEquipment.choices.includes(name)) throw Error(`Missing one-handed starting weapon: ${name}`);
+    for (const name of ['Greatclub','Longsword','Spear','Shortbow']) if (paladinEquipment.choices.includes(name)) throw Error(`Two-handed Paladin starting weapon: ${name}`);
+    if (paladinEquipment.fixed.length || paladinEquipment.shield !== 'Heavy Shield' || paladinEquipment.armor !== 'Scale') throw Error('Paladin equipment grants changed unexpectedly');
     if (awaitData.COMBAT_SKILLS_LIST.some(g => g.options.includes('Grapple'))) throw Error('Grapple is an action, not a skill');
     const firstLevel = fill({ ...m.newCharacter(), species: 'High Elf', level: 1 });
     assertMinorFeat(firstLevel);
@@ -42,6 +46,15 @@ try {
       if (!m.validateCharacter(missing).includes('Choose 1 minor feat.')) throw new Error('Level 1 must require a Minor Feat.');
       if (!m.buildCharacter(s).sections.Feats.sectionBody.includes('Pet')) throw new Error('Minor Feat missing from generated sheet.');
     }
+    const rogueSkills = { ...m.newCharacter(), className: 'Rogue' };
+    const roguePlan = m.skillPlan(rogueSkills);
+    if (Object.keys(roguePlan.base).some(skill => /Mechanic|Sleight/.test(skill))) throw Error('Rogue must not automatically gain Mechanics or Sleight of Hand');
+    const trapDisarmer = m.DATA.feats.find(feat => feat.Feat === 'Trap Disarmer');
+    if (m.eligibleFeat(trapDisarmer, rogueSkills)) throw Error('Trap Disarmer requires Sleight of Hand training');
+    const rogueChoice = roguePlan.groups.find(group => group.id.startsWith('class-') && group.options.includes('Sleight of Hand'));
+    if (rogueChoice.count !== 2) throw Error('Rogue must choose two skills from the expanded list');
+    rogueSkills.choices[rogueChoice.id] = ['Sleight of Hand', 'Insight'];
+    if (!m.eligibleFeat(trapDisarmer, rogueSkills)) throw Error('Sleight of Hand training must qualify for Trap Disarmer');
     const failures = [], cases = [];
     for (const c of m.DATA.classes) for (const species of m.DATA.species) for (const level of [1, 2, 3, 10]) {
       let s = { ...m.newCharacter(), className: c.Class, species: species.Species, level };
@@ -83,6 +96,8 @@ try {
         if (rankA > rankB || (rankA === rankB && a[1].localeCompare(b[1], undefined, { sensitivity: 'base', numeric: true }) > 0)) throw Error('Created spells are not sorted');
       }
       const combat = sheet.sections['Combat Skills'].dynamicRows.map(r => r.values[0]);
+      const armorTraining = sheet.sections['Equipment Proficiencies'].checkboxes;
+      if (armorTraining.Heavy && !armorTraining.Medium || armorTraining.Medium && !armorTraining.Light) throw Error('Armor training must include lighter categories');
       for (const name of awaitData.DEFAULT_COMBAT_SKILLS) if (!combat.includes(name)) throw Error(`Missing default combat skill: ${name}`);
       const grapple = actions(sheet).find(a => a.slots.name === 'Grapple');
       if (grapple && !grapple.slots.notes.includes('Roll Unarmed against')) throw Error('Grapple must use Unarmed');
@@ -202,7 +217,8 @@ try {
   assert.equal(result.saved.headers.class, 'Bard');
   assert.equal(result.saved.sections.Spellcasting.splitFields['Spell Points'].max, '4');
   assert.equal(result.saved.sections.Spellcasting.fields['Spells Known'], '9');
-  assert.equal(result.saved.sections.Spellcasting.fields['Cantrips Known'], '5');
+  assert.equal(result.saved.sections.Spellcasting.fields['Cantrips Known'], '6');
+  for (const character of [result.built, result.saved, result.ossian]) assert.match(character.sections['Instinct Abilities'].sectionBody, /<strong>Drink Potion:<\/strong>/);
   assert.match(result.saved.sections['Class Features'].sectionBody, /War Singing/);
   assert.match(result.saved.sections['Instinct Abilities'].sectionBody, /Martyr/);
   await page.locator('#menu-create-character').evaluate(el => el.click());
@@ -231,7 +247,8 @@ try {
   await page.locator('dialog[open]').getByRole('button', {name:'Spells',exact:false}).click();
   const spellStats = await page.locator('.creation-wizard .spell-description-block').allTextContents();
   assert(spellStats.some(text => text.includes('Duration:')));
-  for (const label of ['Speed:', 'Cost:', 'Range:', 'Area:', 'Requirements:']) assert(spellStats.some(text => text.includes(label)), `Missing ${label}`);
+  for (const label of ['Speed:', 'Cost:', 'Range:', 'Area:']) assert(spellStats.some(text => text.includes(label)), `Missing ${label}`);
+  assert(!spellStats.some(text => text.includes('Requirements:')), 'Spells should not show separate level requirements');
   for (const [key,values] of Object.entries(result.bard.spells)) {
     for (const name of values) await page.locator(`[data-spell-group="${key}"][value="${name}"]`).check();
   }

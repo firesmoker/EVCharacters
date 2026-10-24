@@ -1,4 +1,10 @@
 {
+  "defaultInstincts": [
+    {
+      "name": "Drink Potion",
+      "html": "<li><strong>Drink Potion:</strong> At any point during the round, spend 1 Instinct to drink a potion and gain its effects.</li>"
+    }
+  ],
   "classes": {
     "Alchemist": [
       {
@@ -1117,7 +1123,7 @@
       {
         "level": 3,
         "name": "Secrets of Chronomancy",
-        "html": "<p><strong>Secrets of Chronomancy:</strong> You may learn and cast Chrono spells whose requirements you meet.</p>"
+        "html": "<p><strong>Secrets of Chronomancy:</strong> You may learn and cast Chrono spells of a rank you have unlocked.</p>"
       },
       {
         "level": 3,
@@ -1619,6 +1625,13 @@
     "Nerve Coating": "<p><strong>Nerve Coating (1 CP):</strong> Applies to one Melee Strike or Ranged Strike. On a hit, the target becomes Vulnerable 1 (−1 to all defenses) until the end of the next round.</p>"
   },
   "feats": {
+    "Trap Disarmer": [
+      {
+        "level": 1,
+        "name": "Trap Disarmer",
+        "html": "<p><strong>Trap Disarmer:</strong> You may use Sleight of Hand instead of Mechanics to disarm traps.</p>"
+      }
+    ],
     "Light Armor Proficiency": [
       {
         "level": 1,

@@ -179,7 +179,7 @@
       "checkboxes": {},
       "splitFields": {},
       "dynamicRows": [],
-      "sectionBody": "<ul><li><strong>Unleash:</strong> When you roll, add 1 Extra Die.</li><li><strong>Evade:</strong> When attacked, gain +1 Deflection against that attack.</li><li><strong>Still Mind:</strong> When attacked, gain +1 Will against that attack.</li><li><strong>Reenact: The Dragon Slayer:</strong> During the Beginning Phase, spend 1 Spell Point to designate an enemy as the Dragon and an ally as the Knight, both within 12 units. The Knight has advantage on attacks against the Dragon until combat ends or the Grand Finale.<ul><li><strong>Grand Finale:</strong> If the Knight reduces the Dragon to 0 HP, allies within 3 units of the Knight become Inspired 1 (1 Extra Die on rolls) for the next round.</li></ul></li><li><strong>Reenact: The Martyr:</strong> During the Beginning Phase, spend 1 Spell Point to designate a willing ally within 12 units as the Martyr. Until combat ends or the Grand Finale, damage dealt to its allies within 6 units is dealt to the Martyr instead.<ul><li><strong>Grand Finale:</strong> When the Martyr reaches 0 HP, it has 1 HP instead and stops absorbing damage. Its allies within 6 units gain 1 temporary HP.</li></ul></li><li><strong>Cast Marvelously (1 / Day):</strong> When performing Cast a Cantrip, Cast a Spell, or Bomb Throw, roll with advantage.</li><li><strong>Arcane Shield:</strong> See spell description.</li><li><strong>Minor Ward:</strong> See spell description.</li></ul>"
+      "sectionBody": "<ul><li><strong>Drink Potion:</strong> At any point during the round, spend 1 Instinct to drink a potion and gain its effects.</li><li><strong>Unleash:</strong> When you roll, add 1 Extra Die.</li><li><strong>Evade:</strong> When attacked, gain +1 Deflection against that attack.</li><li><strong>Still Mind:</strong> When attacked, gain +1 Will against that attack.</li><li><strong>Reenact: The Dragon Slayer:</strong> During the Beginning Phase, spend 1 Spell Point to designate an enemy as the Dragon and an ally as the Knight, both within 12 units. The Knight has advantage on attacks against the Dragon until combat ends or the Grand Finale.<ul><li><strong>Grand Finale:</strong> If the Knight reduces the Dragon to 0 HP, allies within 3 units of the Knight become Inspired 1 (1 Extra Die on rolls) for the next round.</li></ul></li><li><strong>Reenact: The Martyr:</strong> During the Beginning Phase, spend 1 Spell Point to designate a willing ally within 12 units as the Martyr. Until combat ends or the Grand Finale, damage dealt to its allies within 6 units is dealt to the Martyr instead.<ul><li><strong>Grand Finale:</strong> When the Martyr reaches 0 HP, it has 1 HP instead and stops absorbing damage. Its allies within 6 units gain 1 temporary HP.</li></ul></li><li><strong>Cast Marvelously (1 / Day):</strong> When performing Cast a Cantrip, Cast a Spell, or Bomb Throw, roll with advantage.</li><li><strong>Arcane Shield:</strong> See spell description.</li><li><strong>Minor Ward:</strong> See spell description.</li></ul>"
     },
     "Feats": {
       "fields": {},
@@ -212,7 +212,7 @@
     "Spellcasting": {
       "fields": {
         "Summon Slots": "1",
-        "Cantrips Known": "5",
+        "Cantrips Known": "6",
         "Spells Known": "9"
       },
       "checkboxes": {
@@ -249,6 +249,15 @@
             "Mage Hand",
             "",
             "High Elf cantrips"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "Cantrip",
+            "Message",
+            "",
+            "Bard cantrips"
           ]
         },
         {
@@ -371,8 +380,8 @@
           "type": "action",
           "slots": {
             "name": "Melee Strike",
-            "rollDescription": "Roll Melee against Deflection.",
-            "notes": "On success, deal SD Slashing or Piercing damage. On failure, deal half damage, rounded down."
+            "rollDescription": "<p>Roll Melee against Deflection.</p>",
+            "notes": "<p>On success, deal SD Slashing or Piercing damage. On failure, deal half damage, rounded down.</p>"
           },
           "tableRows": [
             {
@@ -395,7 +404,7 @@
           "type": "action",
           "slots": {
             "name": "Elemental Flare",
-            "rollDescription": "Roll Magic +3 against Deflection.",
+            "rollDescription": "<p>Roll Magic +3 against Deflection.</p>",
             "notes": "<p>Shoot an elemental flare at a creature you can see within range. Choose its damage type: Lightning, Fire or Ice.</p><p>On success, deal SD damage of the chosen type, or half as much on failure, rounded down.</p><p>Double 6: Depending on the damage type, the target also:</p><ul><li>Fire: the target becomes Burning 1 until the end of the round (receive 1 Fire damage at the end of the round)</li><li>Lightning: the target becomes Disoriented 1 (-1 to all rolls) until the end of the next round</li><li>Ice: the target becomes Chilled 2 (-2 Movement) until the end of the next round</li></ul>"
           },
           "tableRows": [
@@ -483,7 +492,8 @@
       "class-cantrips": [
         "Minor Ward",
         "Minor Illusion",
-        "Thunder Wave"
+        "Thunder Wave",
+        "Message"
       ],
       "class-spells": [
         "Cure",

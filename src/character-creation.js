@@ -15,10 +15,10 @@ const traditions = { Bard: 'Bardic', Cleric: 'Divine', Druid: 'Nature', Wizard: 
 const affinity = { 'High Elf': 'Arcane', Ossian: 'Occult', Remnant: 'Divine' };
 const freeSpells = { 'High Elf': ['Arcane Shield', 'Detect Magic', 'Magic Missile'], Ossian: ['Detect Magic', 'Eldritch Shield', 'Hex'], Remnant: ['Detect Magic', 'Healing Touch', 'Shield of Faith'] };
 const classCantrip = { Wizard: 'Elemental Flare', Cleric: 'Radiant Beam', Druid: 'Speak with Animals', Occultist: 'Necrotic Bolt' };
-const startingMagic = { Bard: [2, 3, 2], Cleric: [3, 3, 3], Druid: [3, 3, 3], Wizard: [4, 4, 3], Occultist: [4, 4, 3], Spellsword: [2, 2, 2] };
+const startingMagic = { Bard: [2, 3, 3], Cleric: [3, 3, 3], Druid: [3, 3, 3], Wizard: [4, 4, 3], Occultist: [4, 4, 3], Spellsword: [2, 2, 2] };
 const subclassTraining = { 'Tale Weaver': ['History', 'Knowledge'], Assassin: ['Disguise', 'Other'], 'Fae Trickster': ['Deception', 'Speech'], Toymaker: ['Mechanics', 'Knowledge'], 'Walking Ballista': ['Mechanics'], Bowslinger: ['Acrobatics'], 'Arcane Archer': ['Arcana'], Witchblade: ['Magic'] };
 const names = (s) => s.replace(/\band\b|\bor\b/g, ',').split(',').map(x => x.trim().replace(/[.]$/, '')).filter(Boolean);
-const canonicalSkill = s => ({ 'Weapon Throws': 'Weapon Throw', Stealth: 'Sneak', 'Mechanical(Disarm Traps)': 'Mechanics (Disarm Traps)' }[s] || s);
+const canonicalSkill = s => ({ 'Weapon Throws': 'Weapon Throw', Stealth: 'Sneak' }[s] || s);
 export const escapeHTML = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const p = s => `<p>${escapeHTML(s)}</p>`;
 export function sheetFeatureHTML(html, choices, stats = {}) {
@@ -155,13 +155,12 @@ export function spellPlan(s) {
     let remaining = count;
     for (const name of fixed) if (!known.has(name)) { addKnown(name, label); remaining--; }
     const options = SPELLS_DATABASE.filter(spell => !spell.exclusive && (cantrip ? spell.rank === 'Cantrip' : spell.rank !== 'Cantrip' && +spell.rank <= stats.rank)
-      && Number(spell.requirements?.match(/Level (\d+)/i)?.[1] || 1) <= s.level
       && spell.spellType.split('/').some(t => types.includes(t.trim())) && !known.has(spell.name));
     const learningLimits = [], availableFrom = {};
     if (id === 'class-spells') {
       for (const spell of options) availableFrom[spell.name] = Array.from({ length: s.level }, (_, i) => i + 1).find(level => {
         const then = progression({ ...s, level });
-        return then.spells > 0 && then.rank >= +spell.rank && level >= Number(spell.requirements?.match(/Level (\d+)/i)?.[1] || 1);
+        return then.spells > 0 && then.rank >= +spell.rank;
       });
       for (let level = 2; level <= s.level; level++) {
         const previous = progression({ ...s, level: level - 1 }).spells;
@@ -200,7 +199,9 @@ export function equipmentPlan(s) {
   const weapons = rules.match(/Weapons: ([\s\S]*?)(?:\n|$)/)?.[1] || '';
   let choices = [];
   if (/choose|any/i.test(weapons)) {
-    choices = /any.*melee/i.test(weapons) ? DATA.weapons.filter(w => /Melee/.test(w.Category) && (!/two-handed/.test(weapons) || w['Other Properties'].includes('Two Handed'))).map(w => w.Weapon) : weaponNames.filter(w => weapons.includes(w));
+    choices = /any one[- ]handed weapon/i.test(weapons)
+      ? DATA.weapons.filter(w => !w['Other Properties'].includes('Two Handed') && (!/Ranged/.test(w.Category) || w.Weapon === 'Flintlock')).map(w => w.Weapon)
+      : /any.*melee/i.test(weapons) ? DATA.weapons.filter(w => /Melee/.test(w.Category) && (!/two-handed/.test(weapons) || w['Other Properties'].includes('Two Handed'))).map(w => w.Weapon) : weaponNames.filter(w => weapons.includes(w));
   }
   const fixed = weaponNames.filter(w => weapons.includes(w) && !choices.includes(w));
   const armorText = rules.match(/Armor: (.*)/)?.[1] || '';
@@ -304,6 +305,8 @@ export function buildCharacter(s) {
     ...s.feats.flatMap(name => SHEET_FEATURES.feats[name] || []),
   ].filter(f => f.level !== null && f.level <= s.level);
   for (const name of selectedFeatures.flatMap(f => f.proficiencies || [])) prof.checkboxes[name] = true;
+  if (prof.checkboxes.Heavy) prof.checkboxes.Medium = true;
+  if (prof.checkboxes.Medium) prof.checkboxes.Light = true;
   const renderFeature = html => sheetFeatureHTML(html, s.choices, stats);
   for (const [group, name, destination] of [['classes', s.className, 'Class Features'], ['subclasses', sub?.Subclass, 'Class Features'], ['species', s.species, 'Species Features']]) {
     for (const feature of SHEET_FEATURES[group][name] || []) {
@@ -328,7 +331,7 @@ export function buildCharacter(s) {
   for (const g of spellPlan(s).groups) if (g.unfilled) sections['Additional Features'].sectionBody += p(`${g.label}: ${g.unfilled} unfilled choices; the current spell catalogue has too few eligible spells. These slots remain available.`);
   const instinct = [];
   for (const name of spells.keys()) { const sp = SPELLS_DATABASE.find(x => x.name === name); if (/Instinct/i.test(sp?.actionSpeed || '')) instinct.push(`${name}: See spell description.`); }
-  const authoredInstincts = new Map(selectedFeatures.flatMap(f => f.instincts || []).map(ability => [ability.name, renderFeature(ability.html)]));
+  const authoredInstincts = new Map([...SHEET_FEATURES.defaultInstincts, ...selectedFeatures.flatMap(f => f.instincts || [])].map(ability => [ability.name, renderFeature(ability.html)]));
   for (const option of selectedFeatures.flatMap(f => f.instinctOptions || [])) {
     const ability = authoredInstincts.get(option.ability);
     if (!ability) throw new Error(`Missing parent Instinct: ${option.ability}`);

@@ -180,14 +180,6 @@ Skills that enable the creation of different items. They may require other skill
 
 See the Crafting Skills table later in this chapter.
 
-## Conditional Skill Training
-
-Certain species, classes, or other factors may provide you with training in skills that only apply in specific conditions. It looks like this:
-
-Skill (Condition)
-
-For example, the Rogue class starts as Adept (4d6) in Mechanical (Disarm Traps). That means you roll 4d6 instead of 3d6 only when you use the skill to disarm traps, and not for other purposes, such as building a mechanism.
-
 ## Skill Tables
 
 ### Standard skills table
@@ -323,6 +315,8 @@ All classes start with 1 Instinct.
 Characters and NPCs sometimes have a resource called "Instinct". This allows them to activate certain abilities at different timings throughout the round. There is no need to commit to Instinct abilities during the Planning Phase.
 
 Instinct resets at the beginning of each round for each character, according to their Instinct score.
+
+Drink Potion is a default Instinct ability available to every character from level 1.
 
 ## Attack and Defense
 
@@ -597,6 +591,11 @@ Roll Medicine. Add 1 death roll success for each Success Die.
 If you roll 3 SD or more, the target becomes conscious with 1 HP.
 On success, if you rolled a double 6, suffers no Exhaustion.
 
+### Drink Potion
+
+Instinct Ability
+At any point during the round, spend 1 Instinct to drink a potion and gain its effects.
+
 ### Switch
 
 Instinct Ability
@@ -648,6 +647,7 @@ Gain +1 Deflection, Fortitude, and Will until the end of the round.
 | Push | Fast |  |  |  |
 | Ranged Strike | Fast |  |  |  |
 | Stabilize | Slow |  |  |  |
+| Drink Potion | Instinct |  | Self | Costs 1 Instinct |
 | Switch | Instinct |  |  | Costs 1 Instinct |
 | Unarmed Strike | Fast |  |  |  |
 | Utilize | Varying |  |  |  |
@@ -674,7 +674,7 @@ All characters know Common in addition to the languages granted by their species
 
 All the following statistics help the character to avoid and reduce the effectiveness of negative effects:
 
-Armor Training: Armor the character can use. Light Armor adds +1 Deflection, Medium Armor adds +2, and Heavy Armor adds +3. While wearing Heavy Armor, halve your Movement score, rounded up.
+Armor Training: Armor the character can use. Armor training includes all lighter categories: Medium Armor training also grants Light Armor training, and Heavy Armor training also grants Medium and Light Armor training. Light Armor adds +1 Deflection, Medium Armor adds +2, and Heavy Armor adds +3. While wearing Heavy Armor, halve your Movement score, rounded up.
 
 If you wear armor that you are not trained in, you get disadvantage on all rolls and 1 Drag to all actions.
 
@@ -1748,7 +1748,7 @@ Summon Slots: At level 3, you gain 1 summon slot.
 
 Spell Points: 2
 Spells Learned: 3 Bardic Spells
-Cantrips Learned: 2 Bardic Cantrips
+Cantrips Learned: 3 Bardic Cantrips
 
 You will get more Spell Points and learn more spells and cantrips as you level up as shown in the progression table at the end of the class description.
 
@@ -1869,16 +1869,16 @@ Minor Feats shows the total gained from leveling, excluding any other grants. Su
 
 | Level | HP | Instinct | Spell Points | Spells Known | Cantrips Known | Max Spell Rank | Summon Slots | Minor Feats |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 5 | 1 | 2 | 3 | 2 | Rank 1 | 0 | 1 |
-| 2 | 5 | 1 | 3 | 4 | 2 | Rank 1 | 0 | 2 |
-| 3 | 6 | 1 | 4 | 6 | 3 | Rank 2 | 1 | 2 |
-| 4 | 6 | 1 | 5 | 7 | 3 | Rank 2 | 1 | 2 |
-| 5 | 7 | 1 | 6 | 9 | 4 | Rank 3 | 1 | 2 |
-| 6 | 7 | 1 | 7 | 10 | 4 | Rank 3 | 1 | 2 |
-| 7 | 8 | 2 | 8 | 12 | 5 | Rank 4 | 1 | 2 |
-| 8 | 8 | 2 | 9 | 13 | 5 | Rank 4 | 1 | 2 |
-| 9 | 9 | 2 | 10 | 15 | 6 | Rank 5 | 1 | 2 |
-| 10 | 10 | 2 | 12 | 18 | 7 | Rank 5 | 1 | 2 |
+| 1 | 5 | 1 | 2 | 3 | 3 | Rank 1 | 0 | 1 |
+| 2 | 5 | 1 | 3 | 4 | 3 | Rank 1 | 0 | 2 |
+| 3 | 6 | 1 | 4 | 6 | 4 | Rank 2 | 1 | 2 |
+| 4 | 6 | 1 | 5 | 7 | 4 | Rank 2 | 1 | 2 |
+| 5 | 7 | 1 | 6 | 9 | 5 | Rank 3 | 1 | 2 |
+| 6 | 7 | 1 | 7 | 10 | 5 | Rank 3 | 1 | 2 |
+| 7 | 8 | 2 | 8 | 12 | 6 | Rank 4 | 1 | 2 |
+| 8 | 8 | 2 | 9 | 13 | 6 | Rank 4 | 1 | 2 |
+| 9 | 9 | 2 | 10 | 15 | 7 | Rank 5 | 1 | 2 |
+| 10 | 10 | 2 | 12 | 18 | 8 | Rank 5 | 1 | 2 |
 
 
 ## Cleric
@@ -2132,7 +2132,7 @@ At the beginning of each combat, you gain 1 Hierophant Spell Point. You may spen
 
 <table>
   <tr>
-    <td>Command<br>Divine<br>Rank 2 ◆ Costs 1+<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br>- 1 Success Die: choose one of the following:<br>  - Halt: the target must stay in place and loses all Instinct for this round.<br>  - Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.<br>- 2 Success Dice: choose any previous option, or one of the following:<br>  - Grovel: the target immediately becomes Prone and doesn't do anything else this round.<br>  - Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.<br>- 3+ Success Dice: choose any previous option, or one of the following:<br>  - Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.<br>  - Flee: the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</td>
+    <td>Command<br>Divine<br>Rank 2 ◆ Costs 1+<br>Fast Action<br>Range: 10 Units<br>You tether your mind with that of a creature you can see within range. Roll Magic against Will. On success, you speak a one-word command of the available options. This spell works only once against the same creature per combat.<br>- 1 Success Die: choose one of the following:<br>  - Halt: the target must stay in place and loses all Instinct for this round.<br>  - Move: in this round, the target must use its movement to move to or as close to a chosen point. It won't move to directly harmful places, such as a burning ground or walk off a cliff.<br>- 2 Success Dice: choose any previous option, or one of the following:<br>  - Grovel: the target immediately becomes Prone and doesn't do anything else this round.<br>  - Drop: The target immediately drops whatever it is holding and doesn't do anything else this round.<br>- 3+ Success Dice: choose any previous option, or one of the following:<br>  - Harm: if the target committed to an offensive action against you or your allies, it changes its target to another enemy of yours. If their new target is out of the range of their action, they use their movement to the best of their ability to try and bring their target into range. If they haven't committed any offensive action, their action is cancelled and they don't do anything else this round.<br>  - Flee: the action for the target this round becomes Dash. They must use their Movement to move as far away from you as they can. They won't move to directly harmful places, such as a burning ground or walk off a cliff. They don't do anything else this round.</td>
   </tr>
   <tr>
     <td>You may spend additional Spell Points as you cast this spell. For every 2 additional Spell Points, choose one more target. You may choose a different option for it.</td>
@@ -2157,7 +2157,7 @@ Whenever you perform an action during combat that doesn't require you to spend S
 
 #### Level 3: Kindness of God
 
-You learn the Cure spell. If you already knew it before, you learn another Divine spell that you satisfy the requirements for.
+You learn the Cure spell. If you already knew it before, you learn another Divine spell of a rank you have unlocked.
 
 When you cast Cure normally as a Fast Action, you may heal two targets, as if you've cast it as a slow, interruptible action.
 
@@ -2471,7 +2471,7 @@ Secondary Roles: Healing and Support
 >   </tr>
 >   <tr>
 >     <td>Weapons</td>
->     <td>Choose between: Bastard Sword, Mace</td>
+>     <td>Any one-handed weapon (Bastard Sword recommended)</td>
 >   </tr>
 >   <tr>
 >     <td>Shield</td>
@@ -2873,15 +2873,7 @@ Roles: Damage and Utility
 >     <td>Expert (5d6)</td>
 >   </tr>
 >   <tr>
->     <td>Sleight of Hand</td>
->     <td>Adept (4d6)</td>
->   </tr>
->   <tr>
->     <td>Mechanical<br>(Disarm Traps)</td>
->     <td>Adept (4d6)</td>
->   </tr>
->   <tr>
->     <td>One of the following: Acrobatics, Disguise, Insight, Performance</td>
+>     <td>Two of the following: Acrobatics, Disguise, Insight, Performance, Sleight of Hand</td>
 >     <td>Adept (4d6)</td>
 >   </tr>
 >   <tr>
@@ -3795,7 +3787,7 @@ You tap into the secret art of Chronomancy. Manipulate time itself to change the
 
 #### Level 3: Secrets of Chronomancy
 
-You gain access to Chrono spells. Whenever you learn new spells, including when you level up, you may choose from these spells if you satisfy the requirements for them.
+You gain access to Chrono spells. Whenever you learn new spells, including when you level up, you may choose Chrono spells of a rank you have unlocked.
 
 When you gain this feature, choose two Chrono spells to learn.
 
@@ -3815,7 +3807,7 @@ If done during combat, this also requires spending 1 Instinct.
 
 <table>
   <tr>
-    <td>Chrono Spells<br>Haste<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Slow Action ◆ Interruptible<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, the target may commit to two fast actions during the Planning Phase. If they do, during the Action Phase, they perform one as a Fast Action and the other as an Average Action. For each of these actions, the target may move immediately before or after performing it.<br>These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other<br>Slow-Motion<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.<br>Temporal Clarity<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 Instinct and advantage on all rolls.<br>Slow<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size the creature is larger than Medium.<br>On success, the creature movement is halved, and it gets 1 Drag on all actions.<br>If Slow and Haste affect the same creature, both spells immediately dispel each other.<br>Time Detention<br>Chrono<br>Rank 2 ◆ Costs 2<br>Requirements: Level 3<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must take the Maintain Fast Action and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.<br>If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.<br>Stasis<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must spend 1 Instinct during the Beginning Phase and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.<br>If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.<br>Accelerate Magic<br>Chrono<br>Rank 3 ◆ Costs 4<br>Requirements: Level 5<br>Fast Action<br>Range: 10 Units<br>Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.<br>If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.</td>
+    <td>Chrono Spells<br>Haste<br>Chrono<br>Rank 3 ◆ Costs 4<br>Slow Action ◆ Interruptible<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, the target may commit to two fast actions during the Planning Phase. If they do, during the Action Phase, they perform one as a Fast Action and the other as an Average Action. For each of these actions, the target may move immediately before or after performing it.<br>These actions cannot be used to cast spells that cost Spell Points. If Slow and Haste affect the same creature, both spells immediately dispel each other<br>Slow-Motion<br>Chrono<br>Rank 2 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time much slower. They get +1 Deflection and advantage on all rolls.<br>Temporal Clarity<br>Chrono<br>Rank 3 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. For the duration, they perceive time infinitely slower, as if it stands still. They get +2 Deflection, +1 Instinct and advantage on all rolls.<br>Slow<br>Chrono<br>Rank 2 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size the creature is larger than Medium.<br>On success, the creature movement is halved, and it gets 1 Drag on all actions.<br>If Slow and Haste affect the same creature, both spells immediately dispel each other.<br>Time Detention<br>Chrono<br>Rank 2 ◆ Costs 2<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must take the Maintain Fast Action and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to take the Maintain action, the spell ends.<br>If you cast this spell or the Stasis spell while this spell is active on another creature, the previous spell immediately ends.<br>Stasis<br>Chrono<br>Rank 3 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Duration: until the end of the next two rounds<br>Choose a creature within range. Roll Magic against Fortitude. You get -1 on your roll for each size larger than Medium.<br>On success, the creature is Paralyzed and invulnerable to all effects. Any durations currently affecting the target are paused.<br>On each subsequent round, you must spend 1 Instinct during the Beginning Phase and make the same roll. You get -1 on your roll for each round that has passed. If you fail the roll or choose not to spend Instinct to make it, the spell ends.<br>If you cast this spell or the Time Detention spell while this spell is active on another creature, the previous spell immediately ends.<br>Accelerate Magic<br>Chrono<br>Rank 3 ◆ Costs 4<br>Fast Action<br>Range: 10 Units<br>Choose a non-permanent magical effect within range, such as a spell affecting a creature, object, or area. Reduce its duration by up to 3 rounds.<br>If the magic has a subsequent effect that occurs once per round, activate that effect once for each round reduced this way.</td>
   </tr>
 </table>
 
@@ -4239,6 +4231,12 @@ You are proficient with two selected tools of your choice.
 **Requirements:** Trained in Animal Handling
 
 You may attempt to train a wild animal to be your temporary pet. If you are Trained in Nature, you may roll both Animal Handling and Nature and add the Success Dice together. If you also have the Pet minor feat, you may make it your permanent pet if it meets the requirements of a pet under the Pet feat.
+
+### Trap Disarmer
+
+**Requirements:** Trained in Sleight of Hand
+
+You may use Sleight of Hand instead of Mechanics to disarm traps.
 
 # Chapter 9: Equipment
 
@@ -4711,11 +4709,11 @@ Armor require proficiency to use. If you are proficient in an armor category, yo
 
 # Chapter 10: Spells
 
-## Spell Rank and Requirements
+## Spell Ranks
 
-Spell rank is a category of spell power. Classes that grant spellcasting at level 1 unlock Rank 1 at level 1, Rank 2 at level 3, Rank 3 at level 5, Rank 4 at level 7, and Rank 5 at level 9. The default for subclasses that first grant spellcasting at level 3 is Rank 1 at level 3, Rank 2 at level 6, and Rank 3 at level 9. You must also meet each spell’s Requirements; any minimum character level is listed there.
+Spell rank is a category of spell power. Classes that grant spellcasting at level 1 unlock Rank 1 at level 1, Rank 2 at level 3, Rank 3 at level 5, Rank 4 at level 7, and Rank 5 at level 9. The default for subclasses that first grant spellcasting at level 3 is Rank 1 at level 3, Rank 2 at level 6, and Rank 3 at level 9. Spell access is determined by the ranks unlocked through your class or subclass, without separate character-level requirements.
 
-Whenever you gain a level, you may replace one known spell with another spell you are eligible to learn. The replacement may be of a higher rank, provided you have unlocked that rank and meet the spell’s Requirements.
+Whenever you gain a level, you may replace one known spell with another spell you are eligible to learn. The replacement may be of a higher rank, provided you have unlocked that rank.
 
 ## Spells Lists by Type
 
@@ -4749,6 +4747,7 @@ Whenever you gain a level, you may replace one known spell with another spell yo
 
 #### Rank 2 Spells
 
+- Blink
 - Burning Ground
 - Comprehend Languages
 - Glacial Spike
@@ -4786,6 +4785,7 @@ Whenever you gain a level, you may replace one known spell with another spell yo
 
 #### Rank 2 Spells
 
+- Blink
 - Burrowed Knowledge
 - Comprehend Languages
 - Glitch
@@ -4932,8 +4932,6 @@ Chrono
 
 Rank 3 ◆ Cost: 4
 
-Requirements: Level 5
-
 Fast Action
 
 Range: 10 Units
@@ -4966,8 +4964,6 @@ Bardic, Nature
 
 Rank 1 ◆ Cost: 1+
 
-Requirements: Level 1
-
 Casting time: 1 minute
 
 Range: 15 units ◆ Duration: 24 hours
@@ -4988,8 +4984,6 @@ Arcane
 
 Rank 1 ◆ Cost: 1+
 
-Requirements: Level 1
-
 Instinct
 
 Range: Self ◆ Duration: end of current round
@@ -5005,8 +4999,6 @@ Empower Spell: For each 2 additional Spell Points spent, increase the Deflection
 Bardic, Divine
 
 Rank 1 ◆ Cost: 1
-
-Requirements: Level 1
 
 Fast Action
 
@@ -5025,8 +5017,6 @@ You know whether you succeeded against each creature. The roll occurs only once 
 Occult
 
 Rank 1 ◆ Cost: 1
-
-Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5048,8 +5038,6 @@ Divine
 
 Rank 1 ◆ Cost: 2+
 
-Requirements: Level 1
-
 Fast Action
 
 Range: 15 units ◆ Duration: 10 minutes
@@ -5059,13 +5047,23 @@ For the duration, add +4 to Strike rolls using that weapon. The damage type is c
 
 Empower Spell: For each 2 additional Spell Points spent, choose one additional creature.
 
+### Blink
+
+Arcane, Bardic
+
+Rank 2 ◆ Cost: 1
+
+Instinct
+
+Range: Sight ◆ Duration: Instantaneous
+
+Fold space around a willing ally you can see. Teleport the target to an unoccupied space you can see within 3 units of its current position.
+
 ### Burning Ground
 
 Arcane
 
 Rank 2 ◆ Cost: 3
-
-Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5079,8 +5077,6 @@ When the area first enters a creature's space, whenever a creature enters the ar
 Arcane
 
 Rank 1 ◆ Cost: 1+
-
-Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5098,8 +5094,6 @@ Bardic, Divine, Occult
 
 Rank 2 ◆ Cost: 2+
 
-Requirements: Level 3
-
 Fast Action
 
 Range: 8 units ◆ Duration: 1 hour
@@ -5115,8 +5109,6 @@ Empower Spell: Spend 2 additional Spell Points to extend the duration to 1 day.
 Divine
 
 Rank 2 ◆ Cost: 1+
-
-Requirements: Level 3
 
 Fast Action
 
@@ -5141,8 +5133,6 @@ Arcane, Bardic, Divine, Occult
 
 Rank 2 ◆ Cost: 2
 
-Requirements: Level 3
-
 Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 1 hour
@@ -5156,8 +5146,6 @@ This spell doesn’t provide the ability to speak or write in unknown languages.
 Bardic, Divine, Nature
 
 Rank 1 ◆ Cost: 1+
-
-Requirements: Level 1
 
 Fast Action
 
@@ -5178,8 +5166,6 @@ Arcane, Bardic, Divine, Nature, Occult
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Fast Action
 
 Range: Self ◆ Duration: 10 minutes ◆ Area: 20-unit radius
@@ -5194,8 +5180,6 @@ Divine
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Instinct
 
 Range: 15 units ◆ Duration: end of current round
@@ -5209,8 +5193,6 @@ Choose a creature within range. Until the end of the round they get +1 to all de
 Occult
 
 Rank 1 ◆ Cost: 1
-
-Requirements: Level 1
 
 Instinct
 
@@ -5248,8 +5230,6 @@ Arcane
 
 Rank 1 ◆ Cost: 1+
 
-Requirements: Level 1
-
 Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Area: 2-unit radius
@@ -5265,8 +5245,6 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll.
 Arcane
 
 Rank 1 ◆ Cost: 2+
-
-Requirements: Level 1
 
 Fast Action
 
@@ -5295,8 +5273,6 @@ Nature
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Slow Action ◆ Interruptible
 
 Range: 15 units ◆ Duration: 10 minutes ◆ Area: 3 units cube
@@ -5309,8 +5285,6 @@ During the Beginning Phase of each round, each affected enemy rolls Acrobatics o
 Arcane
 
 Rank 2 ◆ Cost: 3+
-
-Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5329,8 +5303,6 @@ Empower Spell: For each additional Spell Point spent, add +2 to the roll.
 Arcane, Bardic
 
 Rank 2 ◆ Cost: 2+
-
-Requirements: Level 3
 
 Fast Action
 
@@ -5366,8 +5338,6 @@ Nature
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Special Action (1 minute)
 
 Spend a minute to create three Goodberry fruits.
@@ -5380,8 +5350,6 @@ The fruits last only for a day, after which they spoil.
 Nature
 
 Rank 1 ◆ Cost: 1+
-
-Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5400,8 +5368,6 @@ Bardic, Occult
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Fast Action
 
 Range: 5 Units ◆ Duration: 5 minutes
@@ -5416,8 +5382,6 @@ They feel unexplained discomfort if the spell was cast using Occult magic, regar
 Chrono
 
 Rank 3 ◆ Cost: 4
-
-Requirements: Level 5
 
 Slow Action ◆ Interruptible
 
@@ -5438,8 +5402,6 @@ Divine, Nature
 
 Rank 1 ◆ Cost: 1+
 
-Requirements: Level 1
-
 Fast Action
 
 Range: Touch
@@ -5458,8 +5420,6 @@ Divine
 
 Rank 2 ◆ Cost: 2
 
-Requirements: Level 3
-
 Fast Action
 
 Range: 6 units
@@ -5474,8 +5434,6 @@ They get 8 Extra Dice on the next Strike they perform until the end of the next 
 Arcane
 
 Rank 2 ◆ Cost: 3+
-
-Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5493,8 +5451,6 @@ Occult
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Average Action
 
 Range: 10 Units ◆ Duration: end of the next round
@@ -5506,8 +5462,6 @@ Bind a creature you can see within range to a spiteful curse that feeds on its s
 Arcane
 
 Rank 1 ◆ Cost: 1+
-
-Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5529,8 +5483,6 @@ Arcane
 
 Rank 2 ◆ Cost: 3+
 
-Requirements: Level 3
-
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: until end of combat
@@ -5546,8 +5498,6 @@ Empower Spell: For each additional Spell Point spent, increase the prison's HP b
 Arcane
 
 Rank 2 ◆ Cost: 2+
-
-Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5571,8 +5521,6 @@ Arcane
 
 Rank 2 ◆ Cost: 2
 
-Requirements: Level 3
-
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 1 hour ◆ Area: 4 units cube
@@ -5586,8 +5534,6 @@ Arcane, Bardic, Occult
 
 Rank 2 ◆ Cost: 2
 
-Requirements: Level 3
-
 Fast Action
 
 Range: 6 units ◆ Duration: 1 hour
@@ -5600,8 +5546,6 @@ It has advantage on the first attack it makes while invisible.
 Occult
 
 Rank 1 ◆ Cost: 1+
-
-Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -5635,8 +5579,6 @@ On success, deal SD Necrotic damage and heal yourself for half that amount, roun
 Bardic, Divine, Nature
 
 Rank 2 ◆ Cost: 2+
-
-Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5672,8 +5614,6 @@ Arcane
 
 Rank 1 ◆ Cost: 1+
 
-Requirements: Level 1
-
 Average Action
 
 Range: 12 units ◆ Duration: until end of combat
@@ -5690,8 +5630,6 @@ Empower Spell: For each 2 additional Spell Points spent, add +2 to the roll for 
 Arcane
 
 Rank 2 ◆ Cost: 3+
-
-Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5724,8 +5662,6 @@ The hand cannot attack, activate magical items, or carry more than 5 kilograms.
 Arcane
 
 Rank 1 ◆ Cost: 1+
-
-Requirements: Level 1
 
 Average Action
 
@@ -5849,8 +5785,6 @@ Bardic, Nature
 
 Rank 2 ◆ Cost: 2+
 
-Requirements: Level 3
-
 Average Action
 
 Range: 6 units ◆ Duration: 10 minutes
@@ -5865,8 +5799,6 @@ Empower Spell: For each additional Spell Point spent, increase the spirit's HP b
 Nature
 
 Rank 2 ◆ Cost: 2+
-
-Requirements: Level 3
 
 Average Action
 
@@ -5900,8 +5832,6 @@ Bardic, Divine
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Slow Action ◆ Interruptible
 
 Range: 6 units ◆ Duration: 10 minutes
@@ -5918,8 +5848,6 @@ The effect ends early if the target takes damage or is affected by an offensive 
 Nature, Occult
 
 Rank 2 ◆ Cost: 3+
-
-Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5939,8 +5867,6 @@ Divine
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Fast Action
 
 Range: 6 units ◆ Duration: 10 minutes
@@ -5954,8 +5880,6 @@ Choose a creature within range. For the duration, Undead, Abominations, Fiends, 
 Divine
 
 Rank 2 ◆ Cost: 3
-
-Requirements: Level 3
 
 Slow Action ◆ Interruptible
 
@@ -5986,8 +5910,6 @@ Bardic, Nature
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 1 minute or end of combat ◆ Area: 5-unit radius
@@ -6001,8 +5923,6 @@ Attacks against them get advantage, they give off 2 units of bright light, and t
 Arcane, Divine, Nature
 
 Rank 1 ◆ Cost: 1
-
-Requirements: Level 1
 
 Fast Action
 
@@ -6018,8 +5938,6 @@ Bardic, Divine, Nature
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Fast Action
 
 Range: Touch ◆ Duration: Instantaneous
@@ -6033,8 +5951,6 @@ Touch an ally and remove all negative conditions affecting them, except Exhausti
 Divine
 
 Rank 1 ◆ Cost: 2
-
-Requirements: Level 1
 
 Fast Action
 
@@ -6051,8 +5967,6 @@ If the target is already targeted by attacks when the spell is cast, those attac
 Arcane
 
 Rank 1 ◆ Cost: 1+
-
-Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -6071,8 +5985,6 @@ Divine
 
 Rank 1 ◆ Cost: 2
 
-Requirements: Level 1
-
 Fast Action
 
 Range: 15 units ◆ Duration: end of next two rounds
@@ -6086,8 +5998,6 @@ Choose a target within range. They get +2 Deflection for the duration.
 Bardic, Divine, Occult
 
 Rank 2 ◆ Cost: 2+
-
-Requirements: Level 3
 
 Fast Action
 
@@ -6107,8 +6017,6 @@ Arcane, Bardic, Nature, Occult
 
 Rank 2 ◆ Cost: 3
 
-Requirements: Level 3
-
 Slow Action ◆ Interruptible
 
 Range: 8 units ◆ Duration: 1 hour
@@ -6122,8 +6030,6 @@ They wake up if they take damage or if a creature uses a Fast Action to wake the
 Chrono
 
 Rank 2 ◆ Cost: 2
-
-Requirements: Level 3
 
 Fast Action
 
@@ -6144,8 +6050,6 @@ Chrono
 
 Rank 2 ◆ Cost: 2
 
-Requirements: Level 3
-
 Fast Action
 
 Range: 10 Units ◆ Duration: until the end of the next two rounds
@@ -6159,8 +6063,6 @@ They get +1 Deflection and advantage on all rolls.
 Nature
 
 Rank 1 ◆ Cost: 1
-
-Requirements: Level 1
 
 Fast Action
 
@@ -6176,8 +6078,6 @@ Nature
 
 Rank 2 ◆ Cost: 3
 
-Requirements: Level 3
-
 Slow Action ◆ Interruptible
 
 Range: 10 units ◆ Duration: 10 minutes ◆ Area: 4 units cube
@@ -6192,8 +6092,6 @@ If a creature is pushed into or through the area, each unit it is pushed within 
 Chrono
 
 Rank 3 ◆ Cost: 4
-
-Requirements: Level 5
 
 Fast Action
 
@@ -6214,8 +6112,6 @@ If you cast this spell or the Time Detention spell while this spell is active on
 Nature
 
 Rank 1 ◆ Cost: 1
-
-Requirements: Level 1
 
 Slow Action ◆ Interruptible
 
@@ -6242,8 +6138,6 @@ Occult
 
 Rank 1 ◆ Cost: 1
 
-Requirements: Level 1
-
 Slow Action ◆ Interruptible
 
 Range: 10 Units ◆ Duration: 10 minutes
@@ -6259,8 +6153,6 @@ When the shade is summoned, it can immediately perform Shadow Claw on an enemy w
 Chrono
 
 Rank 3 ◆ Cost: 4
-
-Requirements: Level 5
 
 Fast Action
 
@@ -6327,8 +6219,6 @@ Chrono
 
 Rank 2 ◆ Cost: 2
 
-Requirements: Level 3
-
 Fast Action
 
 Range: 10 Units ◆ Duration: until the end of the next two rounds
@@ -6365,8 +6255,6 @@ Nature
 
 Rank 2 ◆ Cost: 3
 
-Requirements: Level 3
-
 Average Action
 
 Range: 10 units ◆ Duration: 10 minutes
@@ -6399,8 +6287,6 @@ On success, deal SD Piercing damage. On failure, deal half as much damage, round
 Nature
 
 Rank 1 ◆ Cost: 1
-
-Requirements: Level 1
 
 Fast Action
 

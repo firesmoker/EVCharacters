@@ -435,6 +435,14 @@
           "type": "skill",
           "values": [
             "2",
+            "Blink",
+            "1"
+          ]
+        },
+        {
+          "type": "skill",
+          "values": [
+            "2",
             "Burrowed Knowledge",
             "2+"
           ]
@@ -496,6 +504,13 @@
           ]
         }
       ]
+    },
+    "Instinct Abilities": {
+      "fields": {},
+      "checkboxes": {},
+      "splitFields": {},
+      "dynamicRows": [],
+      "sectionBody": "<ul><li><strong>Drink Potion:</strong> At any point during the round, spend 1 Instinct to drink a potion and gain its effects.</li></ul>"
     }
   },
   "preferences": {

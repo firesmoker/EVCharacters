@@ -3,7 +3,7 @@ import { loadFromJSON, serializeSheet } from './io.js';
 import './creation-wizard.css';
 import { renderSpellDescriptionBlock } from './components.js';
 import { SPELLS_DATABASE } from './spells_data.js';
-import { BONUS_LIST } from './data.js';
+import { BONUS_LIST, SKILLS_LIST, COMBAT_SKILLS_LIST } from './data.js';
 
 const trainingLabel = dice => BONUS_LIST[0].options.find(label => label.includes(`(${dice}d6)`));
 
@@ -15,7 +15,21 @@ export function initCreationWizard(save) {
   let state = newCharacter(), step = 0;
   let rebuilding = false;
   const steps = ['Identity & class', 'Species', 'Subclass', 'Training & feats', 'Spells', 'Equipment', 'Review'];
-  const select = (label, key, values, value, extra = '') => `<label class="creation-field">${esc(label)}<select aria-label="${esc(label)}" data-key="${esc(key)}" ${extra}><option value="">Choose…</option>${values.map(v => `<option ${v === value ? 'selected' : ''} value="${esc(v)}">${esc(v)}</option>`).join('')}</select></label>`;
+  const select = (label, key, values, value, extra = '') => {
+    const [, groupId, index] = key.split(':');
+    const skillGroup = key.startsWith('skill:') ? skillPlan(state).groups.find(g => g.id === groupId) : null;
+    const elsewhere = skillGroup ? skillPlan({ ...state, choices: { ...state.choices, [groupId]: (state.choices[groupId] || []).filter((_, i) => i !== +index) } }).fixed : {};
+    const options = items => items.map(v => {
+      const unavailable = v !== value && skillGroup && elsewhere[v] >= skillGroup.dice;
+      return `<option ${v === value ? 'selected' : ''} ${unavailable ? 'disabled' : ''} value="${esc(v)}">${esc(v)}${unavailable ? ` — already ${trainingLabel(elsewhere[v])}` : ''}</option>`;
+    }).join('');
+    const groups = key.startsWith('skill:') || key === 'choice:assurance'
+      ? [...SKILLS_LIST, ...COMBAT_SKILLS_LIST].map(g => ({ ...g, options: values.filter(v => g.options.includes(v)) })).filter(g => g.options.length)
+      : [];
+    const grouped = new Set(groups.flatMap(g => g.options));
+    const choices = groups.map(g => `<optgroup label="${esc(g.groupLabel)}">${options(g.options)}</optgroup>`).join('') + options(values.filter(v => !grouped.has(v)));
+    return `<label class="creation-field">${esc(label)}<select aria-label="${esc(label)}" data-key="${esc(key)}" ${extra}><option value="">Choose…</option>${choices}</select></label>`;
+  };
   const input = (label, key, value, extra = '') => `<label class="creation-field">${esc(label)}<input data-key="${esc(key)}" value="${esc(value)}" ${extra}></label>`;
   const detail = (label, text) => `<details open><summary>${esc(label)}</summary><div class="creation-rule">${featureHTML(text)}</div></details>`;
   const spellDetail = sp => `<details open><summary>Spell details</summary>${renderSpellDescriptionBlock(sp)}</details>`;

@@ -128,11 +128,24 @@ export function skillPlan(s) {
   return { fixed, base, groups };
 }
 
+export function skillChoiceTraining(s, groupId, index) {
+  // Earlier training can earn replacement choices from these subclass features.
+  if (groupId === 'muse-skill') return {};
+  const choices = { ...s.choices, [groupId]: (s.choices[groupId] || []).filter((_, i) => i !== index) };
+  const state = { ...s, choices }, training = skillPlan(state).fixed;
+  const special = s.subclass === 'Muse' ? [choices['muse-skill']?.[0], 'Speech'] : subclassTraining[s.subclass];
+  if (special?.[1] && !groupId.startsWith('subclass-')) {
+    const earlier = skillPlan({ ...state, subclass: '' }).fixed[special[0]];
+    if (earlier) training[special[0]] = earlier;
+    else delete training[special[0]];
+  }
+  return training;
+}
+
 export function skillChoiceWarning(s, groupId, index) {
   const name = s.choices[groupId]?.[index];
   if (!name) return '';
-  const otherChoices = { ...s.choices, [groupId]: s.choices[groupId].filter((_, i) => i !== index) };
-  const existing = skillPlan({ ...s, choices: otherChoices }).fixed[name];
+  const existing = skillChoiceTraining(s, groupId, index)[name];
   return existing ? `${name} is already granted elsewhere at ${existing}d6. Only the highest training applies; these grants do not stack.` : '';
 }
 

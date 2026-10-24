@@ -1,4 +1,4 @@
-import { DATA, newCharacter, classFor, speciesFor, subclassesFor, subclassFor, progression, skillPlan, skillChoiceWarning, spellPlan, spellChoiceAllowed, equipmentPlan, specialChoices, eligibleFeat, validateCharacter, buildCharacter, escapeHTML as esc, featureHTML } from './character-creation.js';
+import { DATA, newCharacter, classFor, speciesFor, subclassesFor, subclassFor, progression, skillPlan, skillChoiceTraining, skillChoiceWarning, spellPlan, spellChoiceAllowed, equipmentPlan, specialChoices, eligibleFeat, validateCharacter, buildCharacter, escapeHTML as esc, featureHTML } from './character-creation.js';
 import { loadFromJSON, serializeSheet } from './io.js';
 import './creation-wizard.css';
 import { renderSpellDescriptionBlock } from './components.js';
@@ -18,7 +18,7 @@ export function initCreationWizard(save) {
   const select = (label, key, values, value, extra = '') => {
     const [, groupId, index] = key.split(':');
     const skillGroup = key.startsWith('skill:') ? skillPlan(state).groups.find(g => g.id === groupId) : null;
-    const elsewhere = skillGroup ? skillPlan({ ...state, choices: { ...state.choices, [groupId]: (state.choices[groupId] || []).filter((_, i) => i !== +index) } }).fixed : {};
+    const elsewhere = skillGroup ? skillChoiceTraining(state, groupId, +index) : {};
     const options = items => items.map(v => {
       const unavailable = v !== value && skillGroup && elsewhere[v] >= skillGroup.dice;
       return `<option ${v === value ? 'selected' : ''} ${unavailable ? 'disabled' : ''} value="${esc(v)}">${esc(v)}${unavailable ? ` — already ${trainingLabel(elsewhere[v])}` : ''}</option>`;
